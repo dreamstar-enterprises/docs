@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Creating a ToC | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/vba/vba.html"><span class="">VBA</span></a></li>
+        <li><a href=/docs/guides/vba/vba-examples/overview.html><span class="">VBA - Examples</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Data Integration</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/data-integration.html">Data Integration</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/word-form-to-excel-table.html">Word Form to Excel Table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-form-to-excel-sheet.html">Excel Form to Excel Sheet</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-form-to-excel-table.html">Excel Form to Excel Table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/mysql-to-excel-table-1.html">MySQL to Excel Table - Ex. 1</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/mysql-to-excel-table-2.html">MySQL to Excel Table - Ex. 2</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-table-to-mysql.html">Excel Table(s) to MySQL</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Automating Tasks & Calculations</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/bulk-refreshing.html">Bulk Refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/adding-data-and-comparing-lists.html">Adding Data & Comparing Lists</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/financial-loan-sheets.html">Financial Loan Sheets</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/locking-sheets.html">Locking Sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Data from External Datasets</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/data-from-quandl.html">Getting Data from Quandl</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Custom Functions</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/custom-vba-functions.html">Custom VBA Functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>WorkBook Navigation</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/creating-a-toc.html">Creating a ToC</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>References</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/useful-links.html">Useful Links</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="creating-a-toc">Creating a ToC</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • VBA • 12/01/2021</time>
+
+<p>Here we show how VBA can be used to create (3 different kinds of Table of Contents), with one Macro that will also generate return links automatically on each sheet.</p>
+
+<h2 id="screenshots">Screenshots</h2>
+
+<figure>
+    
+        <img class="docimage" src="images/creating-a-toc-01.png" alt="" style="width: 100%; max-width: 65.9%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>Front Page</i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/creating-a-toc-02.png" alt="" style="width: 100%; max-width: 65.9%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>ToC 1</i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/creating-a-toc-03.png" alt="" style="width: 100%; max-width: 65.9%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>ToC 2</i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/creating-a-toc-04.png" alt="" style="width: 100%; max-width: 65.9%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>ToC 3</i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/creating-a-toc-05.png" alt="" style="width: 100%; max-width: 65.9%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>Sheet 1</i>
+    </figcaption>
+    
+</figure>
+
+<h2 id="vba-module-code--toc-1">VBA Module Code – ToC 1</h2>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+Sub TableOfContents_Create()
+&#39;PURPOSE: Add a Table of Contents worksheets to easily navigate to any tab
+
+Dim sht As Worksheet
+Dim Content_sht As Worksheet
+Dim myArray As Variant
+Dim x As Long, y As Long
+Dim shtName1 As String, shtName2 As String
+Dim ContentName As String
+
+&#39;Inputs
+  ContentName = &quot;Contents&quot;
+
+&#39;Optimize Code
+  Application.DisplayAlerts = False
+  Application.ScreenUpdating = False
+
+&#39;Delete Contents Sheet if it already exists
+  On Error Resume Next
+    Worksheets(&quot;Contents&quot;).Activate
+  On Error GoTo 0
+
+  If ActiveSheet.Name = ContentName Then
+    myAnswer = MsgBox(&quot;A worksheet named [&quot; &amp; ContentName &amp; _
+      &quot;] has already been created, would you like to replace it?&quot;, vbYesNo)
+    
+    &#39;Did user select No or Cancel?
+      If myAnswer &lt;&gt; vbYes Then GoTo ExitSub
+      
+    &#39;Delete old Contents Tab
+      Worksheets(ContentName).Delete
+  End If
+
+&#39;Create New Contents Sheet
+  Worksheets.Add Before:=Worksheets(1)
+
+&#39;Set variable to Contents Sheet
+  Set Content_sht = ActiveSheet
+
+&#39;Format Contents Sheet
+  With Content_sht
+    .Name = ContentName
+    .Range(&quot;B1&quot;) = &quot;Table of Contents&quot;
+    .Range(&quot;B1&quot;).Font.Bold = True
+  End With
+
+&#39;Create Array list with sheet names (excluding Contents)
+  ReDim myArray(1 To Worksheets.Count - 1)
+
+  For Each sht In ActiveWorkbook.Worksheets
+    If sht.Name &lt;&gt; ContentName Then
+      myArray(x + 1) = sht.Name
+      x = x + 1
+    End If
+  Next sht
+  
+&#39;Alphabetize Sheet Names in Array List
+  For x = LBound(myArray) To UBound(myArray)
+    For y = x To UBound(myArray)
+      If UCase(myArray(y)) &lt; UCase(myArray(x)) Then
+        shtName1 = myArray(x)
+        shtName2 = myArray(y)
+        myArray(x) = shtName2
+        myArray(y) = shtName1
+      End If
+     Next y
+  Next x
+
+&#39;Create Table of Contents
+  For x = LBound(myArray) To UBound(myArray)
+    Set sht = Worksheets(myArray(x))
+    sht.Activate
+    With Content_sht
+      .Hyperlinks.Add .Cells(x + 2, 3), &quot;&quot;, _
+      SubAddress:=&quot;&#39;&quot; &amp; sht.Name &amp; &quot;&#39;!A1&quot;, _
+      TextToDisplay:=sht.Name
+      .Cells(x + 2, 2).Value = x
+    End With
+  Next x
+  
+Content_sht.Activate
+Content_sht.Columns(3).EntireColumn.AutoFit
+
+&#39;A Splash of Guru Formatting! [Optional]
+  Columns(&quot;A:B&quot;).ColumnWidth = 3.86
+  Range(&quot;B1&quot;).Font.Size = 18
+  Range(&quot;B1:F1&quot;).Borders(xlEdgeBottom).Weight = xlThin
+  
+  With Range(&quot;B3:B&quot; &amp; x + 1)
+    .Borders(xlInsideHorizontal).Color = RGB(255, 255, 255)
+    .Borders(xlInsideHorizontal).Weight = xlMedium
+    .HorizontalAlignment = xlCenter
+    .VerticalAlignment = xlCenter
+    .Font.Color = RGB(255, 255, 255)
+    .Interior.Color = RGB(91, 155, 213)
+  End With
+
+  &#39;Adjust Zoom and Remove Gridlines
+    ActiveWindow.DisplayGridlines = False
+    ActiveWindow.Zoom = 100
+
+ExitSub:
+&#39;Optimize Code
+  Application.DisplayAlerts = True
+  Application.ScreenUpdating = True
+  
+End Sub
+
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">Sub</span> <span class="nf">TableOfContents_Create</span><span class="p">()</span>
+<span class="c1">'PURPOSE: Add a Table of Contents worksheets to easily navigate to any tab</span>
+
+<span class="k">Dim</span> <span class="nv">sht</span> <span class="ow">As</span> <span class="n">Worksheet</span>
+<span class="k">Dim</span> <span class="nv">Content_sht</span> <span class="ow">As</span> <span class="n">Worksheet</span>
+<span class="k">Dim</span> <span class="nv">myArray</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="k">Dim</span> <span class="nv">x</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="n">y</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="k">Dim</span> <span class="nv">shtName1</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">shtName2</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="k">Dim</span> <span class="nv">ContentName</span> <span class="ow">As</span> <span class="kt">String</span>
+
+<span class="c1">'Inputs</span>
+  <span class="n">ContentName</span> <span class="o">=</span> <span class="s">"Contents"</span>
+
+<span class="c1">'Optimize Code</span>
+  <span class="n">Application</span><span class="p">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="k">False</span>
+  <span class="n">Application</span><span class="p">.</span><span class="n">ScreenUpdating</span> <span class="o">=</span> <span class="k">False</span>
+
+<span class="c1">'Delete Contents Sheet if it already exists</span>
+  <span class="k">On</span> <span class="k">Error</span> <span class="k">Resume</span> <span class="k">Next</span>
+    <span class="n">Worksheets</span><span class="p">(</span><span class="s">"Contents"</span><span class="p">).</span><span class="n">Activate</span>
+  <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="mi">0</span>
+
+  <span class="k">If</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="n">ContentName</span> <span class="k">Then</span>
+    <span class="n">myAnswer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"A worksheet named ["</span> <span class="o">&amp;</span> <span class="n">ContentName</span> <span class="o">&amp;</span> <span class="n">_</span>
+      <span class="s">"] has already been created, would you like to replace it?"</span><span class="p">,</span> <span class="n">vbYesNo</span><span class="p">)</span>
+    
+    <span class="c1">'Did user select No or Cancel?</span>
+      <span class="k">If</span> <span class="n">myAnswer</span> <span class="o">&lt;&gt;</span> <span class="n">vbYes</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitSub</span>
+      
+    <span class="c1">'Delete old Contents Tab</span>
+      <span class="n">Worksheets</span><span class="p">(</span><span class="n">ContentName</span><span class="p">).</span><span class="n">Delete</span>
+  <span class="k">End</span> <span class="k">If</span>
+
+<span class="c1">'Create New Contents Sheet</span>
+  <span class="n">Worksheets</span><span class="p">.</span><span class="n">Add</span> <span class="n">Before</span><span class="p">:</span><span class="o">=</span><span class="n">Worksheets</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">'Set variable to Contents Sheet</span>
+  <span class="k">Set</span> <span class="n">Content_sht</span> <span class="o">=</span> <span class="n">ActiveSheet</span>
+
+<span class="c1">'Format Contents Sheet</span>
+  <span class="k">With</span> <span class="n">Content_sht</span>
+    <span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="n">ContentName</span>
+    <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"B1"</span><span class="p">)</span> <span class="o">=</span> <span class="s">"Table of Contents"</span>
+    <span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"B1"</span><span class="p">).</span><span class="n">Font</span><span class="p">.</span><span class="n">Bold</span> <span class="o">=</span> <span class="k">True</span>
+  <span class="k">End</span> <span class="k">With</span>
+
+<span class="c1">'Create Array list with sheet names (excluding Contents)</span>
+  <span class="k">ReDim</span> <span class="n">myArray</span><span class="p">(</span><span class="mi">1</span> <span class="k">To</span> <span class="n">Worksheets</span><span class="p">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">For</span> <span class="k">Each</span> <span class="n">sht</span> <span class="ow">In</span> <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+    <span class="k">If</span> <span class="n">sht</span><span class="p">.</span><span class="n">Name</span> <span class="o">&lt;&gt;</span> <span class="n">ContentName</span> <span class="k">Then</span>
+      <span class="n">myArray</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">sht</span><span class="p">.</span><span class="n">Name</span>
+      <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">End</span> <span class="k">If</span>
+  <span class="k">Next</span> <span class="n">sht</span>
+  
+<span class="c1">'Alphabetize Sheet Names in Array List</span>
+  <span class="k">For</span> <span class="n">x</span> <span class="o">=</span> <span class="n">LBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span>
+    <span class="k">For</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span>
+      <span class="k">If</span> <span class="n">UCase</span><span class="p">(</span><span class="n">myArray</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">UCase</span><span class="p">(</span><span class="n">myArray</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">Then</span>
+        <span class="n">shtName1</span> <span class="o">=</span> <span class="n">myArray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">shtName2</span> <span class="o">=</span> <span class="n">myArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">myArray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">shtName2</span>
+        <span class="n">myArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">shtName1</span>
+      <span class="k">End</span> <span class="k">If</span>
+     <span class="k">Next</span> <span class="n">y</span>
+  <span class="k">Next</span> <span class="n">x</span>
+
+<span class="c1">'Create Table of Contents</span>
+  <span class="k">For</span> <span class="n">x</span> <span class="o">=</span> <span class="n">LBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span>
+    <span class="k">Set</span> <span class="n">sht</span> <span class="o">=</span> <span class="n">Worksheets</span><span class="p">(</span><span class="n">myArray</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">sht</span><span class="p">.</span><span class="n">Activate</span>
+    <span class="k">With</span> <span class="n">Content_sht</span>
+      <span class="p">.</span><span class="n">Hyperlinks</span><span class="p">.</span><span class="n">Add</span> <span class="p">.</span><span class="n">Cells</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s">""</span><span class="p">,</span> <span class="n">_</span>
+      <span class="n">SubAddress</span><span class="p">:</span><span class="o">=</span><span class="s">"'"</span> <span class="o">&amp;</span> <span class="n">sht</span><span class="p">.</span><span class="n">Name</span> <span class="o">&amp;</span> <span class="s">"'!A1"</span><span class="p">,</span> <span class="n">_</span>
+      <span class="n">TextToDisplay</span><span class="p">:</span><span class="o">=</span><span class="n">sht</span><span class="p">.</span><span class="n">Name</span>
+      <span class="p">.</span><span class="n">Cells</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="k">End</span> <span class="k">With</span>
+  <span class="k">Next</span> <span class="n">x</span>
+  
+<span class="n">Content_sht</span><span class="p">.</span><span class="n">Activate</span>
+<span class="n">Content_sht</span><span class="p">.</span><span class="n">Columns</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="n">EntireColumn</span><span class="p">.</span><span class="n">AutoFit</span>
+
+<span class="c1">'A Splash of Guru Formatting! [Optional]</span>
+  <span class="n">Columns</span><span class="p">(</span><span class="s">"A:B"</span><span class="p">).</span><span class="n">ColumnWidth</span> <span class="o">=</span> <span class="mf">3.86</span>
+  <span class="n">Range</span><span class="p">(</span><span class="s">"B1"</span><span class="p">).</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">18</span>
+  <span class="n">Range</span><span class="p">(</span><span class="s">"B1:F1"</span><span class="p">).</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlEdgeBottom</span><span class="p">).</span><span class="n">Weight</span> <span class="o">=</span> <span class="n">xlThin</span>
+  
+  <span class="k">With</span> <span class="n">Range</span><span class="p">(</span><span class="s">"B3:B"</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlInsideHorizontal</span><span class="p">).</span><span class="n">Color</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlInsideHorizontal</span><span class="p">).</span><span class="n">Weight</span> <span class="o">=</span> <span class="n">xlMedium</span>
+    <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+    <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+    <span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Interior</span><span class="p">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">(</span><span class="mi">91</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span> <span class="mi">213</span><span class="p">)</span>
+  <span class="k">End</span> <span class="k">With</span>
+
+  <span class="c1">'Adjust Zoom and Remove Gridlines</span>
+    <span class="n">ActiveWindow</span><span class="p">.</span><span class="n">DisplayGridlines</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="n">ActiveWindow</span><span class="p">.</span><span class="n">Zoom</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">ExitSub</span><span class="p">:</span>
+<span class="c1">'Optimize Code</span>
+  <span class="n">Application</span><span class="p">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="k">True</span>
+  <span class="n">Application</span><span class="p">.</span><span class="n">ScreenUpdating</span> <span class="o">=</span> <span class="k">True</span>
+  
+<span class="k">End</span> <span class="k">Sub</span>
+
+</code></pre></div></div>
+
+<h2 id="vba-module-code--toc-2">VBA Module Code – ToC 2</h2>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+Sub TableOfContents_Create2()
+&#39;PURPOSE: Add a Table of Contents worksheets to easily navigate to any tab (multiple columns)
+
+Dim sht As Worksheet
+Dim Content_sht As Worksheet
+Dim myArray As Variant
+Dim x As Long, y As Long, z As Long
+Dim shtName1 As String, shtName2 As String
+Dim ContentName As String
+Dim shtCount As Long
+Dim ColumnCount As Variant
+
+&#39;Inputs
+  ContentName = &quot;Contents 2&quot;
+
+&#39;Optimize Code
+  Application.DisplayAlerts = False
+  Application.ScreenUpdating = False
+
+&#39;Delete Contents Sheet if it already exists
+  On Error Resume Next
+    Worksheets(&quot;Contents 2&quot;).Activate
+  On Error GoTo 0
+
+  If ActiveSheet.Name = ContentName Then
+    myAnswer = MsgBox(&quot;A worksheet named [&quot; &amp; ContentName &amp; _
+      &quot;] has already been created, would you like to replace it?&quot;, vbYesNo)
+    
+    &#39;Did user select No or Cancel?
+      If myAnswer &lt;&gt; vbYes Then GoTo ExitSub
+      
+    &#39;Delete old Contents Tab
+      Worksheets(ContentName).Delete
+  End If
+
+&#39;Count how many Visible sheets there are
+  For Each sht In ActiveWorkbook.Worksheets
+    If sht.Visible = True Then shtCount = shtCount + 1
+  Next sht
+
+&#39;Ask how many columns to have
+  ColumnCount = Application.InputBox(&quot;You have &quot; &amp; shtCount &amp; _
+    &quot; visible worksheets.&quot; &amp; vbNewLine &amp; &quot;How many columns &quot; &amp; _
+    &quot;would you like to have in your Contents tab?&quot;, Type:=2)
+
+&#39;Check if user cancelled
+  If TypeName(ColumnCount) = &quot;Boolean&quot; Or ColumnCount &lt; 0 Then GoTo ExitSub
+
+&#39;Create New Contents Sheet
+  Worksheets.Add Before:=Worksheets(1)
+
+&#39;Set variable to Contents Sheet and Rename
+  Set Content_sht = ActiveSheet
+  Content_sht.Name = ContentName
+  
+&#39;Create Array list with sheet names (excluding Contents)
+  ReDim myArray(1 To shtCount)
+
+  For Each sht In ActiveWorkbook.Worksheets
+    If sht.Name &lt;&gt; ContentName And sht.Visible = True Then
+      myArray(x + 1) = sht.Name
+      x = x + 1
+    End If
+  Next sht
+  
+&#39;Alphabetize Sheet Names in Array List
+  For x = LBound(myArray) To UBound(myArray)
+    For y = x To UBound(myArray)
+      If UCase(myArray(y)) &lt; UCase(myArray(x)) Then
+        shtName1 = myArray(x)
+        shtName2 = myArray(y)
+        myArray(x) = shtName2
+        myArray(y) = shtName1
+      End If
+     Next y
+  Next x
+
+&#39;Create Table of Contents
+  x = 1
+
+  For y = 1 To ColumnCount
+    For z = 1 To WorksheetFunction.RoundUp(shtCount / ColumnCount, 0)
+      If x &lt;= UBound(myArray) Then
+        Set sht = Worksheets(myArray(x))
+        sht.Activate
+        With Content_sht
+          .Hyperlinks.Add .Cells(z + 2, 2 * y), &quot;&quot;, _
+          SubAddress:=&quot;&#39;&quot; &amp; sht.Name &amp; &quot;&#39;!A1&quot;, _
+          TextToDisplay:=sht.Name
+        End With
+        x = x + 1
+      End If
+    Next z
+  Next y
+
+&#39;Select Content Sheet and clean up a little bit
+  Content_sht.Activate
+  Content_sht.UsedRange.EntireColumn.AutoFit
+  ActiveWindow.DisplayGridlines = False
+
+&#39;Format Contents Sheet Title
+  With Content_sht.Range(&quot;B1&quot;)
+    .Value = &quot;Table of Contents&quot;
+    .Font.Bold = True
+    .Font.Size = 18
+  End With
+
+ExitSub:
+&#39;Optimize Code
+  Application.DisplayAlerts = True
+  Application.ScreenUpdating = True
+  
+End Sub
+
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">Sub</span> <span class="nf">TableOfContents_Create2</span><span class="p">()</span>
+<span class="c1">'PURPOSE: Add a Table of Contents worksheets to easily navigate to any tab (multiple columns)</span>
+
+<span class="k">Dim</span> <span class="nv">sht</span> <span class="ow">As</span> <span class="n">Worksheet</span>
+<span class="k">Dim</span> <span class="nv">Content_sht</span> <span class="ow">As</span> <span class="n">Worksheet</span>
+<span class="k">Dim</span> <span class="nv">myArray</span> <span class="ow">As</span> <span class="kt">Variant</span>
+<span class="k">Dim</span> <span class="nv">x</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="n">y</span> <span class="ow">As</span> <span class="kt">Long</span><span class="p">,</span> <span class="n">z</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="k">Dim</span> <span class="nv">shtName1</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">shtName2</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="k">Dim</span> <span class="nv">ContentName</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="k">Dim</span> <span class="nv">shtCount</span> <span class="ow">As</span> <span class="kt">Long</span>
+<span class="k">Dim</span> <span class="nv">ColumnCount</span> <span class="ow">As</span> <span class="kt">Variant</span>
+
+<span class="c1">'Inputs</span>
+  <span class="n">ContentName</span> <span class="o">=</span> <span class="s">"Contents 2"</span>
+
+<span class="c1">'Optimize Code</span>
+  <span class="n">Application</span><span class="p">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="k">False</span>
+  <span class="n">Application</span><span class="p">.</span><span class="n">ScreenUpdating</span> <span class="o">=</span> <span class="k">False</span>
+
+<span class="c1">'Delete Contents Sheet if it already exists</span>
+  <span class="k">On</span> <span class="k">Error</span> <span class="k">Resume</span> <span class="k">Next</span>
+    <span class="n">Worksheets</span><span class="p">(</span><span class="s">"Contents 2"</span><span class="p">).</span><span class="n">Activate</span>
+  <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="mi">0</span>
+
+  <span class="k">If</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="n">ContentName</span> <span class="k">Then</span>
+    <span class="n">myAnswer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"A worksheet named ["</span> <span class="o">&amp;</span> <span class="n">ContentName</span> <span class="o">&amp;</span> <span class="n">_</span>
+      <span class="s">"] has already been created, would you like to replace it?"</span><span class="p">,</span> <span class="n">vbYesNo</span><span class="p">)</span>
+    
+    <span class="c1">'Did user select No or Cancel?</span>
+      <span class="k">If</span> <span class="n">myAnswer</span> <span class="o">&lt;&gt;</span> <span class="n">vbYes</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitSub</span>
+      
+    <span class="c1">'Delete old Contents Tab</span>
+      <span class="n">Worksheets</span><span class="p">(</span><span class="n">ContentName</span><span class="p">).</span><span class="n">Delete</span>
+  <span class="k">End</span> <span class="k">If</span>
+
+<span class="c1">'Count how many Visible sheets there are</span>
+  <span class="k">For</span> <span class="k">Each</span> <span class="n">sht</span> <span class="ow">In</span> <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+    <span class="k">If</span> <span class="n">sht</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span> <span class="k">Then</span> <span class="n">shtCount</span> <span class="o">=</span> <span class="n">shtCount</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">Next</span> <span class="n">sht</span>
+
+<span class="c1">'Ask how many columns to have</span>
+  <span class="n">ColumnCount</span> <span class="o">=</span> <span class="n">Application</span><span class="p">.</span><span class="n">InputBox</span><span class="p">(</span><span class="s">"You have "</span> <span class="o">&amp;</span> <span class="n">shtCount</span> <span class="o">&amp;</span> <span class="n">_</span>
+    <span class="s">" visible worksheets."</span> <span class="o">&amp;</span> <span class="n">vbNewLine</span> <span class="o">&amp;</span> <span class="s">"How many columns "</span> <span class="o">&amp;</span> <span class="n">_</span>
+    <span class="s">"would you like to have in your Contents tab?"</span><span class="p">,</span> <span class="n">Type</span><span class="p">:</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">'Check if user cancelled</span>
+  <span class="k">If</span> <span class="n">TypeName</span><span class="p">(</span><span class="n">ColumnCount</span><span class="p">)</span> <span class="o">=</span> <span class="s">"Boolean"</span> <span class="ow">Or</span> <span class="n">ColumnCount</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitSub</span>
+
+<span class="c1">'Create New Contents Sheet</span>
+  <span class="n">Worksheets</span><span class="p">.</span><span class="n">Add</span> <span class="n">Before</span><span class="p">:</span><span class="o">=</span><span class="n">Worksheets</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">'Set variable to Contents Sheet and Rename</span>
+  <span class="k">Set</span> <span class="n">Content_sht</span> <span class="o">=</span> <span class="n">ActiveSheet</span>
+  <span class="n">Content_sht</span><span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="n">ContentName</span>
+  
+<span class="c1">'Create Array list with sheet names (excluding Contents)</span>
+  <span class="k">ReDim</span> <span class="n">myArray</span><span class="p">(</span><span class="mi">1</span> <span class="k">To</span> <span class="n">shtCount</span><span class="p">)</span>
+
+  <span class="k">For</span> <span class="k">Each</span> <span class="n">sht</span> <span class="ow">In</span> <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+    <span class="k">If</span> <span class="n">sht</span><span class="p">.</span><span class="n">Name</span> <span class="o">&lt;&gt;</span> <span class="n">ContentName</span> <span class="ow">And</span> <span class="n">sht</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span> <span class="k">Then</span>
+      <span class="n">myArray</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">sht</span><span class="p">.</span><span class="n">Name</span>
+      <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">End</span> <span class="k">If</span>
+  <span class="k">Next</span> <span class="n">sht</span>
+  
+<span class="c1">'Alphabetize Sheet Names in Array List</span>
+  <span class="k">For</span> <span class="n">x</span> <span class="o">=</span> <span class="n">LBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span>
+    <span class="k">For</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span>
+      <span class="k">If</span> <span class="n">UCase</span><span class="p">(</span><span class="n">myArray</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">UCase</span><span class="p">(</span><span class="n">myArray</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">Then</span>
+        <span class="n">shtName1</span> <span class="o">=</span> <span class="n">myArray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">shtName2</span> <span class="o">=</span> <span class="n">myArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">myArray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">shtName2</span>
+        <span class="n">myArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">shtName1</span>
+      <span class="k">End</span> <span class="k">If</span>
+     <span class="k">Next</span> <span class="n">y</span>
+  <span class="k">Next</span> <span class="n">x</span>
+
+<span class="c1">'Create Table of Contents</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+  <span class="k">For</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">ColumnCount</span>
+    <span class="k">For</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">RoundUp</span><span class="p">(</span><span class="n">shtCount</span> <span class="o">/</span> <span class="n">ColumnCount</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="k">If</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">UBound</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span> <span class="k">Then</span>
+        <span class="k">Set</span> <span class="n">sht</span> <span class="o">=</span> <span class="n">Worksheets</span><span class="p">(</span><span class="n">myArray</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">sht</span><span class="p">.</span><span class="n">Activate</span>
+        <span class="k">With</span> <span class="n">Content_sht</span>
+          <span class="p">.</span><span class="n">Hyperlinks</span><span class="p">.</span><span class="n">Add</span> <span class="p">.</span><span class="n">Cells</span><span class="p">(</span><span class="n">z</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span><span class="p">),</span> <span class="s">""</span><span class="p">,</span> <span class="n">_</span>
+          <span class="n">SubAddress</span><span class="p">:</span><span class="o">=</span><span class="s">"'"</span> <span class="o">&amp;</span> <span class="n">sht</span><span class="p">.</span><span class="n">Name</span> <span class="o">&amp;</span> <span class="s">"'!A1"</span><span class="p">,</span> <span class="n">_</span>
+          <span class="n">TextToDisplay</span><span class="p">:</span><span class="o">=</span><span class="n">sht</span><span class="p">.</span><span class="n">Name</span>
+        <span class="k">End</span> <span class="k">With</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+      <span class="k">End</span> <span class="k">If</span>
+    <span class="k">Next</span> <span class="n">z</span>
+  <span class="k">Next</span> <span class="n">y</span>
+
+<span class="c1">'Select Content Sheet and clean up a little bit</span>
+  <span class="n">Content_sht</span><span class="p">.</span><span class="n">Activate</span>
+  <span class="n">Content_sht</span><span class="p">.</span><span class="n">UsedRange</span><span class="p">.</span><span class="n">EntireColumn</span><span class="p">.</span><span class="n">AutoFit</span>
+  <span class="n">ActiveWindow</span><span class="p">.</span><span class="n">DisplayGridlines</span> <span class="o">=</span> <span class="k">False</span>
+
+<span class="c1">'Format Contents Sheet Title</span>
+  <span class="k">With</span> <span class="n">Content_sht</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"B1"</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Value</span> <span class="o">=</span> <span class="s">"Table of Contents"</span>
+    <span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Bold</span> <span class="o">=</span> <span class="k">True</span>
+    <span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">18</span>
+  <span class="k">End</span> <span class="k">With</span>
+
+<span class="n">ExitSub</span><span class="p">:</span>
+<span class="c1">'Optimize Code</span>
+  <span class="n">Application</span><span class="p">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="k">True</span>
+  <span class="n">Application</span><span class="p">.</span><span class="n">ScreenUpdating</span> <span class="o">=</span> <span class="k">True</span>
+  
+<span class="k">End</span> <span class="k">Sub</span>
+
+</code></pre></div></div>
+
+<h2 id="vba-module-code--creating-return-links">VBA Module Code – Creating Return Links</h2>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+Sub Contents_Hyperlinks()
+&#39;PURPOSE: Add hyperlinked buttons back to Table of Contents worksheet tab
+
+Dim sht As Worksheet
+Dim shp As Shape
+Dim ContentName As String
+Dim ButtonID As String
+
+&#39;Inputs:
+  ContentName = &quot;Contents&quot; &#39;Table of Contents Worksheet Name
+  ButtonID = &quot;_ContentButton&quot; &#39;ID to Track Buttons for deletion
+  
+&#39;Loop Through Each Worksheet in Workbook
+  For Each sht In ActiveWorkbook.Worksheets
+  
+    If sht.Name &lt;&gt; ContentName Then
+      
+      &#39;Delete Old Button (if necessary when refreshing)
+        For Each shp In sht.Shapes
+          If Right(shp.Name, Len(ButtonID)) = ButtonID Then
+            shp.Delete
+            Exit For
+          End If
+        Next shp
+        
+      &#39;Create &amp; Position Shape
+        Set shp = sht.Shapes.AddShape(msoShapeRoundedRectangle, _
+          4, 4, 60, 20)
+
+      &#39;Format Shape
+        shp.Fill.ForeColor.RGB = RGB(91, 155, 213) &#39;Blue
+        shp.Line.Visible = msoFalse
+        shp.TextFrame2.TextRange.Font.Size = 10
+        shp.TextFrame2.TextRange.Text = ContentName
+        shp.TextFrame2.TextRange.Font.Bold = True
+        shp.TextFrame2.TextRange.Font.Fill.ForeColor.RGB = RGB(255, 255, 255) &#39;White
+      
+      &#39;Track Shape Name with ID Tag
+        shp.Name = shp.Name &amp; ButtonID
+      
+      &#39;Assign Hyperlink to Shape
+        sht.Hyperlinks.Add shp, &quot;&quot;, _
+          SubAddress:=&quot;&#39;&quot; &amp; ContentName &amp; &quot;&#39;!A1&quot;
+  
+    End If
+    
+  Next sht
+
+End Sub
+
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">Sub</span> <span class="nf">Contents_Hyperlinks</span><span class="p">()</span>
+<span class="c1">'PURPOSE: Add hyperlinked buttons back to Table of Contents worksheet tab</span>
+
+<span class="k">Dim</span> <span class="nv">sht</span> <span class="ow">As</span> <span class="n">Worksheet</span>
+<span class="k">Dim</span> <span class="nv">shp</span> <span class="ow">As</span> <span class="n">Shape</span>
+<span class="k">Dim</span> <span class="nv">ContentName</span> <span class="ow">As</span> <span class="kt">String</span>
+<span class="k">Dim</span> <span class="nv">ButtonID</span> <span class="ow">As</span> <span class="kt">String</span>
+
+<span class="c1">'Inputs:</span>
+  <span class="n">ContentName</span> <span class="o">=</span> <span class="s">"Contents"</span> <span class="c1">'Table of Contents Worksheet Name</span>
+  <span class="n">ButtonID</span> <span class="o">=</span> <span class="s">"_ContentButton"</span> <span class="c1">'ID to Track Buttons for deletion</span>
+  
+<span class="c1">'Loop Through Each Worksheet in Workbook</span>
+  <span class="k">For</span> <span class="k">Each</span> <span class="n">sht</span> <span class="ow">In</span> <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+  
+    <span class="k">If</span> <span class="n">sht</span><span class="p">.</span><span class="n">Name</span> <span class="o">&lt;&gt;</span> <span class="n">ContentName</span> <span class="k">Then</span>
+      
+      <span class="c1">'Delete Old Button (if necessary when refreshing)</span>
+        <span class="k">For</span> <span class="k">Each</span> <span class="n">shp</span> <span class="ow">In</span> <span class="n">sht</span><span class="p">.</span><span class="n">Shapes</span>
+          <span class="k">If</span> <span class="n">Right</span><span class="p">(</span><span class="n">shp</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Len</span><span class="p">(</span><span class="n">ButtonID</span><span class="p">))</span> <span class="o">=</span> <span class="n">ButtonID</span> <span class="k">Then</span>
+            <span class="n">shp</span><span class="p">.</span><span class="n">Delete</span>
+            <span class="k">Exit</span> <span class="k">For</span>
+          <span class="k">End</span> <span class="k">If</span>
+        <span class="k">Next</span> <span class="n">shp</span>
+        
+      <span class="c1">'Create &amp; Position Shape</span>
+        <span class="k">Set</span> <span class="n">shp</span> <span class="o">=</span> <span class="n">sht</span><span class="p">.</span><span class="n">Shapes</span><span class="p">.</span><span class="n">AddShape</span><span class="p">(</span><span class="n">msoShapeRoundedRectangle</span><span class="p">,</span> <span class="n">_</span>
+          <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+      <span class="c1">'Format Shape</span>
+        <span class="n">shp</span><span class="p">.</span><span class="n">Fill</span><span class="p">.</span><span class="n">ForeColor</span><span class="p">.</span><span class="n">RGB</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">(</span><span class="mi">91</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span> <span class="mi">213</span><span class="p">)</span> <span class="c1">'Blue</span>
+        <span class="n">shp</span><span class="p">.</span><span class="n">Line</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">msoFalse</span>
+        <span class="n">shp</span><span class="p">.</span><span class="n">TextFrame2</span><span class="p">.</span><span class="n">TextRange</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">shp</span><span class="p">.</span><span class="n">TextFrame2</span><span class="p">.</span><span class="n">TextRange</span><span class="p">.</span><span class="n">Text</span> <span class="o">=</span> <span class="n">ContentName</span>
+        <span class="n">shp</span><span class="p">.</span><span class="n">TextFrame2</span><span class="p">.</span><span class="n">TextRange</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Bold</span> <span class="o">=</span> <span class="k">True</span>
+        <span class="n">shp</span><span class="p">.</span><span class="n">TextFrame2</span><span class="p">.</span><span class="n">TextRange</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Fill</span><span class="p">.</span><span class="n">ForeColor</span><span class="p">.</span><span class="n">RGB</span> <span class="o">=</span> <span class="n">RGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="c1">'White</span>
+      
+      <span class="c1">'Track Shape Name with ID Tag</span>
+        <span class="n">shp</span><span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="n">shp</span><span class="p">.</span><span class="n">Name</span> <span class="o">&amp;</span> <span class="n">ButtonID</span>
+      
+      <span class="c1">'Assign Hyperlink to Shape</span>
+        <span class="n">sht</span><span class="p">.</span><span class="n">Hyperlinks</span><span class="p">.</span><span class="n">Add</span> <span class="n">shp</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="n">_</span>
+          <span class="n">SubAddress</span><span class="p">:</span><span class="o">=</span><span class="s">"'"</span> <span class="o">&amp;</span> <span class="n">ContentName</span> <span class="o">&amp;</span> <span class="s">"'!A1"</span>
+  
+    <span class="k">End</span> <span class="k">If</span>
+    
+  <span class="k">Next</span> <span class="n">sht</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+</code></pre></div></div>
+
+<h2 id="vba-module-code--toc-3">VBA Module Code – ToC 3</h2>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+Sub createIndex1()
+&#39;Create An index sheet with Hyperlinks
+Dim ws As Worksheet, i As Integer
+Worksheets.Add(Before:=Worksheets(1)).Name = &quot;Index&quot;
+For Each ws In ThisWorkbook.Worksheets
+If ws.Name &lt;&gt; &quot;Index&quot; Then
+i = i + 1
+Sheets(&quot;Index&quot;).Range(&quot;A&quot; &amp; i).Value = ws.Name
+Sheets(&quot;Index&quot;).Hyperlinks.Add Anchor:=Range(&quot;A&quot; &amp; i), Address:=&quot;&quot;, SubAddress:=&quot;&#39;&quot; &amp; ws.Name &amp; &quot;&#39;!A1&quot;, TextToDisplay:=ws.Name
+End If
+Next ws
+Sheets(&quot;Index&quot;).Columns(&quot;A&quot;).AutoFit
+&#39;Add 2 rows
+Rows(&quot;1:2&quot;).Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+End Sub
+
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">Sub</span> <span class="nf">createIndex1</span><span class="p">()</span>
+<span class="c1">'Create An index sheet with Hyperlinks</span>
+<span class="k">Dim</span> <span class="nv">ws</span> <span class="ow">As</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">Worksheets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">Before</span><span class="p">:</span><span class="o">=</span><span class="n">Worksheets</span><span class="p">(</span><span class="mi">1</span><span class="p">)).</span><span class="n">Name</span> <span class="o">=</span> <span class="s">"Index"</span>
+<span class="k">For</span> <span class="k">Each</span> <span class="n">ws</span> <span class="ow">In</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Worksheets</span>
+<span class="k">If</span> <span class="n">ws</span><span class="p">.</span><span class="n">Name</span> <span class="o">&lt;&gt;</span> <span class="s">"Index"</span> <span class="k">Then</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">Sheets</span><span class="p">(</span><span class="s">"Index"</span><span class="p">).</span><span class="n">Range</span><span class="p">(</span><span class="s">"A"</span> <span class="o">&amp;</span> <span class="n">i</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">Name</span>
+<span class="n">Sheets</span><span class="p">(</span><span class="s">"Index"</span><span class="p">).</span><span class="n">Hyperlinks</span><span class="p">.</span><span class="n">Add</span> <span class="n">Anchor</span><span class="p">:</span><span class="o">=</span><span class="n">Range</span><span class="p">(</span><span class="s">"A"</span> <span class="o">&amp;</span> <span class="n">i</span><span class="p">),</span> <span class="n">Address</span><span class="p">:</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">SubAddress</span><span class="p">:</span><span class="o">=</span><span class="s">"'"</span> <span class="o">&amp;</span> <span class="n">ws</span><span class="p">.</span><span class="n">Name</span> <span class="o">&amp;</span> <span class="s">"'!A1"</span><span class="p">,</span> <span class="n">TextToDisplay</span><span class="p">:</span><span class="o">=</span><span class="n">ws</span><span class="p">.</span><span class="n">Name</span>
+<span class="k">End</span> <span class="k">If</span>
+<span class="k">Next</span> <span class="n">ws</span>
+<span class="n">Sheets</span><span class="p">(</span><span class="s">"Index"</span><span class="p">).</span><span class="n">Columns</span><span class="p">(</span><span class="s">"A"</span><span class="p">).</span><span class="n">AutoFit</span>
+<span class="c1">'Add 2 rows</span>
+<span class="n">Rows</span><span class="p">(</span><span class="s">"1:2"</span><span class="p">).</span><span class="n">Insert</span> <span class="n">Shift</span><span class="p">:</span><span class="o">=</span><span class="n">xlDown</span><span class="p">,</span> <span class="n">CopyOrigin</span><span class="p">:</span><span class="o">=</span><span class="n">xlFormatFromLeftOrAbove</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+</code></pre></div></div>
+
+<h2 id="download">Download</h2>
+
+<p>The full file can be downloaded here:</p>
+
+<p><a href="https://1drv.ms/x/s!Ahu8OSSAtOMzmCqVYM1zTLRBXJwN?e=ThebxD" target="_blank">VBA - Custom Functions (xlsm)</a></p>
+
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#screenshots">Screenshots</a></li>
+<li class="toc-entry toc-h2"><a href="#vba-module-code--toc-1">VBA Module Code – ToC 1</a></li>
+<li class="toc-entry toc-h2"><a href="#vba-module-code--toc-2">VBA Module Code – ToC 2</a></li>
+<li class="toc-entry toc-h2"><a href="#vba-module-code--creating-return-links">VBA Module Code – Creating Return Links</a></li>
+<li class="toc-entry toc-h2"><a href="#vba-module-code--toc-3">VBA Module Code – ToC 3</a></li>
+<li class="toc-entry toc-h2"><a href="#download">Download</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Creating a Generalisable function | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-integration-and-etl/etl.html"><span class="">Data Integration & ETL</span></a></li>
+        <li><a href=/docs/guides/data-integration-and-etl/data-wrangling-techniques/introduction.html><span class="">Data Wrangling Techniques</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/introduction.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/mismatched-tables.html">Mismatched Tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/preserving-context.html">Preserving Context</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/data-into-tables.html">Transforming Data into Tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/generalised-unpivoting.html">Generalised unpivoting</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/generalisable-function.html">Creating a Generalisable function</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/slowly-changing-datasets.html">Dealing with slowly changing Datasets</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/the-challenge.html">The Challenge! - combining revenue files</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/data-cop.html">Data Cop! - detecting revenue changes</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="creating-a-generalisable-function">Creating a Generalisable function</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 23/06/2019</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>This article explains how to turn the ETL actions explained here: <a href="generalised-unpivoting.html">Generalised unpivoting</a>, into one re-usable generalizable function that can be used on any pivoted summary table.</p>
+
+<p>This is useful if for example, you have different reports, each with a different summary table of: M x N dimensions and hierarchies.</p>
+
+<p>Using a function means instead of going through the preceding sequence of steps manually for each type of summary table, you can aggregate all steps into a single transformation step.</p>
+
+<p>Here is how you would do it:</p>
+
+<h2 id="steps">Steps</h2>
+
+<h3 id="1-define-initial-queries">1.	Define initial queries</h3>
+
+<ul>
+  <li>Create a “<em>RowFields</em>” query</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/generalisable-function-01.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Create a corresponding “<em>ColumnFields</em>” query</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/generalisable-function-02.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Define the name of the “<em>ValueField</em>” – below, this has been given the value: ‘<em>Revenue</em>’</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/generalisable-function-03.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="2-bring-in-the-source-data">2.	Bring in the source data</h3>
+
+<figure>
+    
+        <img class="docimage" src="images/generalisable-function-04.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="3-write-some-m-code">3.	Write some ‘M’ code</h3>
+
+<ul>
+  <li>In a new query, write the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    (Source, RowFields, ColumnFields, ValueField)=&gt;
+let
+    #&quot;Filled Down&quot; = Table.FillDown(Source, List.FirstN(Table.ColumnNames(Source), List.Count(RowFields) - 1)),
+    #&quot;Merged Columns&quot; = Table.CombineColumns(#&quot;Filled Down&quot;, List.FirstN(Table.ColumnNames(#&quot;Filled Down&quot;), List.Count(RowFields)), Combiner.CombineTextByDelimiter(&quot;:&quot;, QuoteStyle.None),&quot;Merged&quot;),
+    #&quot;Transposed Table&quot; = Table.Transpose(#&quot;Merged Columns&quot;),
+    #&quot;Filled Down1&quot; = Table.FillDown(#&quot;Transposed Table&quot;,List.FirstN(Table.ColumnNames(#&quot;Transposed Table&quot;), List.Count(ColumnFields)-1)),
+    #&quot;Promoted Headers&quot; = Table.PromoteHeaders(#&quot;Filled Down1&quot;, [PromoteAllScalars=true]),
+    #&quot;Unpivoted Other Columns&quot; = Table.UnpivotOtherColumns(#&quot;Promoted Headers&quot;,List.FirstN(Table.ColumnNames(#&quot;Promoted Headers&quot;), List.Count(ColumnFields)) , &quot;Attribute&quot;, ValueField),
+    #&quot;Split Column by Delimiter&quot; = Table.SplitColumn(#&quot;Unpivoted Other Columns&quot;, &quot;Attribute&quot;, Splitter.SplitTextByDelimiter(&quot;:&quot;, QuoteStyle.Csv), RowFields),
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Split Column by Delimiter&quot;, List.Zip({List.FirstN(Table.ColumnNames(#&quot;Split Column by Delimiter&quot;), List.Count(ColumnFields)), ColumnFields})),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Renamed Columns&quot;,{{ValueField, type number}})
+in
+    #&quot;Changed Type&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    (Source, RowFields, ColumnFields, ValueField)=&gt;
+let
+    #"Filled Down" = Table.FillDown(Source, List.FirstN(Table.ColumnNames(Source), List.Count(RowFields) - 1)),
+    #"Merged Columns" = Table.CombineColumns(#"Filled Down", List.FirstN(Table.ColumnNames(#"Filled Down"), List.Count(RowFields)), Combiner.CombineTextByDelimiter(":", QuoteStyle.None),"Merged"),
+    #"Transposed Table" = Table.Transpose(#"Merged Columns"),
+    #"Filled Down1" = Table.FillDown(#"Transposed Table",List.FirstN(Table.ColumnNames(#"Transposed Table"), List.Count(ColumnFields)-1)),
+    #"Promoted Headers" = Table.PromoteHeaders(#"Filled Down1", [PromoteAllScalars=true]),
+    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Promoted Headers",List.FirstN(Table.ColumnNames(#"Promoted Headers"), List.Count(ColumnFields)) , "Attribute", ValueField),
+    #"Split Column by Delimiter" = Table.SplitColumn(#"Unpivoted Other Columns", "Attribute", Splitter.SplitTextByDelimiter(":", QuoteStyle.Csv), RowFields),
+    #"Renamed Columns" = Table.RenameColumns(#"Split Column by Delimiter", List.Zip({List.FirstN(Table.ColumnNames(#"Split Column by Delimiter"), List.Count(ColumnFields)), ColumnFields})),
+    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{ValueField, type number}})
+in
+    #"Changed Type"
+
+</code></pre>
+
+<p>The above code takes in the parameters from: <em>Source</em>, <em>RowFields</em>, <em>ColumnFields</em>, and <em>ValueField</em> - as defined from the earlier queries, and runs them through a series of ETL steps that can applied to a very wide variety of sparse pivoted tables.</p>
+
+<p>Important parts of the code are elaborated further below:</p>
+
+<p><span style="color:#E93F21"><strong>Fill Down:</strong></span></p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    #&quot;Filled Down&quot; = Table.FillDown(Source, List.FirstN(Table.ColumnNames(Source), List.Count(RowFields) - 1)),
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    #"Filled Down" = Table.FillDown(Source, List.FirstN(Table.ColumnNames(Source), List.Count(RowFields) - 1)),
+
+</code></pre>
+
+<p><strong><em>Table.FillDown</em></strong> takes its first argument as the Table, and the second argument as a list of column names.</p>
+
+<p>To turn this into a dynamic list, you first need to get a list of all column names in the Table. This is what the function <strong><em>Table.ColumnNames</em></strong> does.</p>
+
+<p>To return only N-1 columns, you use the <strong><em>List.Count</em></strong> function, which in the above line of code, counts the number of elements, and deducts 1.</p>
+
+<p><span style="color:#E93F21"><strong>Merge Columns:</strong></span></p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    #&quot;Merged Columns&quot; = Table.CombineColumns(#&quot;Filled Down&quot;, List.FirstN(Table.ColumnNames(#&quot;Filled Down&quot;), List.Count(RowFields)), Combiner.CombineTextByDelimiter(&quot;:&quot;, QuoteStyle.None),&quot;Merged&quot;),
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    #"Merged Columns" = Table.CombineColumns(#"Filled Down", List.FirstN(Table.ColumnNames(#"Filled Down"), List.Count(RowFields)), Combiner.CombineTextByDelimiter(":", QuoteStyle.None),"Merged"),
+
+</code></pre>
+
+<p>This line dynamically refers back to the N column names of the source table, and uses N as the second argument of the <strong><em>List.FirstN</em></strong> function (as you need to combine the first N columns, not just N-1 columns)</p>
+
+<p><span style="color:#E93F21"><strong>Fill Down 2:</strong></span></p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    #&quot;Filled Down1&quot; = Table.FillDown(#&quot;Transposed Table&quot;,List.FirstN(Table.ColumnNames(#&quot;Transposed Table&quot;), List.Count(ColumnFields)-1)),
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    #"Filled Down1" = Table.FillDown(#"Transposed Table",List.FirstN(Table.ColumnNames(#"Transposed Table"), List.Count(ColumnFields)-1)),
+
+</code></pre>
+
+<p>Unlike the modified <strong><em>Table.FillDown</em></strong>, from earlier, which used <strong><em>List.Count</em></strong>, on <em>RowFields</em>, this uses <strong><em>List.Count</em></strong> on <em>ColumnFields</em> to get the number M-1</p>
+
+<p><span style="color:#E93F21"><strong>Unpivot:</strong><span></span></span></p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    #&quot;Unpivoted Other Columns&quot; = Table.UnpivotOtherColumns(#&quot;Promoted Headers&quot;,List.FirstN(Table.ColumnNames(#&quot;Promoted Headers&quot;), List.Count(ColumnFields)) , &quot;Attribute&quot;, ValueField),
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Promoted Headers",List.FirstN(Table.ColumnNames(#"Promoted Headers"), List.Count(ColumnFields)) , "Attribute", ValueField),
+
+</code></pre>
+
+<p>Here, M instead of M-1 are unpivoted. <strong><em>Table.ColumnNames</em></strong> is applied to the table #”Promoted Headers”, which represents the state of the table in the previous transformation step.</p>
+
+<p>Here, the query <em>ValueField</em> instead of “Value” is included as the new name of the Value column</p>
+
+<p><span style="color:#E93F21"><strong>Split Column:</strong></span></p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    #&quot;Split Column by Delimiter&quot; = Table.SplitColumn(#&quot;Unpivoted Other Columns&quot;, &quot;Attribute&quot;, Splitter.SplitTextByDelimiter(&quot;:&quot;, QuoteStyle.Csv), RowFields),
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    #"Split Column by Delimiter" = Table.SplitColumn(#"Unpivoted Other Columns", "Attribute", Splitter.SplitTextByDelimiter(":", QuoteStyle.Csv), RowFields),
+
+</code></pre>
+
+<p>The third argument of <strong><em>Table.SplitColumn</em></strong> takes in two important elements: the number of columns to split, and the names of the columns to split. These are already defined in the <em>RowFields</em> query, which is why this is used as the last parameter.</p>
+
+<p><span style="color:#E93F21"><strong>Renaming Columns &amp; List.Zip:</strong></span></p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Split Column by Delimiter&quot;, List.Zip({List.FirstN(Table.ColumnNames(#&quot;Split Column by Delimiter&quot;), List.Count(ColumnFields)), ColumnFields})),
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    #"Renamed Columns" = Table.RenameColumns(#"Split Column by Delimiter", List.Zip({List.FirstN(Table.ColumnNames(#"Split Column by Delimiter"), List.Count(ColumnFields)), ColumnFields})),
+
+</code></pre>
+
+<p>This line is probably the most complicated step.</p>
+
+<p>The code renames the columns by passing a “list of lists” as the second argument of <em>Table.RenameColumns</em></p>
+
+<p>The <em>RowField</em> and <em>Value</em> columns have already been renamed correctly from the earlier steps, so only the first M columns need to be renamed. So, to obtain the new names, you can use the <em>ColumnFields</em> query</p>
+
+<p>What <strong><em>List.Zip</em></strong> does is get two lists as inputs, and returns a single list of lists, as pairs from both lists.</p>
+
+<div class="callout callout-info alerts-font">
+  <p><strong>For example:</strong></p>
+
+  <p><em>List.Zip ({“A”, “B”, “C”},{“1”,”2”,”3”})</em>,</p>
+
+  <p>will return the following list:</p>
+
+  <p><em>{{“A”,”1”}, {“B”,”2”}, {“C”,”3”}}</em></p>
+
+</div>
+
+<p>The above code therefore gets the names of the first M columns, as they are currently named, and replaces them with what they are called in the query, <em>ColumnFields</em>.</p>
+
+<p><span style="color:#E93F21"><strong>Changed Type:</strong></span></p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Renamed Columns&quot;,{{ValueField, type number}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{ValueField, type number}})
+
+</code></pre>
+
+<p>To explicitly change the type of Revenue column to a Decimal Number, use the above code. The use of the <em>ValueField</em> parameter ensures the column is renamed to “Revenue”. <em>Type Number</em> ensures it is of type Decimal Number</p>
+
+<h3 id="4-apply-the-function-to-the-source-data">4.	Apply the function to the Source Data</h3>
+
+<p>With the function built, you can now apply it to the Source Data query.</p>
+
+<p>Create a new query, called “Results” – as follows:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/generalisable-function-05.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h2 id="final-comments">Final Comments</h2>
+
+<p>Here, we have seen how to handle complex summary tables with any number of hierarchy of rows and columns, using functions such as <strong><em>Table.ColumnNames</em></strong>, <strong><em>List.FirstN</em></strong>, or <strong><em>List.Zip</em></strong>.</p>
+
+<p>This gives the ability to make queries very flexible, so they can handle future scenarios and scale up to a variety of source table structures.</p>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#steps">Steps</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-define-initial-queries">1.	Define initial queries</a></li>
+<li class="toc-entry toc-h3"><a href="#2-bring-in-the-source-data">2.	Bring in the source data</a></li>
+<li class="toc-entry toc-h3"><a href="#3-write-some-m-code">3.	Write some ‘M’ code</a></li>
+<li class="toc-entry toc-h3"><a href="#4-apply-the-function-to-the-source-data">4.	Apply the function to the Source Data</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#final-comments">Final Comments</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

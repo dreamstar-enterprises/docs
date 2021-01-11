@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Word Form to Excel Table | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/vba/vba.html"><span class="">VBA</span></a></li>
+        <li><a href=/docs/guides/vba/vba-examples/overview.html><span class="">VBA - Examples</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Data Integration</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/data-integration.html">Data Integration</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/word-form-to-excel-table.html">Word Form to Excel Table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-form-to-excel-sheet.html">Excel Form to Excel Sheet</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-form-to-excel-table.html">Excel Form to Excel Table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/mysql-to-excel-table-1.html">MySQL to Excel Table - Ex. 1</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/mysql-to-excel-table-2.html">MySQL to Excel Table - Ex. 2</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-table-to-mysql.html">Excel Table(s) to MySQL</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Automating Tasks & Calculations</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/bulk-refreshing.html">Bulk Refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/adding-data-and-comparing-lists.html">Adding Data & Comparing Lists</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/financial-loan-sheets.html">Financial Loan Sheets</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/locking-sheets.html">Locking Sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Data from External Datasets</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/data-from-quandl.html">Getting Data from Quandl</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Custom Functions</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/custom-vba-functions.html">Custom VBA Functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>WorkBook Navigation</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/creating-a-toc.html">Creating a ToC</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>References</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/useful-links.html">Useful Links</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="word-form-to-excel-table">Word Form to Excel Table</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • VBA • 11/01/2021</time>
+
+<h2 id="background">Background</h2>
+
+<p>Not everyone enters data directly into a Spreadsheet. In many work environments, often the source is some kind of “form”. For example, a detailed user form might be manually filled out on a computer, then printed, then signed, and a hard copy retained for later use. Sometimes, key information may then have to be taken from that form, and re-entered back into a computer, into some kind of “tabularised” database for subsequent analysis.</p>
+
+<p>In this article we explain a solution that simplifies the process a little, so that data can be sent from a User Form, designed in Microsoft Word, which once completed, can be exported directly from the Form (in its digital state) to the spreadsheet package Microsoft Excel (also in its digital state) – without having to manually re-key in this data (from the printed version of the form). The form itself can of course still be printed out for hard-copy record keeping as usual.</p>
+
+<h2 id="benefits">Benefits</h2>
+
+<p>This particular solution has certain distinct benefits:</p>
+
+<h3 id="single-button-use">Single Button Use</h3>
+
+<p>When the user has finished completing a form, they can send pre-assigned data fields to a separate spreadsheet, through the press of a just single button.</p>
+
+<h3 id="keep-data-in-precise-addressable-locations">Keep data in precise addressable locations</h3>
+
+<p>Relevant fields can be sent as an additional record in a precisely defined Excel Table, on a precisely defined WorkSheet, (in a precisely defined file)! - so, the user can choose exactly where they would like to store the data, giving them more control.</p>
+
+<h3 id="spreadsheet-tables">Spreadsheet tables</h3>
+
+<p>Keeping data housed in Tables has its own advantages:</p>
+
+<ul>
+  <li>It allows the data to be more easily exported to other tools that might be connected to it, such as Microsoft Excel’s own “Power Pivot” functionality</li>
+  <li>If you need to export the data to other softwares, this can be done by simply referring to the Table’s name</li>
+  <li>It also means that the Table, Sheet, and File names only ever need to be specified ONCE. This is particularly useful if data needs to be regularly sent or kept across several different datasets, across several separate WorkSheets, in a large WorkBook, something that can become unwieldy to manage, very, very quickly!</li>
+</ul>
+
+<h2 id="screen-shots-of-user-form-and-excel-tables">Screen shots of User Form and Excel Tables</h2>
+
+<p>Here is an example of what a user form might look like - though you can design and customize one to suit your own needs.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/word-form-to-excel-table-01.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/word-form-to-excel-table-02.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h2 id="choose-the-name-of-target-sheet">Choose the name of target sheet</h2>
+
+<p>Having completed the form, the next step is to then specify the WorkSheet you wish to Export the data to. After this, you then press the ‘Export to WorkBook’ button.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/word-form-to-excel-table-03.png" alt="" style="width: 100%; max-width: 65.9%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h2 id="include-pictures-optional">Include Pictures (optional)</h2>
+
+<p>Pictures may also be included on the form.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/word-form-to-excel-table-04.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h2 id="excel-workbook">Excel WorkBook</h2>
+
+<p>After pressing the export button, you should then automatically see the WorkBook populated, with data in the Table in the WorkSheet that was specified earlier (in this case, “CAR Register”).</p>
+
+<figure>
+    
+        <img class="docimage" src="images/word-form-to-excel-table-05.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>Excel - Table</i>
+    </figcaption>
+    
+</figure>
+
+<p>You can then print out both the original Microsoft Word User Form, and file it away, with the peace of mind that the data has also been accurately (digitally) sent, and stored (again, digitally!) in a Spreadsheet, that can quickly be retrieved for later use!</p>
+
+<h2 id="create-vba-module">Create VBA Module</h2>
+
+<p>Use the following VBA Code. This creates a Macro. Ensure you assign it to the Export button in the form. 
+Ensure too that the file path to where the Excel file is, is set correctly.</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Sub Export_Click()
+
+ &#39;Define variables
+    Dim xlApp As New Excel.Application, xlWkBk As Excel.Workbook, xlWkSht As Excel.Worksheet
+    Dim xlTable As Excel.ListObject
+    Dim table_object_row As Excel.ListRow
+    Dim Sheet_name As String
+
+  &#39;Set the Sheet Variable to the chosen sheet
+    Sheet_name = SelectContentControlsByTitle(&quot;txtSheet_Name&quot;)(1).Range.Text
+
+    With xlApp
+  &#39;Hide our Excel session
+    .Visible = True &#39;False
+  
+  &#39;Open the workbook
+    Set xlWkBk = .Workbooks.Open(&quot;C:\Users\ABC\OneDrive\Desktop\Excel File.xlsx&quot;, AddToMRU:=False)
+  
+  &#39;Select the chosen sheet and select the first table in that sheet
+    Set xlWkSht = xlWkBk.Sheets(Sheet_name)
+    Set xlTable = xlWkSht.ListObjects(1)
+  
+  &#39;Add an extra row to the chosen Table
+    Set table_object_row = xlTable.ListRows.Add
+  
+  &#39;Display Record No. being added in a Message Box
+    MsgBox (&quot;Record #: &quot; &amp; xlTable.ListRows.Count &amp; &quot; being added&quot; &amp; &quot; to Sheet: &quot; &amp; Sheet_name)
+  
+  &#39;Update the table in the first table in the chosen sheet in the WorkBook
+    With ActiveDocument
+        table_object_row.Range(1, 1).Value = .SelectContentControlsByTitle(&quot;txtCARNumber&quot;)(1).Range.Text
+        table_object_row.Range(1, 2).Value = .SelectContentControlsByTitle(&quot;txtCategory&quot;)(1).Range.Text
+        table_object_row.Range(1, 3).Value = .SelectContentControlsByTitle(&quot;txtDepartment&quot;)(1).Range.Text
+        table_object_row.Range(1, 4).Value = .SelectContentControlsByTitle(&quot;txtLocation&quot;)(1).Range.Text
+        table_object_row.Range(1, 5).Value = .SelectContentControlsByTitle(&quot;txtInitiator&quot;)(1).Range.Text
+        table_object_row.Range(1, 6).Value = .SelectContentControlsByTitle(&quot;txtResponsible&quot;)(1).Range.Text
+        table_object_row.Range(1, 7).Value = .SelectContentControlsByTitle(&quot;txtDateRaised&quot;)(1).Range.Text
+        table_object_row.Range(1, 8).Value = .SelectContentControlsByTitle(&quot;txtDetails&quot;)(1).Range.Text
+        table_object_row.Range(1, 9).Value = .SelectContentControlsByTitle(&quot;txtPriority&quot;)(1).Range.Text
+        table_object_row.Range(1, 10).Value = .SelectContentControlsByTitle(&quot;txtDateComplete&quot;)(1).Range.Text
+        table_object_row.Range(1, 11).Value = .SelectContentControlsByTitle(&quot;txtDateVerified&quot;)(1).Range.Text
+  End With
+
+   &#39;Save &amp; Close the Excel workbook
+      xlWkBk.Close SaveChanges:=True
+       .Quit
+        End With
+
+    &#39;Release object memory
+        Set xlWkSht = Nothing: Set xlWkBk = Nothing: Set xlApp = Nothing
+
+    &#39;Tell the user that the record has been added
+        MsgBox &quot;Record added to WorkBook.&quot;, vbOKOnly
+
+End Sub
+
+Private Sub CommandButton1_Click()
+   Call Export_Click
+End Sub
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Sub</span> <span class="nf">Export_Click</span><span class="p">()</span>
+
+ <span class="c1">'Define variables</span>
+    <span class="k">Dim</span> <span class="nv">xlApp</span> <span class="ow">As</span> <span class="k">New</span> <span class="n">Excel</span><span class="p">.</span><span class="n">Application</span><span class="p">,</span> <span class="n">xlWkBk</span> <span class="ow">As</span> <span class="n">Excel</span><span class="p">.</span><span class="n">Workbook</span><span class="p">,</span> <span class="n">xlWkSht</span> <span class="ow">As</span> <span class="n">Excel</span><span class="p">.</span><span class="n">Worksheet</span>
+    <span class="k">Dim</span> <span class="nv">xlTable</span> <span class="ow">As</span> <span class="n">Excel</span><span class="p">.</span><span class="n">ListObject</span>
+    <span class="k">Dim</span> <span class="nv">table_object_row</span> <span class="ow">As</span> <span class="n">Excel</span><span class="p">.</span><span class="n">ListRow</span>
+    <span class="k">Dim</span> <span class="nv">Sheet_name</span> <span class="ow">As</span> <span class="kt">String</span>
+
+  <span class="c1">'Set the Sheet Variable to the chosen sheet</span>
+    <span class="n">Sheet_name</span> <span class="o">=</span> <span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtSheet_Name"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+
+    <span class="k">With</span> <span class="n">xlApp</span>
+  <span class="c1">'Hide our Excel session</span>
+    <span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span> <span class="c1">'False</span>
+  
+  <span class="c1">'Open the workbook</span>
+    <span class="k">Set</span> <span class="n">xlWkBk</span> <span class="o">=</span> <span class="p">.</span><span class="n">Workbooks</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"C:\Users\ABC\OneDrive\Desktop\Excel File.xlsx"</span><span class="p">,</span> <span class="n">AddToMRU</span><span class="p">:</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
+  
+  <span class="c1">'Select the chosen sheet and select the first table in that sheet</span>
+    <span class="k">Set</span> <span class="n">xlWkSht</span> <span class="o">=</span> <span class="n">xlWkBk</span><span class="p">.</span><span class="n">Sheets</span><span class="p">(</span><span class="n">Sheet_name</span><span class="p">)</span>
+    <span class="k">Set</span> <span class="n">xlTable</span> <span class="o">=</span> <span class="n">xlWkSht</span><span class="p">.</span><span class="n">ListObjects</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  
+  <span class="c1">'Add an extra row to the chosen Table</span>
+    <span class="k">Set</span> <span class="n">table_object_row</span> <span class="o">=</span> <span class="n">xlTable</span><span class="p">.</span><span class="n">ListRows</span><span class="p">.</span><span class="n">Add</span>
+  
+  <span class="c1">'Display Record No. being added in a Message Box</span>
+    <span class="n">MsgBox</span> <span class="p">(</span><span class="s">"Record #: "</span> <span class="o">&amp;</span> <span class="n">xlTable</span><span class="p">.</span><span class="n">ListRows</span><span class="p">.</span><span class="n">Count</span> <span class="o">&amp;</span> <span class="s">" being added"</span> <span class="o">&amp;</span> <span class="s">" to Sheet: "</span> <span class="o">&amp;</span> <span class="n">Sheet_name</span><span class="p">)</span>
+  
+  <span class="c1">'Update the table in the first table in the chosen sheet in the WorkBook</span>
+    <span class="k">With</span> <span class="n">ActiveDocument</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtCARNumber"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtCategory"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtDepartment"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtLocation"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtInitiator"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtResponsible"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtDateRaised"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtDetails"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtPriority"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtDateComplete"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+        <span class="n">table_object_row</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="p">.</span><span class="n">SelectContentControlsByTitle</span><span class="p">(</span><span class="s">"txtDateVerified"</span><span class="p">)(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">.</span><span class="n">Text</span>
+  <span class="k">End</span> <span class="k">With</span>
+
+   <span class="c1">'Save &amp; Close the Excel workbook</span>
+      <span class="n">xlWkBk</span><span class="p">.</span><span class="n">Close</span> <span class="n">SaveChanges</span><span class="p">:</span><span class="o">=</span><span class="k">True</span>
+       <span class="p">.</span><span class="n">Quit</span>
+        <span class="k">End</span> <span class="k">With</span>
+
+    <span class="c1">'Release object memory</span>
+        <span class="k">Set</span> <span class="n">xlWkSht</span> <span class="o">=</span> <span class="k">Nothing</span><span class="p">:</span> <span class="k">Set</span> <span class="n">xlWkBk</span> <span class="o">=</span> <span class="k">Nothing</span><span class="p">:</span> <span class="k">Set</span> <span class="n">xlApp</span> <span class="o">=</span> <span class="k">Nothing</span>
+
+    <span class="c1">'Tell the user that the record has been added</span>
+        <span class="n">MsgBox</span> <span class="s">"Record added to WorkBook."</span><span class="p">,</span> <span class="n">vbOKOnly</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Private</span> <span class="k">Sub</span> <span class="nf">CommandButton1_Click</span><span class="p">()</span>
+   <span class="k">Call</span> <span class="n">Export_Click</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div></div>
+
+<h2 id="activate-correct-vba-objects-in-word">Activate correct VBA Objects (in Word)</h2>
+
+<p>For the solution to work, ensure that you have the following checked under references in Microsoft Word - especially ‘<em>Microsoft Excel 16.0 Object Library</em>’ or above. Click on VBA Editor, then Choose the Tools menu, then ‘<em>References</em>’. You need to do this in the VBA editor in Microsoft Word (not Microsoft Excel).</p>
+
+<figure>
+    
+        <img class="docimage" src="images/word-form-to-excel-table-06.png" alt="" style="width: 100%; max-width: 59.3%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>That’s it! After activating the above, the form should now work!</p>
+
+<h2 id="download">Download</h2>
+
+<p>The full files can be downloaded here:</p>
+
+<p><a href="https://1drv.ms/w/s!Ahu8OSSAtOMzmACZOFG9JW1Te9Hu?e=5QWZm3" target="_blank">VBA - Word Form to Excel Table (docm)</a></p>
+
+<p><a href="https://1drv.ms/x/s!Ahu8OSSAtOMzmAFvCVimzKr2c8yr?e=q8pEGw" target="_blank">Excel File</a></p>
+
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#background">Background</a></li>
+<li class="toc-entry toc-h2"><a href="#benefits">Benefits</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#single-button-use">Single Button Use</a></li>
+<li class="toc-entry toc-h3"><a href="#keep-data-in-precise-addressable-locations">Keep data in precise addressable locations</a></li>
+<li class="toc-entry toc-h3"><a href="#spreadsheet-tables">Spreadsheet tables</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#screen-shots-of-user-form-and-excel-tables">Screen shots of User Form and Excel Tables</a></li>
+<li class="toc-entry toc-h2"><a href="#choose-the-name-of-target-sheet">Choose the name of target sheet</a></li>
+<li class="toc-entry toc-h2"><a href="#include-pictures-optional">Include Pictures (optional)</a></li>
+<li class="toc-entry toc-h2"><a href="#excel-workbook">Excel WorkBook</a></li>
+<li class="toc-entry toc-h2"><a href="#create-vba-module">Create VBA Module</a></li>
+<li class="toc-entry toc-h2"><a href="#activate-correct-vba-objects-in-word">Activate correct VBA Objects (in Word)</a></li>
+<li class="toc-entry toc-h2"><a href="#download">Download</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

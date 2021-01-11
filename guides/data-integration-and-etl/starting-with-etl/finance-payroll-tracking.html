@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Finance - Payroll Tracking | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-integration-and-etl/etl.html"><span class="">Data Integration & ETL</span></a></li>
+        <li><a href=/docs/guides/data-integration-and-etl/starting-with-etl/overview.html><span class="">Starting with ETL</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Data Tables</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-stats.html">Grouping tables (Summary Statistics)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rd.html">Grouping tables (Row Details)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-duplicates.html">Grouping tables (Duplicates)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rankings.html">Grouping tables (Rankings)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-multi-single.html">Grouping tables (Multi to Single row)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cross-joining-tables.html">Cross-Joining tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/transition-tables.html">Using Transition tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/self-referencing-tables.html">Using Self-Referencing tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-table-headings.html">Renaming table headings</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Pivoting Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/queries-with-pivot-tables.html">Queries as a Pivot Table data source</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data.html">Pivoting text data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data-adv.html">Pivoting text data (advanced)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-multiple-measures.html">Pivoting on multiple measures</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-data-validation.html">Pivoting data to enable validation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Filtering Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-rows-m.html">Dynamically filtering rows with 'M'</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-duplicate-rows.html">Removing duplicate rows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-using-lists.html">Filtering data with list inputs</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Transforming Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/reordering-columns.html">Re-ordering columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-columns.html">Removing columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-columns.html">Renaming columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/splitting-columns.html">Splitting columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/merging-columns.html">Merging columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/changing-data-types.html">Changing Data Types</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Conditional Logic</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/conditional-columns.html">Creating conditional columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/logical-operators.html">Applying OR, AND, and SWITCH logic</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/nesting-operators.html">Nesting conditional & logical operators</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Functions & Parameters</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/excel-parameters-pq.html">Excel parameters in Power Query</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/custom-functions.html">Custom functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/parameter-tables.html">Parameter tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/recursive-functions.html">Recursive functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/running-total.html">Running Total functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Calendar Tables & Dates</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/date-table.html">Generating a Date table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/554-calendar.html">Creating a 554 calendar</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/monthly-weekly-budget.html">Monthly to weekly budget</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filling-dates.html">Filling in dates</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Single File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf.html">Importing data from a pdf</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf-new.html">Importing data from a pdf - new</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/first-sheet.html">Importing the first sheet in a workbook</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/latest-version.html">Loading the latest version of a file</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-sheets.html">Combining workbook sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Multiple File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks-function.html">Combining a single sheet across workbooks (with function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks.html">Combining a single sheet across workbooks (no function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/multiple-sheets-workbooks.html">Combining multiple sheets across workbooks</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Getting Network / Web Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/web-weather-data.html">Web weather data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/one-drive-personal.html">One-Drive Personal</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Practical Applications</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/new-lost-returning-customers.html">New, lost, and returning customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/distinct-customers.html">Number of distinct customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/stock-price-thresholds.html">Stock price thresholds</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/percentage-shares.html">Calculating percentage shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/tied-ranks.html">Calculating tied ranks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/growth-percentages.html">Growth percentages from previous days</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/comparing-records.html">Comparing database records</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Human Resourcing</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-onboarding.html">HR - On-boarding</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-table.html">HR - Inventory Movements & Tenure</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-utilisation-table.html">HR - Inventory Utilisation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Finance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-daily-cashflows.html">Finance - Daily Cashflows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-payroll-tracking.html">Finance - Payroll Tracking</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-profitability.html">Finance - Client Profitability</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-debtors.html">Finance - Debtors</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Quality Checking & Maintenance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/bulk-refreshing.html">Bulk refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/auditing-tool.html">Creating an Auditing tool</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cleaning-data.html">Cleaning data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/error-handling.html">Error Handling</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Query Design</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/best-practices.html">ETL Best Practices</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/shaping-vs-modelling.html">Shaping vs Modelling</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/query-folding.html">Query Folding</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="finance---payroll-tracking">Finance - Payroll Tracking</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 29/10/2020</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>In this article, we show how ETLs can be used to show how well Actual and Forecast Staff Costs track against Budget – just as any well-meaning CFO/COO would want to do!</p>
+
+<h2 id="data-inputs">Data Inputs</h2>
+
+<p>We work with the following 3 main data inputs:</p>
+
+<h3 id="actual-payroll-data">Actual Payroll Data</h3>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Finance - Payroll Tracking</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<p>We assume that actual payroll data is available in the following ‘wide-column’ journal format. This shows actual payroll amounts paid to Employees, and, further towards the bottom, any monies also paid out to Contracted Staff. The journal below is one shown for just one month – January.</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-payroll-tracking-data-1.png');" src="images/finance-payroll-tracking-data-1.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<h3 id="forecast-data">Forecast Data</h3>
+
+<p>We assume that Forecast Data is also available, in this case for the lines 5000 – Gross Wages, and 6000 – Contract Staff, shown together for all months of the year, like shown below.</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-payroll-tracking-data-2.png');" src="images/finance-payroll-tracking-data-2.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+You could go further with the forecasting here and create separate forecast tables, at a unit level, for other payroll lines such as Employer’s Tax, and Pension, and so on – as it is for the Actuals data. There is a time / effort trade-off here, depending on how accurate you want to be for each different nominal ledger line. In this case, we simplify, by forecasting for these lines later, using simple percentages on the salary line: 5000, but only after the salary line has been aggregated</p>
+</div>
+
+<h3 id="budgeted-data">Budgeted Data</h3>
+
+<p>We also assume that Budgeted Data (set at the beginning of the year only) is available in a similar format.</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-payroll-tracking-data-3.png');" src="images/finance-payroll-tracking-data-3.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+You could go further here and create separate budget tables, at a unit level, for other payroll lines such as Employer’s Tax, and Pension – as it is for the Actuals data. There is a time / effort trade-off here, depending on how accurate you want to be for each nominal ledger line. In this case, we simplify, by setting the budget for these lines later, using simple percentages on the salary line: 5000, but only after the salary line has been aggregated</p>
+</div>
+
+<p>To make quick and meaningful comparisons across these 3 datasets, at both a P&amp;L level, and Unit (Person) level, we first need to get the data into the right format. Doing this will greatly simplify any formula constructions later on – so it is definitely worth doing now! The rest of this article explains how to do this, before illustrating different methods for making comparisons and calculating variances between the datasets.</p>
+
+<h2 id="steps">Steps</h2>
+
+<h3 id="1-transform-the-actuals-data">1. Transform the Actuals data</h3>
+
+<ul>
+  <li>Starting with the more detailed Actuals data, load this data into the ETL editor, so it looks like this (not all columns are shown below):</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-4.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Remove any Empty rows in the dataset with the following ‘M’-code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {&quot;&quot;, null})))
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+</code></pre>
+
+<ul>
+  <li>Transpose the data so it now looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-5.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Filter out any null rows, on Column 2</li>
+  <li>Now, merge Column 1, with Column 2, with the following delimiter ‘=&gt;’, so it looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-6.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Transpose the data back to its original format</li>
+  <li>Next, promote the first row as headers, so the data now looks like this</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-7.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Select all the columns that are <strong>NOT</strong> the nominal ledger columns. When selected, choose to ‘Unpivot Other Columns’</li>
+</ul>
+
+<p>After the unpivoting step, the data should now look like this (not all columns shown), with all the values shown in one column:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-8.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, rename the column headings so you remove the ‘=&gt;’ in the titles</li>
+  <li>Finally, apply ‘Data Types’ to all the columns, so it looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-9.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>
+    <p>Call the query ‘<em>Jan Payroll</em>’</p>
+  </li>
+  <li>
+    <p>Now, repeat this process (Duplicate the query, and change the source reference in the first step) for the Months, Feb through to Dec, like shown below - (we assume you already have empty ‘placeholder’ tabs created for this, in your Excel workbook):</p>
+  </li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-10.png" alt="" style="width: 100%; max-width: 42.9%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>After doing this, create another query that consolidates the 12 monthly queries</li>
+  <li>Call the query ‘<em>Actuals – Payroll (All Lines)</em>’</li>
+  <li>The first step of the query should look something like this, that consolidates all the monthly data:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.Combine({#&quot;Jan Payroll&quot;, #&quot;Feb Payroll&quot;, #&quot;Mar Payroll&quot;, #&quot;Apr Payroll&quot;, #&quot;May Payroll&quot;, #&quot;Jun Payroll&quot;, #&quot;Jul Payroll&quot;, #&quot;Aug Payroll&quot;, #&quot;Sep Payroll&quot;, #&quot;Oct Payroll&quot;, #&quot;Nov Payroll&quot;, #&quot;Dec Payroll&quot;})
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.Combine({#"Jan Payroll", #"Feb Payroll", #"Mar Payroll", #"Apr Payroll", #"May Payroll", #"Jun Payroll", #"Jul Payroll", #"Aug Payroll", #"Sep Payroll", #"Oct Payroll", #"Nov Payroll", #"Dec Payroll"})
+</code></pre>
+
+<ul>
+  <li>Load the query to the worksheet, so it looks something like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-11.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>We are almost finished with this query, we just need to add one extra column, that we define for analysis / comparison purposes ourselves, but leave this for now.</li>
+</ul>
+
+<h3 id="2-create-a-nominal-ledger-mapping-table">2. Create a Nominal Ledger Mapping Table</h3>
+
+<ul>
+  <li>Next, create a Blank Query called: ‘<em>NL – Line</em>’ – using the following code as the first step:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.Combine({#&quot;Jan Payroll&quot;, #&quot;Feb Payroll&quot;, #&quot;Mar Payroll&quot;, #&quot;Apr Payroll&quot;, #&quot;May Payroll&quot;, #&quot;Jun Payroll&quot;, #&quot;Jul Payroll&quot;, #&quot;Aug Payroll&quot;, #&quot;Sep Payroll&quot;, #&quot;Oct Payroll&quot;, #&quot;Nov Payroll&quot;, #&quot;Dec Payroll&quot;})
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.Combine({#"Jan Payroll", #"Feb Payroll", #"Mar Payroll", #"Apr Payroll", #"May Payroll", #"Jun Payroll", #"Jul Payroll", #"Aug Payroll", #"Sep Payroll", #"Oct Payroll", #"Nov Payroll", #"Dec Payroll"})
+</code></pre>
+
+<ul>
+  <li>Remove all columns except ‘<em>NL – Code</em>’ and ‘<em>NL – Description</em>’</li>
+  <li>Now, remove any duplicates</li>
+  <li>Sort the data in ascending order of ‘<em>NL – Code</em>’, so it looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-12.png" alt="" style="width: 100%; max-width: 49.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Load this table to Excel</li>
+  <li>In Excel, manually add another column to the table, called ‘<em>Expense Line</em>’ – and define a less granular mapping of Nominal Ledger Lines (that we will use later for analysis / comparison purposes later) like so:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-13.png" alt="" style="width: 100%; max-width: 49.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Next, import this table (with the extra ‘Expense Line’ column) back into the ETL editor</li>
+  <li>Call the re-imported table, ‘NL – Lines with Mapping’. After defining data types, it should look like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-14.png" alt="" style="width: 100%; max-width: 69.2%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, go back to the query called ‘<em>NL – Line</em>’ created earlier, and add a Merge Step. This step creates a logically linked, self-referencing table, so we can import the NL mappings defined earlier.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-15.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, expand the ‘Expense Line’ field, so the query looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-16.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Load the table back to Excel. (You might see a second column called ‘<em>Expense Line 2</em>’ automatically created – if you do, just delete it)</li>
+  <li>The final ‘M’-code to this query should look like this:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Table.Combine({#&quot;Jan Payroll&quot;, #&quot;Feb Payroll&quot;, #&quot;Mar Payroll&quot;, #&quot;Apr Payroll&quot;, #&quot;May Payroll&quot;, #&quot;Jun Payroll&quot;, #&quot;Jul Payroll&quot;, #&quot;Aug Payroll&quot;, #&quot;Sep Payroll&quot;, #&quot;Oct Payroll&quot;, #&quot;Nov Payroll&quot;, #&quot;Dec Payroll&quot;})
+,
+    #&quot;Removed Other Columns&quot; = Table.SelectColumns(Source,{&quot;NL - Code&quot;, &quot;NL - Description&quot;}),
+    #&quot;Removed Duplicates&quot; = Table.Distinct(#&quot;Removed Other Columns&quot;),
+    #&quot;Sorted Rows&quot; = Table.Sort(#&quot;Removed Duplicates&quot;,{{&quot;NL - Code&quot;, Order.Ascending}}),
+    #&quot;Merged Queries&quot; = Table.NestedJoin(#&quot;Sorted Rows&quot;, {&quot;NL - Code&quot;, &quot;NL - Description&quot;}, #&quot;NL - Lines with Mapping&quot;, {&quot;NL - Code&quot;, &quot;NL - Description&quot;}, &quot;NL - Lines with Mapping&quot;, JoinKind.LeftOuter),
+    #&quot;Expanded NL - Lines with Mapping&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;NL - Lines with Mapping&quot;, {&quot;Expense Line&quot;}, {&quot;Expense Line&quot;})
+in
+    #&quot;Expanded NL - Lines with Mapping&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Table.Combine({#"Jan Payroll", #"Feb Payroll", #"Mar Payroll", #"Apr Payroll", #"May Payroll", #"Jun Payroll", #"Jul Payroll", #"Aug Payroll", #"Sep Payroll", #"Oct Payroll", #"Nov Payroll", #"Dec Payroll"})
+,
+    #"Removed Other Columns" = Table.SelectColumns(Source,{"NL - Code", "NL - Description"}),
+    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"NL - Code", Order.Ascending}}),
+    #"Merged Queries" = Table.NestedJoin(#"Sorted Rows", {"NL - Code", "NL - Description"}, #"NL - Lines with Mapping", {"NL - Code", "NL - Description"}, "NL - Lines with Mapping", JoinKind.LeftOuter),
+    #"Expanded NL - Lines with Mapping" = Table.ExpandTableColumn(#"Merged Queries", "NL - Lines with Mapping", {"Expense Line"}, {"Expense Line"})
+in
+    #"Expanded NL - Lines with Mapping"
+
+</code></pre>
+
+<h3 id="3-add-the-mapped-nl-column-to-the-consolidated-actuals-query">3. Add the Mapped NL column to the Consolidated Actuals Query</h3>
+
+<ul>
+  <li>Now, go back to the ‘<em>Actuals – Payroll (All Lines)</em>’ query created earlier, and add the following Merge operation, to add the one extra column that we needed to:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-17.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Expand the ‘Expense Line’ field, and re-order the ‘<em>Expense Line</em>’ column to a more suitable place, like shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-18.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>When you re-load this query to Excel, it should now the same data as before, but with the extra column, ‘<em>Expense Line</em>’ – that we defined earlier, elsewhere!</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-19.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    #&quot;Consolidated Query&quot; = Table.Combine({#&quot;Jan Payroll&quot;, #&quot;Feb Payroll&quot;, #&quot;Mar Payroll&quot;, #&quot;Apr Payroll&quot;, #&quot;May Payroll&quot;, #&quot;Jun Payroll&quot;, #&quot;Jul Payroll&quot;, #&quot;Aug Payroll&quot;, #&quot;Sep Payroll&quot;, #&quot;Oct Payroll&quot;, #&quot;Nov Payroll&quot;, #&quot;Dec Payroll&quot;}),
+    #&quot;Merged Queries&quot; = Table.NestedJoin(#&quot;Consolidated Query&quot;, {&quot;NL - Code&quot;, &quot;NL - Description&quot;}, #&quot;NL - Lines with Mapping&quot;, {&quot;NL - Code&quot;, &quot;NL - Description&quot;}, &quot;NL - Lines with Mapping&quot;, JoinKind.LeftOuter),
+    #&quot;Expanded NL - Lines with Mapping&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;NL - Lines with Mapping&quot;, {&quot;Expense Line&quot;}, {&quot;Expense Line&quot;}),
+    #&quot;Reordered Columns&quot; = Table.ReorderColumns(#&quot;Expanded NL - Lines with Mapping&quot;,{&quot;Month&quot;, &quot;Employee Code&quot;, &quot;Supplier Reference&quot;, &quot;Company Name&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Business - P&amp;L&quot;, &quot;Business - Department&quot;, &quot;Business - Sub-Department&quot;, &quot;Expense Line&quot;, &quot;NL - Code&quot;, &quot;NL - Description&quot;, &quot;Value&quot;})
+in
+    #&quot;Reordered Columns&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    #"Consolidated Query" = Table.Combine({#"Jan Payroll", #"Feb Payroll", #"Mar Payroll", #"Apr Payroll", #"May Payroll", #"Jun Payroll", #"Jul Payroll", #"Aug Payroll", #"Sep Payroll", #"Oct Payroll", #"Nov Payroll", #"Dec Payroll"}),
+    #"Merged Queries" = Table.NestedJoin(#"Consolidated Query", {"NL - Code", "NL - Description"}, #"NL - Lines with Mapping", {"NL - Code", "NL - Description"}, "NL - Lines with Mapping", JoinKind.LeftOuter),
+    #"Expanded NL - Lines with Mapping" = Table.ExpandTableColumn(#"Merged Queries", "NL - Lines with Mapping", {"Expense Line"}, {"Expense Line"}),
+    #"Reordered Columns" = Table.ReorderColumns(#"Expanded NL - Lines with Mapping",{"Month", "Employee Code", "Supplier Reference", "Company Name", "First Name", "Last Name", "Business - P&amp;L", "Business - Department", "Business - Sub-Department", "Expense Line", "NL - Code", "NL - Description", "Value"})
+in
+    #"Reordered Columns"
+
+</code></pre>
+
+<h3 id="4-transform-the-forecast-data">4. Transform the Forecast data</h3>
+
+<ul>
+  <li>Now to the Forecast data. Load this data into the ETL editor, so it looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-20.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Filter out from Column 1, any rows that have null, or the word ‘<em>Total</em>’</li>
+  <li>Then, promote the top row as Headers</li>
+  <li>Remove the Column with the title ‘<em>Total</em>’</li>
+  <li>Select all columns that do <strong>NOT</strong> have dates in the column heading. Once selected, choose to ‘Unpivot Other Columns’.</li>
+  <li>After unpivoting the data, apply the correct Data Types to each column</li>
+  <li>Call the query: ‘<em>Forecasts – Payroll (Salary Line)</em>’</li>
+  <li>Finally, load the data back to Excel, so it looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-21.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>The final ‘M’ code to the query should look like this:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(){[Name=&quot;Forecast_Salary_Data&quot;]}[Content],
+    #&quot;Filtered Rows&quot; = Table.SelectRows(Source, each ([Column1] &lt;&gt; null and [Column1] &lt;&gt; &quot;Total&quot;)),
+    #&quot;Promoted Headers&quot; = Table.PromoteHeaders(#&quot;Filtered Rows&quot;, [PromoteAllScalars=true]),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Promoted Headers&quot;,{&quot;Total&quot;}),
+    #&quot;Unpivoted Other Columns&quot; = Table.UnpivotOtherColumns(#&quot;Removed Columns&quot;, {&quot;Employee Code&quot;, &quot;Supplier Reference&quot;, &quot;Company Name&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Business - P&amp;L&quot;, &quot;Business - Department&quot;, &quot;Business - Sub-Department&quot;}, &quot;Attribute&quot;, &quot;Value&quot;),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Unpivoted Other Columns&quot;,{{&quot;Attribute&quot;, type datetime}}),
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Changed Type&quot;,{{&quot;Attribute&quot;, &quot;Date&quot;}}),
+    #&quot;Changed Type1&quot; = Table.TransformColumnTypes(#&quot;Renamed Columns&quot;,{{&quot;Date&quot;, type date}, {&quot;Value&quot;, type number}, {&quot;Business - Sub-Department&quot;, type text}, {&quot;Business - Department&quot;, type text}, {&quot;Business - P&amp;L&quot;, type text}, {&quot;Last Name&quot;, type text}, {&quot;First Name&quot;, type text}, {&quot;Company Name&quot;, type text}, {&quot;Supplier Reference&quot;, type text}, {&quot;Employee Code&quot;, type text}})
+in
+    #&quot;Changed Type1&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(){[Name="Forecast_Salary_Data"]}[Content],
+    #"Filtered Rows" = Table.SelectRows(Source, each ([Column1] &lt;&gt; null and [Column1] &lt;&gt; "Total")),
+    #"Promoted Headers" = Table.PromoteHeaders(#"Filtered Rows", [PromoteAllScalars=true]),
+    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Total"}),
+    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Columns", {"Employee Code", "Supplier Reference", "Company Name", "First Name", "Last Name", "Business - P&amp;L", "Business - Department", "Business - Sub-Department"}, "Attribute", "Value"),
+    #"Changed Type" = Table.TransformColumnTypes(#"Unpivoted Other Columns",{{"Attribute", type datetime}}),
+    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Attribute", "Date"}}),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date", type date}, {"Value", type number}, {"Business - Sub-Department", type text}, {"Business - Department", type text}, {"Business - P&amp;L", type text}, {"Last Name", type text}, {"First Name", type text}, {"Company Name", type text}, {"Supplier Reference", type text}, {"Employee Code", type text}})
+in
+    #"Changed Type1"
+
+</code></pre>
+
+<h3 id="5-transform-the-budget-data">5. Transform the Budget data</h3>
+
+<ul>
+  <li>As the input layout is the same, the same steps for transforming the Forecast data can be applied to the Budgeted data</li>
+  <li>Apply the same transformations, and call the query ‘<em>Budget – Payroll (Salary Line)</em>’</li>
+  <li>After loading the transformed data back to Excel, it should look something like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-payroll-tracking-22.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>The final ‘M’ code to the query should look like this:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(){[Name=&quot;Budget_Salary_Data&quot;]}[Content],
+    #&quot;Filtered Rows&quot; = Table.SelectRows(Source, each ([Column1] &lt;&gt; null and [Column1] &lt;&gt; &quot;Total&quot;)),
+    #&quot;Promoted Headers&quot; = Table.PromoteHeaders(#&quot;Filtered Rows&quot;, [PromoteAllScalars=true]),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Promoted Headers&quot;,{&quot;Total&quot;}),
+    #&quot;Unpivoted Other Columns&quot; = Table.UnpivotOtherColumns(#&quot;Removed Columns&quot;, {&quot;Employee Code&quot;, &quot;Supplier Reference&quot;, &quot;Company Name&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Business - P&amp;L&quot;, &quot;Business - Department&quot;, &quot;Business - Sub-Department&quot;}, &quot;Attribute&quot;, &quot;Value&quot;),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Unpivoted Other Columns&quot;,{{&quot;Attribute&quot;, type datetime}}),
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Changed Type&quot;,{{&quot;Attribute&quot;, &quot;Date&quot;}}),
+    #&quot;Changed Type1&quot; = Table.TransformColumnTypes(#&quot;Renamed Columns&quot;,{{&quot;Date&quot;, type date}, {&quot;Value&quot;, type number}, {&quot;Business - Sub-Department&quot;, type text}, {&quot;Business - Department&quot;, type text}, {&quot;Business - P&amp;L&quot;, type text}, {&quot;Last Name&quot;, type text}, {&quot;First Name&quot;, type text}, {&quot;Company Name&quot;, type text}, {&quot;Supplier Reference&quot;, type text}, {&quot;Employee Code&quot;, type text}})
+in
+    #&quot;Changed Type1&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(){[Name="Budget_Salary_Data"]}[Content],
+    #"Filtered Rows" = Table.SelectRows(Source, each ([Column1] &lt;&gt; null and [Column1] &lt;&gt; "Total")),
+    #"Promoted Headers" = Table.PromoteHeaders(#"Filtered Rows", [PromoteAllScalars=true]),
+    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Total"}),
+    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Columns", {"Employee Code", "Supplier Reference", "Company Name", "First Name", "Last Name", "Business - P&amp;L", "Business - Department", "Business - Sub-Department"}, "Attribute", "Value"),
+    #"Changed Type" = Table.TransformColumnTypes(#"Unpivoted Other Columns",{{"Attribute", type datetime}}),
+    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Attribute", "Date"}}),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date", type date}, {"Value", type number}, {"Business - Sub-Department", type text}, {"Business - Department", type text}, {"Business - P&amp;L", type text}, {"Last Name", type text}, {"First Name", type text}, {"Company Name", type text}, {"Supplier Reference", type text}, {"Employee Code", type text}})
+in
+    #"Changed Type1"
+
+</code></pre>
+
+<h3 id="6-compare-budgeted-figures-to-actualforecast-figures--pl-level">6. Compare Budgeted figures to Actual/Forecast figures – P&amp;L level</h3>
+
+<p>Now we have the data in the right formats, it is relatively easy using standard SUMIFS formulae to compare the figures across the 3 datasets, and to then show the variances</p>
+
+<p>We do this at the P&amp;L level, as shown in the picture below:</p>
+
+<p>(For the Budgeted, and Forecast data, estimates for any lines other than ‘Salary’ and ‘Contract Staff’ are done using simple percentages, rather than through an aggregation of amounts at a Unit Level)</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-payroll-tracking-23.png');" src="images/finance-payroll-tracking-23.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<p>For the pink Actuals/Forecast table, we include a switch, so you can set the latest month for which ‘Actuals’ figures are available. Months after this date show only Forecast data, and months on or before this date show Actuals data.</p>
+
+<p>The switch is built into each cell in this table, using the following formula pattern: (the specific formula below is the one applied to the ‘Salary’ line, in the Actuals/Forecast table):</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=IF(
+    T$7 &lt;= $AF$5,
+     SUMIFS(
+          Actuals___Payroll__All_Lines[[Value]:[Value]],
+          Actuals___Payroll__All_Lines[[Month]:[Month]],
+          &#39;Comparison - P&amp;L&#39;!T$7,
+          Actuals___Payroll__All_Lines[[Supplier Reference]:[Supplier Reference]],
+          &quot;Employee&quot;,
+          Actuals___Payroll__All_Lines[[Business - P&amp;L]:[Business - P&amp;L]],
+          &#39;Comparison - P&amp;L&#39;!$S$7,
+          Actuals___Payroll__All_Lines[[Expense Line]:[Expense Line]],
+          &#39;Comparison - P&amp;L&#39;!$S8
+    ),
+    SUMIFS(
+          Forecasts___Payroll__Salary_Line[[Value]:[Value]],
+          Forecasts___Payroll__Salary_Line[[Date]:[Date]],
+          &#39;Comparison - P&amp;L&#39;!T$7,
+          Forecasts___Payroll__Salary_Line[[Supplier Reference]:[Supplier Reference]],
+          &quot;Employee&quot;,
+          Forecasts___Payroll__Salary_Line[[Business - P&amp;L]:[Business - P&amp;L]],
+          &#39;Comparison - P&amp;L&#39;!$S$7
+    )
+)
+">
+  </button>
+</div>
+<pre><code class="language-ms-excel">=IF(
+    T$7 &lt;= $AF$5,
+     SUMIFS(
+          Actuals___Payroll__All_Lines[[Value]:[Value]],
+          Actuals___Payroll__All_Lines[[Month]:[Month]],
+          'Comparison - P&amp;L'!T$7,
+          Actuals___Payroll__All_Lines[[Supplier Reference]:[Supplier Reference]],
+          "Employee",
+          Actuals___Payroll__All_Lines[[Business - P&amp;L]:[Business - P&amp;L]],
+          'Comparison - P&amp;L'!$S$7,
+          Actuals___Payroll__All_Lines[[Expense Line]:[Expense Line]],
+          'Comparison - P&amp;L'!$S8
+    ),
+    SUMIFS(
+          Forecasts___Payroll__Salary_Line[[Value]:[Value]],
+          Forecasts___Payroll__Salary_Line[[Date]:[Date]],
+          'Comparison - P&amp;L'!T$7,
+          Forecasts___Payroll__Salary_Line[[Supplier Reference]:[Supplier Reference]],
+          "Employee",
+          Forecasts___Payroll__Salary_Line[[Business - P&amp;L]:[Business - P&amp;L]],
+          'Comparison - P&amp;L'!$S$7
+    )
+)
+</code></pre>
+
+<p>Finally, we’ve added a variance table to the far right so it’s easy to see the variances for each P&amp;L, for each main line, too.</p>
+
+<h3 id="7-download-excel-file">7. Download Excel File</h3>
+
+<p>You can download the Excel file to see how all the formulae, and switch, work, in more detail here: <a href="https://1drv.ms/x/s!Ahu8OSSAtOMzlkIi2mGu7BBwOiEp?e=Ge2HxA" target="_blank">Payroll - Tracking - Excel File</a></p>
+
+<h3 id="8-compare-budgeted-figures-to-actualforecast-figures--unit-level">8. Compare Budgeted figures to Actual/Forecast figures – Unit level</h3>
+
+<p>Comparing the datasets at a Unit (Person) level is best done through a Data Model. As new Employees or Contract are likely to change (be added or removed) each month, this needs to be done in a more dynamic way.</p>
+
+<p>(You could do this statically with flat tables in an Excel sheet, but this is both error-prone, and very time-consuming to update for any changes – though OLAP Cube formulae that run off an in-built Data Model is one option you could pursue, if, for example, your report needs a very customised layout)</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-payroll-tracking-24.png');" src="images/finance-payroll-tracking-24.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<p>We show you how to do a dynamic comparison, as illustrated in the picture above, in this <em>DAX article:</em> <a href="/../docs/guides/data-analytics/dax-samples/finance-payroll-tracking.html"><strong>Finance - Payroll Tracking</strong></a>.</p>
+
+<p>We hope you found this article useful!</p>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#data-inputs">Data Inputs</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#actual-payroll-data">Actual Payroll Data</a></li>
+<li class="toc-entry toc-h3"><a href="#forecast-data">Forecast Data</a></li>
+<li class="toc-entry toc-h3"><a href="#budgeted-data">Budgeted Data</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#steps">Steps</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-transform-the-actuals-data">1. Transform the Actuals data</a></li>
+<li class="toc-entry toc-h3"><a href="#2-create-a-nominal-ledger-mapping-table">2. Create a Nominal Ledger Mapping Table</a></li>
+<li class="toc-entry toc-h3"><a href="#3-add-the-mapped-nl-column-to-the-consolidated-actuals-query">3. Add the Mapped NL column to the Consolidated Actuals Query</a></li>
+<li class="toc-entry toc-h3"><a href="#4-transform-the-forecast-data">4. Transform the Forecast data</a></li>
+<li class="toc-entry toc-h3"><a href="#5-transform-the-budget-data">5. Transform the Budget data</a></li>
+<li class="toc-entry toc-h3"><a href="#6-compare-budgeted-figures-to-actualforecast-figures--pl-level">6. Compare Budgeted figures to Actual/Forecast figures – P&amp;L level</a></li>
+<li class="toc-entry toc-h3"><a href="#7-download-excel-file">7. Download Excel File</a></li>
+<li class="toc-entry toc-h3"><a href="#8-compare-budgeted-figures-to-actualforecast-figures--unit-level">8. Compare Budgeted figures to Actual/Forecast figures – Unit level</a></li>
+</ul>
+</li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

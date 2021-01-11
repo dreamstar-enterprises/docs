@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Excel Table(s) to MySQL | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/vba/vba.html"><span class="">VBA</span></a></li>
+        <li><a href=/docs/guides/vba/vba-examples/overview.html><span class="">VBA - Examples</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Data Integration</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/data-integration.html">Data Integration</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/word-form-to-excel-table.html">Word Form to Excel Table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-form-to-excel-sheet.html">Excel Form to Excel Sheet</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-form-to-excel-table.html">Excel Form to Excel Table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/mysql-to-excel-table-1.html">MySQL to Excel Table - Ex. 1</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/mysql-to-excel-table-2.html">MySQL to Excel Table - Ex. 2</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/excel-table-to-mysql.html">Excel Table(s) to MySQL</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Automating Tasks & Calculations</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/bulk-refreshing.html">Bulk Refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/adding-data-and-comparing-lists.html">Adding Data & Comparing Lists</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/financial-loan-sheets.html">Financial Loan Sheets</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/locking-sheets.html">Locking Sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Data from External Datasets</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/data-from-quandl.html">Getting Data from Quandl</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Custom Functions</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/custom-vba-functions.html">Custom VBA Functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>WorkBook Navigation</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/creating-a-toc.html">Creating a ToC</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>References</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/vba/vba-examples/useful-links.html">Useful Links</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="excel-tables-to-mysql">Excel Table(s) to MySQL</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • VBA • 11/01/2021</time>
+
+<p>This example sends data from Excel to online SQL database.</p>
+
+<h2 id="screenshots">Screenshots</h2>
+
+<figure>
+    
+        <img class="docimage" src="images/excel-table-to-mysql-01.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>Front Sheet</i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/excel-table-to-mysql-02.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>Monthly Table</i>
+    </figcaption>
+    
+</figure>
+
+<h2 id="vba-module-code---connecting-to-database">VBA Module Code - Connecting to Database</h2>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+Sub sbUpdateMySQL()
+
+If ActiveSheet.ProtectContents = False Then
+    MsgBox &quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;The sheet must be first LOCKED for submission, before records can be SUBMITTED&quot;, vbExclamation, &quot;Please Lock for Submission!&quot;
+    
+Else
+    
+    Dim answer As Integer
+    answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to SUBMIT these records for &quot; &amp; ActiveSheet.Name &amp; &quot; ?&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+
+    &#39;DECLARE VARIABLES&#39;
+        Dim objMyConn As ADODB.Connection
+        Dim objMyCmd As ADODB.Command
+        Dim objMyRecordset As ADODB.Recordset
+
+        Set objMyConn = New ADODB.Connection
+        Set objMyCmd = New ADODB.Command
+        Set objMyRecordset = New ADODB.Recordset
+        
+        Dim SQL As String
+        
+        Dim Int_line As Integer
+        Dim Count As Integer
+        Dim Count2 As Integer
+        Dim Update As Integer
+        Dim Skip As Integer
+        
+        Dim Field0 As String
+        Dim Field1 As String
+        Dim Field2 As String
+        Dim Field3 As String
+        Dim Field4 As String
+        Dim Field5 As String
+        
+        
+    &#39;OPEN CONNECTION
+        objMyConn.Open &quot;DRIVER={MySQL ODBC 5.3 ANSI Driver};&quot; &amp; _
+        &quot;SERVER=sql2.freesqldatabase.com;&quot; &amp; _
+        &quot;DATABASE=sql2208694;&quot; &amp; _
+        &quot;USER=sql2208694;&quot; &amp; _
+        &quot;PASSWORD=kG3!iA3%;&quot; &amp; _
+        &quot;Option=3&quot;
+        
+        Set objMyCmd.ActiveConnection = objMyConn
+        
+        Int_line = 4
+        Count = 0
+        Count2 = 0
+        Skip = 0
+        Update = 0
+        
+        Do While ActiveSheet.Range(&quot;F&quot; &amp; Int_line).Value &lt;&gt; &quot;&quot;
+        
+        Field0 = ActiveSheet.Range(&quot;F&quot; &amp; Int_line).Value
+        Field1 = ActiveSheet.Range(&quot;G&quot; &amp; Int_line).Value
+        Field2 = ActiveSheet.Range(&quot;H&quot; &amp; Int_line).Value
+        Field3 = ActiveSheet.Range(&quot;I&quot; &amp; Int_line).Value
+        Field4 = ActiveSheet.Range(&quot;J&quot; &amp; Int_line).Value
+        Field5 = ActiveSheet.Range(&quot;K&quot; &amp; Int_line).Value
+    
+        &#39;SQL = &quot;INSERT INTO Transactions (Account) SELECT &#39;&quot; &amp; esc(Trim(.Cells(int_line, 6).Value)) &amp; &quot;&#39; &quot;
+        &#39;SQL = SQL &amp; &quot;FROM Transactions WHERE NOT EXISTS (SELECT Account FROM Transactions WHERE Account = &#39;&quot; &amp; esc(Trim(.Cells(int_line, 6).Value)) &amp; &quot;&#39; ) LIMIT 1&quot;
+        
+        SQL = &quot;SELECT * from Transactions where Transaction = &#39;&quot; &amp; Field0 &amp; &quot;&#39; &quot;
+            
+        objMyRecordset.Open SQL, objMyConn, adOpenDynamic, adLockOptimistic
+           
+        If objMyRecordset.EOF &lt;&gt; True And objMyRecordset.BOF &lt;&gt; True Then
+           
+            If Skip &lt;&gt; 1 Then
+           
+                Dim answer2 As Integer
+                answer2 = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Some records already exist for this month!&quot; &amp; Chr(13) &amp; &quot;Do you want to update these records too?&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+                Skip = 1
+                
+                If answer2 = vbYes Then
+                    Count2 = Count2 + 1
+                    Update = 1
+                    objMyRecordset.Update
+        
+                    objMyRecordset.Fields(&quot;Transaction&quot;) = Field0
+                    objMyRecordset.Fields(&quot;Description&quot;) = Field1
+                    objMyRecordset.Fields(&quot;Analysis&quot;) = Field2
+                    objMyRecordset.Fields(&quot;Ref&quot;) = Field3
+                    objMyRecordset.Fields(&quot;Start_date&quot;) = Field4
+                    objMyRecordset.Fields(&quot;Tax_date&quot;) = Field5
+                    objMyRecordset.Fields(&quot;Account&quot;) = &quot;Wunderman&quot;
+        
+                    objMyRecordset.Update
+                    objMyRecordset.Close
+        
+                Else
+                    &#39;Don&#39;t Update Recordset
+                    objMyRecordset.Close
+        
+                End If
+        
+            Else
+            
+                If Update = 1 Then
+                    Count2 = Count2 + 1
+                    objMyRecordset.Update
+        
+                    objMyRecordset.Fields(&quot;Transaction&quot;) = Field0
+                    objMyRecordset.Fields(&quot;Description&quot;) = Field1
+                    objMyRecordset.Fields(&quot;Analysis&quot;) = Field2
+                    objMyRecordset.Fields(&quot;Ref&quot;) = Field3
+                    objMyRecordset.Fields(&quot;Start_date&quot;) = Field4
+                    objMyRecordset.Fields(&quot;Tax_date&quot;) = Field5
+                    objMyRecordset.Fields(&quot;Account&quot;) = &quot;Wunderman&quot;
+        
+                    objMyRecordset.Update
+                    objMyRecordset.Close
+        
+                Else
+                    &#39;Don&#39;t Update Recordset
+                    objMyRecordset.Close
+        
+                End If
+           
+            End If
+        
+        
+        Else
+           
+            objMyRecordset.AddNew
+        
+            objMyRecordset.Fields(&quot;Transaction&quot;) = Field0
+            objMyRecordset.Fields(&quot;Description&quot;) = Field1
+            objMyRecordset.Fields(&quot;Analysis&quot;) = Field2
+            objMyRecordset.Fields(&quot;Ref&quot;) = Field3
+            objMyRecordset.Fields(&quot;Start_date&quot;) = Field4
+            objMyRecordset.Fields(&quot;Tax_date&quot;) = Field5
+            objMyRecordset.Fields(&quot;Account&quot;) = &quot;Wunderman&quot;
+        
+            objMyRecordset.Update
+            objMyRecordset.Close
+            Count = Count + 1
+        
+        End If
+        
+            Int_line = Int_line + 1
+        
+        Loop
+        
+        Range(&quot;A1&quot;).Select
+        MsgBox Count &amp; &quot; New Records were successfully submitted&quot; &amp; Chr(13) &amp; Count2 &amp; &quot; Existing Records were successfully updated&quot;
+        
+        
+        objMyConn.Close
+        &#39;objMyRecordset.Close
+     
+        
+        &#39;ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+        &#39;ActiveSheet.Shapes.Range(Array(&quot;Submit to Database&quot;)).Select
+        &#39;Selection.Delete
+        &#39;ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+
+Else
+    &#39;do nothing
+End If
+
+End If
+
+End Sub
+
+Function esc(txt As String)
+esc = Trim(Replace(txt, &quot;&#39;&quot;, &quot;\&#39;&quot;))
+End Function
+
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">Sub</span> <span class="nf">sbUpdateMySQL</span><span class="p">()</span>
+
+<span class="k">If</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">ProtectContents</span> <span class="o">=</span> <span class="k">False</span> <span class="k">Then</span>
+    <span class="n">MsgBox</span> <span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"The sheet must be first LOCKED for submission, before records can be SUBMITTED"</span><span class="p">,</span> <span class="n">vbExclamation</span><span class="p">,</span> <span class="s">"Please Lock for Submission!"</span>
+    
+<span class="k">Else</span>
+    
+    <span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to SUBMIT these records for "</span> <span class="o">&amp;</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Name</span> <span class="o">&amp;</span> <span class="s">" ?"</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+
+    <span class="c1">'DECLARE VARIABLES'</span>
+        <span class="k">Dim</span> <span class="nv">objMyConn</span> <span class="ow">As</span> <span class="n">ADODB</span><span class="p">.</span><span class="n">Connection</span>
+        <span class="k">Dim</span> <span class="nv">objMyCmd</span> <span class="ow">As</span> <span class="n">ADODB</span><span class="p">.</span><span class="n">Command</span>
+        <span class="k">Dim</span> <span class="nv">objMyRecordset</span> <span class="ow">As</span> <span class="n">ADODB</span><span class="p">.</span><span class="n">Recordset</span>
+
+        <span class="k">Set</span> <span class="n">objMyConn</span> <span class="o">=</span> <span class="k">New</span> <span class="n">ADODB</span><span class="p">.</span><span class="n">Connection</span>
+        <span class="k">Set</span> <span class="n">objMyCmd</span> <span class="o">=</span> <span class="k">New</span> <span class="n">ADODB</span><span class="p">.</span><span class="n">Command</span>
+        <span class="k">Set</span> <span class="n">objMyRecordset</span> <span class="o">=</span> <span class="k">New</span> <span class="n">ADODB</span><span class="p">.</span><span class="n">Recordset</span>
+        
+        <span class="k">Dim</span> <span class="nv">SQL</span> <span class="ow">As</span> <span class="kt">String</span>
+        
+        <span class="k">Dim</span> <span class="nv">Int_line</span> <span class="ow">As</span> <span class="kt">Integer</span>
+        <span class="k">Dim</span> <span class="nv">Count</span> <span class="ow">As</span> <span class="kt">Integer</span>
+        <span class="k">Dim</span> <span class="nv">Count2</span> <span class="ow">As</span> <span class="kt">Integer</span>
+        <span class="k">Dim</span> <span class="nv">Update</span> <span class="ow">As</span> <span class="kt">Integer</span>
+        <span class="k">Dim</span> <span class="nv">Skip</span> <span class="ow">As</span> <span class="kt">Integer</span>
+        
+        <span class="k">Dim</span> <span class="nv">Field0</span> <span class="ow">As</span> <span class="kt">String</span>
+        <span class="k">Dim</span> <span class="nv">Field1</span> <span class="ow">As</span> <span class="kt">String</span>
+        <span class="k">Dim</span> <span class="nv">Field2</span> <span class="ow">As</span> <span class="kt">String</span>
+        <span class="k">Dim</span> <span class="nv">Field3</span> <span class="ow">As</span> <span class="kt">String</span>
+        <span class="k">Dim</span> <span class="nv">Field4</span> <span class="ow">As</span> <span class="kt">String</span>
+        <span class="k">Dim</span> <span class="nv">Field5</span> <span class="ow">As</span> <span class="kt">String</span>
+        
+        
+    <span class="c1">'OPEN CONNECTION</span>
+        <span class="n">objMyConn</span><span class="p">.</span><span class="n">Open</span> <span class="s">"DRIVER={MySQL ODBC 5.3 ANSI Driver};"</span> <span class="o">&amp;</span> <span class="n">_</span>
+        <span class="s">"SERVER=sql2.freesqldatabase.com;"</span> <span class="o">&amp;</span> <span class="n">_</span>
+        <span class="s">"DATABASE=sql2208694;"</span> <span class="o">&amp;</span> <span class="n">_</span>
+        <span class="s">"USER=sql2208694;"</span> <span class="o">&amp;</span> <span class="n">_</span>
+        <span class="s">"PASSWORD=kG3!iA3%;"</span> <span class="o">&amp;</span> <span class="n">_</span>
+        <span class="s">"Option=3"</span>
+        
+        <span class="k">Set</span> <span class="n">objMyCmd</span><span class="p">.</span><span class="n">ActiveConnection</span> <span class="o">=</span> <span class="n">objMyConn</span>
+        
+        <span class="n">Int_line</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">Count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">Count2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">Skip</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">Update</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">Do</span> <span class="k">While</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"F"</span> <span class="o">&amp;</span> <span class="n">Int_line</span><span class="p">).</span><span class="n">Value</span> <span class="o">&lt;&gt;</span> <span class="s">""</span>
+        
+        <span class="n">Field0</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"F"</span> <span class="o">&amp;</span> <span class="n">Int_line</span><span class="p">).</span><span class="n">Value</span>
+        <span class="n">Field1</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"G"</span> <span class="o">&amp;</span> <span class="n">Int_line</span><span class="p">).</span><span class="n">Value</span>
+        <span class="n">Field2</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"H"</span> <span class="o">&amp;</span> <span class="n">Int_line</span><span class="p">).</span><span class="n">Value</span>
+        <span class="n">Field3</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"I"</span> <span class="o">&amp;</span> <span class="n">Int_line</span><span class="p">).</span><span class="n">Value</span>
+        <span class="n">Field4</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"J"</span> <span class="o">&amp;</span> <span class="n">Int_line</span><span class="p">).</span><span class="n">Value</span>
+        <span class="n">Field5</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="s">"K"</span> <span class="o">&amp;</span> <span class="n">Int_line</span><span class="p">).</span><span class="n">Value</span>
+    
+        <span class="c1">'SQL = "INSERT INTO Transactions (Account) SELECT '" &amp; esc(Trim(.Cells(int_line, 6).Value)) &amp; "' "</span>
+        <span class="c1">'SQL = SQL &amp; "FROM Transactions WHERE NOT EXISTS (SELECT Account FROM Transactions WHERE Account = '" &amp; esc(Trim(.Cells(int_line, 6).Value)) &amp; "' ) LIMIT 1"</span>
+        
+        <span class="n">SQL</span> <span class="o">=</span> <span class="s">"SELECT * from Transactions where Transaction = '"</span> <span class="o">&amp;</span> <span class="n">Field0</span> <span class="o">&amp;</span> <span class="s">"' "</span>
+            
+        <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Open</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">objMyConn</span><span class="p">,</span> <span class="n">adOpenDynamic</span><span class="p">,</span> <span class="n">adLockOptimistic</span>
+           
+        <span class="k">If</span> <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">EOF</span> <span class="o">&lt;&gt;</span> <span class="k">True</span> <span class="ow">And</span> <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">BOF</span> <span class="o">&lt;&gt;</span> <span class="k">True</span> <span class="k">Then</span>
+           
+            <span class="k">If</span> <span class="n">Skip</span> <span class="o">&lt;&gt;</span> <span class="mi">1</span> <span class="k">Then</span>
+           
+                <span class="k">Dim</span> <span class="nv">answer2</span> <span class="ow">As</span> <span class="kt">Integer</span>
+                <span class="n">answer2</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Some records already exist for this month!"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Do you want to update these records too?"</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+                <span class="n">Skip</span> <span class="o">=</span> <span class="mi">1</span>
+                
+                <span class="k">If</span> <span class="n">answer2</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+                    <span class="n">Count2</span> <span class="o">=</span> <span class="n">Count2</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="n">Update</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Update</span>
+        
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Transaction"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field0</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Description"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field1</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Analysis"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field2</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Ref"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field3</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Start_date"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field4</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Tax_date"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field5</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Account"</span><span class="p">)</span> <span class="o">=</span> <span class="s">"Wunderman"</span>
+        
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Update</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Close</span>
+        
+                <span class="k">Else</span>
+                    <span class="c1">'Don't Update Recordset</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Close</span>
+        
+                <span class="k">End</span> <span class="k">If</span>
+        
+            <span class="k">Else</span>
+            
+                <span class="k">If</span> <span class="n">Update</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">Then</span>
+                    <span class="n">Count2</span> <span class="o">=</span> <span class="n">Count2</span> <span class="o">+</span> <span class="mi">1</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Update</span>
+        
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Transaction"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field0</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Description"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field1</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Analysis"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field2</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Ref"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field3</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Start_date"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field4</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Tax_date"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field5</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Account"</span><span class="p">)</span> <span class="o">=</span> <span class="s">"Wunderman"</span>
+        
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Update</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Close</span>
+        
+                <span class="k">Else</span>
+                    <span class="c1">'Don't Update Recordset</span>
+                    <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Close</span>
+        
+                <span class="k">End</span> <span class="k">If</span>
+           
+            <span class="k">End</span> <span class="k">If</span>
+        
+        
+        <span class="k">Else</span>
+           
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">AddNew</span>
+        
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Transaction"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field0</span>
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Description"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field1</span>
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Analysis"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field2</span>
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Ref"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field3</span>
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Start_date"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field4</span>
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Tax_date"</span><span class="p">)</span> <span class="o">=</span> <span class="n">Field5</span>
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Fields</span><span class="p">(</span><span class="s">"Account"</span><span class="p">)</span> <span class="o">=</span> <span class="s">"Wunderman"</span>
+        
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Update</span>
+            <span class="n">objMyRecordset</span><span class="p">.</span><span class="n">Close</span>
+            <span class="n">Count</span> <span class="o">=</span> <span class="n">Count</span> <span class="o">+</span> <span class="mi">1</span>
+        
+        <span class="k">End</span> <span class="k">If</span>
+        
+            <span class="n">Int_line</span> <span class="o">=</span> <span class="n">Int_line</span> <span class="o">+</span> <span class="mi">1</span>
+        
+        <span class="k">Loop</span>
+        
+        <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+        <span class="n">MsgBox</span> <span class="n">Count</span> <span class="o">&amp;</span> <span class="s">" New Records were successfully submitted"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Count2</span> <span class="o">&amp;</span> <span class="s">" Existing Records were successfully updated"</span>
+        
+        
+        <span class="n">objMyConn</span><span class="p">.</span><span class="n">Close</span>
+        <span class="c1">'objMyRecordset.Close</span>
+     
+        
+        <span class="c1">'ActiveSheet.Unprotect "007050609WunderRockPossible"</span>
+        <span class="c1">'ActiveSheet.Shapes.Range(Array("Submit to Database")).Select</span>
+        <span class="c1">'Selection.Delete</span>
+        <span class="c1">'ActiveSheet.Protect "007050609WunderRockPossible", True, True</span>
+
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Function</span> <span class="nf">esc</span><span class="p">(</span><span class="n">txt</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span>
+<span class="n">esc</span> <span class="o">=</span> <span class="n">Trim</span><span class="p">(</span><span class="n">Replace</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s">"'"</span><span class="p">,</span> <span class="s">"\'"</span><span class="p">))</span>
+<span class="k">End</span> <span class="k">Function</span>
+
+</code></pre></div></div>
+
+<h2 id="vba-module-code---locking-sheets">VBA Module Code - Locking Sheets</h2>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+Sub sbProtectSheetJan()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for January?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;C6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Jan&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;January&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+       
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetFeb()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for February?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;D6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Feb&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;February&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+     
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetMar()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for March?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;E6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Mar&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;March&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+   
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+Sub sbProtectSheetApr()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for April?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;F6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Apr&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;April&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetMay()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for May?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;G6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;May&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;May&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+    
+Else
+    &#39;do nothing
+End If
+
+End Sub
+    
+    
+
+Sub sbProtectSheetJun()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for June?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;H6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Jun&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;June&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+      
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetJul()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for July?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;I6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Jul&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;July&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+      
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetAug()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for August?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;J6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Aug&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;August&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+    
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetSep()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for September?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;K6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Sep&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;September&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+    
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetOct()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for October?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;L6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Oct&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;October&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+ 
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetNov()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for November?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;M6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Nov&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;November&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+
+
+Sub sbProtectSheetDec()
+
+Dim answer As Integer
+answer = MsgBox(&quot;NOTE:&quot; &amp; Chr(13) &amp; &quot;Are you sure you want to LOCK the submission for December?&quot; &amp; Chr(13) &amp; &quot;You will not be able to unlock the submission after this step.&quot;, vbYesNo + vbQuestion, &quot;Please Confirm!&quot;)
+
+If answer = vbYes Then
+ 
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Summary&quot;).Select
+    ActiveSheet.Unprotect &quot;007050609WunderRockPossible&quot;
+    
+    Range(&quot;N6&quot;).Select
+    ActiveCell.FormulaR1C1 = &quot;ü&quot;
+    
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    
+    Selection.Font.Size = 14
+    
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent6
+        .TintAndShade = 0.799981688894314
+        .PatternTintAndShade = 0
+    End With
+    
+    ActiveSheet.Protect &quot;007050609WunderRockPossible&quot;, True, True
+    
+    Sheets(&quot;Dec&quot;).Select
+    Range(&quot;A1&quot;).Select
+    MsgBox &quot;December&#39;s data has been successfully LOCKED for submission&quot; &amp; Chr(13) &amp; &quot;These records can now be SUBMITTED&quot;, vbInformation, &quot;Successfully Locked&quot;
+        
+Else
+    &#39;do nothing
+End If
+
+End Sub
+
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">Sub</span> <span class="nf">sbProtectSheetJan</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for January?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"C6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Jan"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"January's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+       
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetFeb</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for February?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"D6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Feb"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"February's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+     
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetMar</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for March?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"E6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Mar"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"March's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+   
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetApr</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for April?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"F6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Apr"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"April's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetMay</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for May?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"G6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"May"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"May's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+    
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+    
+    
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetJun</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for June?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"H6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Jun"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"June's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+      
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetJul</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for July?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"I6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Jul"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"July's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+      
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetAug</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for August?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"J6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Aug"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"August's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+    
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetSep</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for September?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"K6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Sep"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"September's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+    
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetOct</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for October?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"L6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Oct"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"October's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+ 
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetNov</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for November?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"M6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Nov"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"November's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+
+
+<span class="k">Sub</span> <span class="nf">sbProtectSheetDec</span><span class="p">()</span>
+
+<span class="k">Dim</span> <span class="nv">answer</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"NOTE:"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"Are you sure you want to LOCK the submission for December?"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"You will not be able to unlock the submission after this step."</span><span class="p">,</span> <span class="n">vbYesNo</span> <span class="o">+</span> <span class="n">vbQuestion</span><span class="p">,</span> <span class="s">"Please Confirm!"</span><span class="p">)</span>
+
+<span class="k">If</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">vbYes</span> <span class="k">Then</span>
+ 
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Summary"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Unprotect</span> <span class="s">"007050609WunderRockPossible"</span>
+    
+    <span class="n">Range</span><span class="p">(</span><span class="s">"N6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">ActiveCell</span><span class="p">.</span><span class="n">FormulaR1C1</span> <span class="o">=</span> <span class="s">"ü"</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span>
+        <span class="p">.</span><span class="n">HorizontalAlignment</span> <span class="o">=</span> <span class="n">xlCenter</span>
+        <span class="p">.</span><span class="n">VerticalAlignment</span> <span class="o">=</span> <span class="n">xlBottom</span>
+        <span class="p">.</span><span class="n">WrapText</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">Orientation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">AddIndent</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">IndentLevel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">ShrinkToFit</span> <span class="o">=</span> <span class="k">False</span>
+        <span class="p">.</span><span class="n">ReadingOrder</span> <span class="o">=</span> <span class="n">xlContext</span>
+        <span class="p">.</span><span class="n">MergeCells</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">14</span>
+    
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlSolid</span>
+        <span class="p">.</span><span class="n">PatternColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">ThemeColor</span> <span class="o">=</span> <span class="n">xlThemeColorAccent6</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mf">0.799981688894314</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    
+    <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Protect</span> <span class="s">"007050609WunderRockPossible"</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">True</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"Dec"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A1"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">MsgBox</span> <span class="s">"December's data has been successfully LOCKED for submission"</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">"These records can now be SUBMITTED"</span><span class="p">,</span> <span class="n">vbInformation</span><span class="p">,</span> <span class="s">"Successfully Locked"</span>
+        
+<span class="k">Else</span>
+    <span class="c1">'do nothing</span>
+<span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+</code></pre></div></div>
+
+<h2 id="download">Download</h2>
+
+<p>The full file can be downloaded here:</p>
+
+<p><a href="https://1drv.ms/x/s!Ahu8OSSAtOMzmAtcCex-FMSilfuG?e=k66ZLx" target="_blank">VBA - Excel Table to MySQL (xlsm)</a></p>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#screenshots">Screenshots</a></li>
+<li class="toc-entry toc-h2"><a href="#vba-module-code---connecting-to-database">VBA Module Code - Connecting to Database</a></li>
+<li class="toc-entry toc-h2"><a href="#vba-module-code---locking-sheets">VBA Module Code - Locking Sheets</a></li>
+<li class="toc-entry toc-h2"><a href="#download">Download</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

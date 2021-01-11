@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Bulk refreshing workbooks | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-integration-and-etl/etl.html"><span class="">Data Integration & ETL</span></a></li>
+        <li><a href=/docs/guides/data-integration-and-etl/starting-with-etl/overview.html><span class="">Starting with ETL</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Data Tables</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-stats.html">Grouping tables (Summary Statistics)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rd.html">Grouping tables (Row Details)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-duplicates.html">Grouping tables (Duplicates)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rankings.html">Grouping tables (Rankings)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-multi-single.html">Grouping tables (Multi to Single row)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cross-joining-tables.html">Cross-Joining tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/transition-tables.html">Using Transition tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/self-referencing-tables.html">Using Self-Referencing tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-table-headings.html">Renaming table headings</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Pivoting Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/queries-with-pivot-tables.html">Queries as a Pivot Table data source</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data.html">Pivoting text data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data-adv.html">Pivoting text data (advanced)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-multiple-measures.html">Pivoting on multiple measures</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-data-validation.html">Pivoting data to enable validation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Filtering Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-rows-m.html">Dynamically filtering rows with 'M'</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-duplicate-rows.html">Removing duplicate rows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-using-lists.html">Filtering data with list inputs</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Transforming Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/reordering-columns.html">Re-ordering columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-columns.html">Removing columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-columns.html">Renaming columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/splitting-columns.html">Splitting columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/merging-columns.html">Merging columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/changing-data-types.html">Changing Data Types</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Conditional Logic</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/conditional-columns.html">Creating conditional columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/logical-operators.html">Applying OR, AND, and SWITCH logic</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/nesting-operators.html">Nesting conditional & logical operators</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Functions & Parameters</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/excel-parameters-pq.html">Excel parameters in Power Query</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/custom-functions.html">Custom functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/parameter-tables.html">Parameter tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/recursive-functions.html">Recursive functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/running-total.html">Running Total functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Calendar Tables & Dates</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/date-table.html">Generating a Date table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/554-calendar.html">Creating a 554 calendar</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/monthly-weekly-budget.html">Monthly to weekly budget</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filling-dates.html">Filling in dates</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Single File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf.html">Importing data from a pdf</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf-new.html">Importing data from a pdf - new</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/first-sheet.html">Importing the first sheet in a workbook</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/latest-version.html">Loading the latest version of a file</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-sheets.html">Combining workbook sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Multiple File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks-function.html">Combining a single sheet across workbooks (with function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks.html">Combining a single sheet across workbooks (no function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/multiple-sheets-workbooks.html">Combining multiple sheets across workbooks</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Getting Network / Web Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/web-weather-data.html">Web weather data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/one-drive-personal.html">One-Drive Personal</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Practical Applications</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/new-lost-returning-customers.html">New, lost, and returning customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/distinct-customers.html">Number of distinct customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/stock-price-thresholds.html">Stock price thresholds</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/percentage-shares.html">Calculating percentage shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/tied-ranks.html">Calculating tied ranks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/growth-percentages.html">Growth percentages from previous days</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/comparing-records.html">Comparing database records</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Human Resourcing</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-onboarding.html">HR - On-boarding</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-table.html">HR - Inventory Movements & Tenure</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-utilisation-table.html">HR - Inventory Utilisation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Finance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-daily-cashflows.html">Finance - Daily Cashflows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-payroll-tracking.html">Finance - Payroll Tracking</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-profitability.html">Finance - Client Profitability</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-debtors.html">Finance - Debtors</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Quality Checking & Maintenance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/bulk-refreshing.html">Bulk refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/auditing-tool.html">Creating an Auditing tool</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cleaning-data.html">Cleaning data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/error-handling.html">Error Handling</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Query Design</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/best-practices.html">ETL Best Practices</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/shaping-vs-modelling.html">Shaping vs Modelling</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/query-folding.html">Query Folding</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="bulk-refreshing-workbooks">Bulk refreshing workbooks</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 25/02/2018</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>There are several ways of refreshing workbooks automatically on a schedule. For example:</p>
+
+<ol class="numbered-list">
+  <li>Power BI</li>
+  <li>Using SharePoint Auto Refresh</li>
+  <li>Using some sort of custom-built desktop automation tool</li>
+</ol>
+
+<h2 id="current-problems-with-power-bi-and-sharepoint">Current problems with Power BI, and SharePoint</h2>
+
+<p>The problem with Power BI is that you need to have a subscription for every user that wants to consume the reports – and it is not cheap! SharePoint is a good solution if you have SharePoint Enterprise and you want to share your files in SharePoint. Many people don’t have access to SharePoint and/or need to refresh files for distribution in other ways. So that leaves option 3 – desktop automation.</p>
+
+<h2 id="bulk-workbook-refreshing">Bulk workbook refreshing</h2>
+<h3 id="1-how-the-refresh-process-works">1. How the refresh process works</h3>
+
+<p>This solution is semi-automatic – that is, it needs human intervention to kick off the process. The process, as it currently stands, is to…</p>
+
+<ol class="numbered-list">
+  <li>Open the bulk refresh reporting tool workbook.</li>
+  <li>Select which folders you want to refresh</li>
+  <li>Press the “refresh” button</li>
+</ol>
+
+<p>The tool then systematically works through each file in the selected folder(s) and opens, refreshes, saves and closes the file. At the end of the process, you get a report of which workbooks were refreshed, and how long each one took to complete.</p>
+
+<h3 id="2-how-to-prepare-to-use-the-tool">2. How to prepare to use the tool</h3>
+
+<ul>
+  <li>The first thing to do is create a clean folder somewhere. It can be a folder on a shared network drive, or simply a folder on the local PC containing the VBA workbook.</li>
+  <li>Then create sub folders for every class of document you need to refresh on a different cycle. Here we have used time periods, but you can use anything that makes sense to your business needs.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/bulk-refreshing-1.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>Then place the workbooks in the appropriate subfolders.</p>
+
+<h3 id="3-open-the-refresh-tool">3. Open the refresh tool</h3>
+
+<p>You can download a copy of the report refresh tool here » <a href="files/report-refresh-tool.xlsm">Report Refresh Tool</a></p>
+
+<ul>
+  <li>Open the Refresh Tool Workbook and update the setup data on the right hand side so that it points to your main folder. You can also specify a filename wildcard descriptor if needed.</li>
+</ul>
+
+<p>Note the full path of the refresh folder in cell <strong><em>J1</em></strong> and the file pattern in cell <strong><em>J2</em></strong>.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/bulk-refreshing-2.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>The next thing to do is click on the button <em>“Update File List”</em>. You will see the table on the left-hand side refreshes with the sub folders and file names (see example below). (Column C is hidden, but contains the full file path)</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/bulk-refreshing-3.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now you need to manually add the names, <em>“Daily”</em>, <em>“Weekly”</em>, <em>“Monthly”</em>, etc., to the column <em>“Refresh Frequency”</em>. This is a “one off” setup task. Once you have done this you are all set to go!</li>
+  <li>You can manually add more files to this list (don’t forget to add the full file path though to Column C!)</li>
+</ul>
+
+<h3 id="4-how-to-operate-the-tool">4. How to operate the tool</h3>
+
+<p>The process for refreshing the workbooks is as follows:</p>
+
+<ol class="numbered-list">
+  <li>Open the auto refresh workbook</li>
+  <li>In the table on the right-hand side, place an ‘x’ against the folders you want to refresh</li>
+  <li>Click on the button <em>‘Refresh Selected Reports’</em> and go and get a coffee!</li>
+</ol>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+Although there is no direct integration between Power Query and VBA, Power Query connections can be refreshed using VBA in the same way as any other Excel connection. Using <em>ActiveWorkbook.Connections (“Power Query - QueryName”)</em>, in an Excel macro will refresh an individual query and <em>ActiveWorkbook. RefreshAll</em> will refresh all connections in a workbook.</p>
+</div>
+
+<h3 id="5-vba-code">5. VBA code</h3>
+
+<p>Finally, here is the VBA code used for the several macros used across the report refresh tool.</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Sub RefreshAll()
+    RefreshFiles
+End Sub
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Sub</span> <span class="nf">RefreshAll</span><span class="p">()</span>
+    <span class="n">RefreshFiles</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div></div>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Sub UpdateFileList()
+    ListAllFolders
+    FileLister
+End Sub
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Sub</span> <span class="nf">UpdateFileList</span><span class="p">()</span>
+    <span class="n">ListAllFolders</span>
+    <span class="n">FileLister</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div></div>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Sub FileLister()
+    Dim X As String
+    Dim myDir As String
+    Dim Y As Integer
+    Dim myFileSystem As Object
+    Dim myFileObject As Object
+    Dim myFreq As Variant
+    Dim myPattern As String
+    Application.ScreenUpdating = False
+    
+    Set myFileSystem = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+
+    Sheets(&quot;files&quot;).Activate
+    Range(&quot;B1&quot;).CurrentRegion.Offset(1, 0).Clear
+    Range(&quot;B2&quot;).Select
+    myPattern = Range(&quot;Pattern&quot;).Value
+    
+    Sheets(&quot;folders&quot;).Activate
+    Range(&quot;b6&quot;).Select
+    
+    While Selection.Value &lt;&gt; &quot;&quot;
+        myDir = Selection.Value
+        myFile = myDir &amp; myPattern
+        Sheets(&quot;files&quot;).Activate
+    On Error GoTo noFiles:
+        X = Dir(myFile, 2)
+        Do Until X = &quot;&quot;
+            myFreq = Split(myDir, &quot;\&quot;)
+            Selection.Value = myFreq(UBound(myFreq) - 1)
+            Selection.Offset(0, 1).Value = myDir
+            Selection.Offset(0, 2).Value = X
+            Set myFileObject = myFileSystem.Getfile(myDir &amp; X)
+            Selection.Offset(0, 3).Value = myFileObject.Size
+            Selection.Offset(0, 3).NumberFormat = &quot;#,##0&quot;
+            Selection.Offset(0, 4).Value = myFileObject.DateLastModified
+            Selection.Offset(1, 0).Select
+            X = Dir
+        Loop
+noFiles:
+        Sheets(&quot;folders&quot;).Activate
+        Selection.Offset(1, 0).Select
+    Wend
+ExitHere:
+Set myFileSystem = Nothing
+Set myFileObject = Nothing
+Sheets(&quot;files&quot;).Activate
+Application.ScreenUpdating = True
+End Sub
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Sub</span> <span class="nf">FileLister</span><span class="p">()</span>
+    <span class="k">Dim</span> <span class="nv">X</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="k">Dim</span> <span class="nv">myDir</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="k">Dim</span> <span class="nv">Y</span> <span class="ow">As</span> <span class="kt">Integer</span>
+    <span class="k">Dim</span> <span class="nv">myFileSystem</span> <span class="ow">As</span> <span class="kt">Object</span>
+    <span class="k">Dim</span> <span class="nv">myFileObject</span> <span class="ow">As</span> <span class="kt">Object</span>
+    <span class="k">Dim</span> <span class="nv">myFreq</span> <span class="ow">As</span> <span class="kt">Variant</span>
+    <span class="k">Dim</span> <span class="nv">myPattern</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="n">Application</span><span class="p">.</span><span class="n">ScreenUpdating</span> <span class="o">=</span> <span class="k">False</span>
+    
+    <span class="k">Set</span> <span class="n">myFileSystem</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Scripting.FileSystemObject"</span><span class="p">)</span>
+
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"files"</span><span class="p">).</span><span class="n">Activate</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"B1"</span><span class="p">).</span><span class="n">CurrentRegion</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">Clear</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"B2"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="n">myPattern</span> <span class="o">=</span> <span class="n">Range</span><span class="p">(</span><span class="s">"Pattern"</span><span class="p">).</span><span class="n">Value</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"folders"</span><span class="p">).</span><span class="n">Activate</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"b6"</span><span class="p">).</span><span class="n">Select</span>
+    
+    <span class="k">While</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Value</span> <span class="o">&lt;&gt;</span> <span class="s">""</span>
+        <span class="n">myDir</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Value</span>
+        <span class="n">myFile</span> <span class="o">=</span> <span class="n">myDir</span> <span class="o">&amp;</span> <span class="n">myPattern</span>
+        <span class="n">Sheets</span><span class="p">(</span><span class="s">"files"</span><span class="p">).</span><span class="n">Activate</span>
+    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="n">noFiles</span><span class="p">:</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">Dir</span><span class="p">(</span><span class="n">myFile</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">Do</span> <span class="n">Until</span> <span class="n">X</span> <span class="o">=</span> <span class="s">""</span>
+            <span class="n">myFreq</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="n">myDir</span><span class="p">,</span> <span class="s">"\"</span><span class="p">)</span>
+            <span class="n">Selection</span><span class="p">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">myFreq</span><span class="p">(</span><span class="n">UBound</span><span class="p">(</span><span class="n">myFreq</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">myDir</span>
+            <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">X</span>
+            <span class="k">Set</span> <span class="n">myFileObject</span> <span class="o">=</span> <span class="n">myFileSystem</span><span class="p">.</span><span class="n">Getfile</span><span class="p">(</span><span class="n">myDir</span> <span class="o">&amp;</span> <span class="n">X</span><span class="p">)</span>
+            <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">myFileObject</span><span class="p">.</span><span class="n">Size</span>
+            <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">NumberFormat</span> <span class="o">=</span> <span class="s">"#,##0"</span>
+            <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">myFileObject</span><span class="p">.</span><span class="n">DateLastModified</span>
+            <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">Select</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">Dir</span>
+        <span class="k">Loop</span>
+<span class="n">noFiles</span><span class="p">:</span>
+        <span class="n">Sheets</span><span class="p">(</span><span class="s">"folders"</span><span class="p">).</span><span class="n">Activate</span>
+        <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">Select</span>
+    <span class="k">Wend</span>
+<span class="n">ExitHere</span><span class="p">:</span>
+<span class="k">Set</span> <span class="n">myFileSystem</span> <span class="o">=</span> <span class="k">Nothing</span>
+<span class="k">Set</span> <span class="n">myFileObject</span> <span class="o">=</span> <span class="k">Nothing</span>
+<span class="n">Sheets</span><span class="p">(</span><span class="s">"files"</span><span class="p">).</span><span class="n">Activate</span>
+<span class="n">Application</span><span class="p">.</span><span class="n">ScreenUpdating</span> <span class="o">=</span> <span class="k">True</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div></div>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Sub ListAllFolders()
+    Dim X As Integer
+    Dim myDir As String
+    
+    Application.ScreenUpdating = False
+    myDir = Range(&quot;StartFolder&quot;).Value
+   
+    If myDir = &quot;&quot; Then
+        X = MsgBox(&quot;Enter a start folder in cell &quot; &amp; Range(&quot;startfolder&quot;).Address, vbOKOnly)
+        GoTo ExitHere:
+    End If
+    
+    Sheets(&quot;folders&quot;).Activate
+    Range(&quot;b6&quot;).CurrentRegion.Clear
+    
+    If Right(myDir, 1) &lt;&gt; &quot;\&quot; Then myDir = myDir &amp; &quot;\&quot;
+    Range(&quot;b6&quot;).Select
+    On Error GoTo Error:
+    ListFolders (myDir)
+    GoTo ExitHere:
+Error:
+    X = MsgBox(&quot;Invalid Folder Name&quot;, vbOKOnly)
+ExitHere:
+    Sheets(&quot;files&quot;).Activate
+    Range(&quot;StartFolder&quot;).Value = myDir
+    Application.ScreenUpdating = True
+End Sub
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Sub</span> <span class="nf">ListAllFolders</span><span class="p">()</span>
+    <span class="k">Dim</span> <span class="nv">X</span> <span class="ow">As</span> <span class="kt">Integer</span>
+    <span class="k">Dim</span> <span class="nv">myDir</span> <span class="ow">As</span> <span class="kt">String</span>
+    
+    <span class="n">Application</span><span class="p">.</span><span class="n">ScreenUpdating</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="n">myDir</span> <span class="o">=</span> <span class="n">Range</span><span class="p">(</span><span class="s">"StartFolder"</span><span class="p">).</span><span class="n">Value</span>
+   
+    <span class="k">If</span> <span class="n">myDir</span> <span class="o">=</span> <span class="s">""</span> <span class="k">Then</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"Enter a start folder in cell "</span> <span class="o">&amp;</span> <span class="n">Range</span><span class="p">(</span><span class="s">"startfolder"</span><span class="p">).</span><span class="n">Address</span><span class="p">,</span> <span class="n">vbOKOnly</span><span class="p">)</span>
+        <span class="k">GoTo</span> <span class="n">ExitHere</span><span class="p">:</span>
+    <span class="k">End</span> <span class="k">If</span>
+    
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"folders"</span><span class="p">).</span><span class="n">Activate</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"b6"</span><span class="p">).</span><span class="n">CurrentRegion</span><span class="p">.</span><span class="n">Clear</span>
+    
+    <span class="k">If</span> <span class="n">Right</span><span class="p">(</span><span class="n">myDir</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="s">"\"</span> <span class="k">Then</span> <span class="n">myDir</span> <span class="o">=</span> <span class="n">myDir</span> <span class="o">&amp;</span> <span class="s">"\"</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"b6"</span><span class="p">).</span><span class="n">Select</span>
+    <span class="k">On</span> <span class="k">Error</span> <span class="k">GoTo</span> <span class="k">Error</span><span class="p">:</span>
+    <span class="n">ListFolders</span> <span class="p">(</span><span class="n">myDir</span><span class="p">)</span>
+    <span class="k">GoTo</span> <span class="n">ExitHere</span><span class="p">:</span>
+<span class="k">Error</span><span class="p">:</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"Invalid Folder Name"</span><span class="p">,</span> <span class="n">vbOKOnly</span><span class="p">)</span>
+<span class="n">ExitHere</span><span class="p">:</span>
+    <span class="n">Sheets</span><span class="p">(</span><span class="s">"files"</span><span class="p">).</span><span class="n">Activate</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"StartFolder"</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">myDir</span>
+    <span class="n">Application</span><span class="p">.</span><span class="n">ScreenUpdating</span> <span class="o">=</span> <span class="k">True</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div></div>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Sub ListFolders(myDir)
+    Dim FS, f, f1, fc, s
+    If myDir = Empty Then GoTo ExitHere:
+    Set FS = CreateObject(&quot;Scripting.FileSystemObject&quot;)
+    Set f = FS.GetFolder(myDir)
+    Set fc = f.SubFolders
+    
+    For Each f1 In fc
+        Selection.Value = myDir &amp; f1.Name &amp; &quot;\&quot;
+        Selection.Offset(1, 0).Select
+    Next
+ExitHere:
+    Set FS = Nothing
+    Set f = Nothing
+    Set fc = Nothing
+End Sub
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Sub</span> <span class="nf">ListFolders</span><span class="p">(</span><span class="n">myDir</span><span class="p">)</span>
+    <span class="k">Dim</span> <span class="nv">FS</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">s</span>
+    <span class="k">If</span> <span class="n">myDir</span> <span class="o">=</span> <span class="n">Empty</span> <span class="k">Then</span> <span class="k">GoTo</span> <span class="n">ExitHere</span><span class="p">:</span>
+    <span class="k">Set</span> <span class="n">FS</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Scripting.FileSystemObject"</span><span class="p">)</span>
+    <span class="k">Set</span> <span class="n">f</span> <span class="o">=</span> <span class="n">FS</span><span class="p">.</span><span class="n">GetFolder</span><span class="p">(</span><span class="n">myDir</span><span class="p">)</span>
+    <span class="k">Set</span> <span class="n">fc</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">SubFolders</span>
+    
+    <span class="k">For</span> <span class="k">Each</span> <span class="n">f1</span> <span class="ow">In</span> <span class="n">fc</span>
+        <span class="n">Selection</span><span class="p">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">myDir</span> <span class="o">&amp;</span> <span class="n">f1</span><span class="p">.</span><span class="n">Name</span> <span class="o">&amp;</span> <span class="s">"\"</span>
+        <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">Select</span>
+    <span class="k">Next</span>
+<span class="n">ExitHere</span><span class="p">:</span>
+    <span class="k">Set</span> <span class="n">FS</span> <span class="o">=</span> <span class="k">Nothing</span>
+    <span class="k">Set</span> <span class="n">f</span> <span class="o">=</span> <span class="k">Nothing</span>
+    <span class="k">Set</span> <span class="n">fc</span> <span class="o">=</span> <span class="k">Nothing</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div></div>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: VBA">VBA</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Sub RefreshFiles()
+    Dim tbRef As Object
+    Dim myFile As String
+    Dim toDo As Collection
+    Dim myStart As Date
+
+    Set tbRef = ActiveSheet.ListObjects(&quot;table2&quot;)
+    Application.DisplayAlerts = False
+    
+    &#39;create to do list
+    Set toDo = New Collection
+    Intersect(tbRef.ListRows(1).Range, tbRef.ListColumns(1).Range).Select
+    
+    While Selection &lt;&gt; &quot;&quot;
+        If UCase(Selection.Offset(0, 1)) = &quot;X&quot; Then
+            toDo.Add (Selection.Value)
+        End If
+        Selection.Offset(1, 0).Select
+    Wend
+    
+    &#39;execute todo list
+    Range(&quot;A2&quot;).Select
+    
+    While Selection &lt;&gt; &quot;&quot;
+        For Each Item In toDo
+            If Selection.Value = Item Then
+                myFile = Selection.Offset(0, 2) &amp; Selection.Offset(0, 3)
+                myStart = Now()
+                Workbooks.Open Filename:=myFile
+                Application.DeferAsyncQueries = True
+                ActiveWorkbook.RefreshAll
+                &#39;Application.CalculateUntilAsyncQueriesDone
+                Application.DeferAsyncQueries = False
+                DoEvents
+                ActiveWorkbook.Save
+                ActiveWorkbook.Close
+                Selection.Offset(0, 5).Value = Now
+                Selection.Offset(0, 6).Value = &quot;Done&quot;
+                Selection.Offset(0, 7).Value = Now() - myStart
+                Selection.Offset(0, 7).NumberFormat = &quot;hh:mm:ss&quot;
+                MsgBox (&quot;waiting 2 seconds&quot;)
+            End If
+        Next Item
+        Selection.Offset(1, 0).Select
+        
+    Wend
+    Set toDo = Nothing
+    Set tbRef = Nothing
+    Application.DisplayAlerts = True
+End Sub
+">
+  </button>
+</div>
+<div class="language-vb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Sub</span> <span class="nf">RefreshFiles</span><span class="p">()</span>
+    <span class="k">Dim</span> <span class="nv">tbRef</span> <span class="ow">As</span> <span class="kt">Object</span>
+    <span class="k">Dim</span> <span class="nv">myFile</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="k">Dim</span> <span class="nv">toDo</span> <span class="ow">As</span> <span class="n">Collection</span>
+    <span class="k">Dim</span> <span class="nv">myStart</span> <span class="ow">As</span> <span class="kt">Date</span>
+
+    <span class="k">Set</span> <span class="n">tbRef</span> <span class="o">=</span> <span class="n">ActiveSheet</span><span class="p">.</span><span class="n">ListObjects</span><span class="p">(</span><span class="s">"table2"</span><span class="p">)</span>
+    <span class="n">Application</span><span class="p">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="k">False</span>
+    
+    <span class="c1">'create to do list</span>
+    <span class="k">Set</span> <span class="n">toDo</span> <span class="o">=</span> <span class="k">New</span> <span class="n">Collection</span>
+    <span class="n">Intersect</span><span class="p">(</span><span class="n">tbRef</span><span class="p">.</span><span class="n">ListRows</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">,</span> <span class="n">tbRef</span><span class="p">.</span><span class="n">ListColumns</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">Range</span><span class="p">).</span><span class="n">Select</span>
+    
+    <span class="k">While</span> <span class="n">Selection</span> <span class="o">&lt;&gt;</span> <span class="s">""</span>
+        <span class="k">If</span> <span class="n">UCase</span><span class="p">(</span><span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="s">"X"</span> <span class="k">Then</span>
+            <span class="n">toDo</span><span class="p">.</span><span class="n">Add</span> <span class="p">(</span><span class="n">Selection</span><span class="p">.</span><span class="n">Value</span><span class="p">)</span>
+        <span class="k">End</span> <span class="k">If</span>
+        <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">Select</span>
+    <span class="k">Wend</span>
+    
+    <span class="c1">'execute todo list</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">"A2"</span><span class="p">).</span><span class="n">Select</span>
+    
+    <span class="k">While</span> <span class="n">Selection</span> <span class="o">&lt;&gt;</span> <span class="s">""</span>
+        <span class="k">For</span> <span class="k">Each</span> <span class="n">Item</span> <span class="ow">In</span> <span class="n">toDo</span>
+            <span class="k">If</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">Item</span> <span class="k">Then</span>
+                <span class="n">myFile</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+                <span class="n">myStart</span> <span class="o">=</span> <span class="n">Now</span><span class="p">()</span>
+                <span class="n">Workbooks</span><span class="p">.</span><span class="n">Open</span> <span class="n">Filename</span><span class="p">:</span><span class="o">=</span><span class="n">myFile</span>
+                <span class="n">Application</span><span class="p">.</span><span class="n">DeferAsyncQueries</span> <span class="o">=</span> <span class="k">True</span>
+                <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">RefreshAll</span>
+                <span class="c1">'Application.CalculateUntilAsyncQueriesDone</span>
+                <span class="n">Application</span><span class="p">.</span><span class="n">DeferAsyncQueries</span> <span class="o">=</span> <span class="k">False</span>
+                <span class="n">DoEvents</span>
+                <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">Save</span>
+                <span class="n">ActiveWorkbook</span><span class="p">.</span><span class="n">Close</span>
+                <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">Now</span>
+                <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">"Done"</span>
+                <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="n">Now</span><span class="p">()</span> <span class="o">-</span> <span class="n">myStart</span>
+                <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">).</span><span class="n">NumberFormat</span> <span class="o">=</span> <span class="s">"hh:mm:ss"</span>
+                <span class="n">MsgBox</span> <span class="p">(</span><span class="s">"waiting 2 seconds"</span><span class="p">)</span>
+            <span class="k">End</span> <span class="k">If</span>
+        <span class="k">Next</span> <span class="n">Item</span>
+        <span class="n">Selection</span><span class="p">.</span><span class="n">Offset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">Select</span>
+        
+    <span class="k">Wend</span>
+    <span class="k">Set</span> <span class="n">toDo</span> <span class="o">=</span> <span class="k">Nothing</span>
+    <span class="k">Set</span> <span class="n">tbRef</span> <span class="o">=</span> <span class="k">Nothing</span>
+    <span class="n">Application</span><span class="p">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="k">True</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></div></div>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#current-problems-with-power-bi-and-sharepoint">Current problems with Power BI, and SharePoint</a></li>
+<li class="toc-entry toc-h2"><a href="#bulk-workbook-refreshing">Bulk workbook refreshing</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-how-the-refresh-process-works">1. How the refresh process works</a></li>
+<li class="toc-entry toc-h3"><a href="#2-how-to-prepare-to-use-the-tool">2. How to prepare to use the tool</a></li>
+<li class="toc-entry toc-h3"><a href="#3-open-the-refresh-tool">3. Open the refresh tool</a></li>
+<li class="toc-entry toc-h3"><a href="#4-how-to-operate-the-tool">4. How to operate the tool</a></li>
+<li class="toc-entry toc-h3"><a href="#5-vba-code">5. VBA code</a></li>
+</ul>
+</li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

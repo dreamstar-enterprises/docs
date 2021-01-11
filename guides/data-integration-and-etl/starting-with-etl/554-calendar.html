@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Creating a 554 Calendar | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-integration-and-etl/etl.html"><span class="">Data Integration & ETL</span></a></li>
+        <li><a href=/docs/guides/data-integration-and-etl/starting-with-etl/overview.html><span class="">Starting with ETL</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Data Tables</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-stats.html">Grouping tables (Summary Statistics)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rd.html">Grouping tables (Row Details)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-duplicates.html">Grouping tables (Duplicates)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rankings.html">Grouping tables (Rankings)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-multi-single.html">Grouping tables (Multi to Single row)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cross-joining-tables.html">Cross-Joining tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/transition-tables.html">Using Transition tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/self-referencing-tables.html">Using Self-Referencing tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-table-headings.html">Renaming table headings</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Pivoting Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/queries-with-pivot-tables.html">Queries as a Pivot Table data source</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data.html">Pivoting text data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data-adv.html">Pivoting text data (advanced)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-multiple-measures.html">Pivoting on multiple measures</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-data-validation.html">Pivoting data to enable validation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Filtering Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-rows-m.html">Dynamically filtering rows with 'M'</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-duplicate-rows.html">Removing duplicate rows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-using-lists.html">Filtering data with list inputs</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Transforming Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/reordering-columns.html">Re-ordering columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-columns.html">Removing columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-columns.html">Renaming columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/splitting-columns.html">Splitting columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/merging-columns.html">Merging columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/changing-data-types.html">Changing Data Types</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Conditional Logic</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/conditional-columns.html">Creating conditional columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/logical-operators.html">Applying OR, AND, and SWITCH logic</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/nesting-operators.html">Nesting conditional & logical operators</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Functions & Parameters</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/excel-parameters-pq.html">Excel parameters in Power Query</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/custom-functions.html">Custom functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/parameter-tables.html">Parameter tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/recursive-functions.html">Recursive functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/running-total.html">Running Total functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Calendar Tables & Dates</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/date-table.html">Generating a Date table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/554-calendar.html">Creating a 554 calendar</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/monthly-weekly-budget.html">Monthly to weekly budget</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filling-dates.html">Filling in dates</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Single File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf.html">Importing data from a pdf</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf-new.html">Importing data from a pdf - new</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/first-sheet.html">Importing the first sheet in a workbook</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/latest-version.html">Loading the latest version of a file</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-sheets.html">Combining workbook sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Multiple File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks-function.html">Combining a single sheet across workbooks (with function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks.html">Combining a single sheet across workbooks (no function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/multiple-sheets-workbooks.html">Combining multiple sheets across workbooks</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Getting Network / Web Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/web-weather-data.html">Web weather data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/one-drive-personal.html">One-Drive Personal</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Practical Applications</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/new-lost-returning-customers.html">New, lost, and returning customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/distinct-customers.html">Number of distinct customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/stock-price-thresholds.html">Stock price thresholds</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/percentage-shares.html">Calculating percentage shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/tied-ranks.html">Calculating tied ranks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/growth-percentages.html">Growth percentages from previous days</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/comparing-records.html">Comparing database records</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Human Resourcing</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-onboarding.html">HR - On-boarding</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-table.html">HR - Inventory Movements & Tenure</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-utilisation-table.html">HR - Inventory Utilisation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Finance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-daily-cashflows.html">Finance - Daily Cashflows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-payroll-tracking.html">Finance - Payroll Tracking</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-profitability.html">Finance - Client Profitability</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-debtors.html">Finance - Debtors</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Quality Checking & Maintenance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/bulk-refreshing.html">Bulk refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/auditing-tool.html">Creating an Auditing tool</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cleaning-data.html">Cleaning data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/error-handling.html">Error Handling</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Query Design</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/best-practices.html">ETL Best Practices</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/shaping-vs-modelling.html">Shaping vs Modelling</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/query-folding.html">Query Folding</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="creating-a-554-calendar">Creating a 554 Calendar</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 25/02/2018</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>Many companies do not use a standard calendar but instead use a 445 calendar (or variants of this). This is especially the case in the Retail Industry.</p>
+
+<p>Differences in such Calendars can include:</p>
+
+<ol class="numbered-list">
+  <li>What month you start the financial year in.</li>
+  <li>What day of the week you start the week in.</li>
+  <li>365 divided by 7 = 52 + 1 day remainder - different companies handle the extra day in different ways.</li>
+</ol>
+
+<p>Here is one example.</p>
+
+<p>The rules of this particular calendar are that:</p>
+
+<ol class="numbered-list">
+  <li>The first day of the financial year is the <strong>Monday</strong> <em>closest</em> to 1 January.</li>
+  <li>The number of weeks each month are in the pattern 544 (5 for January, 4 for February, 4 for March) and then repeats.</li>
+  <li>The calendar weeks, months and years mirror the financial data.</li>
+</ol>
+
+<h2 id="steps">Steps</h2>
+
+<p>In this article, we explain how to create such a calendar table.</p>
+
+<div class="alert alert-warning alerts-font" role="alert">
+  <p><i class="fa fa-warning"></i> <b>Important: </b>
+Due to the build-up of extra days over leap years, the method can produce invalid results for Calendar Tables that are more than <strong><em>4 years long in duration</em></strong>. For example, Calendar tables, longer than this, can sometimes result in 53 weeks in the 5th year, invalidating the 544 model (which assumes a 52 week year). The Calendar Table in such a case should be re-built (every 4 years). Later in this article we explain how to do this, with a function.</p>
+
+  <p>In this article, we work towards building a Scenario case, of Calendar Table that is <strong><em>3 years (or 1096 days)</em></strong> long in duration.</p>
+</div>
+
+<h3 id="1-create-a-list-of-dates">1. Create a List of Dates</h3>
+
+<ul>
+  <li><strong>Add a list of dates</strong> making sure that the date added is the first day of the financial year.</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = List.Dates(#date(2019,12,30), 1096, #duration(1,0,0,0))
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">    = List.Dates(#date(2019,12,30), 1096, #duration(1,0,0,0))
+</code></pre>
+
+<ul>
+  <li>Convert it to a Table, and rename the column to <em>‘Dates’</em></li>
+  <li>Then add an ID column, with the index starting from 1.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-1.png" alt="" style="width: 100%; max-width: 59.3%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="2-create-a-week-id-column">2. Create a Week ID column</h3>
+
+<p>The next step needs an understanding of the 544 pattern. The 544 pattern follows a 13-week cycle, so each week needs a unique ID to map the weeks into the correct months.</p>
+
+<ul>
+  <li>Using the <em>RoundUp</em> function used above: divide the original ID number by 7 and round up. This will give a unique number for each week across the entire calendar</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-2.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="3-create-a-financial-week-column">3. Create a Financial Week column</h3>
+
+<ul>
+  <li>Create a <em>Fin Week</em> column using the following formula.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-3.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="4-create-a-week-of-quarter-column">4. Create a Week of Quarter column</h3>
+
+<ul>
+  <li>Create a <em>Week of Quarter</em> column. This one repeats from 1 to 13 and then starts again.</li>
+</ul>
+
+<p>This formula is a little different in that counts 1 through 13 and then restarts at 1 again.  In the first 13-week period it subtracts 0 x 13 from the WeekID (leaving the numbers 1 through 13 for the week numbers.  In the second batch of 13 weeks it subtracts 1 x 13 = 13 from the <em>WeekID</em> numbers, so instead of 14 through 26, it returns 14 subtract 13 through 26 subtract 13, which is 1 through 13 again. The pattern then repeats.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-4.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="5-create-a-year-id-column">5. Create a Year ID column</h3>
+
+<ul>
+  <li>Insert a <em>Year ID</em> column (1 for the first year, 2 for the second year etc.). To do this, divide the WeekID column by 52 and round up, so that every 52 weeks gets its own year number.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-5.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>The 53rd week becomes the “second year” – which should also start on a Monday.</p>
+
+<h3 id="6-create-a-financial-year-column">6. Create a Financial Year column</h3>
+
+<p>With a year reference included, you can now create the <em>Fin Year</em> column.</p>
+
+<ul>
+  <li>Use the starting date as shown above, (2019 in this case), convert it to a Year, and then add the <em>YearID</em>. The first calendar year starts at 2020, so the year of the starting date plus the value of the <em>YearID</em> equals to the Financial Year.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-6.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="7-create-a-month-id-column">7. Create a Month ID column</h3>
+
+<p>Refer to the Week of Quarter Column above. This column has numbers from 1 through 13, then starts again for the second quarter and so on. Using this column, you know that weeks: 1, 2, 3, 4, 5 are in the first month, 6, 7, 8, 9, are in the second month, and 10, 11, 12, 13 are in the third month – the same applies for every quarter.</p>
+
+<p>So, add a column and put an IF statement that basically looks at weeks 1, 2, 3, 4, 5 in the quarter only – and then one that looks at weeks 6, 7, 8, 9, and then another that looks at weeks 10, 11, 12, 13. Then add a 1, 2, or 3, accordingly, to the (WeekID divided by 13) less 1, times 3.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-7.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="8-create-a-financial-month-column">8. Create a Financial Month column</h3>
+
+<p>With the <em>MonthID</em> in place, create a <em>Fin Month</em> column. This is very similar to creating the <em>Week of Quarter</em> column, just using different values.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-8.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="9-create-a-month-name-column">9. Create a Month Name column</h3>
+
+<p>Once you have the month number (which is the same as the calendar number in this case), you can create the month names.  Here, the year and day don’t matter as you only need to extract the month name.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-9.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="10-create-a-month-name-column">10. Create a Month Name column</h3>
+
+<p>Lastly, add a Day Name column</p>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-10.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="11-turn-the-query-into-a-function">11. Turn the Query into a function</h3>
+
+<p>To do this,</p>
+<ul>
+  <li>Take a <strong>copy of the query</strong> (by right clicking on it in the left-hand-side query pane, and selecting ‘Duplicate)</li>
+  <li>Turn this <strong>new copy</strong> into a function, by modifying the code as follows:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let myCalendar = (YearStartDate as date) =&gt;
+    let
+        Source = List.Dates(YearStartDate, 1096, #duration(1,0,0,0) ),
+        #&quot;Converted to Table&quot; = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+        #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Converted to Table&quot;,{{&quot;Column1&quot;, &quot;Dates&quot;}}),
+        #&quot;Added Index&quot; = Table.AddIndexColumn(#&quot;Renamed Columns&quot;, &quot;ID&quot;, 1, 1, Int64.Type),
+        #&quot;Added Custom&quot; = Table.AddColumn(#&quot;Added Index&quot;, &quot;WeekID&quot;, each Number.RoundUp([ID]/7)),
+        #&quot;Added Custom1&quot; = Table.AddColumn(#&quot;Added Custom&quot;, &quot;Fin Week&quot;, each [WeekID] - (Number.RoundUp([WeekID]/52) - 1) * 52),
+        #&quot;Added Custom2&quot; = Table.AddColumn(#&quot;Added Custom1&quot;, &quot;Week of Quarter&quot;, each [WeekID] - (Number.RoundUp([WeekID]/13) - 1) * 13),
+        #&quot;Added Custom3&quot; = Table.AddColumn(#&quot;Added Custom2&quot;, &quot;YearID&quot;, each Number.RoundUp([WeekID]/52)),
+        #&quot;Added Custom4&quot; = Table.AddColumn(#&quot;Added Custom3&quot;, &quot;Fin Year&quot;, each Date.Year(#date(2019,12,30)) + [YearID]),
+        #&quot;Added Custom5&quot; = Table.AddColumn(#&quot;Added Custom4&quot;, &quot;MonthID&quot;, each if ([Week of Quarter] &gt;=1 and [Week of Quarter] &lt;=5)
+            then ((Number.RoundUp([WeekID]/13)-1)*3)+1
+            else if ([Week of Quarter] &gt;=6 and [Week of Quarter] &lt;=9)
+            then ((Number.RoundUp([WeekID]/13)-1)*3)+2
+            else if ([Week of Quarter] &gt;=10 and [Week of Quarter] &lt;=13)
+            then ((Number.RoundUp([WeekID]/13)-1)*3)+3
+            else null),
+        #&quot;Added Custom6&quot; = Table.AddColumn(#&quot;Added Custom5&quot;, &quot;Fin Month&quot;, each [MonthID] - (Number.RoundUp([MonthID]/12) - 1) * 12),
+        #&quot;Added Custom7&quot; = Table.AddColumn(#&quot;Added Custom6&quot;, &quot;Month Name&quot;, each Date.ToText(#date([Fin Year], [Fin Month],1), &quot;MMM&quot;)),
+        #&quot;Added Custom8&quot; = Table.AddColumn(#&quot;Added Custom7&quot;, &quot;Day Name&quot;, each Date.ToText([Dates], &quot;ddd&quot;))
+    in
+        #&quot;Added Custom8&quot;
+in
+    myCalendar
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let myCalendar = (YearStartDate as date) =&gt;
+    let
+        Source = List.Dates(YearStartDate, 1096, #duration(1,0,0,0) ),
+        #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+        #"Renamed Columns" = Table.RenameColumns(#"Converted to Table",{{"Column1", "Dates"}}),
+        #"Added Index" = Table.AddIndexColumn(#"Renamed Columns", "ID", 1, 1, Int64.Type),
+        #"Added Custom" = Table.AddColumn(#"Added Index", "WeekID", each Number.RoundUp([ID]/7)),
+        #"Added Custom1" = Table.AddColumn(#"Added Custom", "Fin Week", each [WeekID] - (Number.RoundUp([WeekID]/52) - 1) * 52),
+        #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Week of Quarter", each [WeekID] - (Number.RoundUp([WeekID]/13) - 1) * 13),
+        #"Added Custom3" = Table.AddColumn(#"Added Custom2", "YearID", each Number.RoundUp([WeekID]/52)),
+        #"Added Custom4" = Table.AddColumn(#"Added Custom3", "Fin Year", each Date.Year(#date(2019,12,30)) + [YearID]),
+        #"Added Custom5" = Table.AddColumn(#"Added Custom4", "MonthID", each if ([Week of Quarter] &gt;=1 and [Week of Quarter] &lt;=5)
+            then ((Number.RoundUp([WeekID]/13)-1)*3)+1
+            else if ([Week of Quarter] &gt;=6 and [Week of Quarter] &lt;=9)
+            then ((Number.RoundUp([WeekID]/13)-1)*3)+2
+            else if ([Week of Quarter] &gt;=10 and [Week of Quarter] &lt;=13)
+            then ((Number.RoundUp([WeekID]/13)-1)*3)+3
+            else null),
+        #"Added Custom6" = Table.AddColumn(#"Added Custom5", "Fin Month", each [MonthID] - (Number.RoundUp([MonthID]/12) - 1) * 12),
+        #"Added Custom7" = Table.AddColumn(#"Added Custom6", "Month Name", each Date.ToText(#date([Fin Year], [Fin Month],1), "MMM")),
+        #"Added Custom8" = Table.AddColumn(#"Added Custom7", "Day Name", each Date.ToText([Dates], "ddd"))
+    in
+        #"Added Custom8"
+in
+    myCalendar
+
+</code></pre>
+
+<p>After you save the function, you get the Invoke Function screen:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-11.png" alt="" style="width: 100%; max-width: 52.7%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>Press the Invoke button and you get prompted for a date.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-12.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>Choose for example, the date, 02/01/2023 (the closest Monday to the 1st of January 2023). Press OK, and the Calendar Table will automatically be generated for the next 1096 days!</p>
+
+<h3 id="12-make-a-weekly-calendar">12. Make a Weekly Calendar</h3>
+
+<p>For every Calendar Table generated, a weekly calendar can also be created</p>
+
+<p>To do this:</p>
+
+<ul>
+  <li>Create a reference to the Calendar Table, like so:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-13.png" alt="" style="width: 100%; max-width: 52.7%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Edit this new query to filter out all dates except Sundays (the last day of the week).</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-14.png" alt="" style="width: 100%; max-width: 52.7%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>Finally,</p>
+<ul>
+  <li>Remove the <em>‘Day Name’</em> column, as it is no longer needed</li>
+  <li>Rename the <em>‘Dates’</em> Column to be called <em>‘Week Ending’</em></li>
+  <li>Remove the <em>‘ID’</em> column (it now reads 7, 14, 21 etc.)</li>
+</ul>
+
+<p>The Weekly Calendar Table should now look something like this…</p>
+
+<figure>
+    
+        <img class="docimage" src="images/554-calendar-15.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#steps">Steps</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-create-a-list-of-dates">1. Create a List of Dates</a></li>
+<li class="toc-entry toc-h3"><a href="#2-create-a-week-id-column">2. Create a Week ID column</a></li>
+<li class="toc-entry toc-h3"><a href="#3-create-a-financial-week-column">3. Create a Financial Week column</a></li>
+<li class="toc-entry toc-h3"><a href="#4-create-a-week-of-quarter-column">4. Create a Week of Quarter column</a></li>
+<li class="toc-entry toc-h3"><a href="#5-create-a-year-id-column">5. Create a Year ID column</a></li>
+<li class="toc-entry toc-h3"><a href="#6-create-a-financial-year-column">6. Create a Financial Year column</a></li>
+<li class="toc-entry toc-h3"><a href="#7-create-a-month-id-column">7. Create a Month ID column</a></li>
+<li class="toc-entry toc-h3"><a href="#8-create-a-financial-month-column">8. Create a Financial Month column</a></li>
+<li class="toc-entry toc-h3"><a href="#9-create-a-month-name-column">9. Create a Month Name column</a></li>
+<li class="toc-entry toc-h3"><a href="#10-create-a-month-name-column">10. Create a Month Name column</a></li>
+<li class="toc-entry toc-h3"><a href="#11-turn-the-query-into-a-function">11. Turn the Query into a function</a></li>
+<li class="toc-entry toc-h3"><a href="#12-make-a-weekly-calendar">12. Make a Weekly Calendar</a></li>
+</ul>
+</li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

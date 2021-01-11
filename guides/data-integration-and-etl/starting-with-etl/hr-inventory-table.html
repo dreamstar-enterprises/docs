@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>HR - Inventory Movements & Tenure | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-integration-and-etl/etl.html"><span class="">Data Integration & ETL</span></a></li>
+        <li><a href=/docs/guides/data-integration-and-etl/starting-with-etl/overview.html><span class="">Starting with ETL</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Data Tables</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-stats.html">Grouping tables (Summary Statistics)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rd.html">Grouping tables (Row Details)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-duplicates.html">Grouping tables (Duplicates)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rankings.html">Grouping tables (Rankings)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-multi-single.html">Grouping tables (Multi to Single row)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cross-joining-tables.html">Cross-Joining tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/transition-tables.html">Using Transition tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/self-referencing-tables.html">Using Self-Referencing tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-table-headings.html">Renaming table headings</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Pivoting Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/queries-with-pivot-tables.html">Queries as a Pivot Table data source</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data.html">Pivoting text data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data-adv.html">Pivoting text data (advanced)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-multiple-measures.html">Pivoting on multiple measures</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-data-validation.html">Pivoting data to enable validation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Filtering Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-rows-m.html">Dynamically filtering rows with 'M'</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-duplicate-rows.html">Removing duplicate rows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-using-lists.html">Filtering data with list inputs</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Transforming Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/reordering-columns.html">Re-ordering columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-columns.html">Removing columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-columns.html">Renaming columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/splitting-columns.html">Splitting columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/merging-columns.html">Merging columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/changing-data-types.html">Changing Data Types</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Conditional Logic</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/conditional-columns.html">Creating conditional columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/logical-operators.html">Applying OR, AND, and SWITCH logic</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/nesting-operators.html">Nesting conditional & logical operators</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Functions & Parameters</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/excel-parameters-pq.html">Excel parameters in Power Query</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/custom-functions.html">Custom functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/parameter-tables.html">Parameter tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/recursive-functions.html">Recursive functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/running-total.html">Running Total functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Calendar Tables & Dates</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/date-table.html">Generating a Date table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/554-calendar.html">Creating a 554 calendar</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/monthly-weekly-budget.html">Monthly to weekly budget</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filling-dates.html">Filling in dates</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Single File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf.html">Importing data from a pdf</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf-new.html">Importing data from a pdf - new</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/first-sheet.html">Importing the first sheet in a workbook</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/latest-version.html">Loading the latest version of a file</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-sheets.html">Combining workbook sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Multiple File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks-function.html">Combining a single sheet across workbooks (with function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks.html">Combining a single sheet across workbooks (no function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/multiple-sheets-workbooks.html">Combining multiple sheets across workbooks</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Getting Network / Web Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/web-weather-data.html">Web weather data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/one-drive-personal.html">One-Drive Personal</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Practical Applications</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/new-lost-returning-customers.html">New, lost, and returning customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/distinct-customers.html">Number of distinct customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/stock-price-thresholds.html">Stock price thresholds</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/percentage-shares.html">Calculating percentage shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/tied-ranks.html">Calculating tied ranks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/growth-percentages.html">Growth percentages from previous days</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/comparing-records.html">Comparing database records</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Human Resourcing</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-onboarding.html">HR - On-boarding</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-table.html">HR - Inventory Movements & Tenure</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-utilisation-table.html">HR - Inventory Utilisation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Finance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-daily-cashflows.html">Finance - Daily Cashflows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-payroll-tracking.html">Finance - Payroll Tracking</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-profitability.html">Finance - Client Profitability</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-debtors.html">Finance - Debtors</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Quality Checking & Maintenance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/bulk-refreshing.html">Bulk refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/auditing-tool.html">Creating an Auditing tool</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cleaning-data.html">Cleaning data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/error-handling.html">Error Handling</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Query Design</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/best-practices.html">ETL Best Practices</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/shaping-vs-modelling.html">Shaping vs Modelling</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/query-folding.html">Query Folding</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="hr---inventory-movements--tenure">HR - Inventory Movements &amp; Tenure</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 25/02/2018</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>In this example, let’s say your work in the HR department of a company. You need to show to your wider team, and your bosses, what staff movements have taken place in the workforce. You realise that in order to show this, you need to create an Inventory Management Table!</p>
+
+<p>You have so far been able to obtain following HR data (something you got from your H.R. ERP).</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-1.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>You see that every time an Employee’s Country, Office, Department, Job Grade, or Full or Part Time status changes, a new entry is created. This is needed so you can see each important change to an Employee’s profile. (Sadly, not many H.R. driven ERPs can record even this detail, but let’s assume that the one you have, can!) - (You could even optionally add <em>Salary</em> here too, as an extra field to track, if you wanted to!)</p>
+
+<p>Before an Inventory Movement table can be created (your end goal!), you need to transform the data as it stands above, into something else, that will allow you to quickly, and accurately determine:</p>
+
+<ol>
+  <li>Whether a Employee change (in Country, Department, Job Grade, etc.) is Internal or External to the company</li>
+  <li>What each Employee’s Total Running Tenure is – up to the end of a particular month, or the current date</li>
+  <li>What an Employee’s exact Profile was (in Country, Department, Job Grade, etc.) at a particular point in time (e.g. a particular Month, or Quarter)</li>
+</ol>
+
+<p>To get the data into the right form, a series of intermediary tranformations, and data tables need to be undertaken, and created first. This article explains how to do this, tackling each of the above points, one by one:</p>
+
+<h2 id="is-an-employee-movement-an-internal-or-external-change">Is an Employee Movement an Internal or External Change?</h2>
+<h3 id="1-load-data-into-power-query">1. Load Data into Power Query</h3>
+
+<ul>
+  <li>Starting with the data you have (assuming it is in the above format), import it into Power Query</li>
+</ul>
+
+<p>When loaded, it should look something like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-2.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="2-group-data--add-index-columns">2. Group Data &amp; Add Index Columns</h3>
+
+<ul>
+  <li>Group the table with the following settings:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-3.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Click OK, and then add the following three Custom Columns. These are different index columns that start from 1, 0, and 2</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-4.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-5.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-6.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>The data should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-7.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Remove all columns except for the ‘User ID’, and ‘Index 3’ columns</li>
+  <li>Expand all the fields from the ‘Index 3’ column</li>
+  <li>You should now have 3 Index columns that look as follows:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-8.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="3-replace-any-nulls-in-the-end-date-column">3. Replace any nulls in the End Date Column</h3>
+
+<ul>
+  <li>Use the following ‘M’ code to replace any blanks in the End Date column, with the date 31/12/9998:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.ReplaceValue(#&quot;Expanded Index 3&quot;,null,#datetime(9998, 12, 31, 0, 0, 0),Replacer.ReplaceValue,{&quot;End Date&quot;})
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.ReplaceValue(#"Expanded Index 3",null,#datetime(9998, 12, 31, 0, 0, 0),Replacer.ReplaceValue,{"End Date"})
+</code></pre>
+
+<h3 id="4-merge-index-columns-to-retrieve-previous-and-next-dates">4. Merge Index Columns to retrieve Previous and Next Dates</h3>
+
+<ul>
+  <li>Merge the Query with itself, using the ‘Previous’ and ‘Record’ columns (and ‘User ID’ column, not shown), like shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-9.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Extract the ‘End Date’ field from the new Merged column and call it ‘Previous End Date’. The Data should now look something like:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-10.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Do a similar Merge with the ‘Next’ and ‘Record’ columns (and ‘User ID’ columns, now shown), like shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-11.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Extract the ‘Start Date’ field from the new Merged column and call it ‘Next Start Date’. The Data should now look something like:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-12.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Sort the records, by ‘User ID’ and then ‘Start Date’, as the previous Merge operations may have changed the order of the records</li>
+  <li>Remove the ‘Previous’ and ‘Next’ columns as they are now no longer needed</li>
+</ul>
+
+<h3 id="5-replace-any-nulls-in-the-previous-end-date-and-next-start-date">5. Replace any nulls in the Previous End Date and Next Start Date</h3>
+
+<ul>
+  <li>Use the following ‘M’ code to replace any blanks in the Previous End Date column, with the date 01/01/1900</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.ReplaceValue(#&quot;Removed Index Columns&quot;,null,#datetime(1900, 1, 1, 0, 0, 0),Replacer.ReplaceValue,{&quot;Previous End Date&quot;})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.ReplaceValue(#"Removed Index Columns",null,#datetime(1900, 1, 1, 0, 0, 0),Replacer.ReplaceValue,{"Previous End Date"})
+
+</code></pre>
+
+<ul>
+  <li>Use the following ‘M’ code to replace any blanks in the Next Start Date column, with the date 31/12/9999</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.ReplaceValue(#&quot;Fill Blank Previous End Dates&quot;,null,#datetime(9999, 12, 31, 0, 0, 0),Replacer.ReplaceValue,{&quot;Next Start Date&quot;})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.ReplaceValue(#"Fill Blank Previous End Dates",null,#datetime(9999, 12, 31, 0, 0, 0),Replacer.ReplaceValue,{"Next Start Date"})
+
+</code></pre>
+
+<ul>
+  <li>Change the Type of all the Date Fields in the query, with the following M-Code</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.TransformColumnTypes(#&quot;Fill Blank Next Start Dates&quot;,{{&quot;Start Date&quot;, type date}, {&quot;End Date&quot;, type date}, {&quot;Previous End Date&quot;, type date}, {&quot;Next Start Date&quot;, type date}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.TransformColumnTypes(#"Fill Blank Next Start Dates",{{"Start Date", type date}, {"End Date", type date}, {"Previous End Date", type date}, {"Next Start Date", type date}})
+
+</code></pre>
+
+<h3 id="6-add-the-external-and-internal-join-and-leave-columns">6. Add the External and Internal Join and Leave Columns</h3>
+
+<ul>
+  <li>With the Previous End Date, and Next Start Dates added to each record, you can now add 4 conditional columns, with the following logic:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-13.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-14.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+ A change is considered External if the gap between the End Date and Next Start Date, or Start Date and Previous End Date is more than <strong>30 days</strong>.</p>
+</div>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-15.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-16.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+We have implicitly assumed here that anything which is not an External Leave or External Join is an Internal Leave or Internal Join.</p>
+
+  <p>You may not always want to assume this - for example, if a new Employee record is created because of a change in their working status from Part to Full, or because of a change in just Job Grade, or Salary - depending on your own business definitions, you might <strong>not</strong> want to consider these to be even Internal changes.</p>
+
+  <p>The example, here, in this <em>DAX article:</em> <a href="/../docs/guides/data-analytics/dax-samples/hr-inventory-tenure-salary.html#calculated-columns"><strong>HR - Inventory, Tenure, &amp; Salary</strong></a> (created after this article was created), adds the extra condition that if the change is not External, then it is only an Internal change, if there has been a change in the Employee’s Country, Office, or Department.</p>
+</div>
+
+<p>The query should now have four additional columns, as follows:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-17.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>So, now we have some <strong>logic</strong> to know which changes are External, and which changes are Internal.</p>
+
+<ul>
+  <li>Call the Query ‘Staff Table with Join &amp; Leave Logic’</li>
+</ul>
+
+<h3 id="m-code-employee-query">‘M’ Code: Employee Query</h3>
+
+<p>The final ‘M’ code for this query should look like this:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(){[Name=&quot;Inventory_Table&quot;]}[Content],
+    #&quot;Grouped Rows&quot; = Table.Group(Source, {&quot;User ID&quot;}, {{&quot;Details&quot;, each _, type table}}),
+    #&quot;Added Index&quot; = Table.AddColumn(#&quot;Grouped Rows&quot;, &quot;Index&quot;, each Table.AddIndexColumn([Details], &quot;Record&quot;, 1, 1)),
+    #&quot;Added Index 2&quot; = Table.AddColumn(#&quot;Added Index&quot;, &quot;Index 2&quot;, each Table.AddIndexColumn([Index], &quot;Previous&quot;, 0, 1)),
+    #&quot;Added Index 3&quot; = Table.AddColumn(#&quot;Added Index 2&quot;, &quot;Index 3&quot;, each Table.AddIndexColumn([Index 2], &quot;Next&quot;, 2, 1)),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Added Index 3&quot;,{&quot;Details&quot;, &quot;Index&quot;, &quot;Index 2&quot;}),
+    #&quot;Expanded Index 3&quot; = Table.ExpandTableColumn(#&quot;Removed Columns&quot;, &quot;Index 3&quot;, {&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Job Grade&quot;, &quot;Full or Part&quot;, &quot;Record&quot;, &quot;Previous&quot;, &quot;Next&quot;}, {&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Job Grade&quot;, &quot;Full or Part&quot;, &quot;Record&quot;, &quot;Previous&quot;, &quot;Next&quot;}),
+    #&quot;Fill Blank End Dates&quot; = Table.ReplaceValue(#&quot;Expanded Index 3&quot;,null,#datetime(9998, 12, 31, 0, 0, 0),Replacer.ReplaceValue,{&quot;End Date&quot;}),
+    #&quot;Merged Queries&quot; = Table.NestedJoin(#&quot;Fill Blank End Dates&quot;,{&quot;User ID&quot;, &quot;Previous&quot;},#&quot;Fill Blank End Dates&quot;,{&quot;User ID&quot;, &quot;Record&quot;},&quot;Reordered Columns&quot;,JoinKind.LeftOuter),
+    #&quot;Show Previous End Date&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;Reordered Columns&quot;, {&quot;End Date&quot;}, {&quot;Previous End Date&quot;}),
+    #&quot;Merged Queries1&quot; = Table.NestedJoin(#&quot;Show Previous End Date&quot;,{&quot;User ID&quot;, &quot;Next&quot;},#&quot;Show Previous End Date&quot;,{&quot;User ID&quot;, &quot;Record&quot;},&quot;Expanded Reordered Columns&quot;,JoinKind.LeftOuter),
+    #&quot;Show Next Start Date&quot; = Table.ExpandTableColumn(#&quot;Merged Queries1&quot;, &quot;Expanded Reordered Columns&quot;, {&quot;Start Date&quot;}, {&quot;Next Start Date&quot;}),
+    #&quot;Sort by Users then Start Date&quot; = Table.Sort(#&quot;Show Next Start Date&quot;,{{&quot;User ID&quot;, Order.Ascending}, {&quot;Start Date&quot;, Order.Ascending}}),
+    #&quot;Removed Index Columns&quot; = Table.RemoveColumns(#&quot;Sort by Users then Start Date&quot;,{&quot;Previous&quot;, &quot;Next&quot;}),
+    #&quot;Fill Blank Previous End Dates&quot; = Table.ReplaceValue(#&quot;Removed Index Columns&quot;,null,#datetime(1900, 1, 1, 0, 0, 0),Replacer.ReplaceValue,{&quot;Previous End Date&quot;}),
+    #&quot;Fill Blank Next Start Dates&quot; = Table.ReplaceValue(#&quot;Fill Blank Previous End Dates&quot;,null,#datetime(9999, 12, 31, 0, 0, 0),Replacer.ReplaceValue,{&quot;Next Start Date&quot;}),
+    #&quot;Changed Date Field Types&quot; = Table.TransformColumnTypes(#&quot;Fill Blank Next Start Dates&quot;,{{&quot;Start Date&quot;, type date}, {&quot;End Date&quot;, type date}, {&quot;Previous End Date&quot;, type date}, {&quot;Next Start Date&quot;, type date}}),
+    #&quot;Added External Join&quot; = Table.AddColumn(#&quot;Changed Date Field Types&quot;, &quot;External Join&quot;, each if Duration.Days(Duration.From([Start Date]-[Previous End Date])) &gt; 30 then &quot;Y&quot; else &quot;N&quot;),
+    #&quot;Added External Leave&quot; = Table.AddColumn(#&quot;Added External Join&quot;, &quot;External Leave&quot;, each if Duration.Days(Duration.From([Next Start Date]-[End Date])) &gt; 30 then &quot;Y&quot; else &quot;N&quot;),
+    #&quot;Added Internal Join&quot; = Table.AddColumn(#&quot;Added External Leave&quot;, &quot;Internal Join&quot;, each if [External Join] = &quot;Y&quot; then &quot;N&quot; else &quot;Y&quot;),
+    #&quot;Added Internal Leave&quot; = Table.AddColumn(#&quot;Added Internal Join&quot;, &quot;Internal Leave&quot;, each if [External Leave] = &quot;Y&quot; then &quot;N&quot; else &quot;Y&quot;)
+in
+    #&quot;Added Internal Leave&quot;
+
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(){[Name="Inventory_Table"]}[Content],
+    #"Grouped Rows" = Table.Group(Source, {"User ID"}, {{"Details", each _, type table}}),
+    #"Added Index" = Table.AddColumn(#"Grouped Rows", "Index", each Table.AddIndexColumn([Details], "Record", 1, 1)),
+    #"Added Index 2" = Table.AddColumn(#"Added Index", "Index 2", each Table.AddIndexColumn([Index], "Previous", 0, 1)),
+    #"Added Index 3" = Table.AddColumn(#"Added Index 2", "Index 3", each Table.AddIndexColumn([Index 2], "Next", 2, 1)),
+    #"Removed Columns" = Table.RemoveColumns(#"Added Index 3",{"Details", "Index", "Index 2"}),
+    #"Expanded Index 3" = Table.ExpandTableColumn(#"Removed Columns", "Index 3", {"First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Job Grade", "Full or Part", "Record", "Previous", "Next"}, {"First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Job Grade", "Full or Part", "Record", "Previous", "Next"}),
+    #"Fill Blank End Dates" = Table.ReplaceValue(#"Expanded Index 3",null,#datetime(9998, 12, 31, 0, 0, 0),Replacer.ReplaceValue,{"End Date"}),
+    #"Merged Queries" = Table.NestedJoin(#"Fill Blank End Dates",{"User ID", "Previous"},#"Fill Blank End Dates",{"User ID", "Record"},"Reordered Columns",JoinKind.LeftOuter),
+    #"Show Previous End Date" = Table.ExpandTableColumn(#"Merged Queries", "Reordered Columns", {"End Date"}, {"Previous End Date"}),
+    #"Merged Queries1" = Table.NestedJoin(#"Show Previous End Date",{"User ID", "Next"},#"Show Previous End Date",{"User ID", "Record"},"Expanded Reordered Columns",JoinKind.LeftOuter),
+    #"Show Next Start Date" = Table.ExpandTableColumn(#"Merged Queries1", "Expanded Reordered Columns", {"Start Date"}, {"Next Start Date"}),
+    #"Sort by Users then Start Date" = Table.Sort(#"Show Next Start Date",{{"User ID", Order.Ascending}, {"Start Date", Order.Ascending}}),
+    #"Removed Index Columns" = Table.RemoveColumns(#"Sort by Users then Start Date",{"Previous", "Next"}),
+    #"Fill Blank Previous End Dates" = Table.ReplaceValue(#"Removed Index Columns",null,#datetime(1900, 1, 1, 0, 0, 0),Replacer.ReplaceValue,{"Previous End Date"}),
+    #"Fill Blank Next Start Dates" = Table.ReplaceValue(#"Fill Blank Previous End Dates",null,#datetime(9999, 12, 31, 0, 0, 0),Replacer.ReplaceValue,{"Next Start Date"}),
+    #"Changed Date Field Types" = Table.TransformColumnTypes(#"Fill Blank Next Start Dates",{{"Start Date", type date}, {"End Date", type date}, {"Previous End Date", type date}, {"Next Start Date", type date}}),
+    #"Added External Join" = Table.AddColumn(#"Changed Date Field Types", "External Join", each if Duration.Days(Duration.From([Start Date]-[Previous End Date])) &gt; 30 then "Y" else "N"),
+    #"Added External Leave" = Table.AddColumn(#"Added External Join", "External Leave", each if Duration.Days(Duration.From([Next Start Date]-[End Date])) &gt; 30 then "Y" else "N"),
+    #"Added Internal Join" = Table.AddColumn(#"Added External Leave", "Internal Join", each if [External Join] = "Y" then "N" else "Y"),
+    #"Added Internal Leave" = Table.AddColumn(#"Added Internal Join", "Internal Leave", each if [External Leave] = "Y" then "N" else "Y")
+in
+    #"Added Internal Leave"
+
+
+</code></pre>
+
+<h2 id="dax-alternative">DAX Alternative</h2>
+
+<p>Note the extra columns created above can be added to the original Employee Data Table with <em>Calculated Columns</em>, using DAX instead of transforming the table using ‘M’ code.</p>
+
+<p>Generally, if a column can be pre-computed or pre-processed we prefer using ‘M’ code, but this is not to say that DAX can’t also be used. Most of the time, it’s a matter of preference. Sometimes DAX can actually be much better, particular when you need to run more complex (running total or average) calculations, like shown in this <em>Salary</em> <em>DAX article:</em> <a href="/../docs/guides/data-analytics/dax-samples/hr-salary-inventory-table.html"><strong>HR - Showing Employee Salaries &amp; analysing trends in Actual and Average Running (Pro-Rated) Salaries over time</strong></a></p>
+
+<p>To find out the DAX formula that can also be used to create the same additional columns to calculate Tenure, click to this <em>Tenure</em> <em>DAX article:</em> <a href="/../docs/guides/data-analytics/dax-samples/hr-inventory-table-and-tenure.html#calculated-columns-dax-alternative"><strong>HR - Showing Inventory Movements &amp; analysing Total Running Tenure over time</strong></a>. Refer to the section: <strong><em>Calculated Columns</em></strong>.</p>
+
+<h2 id="cross-join-with-monthly-calendar">Cross-Join with Monthly Calendar</h2>
+
+<p>To know the exact profile of an Employee (e.g. with Country, Department, Job Grade, etc. details) at a particular point in time (e.g. particular Month, or Quarter), as well as their Running Tenure, we need to build in some more logic.</p>
+
+<p>The steps for this would be as follows:</p>
+
+<h3 id="1-find-min-date">1. Find Min Date</h3>
+
+<ul>
+  <li>Determine the minimum date needed for the Calendar Table, by creating a Query with the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(){[Name=&quot;Inventory_Table&quot;]}[Content],
+    #&quot;Removed Other Columns&quot; = Table.SelectColumns(Source,{&quot;Start Date&quot;, &quot;End Date&quot;}),
+    #&quot;Unpivoted Columns&quot; = Table.UnpivotOtherColumns(#&quot;Removed Other Columns&quot;, {}, &quot;Attribute&quot;, &quot;Value&quot;),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Unpivoted Columns&quot;,{&quot;Attribute&quot;}),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Removed Columns&quot;,{{&quot;Value&quot;, type date}}),
+    #&quot;Filtered Rows&quot; = Table.SelectRows(#&quot;Changed Type&quot;, let earliest = List.Min(#&quot;Changed Type&quot;[Value]) in each [Value] = earliest),
+    Value = #&quot;Filtered Rows&quot;{0}[Value]
+in
+    Value
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(){[Name="Inventory_Table"]}[Content],
+    #"Removed Other Columns" = Table.SelectColumns(Source,{"Start Date", "End Date"}),
+    #"Unpivoted Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {}, "Attribute", "Value"),
+    #"Removed Columns" = Table.RemoveColumns(#"Unpivoted Columns",{"Attribute"}),
+    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"Value", type date}}),
+    #"Filtered Rows" = Table.SelectRows(#"Changed Type", let earliest = List.Min(#"Changed Type"[Value]) in each [Value] = earliest),
+    Value = #"Filtered Rows"{0}[Value]
+in
+    Value
+
+</code></pre>
+
+<ul>
+  <li>Call the Query ‘Min_Date’</li>
+</ul>
+
+<h3 id="2-find-max-date">2. Find Max Date</h3>
+
+<ul>
+  <li>Determine the maximum date needed for the Calendar Table, by creating a Query with the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(){[Name=&quot;Inventory_Table&quot;]}[Content],
+    #&quot;Removed Other Columns&quot; = Table.SelectColumns(Source,{&quot;Start Date&quot;, &quot;End Date&quot;}),
+    #&quot;Unpivoted Columns&quot; = Table.UnpivotOtherColumns(#&quot;Removed Other Columns&quot;, {}, &quot;Attribute&quot;, &quot;Value&quot;),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Unpivoted Columns&quot;,{&quot;Attribute&quot;}),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Removed Columns&quot;,{{&quot;Value&quot;, type date}}),
+    #&quot;Filtered Rows&quot; = Table.SelectRows(#&quot;Changed Type&quot;, let latest = List.Max(#&quot;Changed Type&quot;[Value]) in each [Value] = latest),
+    Value = #&quot;Filtered Rows&quot;{0}[Value],
+    Today = DateTime.Date(DateTime.LocalNow()),
+    #&quot;Max Date&quot; = List.Max({Value, Today}, 1)
+in
+    #&quot;Max Date&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(){[Name="Inventory_Table"]}[Content],
+    #"Removed Other Columns" = Table.SelectColumns(Source,{"Start Date", "End Date"}),
+    #"Unpivoted Columns" = Table.UnpivotOtherColumns(#"Removed Other Columns", {}, "Attribute", "Value"),
+    #"Removed Columns" = Table.RemoveColumns(#"Unpivoted Columns",{"Attribute"}),
+    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"Value", type date}}),
+    #"Filtered Rows" = Table.SelectRows(#"Changed Type", let latest = List.Max(#"Changed Type"[Value]) in each [Value] = latest),
+    Value = #"Filtered Rows"{0}[Value],
+    Today = DateTime.Date(DateTime.LocalNow()),
+    #"Max Date" = List.Max({Value, Today}, 1)
+in
+    #"Max Date"
+
+</code></pre>
+
+<ul>
+  <li>Call the Query ‘Max_Date’</li>
+</ul>
+
+<h3 id="3-create-a-calendar-table">3. Create a Calendar Table</h3>
+
+<ul>
+  <li>Now, using the above two date parameters, create a Calendar Table, using the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    End_Date = Max_Date,
+    Start_Date = Min_Date,
+    
+    durationDays = Duration.Days( End_Date - Start_Date ) + 1,
+    dates = List.Dates(Start_Date, durationDays, #duration( 1, 0, 0, 0 ) ),
+    #&quot;Converted to Table&quot; = Table.FromList(dates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Converted to Table&quot;,{{&quot;Column1&quot;, type date}}),
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Changed Type&quot;,{{&quot;Column1&quot;, &quot;Date&quot;}}),
+    #&quot;Inserted Start of Month&quot; = Table.AddColumn(#&quot;Renamed Columns&quot;, &quot;Start of Month&quot;, each Date.StartOfMonth([Date]), type date),
+    #&quot;Inserted End of Month&quot; = Table.AddColumn(#&quot;Inserted Start of Month&quot;, &quot;End of Month&quot;, each Date.EndOfMonth([Date]), type date),
+    #&quot;Removed Other Columns&quot; = Table.SelectColumns(#&quot;Inserted End of Month&quot;,{&quot;Start of Month&quot;, &quot;End of Month&quot;}),
+    #&quot;Removed Duplicates&quot; = Table.Distinct(#&quot;Removed Other Columns&quot;),
+    #&quot;Inserted Year&quot; = Table.AddColumn(#&quot;Removed Duplicates&quot;, &quot;Year&quot;, each Date.Year([Start of Month]), Int64.Type),
+    #&quot;Inserted Quarter&quot; = Table.AddColumn(#&quot;Inserted Year&quot;, &quot;Quarter&quot;, each Text.Insert(Text.From(Date.QuarterOfYear([Start of Month])), 0, &quot;Q&quot;), Int64.Type),
+    #&quot;Merged Columns&quot; = Table.CombineColumns(Table.TransformColumnTypes(#&quot;Inserted Quarter&quot;, {{&quot;Year&quot;, type text}, {&quot;Quarter&quot;, type text}}, &quot;en-GB&quot;),{&quot;Year&quot;, &quot;Quarter&quot;},Combiner.CombineTextByDelimiter(&quot; - &quot;, QuoteStyle.None),&quot;Year &amp; Quarter&quot;),
+    #&quot;Inserted Year1&quot; = Table.AddColumn(#&quot;Merged Columns&quot;, &quot;Year&quot;, each Date.Year([Start of Month]), Int64.Type),
+    #&quot;Inserted Quarter1&quot; = Table.AddColumn(#&quot;Inserted Year1&quot;, &quot;Quarter&quot;, each Date.QuarterOfYear([Start of Month]), Int64.Type),
+    #&quot;Merged Columns1&quot; = Table.CombineColumns(Table.TransformColumnTypes(#&quot;Inserted Quarter1&quot;, {{&quot;Year&quot;, type text}, {&quot;Quarter&quot;, type text}}, &quot;en-GB&quot;),{&quot;Year&quot;, &quot;Quarter&quot;},Combiner.CombineTextByDelimiter(&quot;&quot;, QuoteStyle.None),&quot;Year &amp; Quarter - Number&quot;),
+    #&quot;Changed Type1&quot; = Table.TransformColumnTypes(#&quot;Merged Columns1&quot;,{{&quot;Year &amp; Quarter - Number&quot;, Int64.Type}}),
+    #&quot;Inserted Year2&quot; = Table.AddColumn(#&quot;Changed Type1&quot;, &quot;Year&quot;, each Date.Year([Start of Month]), Int64.Type)
+in
+    #&quot;Inserted Year2&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    End_Date = Max_Date,
+    Start_Date = Min_Date,
+    
+    durationDays = Duration.Days( End_Date - Start_Date ) + 1,
+    dates = List.Dates(Start_Date, durationDays, #duration( 1, 0, 0, 0 ) ),
+    #"Converted to Table" = Table.FromList(dates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table",{{"Column1", type date}}),
+    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column1", "Date"}}),
+    #"Inserted Start of Month" = Table.AddColumn(#"Renamed Columns", "Start of Month", each Date.StartOfMonth([Date]), type date),
+    #"Inserted End of Month" = Table.AddColumn(#"Inserted Start of Month", "End of Month", each Date.EndOfMonth([Date]), type date),
+    #"Removed Other Columns" = Table.SelectColumns(#"Inserted End of Month",{"Start of Month", "End of Month"}),
+    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+    #"Inserted Year" = Table.AddColumn(#"Removed Duplicates", "Year", each Date.Year([Start of Month]), Int64.Type),
+    #"Inserted Quarter" = Table.AddColumn(#"Inserted Year", "Quarter", each Text.Insert(Text.From(Date.QuarterOfYear([Start of Month])), 0, "Q"), Int64.Type),
+    #"Merged Columns" = Table.CombineColumns(Table.TransformColumnTypes(#"Inserted Quarter", {{"Year", type text}, {"Quarter", type text}}, "en-GB"),{"Year", "Quarter"},Combiner.CombineTextByDelimiter(" - ", QuoteStyle.None),"Year &amp; Quarter"),
+    #"Inserted Year1" = Table.AddColumn(#"Merged Columns", "Year", each Date.Year([Start of Month]), Int64.Type),
+    #"Inserted Quarter1" = Table.AddColumn(#"Inserted Year1", "Quarter", each Date.QuarterOfYear([Start of Month]), Int64.Type),
+    #"Merged Columns1" = Table.CombineColumns(Table.TransformColumnTypes(#"Inserted Quarter1", {{"Year", type text}, {"Quarter", type text}}, "en-GB"),{"Year", "Quarter"},Combiner.CombineTextByDelimiter("", QuoteStyle.None),"Year &amp; Quarter - Number"),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Merged Columns1",{{"Year &amp; Quarter - Number", Int64.Type}}),
+    #"Inserted Year2" = Table.AddColumn(#"Changed Type1", "Year", each Date.Year([Start of Month]), Int64.Type)
+in
+    #"Inserted Year2"
+
+</code></pre>
+
+<p>The calendar should look something like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-25.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="4-cross-join-with-employee-query">4. Cross Join with Employee Query</h3>
+
+<ul>
+  <li>Next, we need to create a new query that references the earlier Calendar Table, and add a custom column, like so:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-26.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>With the extra column, the query should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-27.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Expand all fields from the new column, to cross join it with the previously created Employee Data query.</li>
+</ul>
+
+<h3 id="5-create-tenure-columns">5. Create Tenure Columns</h3>
+
+<p>Now, we need to create some columns to show the Total Running Tenure of a particular Employee, and the Total Running Tenure of a particular Employee by Job Grade.</p>
+
+<ul>
+  <li>Add the following customer column, to show for each record, the ‘Days in Service’, with the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= List.Max({Number.From([Start Date]), 
+List.Min({Number.From(Date.AddDays(DateTime.Date(DateTime.LocalNow()), 1)), Number.From(Date.AddDays([End Date], 1)), Number.From(Date.AddDays([End of Month], 1))})}) - Number.From([Start Date])
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= List.Max({Number.From([Start Date]), 
+List.Min({Number.From(Date.AddDays(DateTime.Date(DateTime.LocalNow()), 1)), Number.From(Date.AddDays([End Date], 1)), Number.From(Date.AddDays([End of Month], 1))})}) - Number.From([Start Date])
+
+</code></pre>
+
+<p>In the above calculation, the End Date is set to be always be the lower of: (i) Today’s Date, (ii) the End of the Month, or (iii) the End Date of the particular record. It will though be no lower than the Start Date of the particular record.</p>
+
+<ul>
+  <li>Now, with the ‘Days in Service’ column created, Group the Data with the following settings:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-28.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Expand all the fields from this column, except the ‘Start of Month’ and ‘User ID’ columns (as they are already there, from the Grouping)</li>
+</ul>
+
+<p>The data should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-29.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Convert the Running Days in Service column into Years, with the following Customer Column</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-30.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Next, remove the ‘Running Days in Service’ column as it is no longer needed</li>
+  <li>Now, add a ‘Tenure Bracket’ column, with a custom column, like so:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-31.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now re-group the Data set again, as follows, but also remembering to group by ‘Job Grade’</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-32.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Expand all the fields from the ‘Details’ column, except for ‘Start of Month’, ‘User ID’, and ‘Job Grade’, as they are already there from the Grouping</li>
+</ul>
+
+<p>The last few columns of the Dataset should look as follows:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-33.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Convert the ‘Running Days in Service – by Job Grade’ column into months, by adding the following custom column</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-34.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Finally, remove the ‘Running Days in Service – by Job Grade’ column as it is now no longer needed</li>
+</ul>
+
+<h3 id="6-create-conditional-logic-columns">6. Create Conditional Logic Columns</h3>
+
+<ul>
+  <li>Add the following 5 conditional columns, that will later help determine whether an Employee started in a particular month, left in a particular month, or was part of the Head Count at the start or end of the month</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-35.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-36.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-37.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-38.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-39.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Lastly re-order the columns if you need to.</li>
+</ul>
+
+<p>If you now load the query into a worksheet, you should see the additional columns, added before, and after the Cross-Join operation, as well as the additional rows from the Cross Join, to get to the desired Inventory Management Table.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-40.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="7-create-a-hr-inventory-management-table">7. Create a HR Inventory Management Table</h3>
+
+<p>The cross-joined query can now be used as the source for creating a HR Inventory Movement and Tenure Reports, (sample pictures shown further below). Please refer to the following <em>Tenure</em> <em>DAX article:</em> <a href="/../docs/guides/data-analytics/dax-samples/hr-inventory-table-and-tenure.html"><strong>HR - Showing Inventory Movements &amp; analysing Total Running Tenure over time</strong></a>, that details how this can be done by building a Data Model on top of the final cross-joined Inventory table, illustrated in this article.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-41.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-42.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-table-43.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="m-code-cross-join-query">‘M’ Code: Cross-Join Query</h3>
+
+<p>The final ‘M’ code for the cross-join query should look something like this:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = #&quot;Monthly Calendar&quot;,
+    #&quot;Added Custom&quot; = Table.AddColumn(Source, &quot;Custom&quot;, each #&quot;Staff Table with Join &amp; Leave Logic&quot;),
+    #&quot;Expanded Custom&quot; = Table.ExpandTableColumn(#&quot;Added Custom&quot;, &quot;Custom&quot;, {&quot;User ID&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Job Grade&quot;, &quot;Full or Part&quot;, &quot;External Join&quot;, &quot;External Leave&quot;, &quot;Internal Join&quot;, &quot;Internal Leave&quot;}, {&quot;User ID&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Job Grade&quot;, &quot;Full or Part&quot;, &quot;External Join&quot;, &quot;External Leave&quot;, &quot;Internal Join&quot;, &quot;Internal Leave&quot;}),
+    #&quot;Added Days in Service&quot; = Table.AddColumn(#&quot;Expanded Custom&quot;, &quot;Days in Service&quot;, each List.Max({Number.From([Start Date]), 
+List.Min({Number.From(Date.AddDays(DateTime.Date(DateTime.LocalNow()), 1)), Number.From(Date.AddDays([End Date], 1)), Number.From(Date.AddDays([End of Month], 1))})}) - Number.From([Start Date])),
+    #&quot;Grouped Rows Total Tenure&quot; = Table.Group(#&quot;Added Days in Service&quot;, {&quot;Start of Month&quot;, &quot;User ID&quot;}, {{&quot;Details&quot;, each _, type table [Start of Month=date, End of Month=date, #&quot;Year &amp; Quarter&quot;=text, #&quot;Year &amp; Quarter - Number&quot;=nullable number, Year=number, User ID=text, First Name=text, Last Name=text, Gender=text, Start Date=date, End Date=date, Country=text, Office=text, Department=text, Job Grade=text, Full or Part=text, External Join=text, External Leave=text, Internal Join=text, Internal Leave=text, Days in Service=number]}, {&quot;Running Days in Service&quot;, each List.Sum([Days in Service]), type number}}),
+    #&quot;Expanded Details&quot; = Table.ExpandTableColumn(#&quot;Grouped Rows Total Tenure&quot;, &quot;Details&quot;, {&quot;End of Month&quot;, &quot;Year &amp; Quarter&quot;, &quot;Year &amp; Quarter - Number&quot;, &quot;Year&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Job Grade&quot;, &quot;Full or Part&quot;, &quot;External Join&quot;, &quot;External Leave&quot;, &quot;Internal Join&quot;, &quot;Internal Leave&quot;, &quot;Days in Service&quot;}, {&quot;End of Month&quot;, &quot;Year &amp; Quarter&quot;, &quot;Year &amp; Quarter - Number&quot;, &quot;Year&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Job Grade&quot;, &quot;Full or Part&quot;, &quot;External Join&quot;, &quot;External Leave&quot;, &quot;Internal Join&quot;, &quot;Internal Leave&quot;, &quot;Days in Service&quot;}),
+    #&quot;Added Tenure Yrs&quot; = Table.AddColumn(#&quot;Expanded Details&quot;, &quot;Running Tenure Yrs&quot;, each [Running Days in Service] / 365.25),
+    #&quot;Removed Columns1&quot; = Table.RemoveColumns(#&quot;Added Tenure Yrs&quot;,{&quot;Running Days in Service&quot;}),
+    #&quot;Added Tenure Bracket&quot; = Table.AddColumn(#&quot;Removed Columns1&quot;, &quot;Tenure Bracket&quot;, each if [Running Tenure Yrs] = 0 then &quot;Nil&quot; else if [Running Tenure Yrs] &gt; 0 and [Running Tenure Yrs] &lt;= 0.5 then &quot;0 to 0.5 years&quot; else if [Running Tenure Yrs] &gt; 0.5 and [Running Tenure Yrs] &lt;= 1 then &quot;0.5 to 1 year&quot; else if [Running Tenure Yrs] &gt; 1 and [Running Tenure Yrs] &lt;= 3 then &quot;1 to 3 years&quot; else if [Running Tenure Yrs] &gt; 3 and [Running Tenure Yrs] &lt;= 5 then &quot;3 to 5 years&quot; else if [Running Tenure Yrs] &gt; 5 and [Running Tenure Yrs] &lt;= 8 then &quot;5 to 8 years&quot; else if [Running Tenure Yrs] &gt; 8 and [Running Tenure Yrs] &lt;= 1000 then &quot;More than 8 years&quot; else &quot;Other&quot;),
+    #&quot;Grouped Rows JG Tenure&quot; = Table.Group(#&quot;Added Tenure Bracket&quot;, {&quot;Start of Month&quot;, &quot;User ID&quot;, &quot;Job Grade&quot;}, {{&quot;Details&quot;, each _, type table [Start of Month=date, User ID=text, End of Month=nullable date, #&quot;Year &amp; Quarter&quot;=nullable text, #&quot;Year &amp; Quarter - Number&quot;=nullable number, Year=nullable number, First Name=nullable text, Last Name=nullable text, Gender=nullable text, Start Date=nullable date, End Date=nullable date, Country=nullable text, Office=nullable text, Department=nullable text, Job Grade=nullable text, Full or Part=nullable text, External Join=nullable text, External Leave=nullable text, Internal Join=nullable text, Internal Leave=nullable text, Days in Service=nullable number, Running Tenure Yrs=number, Tenure Bracket=text]}, {&quot;Running Days in Service - by Job Grade&quot;, each List.Sum([Days in Service]), type nullable number}}),
+    #&quot;Expanded Details1&quot; = Table.ExpandTableColumn(#&quot;Grouped Rows JG Tenure&quot;, &quot;Details&quot;, {&quot;End of Month&quot;, &quot;Year &amp; Quarter&quot;, &quot;Year &amp; Quarter - Number&quot;, &quot;Year&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Full or Part&quot;, &quot;External Join&quot;, &quot;External Leave&quot;, &quot;Internal Join&quot;, &quot;Internal Leave&quot;, &quot;Days in Service&quot;, &quot;Running Tenure Yrs&quot;, &quot;Tenure Bracket&quot;}, {&quot;End of Month&quot;, &quot;Year &amp; Quarter&quot;, &quot;Year &amp; Quarter - Number&quot;, &quot;Year&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Full or Part&quot;, &quot;External Join&quot;, &quot;External Leave&quot;, &quot;Internal Join&quot;, &quot;Internal Leave&quot;, &quot;Days in Service&quot;, &quot;Running Tenure Yrs&quot;, &quot;Tenure Bracket&quot;}),
+    #&quot;Added Custom2&quot; = Table.AddColumn(#&quot;Expanded Details1&quot;, &quot;Running Tenure Mnths - by Job Grade&quot;, each [#&quot;Running Days in Service - by Job Grade&quot;] * 12 / 365.25),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Added Custom2&quot;,{&quot;Running Days in Service - by Job Grade&quot;}),
+    #&quot;Started in Month&quot; = Table.AddColumn(#&quot;Removed Columns&quot;, &quot;Started in Month ?&quot;, each if ([Start Date] &gt;= [Start of Month] and [Start Date] &lt;= [End of Month]) then &quot;Y&quot; else &quot;N&quot;),
+    #&quot;Left in Month&quot; = Table.AddColumn(#&quot;Started in Month&quot;, &quot;Left in Month ?&quot;, each if ([End Date] &gt;= [Start of Month] and [End Date] &lt;= [End of Month]) then &quot;Y&quot; else &quot;N&quot;),
+    #&quot;HC at Start of Month&quot; = Table.AddColumn(#&quot;Left in Month&quot;, &quot;Part of HeadCount at Start of Month&quot;, each if ([Start Date] &lt; [Start of Month] and [End Date] &gt;= [Start of Month]) then &quot;Y&quot; else &quot;N&quot;),
+    #&quot;HC at End of Month&quot; = Table.AddColumn(#&quot;HC at Start of Month&quot;, &quot;Part of HeadCount at End of Month&quot;, each if ([Start Date] &lt;= [End of Month] and [End Date] &gt; [End of Month]) then &quot;Y&quot; else &quot;N&quot;),
+    #&quot;HC at Start or End of Month&quot; = Table.AddColumn(#&quot;HC at End of Month&quot;, &quot;Part of HeadCount Start or End of Month&quot;, each if [Part of HeadCount at Start of Month] = &quot;Y&quot; or [Part of HeadCount at End of Month] = &quot;Y&quot; then &quot;Y&quot; else &quot;N&quot;),
+    #&quot;Reordered Columns&quot; = Table.ReorderColumns(#&quot;HC at Start or End of Month&quot;,{&quot;Start of Month&quot;, &quot;End of Month&quot;, &quot;Year &amp; Quarter&quot;, &quot;Year &amp; Quarter - Number&quot;, &quot;Year&quot;, &quot;User ID&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Gender&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Office&quot;, &quot;Department&quot;, &quot;Job Grade&quot;, &quot;Full or Part&quot;, &quot;External Join&quot;, &quot;External Leave&quot;, &quot;Internal Join&quot;, &quot;Internal Leave&quot;, &quot;Days in Service&quot;, &quot;Running Tenure Yrs&quot;, &quot;Tenure Bracket&quot;, &quot;Running Tenure Mnths - by Job Grade&quot;, &quot;Started in Month ?&quot;, &quot;Left in Month ?&quot;, &quot;Part of HeadCount at Start of Month&quot;, &quot;Part of HeadCount at End of Month&quot;})
+in
+    #&quot;Reordered Columns&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = #"Monthly Calendar",
+    #"Added Custom" = Table.AddColumn(Source, "Custom", each #"Staff Table with Join &amp; Leave Logic"),
+    #"Expanded Custom" = Table.ExpandTableColumn(#"Added Custom", "Custom", {"User ID", "First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Job Grade", "Full or Part", "External Join", "External Leave", "Internal Join", "Internal Leave"}, {"User ID", "First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Job Grade", "Full or Part", "External Join", "External Leave", "Internal Join", "Internal Leave"}),
+    #"Added Days in Service" = Table.AddColumn(#"Expanded Custom", "Days in Service", each List.Max({Number.From([Start Date]), 
+List.Min({Number.From(Date.AddDays(DateTime.Date(DateTime.LocalNow()), 1)), Number.From(Date.AddDays([End Date], 1)), Number.From(Date.AddDays([End of Month], 1))})}) - Number.From([Start Date])),
+    #"Grouped Rows Total Tenure" = Table.Group(#"Added Days in Service", {"Start of Month", "User ID"}, {{"Details", each _, type table [Start of Month=date, End of Month=date, #"Year &amp; Quarter"=text, #"Year &amp; Quarter - Number"=nullable number, Year=number, User ID=text, First Name=text, Last Name=text, Gender=text, Start Date=date, End Date=date, Country=text, Office=text, Department=text, Job Grade=text, Full or Part=text, External Join=text, External Leave=text, Internal Join=text, Internal Leave=text, Days in Service=number]}, {"Running Days in Service", each List.Sum([Days in Service]), type number}}),
+    #"Expanded Details" = Table.ExpandTableColumn(#"Grouped Rows Total Tenure", "Details", {"End of Month", "Year &amp; Quarter", "Year &amp; Quarter - Number", "Year", "First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Job Grade", "Full or Part", "External Join", "External Leave", "Internal Join", "Internal Leave", "Days in Service"}, {"End of Month", "Year &amp; Quarter", "Year &amp; Quarter - Number", "Year", "First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Job Grade", "Full or Part", "External Join", "External Leave", "Internal Join", "Internal Leave", "Days in Service"}),
+    #"Added Tenure Yrs" = Table.AddColumn(#"Expanded Details", "Running Tenure Yrs", each [Running Days in Service] / 365.25),
+    #"Removed Columns1" = Table.RemoveColumns(#"Added Tenure Yrs",{"Running Days in Service"}),
+    #"Added Tenure Bracket" = Table.AddColumn(#"Removed Columns1", "Tenure Bracket", each if [Running Tenure Yrs] = 0 then "Nil" else if [Running Tenure Yrs] &gt; 0 and [Running Tenure Yrs] &lt;= 0.5 then "0 to 0.5 years" else if [Running Tenure Yrs] &gt; 0.5 and [Running Tenure Yrs] &lt;= 1 then "0.5 to 1 year" else if [Running Tenure Yrs] &gt; 1 and [Running Tenure Yrs] &lt;= 3 then "1 to 3 years" else if [Running Tenure Yrs] &gt; 3 and [Running Tenure Yrs] &lt;= 5 then "3 to 5 years" else if [Running Tenure Yrs] &gt; 5 and [Running Tenure Yrs] &lt;= 8 then "5 to 8 years" else if [Running Tenure Yrs] &gt; 8 and [Running Tenure Yrs] &lt;= 1000 then "More than 8 years" else "Other"),
+    #"Grouped Rows JG Tenure" = Table.Group(#"Added Tenure Bracket", {"Start of Month", "User ID", "Job Grade"}, {{"Details", each _, type table [Start of Month=date, User ID=text, End of Month=nullable date, #"Year &amp; Quarter"=nullable text, #"Year &amp; Quarter - Number"=nullable number, Year=nullable number, First Name=nullable text, Last Name=nullable text, Gender=nullable text, Start Date=nullable date, End Date=nullable date, Country=nullable text, Office=nullable text, Department=nullable text, Job Grade=nullable text, Full or Part=nullable text, External Join=nullable text, External Leave=nullable text, Internal Join=nullable text, Internal Leave=nullable text, Days in Service=nullable number, Running Tenure Yrs=number, Tenure Bracket=text]}, {"Running Days in Service - by Job Grade", each List.Sum([Days in Service]), type nullable number}}),
+    #"Expanded Details1" = Table.ExpandTableColumn(#"Grouped Rows JG Tenure", "Details", {"End of Month", "Year &amp; Quarter", "Year &amp; Quarter - Number", "Year", "First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Full or Part", "External Join", "External Leave", "Internal Join", "Internal Leave", "Days in Service", "Running Tenure Yrs", "Tenure Bracket"}, {"End of Month", "Year &amp; Quarter", "Year &amp; Quarter - Number", "Year", "First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Full or Part", "External Join", "External Leave", "Internal Join", "Internal Leave", "Days in Service", "Running Tenure Yrs", "Tenure Bracket"}),
+    #"Added Custom2" = Table.AddColumn(#"Expanded Details1", "Running Tenure Mnths - by Job Grade", each [#"Running Days in Service - by Job Grade"] * 12 / 365.25),
+    #"Removed Columns" = Table.RemoveColumns(#"Added Custom2",{"Running Days in Service - by Job Grade"}),
+    #"Started in Month" = Table.AddColumn(#"Removed Columns", "Started in Month ?", each if ([Start Date] &gt;= [Start of Month] and [Start Date] &lt;= [End of Month]) then "Y" else "N"),
+    #"Left in Month" = Table.AddColumn(#"Started in Month", "Left in Month ?", each if ([End Date] &gt;= [Start of Month] and [End Date] &lt;= [End of Month]) then "Y" else "N"),
+    #"HC at Start of Month" = Table.AddColumn(#"Left in Month", "Part of HeadCount at Start of Month", each if ([Start Date] &lt; [Start of Month] and [End Date] &gt;= [Start of Month]) then "Y" else "N"),
+    #"HC at End of Month" = Table.AddColumn(#"HC at Start of Month", "Part of HeadCount at End of Month", each if ([Start Date] &lt;= [End of Month] and [End Date] &gt; [End of Month]) then "Y" else "N"),
+    #"HC at Start or End of Month" = Table.AddColumn(#"HC at End of Month", "Part of HeadCount Start or End of Month", each if [Part of HeadCount at Start of Month] = "Y" or [Part of HeadCount at End of Month] = "Y" then "Y" else "N"),
+    #"Reordered Columns" = Table.ReorderColumns(#"HC at Start or End of Month",{"Start of Month", "End of Month", "Year &amp; Quarter", "Year &amp; Quarter - Number", "Year", "User ID", "First Name", "Last Name", "Gender", "Start Date", "End Date", "Country", "Office", "Department", "Job Grade", "Full or Part", "External Join", "External Leave", "Internal Join", "Internal Leave", "Days in Service", "Running Tenure Yrs", "Tenure Bracket", "Running Tenure Mnths - by Job Grade", "Started in Month ?", "Left in Month ?", "Part of HeadCount at Start of Month", "Part of HeadCount at End of Month"})
+in
+    #"Reordered Columns"
+
+</code></pre>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#is-an-employee-movement-an-internal-or-external-change">Is an Employee Movement an Internal or External Change?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-load-data-into-power-query">1. Load Data into Power Query</a></li>
+<li class="toc-entry toc-h3"><a href="#2-group-data--add-index-columns">2. Group Data &amp; Add Index Columns</a></li>
+<li class="toc-entry toc-h3"><a href="#3-replace-any-nulls-in-the-end-date-column">3. Replace any nulls in the End Date Column</a></li>
+<li class="toc-entry toc-h3"><a href="#4-merge-index-columns-to-retrieve-previous-and-next-dates">4. Merge Index Columns to retrieve Previous and Next Dates</a></li>
+<li class="toc-entry toc-h3"><a href="#5-replace-any-nulls-in-the-previous-end-date-and-next-start-date">5. Replace any nulls in the Previous End Date and Next Start Date</a></li>
+<li class="toc-entry toc-h3"><a href="#6-add-the-external-and-internal-join-and-leave-columns">6. Add the External and Internal Join and Leave Columns</a></li>
+<li class="toc-entry toc-h3"><a href="#m-code-employee-query">‘M’ Code: Employee Query</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#dax-alternative">DAX Alternative</a></li>
+<li class="toc-entry toc-h2"><a href="#cross-join-with-monthly-calendar">Cross-Join with Monthly Calendar</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-find-min-date">1. Find Min Date</a></li>
+<li class="toc-entry toc-h3"><a href="#2-find-max-date">2. Find Max Date</a></li>
+<li class="toc-entry toc-h3"><a href="#3-create-a-calendar-table">3. Create a Calendar Table</a></li>
+<li class="toc-entry toc-h3"><a href="#4-cross-join-with-employee-query">4. Cross Join with Employee Query</a></li>
+<li class="toc-entry toc-h3"><a href="#5-create-tenure-columns">5. Create Tenure Columns</a></li>
+<li class="toc-entry toc-h3"><a href="#6-create-conditional-logic-columns">6. Create Conditional Logic Columns</a></li>
+<li class="toc-entry toc-h3"><a href="#7-create-a-hr-inventory-management-table">7. Create a HR Inventory Management Table</a></li>
+<li class="toc-entry toc-h3"><a href="#m-code-cross-join-query">‘M’ Code: Cross-Join Query</a></li>
+</ul>
+</li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

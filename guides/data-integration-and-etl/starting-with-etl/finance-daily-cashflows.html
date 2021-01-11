@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Finance - Daily Cashflows | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-integration-and-etl/etl.html"><span class="">Data Integration & ETL</span></a></li>
+        <li><a href=/docs/guides/data-integration-and-etl/starting-with-etl/overview.html><span class="">Starting with ETL</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Data Tables</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-stats.html">Grouping tables (Summary Statistics)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rd.html">Grouping tables (Row Details)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-duplicates.html">Grouping tables (Duplicates)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rankings.html">Grouping tables (Rankings)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-multi-single.html">Grouping tables (Multi to Single row)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cross-joining-tables.html">Cross-Joining tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/transition-tables.html">Using Transition tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/self-referencing-tables.html">Using Self-Referencing tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-table-headings.html">Renaming table headings</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Pivoting Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/queries-with-pivot-tables.html">Queries as a Pivot Table data source</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data.html">Pivoting text data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data-adv.html">Pivoting text data (advanced)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-multiple-measures.html">Pivoting on multiple measures</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-data-validation.html">Pivoting data to enable validation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Filtering Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-rows-m.html">Dynamically filtering rows with 'M'</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-duplicate-rows.html">Removing duplicate rows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-using-lists.html">Filtering data with list inputs</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Transforming Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/reordering-columns.html">Re-ordering columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-columns.html">Removing columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-columns.html">Renaming columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/splitting-columns.html">Splitting columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/merging-columns.html">Merging columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/changing-data-types.html">Changing Data Types</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Conditional Logic</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/conditional-columns.html">Creating conditional columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/logical-operators.html">Applying OR, AND, and SWITCH logic</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/nesting-operators.html">Nesting conditional & logical operators</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Functions & Parameters</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/excel-parameters-pq.html">Excel parameters in Power Query</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/custom-functions.html">Custom functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/parameter-tables.html">Parameter tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/recursive-functions.html">Recursive functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/running-total.html">Running Total functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Calendar Tables & Dates</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/date-table.html">Generating a Date table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/554-calendar.html">Creating a 554 calendar</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/monthly-weekly-budget.html">Monthly to weekly budget</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filling-dates.html">Filling in dates</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Single File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf.html">Importing data from a pdf</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf-new.html">Importing data from a pdf - new</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/first-sheet.html">Importing the first sheet in a workbook</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/latest-version.html">Loading the latest version of a file</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-sheets.html">Combining workbook sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Multiple File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks-function.html">Combining a single sheet across workbooks (with function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks.html">Combining a single sheet across workbooks (no function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/multiple-sheets-workbooks.html">Combining multiple sheets across workbooks</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Getting Network / Web Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/web-weather-data.html">Web weather data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/one-drive-personal.html">One-Drive Personal</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Practical Applications</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/new-lost-returning-customers.html">New, lost, and returning customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/distinct-customers.html">Number of distinct customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/stock-price-thresholds.html">Stock price thresholds</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/percentage-shares.html">Calculating percentage shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/tied-ranks.html">Calculating tied ranks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/growth-percentages.html">Growth percentages from previous days</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/comparing-records.html">Comparing database records</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Human Resourcing</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-onboarding.html">HR - On-boarding</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-table.html">HR - Inventory Movements & Tenure</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-utilisation-table.html">HR - Inventory Utilisation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Finance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-daily-cashflows.html">Finance - Daily Cashflows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-payroll-tracking.html">Finance - Payroll Tracking</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-profitability.html">Finance - Client Profitability</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-debtors.html">Finance - Debtors</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Quality Checking & Maintenance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/bulk-refreshing.html">Bulk refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/auditing-tool.html">Creating an Auditing tool</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cleaning-data.html">Cleaning data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/error-handling.html">Error Handling</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Query Design</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/best-practices.html">ETL Best Practices</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/shaping-vs-modelling.html">Shaping vs Modelling</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/query-folding.html">Query Folding</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="finance---daily-cashflows">Finance - Daily Cashflows</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 22/10/2020</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>A client once asked me in Mar 2020 (before Covid-19 began in the UK!) to see if I could improve how they prepared the business’ daily cashflow forecasts. They had a workbook that had until then been handled by one of their Finance Managers, but the CFO felt there might be some room for further improvement – so I said to her, I would take a look. (Before Covid-19, cashflows were never really a concern, but as the pandemic hit, it suddenly became a big concern for the department!)</p>
+
+<p>The workbook was ok – lots of manually linked cells with long, very breakable formulae, quite a few manual fx conversions to do again manually, lots of sheets, and all a bit of a nightmare to update. Also, nothing was really forecast out for anything more than 10 days – so I wasn’t quite sure how it was ever called a forecast, but there you go!</p>
+
+<p>The workbook had a sheet for scheduled payments, with payments categorised under two buckets: ‘Confirmed’ – for payments where they knew quite confidently, when they would go out, such as Payroll, and VAT. The other category was called ‘Estimated’ – for payments they weren’t as sure about – but still wanted to record.</p>
+
+<p>There was a similar schedule in the workbook for receipts. These, they had tried to link to a separate debtors sheet, to see upcoming estimated or confirmed receipts. The debtors sheet was updated by copying and pasting the contents from a separate debtors file.</p>
+
+<p>Needless to say, it all didn’t work very well. It wasn’t really a forecast, it was a big chore to update, and the formulae would easily break, whenever cell references changed, or whenever anything (e.g. debtors info.) was manually copied and pasted in from elsewhere - which was always to some extend out of date anyway!</p>
+
+<p>I didn’t have to spend much time to conclude that process was in dire need of some automation - something that would not only very effectively cut out all the existing hassle, but also all preparation time that went with it! So that’s exactly what I did! Automated the entire process, from beginning to end! This is what rest of this article shows you how to do! - How to prepare a 92-day forecast, daily cashflow, from a few needed data inputs.</p>
+
+<p>Though the input data itself could be directly linked elsewhere, further upstream, for the purposes of this article, we assume that this is where the data inputting effort starts!</p>
+
+<h2 id="data-inputs">Data Inputs</h2>
+
+<p>The 4 main input tables that would be needed are:</p>
+
+<h3 id="input-fx-rates">Input FX Rates</h3>
+
+<p>Such data would probably have to be updated monthly.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-1.png" alt="" style="width: 100%; max-width: 75.8%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="daily-opening-bank-balances">Daily Opening Bank Balances</h3>
+
+<p>This would have to be updated daily</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-2.png" alt="" style="width: 100%; max-width: 75.8%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="payment-inputs">Payment Inputs</h3>
+
+<p>These are the projected payments, in the local currency of each country. Depending on the certainty of payment, each one would be classified as ‘Confirmed’ or ‘Estimated’.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-3.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+Here we make the implicit assumption that the payments keyed in, under each country are in the local currency of that country. (So, we don’t assume for this particular schedule that Payments out of Japan could be keyed in, as USD. It is possible to have such functionality, but we would need many more columns for that!)</p>
+</div>
+
+<h3 id="receipt-inputs">Receipt Inputs</h3>
+
+<p>These are the projected receipts, in the local currency of each country. Depending on the certainty of receipts, each one would be classified as ‘Confirmed’ or ‘Estimated’. This kind of data might be directly linked to a separate Debtors schedule. Here, we assume data is keyed in a schedule like shown below:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-4.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+We assume here too, as with the payments schedule, that receipts are recorded in the currency of the relevant country.</p>
+</div>
+
+<h2 id="steps">Steps</h2>
+
+<h3 id="1-load-fx-data">1. Load FX data</h3>
+
+<p>To kick things off, the first thing to do is to load the FX data into the ETL editor.</p>
+
+<ul>
+  <li>Once loaded, the FX data should looks something like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-5.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Call the query ‘<em>FX_Rates</em>’</li>
+</ul>
+
+<h3 id="2-payments-data">2. Payments data</h3>
+
+<p>Now, we need to get the Payments data into the right form:</p>
+
+<ul>
+  <li>Load the payments sheet into the ETL editor, so it looks like this</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-6.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Clean the data. So, remove any blank rows using the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = Table.SelectRows(Payments, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {&quot;&quot;, null})))
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">    = Table.SelectRows(Payments, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+</code></pre>
+
+<ul>
+  <li>Next, remove the top 2 rows as they are not needed</li>
+  <li>Then, promote top row to Headers. The payments data should now look like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-7.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, unpivot the data, so that all the values are in just one column (exactly what we need!):</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-8.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>
+    <p>Add a column, to show the ‘<em>Start of the Month</em>’, based on the value in the ‘<em>Date</em>’ column</p>
+  </li>
+  <li>
+    <p>Now, apply the following Merge with the FX query created earlier</p>
+  </li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-9.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Expand the columns, ‘Local Currency’, and ‘FX Rate’</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-10.png" alt="" style="width: 100%; max-width: 49.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, add a Custom column that divides the ‘Value’ column, by the imported FX rates, to show all values  in ‘GBP’. Use the following M-code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = Table.AddColumn(#&quot;Expanded FX_Rates&quot;, &quot;Custom&quot;, each [Value] / [FX Rate], type number)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">    = Table.AddColumn(#"Expanded FX_Rates", "Custom", each [Value] / [FX Rate], type number)
+</code></pre>
+
+<ul>
+  <li>Now, rename the two columns with Amounts in them, to ‘<em>Payment [LCY]</em>’, and ‘<em>Payment [GBP]</em>’</li>
+  <li>Reorder the columns so the two payment columns are next to each other</li>
+  <li>Remove the ‘<em>Start of Month</em>’ column as it is no longer needed (it was only needed for the Merge operation)</li>
+  <li>Finally, sort the dataset in ascending ‘<em>Date</em>’ order</li>
+  <li>When you load the data back to Excel, it should now be in the following neater form:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-11.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Call the query ‘<em>Projected Payments</em>’</li>
+</ul>
+
+<p>The final M-code for this query should look something like this. The first few steps may differ slightly, depending on how you layout your original data.</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(),
+    Payments = Source{[Name=&quot;Payments_Raw_Data&quot;]}[Content],
+    #&quot;Removed Blank Rows&quot; = Table.SelectRows(Payments, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {&quot;&quot;, null}))),
+    #&quot;Removed Top Rows&quot; = Table.Skip(#&quot;Removed Blank Rows&quot;,2),
+    #&quot;Promoted Headers1&quot; = Table.PromoteHeaders(#&quot;Removed Top Rows&quot;, [PromoteAllScalars=true]),
+    #&quot;Unpivoted Other Columns&quot; = Table.UnpivotOtherColumns(#&quot;Promoted Headers1&quot;, {&quot;Type&quot;, &quot;Date&quot;, &quot;Payment Type&quot;, &quot;Detail&quot;}, &quot;Attribute&quot;, &quot;Value&quot;),
+    #&quot;Changed Type1&quot; = Table.TransformColumnTypes(#&quot;Unpivoted Other Columns&quot;,{{&quot;Date&quot;, type date}, {&quot;Value&quot;, type number}, {&quot;Type&quot;, type text}, {&quot;Payment Type&quot;, type text}, {&quot;Detail&quot;, type text}}),
+    #&quot;Inserted Start of Month&quot; = Table.AddColumn(#&quot;Changed Type1&quot;, &quot;Start of Month&quot;, each Date.StartOfMonth([Date]), type date),
+    #&quot;Merged Queries&quot; = Table.NestedJoin(#&quot;Inserted Start of Month&quot;,{&quot;Start of Month&quot;, &quot;Attribute&quot;},FX_Rates,{&quot;Date&quot;, &quot;Country&quot;},&quot;FX_Rates&quot;,JoinKind.LeftOuter),
+    #&quot;Expanded FX_Rates&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;FX_Rates&quot;, {&quot;Local Currency&quot;, &quot;FX Rate&quot;}, {&quot;Local Currency&quot;, &quot;FX Rate&quot;}),
+    #&quot;Added Custom&quot; = Table.AddColumn(#&quot;Expanded FX_Rates&quot;, &quot;Custom&quot;, each [Value] / [FX Rate], type number),
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Added Custom&quot;,{{&quot;Value&quot;, &quot;Payment [LCY]&quot;}, {&quot;Custom&quot;, &quot;Payment [GBP]&quot;}, {&quot;Attribute&quot;, &quot;Country&quot;}}),
+    #&quot;Reordered Columns&quot; = Table.ReorderColumns(#&quot;Renamed Columns&quot;,{&quot;Type&quot;, &quot;Date&quot;, &quot;Payment Type&quot;, &quot;Detail&quot;, &quot;Country&quot;, &quot;Local Currency&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Start of Month&quot;, &quot;FX Rate&quot;}),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Reordered Columns&quot;,{&quot;Start of Month&quot;}),
+    #&quot;Sorted Rows&quot; = Table.Sort(#&quot;Removed Columns&quot;,{{&quot;Date&quot;, Order.Ascending}})
+in
+    #&quot;Sorted Rows&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(),
+    Payments = Source{[Name="Payments_Raw_Data"]}[Content],
+    #"Removed Blank Rows" = Table.SelectRows(Payments, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null}))),
+    #"Removed Top Rows" = Table.Skip(#"Removed Blank Rows",2),
+    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Promoted Headers1", {"Type", "Date", "Payment Type", "Detail"}, "Attribute", "Value"),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Unpivoted Other Columns",{{"Date", type date}, {"Value", type number}, {"Type", type text}, {"Payment Type", type text}, {"Detail", type text}}),
+    #"Inserted Start of Month" = Table.AddColumn(#"Changed Type1", "Start of Month", each Date.StartOfMonth([Date]), type date),
+    #"Merged Queries" = Table.NestedJoin(#"Inserted Start of Month",{"Start of Month", "Attribute"},FX_Rates,{"Date", "Country"},"FX_Rates",JoinKind.LeftOuter),
+    #"Expanded FX_Rates" = Table.ExpandTableColumn(#"Merged Queries", "FX_Rates", {"Local Currency", "FX Rate"}, {"Local Currency", "FX Rate"}),
+    #"Added Custom" = Table.AddColumn(#"Expanded FX_Rates", "Custom", each [Value] / [FX Rate], type number),
+    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"Value", "Payment [LCY]"}, {"Custom", "Payment [GBP]"}, {"Attribute", "Country"}}),
+    #"Reordered Columns" = Table.ReorderColumns(#"Renamed Columns",{"Type", "Date", "Payment Type", "Detail", "Country", "Local Currency", "Payment [LCY]", "Payment [GBP]", "Start of Month", "FX Rate"}),
+    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"Start of Month"}),
+    #"Sorted Rows" = Table.Sort(#"Removed Columns",{{"Date", Order.Ascending}})
+in
+    #"Sorted Rows"
+
+</code></pre>
+
+<h3 id="3-receipts-data">3. Receipts data</h3>
+
+<p>You can repeat and mirror exactly the same steps as before to the Receipts data, so it looks like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-12.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Call the query ‘<em>Projected Receipts</em>’</li>
+</ul>
+
+<p>The final M-code, once you have finished building the query should look something like this:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(),
+    Receipts = Source{[Name=&quot;Receipts_Raw_Data&quot;]}[Content],
+    #&quot;Removed Blank Rows&quot; = Table.SelectRows(Receipts, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {&quot;&quot;, null}))),
+    #&quot;Removed Top Rows&quot; = Table.Skip(#&quot;Removed Blank Rows&quot;,2),
+    #&quot;Promoted Headers1&quot; = Table.PromoteHeaders(#&quot;Removed Top Rows&quot;, [PromoteAllScalars=true]),
+    #&quot;Unpivoted Other Columns&quot; = Table.UnpivotOtherColumns(#&quot;Promoted Headers1&quot;, {&quot;Type&quot;, &quot;Date&quot;, &quot;Receipt Type&quot;, &quot;Detail&quot;}, &quot;Attribute&quot;, &quot;Value&quot;),
+    #&quot;Changed Type1&quot; = Table.TransformColumnTypes(#&quot;Unpivoted Other Columns&quot;,{{&quot;Date&quot;, type date}, {&quot;Value&quot;, type number}, {&quot;Type&quot;, type text}, {&quot;Receipt Type&quot;, type text}, {&quot;Detail&quot;, type text}}),
+    #&quot;Inserted Start of Month&quot; = Table.AddColumn(#&quot;Changed Type1&quot;, &quot;Start of Month&quot;, each Date.StartOfMonth([Date]), type date),
+    #&quot;Merged Queries&quot; = Table.NestedJoin(#&quot;Inserted Start of Month&quot;,{&quot;Start of Month&quot;, &quot;Attribute&quot;},FX_Rates,{&quot;Date&quot;, &quot;Country&quot;},&quot;FX_Rates&quot;,JoinKind.LeftOuter),
+    #&quot;Expanded FX_Rates&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;FX_Rates&quot;, {&quot;Local Currency&quot;, &quot;FX Rate&quot;}, {&quot;Local Currency&quot;, &quot;FX Rate&quot;}),
+    #&quot;Added Custom&quot; = Table.AddColumn(#&quot;Expanded FX_Rates&quot;, &quot;Custom&quot;, each [Value] / [FX Rate], type number),
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Added Custom&quot;,{{&quot;Value&quot;, &quot;Receipt [LCY]&quot;}, {&quot;Custom&quot;, &quot;Receipt [GBP]&quot;}, {&quot;Attribute&quot;, &quot;Country&quot;}}),
+    #&quot;Reordered Columns&quot; = Table.ReorderColumns(#&quot;Renamed Columns&quot;,{&quot;Type&quot;, &quot;Date&quot;, &quot;Receipt Type&quot;, &quot;Detail&quot;, &quot;Country&quot;, &quot;Local Currency&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Start of Month&quot;, &quot;FX Rate&quot;}),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Reordered Columns&quot;,{&quot;Start of Month&quot;}),
+    #&quot;Sorted Rows&quot; = Table.Sort(#&quot;Removed Columns&quot;,{{&quot;Date&quot;, Order.Ascending}})
+in
+    #&quot;Sorted Rows&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(),
+    Receipts = Source{[Name="Receipts_Raw_Data"]}[Content],
+    #"Removed Blank Rows" = Table.SelectRows(Receipts, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null}))),
+    #"Removed Top Rows" = Table.Skip(#"Removed Blank Rows",2),
+    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Promoted Headers1", {"Type", "Date", "Receipt Type", "Detail"}, "Attribute", "Value"),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Unpivoted Other Columns",{{"Date", type date}, {"Value", type number}, {"Type", type text}, {"Receipt Type", type text}, {"Detail", type text}}),
+    #"Inserted Start of Month" = Table.AddColumn(#"Changed Type1", "Start of Month", each Date.StartOfMonth([Date]), type date),
+    #"Merged Queries" = Table.NestedJoin(#"Inserted Start of Month",{"Start of Month", "Attribute"},FX_Rates,{"Date", "Country"},"FX_Rates",JoinKind.LeftOuter),
+    #"Expanded FX_Rates" = Table.ExpandTableColumn(#"Merged Queries", "FX_Rates", {"Local Currency", "FX Rate"}, {"Local Currency", "FX Rate"}),
+    #"Added Custom" = Table.AddColumn(#"Expanded FX_Rates", "Custom", each [Value] / [FX Rate], type number),
+    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"Value", "Receipt [LCY]"}, {"Custom", "Receipt [GBP]"}, {"Attribute", "Country"}}),
+    #"Reordered Columns" = Table.ReorderColumns(#"Renamed Columns",{"Type", "Date", "Receipt Type", "Detail", "Country", "Local Currency", "Receipt [LCY]", "Receipt [GBP]", "Start of Month", "FX Rate"}),
+    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"Start of Month"}),
+    #"Sorted Rows" = Table.Sort(#"Removed Columns",{{"Date", Order.Ascending}})
+in
+    #"Sorted Rows"
+
+</code></pre>
+
+<h3 id="4-combined-the-payments--receipts-data">4. Combined the Payments &amp; Receipts data</h3>
+
+<p>Now, we need to combine the Payments and receipt data into one table. This is relatively easy.</p>
+
+<ul>
+  <li>Create a new query that references to the earlier Payments query</li>
+  <li>Then, append to it the earlier Receipts query, so the data looks like this (not all columns are shown in the picture below – but both the Payment and Receipt columns are there!):</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-13.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Call the query ‘<em>Projected Payments + Receipts</em>’</li>
+</ul>
+
+<h3 id="5-opening-daily-bank-balances">5. Opening Daily, Bank balances</h3>
+
+<p>Now, we need to get the Bank balances into the right form.</p>
+
+<ul>
+  <li>Load the Bank balance data, so it looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-14.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Insert a ‘<em>Start of Month</em>’ column, based on the value of the column called ‘<em>Today</em>’</li>
+  <li>After this, apply the following Merge operation (this is <strong><em>NOT</em></strong> quite the same as the Merge operation for the Payments and Receipts data earlier, as we need to convert from Contract Currency first, which is what the Bank Balances are stated in)</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-15.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Extract only the FX rates field</li>
+  <li>Add a new column, to convert from the Contract Currencies to GBP</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = Table.AddColumn(#&quot;Expanded FX_Rates&quot;, &quot;GBP&quot;, each [CCY]/[FX Rate], type number)   
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">    = Table.AddColumn(#"Expanded FX_Rates", "GBP", each [CCY]/[FX Rate], type number)   
+</code></pre>
+
+<ul>
+  <li>Now, apply the following Merge operation</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-16.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Extract only the ‘FX rate’ field</li>
+  <li>Add the following column to convert from GBP to LCY (Local Country Currencies)</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = Table.AddColumn(#&quot;Expanded FX_Rates1&quot;, &quot;LCY&quot;, each [GBP]*[FX Rate.1], type number) 
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">    = Table.AddColumn(#"Expanded FX_Rates1", "LCY", each [GBP]*[FX Rate.1], type number) 
+</code></pre>
+
+<ul>
+  <li>Remove the two ‘<em>FX rate</em>’ columns and the ‘<em>Start of Month</em>’ column, as they are no longer needed</li>
+  <li>Now, group the Data as follows, by Date, and Country</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-17.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>The data should look as follows, after renaming the ‘<em>Today</em>’ column to ‘<em>Start Date</em>’:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-18.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Next, add the following column, to show the ‘End Date’ (assumed to be 92 days later)</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = Table.AddColumn(#&quot;Renamed Columns&quot;, &quot;End Date&quot;, each Date.AddDays([Start Date],92))
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">    = Table.AddColumn(#"Renamed Columns", "End Date", each Date.AddDays([Start Date],92))
+</code></pre>
+
+<ul>
+  <li>After this, add another column to list, for each row, all the dates between the ‘<em>Start Date</em>’ and ‘<em>End Date</em>’</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = Table.AddColumn(#&quot;Changed Type1&quot;, &quot;Dates&quot;, each { Number.From([Start Date])..Number.From([End Date]) })
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">    = Table.AddColumn(#"Changed Type1", "Dates", each { Number.From([Start Date])..Number.From([End Date]) })
+</code></pre>
+
+<p>The data should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-19.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Expand the ‘<em>Dates</em>’ column, then apply the relevant field types to the columns. Also, remove the ‘<em>Start Date</em>’ and ‘<em>End Date</em>’ columns, as they are not needed.</li>
+</ul>
+
+<p>The data should look as follows, showing the opening balance, of each country, for each date:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-20.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Call the query ‘<em>Opening Cash Balances</em>’</li>
+</ul>
+
+<h3 id="6-merge-opening-cash-balance-and-projected-payments--receipt-data--part-1">6. Merge Opening Cash Balance, and Projected Payments + Receipt data – Part 1</h3>
+
+<p>Now, we are almost there! We now need to combine the Payments and Receipts data to the Opening Cash Balance, so the correct Closing balance is shown for each day. This will involve having to create some Running Total functions, too, which we will see later.</p>
+
+<ul>
+  <li>First, start by creating a new query (called ‘<em>Projected Cash Balances (Confirmed &amp; Estimated)</em>’) by referencing the query called ‘<em>Opening Cash Balances</em>’ created earlier</li>
+  <li>Next, merge the query with the ‘<em>Projected Payments + Receipts</em>’ data created earlier</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-21.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Extract the following columns, which are the ones that are needed – the others can be ignored:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-22.png" alt="" style="width: 100%; max-width: 49.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Replace any nulls with 0s by adding the following step:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    = Table.ReplaceValue(#&quot;Expanded Projected Payments1&quot;,null,0,Replacer.ReplaceValue,{&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    = Table.ReplaceValue(#"Expanded Projected Payments1",null,0,Replacer.ReplaceValue,{"Bank [LCY]", "Bank [GBP]", "Payment [LCY]", "Payment [GBP]", "Receipt [LCY]", "Receipt [GBP]"})
+
+</code></pre>
+
+<ul>
+  <li>Next, add two Net Receipts columns, with the following code, that add the relevant Receipt and Payment columns together:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    = Table.AddColumn(#&quot;Replaced Value&quot;, &quot;Net Receipts [LCY]&quot;, each [#&quot;Payment [LCY]&quot;]+[#&quot;Receipt [LCY]&quot;])
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    = Table.AddColumn(#"Replaced Value", "Net Receipts [LCY]", each [#"Payment [LCY]"]+[#"Receipt [LCY]"])
+
+</code></pre>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    = Table.AddColumn(#&quot;Added Net Receipts LCY&quot;, &quot;Net Receipts [GBP]&quot;, each [#&quot;Payment [GBP]&quot;]+[#&quot;Receipt [GBP]&quot;])
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    = Table.AddColumn(#"Added Net Receipts LCY", "Net Receipts [GBP]", each [#"Payment [GBP]"]+[#"Receipt [GBP]"])
+
+</code></pre>
+
+<ul>
+  <li>Next, sort the rows by ‘Country’ and then ‘Date’:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+    = Table.Sort(#&quot;Added Net Receipts GBP&quot;,{{&quot;Country&quot;, Order.Ascending}, {&quot;Dates&quot;, Order.Ascending}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+    = Table.Sort(#"Added Net Receipts GBP",{{"Country", Order.Ascending}, {"Dates", Order.Ascending}})
+
+</code></pre>
+
+<ul>
+  <li>…Before we go onto the next step, we have to create two Running Total functions, as these will be used in the next few steps:</li>
+</ul>
+
+<h3 id="7-create-running-total-functions">7. Create Running Total functions</h3>
+
+<p>We need to create two running total functions. One that will return the normal Running Total of the values in a specified column that is passed into it. The other function needs to do the same, but this time skip adding any numbers, when the value in the ‘<em>Type</em>’ column of the table equals ‘<em>Estimated</em>’</p>
+
+<p>The first running total function is quite straightforward:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-23.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>This takes in 2 parameters, tbl, and sumcolumn</li>
+  <li>Then, buffers the table, so the sort order is not lost – which sometimes happens, due to the lazy evaluation of ‘M’</li>
+  <li>Then, renames the column to be summed, to ‘Temp’</li>
+  <li>Then, creates a Running Total, using the <em>List.Accumulate ( )</em> function</li>
+  <li>Then, adds the column, calling it ‘Running Total’, to the original table</li>
+</ul>
+
+<p>The second function is similar, but skips any rows where the value in the ‘Type’ column = ‘<em>Estimated</em>’</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-24.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>The new steps here are:</p>
+
+<ul>
+  <li>TableCombineColumns – because the <em>List.Accumulate ( )</em> function can only accept one column / one list as its first argument, not two, we have to combine the ‘<em>Type</em>’ column with the values in the column to be summed (the ‘<em>Temp</em>’ column) into a single column of records (where each record has two fields, ‘<em>Type</em>’ and ‘<em>Temp</em>’). The new column is called ‘<em>TypeTemp</em>’</li>
+  <li>ListofRecords – this step turns the relevant column into a List that can be accepted by <em>List.Accumulate ( )</em></li>
+  <li>CumulativeTotal – similar to before, except with a condition in the accumulator function argument of <em>List.Accumulate ( )</em> – that nothing will get summed if the value of ‘<em>Type</em>’ field of the current record equals ‘<em>Estimated</em>’</li>
+  <li>The other steps here are the same as the earlier function</li>
+</ul>
+
+<h3 id="8-merge-opening-cash-balance-and-projected-payments--receipt-data--part-2">8. Merge Opening Cash Balance, and Projected Payments + Receipt data – Part 2</h3>
+
+<p>With the two Running Total functions created, we return to where we were before with this Query</p>
+
+<ul>
+  <li>Group the table by Country, with the following code, calling the first Running Total function</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.Group(#&quot;Sorted Rows&quot;, {&quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotal(_, &quot;Net Receipts [LCY]&quot;), type table}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.Group(#"Sorted Rows", {"Country"}, {{"AllData", (_) =&gt; fnRunningTotal(_, "Net Receipts [LCY]"), type table}})
+
+</code></pre>
+
+<ul>
+  <li>Expand all fields, except the Country field, as it is already there from the Group By operation</li>
+</ul>
+
+<p>You should now see a new column at the end called ‘<em>Running Total</em>’, that returns a Running Total, by Country, of the column ‘<em>Net Receipts [LCY]</em>’</p>
+
+<ul>
+  <li>Rename this column ‘Cumulative Net Receipts [LCY]’</li>
+  <li>Now, group the table again by Country, with the following code</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.Group(#&quot;Renamed RT LCY&quot;, {&quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotal(_, &quot;Net Receipts [GBP]&quot;), type table}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.Group(#"Renamed RT LCY", {"Country"}, {{"AllData", (_) =&gt; fnRunningTotal(_, "Net Receipts [GBP]"), type table}})
+
+</code></pre>
+
+<ul>
+  <li>Expand all fields, except the Country field, as it is already there</li>
+  <li>
+    <p>Rename the new ‘<em>Running Total</em>’ column to ‘<em>Cumulative Net Receipts [GBP]</em>’</p>
+  </li>
+  <li>Group the table again by Country, with the following code, this time using the 2nd Running Total function</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.Group(#&quot;Renamed RT GBP&quot;, {&quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotalexclEst(_, &quot;Net Receipts [LCY]&quot;), type table}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.Group(#"Renamed RT GBP", {"Country"}, {{"AllData", (_) =&gt; fnRunningTotalexclEst(_, "Net Receipts [LCY]"), type table}})
+
+</code></pre>
+
+<ul>
+  <li>
+    <p>Rename the new ‘<em>Running Total</em>’ column to ‘<em>Cumulative Net Receipts [LCY] excl Est.</em>’</p>
+  </li>
+  <li>
+    <p>Group the table again by Country, with the following code, using the 2nd Running Total function</p>
+  </li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.Group(#&quot;Renamed RT LCY excl Est.&quot;, {&quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotalexclEst(_, &quot;Net Receipts [GBP]&quot;), type table}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.Group(#"Renamed RT LCY excl Est.", {"Country"}, {{"AllData", (_) =&gt; fnRunningTotalexclEst(_, "Net Receipts [GBP]"), type table}})
+
+</code></pre>
+
+<ul>
+  <li>Rename the new ‘<em>Running Total</em>’ column to ‘<em>Cumulative Net Receipts [GBP] excl Est.</em>’</li>
+</ul>
+
+<p>The last four columns of the data should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-25.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>Now, we need to create 4 new columns that add these Cumulative Totals to the Opening Bank Balance columns further to the left, to get to the Closing Balance on each day (which is what we are after!).</p>
+
+<ul>
+  <li>Add the following 4 columns:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.AddColumn(#&quot;Renamed + RT GBP excl Est.&quot;, &quot;Balance [LCY]&quot;, each [#&quot;Bank [LCY]&quot;]+[#&quot;Cumulative Net Receipts [LCY]&quot;])
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.AddColumn(#"Renamed + RT GBP excl Est.", "Balance [LCY]", each [#"Bank [LCY]"]+[#"Cumulative Net Receipts [LCY]"])
+</code></pre>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.AddColumn(#&quot;Added Balance LCY&quot;, &quot;Balance [GBP]&quot;, each [#&quot;Bank [GBP]&quot;]+[#&quot;Cumulative Net Receipts [GBP]&quot;])
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.AddColumn(#"Added Balance LCY", "Balance [GBP]", each [#"Bank [GBP]"]+[#"Cumulative Net Receipts [GBP]"])
+</code></pre>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.AddColumn(#&quot;Added Balance GBP&quot;, &quot;Balance [LCY] excl Est.&quot;, each [#&quot;Bank [LCY]&quot;]+[#&quot;Cumulative Net Receipts [LCY] excl Est.&quot;])
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.AddColumn(#"Added Balance GBP", "Balance [LCY] excl Est.", each [#"Bank [LCY]"]+[#"Cumulative Net Receipts [LCY] excl Est."])
+</code></pre>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.AddColumn(#&quot;Added Balance LCY excl Est.&quot;, &quot;Balance [GBP] excl Est.&quot;, each [#&quot;Bank [GBP]&quot;]+[#&quot;Cumulative Net Receipts [GBP] excl Est.&quot;])
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.AddColumn(#"Added Balance LCY excl Est.", "Balance [GBP] excl Est.", each [#"Bank [GBP]"]+[#"Cumulative Net Receipts [GBP] excl Est."])
+</code></pre>
+
+<ul>
+  <li>Group the data again, by Country as follows:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-26.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Add an Index column like so (this Index Column will be needed were we to build any DAX Measures, from this Dataset – see the <em>DAX article:</em> <a href="/../docs/guides/data-analytics/dax-samples/finance-daily-cashflows.html#measures"><strong>Finance - Daily Cashflows</strong></a>):</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-27.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Remove the column called ‘All Data’, so the data just looks like this, grouped by Country</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-28.png" alt="" style="width: 100%; max-width: 49.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Expand only the following fields. The others are not needed:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-daily-cashflows-29.png" alt="" style="width: 100%; max-width: 49.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Reorder the Index column to the front, and then assign a final Data type to each column</li>
+</ul>
+
+<p>The data when loaded back to Excel, should now give the final result we are after! – the closing balance each day, in GBP, and LCY, for each Country we have a bank account in - as shown below:</p>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Finance - Daily Cashflows</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-daily-cashflows-30.png');" src="images/finance-daily-cashflows-30.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<p>Once the inputs have been updated, this output data can now be re-created all at the click of a button!</p>
+
+<ul>
+  <li>Some people prefer to see graphs rather than tables. Therefore, to more easily visualise this data, we can then create a Data Model, and Report, from this final dataset. How to do this, has been explained further in this <em>DAX article</em>, here: <a href="/../docs/guides/data-analytics/dax-samples/finance-daily-cashflows.html"><strong>Finance - Daily Cashflows</strong></a>.</li>
+</ul>
+
+<p>The final ‘M’ code to this query should look something like this:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = #&quot;Opening Cash Balances&quot;,
+    #&quot;Merged Queries&quot; = Table.NestedJoin(Source,{&quot;Dates&quot;, &quot;Country&quot;},#&quot;Projected Payments + Receipts&quot;,{&quot;Date&quot;, &quot;Country&quot;},&quot;Projected Payments&quot;,JoinKind.LeftOuter),
+    #&quot;Expanded Projected Payments1&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;Projected Payments&quot;, {&quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;}, {&quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;}),
+    #&quot;Replaced Value&quot; = Table.ReplaceValue(#&quot;Expanded Projected Payments1&quot;,null,0,Replacer.ReplaceValue,{&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;}),
+    #&quot;Added Net Receipts LCY&quot; = Table.AddColumn(#&quot;Replaced Value&quot;, &quot;Net Receipts [LCY]&quot;, each [#&quot;Payment [LCY]&quot;]+[#&quot;Receipt [LCY]&quot;]),
+    #&quot;Added Net Receipts GBP&quot; = Table.AddColumn(#&quot;Added Net Receipts LCY&quot;, &quot;Net Receipts [GBP]&quot;, each [#&quot;Payment [GBP]&quot;]+[#&quot;Receipt [GBP]&quot;]),
+    #&quot;Sorted Rows&quot; = Table.Sort(#&quot;Added Net Receipts GBP&quot;,{{&quot;Country&quot;, Order.Ascending}, {&quot;Dates&quot;, Order.Ascending}}),
+    #&quot;Grouped + RT Column LCY&quot; = Table.Group(#&quot;Sorted Rows&quot;, {&quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotal(_, &quot;Net Receipts [LCY]&quot;), type table}}),
+    #&quot;Expanded AllData&quot; = Table.ExpandTableColumn(#&quot;Grouped + RT Column LCY&quot;, &quot;AllData&quot;, {&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Net Receipts [LCY]&quot;, &quot;Net Receipts [GBP]&quot;, &quot;Running Total&quot;}, {&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Net Receipts [LCY]&quot;, &quot;Net Receipts [GBP]&quot;, &quot;Running Total&quot;}),
+    #&quot;Renamed RT LCY&quot; = Table.RenameColumns(#&quot;Expanded AllData&quot;,{{&quot;Running Total&quot;, &quot;Cumulative Net Receipts [LCY]&quot;}}),
+    #&quot;Grouped + RT Column GBP&quot; = Table.Group(#&quot;Renamed RT LCY&quot;, {&quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotal(_, &quot;Net Receipts [GBP]&quot;), type table}}),
+    #&quot;Expanded AllData1&quot; = Table.ExpandTableColumn(#&quot;Grouped + RT Column GBP&quot;, &quot;AllData&quot;, {&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Net Receipts [LCY]&quot;, &quot;Net Receipts [GBP]&quot;, &quot;Cumulative Net Receipts [LCY]&quot;, &quot;Running Total&quot;}, {&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Net Receipts [LCY]&quot;, &quot;Net Receipts [GBP]&quot;, &quot;Cumulative Net Receipts [LCY]&quot;, &quot;Running Total&quot;}),
+    #&quot;Renamed RT GBP&quot; = Table.RenameColumns(#&quot;Expanded AllData1&quot;,{{&quot;Running Total&quot;, &quot;Cumulative Net Receipts [GBP]&quot;}}),
+    #&quot;Grouped + RT LCY excl Est.&quot; = Table.Group(#&quot;Renamed RT GBP&quot;, {&quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotalexclEst(_, &quot;Net Receipts [LCY]&quot;), type table}}),
+    #&quot;Expanded AllData2&quot; = Table.ExpandTableColumn(#&quot;Grouped + RT LCY excl Est.&quot;, &quot;AllData&quot;, {&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Net Receipts [LCY]&quot;, &quot;Net Receipts [GBP]&quot;, &quot;Cumulative Net Receipts [LCY]&quot;, &quot;Cumulative Net Receipts [GBP]&quot;, &quot;Running Total&quot;}, {&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Net Receipts [LCY]&quot;, &quot;Net Receipts [GBP]&quot;, &quot;Cumulative Net Receipts [LCY]&quot;, &quot;Cumulative Net Receipts [GBP]&quot;, &quot;Running Total&quot;}),
+    #&quot;Renamed RT LCY excl Est.&quot; = Table.RenameColumns(#&quot;Expanded AllData2&quot;,{{&quot;Running Total&quot;, &quot;Cumulative Net Receipts [LCY] excl Est.&quot;}}),
+    #&quot;Grouped + RT GBP excl Est.&quot; = Table.Group(#&quot;Renamed RT LCY excl Est.&quot;, {&quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotalexclEst(_, &quot;Net Receipts [GBP]&quot;), type table}}),
+    #&quot;Expanded AllData3&quot; = Table.ExpandTableColumn(#&quot;Grouped + RT GBP excl Est.&quot;, &quot;AllData&quot;, {&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Net Receipts [LCY]&quot;, &quot;Net Receipts [GBP]&quot;, &quot;Cumulative Net Receipts [LCY]&quot;, &quot;Cumulative Net Receipts [GBP]&quot;, &quot;Cumulative Net Receipts [LCY] excl Est.&quot;, &quot;Running Total&quot;}, {&quot;Bank [LCY]&quot;, &quot;Bank [GBP]&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Net Receipts [LCY]&quot;, &quot;Net Receipts [GBP]&quot;, &quot;Cumulative Net Receipts [LCY]&quot;, &quot;Cumulative Net Receipts [GBP]&quot;, &quot;Cumulative Net Receipts [LCY] excl Est.&quot;, &quot;Running Total&quot;}),
+    #&quot;Renamed + RT GBP excl Est.&quot; = Table.RenameColumns(#&quot;Expanded AllData3&quot;,{{&quot;Running Total&quot;, &quot;Cumulative Net Receipts [GBP] excl Est.&quot;}}),
+    #&quot;Added Balance LCY&quot; = Table.AddColumn(#&quot;Renamed + RT GBP excl Est.&quot;, &quot;Balance [LCY]&quot;, each [#&quot;Bank [LCY]&quot;]+[#&quot;Cumulative Net Receipts [LCY]&quot;]),
+    #&quot;Added Balance GBP&quot; = Table.AddColumn(#&quot;Added Balance LCY&quot;, &quot;Balance [GBP]&quot;, each [#&quot;Bank [GBP]&quot;]+[#&quot;Cumulative Net Receipts [GBP]&quot;]),
+    #&quot;Added Balance LCY excl Est.&quot; = Table.AddColumn(#&quot;Added Balance GBP&quot;, &quot;Balance [LCY] excl Est.&quot;, each [#&quot;Bank [LCY]&quot;]+[#&quot;Cumulative Net Receipts [LCY] excl Est.&quot;]),
+    #&quot;Added Balance GBP excl Est.&quot; = Table.AddColumn(#&quot;Added Balance LCY excl Est.&quot;, &quot;Balance [GBP] excl Est.&quot;, each [#&quot;Bank [GBP]&quot;]+[#&quot;Cumulative Net Receipts [GBP] excl Est.&quot;]),
+    #&quot;Grouped Rows&quot; = Table.Group(#&quot;Added Balance GBP excl Est.&quot;, {&quot;Country&quot;}, {{&quot;All Data&quot;, each _, type table [Country=nullable text, Dates=date, Type=nullable text, Payment Type=nullable text, #&quot;Payment [LCY]&quot;=number, #&quot;Payment [GBP]&quot;=number, Receipt Type=nullable text, #&quot;Receipt [LCY]&quot;=number, #&quot;Receipt [GBP]&quot;=number, #&quot;Balance [LCY]&quot;=nullable number, #&quot;Balance [GBP]&quot;=nullable number, #&quot;Balance [LCY] excl Est.&quot;=nullable number, #&quot;Balance [GBP] excl Est.&quot;=nullable number]}}),
+    #&quot;Added Index&quot; = Table.AddColumn(#&quot;Grouped Rows&quot;, &quot;With Index&quot;, each Table.AddIndexColumn([All Data], &quot;Record&quot;, 1, 1)),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Added Index&quot;,{&quot;All Data&quot;}),
+    #&quot;Expanded Index&quot; = Table.ExpandTableColumn(#&quot;Removed Columns&quot;, &quot;With Index&quot;, {&quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Balance [LCY]&quot;, &quot;Balance [GBP]&quot;, &quot;Balance [LCY] excl Est.&quot;, &quot;Balance [GBP] excl Est.&quot;, &quot;Record&quot;}, {&quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Balance [LCY]&quot;, &quot;Balance [GBP]&quot;, &quot;Balance [LCY] excl Est.&quot;, &quot;Balance [GBP] excl Est.&quot;, &quot;Record&quot;}),
+    #&quot;Reordered Columns&quot; = Table.ReorderColumns(#&quot;Expanded Index&quot;,{&quot;Record&quot;, &quot;Country&quot;, &quot;Dates&quot;, &quot;Type&quot;, &quot;Payment Type&quot;, &quot;Payment [LCY]&quot;, &quot;Payment [GBP]&quot;, &quot;Receipt Type&quot;, &quot;Receipt [LCY]&quot;, &quot;Receipt [GBP]&quot;, &quot;Balance [LCY]&quot;, &quot;Balance [GBP]&quot;, &quot;Balance [LCY] excl Est.&quot;, &quot;Balance [GBP] excl Est.&quot;}),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Reordered Columns&quot;,{{&quot;Record&quot;, Int64.Type}, {&quot;Dates&quot;, type date}, {&quot;Type&quot;, type text}, {&quot;Payment Type&quot;, type text}, {&quot;Payment [LCY]&quot;, type number}, {&quot;Payment [GBP]&quot;, type number}, {&quot;Receipt Type&quot;, type text}, {&quot;Receipt [LCY]&quot;, type number}, {&quot;Receipt [GBP]&quot;, type number}, {&quot;Balance [LCY]&quot;, type number}, {&quot;Balance [GBP]&quot;, type number}, {&quot;Balance [LCY] excl Est.&quot;, type number}, {&quot;Balance [GBP] excl Est.&quot;, type number}})
+in
+    #&quot;Changed Type&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = #"Opening Cash Balances",
+    #"Merged Queries" = Table.NestedJoin(Source,{"Dates", "Country"},#"Projected Payments + Receipts",{"Date", "Country"},"Projected Payments",JoinKind.LeftOuter),
+    #"Expanded Projected Payments1" = Table.ExpandTableColumn(#"Merged Queries", "Projected Payments", {"Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]"}, {"Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]"}),
+    #"Replaced Value" = Table.ReplaceValue(#"Expanded Projected Payments1",null,0,Replacer.ReplaceValue,{"Bank [LCY]", "Bank [GBP]", "Payment [LCY]", "Payment [GBP]", "Receipt [LCY]", "Receipt [GBP]"}),
+    #"Added Net Receipts LCY" = Table.AddColumn(#"Replaced Value", "Net Receipts [LCY]", each [#"Payment [LCY]"]+[#"Receipt [LCY]"]),
+    #"Added Net Receipts GBP" = Table.AddColumn(#"Added Net Receipts LCY", "Net Receipts [GBP]", each [#"Payment [GBP]"]+[#"Receipt [GBP]"]),
+    #"Sorted Rows" = Table.Sort(#"Added Net Receipts GBP",{{"Country", Order.Ascending}, {"Dates", Order.Ascending}}),
+    #"Grouped + RT Column LCY" = Table.Group(#"Sorted Rows", {"Country"}, {{"AllData", (_) =&gt; fnRunningTotal(_, "Net Receipts [LCY]"), type table}}),
+    #"Expanded AllData" = Table.ExpandTableColumn(#"Grouped + RT Column LCY", "AllData", {"Bank [LCY]", "Bank [GBP]", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Net Receipts [LCY]", "Net Receipts [GBP]", "Running Total"}, {"Bank [LCY]", "Bank [GBP]", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Net Receipts [LCY]", "Net Receipts [GBP]", "Running Total"}),
+    #"Renamed RT LCY" = Table.RenameColumns(#"Expanded AllData",{{"Running Total", "Cumulative Net Receipts [LCY]"}}),
+    #"Grouped + RT Column GBP" = Table.Group(#"Renamed RT LCY", {"Country"}, {{"AllData", (_) =&gt; fnRunningTotal(_, "Net Receipts [GBP]"), type table}}),
+    #"Expanded AllData1" = Table.ExpandTableColumn(#"Grouped + RT Column GBP", "AllData", {"Bank [LCY]", "Bank [GBP]", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Net Receipts [LCY]", "Net Receipts [GBP]", "Cumulative Net Receipts [LCY]", "Running Total"}, {"Bank [LCY]", "Bank [GBP]", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Net Receipts [LCY]", "Net Receipts [GBP]", "Cumulative Net Receipts [LCY]", "Running Total"}),
+    #"Renamed RT GBP" = Table.RenameColumns(#"Expanded AllData1",{{"Running Total", "Cumulative Net Receipts [GBP]"}}),
+    #"Grouped + RT LCY excl Est." = Table.Group(#"Renamed RT GBP", {"Country"}, {{"AllData", (_) =&gt; fnRunningTotalexclEst(_, "Net Receipts [LCY]"), type table}}),
+    #"Expanded AllData2" = Table.ExpandTableColumn(#"Grouped + RT LCY excl Est.", "AllData", {"Bank [LCY]", "Bank [GBP]", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Net Receipts [LCY]", "Net Receipts [GBP]", "Cumulative Net Receipts [LCY]", "Cumulative Net Receipts [GBP]", "Running Total"}, {"Bank [LCY]", "Bank [GBP]", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Net Receipts [LCY]", "Net Receipts [GBP]", "Cumulative Net Receipts [LCY]", "Cumulative Net Receipts [GBP]", "Running Total"}),
+    #"Renamed RT LCY excl Est." = Table.RenameColumns(#"Expanded AllData2",{{"Running Total", "Cumulative Net Receipts [LCY] excl Est."}}),
+    #"Grouped + RT GBP excl Est." = Table.Group(#"Renamed RT LCY excl Est.", {"Country"}, {{"AllData", (_) =&gt; fnRunningTotalexclEst(_, "Net Receipts [GBP]"), type table}}),
+    #"Expanded AllData3" = Table.ExpandTableColumn(#"Grouped + RT GBP excl Est.", "AllData", {"Bank [LCY]", "Bank [GBP]", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Net Receipts [LCY]", "Net Receipts [GBP]", "Cumulative Net Receipts [LCY]", "Cumulative Net Receipts [GBP]", "Cumulative Net Receipts [LCY] excl Est.", "Running Total"}, {"Bank [LCY]", "Bank [GBP]", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Net Receipts [LCY]", "Net Receipts [GBP]", "Cumulative Net Receipts [LCY]", "Cumulative Net Receipts [GBP]", "Cumulative Net Receipts [LCY] excl Est.", "Running Total"}),
+    #"Renamed + RT GBP excl Est." = Table.RenameColumns(#"Expanded AllData3",{{"Running Total", "Cumulative Net Receipts [GBP] excl Est."}}),
+    #"Added Balance LCY" = Table.AddColumn(#"Renamed + RT GBP excl Est.", "Balance [LCY]", each [#"Bank [LCY]"]+[#"Cumulative Net Receipts [LCY]"]),
+    #"Added Balance GBP" = Table.AddColumn(#"Added Balance LCY", "Balance [GBP]", each [#"Bank [GBP]"]+[#"Cumulative Net Receipts [GBP]"]),
+    #"Added Balance LCY excl Est." = Table.AddColumn(#"Added Balance GBP", "Balance [LCY] excl Est.", each [#"Bank [LCY]"]+[#"Cumulative Net Receipts [LCY] excl Est."]),
+    #"Added Balance GBP excl Est." = Table.AddColumn(#"Added Balance LCY excl Est.", "Balance [GBP] excl Est.", each [#"Bank [GBP]"]+[#"Cumulative Net Receipts [GBP] excl Est."]),
+    #"Grouped Rows" = Table.Group(#"Added Balance GBP excl Est.", {"Country"}, {{"All Data", each _, type table [Country=nullable text, Dates=date, Type=nullable text, Payment Type=nullable text, #"Payment [LCY]"=number, #"Payment [GBP]"=number, Receipt Type=nullable text, #"Receipt [LCY]"=number, #"Receipt [GBP]"=number, #"Balance [LCY]"=nullable number, #"Balance [GBP]"=nullable number, #"Balance [LCY] excl Est."=nullable number, #"Balance [GBP] excl Est."=nullable number]}}),
+    #"Added Index" = Table.AddColumn(#"Grouped Rows", "With Index", each Table.AddIndexColumn([All Data], "Record", 1, 1)),
+    #"Removed Columns" = Table.RemoveColumns(#"Added Index",{"All Data"}),
+    #"Expanded Index" = Table.ExpandTableColumn(#"Removed Columns", "With Index", {"Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Balance [LCY]", "Balance [GBP]", "Balance [LCY] excl Est.", "Balance [GBP] excl Est.", "Record"}, {"Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Balance [LCY]", "Balance [GBP]", "Balance [LCY] excl Est.", "Balance [GBP] excl Est.", "Record"}),
+    #"Reordered Columns" = Table.ReorderColumns(#"Expanded Index",{"Record", "Country", "Dates", "Type", "Payment Type", "Payment [LCY]", "Payment [GBP]", "Receipt Type", "Receipt [LCY]", "Receipt [GBP]", "Balance [LCY]", "Balance [GBP]", "Balance [LCY] excl Est.", "Balance [GBP] excl Est."}),
+    #"Changed Type" = Table.TransformColumnTypes(#"Reordered Columns",{{"Record", Int64.Type}, {"Dates", type date}, {"Type", type text}, {"Payment Type", type text}, {"Payment [LCY]", type number}, {"Payment [GBP]", type number}, {"Receipt Type", type text}, {"Receipt [LCY]", type number}, {"Receipt [GBP]", type number}, {"Balance [LCY]", type number}, {"Balance [GBP]", type number}, {"Balance [LCY] excl Est.", type number}, {"Balance [GBP] excl Est.", type number}})
+in
+    #"Changed Type"
+
+</code></pre>
+
+<h3 id="9-query-dependencies">9. Query Dependencies</h3>
+
+<p>So, you can better see at a high level what is going on, the final dependency chain of the ETLs should look something like this:</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-daily-cashflows-31.png');" src="images/finance-daily-cashflows-31.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<h3 id="10-etl-extensions">10. ETL Extensions</h3>
+
+<p>In this article, although the transformations done up til this point allow for the recording of multiple currencies for bank accounts in one country (Australia has one bank account in AUD, and another in USD, for example), the payment and receipt schedules assume that the amounts are entered in the local currency of that country – not in multiple contract currencies. The <em>Payment</em> and <em>Receipt</em> schedules could be extended to allow for multiple currencies too. One would need to ensure that any amounts entered are assigned to the correct contract currency - which would require some extra effort to keep track of.</p>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#data-inputs">Data Inputs</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#input-fx-rates">Input FX Rates</a></li>
+<li class="toc-entry toc-h3"><a href="#daily-opening-bank-balances">Daily Opening Bank Balances</a></li>
+<li class="toc-entry toc-h3"><a href="#payment-inputs">Payment Inputs</a></li>
+<li class="toc-entry toc-h3"><a href="#receipt-inputs">Receipt Inputs</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#steps">Steps</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-load-fx-data">1. Load FX data</a></li>
+<li class="toc-entry toc-h3"><a href="#2-payments-data">2. Payments data</a></li>
+<li class="toc-entry toc-h3"><a href="#3-receipts-data">3. Receipts data</a></li>
+<li class="toc-entry toc-h3"><a href="#4-combined-the-payments--receipts-data">4. Combined the Payments &amp; Receipts data</a></li>
+<li class="toc-entry toc-h3"><a href="#5-opening-daily-bank-balances">5. Opening Daily, Bank balances</a></li>
+<li class="toc-entry toc-h3"><a href="#6-merge-opening-cash-balance-and-projected-payments--receipt-data--part-1">6. Merge Opening Cash Balance, and Projected Payments + Receipt data – Part 1</a></li>
+<li class="toc-entry toc-h3"><a href="#7-create-running-total-functions">7. Create Running Total functions</a></li>
+<li class="toc-entry toc-h3"><a href="#8-merge-opening-cash-balance-and-projected-payments--receipt-data--part-2">8. Merge Opening Cash Balance, and Projected Payments + Receipt data – Part 2</a></li>
+<li class="toc-entry toc-h3"><a href="#9-query-dependencies">9. Query Dependencies</a></li>
+<li class="toc-entry toc-h3"><a href="#10-etl-extensions">10. ETL Extensions</a></li>
+</ul>
+</li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

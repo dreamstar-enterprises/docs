@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>IFRS 9 - Hedge Accounting | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/finance-and-accounting/finance-and-accounting.html"><span class="">Finance & Accounting</span></a></li>
+        <li><a href=/docs/guides/finance-and-accounting/accounting-standards/overview.html><span class="">Accounting Standards</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Business Combinations</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Standards</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs3.html">IFRS 3</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs10.html">IFRS 10</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ias27.html">IAS 27</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs12.html">IFRS 12</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/goodwill.html">Goodwill & NCI Calculation</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/consol-example-1.html">Ex. 1 - Group Consolidation</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/consol-example-2.html">Ex. 2 - Fair Value adjustments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/consol-example-3.html">Ex. 3 -  I/C balances & PURPs</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/consol-example-4.html">Ex. 4 - Reverse Acquisitions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/consol-example-5.html">Ex. 5 - PURPs and Dividends</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/consol-example-6.html">Ex. 6 - Other Adjustments</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Step Acquisitions</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/step-acquisitions.html">Step Aquisitions - IFRS treatment</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/step-acq-example-1.html">Ex. 1 - FVTOCI Investment</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/step-acq-example-2.html">Ex. 2 - Equity Accounted Associate</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/step-acq-example-3.html">Ex. 3 - No change in Control</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Disposals</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/disposals.html">Disposals - IFRS treatment</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/disposals-example-1.html">Ex. 1 - Complete Disposal</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/disposals-example-2.html">Ex. 2 - Subsidiary to Subsidiary</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/disposals-example-3.html">Ex. 3 - Subsidiary to Associate</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Associates & Joint Ventures</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Standards</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ias28.html">IAS 28</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs11.html">IFRS 11</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/associate-example-1.html">Ex. 1 - Associate B/S</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/associate-example-2.html">Ex. 2 - Associate I/S</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/associate-example-3.html">Ex. 3 - Other Adjustments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/jv-example-1.html">Ex. 4 - J.V. Consolidation</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/jv-example-2.html">Ex. 5 - J.V. Receivables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/jv-example-3.html">Ex. 6 - J.V. & Investors</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Revenue</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Standards</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs15.html">IFRS 15</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/revenue-example-1.html">Ex. 1 - Revenue Recognition</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/revenue-example-2.html">Ex. 2 - Simple Transaction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/revenue-example-3.html">Ex. 3 - Multiple Deliverables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/revenue-example-4.html">Ex. 4 - Deferred Payment</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/revenue-example-5.html">Ex. 5 - Mobile Service Plan</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/revenue-example-6.html">Ex. 6 - Contract Modification</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/revenue-example-7.html">Ex. 7 - Contract to Construct</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/revenue-example-8.html">Ex. 8 - Costs of Contract</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Foreign Exchange Rates</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Standards</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ias21.html">IAS 21</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-1.html">Ex. 1 - Monetary items</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-2.html">Ex. 2 - Non-monetary items</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-3.html">Ex. 3 - Investment Property</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-4.html">Ex. 4 - Property Revaluation</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-5.html">Ex. 5 - Land Revaluation</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-6.html">Ex. 6 - Financial Instruments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-7.html">Ex. 7 - Foreign Branch</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-8.html">Ex. 8 - Subsidiary Translation</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-9.html">Ex. 9 - Subsidiary Consolidation</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-10.html">Ex. 10 - Goodwill Adjustment</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-11.html">Ex. 11 - Foreign Operations</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-12.html">Ex. 12 - Intra-group Trading</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-13.html">Ex. 13 - Non-Controlling Interest</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/exchange-rates-example-14.html">Ex. 14 - Consolidation Various</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Financial Instruments</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Standards</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ias32.html">IAS 32</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs9-financial-instruments.html">IFRS 9 - Financial Instruments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs9-impairments.html">IFRS 9 - Impairment</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs9-derivatives.html">IFRS 9 - Derivatives</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs9-hedge-accounting.html">IFRS 9 - Hedge Accounting</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs7.html">IFRS 7</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-1.html">Ex. 1 - Financial Instruments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-2.html">Ex. 2 - Financial Assets</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-3.html">Ex. 3 - Financial Liabilities</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-4.html">Ex. 4 - Instrument Classification</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-5.html">Ex. 5 - Preference Shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-6.html">Ex. 6 - Compound Instruments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-7.html">Ex. 7 - Dividends</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-8.html">Ex. 8 - Issue Costs</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-9.html">Ex. 9 - Treasury Shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-10.html">Ex. 10 - Convertible Shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-11.html">Ex. 11 - De-recognition</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-12.html">Ex. 12 - Regular way purchase</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-13.html">Ex. 13 - Impairments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-14.html">Ex. 14 - Instrument Modification</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-15.html">Ex. 15 - Derivatives</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-16.html">Ex. 16 - Embedded Derivatives</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-17.html">Ex. 17 - Basic Hedging</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-18.html">Ex. 18 - Hedged Item</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-19.html">Ex. 19 - Hedging Instrument</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-20.html">Ex. 20 - Fair Value Hedging</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-21.html">Ex. 21 - Cash Flow Hedging</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/financial-instruments-example-22.html">Ex. 22 - Net Investment</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Tax</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Standards</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ias12.html">IAS 12</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/income-taxes-example-1.html">Ex. 1 - Temporary Differences</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/income-taxes-example-2.html">Ex. 2 - Deferred Tax</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/income-taxes-example-3.html">Ex. 3 - Common Scenarios</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/income-taxes-example-4.html">Ex. 4 - Group Scenarios</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/income-taxes-example-5.html">Ex. 5 - Presentation & Disclosure</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Leases</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Standards</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/ifrs16.html">IFRS 16</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Examples</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/leases-example-1.html">Ex. 1 - Identified assets</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/leases-example-2.html">Ex. 2 - Lessee Accounting</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/leases-example-3.html">Ex. 3 - Lessor Accounting</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/finance-and-accounting/accounting-standards/leases-example-4.html">Ex. 4 - Sale & Leaseback</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="ifrs-9---hedge-accounting">IFRS 9 - Hedge Accounting</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Finance &amp; Accounting • 05/07/2019</time>
+
+<h2 class="colored-magenta" id="ifrs-9-hedge-accounting">IFRS 9: Hedge Accounting</h2>
+
+<p>The hedge accounting requirements in IFRS 9 are optional. If certain eligibility and qualification criteria are met, hedge accounting allows an entity to reflect risk management activities in the financial statements by matching gains or losses on financial hedging instruments with losses or gains on the risk exposures they hedge, in profit or loss or other comprehensive income.</p>
+
+<p>The hedge accounting model in IFRS 9 is not designed to accommodate hedging of open, dynamic portfolios. As a result, for a fair value hedge of interest rate risk of a portfolio of financial assets or liabilities an entity can apply the hedge accounting requirements in IAS 39 instead of those in IFRS 9.</p>
+
+<p>An entity applying hedge accounting designates a hedging relationship between a hedging instrument and a hedged item. For hedging relationships that meet the qualifying criteria in IFRS 9, an entity accounts for the gain or loss on the hedging instrument and the hedged item in accordance with the special hedge accounting provisions of IFRS 9.</p>
+
+<p>IFRS 9 identifies three types of hedging relationships and prescribes special accounting provisions for each:</p>
+
+<ul>
+  <li><strong>Fair value hedge</strong>: a hedge of the exposure to changes in fair value of a recognised asset or liability or an unrecognised firm commitment, or a component of any such item, that is attributable to a particular risk and could affect profit or loss.</li>
+  <li><strong>Cash flow hedge</strong>: a hedge of the exposure to variability in cash flows that is attributable to a particular risk associated with all, or a component of, a recognised asset or liability (such as all or some future interest payments on variable-rate debt) or a highly probable forecast transaction, and could affect profit or loss.</li>
+  <li><strong>Hedge of a net investment</strong> in a foreign operation as defined in IAS 21.</li>
+</ul>
+
+<p>When an entity first applies IFRS 9, it may choose to continue to apply the hedge accounting requirements of IAS 39, instead of the requirements in IFRS 9, to all of its hedging relationships.</p>
+
+<h2 class="colored-magenta" id="qualifying-criteria-for-hedge-accounting">Qualifying criteria for hedge accounting</h2>
+
+<p>A hedging relationship qualifies for hedge accounting only if all of the following criteria are met:</p>
+
+<ul>
+  <li>The hedging relationship consists only of eligible hedging instruments and eligible hedged items.</li>
+  <li>At the inception of the hedging relationship there is formal designation and documentation of the hedging relationship and the entity’s risk management objective and strategy for undertaking the hedge. Documentation must include identification of the hedged item, the hedging instrument, the nature of the hedged risk and how the entity will assess whether the hedging relationship meets the hedge effectiveness requirements (including its analysis of the sources of hedge ineffectiveness and how it determines the hedge ratio).</li>
+  <li>The hedging relationship meets all of the hedge effectiveness requirements:
+    <ul>
+      <li>An economic relationship exists between the hedged item and the hedging instrument i.e., the hedging instrument and the hedged item are expected to have offsetting changes in value;</li>
+      <li>The effect of credit risk does not dominate the value changes ie, the value changes due to credit risk are not a significant driver of the value changes of either the hedging instrument or the hedged item; and</li>
+      <li>The hedge ratio of the hedging relationship (quantity of hedging instrument vs quantity of hedged item) is the same as that resulting from the quantity of the hedged item that the entity actually hedges and the quantity of the hedging instrument that the entity actually uses to hedge that quantity of hedged item.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="colored-magenta" id="rebalancing">Rebalancing</h2>
+
+<p>If a hedging relationship ceases to meet the hedge effectiveness requirement relating to the hedge ratio but the risk management objective for that designated hedging relationship remains the same, an entity adjusts the hedge ratio of the hedging relationship (i.e. rebalances the hedge) so that it meets the qualifying criteria again.</p>
+
+<h2 class="colored-magenta" id="hedged-items">Hedged items</h2>
+
+<p>A <strong>hedged item</strong> is an asset, a liability, a firm commitment (such as a contract to acquire a new oil tanker in the future) or a forecast transaction (such as the issue in four months’ time of fixed rate debt) which exposes the entity to risks of fair value/cash flow changes. The hedged item generates the risk which is being hedged.</p>
+
+<p>A hedged item can be:</p>
+<ul>
+  <li>a recognised asset or liability,</li>
+  <li>an unrecognised firm commitment,</li>
+  <li>a highly probable forecast transaction, or</li>
+  <li>a net investment in a foreign operation</li>
+</ul>
+
+<p>It must be reliably measurable.</p>
+
+<h3 id="financial-risks">Financial risks</h3>
+
+<p><strong>Hedged items</strong> as defined above are <strong>exposed to a variety of risks</strong> that affect the value of their fair value or cash flows. For hedge accounting, these risks <strong>need to be identified</strong> and <strong>hedging instruments which modify the identified risks</strong> selected and designated. The risks for which the above items can be hedged are normally classified as follows:</p>
+
+<ul>
+  <li>Market risk</li>
+  <li>Which can be made up of:
+    <ul>
+      <li>price risk</li>
+      <li>interest rate risk</li>
+      <li>currency risk</li>
+    </ul>
+  </li>
+  <li>Credit risk</li>
+  <li>Liquidity risk</li>
+</ul>
+
+<p>IFRS 9 allows for a portion of the risks or cash flows of an asset or liability to be hedged. For 
+example, the hedged item may be as follows:</p>
+<ul>
+  <li>Oil inventory (which is priced in $) for a UK company, where the fair value of foreign currency risk is being hedged but not the risk of a change in $ market price of the oil</li>
+  <li>A fixed rate liability, exposed to foreign currency risk, where only the interest rate and currency risk are hedged but the credit risk is not hedged</li>
+</ul>
+
+<h3 id="nature-of-hedged-items">Nature of hedged items</h3>
+
+<p>The hedged item can be:</p>
+<ul>
+  <li>a single asset, liability, unrecognised firm commitment, highly probable forecast transaction or net investment in a foreign operation</li>
+  <li>a group of assets, liabilities, firm commitments, highly probable forecast transactions or net investments in foreign operations with similar risk characteristics; or</li>
+  <li>a portion of a portfolio of financial assets or financial liabilities which share exposure to interest rate risk.In such a case, the portion of the portfolio that is designated as a hedged item is a hedged item with regard to interest rate risk only</li>
+</ul>
+
+<p>Assets and liabilities designated as hedged items can be either <strong>financial</strong> or <strong>non-financial</strong> items.</p>
+<ul>
+  <li><strong>Financial items</strong> can be designated as hedged items for the risks associated with only a portion of their cash flows or fair values. So a fixed rate liability that is exposed to foreign currency risk can be hedged in respect of currency risk, leaving the credit risk not hedged.</li>
+  <li>IFRS 9 allows <strong>separately identifiable and reliably measurable risk components of non-financial items</strong> to be designated as hedged items.</li>
+  <li><strong>Unrecognised</strong> assets and liabilities <strong>cannot be designated as hedged items</strong>. So unrecognised intangibles cannot be hedged items.</li>
+  <li><strong>Only</strong> assets, liabilities, firm commitments or highly probable transactions that involve a <strong>party external</strong> to the entity can be <strong>designated as hedged items</strong>. The effect is that hedge accounting can be applied to transactions between entities or segments in the same group only in the individual or separate financial statements of those entities or segments, and not in the consolidated financial statements</li>
+  <li>As an exception, an <strong>intra-group monetary</strong> item qualifies as a hedged item in the consolidated financial statements if it results in an exposure to foreign exchange rate gains and losses that are not eliminated on consolidation.</li>
+</ul>
+
+<h3 id="designation-of-a-group-of-assets-as-hedged-items">Designation of a group of assets as hedged items</h3>
+
+<p>A group of items (including net positions) is an eligible hedged item only if:</p>
+<ul>
+  <li>It consists of items individually, eligible hedged items;</li>
+  <li>The items in the group are managed together on a group basis for risk management purposes; and</li>
+  <li>In the case of a cash flow hedge of a group of items whose variabilities in cash flows are not expected to be approximately proportional to the overall variability in cash flows of the group:
+    <ul>
+      <li>It is a hedge of foreign currency risk; and</li>
+      <li>The designation of that net position specifies the reporting period in which the forecast transactions are expected to affect profit or loss, as well as their nature and volume</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="hedging-an-overall-net-position">Hedging an overall net position</h3>
+
+<p>IFRS 9 allows hedge accounting to be applied to <strong>groups of items and net positions</strong> if the group consists of individually eligible hedged items and those items are managed together on a group basis for risk management purposes</p>
+
+<p>For a <strong>cash flow hedge of a group of items</strong>, if the variability in cash flows is not expected to be approximately proportional to the group’s overall variability in cash flows, the <strong>net position is eligible</strong> as a hedged item only if it is a <strong>hedge of foreign currency risk</strong>. In addition, the designation must specify the reporting period in which forecast transactions are expected to affect profit or loss, including the nature and volume of these transactions.</p>
+
+<p>For a hedge of a net position whose hedged risk affects different line items in the statement of profit or loss and other comprehensive income, any hedging gains or losses in that statement are presented in a separate line from those affected by the hedged items.</p>
+
+<h3 id="risk-components-of-non-financial-item">Risk components of non-financial item</h3>
+
+<p>IFRS 9 allows <strong>separately identifiable and reliably measurable risk components of non-financial</strong> 
+items to be designated as hedged items in its entirety or a component of an item as the hedged item.</p>
+
+<p>The component may be a risk component that is separately identifiable and reliably measurable; one or more selected contractual cash flows; or components of a nominal amount.</p>
+
+<h3 id="components">Components</h3>
+
+<p>IFRS 9 allows a component that is a proportion of an entire item or a <strong>layer component</strong> to be designated as a hedged item in a hedging relationship. A layer component may be specified from a defined, but open, population or a defined nominal amount.</p>
+
+<p>For example, an entity could designate 20% of a fixed rate bond as the hedged item, or the top layer of £20 principal from a total amount of £100 (defined nominal amount) of fixed-rate bond. It is necessary to track the fair value movements of the nominal amount from which the layer is defined.</p>
+
+<h3 id="aggregate-exposure">Aggregate exposure</h3>
+
+<p>An aggregated exposure that is a combination of an eligible hedged item as described above and a derivative may be designated as a hedged item.</p>
+
+<h3 id="equity-investments-fvtoci">Equity investments FVTOCI</h3>
+
+<p>IFRS 9 allows an entity to classify equity investments not held for trading, at fair value through other comprehensive income through an irrevocable option on origination of the instrument. The gains and losses are recognised in other comprehensive income and never reclassified to profit or loss.</p>
+
+<p>IFRS 9 allows these equity investments at fair value through other comprehensive income to be designated as hedged items. In this case, both the effective and ineffective portion of the fair value changes in the hedging instruments are recognised in other comprehensive income.</p>
+
+<h3 id="fair-value-designation-for-credit-exposures">Fair value designation for credit exposures</h3>
+
+<p>Many banks use credit derivatives to manage credit risk exposures arising from their lending activities. The hedges of credit risk exposure allow banks to transfer the risk of credit loss to a third party. This may also reduce regulatory capital requirements.</p>
+
+<p><strong>IFRS 9</strong> allows <strong>credit exposure or part of the credit exposure</strong> to be measured at <strong>fair value through profit or loss</strong> if an entity uses a <strong>credit derivative</strong> measured at <strong>fair value through profit or loss</strong> to manage the credit risk of all, or part of, the credit exposure. In addition, an entity may make the designation at initial recognition or subsequently, or while the financial instrument is unrecognised.</p>
+
+<h3 id="firm-commitments">Firm Commitments</h3>
+
+<p>Firm commitments are the result of legally binding contracts which normally specify penalties for non-performance. A firm commitment can be a hedged item.</p>
+
+<h3 id="forecast-transactions">Forecast transactions</h3>
+
+<p>A forecast transaction <strong>qualifies as a hedged item only if the transaction is highly probable</strong>. Examples of forecast transactions that qualify as a hedged item include the following:</p>
+
+<ul>
+  <li>The anticipated issue of fixed rate debt. This can be recognised as a hedged item under a cash flow hedge of a highly probable forecast transaction that will affect profit or loss.</li>
+  <li>Expected, but not contractual, future foreign currency revenue streams, provided that the revenues are highly probable. A hedge of an anticipated sale can qualify as a cash flow hedge.</li>
+</ul>
+
+<p>A forecast transaction (as defined above) qualifies as a hedged item only if the transaction is highly probable. Examples of forecast transactions that qualify as a hedged item include the following:</p>
+
+<p>Because forecast transactions can only be hedged under cash flow hedges, the ways to assess the probability of a future transaction are covered below under cash flow hedges.</p>
+
+<h3 id="intra-group-and-intra-entity">Intra-group and Intra-entity</h3>
+
+<p>Intra-group transactions can be designated as hedged items only in the individual or separate financial statements and not in consolidated financial statements. There are only two cases, both involving foreign exchange translation, where intra-group transactions will be recognised in the consolidated financial statements.</p>
+
+<p>The first case is a result of IAS 21, The Effects of Changes in Foreign Exchange Rates under which foreign exchange gains and losses on an intra-group monetary asset or liability between entities with different functional currencies are not fully eliminated in the consolidated profit or loss. This is because a foreign currency monetary item represents a commitment to convert one currency into another one and exposes the reporting entity to a gain or loss through currency fluctuations. Because such exchange differences are not fully eliminated on consolidation, they will affect profit or loss in the entity’s consolidated financial statements and hedge accounting may be applied.</p>
+
+<p>The second case arises because IFRS 9 permits the foreign currency risks of a highly probable forecast intra-group transaction to be designated as a hedged item in the consolidated financial statements provided the following two conditions are met.</p>
+
+<ul>
+  <li>The highly probable forecast intra-group transaction is denominated in a currency other than the functional currency of the group member entering into that transaction.</li>
+  <li>The foreign currency risk will affect the group’s consolidated profit or loss.</li>
+</ul>
+
+<h2 class="colored-magenta" id="hedging-instruments">Hedging instruments</h2>
+
+<p>The <strong>hedging instrument</strong> is a derivative or other financial instrument whose fair value/cash flow changes are expected to offset those of the hedged item. The hedging instrument reduces/eliminates the risk associated with a hedged item.</p>
+
+<p>Only contracts with a party external to the reporting entity may be designated as hedging instruments.</p>
+
+<p>A hedging instrument may be a derivative (except for some written options) or non-derivative financial instrument measured at FVTPL, unless it is a financial liability designated as at FVTPL for which changes due to credit risk are presented in OCI. For a hedge of foreign currency risk, the foreign currency risk component of a non-derivative financial instrument, except equity investments designated as FVTOCI, may be designated as the hedging instrument.</p>
+
+<p>An implication of this definition is that financial assets and liabilities whose fair value cannot be reliably measured cannot be designated as hedging instruments.</p>
+
+<p>IFRS 9 also allows only the intrinsic value of an option, or the spot element of a forward to be designated as the hedging instrument.  An entity may also exclude the foreign currency basis spread from a designated hedging instrument.</p>
+
+<p>An entity may exclude the following from hedging relationships:</p>
+
+<ul>
+  <li>Time value of purchased options</li>
+  <li>Forward element of forward contracts and foreign currency basis spreads</li>
+</ul>
+
+<h3 id="derivatives">Derivatives</h3>
+
+<p><strong>Any derivative</strong> financial instrument, with the exception of written options to which special rules apply, <strong>can be designated as a hedging instrument</strong>. It is important to note that the fair value of derivative instruments correlates highly with that of the underlying.</p>
+
+<p>IFRS 9 allows combinations of derivatives and non-derivatives to be designated as the hedging instrument.</p>
+
+<p>Combinations of purchased and written options do not qualify if they amount to a net written option at the date of designation.</p>
+
+<h3 id="options">Options</h3>
+
+<p>Options provide a more flexible way of hedging risks compared to other derivative instruments such as forwards, futures and swaps, because they give to the holder the choice as to whether or not to exercise the option.</p>
+
+<p>When an entity purchases a put option, it buys the right to sell the underlying at the strike price. If the price of the underlying falls below the strike price, the entity exercises its option and receives the strike price; it has protected the value of its position. Similarly, if an entity needs to buy an asset in the future, it can purchase a call option on the asset that gives the entity the right to purchase the asset at the strike price, protecting it from a rise in the price of the asset in the future.</p>
+
+<p>The difference between the purchased option and a forward contract is that under a forward contract the entity is obliged to buy or sell at the strike price, whereas under a purchased option it has the right, but not the obligation, to buy or sell at the strike price.</p>
+
+<p>Purchased options, whether call options or put options, have the potential to hedge <strong>price</strong>, <strong>currency</strong> and <strong>interest rate risks</strong> and can always qualify as hedging instruments.</p>
+
+<p>Examples of purchased options include options on equities, options on currencies and options on interest rates. An interest rate floor is achieved through a put option on an interest rate, and an interest rate cap is achieved through a call option on an interest rate.</p>
+
+<p>In <strong>IFRS 9</strong>, an entity may <strong>designate only the change in intrinsic value</strong> of a purchased option as the hedging instrument in a fair value or cash flow hedge. The change in <strong>fair value of the time value of the option</strong> is recognised in <strong>other comprehensive income</strong> to the extent it relates to the hedged item. This change in IFRS 9 makes options more attractive as hedging instruments.</p>
+
+<p>The method used to reclassify the amounts from equity to profit or loss is determined by whether the hedged item is transaction-related or time period-related.</p>
+
+<p>The time value of a purchased option relates to <strong>a transaction-related hedged item</strong> if the nature of the hedged item is a transaction for which the time value has the character of costs of the transaction. For example, future purchase of a commodity or non-financial asset.</p>
+
+<p>The <strong>change in fair value of the time value of an option (transaction-related hedged item)</strong> is accumulated in other comprehensive income over the term of the hedge, to the extent it relates to the hedged item. It is then treated as follows:</p>
+
+<ul>
+  <li>
+    <p>If the hedged item results in the recognition of a <strong>non-financial asset or liability or firm commitment</strong> for a non-financial asset or liability, the amount accumulated in equity is removed and included in the <strong>initial cost or carrying amount</strong> of the asset or liability.</p>
+  </li>
+  <li>
+    <p>For <strong>other hedging relationships</strong>, the amount accumulated in equity is <strong>reclassified to profit or loss</strong> as a reclassification adjustment in the period(s) in which the hedged expected cash flows affect profit or loss.</p>
+  </li>
+</ul>
+
+<p>The time value of a purchased option relates to a time period-related hedged item if the 
+following apply:</p>
+
+<ul>
+  <li>
+    <p>The nature of the hedged item is such that the time value has the character of the cost for obtaining protection against a risk over a particular time period</p>
+  </li>
+  <li>
+    <p>The hedged item does not result in a transaction that involves the notion of a transaction cost.</p>
+  </li>
+</ul>
+
+<p>The <strong>change in fair value of the time value of an option (time period-related hedged item)</strong> is accumulated in other comprehensive income over the term of the hedge, to the extent it relates to the hedged item. The time value of the option at the date of designation is amortised on a straight-line or other systematic and rational basis, and the amortisation amount is reclassified to profit or loss as a reclassification adjustment.</p>
+
+<p>IFRS 9 allows a proportion (e.g. 60%) but not a time portion (eg the first 6 years of cash flows of a 10 year instrument) of a hedging instrument to be designated as the hedging instrument.</p>
+
+<h2 class="colored-magenta" id="hedging-relationships">Hedging relationships</h2>
+
+<h3 id="fair-value-hedge">Fair value hedge</h3>
+
+<p>A hedge of the exposure to changes in <strong>fair value</strong> of a recognised asset or liability or an unrecognised firm commitment, or a component of any such item, that is attributable to a particular risk and could affect profit or loss (or OCI in the case of an equity instrument designated as at FVTOCI).</p>
+
+<h4 id="examples"><span style="color:#ed2c09">Examples</span></h4>
+
+<style>
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:  #eeeded;
+  color: black;
+}
+table tr:hover {background-color: #f5f5f5;}
+table {
+    margin-top: 0.5rem;
+    padding: 1.2rem;
+    -moz-border-radius: 5px !important;
+    border-radius: 5px;
+    transition-property: all;
+    transition-duration: 120ms;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+table:hover{
+    border-radius: 5px;
+    -webkit-box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
+    box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
+}
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hedged item</th>
+      <th>Risk exposure</th>
+      <th>Type of risk</th>
+      <th>Hedging Intrument</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Commodity inventory</td>
+      <td>Change in value due to changes in the price of commodity</td>
+      <td>Market risk (price risk)</td>
+      <td>Forward contract</td>
+    </tr>
+    <tr>
+      <td>Equities</td>
+      <td>Change in the value of the investments due to changes in the price of equity</td>
+      <td>Market risk (price risk)</td>
+      <td>Purchase put option</td>
+    </tr>
+    <tr>
+      <td>Issued fixed rate bond</td>
+      <td>Change in the value of the bond as interest rates change</td>
+      <td>Market risk (interest rate risk)</td>
+      <td>Interest rate swap</td>
+    </tr>
+    <tr>
+      <td>Purchase of materials denominated in foreign currency in 3 months</td>
+      <td>Depreciation of the local currency and increase in the cost of material</td>
+      <td>Market risk (foreign currency)</td>
+      <td>Forward contract</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="risk-reduction"><span style="color:#ed2c09">Risk reduction</span></h4>
+
+<p>IFRS 9 does not require that in order for a hedging relationship to qualify for hedge accounting, it should lead to a reduction in the overall risk of the entity. A hedging relationship that satisfies the conditions for hedge accounting may be designed to protect the value of a particular asset.</p>
+
+<h4 id="accounting"><span style="color:#ed2c09">Accounting</span></h4>
+
+<p>In a fair value hedge:</p>
+
+<ul>
+  <li>the hedged item is a recognised asset or liability. This is re-measured to fair value at the end of the reporting period and the gain or loss on the hedged item attributable to the <strong>hedged risk</strong> is recognised in <strong>profit or loss</strong></li>
+  <li>
+    <p>the hedging instrument is a derivative. The <strong>gain or loss</strong> resulting from <strong>re-measuring</strong> the hedging instrument at fair value is also recognised in profit or loss</p>
+  </li>
+  <li>
+    <p>if the hedged item is an <strong>equity investment measured at fair value through OCI</strong>, the gains and losses on the hedged investment and hedging instrument are both recognised in other comprehensive income rather than profit or loss; and</p>
+  </li>
+  <li>
+    <p>if the hedged item is an <strong>unrecognised firm commitment</strong> the cumulative hedging gain or loss of the hedged item after it has been designated as a hedged item is recognised as an asset or a liability with a corresponding gain or loss recognised in profit or loss.</p>
+  </li>
+  <li>if the hedged item is a debt instrument measured at amortised cost or FVTOCI, any hedge adjustment is amortised to profit or loss based on a recalculated effective interest rate. Amortisation may begin as soon as an adjustment exists and shall begin no later than when the hedged item ceases to be adjusted for hedging gains and losses.</li>
+</ul>
+
+<p>If only particular risks attributable to a hedged item are hedged, recognised changes in the hedged item’s fair value unrelated to the hedged risk are recognised as normal. This means that changes in fair value of a hedged financial asset or liability that is not part of the hedging relationship would be accounted for as follows:</p>
+
+<ul>
+  <li>For instruments measured at amortised cost, such changes would not be recognised.</li>
+  <li>For instruments measured at fair value through profit or loss, such changes would be recognised in profit or loss in any event.</li>
+  <li>For equity instruments in respect of which another comprehensive income election has been made, such changes would be recognised in other comprehensive income. However, exceptions to this would include foreign currency gains and losses on monetary items and impairment losses, which would be recognised in profit or loss in any event.</li>
+</ul>
+
+<p><strong>If the fair value hedge is 100% effective (as in the above example), then the change in the fair value of the hedged item will be wholly offset by the change in the fair value of the hedging instrument and there will be no effect in profit or loss</strong>. Whenever the hedge is not perfect and the change in the fair value of the hedged item is not fully cancelled by change in the fair value of the hedging instrument, the resulting difference will be recognised in profit or loss. This difference is referred to as hedge ineffectiveness.</p>
+
+<h4 id="interest-rate-futures"><span style="color:#ed2c09">Interest rate futures</span></h4>
+
+<p>An interest rate futures contract has interest-bearing instruments as its underlying asset. Futures contracts are available in relation to short-term interest rates in major currencies like sterling, euros, yen and Swiss francs. These derivatives can be used to gain exposure to, or hedge exposure against, interest rate movements. Three-month sterling future (short sterling) is a  90-day sterling LIBOR interest rate future traded on ICE Futures Europe with the following characteristics:</p>
+
+<p><strong>Unit of trade</strong>  - £500,000 (this is a notional amount on which interest effect is measured)<br />
+<strong>Quote</strong> - 100 minus interest rate<br />
+<strong>Tick size</strong>  - 0.01 (smallest permitted quote movement ie, one basis point) <br />
+<strong>Tick value</strong>  - £12.50 (£500,000 x 0.01% x 3/12)\</p>
+
+<p>The contract is cash settled ie, one party pays to the other the difference in value between the interest for three months at the rate agreed when the contract was originated and actual rate on maturity.</p>
+
+<h4 id="hedging-of-firm-commitments"><span style="color:#ed2c09">Hedging of firm commitments</span></h4>
+
+<p>The hedging of a <strong>firm commitment</strong> should be treated as a <strong>fair value hedge</strong>, <strong>except</strong> that a firm commitment with a <strong>price fixed</strong> in <strong>foreign currency</strong> may be treated as either a <strong>fair value hedge or a cash flow hedge</strong> of the foreign currency risk.</p>
+
+<p>When an unrecognised firm commitment to acquire an asset or to assume a liability is designated as a hedged item in a fair value hedge, the accounting treatment is as follows:</p>
+<ul>
+  <li>The <strong>subsequent cumulative change in the fair value of the firm commitment</strong> attributable to the hedged risk since inception of the hedge is recognised as an asset or liability with a corresponding gain or loss <strong>recognised in profit or loss</strong></li>
+  <li>The <strong>changes in the fair value of the hedging instrument</strong> are also <strong>recognised in profit or loss</strong>.</li>
+  <li>When the firm commitment is <strong>fulfilled</strong>, the initial carrying amount of the asset or liability is <strong>adjusted</strong> to include the cumulative change in the firm commitment that has been recognised in the statement of financialposition (SOFP) under the first point above.</li>
+</ul>
+
+<h4 id="discontinuing-fair-value-hedge-accounting"><span style="color:#ed2c09">Discontinuing fair value hedge accounting</span></h4>
+
+<p>Fair value hedge accounting should be discontinued if the hedging instrument expires or is sold, terminated or exercised, if the criteria for hedge accounting are no longer met, or if the entity revokes the designation.</p>
+
+<p>The discontinuance should be accounted for prospectively ie, the previous accounting entries are not reversed. The hedged item is not adjusted for any further changes in its fair value and adjustments already made are recognised in profit or loss over the life of the item.</p>
+
+<h3 id="cash-flow-hedge">Cash flow hedge</h3>
+
+<p>A hedge of the exposure to variability in <strong>cash flows</strong> that is attributable to a particular risk associated with all, or a component of, a recognised asset or liability (such as all or some future interest payments on variable-rate debt) or a highly probable forecast transaction, and could affect profit or loss.</p>
+
+<h4 id="examples-1"><span style="color:#ed2c09">Examples</span></h4>
+
+<p>Examples of cash flow hedges include the following:</p>
+
+<ul>
+  <li>The use of interest rate swaps to change floating rate debt into fixed rate debt. The entity is hedging the risk of variability in future interest payments which may arise for instance from changes in market interest rates. The fixed rate protects this cash flow variability (but with the consequence that the fair value of the instrument may now vary in response to market interest movements).</li>
+  <li>The use of a commodity forward contract for a highly probable sale of the commodity in future. The entity is hedging the risk of variability in the cash flows to be received on the sale, due to changes in the market price of the goods.</li>
+</ul>
+
+<p>The hedge of foreign currency assets and liabilities using forward exchange contracts can be treated as either a fair value or a cash flow hedge. This is because movements in exchange rates change both the fair value of such assets and liabilities and ultimate cash flows arising from them. Similarly, a hedge of the foreign currency risk of a firm commitment may be designated as either a fair value or a cash flow hedge.</p>
+
+<h4 id="forecast-transaction"><span style="color:#ed2c09">Forecast transaction</span></h4>
+
+<p>A forecast transaction is an uncommitted but anticipated future transaction. To qualify for cash flow hedge accounting, the forecast transaction should be:</p>
+
+<ul>
+  <li><strong>specifically identifiable</strong> as a single transaction or a group of individual transactions which share the same risk exposure for which they are designated as being hedged;</li>
+  <li><strong>highly probable</strong>. The factors to be taken into account when assessing the probability of the transaction are discussed further below; and</li>
+  <li>with a party that is <strong>external</strong> to the entity.</li>
+</ul>
+
+<p><span style="color:#e95d21"><strong><em>Specifically identifiable</em></strong></span></p>
+
+<p><strong>Identification of hedged forecast transaction</strong></p>
+
+<p>A forecast transaction such as the purchase or sale of the <strong>last 15,000 units</strong> of a product in a specified period, or as a percentage of purchases or sales during a specified period, <strong>does not qualify as a hedged item</strong>.</p>
+
+<p>This is because the hedged forecast transaction must be identified and documented with sufficient specificity so that when the transaction occurs, it is clear whether the transaction is or is not the hedged transaction. Therefore, a forecast transaction may be identified as the sale of the first 15,000 units of a specific product during a specified three-month period, but it could not be identified as the last 15,000 units of that product sold during a three-month period because the last 15,000 units cannot be identified when they are sold. For the same reason, a forecast transaction cannot be specified solely as a percentage of sales or purchases during a period.</p>
+
+<p><strong>Documentation of timing of forecast transaction</strong></p>
+
+<p>For a hedge of a forecast transaction, the documentation of the hedge relationship that is established at inception of the hedge should identify the date on which, or time period in which, the forecast transaction is expected to occur. This is because the hedge must relate to a specific identified risk and it must be possible to measure its effectiveness reliably. In addition, the hedged forecast transaction must be highly probable.</p>
+
+<p>To meet these criteria, an entity is not required to predict and document the exact date a forecast transaction is expected to occur. However, it is required to identify and document the time period during which the forecast transaction is expected to occur within a reasonably specific and generally narrow range of time from a most probable date, as a basis for assessing hedge effectiveness. To determine that the hedge will be effective, it is necessary to ensure that changes in the fair value of the expected cash flows are offset by changes in the fair value of the hedging instrument, and this test may be met only if the timing of the cash flows occur within close proximity to each other.</p>
+
+<p><span style="color:#e95d21"><strong><em>What is highly ‘probable’?</em></strong></span></p>
+
+<p>The term ‘highly probable’ indicates a much greater likelihood of happening than the term ‘more likely than not’. An assessment of the likelihood that a forecast transaction will take place is not based solely on management’s intentions because intentions are not verifiable. A transaction’s probability should be supported by observable facts and the attendant circumstances.</p>
+
+<p>In assessing the likelihood that a transaction will occur, an entity should consider the following 
+circumstances:</p>
+
+<ul>
+  <li>The frequency of similar past transactions</li>
+  <li>The financial and operational ability of the entity to carry out the transaction</li>
+  <li>Substantial commitments of resources to a particular activity (for example, a manufacturing facility that can be used in the short run only to process a particular type of commodity)</li>
+  <li>The extent of loss or disruption of operations that could result if the transaction does not occur</li>
+  <li>The likelihood that transactions with substantially different characteristics might be used to achieve the same business purpose (for example, an entity that intends to raise cash may have several ways of doing so, ranging from a short-term bank loan to an offering of ordinary shares)</li>
+  <li>The entity’s business plan</li>
+</ul>
+
+<p><span style="color:#e95d21"><strong><em>Further matters to consider</em></strong></span></p>
+
+<p>The length of time until a forecast transaction is projected to occur is also a factor in determining probability. Other factors being equal, the more distant a forecast transaction is, the less likely it is that the transaction would be regarded as highly probable and the stronger the evidence that would be needed to support an assertion that it is highly probable.</p>
+
+<p>For example, a transaction forecast to occur in five years may be less likely to occur than a transaction forecast to occur in one year. However, forecast interest payments for the next 20 years on variable rate debt would typically be highly probable if supported by an existing contractual obligation.</p>
+
+<p>In addition, other factors being equal, the greater the physical quantity or future value of a forecast transaction in proportion to the entity’s transactions of the same nature, the less likely it is that the transaction would be regarded as highly probable and the stronger the evidence that would be required to support an assertion that it is highly probable. For example, less evidence generally would be needed to support forecast sales of at least 100,000 units in the next month than 950,000 units in that month when recent sales have averaged 950,000 units per month for the past three months.</p>
+
+<p>A history of having designated hedges of forecast transactions and then determining that the forecast transactions are no longer expected to occur would call into question both an entity’s ability to predict forecast transactions accurately and the propriety of using hedge accounting in the future for similar forecast transactions.</p>
+
+<h4 id="accounting-1"><span style="color:#ed2c09">Accounting</span></h4>
+
+<p>A cash flow hedge involves hedging future cash flows. Initially therefore, only the hedging instrument (the derivative) is recognised.</p>
+
+<p>The part of the gain or loss arising from an <strong>effective</strong> hedge of a hedging instrument is <strong>recognised in other comprehensive income</strong> while the <strong>ineffective portion</strong> of the gain or loss on the hedging instrument should <strong>be recognised in profit or loss</strong>.</p>
+
+<p>Amounts recognised in other comprehensive income are accumulated in a cash flow hedge reserve. At a given reporting date this will be the lower of:</p>
+
+<ul>
+  <li>The cumulative gain or loss on the hedging instrument from inception of the hedge; and</li>
+  <li>The cumulative change in fair value (present value) of the hedged item from inception of the hedge.</li>
+</ul>
+
+<p>In the period in which the hedged expected future cash flows affect profit or loss, the amount accumulated in the cash flow hedge reserve is reclassified to profit or loss with the following exception:</p>
+
+<p>If a hedged forecast transaction subsequently results in the recognition of a non-financial item or becomes a firm commitment for which fair value hedge accounting is applied, the amount that has been accumulated in the cash flow hedge reserve is removed and included directly in the initial cost, or other carrying amount of the asset, or the liability. In other cases the amount that has been accumulated in the cash flow hedge reserve is reclassified to profit or loss in the same period(s) as the hedged cash flows affect profit or loss.</p>
+
+<h4 id="discontinuing-cash-flow-hedge-accounting"><span style="color:#ed2c09">Discontinuing cash flow hedge accounting</span></h4>
+
+<p>Cash flow hedge accounting should be discontinued if the hedging instrument expires or is sold, terminated or exercised, if the criteria for hedge accounting are no longer met, a forecast transaction is no longer expected to occur or if the entity revokes the designation.</p>
+
+<p>The discontinuance should be accounted for prospectively i.e., the previous accounting entries are not reversed. The cumulative gain or loss on the hedging instrument should be reclassified to profit or loss, as the hedged item is recognised in profit or loss.</p>
+
+<p>When an entity discontinues hedge accounting for a cash flow hedge, if the hedged future cash flows are still expected to occur, the amount that has been accumulated in the cash flow hedge reserve remains there until the future cash flows occur; if the hedged future cash flows are no longer expected to occur, that amount is immediately reclassified to profit or loss.</p>
+
+<h3 id="hedge-of-a-net-investment-in-a-foreign-operation">Hedge of a net investment in a foreign operation</h3>
+
+<p>Hedges of a net investment arise in the consolidated accounts where a parent company takes a foreign currency loan in order to buy shares in a foreign subsidiary. The loan and the investment need not be denominated in the same currency, however, assuming that the currencies perform similarly against the parent company’s own currency, it should be the case that fluctuations in the exchange rate affect the asset (the net assets of the subsidiary) and the liability (the loan) in opposite ways, hence gains and losses are hedged.</p>
+
+<p>In this type of accounting hedge, the hedging instrument is the foreign currency loan rather than a derivative.</p>
+
+<h4 id="accounting-2"><span style="color:#ed2c09">Accounting</span></h4>
+
+<p>Without applying hedging rules:</p>
+
+<ul>
+  <li>The loan would be retranslated to the parent’s own currency at the year end using the spot exchange rate; any resultant gain or loss would be recognised in profit or loss.</li>
+  <li>Prior to consolidation, the subsidiary’s accounts would be translated into the parent’s own currency with any gain or loss recognised in other comprehensive income</li>
+  <li>On consolidation, the gain or loss on the loan would affect consolidated profit or loss and the loss or gain on the translation of the subsidiary’s net assets would affect consolidated reserves.</li>
+</ul>
+
+<p>The net investment hedge ensures that the gains and losses are both recognised in other 
+comprehensive income and accumulated in reserves by:</p>
+
+<ul>
+  <li>recognising the portion of the gain or loss on the hedging instrument that is determined to be effective in other comprehensive income; and</li>
+  <li>recognising the ineffective portion in profit or loss.</li>
+</ul>
+
+<p>Any gain or loss recognised in other comprehensive income is reclassified to profit or loss on the disposal or partial disposal of the foreign operation.</p>
+
+<h4 id="hedging-with-a-non-derivative-financial-instrument"><span style="color:#ed2c09">Hedging with a non-derivative financial instrument</span></h4>
+
+<p>A non-derivative financial asset or liability can only be designated as a hedging instrument for hedges of foreign currency risk. So a foreign currency borrowing can be designated as a hedge of a net investment in a foreign operation, with the result that any translation gain or loss on the borrowing should be recognised in other comprehensive income to offset the translation loss or gain on the investment. (Normally gains or losses on such financial liabilities are recognised in profit or loss.)</p>
+
+<h4 id="hedging-with-derivatives"><span style="color:#ed2c09">Hedging with derivatives</span></h4>
+
+<p>A net investment can be hedged with a derivative instrument, such as a currency forward contract. In this case, however, it would be necessary to designate at inception that effectiveness can be measured by reference to changes in spot exchange rates or changes in forward exchange rates.</p>
+
+<h2 class="colored-magenta" id="hedge-effectiveness-requirements">Hedge effectiveness requirements</h2>
+
+<p>At inception a hedge must be expected to be <strong>highly effective</strong> and it must turn out to be highly effective over the life of the relationship.</p>
+
+<p>In order to qualify for hedge accounting, the hedge relationship must meet the following effectiveness criteria at the beginning of each hedged period:</p>
+
+<ul>
+  <li>There is an economic relationship between the hedged item and the hedging instrument;</li>
+  <li>The effect of credit risk does not dominate the value changes that result from that economic relationship; and</li>
+  <li>The hedge ratio of the hedging relationship is the same as that actually used in the economic hedge</li>
+</ul>
+
+<h2 class="colored-magenta" id="discontinuation">Discontinuation</h2>
+
+<p>If a hedging relationship ceases to meet the hedge effectiveness requirement relating to the hedge ratio but the risk management objective for that designated hedging relationship remains the same, an entity adjusts the hedge ratio of the hedging relationship (i.e. rebalances the hedge) so that it meets the qualifying criteria again.</p>
+
+<p>An entity discontinues hedge accounting prospectively only when the hedging relationship (or a part of a hedging relationship) ceases to meet the qualifying criteria (after any rebalancing). This includes instances when the hedging instrument expires or is sold, terminated or exercised. Discontinuing hedge accounting can either affect a hedging relationship in its entirety or only a part of it (in which case hedge accounting continues for the remainder of the hedging relationship).</p>
+
+<h2 class="colored-magenta" id="time-value-of-options">Time value of options</h2>
+
+<p>When an entity separates the intrinsic value and time value of an option contract and designates as the hedging instrument only the change in intrinsic value of the option, it recognises some or all of the change in the time value in OCI which is later removed or reclassified from equity as a single amount or on an amortised basis (depending on the nature of the hedged item) and ultimately recognised in profit or loss.</p>
+
+<p>This reduces profit or loss volatility compared to recognising the change in value of time value directly in profit or loss.</p>
+
+<h2 class="colored-magenta" id="forward-points-and-foreign-currency-basis-spreads">Forward points and foreign currency basis spreads</h2>
+
+<p>When an entity separates the forward points and the spot element of a forward contract and designates as the hedging instrument only the change in the value of the spot element, or when an entity excludes the foreign currency basis spread from a hedge, the entity may recognise the change in value of the excluded portion in OCI to be later removed or reclassified from equity as a single amount or on an amortised basis  (depending on the nature of the hedged item) and ultimately recognised in profit or loss. This reduces profit or loss volatility compared to recognising the change in value of forward points or currency basis spreads directly in profit or loss.</p>
+
+<h2 class="colored-magenta" id="credit-exposures-designated-at-fvtpl">Credit exposures designated at FVTPL</h2>
+
+<p>If an entity uses a credit derivative measured at FVTPL to manage the credit risk of a financial instrument (credit exposure) it may designate all or a proportion of that financial instrument as measured at FVTPL if:</p>
+
+<ul>
+  <li>The name of the credit exposure matches the reference entity of the credit derivative (‘name matching’); and</li>
+  <li>The seniority of the financial instrument matches that of the instruments that can be delivered in accordance with the credit derivative.</li>
+</ul>
+
+<p>An entity may make this designation irrespective of whether the financial instrument that is managed for credit risk is within the scope of IFRS 9 (for example, it can apply to loan commitments that are outside the scope of IFRS 9). The entity may designate that financial instrument at, or subsequent to, initial recognition, or while it is unrecognised and shall document the designation concurrently.</p>
+
+<p>If designated after initial recognition, any difference in the previous carrying amount and fair value is recognised immediately in profit or loss.</p>
+
+<p>An entity discontinues measuring the financial instrument that gave rise to the credit risk at FVTPL if the qualifying criteria are no longer met and the instrument is not otherwise required to be measured at FVTPL. The fair value at discontinuation becomes its new carrying amount.</p>
+
+<h2 class="colored-magenta" id="further-information">Further Information</h2>
+
+<div class="callout callout-default alerts-font">
+
+  <p><i class="fa fa-info-circle">  <strong>More information</strong></i></p>
+
+  <p>You can find out more about the IFRS 9 Standard here:</p>
+
+  <ul>
+    <li><a href="https://www.icaew.com/technical/financial-reporting/ifrs/ifrs-standards/ifrs-9-financial-instruments-replacement-of-ias-39" target="_blank">IFRS 9 - ICAEW</a></li>
+    <li><a href="https://www.iasplus.com/en/standards/ifrs/ifrs9" target="_blank">IFRS 9 - IASPLUS</a></li>
+    <li><a href="files/ifrs9-financial-instruments-handbook.pdf" target="_blank">BDO - IFRS 9 Financial Instruments Handbook</a></li>
+  </ul>
+</div>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#ifrs-9-hedge-accounting">IFRS 9: Hedge Accounting</a></li>
+<li class="toc-entry toc-h2"><a href="#qualifying-criteria-for-hedge-accounting">Qualifying criteria for hedge accounting</a></li>
+<li class="toc-entry toc-h2"><a href="#rebalancing">Rebalancing</a></li>
+<li class="toc-entry toc-h2"><a href="#hedged-items">Hedged items</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#financial-risks">Financial risks</a></li>
+<li class="toc-entry toc-h3"><a href="#nature-of-hedged-items">Nature of hedged items</a></li>
+<li class="toc-entry toc-h3"><a href="#designation-of-a-group-of-assets-as-hedged-items">Designation of a group of assets as hedged items</a></li>
+<li class="toc-entry toc-h3"><a href="#hedging-an-overall-net-position">Hedging an overall net position</a></li>
+<li class="toc-entry toc-h3"><a href="#risk-components-of-non-financial-item">Risk components of non-financial item</a></li>
+<li class="toc-entry toc-h3"><a href="#components">Components</a></li>
+<li class="toc-entry toc-h3"><a href="#aggregate-exposure">Aggregate exposure</a></li>
+<li class="toc-entry toc-h3"><a href="#equity-investments-fvtoci">Equity investments FVTOCI</a></li>
+<li class="toc-entry toc-h3"><a href="#fair-value-designation-for-credit-exposures">Fair value designation for credit exposures</a></li>
+<li class="toc-entry toc-h3"><a href="#firm-commitments">Firm Commitments</a></li>
+<li class="toc-entry toc-h3"><a href="#forecast-transactions">Forecast transactions</a></li>
+<li class="toc-entry toc-h3"><a href="#intra-group-and-intra-entity">Intra-group and Intra-entity</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#hedging-instruments">Hedging instruments</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#derivatives">Derivatives</a></li>
+<li class="toc-entry toc-h3"><a href="#options">Options</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#hedging-relationships">Hedging relationships</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#fair-value-hedge">Fair value hedge</a></li>
+<li class="toc-entry toc-h3"><a href="#cash-flow-hedge">Cash flow hedge</a></li>
+<li class="toc-entry toc-h3"><a href="#hedge-of-a-net-investment-in-a-foreign-operation">Hedge of a net investment in a foreign operation</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#hedge-effectiveness-requirements">Hedge effectiveness requirements</a></li>
+<li class="toc-entry toc-h2"><a href="#discontinuation">Discontinuation</a></li>
+<li class="toc-entry toc-h2"><a href="#time-value-of-options">Time value of options</a></li>
+<li class="toc-entry toc-h2"><a href="#forward-points-and-foreign-currency-basis-spreads">Forward points and foreign currency basis spreads</a></li>
+<li class="toc-entry toc-h2"><a href="#credit-exposures-designated-at-fvtpl">Credit exposures designated at FVTPL</a></li>
+<li class="toc-entry toc-h2"><a href="#further-information">Further Information</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

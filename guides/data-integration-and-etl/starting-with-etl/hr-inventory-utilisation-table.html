@@ -1,0 +1,3047 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>HR - Inventory Utilisation | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-integration-and-etl/etl.html"><span class="">Data Integration & ETL</span></a></li>
+        <li><a href=/docs/guides/data-integration-and-etl/starting-with-etl/overview.html><span class="">Starting with ETL</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Introduction</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/overview.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Data Tables</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-stats.html">Grouping tables (Summary Statistics)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rd.html">Grouping tables (Row Details)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-duplicates.html">Grouping tables (Duplicates)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-with-rankings.html">Grouping tables (Rankings)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/grouping-tables-multi-single.html">Grouping tables (Multi to Single row)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cross-joining-tables.html">Cross-Joining tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/transition-tables.html">Using Transition tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/self-referencing-tables.html">Using Self-Referencing tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-table-headings.html">Renaming table headings</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Pivoting Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/queries-with-pivot-tables.html">Queries as a Pivot Table data source</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data.html">Pivoting text data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-text-data-adv.html">Pivoting text data (advanced)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-multiple-measures.html">Pivoting on multiple measures</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/pivoting-data-validation.html">Pivoting data to enable validation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Filtering Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-rows-m.html">Dynamically filtering rows with 'M'</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-duplicate-rows.html">Removing duplicate rows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filtering-using-lists.html">Filtering data with list inputs</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Transforming Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/reordering-columns.html">Re-ordering columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-columns.html">Removing columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/renaming-columns.html">Renaming columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/splitting-columns.html">Splitting columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/merging-columns.html">Merging columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/changing-data-types.html">Changing Data Types</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Conditional Logic</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/conditional-columns.html">Creating conditional columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/logical-operators.html">Applying OR, AND, and SWITCH logic</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/nesting-operators.html">Nesting conditional & logical operators</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Functions & Parameters</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/excel-parameters-pq.html">Excel parameters in Power Query</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/custom-functions.html">Custom functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/parameter-tables.html">Parameter tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/recursive-functions.html">Recursive functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/running-total.html">Running Total functions</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Calendar Tables & Dates</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/date-table.html">Generating a Date table</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/554-calendar.html">Creating a 554 calendar</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/monthly-weekly-budget.html">Monthly to weekly budget</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/filling-dates.html">Filling in dates</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Single File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf.html">Importing data from a pdf</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/importing-data-pdf-new.html">Importing data from a pdf - new</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/first-sheet.html">Importing the first sheet in a workbook</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/latest-version.html">Loading the latest version of a file</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-sheets.html">Combining workbook sheets</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Importing Multiple File data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks-function.html">Combining a single sheet across workbooks (with function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/combining-workbooks.html">Combining a single sheet across workbooks (no function)</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/multiple-sheets-workbooks.html">Combining multiple sheets across workbooks</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Getting Network / Web Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/web-weather-data.html">Web weather data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/one-drive-personal.html">One-Drive Personal</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Practical Applications</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/new-lost-returning-customers.html">New, lost, and returning customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/distinct-customers.html">Number of distinct customers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/stock-price-thresholds.html">Stock price thresholds</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/percentage-shares.html">Calculating percentage shares</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/tied-ranks.html">Calculating tied ranks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/growth-percentages.html">Growth percentages from previous days</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/comparing-records.html">Comparing database records</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Human Resourcing</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-onboarding.html">HR - On-boarding</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-table.html">HR - Inventory Movements & Tenure</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/hr-inventory-utilisation-table.html">HR - Inventory Utilisation</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Finance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-daily-cashflows.html">Finance - Daily Cashflows</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-payroll-tracking.html">Finance - Payroll Tracking</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-profitability.html">Finance - Client Profitability</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/finance-debtors.html">Finance - Debtors</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Quality Checking & Maintenance</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/bulk-refreshing.html">Bulk refreshing workbooks</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/auditing-tool.html">Creating an Auditing tool</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/cleaning-data.html">Cleaning data</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/error-handling.html">Error Handling</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Query Design</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/best-practices.html">ETL Best Practices</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/shaping-vs-modelling.html">Shaping vs Modelling</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/query-folding.html">Query Folding</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="hr---inventory-utilisation">HR - Inventory Utilisation</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 25/02/2018</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>In this example, we take data from two sources: (i) Timesheets, and (ii) Employee Availablility data from a well-designed HR ERP, to show quite an important metric: Inventory Utilisation!</p>
+
+<p>This can give us better visibility and a better understanding of how well staff are resourced across a business.</p>
+
+<h3 id="inventory-availability">Inventory Availability</h3>
+
+<p>Let us start with the following data from your HR ERP.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-1.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>This shows the availability history of each Employee. This is obviously a slowly changing dimension – as each employee’s profile seldom stays the same, so we have a new record for each change in: “Country”, “Department”, “Full or Part Time” working status, “Preferred Days Worked”, and/or “Hours worked per Day”.</p>
+
+<p>(We, of course, assume here you have a HR ERP that actually supports such data recording!)</p>
+
+<h3 id="holiday-data">Holiday Data</h3>
+
+<p>Next, let us assume that we also have the following Holiday data, showing days that are Public Holidays, for each geographic region.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-2.png" alt="" style="width: 100%; max-width: 59.3%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="timesheet-data">Timesheet Data</h3>
+
+<p>Finally, let us assume we have good detailed Timesheet data, in the following format, where entries are booked by each Employee in hours (we have only shown 3 categories here, but you can be as granular with timesheet bookings here, as you want. You could also include extra fields here too such as, any ‘Project Codes’, ‘Internal Codes’, or ‘Status Codes’, in addition to the ‘Area of Work’ field – again, provided your ERP can support it!):</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-3.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<div class="alert alert-warning alerts-font" role="alert">
+  <p><i class="fa fa-warning"></i> <b>Important: </b>
+The timesheet data should exclude any hours that may be booked automatically because of holidays. This is because we plan to also exclude public holidays from available hours, before calculating Inventory Utilisation (which in essence would just be: Actual hours worked / Available hours, for whichever time window is being observed)</p>
+</div>
+
+<h2 id="steps">Steps:</h2>
+
+<p>Showing Inventory Utilisation is quite an involved process. Even from the little data given above, doing this accurately is not as easy as it initially might seem. To get the data in the right form, and go through all the necessary calculations, at least the way we’ve done it, we count in total, about <em>140 transformation operations</em>!</p>
+
+<p>We now go through, each step, in the remainder of this article, one by one, so you can understand the logic being used, and any internal workings – well enough, at least, for you to be able to experiment and explore with your own methods.</p>
+
+<h3 id="list-all-dates-from-the-timesheet-data">List all dates from the Timesheet data:</h3>
+
+<ul>
+  <li>To start with, load the Timesheet Data that you have into Power Query, so it looks something like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-4.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, remove columns 1 to 5, as they are not needed for this query</li>
+  <li>Promote the headers of the remaining columns.</li>
+</ul>
+
+<p>The data should look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-5.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Unpivot all columns, so the data now looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-6.png" alt="" style="width: 100%; max-width: 52.7%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Remove the ‘<em>Value</em>’ column as it is also not needed for this query</li>
+  <li>Filter the ‘<em>Attribute</em>’ column, to include only those rows with a ‘/’, to ensure any rows with no Dates in them are removed. Use the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.SelectRows(#&quot;Removed Columns1&quot;, each Text.Contains([Attribute], &quot;/&quot;))
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.SelectRows(#"Removed Columns1", each Text.Contains([Attribute], "/"))
+</code></pre>
+
+<ul>
+  <li>Next, change the field type to ‘Date/Time’</li>
+  <li>Rename the column to ‘Dates’, so the data now looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-7.png" alt="" style="width: 100%; max-width: 36.3%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, change the field type to just ‘Date’</li>
+  <li>Remove duplicates, just in case there are any duplicate dates</li>
+  <li>Add a ‘<em>Start of Week (Mon)</em>’ column, using the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.AddColumn(#&quot;Removed Duplicates&quot;, &quot;Start of Week (Mon)&quot;, each Date.StartOfWeek([Date], Day.Monday), type date)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.AddColumn(#"Removed Duplicates", "Start of Week (Mon)", each Date.StartOfWeek([Date], Day.Monday), type date)
+</code></pre>
+
+<p>The data should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-8.png" alt="" style="width: 100%; max-width: 59.3%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Call the query, ‘<em>Set Dates</em>’</li>
+  <li>The final ‘M’ code of this query should look something like this:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(),
+    Inventory_Use = Source{[Name=&quot;Inventory_Use&quot;]}[Content],
+    #&quot;Filtered Rows&quot; = Table.SelectRows(Inventory_Use, each ([Column3] &lt;&gt; null)),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Filtered Rows&quot;,{&quot;Column1&quot;, &quot;Column2&quot;, &quot;Column3&quot;, &quot;Column4&quot;, &quot;Column5&quot;}),
+    #&quot;Promoted Headers&quot; = Table.PromoteHeaders(#&quot;Removed Columns&quot;, [PromoteAllScalars=true]),
+    #&quot;Unpivoted Columns&quot; = Table.UnpivotOtherColumns(#&quot;Promoted Headers&quot;, {}, &quot;Attribute&quot;, &quot;Value&quot;),
+    #&quot;Removed Columns1&quot; = Table.RemoveColumns(#&quot;Unpivoted Columns&quot;,{&quot;Value&quot;}),
+    #&quot;Filtered Rows1&quot; = Table.SelectRows(#&quot;Removed Columns1&quot;, each Text.Contains([Attribute], &quot;/&quot;)),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Filtered Rows1&quot;,{{&quot;Attribute&quot;, type datetime}}),
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Changed Type&quot;,{{&quot;Attribute&quot;, &quot;Date&quot;}}),
+    #&quot;Changed Type1&quot; = Table.TransformColumnTypes(#&quot;Renamed Columns&quot;,{{&quot;Date&quot;, type date}}),
+    #&quot;Removed Duplicates&quot; = Table.Distinct(#&quot;Changed Type1&quot;),
+    #&quot;Inserted Start of Week (Mon)&quot; = Table.AddColumn(#&quot;Removed Duplicates&quot;, &quot;Start of Week (Mon)&quot;, each Date.StartOfWeek([Date], Day.Monday), type date)
+in
+    #&quot;Inserted Start of Week (Mon)&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(),
+    Inventory_Use = Source{[Name="Inventory_Use"]}[Content],
+    #"Filtered Rows" = Table.SelectRows(Inventory_Use, each ([Column3] &lt;&gt; null)),
+    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"Column1", "Column2", "Column3", "Column4", "Column5"}),
+    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Columns", [PromoteAllScalars=true]),
+    #"Unpivoted Columns" = Table.UnpivotOtherColumns(#"Promoted Headers", {}, "Attribute", "Value"),
+    #"Removed Columns1" = Table.RemoveColumns(#"Unpivoted Columns",{"Value"}),
+    #"Filtered Rows1" = Table.SelectRows(#"Removed Columns1", each Text.Contains([Attribute], "/")),
+    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows1",{{"Attribute", type datetime}}),
+    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Attribute", "Date"}}),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date", type date}}),
+    #"Removed Duplicates" = Table.Distinct(#"Changed Type1"),
+    #"Inserted Start of Week (Mon)" = Table.AddColumn(#"Removed Duplicates", "Start of Week (Mon)", each Date.StartOfWeek([Date], Day.Monday), type date)
+in
+    #"Inserted Start of Week (Mon)"
+
+</code></pre>
+
+<h3 id="find-min-date">Find Min Date</h3>
+
+<ul>
+  <li>Now, create a query called ‘<em>Min_Date</em>’ that references to the ‘<em>Set Dates</em>’ query just created</li>
+  <li>Add a Custom Step, to find the minimum Date, using the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= List.Min(Source[#&quot;Start of Week (Mon)&quot;])
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= List.Min(Source[#"Start of Week (Mon)"])
+</code></pre>
+
+<p>Only one value should be returned, like so:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-9.png" alt="" style="width: 100%; max-width: 59.3%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="find-max-date">Find Max Date</h3>
+
+<ul>
+  <li>Now, create a query called ‘<em>Max_Date</em>’ that also references the ‘<em>Set Dates</em>’ query</li>
+  <li>Add a Custom Step, to find the maximum Date (which should be the end of the week this time), using the following, slightly different, ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Date.AddDays(List.Max(Source[#&quot;Start of Week (Mon)&quot;]), 6)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Date.AddDays(List.Max(Source[#"Start of Week (Mon)"]), 6)
+</code></pre>
+
+<p>One value should be returned, like so:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-10.png" alt="" style="width: 100%; max-width: 69.2%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="show-inventory-availability-by-day--shortfall-check-adding-dates">Show Inventory Availability by day – shortfall check (adding dates)</h3>
+
+<ul>
+  <li>Now, in a new query, load the Availability data you have into Power Query so it looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-11.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Fill in the End Date column, with the date from the ‘<em>Max_Date</em>’ query just created:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-12.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Replace the any cells that say ‘Yes’ in the column called ‘<em>Mon</em>’ with ‘Monday’, like shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-13.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Do the same for all the other days:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-14.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, merge all the day columns into one, using the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.CombineColumns(Sunday,{&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;},Combiner.CombineTextByDelimiter(&quot;, &quot;, QuoteStyle.None),&quot;Merged Days&quot;)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.CombineColumns(Sunday,{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"},Combiner.CombineTextByDelimiter(", ", QuoteStyle.None),"Merged Days")
+</code></pre>
+
+<p>The new column should look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-15.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Add a new custom column, with the following logic, that takes the data from the ‘<em>Merged Days</em>’ column and combines it with the rows where we know an Employee is working a Full week:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-16.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>This should return a ‘<em>Working Days</em>’ column, like shown below:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-17.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>
+    <p>Remove the column, called ‘<em>Merged Days</em>’ as it is now no longer needed – we have the ‘<em>Working Days</em>’ column</p>
+  </li>
+  <li>
+    <p>Add a ‘<em>Start of Week</em>’ column, with the following logic that takes into account the fact that different geographic regions may start on different days of the week:</p>
+  </li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-18.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Similarly, add an ‘<em>End of Week</em>’ column, with the similar logic:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-19.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, add a Custom column called ‘<em>Dates</em>’ like so, to list all the days between the ‘<em>Start of Week</em>’, and ‘<em>End of Week</em>’ values recorded in each row of data:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-20.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>The last few columns of data should now look something like this, with a <strong>list object</strong> added to each row, under the heading “<em>Dates</em>”:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-21.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, expand the ‘<em>Dates</em>’ column</li>
+  <li>Change its data type to ‘Date’</li>
+  <li>Apply also a filter to the ‘<em>Dates</em>’ column to only include dates that are less than or equal to the ‘<em>Max_Date</em>’and greater than or equal to the ‘<em>Min_Date</em>’ that were calculated earlier from the Timesheet data</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.SelectRows(#&quot;Changed Type&quot;, each [Dates] &gt;= Min_Date and [Dates] &lt;= Max_Date)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.SelectRows(#"Changed Type", each [Dates] &gt;= Min_Date and [Dates] &lt;= Max_Date)
+</code></pre>
+
+<ul>
+  <li>Although the data looks ok, there are some duplicate rows that have been created from the earlier <em>List Expand</em> operation that we should remove. Refer to the picture below. The rows boxed in red should be removed, as these dates already exist in the ‘Dates’ column (see just above and just below the red boxed areas)</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-22.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>To remove these rows, add the following two binary conditional columns:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-23.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-24.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>The data with these new conditional columns should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-25.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now Group the data, like so by ‘<em>User ID</em>’ and ‘<em>Dates</em>’:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-26.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>After grouping, you should see this, with a column that now shows the rows where there are duplicates (those that have the number 2 below):</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-27.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, click on the ‘<em>Details</em>’ column, and expand all fields (excluding the ‘<em>User ID</em>’, and ‘<em>Dates</em>’, as they are already there)</li>
+</ul>
+
+<p>The last three columns should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-28.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>We now have enough information, to know which columns to remove. So, next, add the following binary custom column:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-29.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>The data in the last few columns should look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-30.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Filter out any duplicate rows, by applying a filter to the ‘<em>Remove</em>’ column. The ‘M’ code, for this is shown below. This will leave, now, only unique values, for each Employee, in the ‘<em>Dates</em>’ column (there should be no duplicate Dates, for each Employee).</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.SelectRows(#&quot;Added Remove Duplicates&quot;, each ([Remove] = 0))
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.SelectRows(#"Added Remove Duplicates", each ([Remove] = 0))
+</code></pre>
+
+<ul>
+  <li>
+    <p>Now, remove the ‘<em>Start of Week</em>’, ‘<em>End of Week</em>’, ‘<em>Boundary 1</em>’, ‘<em>Boundary 2</em>’, ‘<em>Duplicates</em>’, and ‘<em>Remove</em>’ columns, as they are no longer needed</p>
+  </li>
+  <li>
+    <p>Re-add a new ‘<em>Start of Week</em>’ column (this time, based on the new ‘<em>Dates</em>’ column, rather than ‘<em>Start Date</em>’ column), like so, being careful with the <em>Geographic / Location</em> logic used:</p>
+  </li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-31.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, Insert a ‘<em>Day Name</em>’ column</li>
+</ul>
+
+<p>The data should finally look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-32.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="show-inventory-availability-by-day--shortfall-check-adding-logic-columns">Show Inventory Availability by day – shortfall check (adding logic columns)</h3>
+
+<p>The Availability data is now in a form, where we can start to build in some extra logic, based on the date columns that were added. So basically, we continue to build on the logic with more logic!</p>
+
+<ul>
+  <li>Add a ‘<em>With Company?</em>’ column, like so:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-33.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Add a ‘<em>Weekday</em>’ column</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-34.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Add a ‘<em>Public Holiday</em>’ column by merging the query with the Holiday Data (one of the three datasets we had originally obtained).</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-35.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>After the Merge, a new column will be added, with <strong>table objects</strong> added to each row.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-36.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Expand <strong>only</strong> the ‘<em>Holiday Description</em>’ field, from each table object.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-37.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Next, add a ‘Binary’ logic column for Public Holidays</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-38.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>This will allow us to perform further follow on calculations, on this field.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-39.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, add a ‘<em>Can Work?</em>’ column</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-40.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Add an ‘<em>Asked to Work?</em>’ column</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-41.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Add an ‘Able to Work?’ column</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-42.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Add a ‘<em>Days Left Available to Work?</em>” column (days the Employee could have worked but did not because they did not ask to work on those days - relevant for Part Time Employees)</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-43.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, group the data by ‘<em>Start of Week</em>’, ‘<em>User ID</em>’, and ‘<em>Country</em>’, (but <strong>not</strong> ‘<em>Department</em>’), as for now we can assume that in a given week, an Employee can move from Department to Department quite easily, in the same country. Thus, in a given week, if the Employee works part time, their available hours can be re-allocated to another day (a different department is permissible), e.g. due to their preferred working day falling on a Public or Company Holiday.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-44.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>After the grouping operation, the data should look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-45.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, add a ‘<em>Can Work More?</em>’ column. In case a part time Employee asked to work certain days in a week, but on those days could not (e.g. due to a Public Holidays), and if there are still days left available to work, it means the Employee can work on alternative days in the week, to fulfil their weekly promised quota.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-46.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Next, add a ‘<em>Day Shortfall in Week?</em>’ column to record the number days a part-time Employee asked to work, but was not able to.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-47.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>The data, once added should look like this – note the two extra columns, now, at the end:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-48.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Finally, sort the data by ‘<em>User ID</em>’, and then ‘<em>Start of Week</em>’</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-49.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Call the query ‘<em>Availability- Day Shortfall Check</em>’</li>
+</ul>
+
+<p>The final ‘ETL’ code for this query should look something like this:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Inventory_Availability_SCD,
+    #&quot;Fill in End Dates&quot; = Table.ReplaceValue(Source,null, Max_Date,Replacer.ReplaceValue,{&quot;End Date&quot;}),
+    Monday = Table.ReplaceValue(#&quot;Fill in End Dates&quot;,&quot;Yes&quot;,&quot;Monday&quot;,Replacer.ReplaceText,{&quot;Mon&quot;}),
+    Tuesday = Table.ReplaceValue(Monday,&quot;Yes&quot;,&quot;Tuesday&quot;,Replacer.ReplaceText,{&quot;Tue&quot;}),
+    Wednesday = Table.ReplaceValue(Tuesday,&quot;Yes&quot;,&quot;Wednesday&quot;,Replacer.ReplaceText,{&quot;Wed&quot;}),
+    Thursday = Table.ReplaceValue(Wednesday,&quot;Yes&quot;,&quot;Thursday&quot;,Replacer.ReplaceText,{&quot;Thu&quot;}),
+    Friday = Table.ReplaceValue(Thursday,&quot;Yes&quot;,&quot;Friday&quot;,Replacer.ReplaceText,{&quot;Fri&quot;}),
+    Saturday = Table.ReplaceValue(Friday,&quot;Yes&quot;,&quot;Saturday&quot;,Replacer.ReplaceText,{&quot;Sat&quot;}),
+    Sunday = Table.ReplaceValue(Saturday,&quot;Yes&quot;,&quot;Sunday&quot;,Replacer.ReplaceText,{&quot;Sun&quot;}),
+    #&quot;Merged Columns&quot; = Table.CombineColumns(Sunday,{&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;},Combiner.CombineTextByDelimiter(&quot;, &quot;, QuoteStyle.None),&quot;Merged Days&quot;),
+    #&quot;Added Working Days&quot; = Table.AddColumn(#&quot;Merged Columns&quot;, &quot;Working Days&quot;, each if ([Full or Part] = &quot;Full&quot; and [Country] &lt;&gt; &quot;UAE&quot;) then &quot;Monday, Tuesday, Wednesday, Thursday, Friday&quot; else if ([Full or Part] = &quot;Full&quot; and [Country] = &quot;UAE&quot;) then &quot;Monday, Tuesday, Wednesday, Thursday, Sunday&quot; else [Merged Days]),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Added Working Days&quot;,{&quot;Merged Days&quot;}),
+    #&quot;Inserted Start of Week&quot; = Table.AddColumn(#&quot;Removed Columns&quot;, &quot;Start of Week&quot;, each if ([Country] = &quot;UAE&quot;) then Date.StartOfWeek([Start Date], Day.Sunday) else Date.StartOfWeek([Start Date], Day.Monday)),
+    #&quot;Inserted End of Week&quot; = Table.AddColumn(#&quot;Inserted Start of Week&quot;, &quot;End of Week&quot;, each if ([Country] = &quot;UAE&quot;) then Date.EndOfWeek([End Date], Day.Sunday) else Date.EndOfWeek([End Date], Day.Monday)),
+    #&quot;Added Custom&quot; = Table.AddColumn(#&quot;Inserted End of Week&quot;, &quot;Dates&quot;, each { Number.From([Start of Week])..Number.From([End of Week]) }),
+    #&quot;Expanded Dates&quot; = Table.ExpandListColumn(#&quot;Added Custom&quot;, &quot;Dates&quot;),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Expanded Dates&quot;,{{&quot;Dates&quot;, type date}}),
+    #&quot;Filtered Dates&quot; = Table.SelectRows(#&quot;Changed Type&quot;, each [Dates] &gt;= Min_Date and [Dates] &lt;= Max_Date),
+    #&quot;Added Date Boundary 1&quot; = Table.AddColumn(#&quot;Filtered Dates&quot;, &quot;Boundary 1&quot;, each if [Start Date] &gt; [Dates] then 1 else 0),
+    #&quot;Added Date Boundary 2&quot; = Table.AddColumn(#&quot;Added Date Boundary 1&quot;, &quot;Boundary 2&quot;, each if [End Date] &lt; [Dates] then 1 else 0),
+    #&quot;Grouped Rows1&quot; = Table.Group(#&quot;Added Date Boundary 2&quot;, {&quot;User ID&quot;, &quot;Dates&quot;}, {{&quot;Details&quot;, each _, type table [User ID=text, First Name=text, Last Name=text, Start Date=date, End Date=date, Country=text, Department=text, Full or Part=text, #&quot;[Hrs / Day]&quot;=number, Working Days=text, Start of Week=date, End of Week=date, Dates=date, Boundary 1=number, Boundary 2=number]}, {&quot;Duplicates&quot;, each Table.RowCount(_), type number}}),
+    #&quot;Expanded Details&quot; = Table.ExpandTableColumn(#&quot;Grouped Rows1&quot;, &quot;Details&quot;, {&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Department&quot;, &quot;Full or Part&quot;, &quot;[Hrs / Day]&quot;, &quot;Working Days&quot;, &quot;Start of Week&quot;, &quot;End of Week&quot;, &quot;Boundary 1&quot;, &quot;Boundary 2&quot;}, {&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Department&quot;, &quot;Full or Part&quot;, &quot;[Hrs / Day]&quot;, &quot;Working Days&quot;, &quot;Start of Week&quot;, &quot;End of Week&quot;, &quot;Boundary 1&quot;, &quot;Boundary 2&quot;}),
+    #&quot;Added Remove Duplicates&quot; = Table.AddColumn(#&quot;Expanded Details&quot;, &quot;Remove&quot;, each if ([Boundary 1] = 1 or [Boundary 2] = 1) and ([Duplicates] &gt; 1) then 1 else 0),
+    #&quot;Filtered Duplicates Out&quot; = Table.SelectRows(#&quot;Added Remove Duplicates&quot;, each ([Remove] = 0)),
+    #&quot;Removed Columns1&quot; = Table.RemoveColumns(#&quot;Filtered Duplicates Out&quot;,{&quot;Start of Week&quot;, &quot;End of Week&quot;, &quot;Boundary 1&quot;, &quot;Boundary 2&quot;, &quot;Duplicates&quot;, &quot;Remove&quot;}),
+    #&quot;Inserted Start of Week 2&quot; = Table.AddColumn(#&quot;Removed Columns1&quot;, &quot;Start of Week&quot;, each if ([Country] = &quot;UAE&quot;) then Date.StartOfWeek([Dates], Day.Sunday) else Date.StartOfWeek([Dates], Day.Monday)),
+    #&quot;Inserted Day Name&quot; = Table.AddColumn(#&quot;Inserted Start of Week 2&quot;, &quot;Day Name&quot;, each Date.DayOfWeekName([Dates]), type text),
+    #&quot;Added With Company&quot; = Table.AddColumn(#&quot;Inserted Day Name&quot;, &quot;With Company?&quot;, each if ([Dates] &gt;= [Start Date] and [Dates] &lt;= [End Date]) then 1 else 0),
+    #&quot;Added Weekday&quot; = Table.AddColumn(#&quot;Added With Company&quot;, &quot;Weekday?&quot;, each if ([Day Name] = &quot;Friday&quot; or [Day Name] = &quot;Saturday&quot;) and ([Country] = &quot;UAE&quot;) then 0 else if ([Day Name] = &quot;Saturday&quot; or [Day Name] = &quot;Sunday&quot;) and ([Country] &lt;&gt; &quot;UAE&quot;) then 0 else 1),
+    #&quot;Merged Queries&quot; = Table.NestedJoin(#&quot;Added Weekday&quot;, {&quot;Country&quot;, &quot;Dates&quot;}, Public_Holidays, {&quot;Country&quot;, &quot;Date&quot;}, &quot;Holiday_Table&quot;, JoinKind.LeftOuter),
+    #&quot;Expanded Holiday Description&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;Holiday_Table&quot;, {&quot;Description&quot;}, {&quot;Holiday Description&quot;}),
+    #&quot;Added Public Holiday&quot; = Table.AddColumn(#&quot;Expanded Holiday Description&quot;, &quot;Public Holiday?&quot;, each if [Holiday Description] = null then 0 else 1),
+    #&quot;Added Can Work&quot; = Table.AddColumn(#&quot;Added Public Holiday&quot;, &quot;Can Work?&quot;, each if ([#&quot;With Company?&quot;] = 1 and [#&quot;Weekday?&quot;] = 1 and [#&quot;Public Holiday?&quot;] = 0) then 1 else 0),
+    #&quot;Added Asked to Work&quot; = Table.AddColumn(#&quot;Added Can Work&quot;, &quot;Asked to Work?&quot;, each if Text.Contains([Working Days], [Day Name]) then 1 else 0),
+    #&quot;Added Able to Work&quot; = Table.AddColumn(#&quot;Added Asked to Work&quot;, &quot;Able to Work?&quot;, each if ([#&quot;Can Work?&quot;] = 1 and [#&quot;Asked to Work?&quot;] = 1) then 1 else 0),
+    #&quot;Added Days Left Available to Work&quot; = Table.AddColumn(#&quot;Added Able to Work&quot;, &quot;Days Left Available to Work?&quot;, each if [#&quot;Can Work?&quot;] &gt; [#&quot;Able to Work?&quot;] then 1 else 0),
+    #&quot;Grouped Rows&quot; = Table.Group(#&quot;Added Days Left Available to Work&quot;, {&quot;Start of Week&quot;, &quot;User ID&quot;, &quot;Country&quot;}, {{&quot;Can Work?&quot;, each List.Sum([#&quot;Can Work?&quot;]), type number}, {&quot;Asked to Work?&quot;, each List.Sum([#&quot;Asked to Work?&quot;]), type number}, {&quot;Able to Work?&quot;, each List.Sum([#&quot;Able to Work?&quot;]), type number}, {&quot;Days Left Available to Work?&quot;, each List.Sum([#&quot;Days Left Available to Work?&quot;]), type number}}),
+    #&quot;Added Can Work More&quot; = Table.AddColumn(#&quot;Grouped Rows&quot;, &quot;Can Work More?&quot;, each if ([#&quot;Able to Work?&quot;] &lt; [#&quot;Asked to Work?&quot;]) and ([#&quot;Days Left Available to Work?&quot;] &gt;=  1) then &quot;Yes&quot; else null),
+    #&quot;Added Day Shortfall&quot; = Table.AddColumn(#&quot;Added Can Work More&quot;, &quot;Day Shortfall in Week?&quot;, each if [#&quot;Can Work More?&quot;] = &quot;Yes&quot; then ([#&quot;Asked to Work?&quot;] - [#&quot;Able to Work?&quot;]) else null),
+    #&quot;Sorted Rows&quot; = Table.Sort(#&quot;Added Day Shortfall&quot;,{{&quot;User ID&quot;, Order.Ascending}, {&quot;Start of Week&quot;, Order.Ascending}})
+in
+    #&quot;Sorted Rows&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Inventory_Availability_SCD,
+    #"Fill in End Dates" = Table.ReplaceValue(Source,null, Max_Date,Replacer.ReplaceValue,{"End Date"}),
+    Monday = Table.ReplaceValue(#"Fill in End Dates","Yes","Monday",Replacer.ReplaceText,{"Mon"}),
+    Tuesday = Table.ReplaceValue(Monday,"Yes","Tuesday",Replacer.ReplaceText,{"Tue"}),
+    Wednesday = Table.ReplaceValue(Tuesday,"Yes","Wednesday",Replacer.ReplaceText,{"Wed"}),
+    Thursday = Table.ReplaceValue(Wednesday,"Yes","Thursday",Replacer.ReplaceText,{"Thu"}),
+    Friday = Table.ReplaceValue(Thursday,"Yes","Friday",Replacer.ReplaceText,{"Fri"}),
+    Saturday = Table.ReplaceValue(Friday,"Yes","Saturday",Replacer.ReplaceText,{"Sat"}),
+    Sunday = Table.ReplaceValue(Saturday,"Yes","Sunday",Replacer.ReplaceText,{"Sun"}),
+    #"Merged Columns" = Table.CombineColumns(Sunday,{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"},Combiner.CombineTextByDelimiter(", ", QuoteStyle.None),"Merged Days"),
+    #"Added Working Days" = Table.AddColumn(#"Merged Columns", "Working Days", each if ([Full or Part] = "Full" and [Country] &lt;&gt; "UAE") then "Monday, Tuesday, Wednesday, Thursday, Friday" else if ([Full or Part] = "Full" and [Country] = "UAE") then "Monday, Tuesday, Wednesday, Thursday, Sunday" else [Merged Days]),
+    #"Removed Columns" = Table.RemoveColumns(#"Added Working Days",{"Merged Days"}),
+    #"Inserted Start of Week" = Table.AddColumn(#"Removed Columns", "Start of Week", each if ([Country] = "UAE") then Date.StartOfWeek([Start Date], Day.Sunday) else Date.StartOfWeek([Start Date], Day.Monday)),
+    #"Inserted End of Week" = Table.AddColumn(#"Inserted Start of Week", "End of Week", each if ([Country] = "UAE") then Date.EndOfWeek([End Date], Day.Sunday) else Date.EndOfWeek([End Date], Day.Monday)),
+    #"Added Custom" = Table.AddColumn(#"Inserted End of Week", "Dates", each { Number.From([Start of Week])..Number.From([End of Week]) }),
+    #"Expanded Dates" = Table.ExpandListColumn(#"Added Custom", "Dates"),
+    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Dates",{{"Dates", type date}}),
+    #"Filtered Dates" = Table.SelectRows(#"Changed Type", each [Dates] &gt;= Min_Date and [Dates] &lt;= Max_Date),
+    #"Added Date Boundary 1" = Table.AddColumn(#"Filtered Dates", "Boundary 1", each if [Start Date] &gt; [Dates] then 1 else 0),
+    #"Added Date Boundary 2" = Table.AddColumn(#"Added Date Boundary 1", "Boundary 2", each if [End Date] &lt; [Dates] then 1 else 0),
+    #"Grouped Rows1" = Table.Group(#"Added Date Boundary 2", {"User ID", "Dates"}, {{"Details", each _, type table [User ID=text, First Name=text, Last Name=text, Start Date=date, End Date=date, Country=text, Department=text, Full or Part=text, #"[Hrs / Day]"=number, Working Days=text, Start of Week=date, End of Week=date, Dates=date, Boundary 1=number, Boundary 2=number]}, {"Duplicates", each Table.RowCount(_), type number}}),
+    #"Expanded Details" = Table.ExpandTableColumn(#"Grouped Rows1", "Details", {"First Name", "Last Name", "Start Date", "End Date", "Country", "Department", "Full or Part", "[Hrs / Day]", "Working Days", "Start of Week", "End of Week", "Boundary 1", "Boundary 2"}, {"First Name", "Last Name", "Start Date", "End Date", "Country", "Department", "Full or Part", "[Hrs / Day]", "Working Days", "Start of Week", "End of Week", "Boundary 1", "Boundary 2"}),
+    #"Added Remove Duplicates" = Table.AddColumn(#"Expanded Details", "Remove", each if ([Boundary 1] = 1 or [Boundary 2] = 1) and ([Duplicates] &gt; 1) then 1 else 0),
+    #"Filtered Duplicates Out" = Table.SelectRows(#"Added Remove Duplicates", each ([Remove] = 0)),
+    #"Removed Columns1" = Table.RemoveColumns(#"Filtered Duplicates Out",{"Start of Week", "End of Week", "Boundary 1", "Boundary 2", "Duplicates", "Remove"}),
+    #"Inserted Start of Week 2" = Table.AddColumn(#"Removed Columns1", "Start of Week", each if ([Country] = "UAE") then Date.StartOfWeek([Dates], Day.Sunday) else Date.StartOfWeek([Dates], Day.Monday)),
+    #"Inserted Day Name" = Table.AddColumn(#"Inserted Start of Week 2", "Day Name", each Date.DayOfWeekName([Dates]), type text),
+    #"Added With Company" = Table.AddColumn(#"Inserted Day Name", "With Company?", each if ([Dates] &gt;= [Start Date] and [Dates] &lt;= [End Date]) then 1 else 0),
+    #"Added Weekday" = Table.AddColumn(#"Added With Company", "Weekday?", each if ([Day Name] = "Friday" or [Day Name] = "Saturday") and ([Country] = "UAE") then 0 else if ([Day Name] = "Saturday" or [Day Name] = "Sunday") and ([Country] &lt;&gt; "UAE") then 0 else 1),
+    #"Merged Queries" = Table.NestedJoin(#"Added Weekday", {"Country", "Dates"}, Public_Holidays, {"Country", "Date"}, "Holiday_Table", JoinKind.LeftOuter),
+    #"Expanded Holiday Description" = Table.ExpandTableColumn(#"Merged Queries", "Holiday_Table", {"Description"}, {"Holiday Description"}),
+    #"Added Public Holiday" = Table.AddColumn(#"Expanded Holiday Description", "Public Holiday?", each if [Holiday Description] = null then 0 else 1),
+    #"Added Can Work" = Table.AddColumn(#"Added Public Holiday", "Can Work?", each if ([#"With Company?"] = 1 and [#"Weekday?"] = 1 and [#"Public Holiday?"] = 0) then 1 else 0),
+    #"Added Asked to Work" = Table.AddColumn(#"Added Can Work", "Asked to Work?", each if Text.Contains([Working Days], [Day Name]) then 1 else 0),
+    #"Added Able to Work" = Table.AddColumn(#"Added Asked to Work", "Able to Work?", each if ([#"Can Work?"] = 1 and [#"Asked to Work?"] = 1) then 1 else 0),
+    #"Added Days Left Available to Work" = Table.AddColumn(#"Added Able to Work", "Days Left Available to Work?", each if [#"Can Work?"] &gt; [#"Able to Work?"] then 1 else 0),
+    #"Grouped Rows" = Table.Group(#"Added Days Left Available to Work", {"Start of Week", "User ID", "Country"}, {{"Can Work?", each List.Sum([#"Can Work?"]), type number}, {"Asked to Work?", each List.Sum([#"Asked to Work?"]), type number}, {"Able to Work?", each List.Sum([#"Able to Work?"]), type number}, {"Days Left Available to Work?", each List.Sum([#"Days Left Available to Work?"]), type number}}),
+    #"Added Can Work More" = Table.AddColumn(#"Grouped Rows", "Can Work More?", each if ([#"Able to Work?"] &lt; [#"Asked to Work?"]) and ([#"Days Left Available to Work?"] &gt;=  1) then "Yes" else null),
+    #"Added Day Shortfall" = Table.AddColumn(#"Added Can Work More", "Day Shortfall in Week?", each if [#"Can Work More?"] = "Yes" then ([#"Asked to Work?"] - [#"Able to Work?"]) else null),
+    #"Sorted Rows" = Table.Sort(#"Added Day Shortfall",{{"User ID", Order.Ascending}, {"Start of Week", Order.Ascending}})
+in
+    #"Sorted Rows"
+
+</code></pre>
+
+<h3 id="show-inventory-availability-by-day-adding-dates">Show Inventory Availability by day (adding dates)</h3>
+
+<ul>
+  <li>Create a new query. This will be the actual query used to show each Employee’s availability by day.</li>
+</ul>
+
+<p>The first few steps of the query are the same as the earlier query, up to where the data looks like this – (up to the step where the ‘<em>Day Name</em>’ was added.)</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-50.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="show-inventory-availability-by-day-adding-logic-columns">Show Inventory Availability by day (adding logic columns)</h3>
+
+<p>After this, the logic column steps for this query are also the same as the earlier query, except for the last three steps - the data is not grouped by “<em>Start of Week</em>” or “<em>User ID</em>” (the 3rd last step), and the columns “<em>Can Work More?</em>” and “<em>Day Shortfall in Week?</em>” are not added (the 2nd last, and last steps).</p>
+
+<p>The 4th last step of the earlier query should look something like this (not grouped by ‘<em>Start of Week</em>’ or ‘<em>User ID</em>’):</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-51.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Next, add a buffering step, so the table sort order is not lost:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.Buffer(#&quot;Sorted Rows&quot;)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.Buffer(#"Sorted Rows")
+</code></pre>
+
+<h3 id="show-inventory-availability-by-day-add-running-total-column">Show Inventory Availability by day (add running total column)</h3>
+
+<p>Now, we need to add a “Running Total” column, on the values in the column called “Days Left Available to Work?” (the last column in the data of the previous step)</p>
+
+<ul>
+  <li>Create a Running Total function (as a separate query)</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-52.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>If you are interested in learning more about running total functions, the above function is very similar to the Running Total function created in this <em>ETL article:</em> <a href="running-total.html"><strong>Running Total functions</strong></a>, (where the workings are explained more fully), but the above function is slightly more optimised (done in fewer lines of code).</p>
+
+<p>Focussing on the inner let / in portion of the code, after accepting two parameters: the table, and the name of column in the table to be summed (called: <em>tbl</em>, and <em>sumcolumn</em>, above respectively), the function:</p>
+
+<ul>
+  <li>Buffers the table, and stores it to the variable, “<em>Source</em>”</li>
+  <li>Renames the column to be summed (as passed through by the parameter, <em>sumcolumn</em>) to “<em>Temp</em>”</li>
+  <li>Creates a “<em>Running Total</em>” list on the values in the “<em>Temp</em>” column, and then stores this to the variable #”<em>Cumulative Total</em>”</li>
+  <li>The Table.ToColumns function then converts each column of the table “<em>Source</em>”, into a list of lists</li>
+  <li>The ‘&amp;{#”<em>Cumulative Total</em>”}’ appends the returned ‘running total’ list, onto the list of lists</li>
+  <li>The Table.FromColumns then converts the list of lists back into a table, with the headings of the original table object, plus “<em>Running Total</em>”, as the heading of the newly appended column</li>
+</ul>
+
+<p>Next, call the function ‘<em>fnRunningTotal</em>’ – it should look something like the below, ready to accept the two parameters:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-53.png" alt="" style="width: 100%; max-width: 52.7%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, going back to the main query, group the Buffered Table step that we created, with the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.Group(#&quot;Table Buffered&quot;, {&quot;Start of Week&quot;, &quot;User ID&quot;, &quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotal(_, &quot;Days Left Available to Work?&quot;),  type table}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.Group(#"Table Buffered", {"Start of Week", "User ID", "Country"}, {{"AllData", (_) =&gt; fnRunningTotal(_, "Days Left Available to Work?"),  type table}})
+
+</code></pre>
+
+<p>To explain what is happening with this code, a bit more clearly:</p>
+
+<ul>
+  <li>The grouping is done by “<em>Start of Week</em>”, “<em>User ID</em>”, and “<em>Country</em>”. A new column called “<em>All Data</em>” is also added that returns a <strong>table object</strong> with the relevant rows.</li>
+  <li>Each table object, from each row, is then passed into the running total function (as a throw away variable: ‘_’), along with the name of the column (“<em>Days Left Available to Work?</em>”), on which we would like to create an additional running total column, in each table object.</li>
+</ul>
+
+<p>After doing this, if we then click on any table object, like the one shown below, we should see the following additional Running Total column, called “<em>Days Left Available to Work (Cumulative)?</em>”, as shown below:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-54.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Now, expand all the relevant fields, from the ‘<em>AllData</em>’ column, using the following ‘M’ code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.ExpandTableColumn(#&quot;Grouped Rows with Running Total&quot;, &quot;AllData&quot;, List.RemoveItems(Table.ColumnNames(#&quot;Table Buffered&quot;)&amp;{&quot;Days Left Available to Work (Cumulative)?&quot;}, {&quot;Start of Week&quot;, &quot;User ID&quot;, &quot;Country&quot;}))
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.ExpandTableColumn(#"Grouped Rows with Running Total", "AllData", List.RemoveItems(Table.ColumnNames(#"Table Buffered")&amp;{"Days Left Available to Work (Cumulative)?"}, {"Start of Week", "User ID", "Country"}))
+</code></pre>
+
+<p>This code extracts all table fields as they existed in the Buffered Table step, together with the name of the new running total column, except for the ‘<em>Start of Week</em>’, ‘<em>User ID</em>’, and ‘<em>Country</em>’ fields, as these already exist as columns, in the Grouping Step.</p>
+
+<h3 id="show-inventory-availability-by-day-add-columns-from-shortfall-check-query">Show Inventory Availability by day (add columns from Shortfall check query)</h3>
+
+<p>Now, we will use the results from the shortfall check query created earlier, specifically the data in the “<em>Can Work More?</em>” and “<em>Day Shortfall in Week?</em>” columns</p>
+
+<ul>
+  <li>Merge this query with the shortfall query created earlier on the following columns (only up to the Country field - don’t choose department)</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-55.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Extract the following fields:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-56.png" alt="" style="width: 100%; max-width: 49.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Next, replace any nulls in the “<em>Day Shortfall in Week?</em>” column with 0s, using the following code:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.ReplaceValue(#&quot;Expanded Inventory_Table_Weekly&quot;,null,0,Replacer.ReplaceValue,{&quot;Day Shortfall in Week?&quot;})
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.ReplaceValue(#"Expanded Inventory_Table_Weekly",null,0,Replacer.ReplaceValue,{"Day Shortfall in Week?"})
+</code></pre>
+
+<ul>
+  <li>Add the following two custom columns:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-57.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-58.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>These two columns will automatically re-allocate working days for Part time Employees, in case they could not work on their preferred day (e.g. due to Company or Public Holidays).</p>
+
+<ul>
+  <li>Next, add the following custom column:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-59.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>This column shows the days worked, plus any days not worked that were re-allocated to other days</p>
+
+<ul>
+  <li>Now, add the following custom column:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-60.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>This column converts the days worked from the workable days column, into hours (that were specified in the original source table).</p>
+
+<ul>
+  <li>With the above step complete, we can now remove the following columns, as they are no longer needed</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.RemoveColumns(#&quot;Added Available Hours&quot;,{&quot;Full or Part&quot;, &quot;Working Days&quot;, &quot;Days Left Available to Work (Cumulative)?&quot;, &quot;Shortfall Descending Count&quot;, &quot;[Hrs / Day]&quot;})
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.RemoveColumns(#"Added Available Hours",{"Full or Part", "Working Days", "Days Left Available to Work (Cumulative)?", "Shortfall Descending Count", "[Hrs / Day]"})
+</code></pre>
+
+<ul>
+  <li>Next, add another ‘<em>Start of Week</em>’ column, but this time, one that always starts on Monday. This column can be used for reporting purposes (as the reporting is multi-jurisdictional, a consistent ‘<em>Start of Week</em>’ column is also needed).</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-61.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Finally, place this column to the front of the dataset, by re-ordering the columns</li>
+  <li>Sort the data again by the ‘<em>User ID</em>’ and then “<em>Dates</em>’ columns, as the order will have been lost from the Merge query operations above</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-62.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>
+    <p>Call the query: ‘<em>Availability – Daily</em>’</p>
+  </li>
+  <li>
+    <p>The final ‘ETL’ code should look something like this:</p>
+  </li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Inventory_Availability_SCD,
+    #&quot;Fill in End Dates&quot; = Table.ReplaceValue(Source,null,Max_Date,Replacer.ReplaceValue,{&quot;End Date&quot;}),
+    Monday = Table.ReplaceValue(#&quot;Fill in End Dates&quot;,&quot;Yes&quot;,&quot;Monday&quot;,Replacer.ReplaceText,{&quot;Mon&quot;}),
+    Tuesday = Table.ReplaceValue(Monday,&quot;Yes&quot;,&quot;Tuesday&quot;,Replacer.ReplaceText,{&quot;Tue&quot;}),
+    Wednesday = Table.ReplaceValue(Tuesday,&quot;Yes&quot;,&quot;Wednesday&quot;,Replacer.ReplaceText,{&quot;Wed&quot;}),
+    Thursday = Table.ReplaceValue(Wednesday,&quot;Yes&quot;,&quot;Thursday&quot;,Replacer.ReplaceText,{&quot;Thu&quot;}),
+    Friday = Table.ReplaceValue(Thursday,&quot;Yes&quot;,&quot;Friday&quot;,Replacer.ReplaceText,{&quot;Fri&quot;}),
+    Saturday = Table.ReplaceValue(Friday,&quot;Yes&quot;,&quot;Saturday&quot;,Replacer.ReplaceText,{&quot;Sat&quot;}),
+    Sunday = Table.ReplaceValue(Saturday,&quot;Yes&quot;,&quot;Sunday&quot;,Replacer.ReplaceText,{&quot;Sun&quot;}),
+    #&quot;Merged Columns&quot; = Table.CombineColumns(Sunday,{&quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;, &quot;Sun&quot;},Combiner.CombineTextByDelimiter(&quot;, &quot;, QuoteStyle.None),&quot;Merged Days&quot;),
+    #&quot;Added Working Days&quot; = Table.AddColumn(#&quot;Merged Columns&quot;, &quot;Working Days&quot;, each if ([Full or Part] = &quot;Full&quot; and [Country] &lt;&gt; &quot;UAE&quot;) then &quot;Monday, Tuesday, Wednesday, Thursday, Friday&quot; else if ([Full or Part] = &quot;Full&quot; and [Country] = &quot;UAE&quot;) then &quot;Monday, Tuesday, Wednesday, Thursday, Sunday&quot; else [Merged Days]),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Added Working Days&quot;,{&quot;Merged Days&quot;}),
+    #&quot;Inserted Start of Week&quot; = Table.AddColumn(#&quot;Removed Columns&quot;, &quot;Start of Week&quot;, each if ([Country] = &quot;UAE&quot;) then Date.StartOfWeek([Start Date], Day.Sunday) else Date.StartOfWeek([Start Date], Day.Monday)),
+    #&quot;Inserted End of Week&quot; = Table.AddColumn(#&quot;Inserted Start of Week&quot;, &quot;End of Week&quot;, each if ([Country] = &quot;UAE&quot;) then Date.EndOfWeek([End Date], Day.Sunday) else Date.EndOfWeek([End Date], Day.Monday)),
+    #&quot;Added Custom&quot; = Table.AddColumn(#&quot;Inserted End of Week&quot;, &quot;Dates&quot;, each { Number.From([Start of Week])..Number.From([End of Week]) }),
+    #&quot;Expanded Dates&quot; = Table.ExpandListColumn(#&quot;Added Custom&quot;, &quot;Dates&quot;),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Expanded Dates&quot;,{{&quot;Dates&quot;, type date}}),
+    #&quot;Filtered Dates&quot; = Table.SelectRows(#&quot;Changed Type&quot;, each [Dates] &gt;= Min_Date and [Dates] &lt;= Max_Date),
+    #&quot;Added Date Boundary 1&quot; = Table.AddColumn(#&quot;Filtered Dates&quot;, &quot;Boundary 1&quot;, each if [Start Date] &gt; [Dates] then 1 else 0),
+    #&quot;Added Date Boundary 2&quot; = Table.AddColumn(#&quot;Added Date Boundary 1&quot;, &quot;Boundary 2&quot;, each if [End Date] &lt; [Dates] then 1 else 0),
+    #&quot;Grouped Rows1&quot; = Table.Group(#&quot;Added Date Boundary 2&quot;, {&quot;User ID&quot;, &quot;Dates&quot;}, {{&quot;Details&quot;, each _, type table [User ID=text, First Name=text, Last Name=text, Start Date=date, End Date=date, Country=text, Department=text, Full or Part=text, #&quot;[Hrs / Day]&quot;=number, Working Days=text, Start of Week=date, End of Week=date, Dates=date, Boundary 1=number, Boundary 2=number]}, {&quot;Duplicates&quot;, each Table.RowCount(_), type number}}),
+    #&quot;Expanded Details&quot; = Table.ExpandTableColumn(#&quot;Grouped Rows1&quot;, &quot;Details&quot;, {&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Department&quot;, &quot;Full or Part&quot;, &quot;[Hrs / Day]&quot;, &quot;Working Days&quot;, &quot;Start of Week&quot;, &quot;End of Week&quot;, &quot;Boundary 1&quot;, &quot;Boundary 2&quot;}, {&quot;First Name&quot;, &quot;Last Name&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Country&quot;, &quot;Department&quot;, &quot;Full or Part&quot;, &quot;[Hrs / Day]&quot;, &quot;Working Days&quot;, &quot;Start of Week&quot;, &quot;End of Week&quot;, &quot;Boundary 1&quot;, &quot;Boundary 2&quot;}),
+    #&quot;Added Remove Duplicates&quot; = Table.AddColumn(#&quot;Expanded Details&quot;, &quot;Remove&quot;, each if ([Boundary 1] = 1 or [Boundary 2] = 1) and ([Duplicates] &gt; 1) then 1 else 0),
+    #&quot;Filtered Duplicated Out&quot; = Table.SelectRows(#&quot;Added Remove Duplicates&quot;, each ([Remove] = 0)),
+    #&quot;Removed Columns1&quot; = Table.RemoveColumns(#&quot;Filtered Duplicated Out&quot;,{&quot;Start of Week&quot;, &quot;End of Week&quot;, &quot;Boundary 1&quot;, &quot;Boundary 2&quot;, &quot;Duplicates&quot;, &quot;Remove&quot;}),
+    #&quot;Inserted Start of Week 2&quot; = Table.AddColumn(#&quot;Removed Columns1&quot;, &quot;Start of Week&quot;, each if ([Country] = &quot;UAE&quot;) then Date.StartOfWeek([Dates], Day.Sunday) else Date.StartOfWeek([Dates], Day.Monday)),
+    #&quot;Inserted Day Name&quot; = Table.AddColumn(#&quot;Inserted Start of Week 2&quot;, &quot;Day Name&quot;, each Date.DayOfWeekName([Dates]), type text),
+    #&quot;Added With Company&quot; = Table.AddColumn(#&quot;Inserted Day Name&quot;, &quot;With Company?&quot;, each if ([Dates] &gt;= [Start Date] and [Dates] &lt;= [End Date]) then 1 else 0),
+    #&quot;Added Weekday&quot; = Table.AddColumn(#&quot;Added With Company&quot;, &quot;Weekday?&quot;, each if ([Day Name] = &quot;Friday&quot; or [Day Name] = &quot;Saturday&quot;) and ([Country] = &quot;UAE&quot;) then 0 else if ([Day Name] = &quot;Saturday&quot; or [Day Name] = &quot;Sunday&quot;) and ([Country] &lt;&gt; &quot;UAE&quot;) then 0 else 1),
+    #&quot;Merged Queries&quot; = Table.NestedJoin(#&quot;Added Weekday&quot;, {&quot;Country&quot;, &quot;Dates&quot;}, Public_Holidays, {&quot;Country&quot;, &quot;Date&quot;}, &quot;Holiday_Table&quot;, JoinKind.LeftOuter),
+    #&quot;Expanded Holiday Description&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;Holiday_Table&quot;, {&quot;Description&quot;}, {&quot;Holiday Description&quot;}),
+    #&quot;Added Public Holiday&quot; = Table.AddColumn(#&quot;Expanded Holiday Description&quot;, &quot;Public Holiday?&quot;, each if [Holiday Description] = null then 0 else 1),
+    #&quot;Added Can Work&quot; = Table.AddColumn(#&quot;Added Public Holiday&quot;, &quot;Can Work?&quot;, each if ([#&quot;With Company?&quot;] = 1 and [#&quot;Weekday?&quot;] = 1 and [#&quot;Public Holiday?&quot;] = 0) then 1 else 0),
+    #&quot;Added Asked to Work&quot; = Table.AddColumn(#&quot;Added Can Work&quot;, &quot;Asked to Work?&quot;, each if Text.Contains([Working Days], [Day Name]) then 1 else 0),
+    #&quot;Added Able to Work&quot; = Table.AddColumn(#&quot;Added Asked to Work&quot;, &quot;Able to Work?&quot;, each if ([#&quot;Can Work?&quot;] = 1 and [#&quot;Asked to Work?&quot;] = 1) then 1 else 0),
+    #&quot;Added Days Left Available to Work&quot; = Table.AddColumn(#&quot;Added Able to Work&quot;, &quot;Days Left Available to Work?&quot;, each if [#&quot;Can Work?&quot;] &gt; [#&quot;Able to Work?&quot;] then 1 else 0),
+    #&quot;Sorted Rows&quot; = Table.Sort(#&quot;Added Days Left Available to Work&quot;,{{&quot;User ID&quot;, Order.Ascending}, {&quot;Dates&quot;, Order.Ascending}}),
+    #&quot;Table Buffered&quot; = Table.Buffer(#&quot;Sorted Rows&quot;),
+    #&quot;Grouped Rows with Running Total&quot; = Table.Group(#&quot;Table Buffered&quot;, {&quot;Start of Week&quot;, &quot;User ID&quot;, &quot;Country&quot;}, {{&quot;AllData&quot;, (_) =&gt; fnRunningTotal(_, &quot;Days Left Available to Work?&quot;),  type table}}),
+    #&quot;Expand Relevant Fields&quot; = Table.ExpandTableColumn(#&quot;Grouped Rows with Running Total&quot;, &quot;AllData&quot;, List.RemoveItems(Table.ColumnNames(#&quot;Table Buffered&quot;)&amp;{&quot;Days Left Available to Work (Cumulative)?&quot;}, {&quot;Start of Week&quot;, &quot;User ID&quot;, &quot;Country&quot;})),
+    #&quot;Merged Queries1&quot; = Table.NestedJoin(#&quot;Expand Relevant Fields&quot;, {&quot;Start of Week&quot;, &quot;User ID&quot;, &quot;Country&quot;}, #&quot;Availability - Day Shortfall Check&quot;, {&quot;Start of Week&quot;, &quot;User ID&quot;, &quot;Country&quot;}, &quot;Availability_Weekly&quot;, JoinKind.LeftOuter),
+    #&quot;Expanded Inventory_Table_Weekly&quot; = Table.ExpandTableColumn(#&quot;Merged Queries1&quot;, &quot;Availability_Weekly&quot;, {&quot;Can Work More?&quot;, &quot;Day Shortfall in Week?&quot;}, {&quot;Can Work More?&quot;, &quot;Day Shortfall in Week?&quot;}),
+    #&quot;Replaced Value&quot; = Table.ReplaceValue(#&quot;Expanded Inventory_Table_Weekly&quot;,null,0,Replacer.ReplaceValue,{&quot;Day Shortfall in Week?&quot;}),
+    #&quot;Added Shortfall Descending Count&quot; = Table.AddColumn(#&quot;Replaced Value&quot;, &quot;Shortfall Descending Count&quot;, each if [#&quot;Can Work More?&quot;] = &quot;Yes&quot; then ([#&quot;Day Shortfall in Week?&quot;] - [#&quot;Days Left Available to Work (Cumulative)?&quot;]) else 0),
+    #&quot;Added Able to Still Work&quot; = Table.AddColumn(#&quot;Added Shortfall Descending Count&quot;, &quot;Able to Still Work?&quot;, each if ([#&quot;Shortfall Descending Count&quot;] &lt; [#&quot;Day Shortfall in Week?&quot;] and [#&quot;Shortfall Descending Count&quot;] &gt;=0 and [#&quot;Days Left Available to Work?&quot;] = 1) then 1 else 0),
+    #&quot;Added Workable Days&quot; = Table.AddColumn(#&quot;Added Able to Still Work&quot;, &quot;Workable Days?&quot;, each [#&quot;Able to Work?&quot;] + [#&quot;Able to Still Work?&quot;]),
+    #&quot;Added Available Hours&quot; = Table.AddColumn(#&quot;Added Workable Days&quot;, &quot;Available Hours&quot;, each [#&quot;[Hrs / Day]&quot;]*[#&quot;Workable Days?&quot;]),
+    #&quot;Removed Columns 2&quot; = Table.RemoveColumns(#&quot;Added Available Hours&quot;,{&quot;Full or Part&quot;, &quot;Working Days&quot;, &quot;Days Left Available to Work (Cumulative)?&quot;, &quot;Shortfall Descending Count&quot;, &quot;[Hrs / Day]&quot;}),
+    #&quot;Inserted Start of Week Mon&quot; = Table.AddColumn(#&quot;Removed Columns 2&quot;, &quot;Start of Week (Mon)&quot;, each Date.StartOfWeek([Dates], Day.Monday), type date),
+    #&quot;Reordered Columns&quot; = Table.ReorderColumns(#&quot;Inserted Start of Week Mon&quot;,{&quot;Start of Week (Mon)&quot;, &quot;Start of Week&quot;, &quot;User ID&quot;, &quot;Country&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Start Date&quot;, &quot;End Date&quot;, &quot;Department&quot;, &quot;Dates&quot;, &quot;Day Name&quot;, &quot;With Company?&quot;, &quot;Weekday?&quot;, &quot;Holiday Description&quot;, &quot;Public Holiday?&quot;, &quot;Can Work?&quot;, &quot;Asked to Work?&quot;, &quot;Able to Work?&quot;, &quot;Days Left Available to Work?&quot;, &quot;Can Work More?&quot;, &quot;Day Shortfall in Week?&quot;, &quot;Able to Still Work?&quot;, &quot;Workable Days?&quot;, &quot;Available Hours&quot;}),
+    #&quot;Sorted Rows1&quot; = Table.Sort(#&quot;Reordered Columns&quot;,{{&quot;User ID&quot;, Order.Ascending}, {&quot;Dates&quot;, Order.Ascending}})
+in
+    #&quot;Sorted Rows1&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Inventory_Availability_SCD,
+    #"Fill in End Dates" = Table.ReplaceValue(Source,null,Max_Date,Replacer.ReplaceValue,{"End Date"}),
+    Monday = Table.ReplaceValue(#"Fill in End Dates","Yes","Monday",Replacer.ReplaceText,{"Mon"}),
+    Tuesday = Table.ReplaceValue(Monday,"Yes","Tuesday",Replacer.ReplaceText,{"Tue"}),
+    Wednesday = Table.ReplaceValue(Tuesday,"Yes","Wednesday",Replacer.ReplaceText,{"Wed"}),
+    Thursday = Table.ReplaceValue(Wednesday,"Yes","Thursday",Replacer.ReplaceText,{"Thu"}),
+    Friday = Table.ReplaceValue(Thursday,"Yes","Friday",Replacer.ReplaceText,{"Fri"}),
+    Saturday = Table.ReplaceValue(Friday,"Yes","Saturday",Replacer.ReplaceText,{"Sat"}),
+    Sunday = Table.ReplaceValue(Saturday,"Yes","Sunday",Replacer.ReplaceText,{"Sun"}),
+    #"Merged Columns" = Table.CombineColumns(Sunday,{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"},Combiner.CombineTextByDelimiter(", ", QuoteStyle.None),"Merged Days"),
+    #"Added Working Days" = Table.AddColumn(#"Merged Columns", "Working Days", each if ([Full or Part] = "Full" and [Country] &lt;&gt; "UAE") then "Monday, Tuesday, Wednesday, Thursday, Friday" else if ([Full or Part] = "Full" and [Country] = "UAE") then "Monday, Tuesday, Wednesday, Thursday, Sunday" else [Merged Days]),
+    #"Removed Columns" = Table.RemoveColumns(#"Added Working Days",{"Merged Days"}),
+    #"Inserted Start of Week" = Table.AddColumn(#"Removed Columns", "Start of Week", each if ([Country] = "UAE") then Date.StartOfWeek([Start Date], Day.Sunday) else Date.StartOfWeek([Start Date], Day.Monday)),
+    #"Inserted End of Week" = Table.AddColumn(#"Inserted Start of Week", "End of Week", each if ([Country] = "UAE") then Date.EndOfWeek([End Date], Day.Sunday) else Date.EndOfWeek([End Date], Day.Monday)),
+    #"Added Custom" = Table.AddColumn(#"Inserted End of Week", "Dates", each { Number.From([Start of Week])..Number.From([End of Week]) }),
+    #"Expanded Dates" = Table.ExpandListColumn(#"Added Custom", "Dates"),
+    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Dates",{{"Dates", type date}}),
+    #"Filtered Dates" = Table.SelectRows(#"Changed Type", each [Dates] &gt;= Min_Date and [Dates] &lt;= Max_Date),
+    #"Added Date Boundary 1" = Table.AddColumn(#"Filtered Dates", "Boundary 1", each if [Start Date] &gt; [Dates] then 1 else 0),
+    #"Added Date Boundary 2" = Table.AddColumn(#"Added Date Boundary 1", "Boundary 2", each if [End Date] &lt; [Dates] then 1 else 0),
+    #"Grouped Rows1" = Table.Group(#"Added Date Boundary 2", {"User ID", "Dates"}, {{"Details", each _, type table [User ID=text, First Name=text, Last Name=text, Start Date=date, End Date=date, Country=text, Department=text, Full or Part=text, #"[Hrs / Day]"=number, Working Days=text, Start of Week=date, End of Week=date, Dates=date, Boundary 1=number, Boundary 2=number]}, {"Duplicates", each Table.RowCount(_), type number}}),
+    #"Expanded Details" = Table.ExpandTableColumn(#"Grouped Rows1", "Details", {"First Name", "Last Name", "Start Date", "End Date", "Country", "Department", "Full or Part", "[Hrs / Day]", "Working Days", "Start of Week", "End of Week", "Boundary 1", "Boundary 2"}, {"First Name", "Last Name", "Start Date", "End Date", "Country", "Department", "Full or Part", "[Hrs / Day]", "Working Days", "Start of Week", "End of Week", "Boundary 1", "Boundary 2"}),
+    #"Added Remove Duplicates" = Table.AddColumn(#"Expanded Details", "Remove", each if ([Boundary 1] = 1 or [Boundary 2] = 1) and ([Duplicates] &gt; 1) then 1 else 0),
+    #"Filtered Duplicated Out" = Table.SelectRows(#"Added Remove Duplicates", each ([Remove] = 0)),
+    #"Removed Columns1" = Table.RemoveColumns(#"Filtered Duplicated Out",{"Start of Week", "End of Week", "Boundary 1", "Boundary 2", "Duplicates", "Remove"}),
+    #"Inserted Start of Week 2" = Table.AddColumn(#"Removed Columns1", "Start of Week", each if ([Country] = "UAE") then Date.StartOfWeek([Dates], Day.Sunday) else Date.StartOfWeek([Dates], Day.Monday)),
+    #"Inserted Day Name" = Table.AddColumn(#"Inserted Start of Week 2", "Day Name", each Date.DayOfWeekName([Dates]), type text),
+    #"Added With Company" = Table.AddColumn(#"Inserted Day Name", "With Company?", each if ([Dates] &gt;= [Start Date] and [Dates] &lt;= [End Date]) then 1 else 0),
+    #"Added Weekday" = Table.AddColumn(#"Added With Company", "Weekday?", each if ([Day Name] = "Friday" or [Day Name] = "Saturday") and ([Country] = "UAE") then 0 else if ([Day Name] = "Saturday" or [Day Name] = "Sunday") and ([Country] &lt;&gt; "UAE") then 0 else 1),
+    #"Merged Queries" = Table.NestedJoin(#"Added Weekday", {"Country", "Dates"}, Public_Holidays, {"Country", "Date"}, "Holiday_Table", JoinKind.LeftOuter),
+    #"Expanded Holiday Description" = Table.ExpandTableColumn(#"Merged Queries", "Holiday_Table", {"Description"}, {"Holiday Description"}),
+    #"Added Public Holiday" = Table.AddColumn(#"Expanded Holiday Description", "Public Holiday?", each if [Holiday Description] = null then 0 else 1),
+    #"Added Can Work" = Table.AddColumn(#"Added Public Holiday", "Can Work?", each if ([#"With Company?"] = 1 and [#"Weekday?"] = 1 and [#"Public Holiday?"] = 0) then 1 else 0),
+    #"Added Asked to Work" = Table.AddColumn(#"Added Can Work", "Asked to Work?", each if Text.Contains([Working Days], [Day Name]) then 1 else 0),
+    #"Added Able to Work" = Table.AddColumn(#"Added Asked to Work", "Able to Work?", each if ([#"Can Work?"] = 1 and [#"Asked to Work?"] = 1) then 1 else 0),
+    #"Added Days Left Available to Work" = Table.AddColumn(#"Added Able to Work", "Days Left Available to Work?", each if [#"Can Work?"] &gt; [#"Able to Work?"] then 1 else 0),
+    #"Sorted Rows" = Table.Sort(#"Added Days Left Available to Work",{{"User ID", Order.Ascending}, {"Dates", Order.Ascending}}),
+    #"Table Buffered" = Table.Buffer(#"Sorted Rows"),
+    #"Grouped Rows with Running Total" = Table.Group(#"Table Buffered", {"Start of Week", "User ID", "Country"}, {{"AllData", (_) =&gt; fnRunningTotal(_, "Days Left Available to Work?"),  type table}}),
+    #"Expand Relevant Fields" = Table.ExpandTableColumn(#"Grouped Rows with Running Total", "AllData", List.RemoveItems(Table.ColumnNames(#"Table Buffered")&amp;{"Days Left Available to Work (Cumulative)?"}, {"Start of Week", "User ID", "Country"})),
+    #"Merged Queries1" = Table.NestedJoin(#"Expand Relevant Fields", {"Start of Week", "User ID", "Country"}, #"Availability - Day Shortfall Check", {"Start of Week", "User ID", "Country"}, "Availability_Weekly", JoinKind.LeftOuter),
+    #"Expanded Inventory_Table_Weekly" = Table.ExpandTableColumn(#"Merged Queries1", "Availability_Weekly", {"Can Work More?", "Day Shortfall in Week?"}, {"Can Work More?", "Day Shortfall in Week?"}),
+    #"Replaced Value" = Table.ReplaceValue(#"Expanded Inventory_Table_Weekly",null,0,Replacer.ReplaceValue,{"Day Shortfall in Week?"}),
+    #"Added Shortfall Descending Count" = Table.AddColumn(#"Replaced Value", "Shortfall Descending Count", each if [#"Can Work More?"] = "Yes" then ([#"Day Shortfall in Week?"] - [#"Days Left Available to Work (Cumulative)?"]) else 0),
+    #"Added Able to Still Work" = Table.AddColumn(#"Added Shortfall Descending Count", "Able to Still Work?", each if ([#"Shortfall Descending Count"] &lt; [#"Day Shortfall in Week?"] and [#"Shortfall Descending Count"] &gt;=0 and [#"Days Left Available to Work?"] = 1) then 1 else 0),
+    #"Added Workable Days" = Table.AddColumn(#"Added Able to Still Work", "Workable Days?", each [#"Able to Work?"] + [#"Able to Still Work?"]),
+    #"Added Available Hours" = Table.AddColumn(#"Added Workable Days", "Available Hours", each [#"[Hrs / Day]"]*[#"Workable Days?"]),
+    #"Removed Columns 2" = Table.RemoveColumns(#"Added Available Hours",{"Full or Part", "Working Days", "Days Left Available to Work (Cumulative)?", "Shortfall Descending Count", "[Hrs / Day]"}),
+    #"Inserted Start of Week Mon" = Table.AddColumn(#"Removed Columns 2", "Start of Week (Mon)", each Date.StartOfWeek([Dates], Day.Monday), type date),
+    #"Reordered Columns" = Table.ReorderColumns(#"Inserted Start of Week Mon",{"Start of Week (Mon)", "Start of Week", "User ID", "Country", "First Name", "Last Name", "Start Date", "End Date", "Department", "Dates", "Day Name", "With Company?", "Weekday?", "Holiday Description", "Public Holiday?", "Can Work?", "Asked to Work?", "Able to Work?", "Days Left Available to Work?", "Can Work More?", "Day Shortfall in Week?", "Able to Still Work?", "Workable Days?", "Available Hours"}),
+    #"Sorted Rows1" = Table.Sort(#"Reordered Columns",{{"User ID", Order.Ascending}, {"Dates", Order.Ascending}})
+in
+    #"Sorted Rows1"
+
+</code></pre>
+
+<h3 id="show-inventory-availability-by-week">Show Inventory Availability by week</h3>
+
+<p>To show available hours by week:</p>
+
+<ul>
+  <li>Create a reference to the earlier ‘Availability’ query</li>
+  <li>Buffer the Table, so the sort order won’t be lost in later steps:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.Buffer(Source)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.Buffer(Source)
+</code></pre>
+
+<ul>
+  <li>Group the data on the following fields, and add other relevant columns (as summations for each week):</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-63.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-64.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>The data should finally look like this, showing each Employee’s availability in hours, by week:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-65.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>
+    <p>Call the query: ‘<em>Availability – Weekly</em>’</p>
+  </li>
+  <li>
+    <p>The final ‘ETL’ code should look something like this:</p>
+  </li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = #&quot;Availability - Daily&quot;,
+    #&quot;Table Buffered&quot; = Table.Buffer(Source),
+    #&quot;Grouped Rows&quot; = Table.Group(Table.Buffer(#&quot;Table Buffered&quot;), {&quot;Start of Week (Mon)&quot;, &quot;User ID&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Country&quot;, &quot;Department&quot;}, {{&quot;Can Work?&quot;, each List.Sum([#&quot;Can Work?&quot;]), type number}, {&quot;Asked to Work?&quot;, each List.Sum([#&quot;Asked to Work?&quot;]), type number}, {&quot;Able to Work?&quot;, each List.Sum([#&quot;Able to Work?&quot;]), type number}, {&quot;Days Left Available to Work?&quot;, each List.Sum([#&quot;Days Left Available to Work?&quot;]), type number}, {&quot;Able to Still Work?&quot;, each List.Sum([#&quot;Able to Still Work?&quot;]), type number}, {&quot;Workable Days?&quot;, each List.Sum([#&quot;Workable Days?&quot;]), type number}, {&quot;Available Hours&quot;, each List.Sum([Available Hours]), type number}})
+in
+    #&quot;Grouped Rows&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = #"Availability - Daily",
+    #"Table Buffered" = Table.Buffer(Source),
+    #"Grouped Rows" = Table.Group(Table.Buffer(#"Table Buffered"), {"Start of Week (Mon)", "User ID", "First Name", "Last Name", "Country", "Department"}, {{"Can Work?", each List.Sum([#"Can Work?"]), type number}, {"Asked to Work?", each List.Sum([#"Asked to Work?"]), type number}, {"Able to Work?", each List.Sum([#"Able to Work?"]), type number}, {"Days Left Available to Work?", each List.Sum([#"Days Left Available to Work?"]), type number}, {"Able to Still Work?", each List.Sum([#"Able to Still Work?"]), type number}, {"Workable Days?", each List.Sum([#"Workable Days?"]), type number}, {"Available Hours", each List.Sum([Available Hours]), type number}})
+in
+    #"Grouped Rows"
+
+</code></pre>
+
+<h3 id="show-inventory-use-by-week">Show Inventory Use by week</h3>
+
+<p>Now, to show actual inventory use (i.e. actual hours), by week, take the following steps:</p>
+
+<ul>
+  <li>Load the Inventory Use data at the very top of this article into Power Query so it looks something like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-66.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Use the following formula to turn all columns into a list of lists, and then, in each list, to replace any nulls or blanks with a 0</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= List.Transform(Table.ColumnNames(#&quot;Removed Columns&quot;), each {_, (_) =&gt; if _ = null or _ = &quot;&quot; then 0 else _})
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= List.Transform(Table.ColumnNames(#"Removed Columns"), each {_, (_) =&gt; if _ = null or _ = "" then 0 else _})
+</code></pre>
+
+<ul>
+  <li>Next, turn the list of lists back into a table with columns, like so:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.TransformColumns(#&quot;Removed Columns&quot;, #&quot;ReplacedNullandBlanks&quot;)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.TransformColumns(#"Removed Columns", #"ReplacedNullandBlanks")
+</code></pre>
+
+<ul>
+  <li>Promote the top row, as column headers, so the data looks like this:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-67.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Unpivot all columns apart from the “User ID”, “First Name”, “Last Name”, and “Area of Work” columns, like so:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.UnpivotOtherColumns(#&quot;Promoted Headers&quot;, {&quot;User ID&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Area of Work&quot;}, &quot;Attribute&quot;, &quot;Value&quot;)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.UnpivotOtherColumns(#"Promoted Headers", {"User ID", "First Name", "Last Name", "Area of Work"}, "Attribute", "Value")
+</code></pre>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-68.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Filter the ‘<em>Attribute</em>’ column to include only those rows with Dates, using the following code</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.SelectRows(#&quot;Unpivoted Other Columns&quot;, each Text.Contains([Attribute], &quot;/&quot;))
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.SelectRows(#"Unpivoted Other Columns", each Text.Contains([Attribute], "/"))
+</code></pre>
+
+<ul>
+  <li>Change the data type of the ‘<em>Attribute</em>’ field to Date/Time</li>
+  <li>Then rename the field to ‘<em>Date</em>’</li>
+  <li>Then, change the data type to just Date</li>
+  <li>Next, rename the ‘<em>Value</em>’ column to ‘<em>Worked Hours</em>’</li>
+  <li>Then, insert the following custom column</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-69.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Apply the following ‘<em>Merge</em>’ operation to get the hourly data from the Daily Availability query</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-70.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Extract the following fields</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-71.png" alt="" style="width: 100%; max-width: 49.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+As the Employee’s Department and Country can change, it is better to take these fields from the Availability data, rather than to record this in the Timesheet data, and take these from there. Just a ‘User ID’ field in the Timesheet data is sufficient, as this should seldom ever change for the same person.</p>
+</div>
+
+<ul>
+  <li>Sort the data using the following ‘M’ code, as the order will have been lost from the Merge Query operation above</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+= Table.Sort(#&quot;Expanded Availability_Daily&quot;,{{&quot;User ID&quot;, Order.Ascending}, {&quot;Date&quot;, Order.Ascending}, {&quot;Country&quot;, Order.Ascending}, {&quot;Department&quot;, Order.Ascending}})
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+= Table.Sort(#"Expanded Availability_Daily",{{"User ID", Order.Ascending}, {"Date", Order.Ascending}, {"Country", Order.Ascending}, {"Department", Order.Ascending}})
+
+</code></pre>
+
+<ul>
+  <li>Buffer the results so the sort order is not lost in the next group by step</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+= Table.Buffer(#&quot;Sorted Rows1&quot;)
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">= Table.Buffer(#"Sorted Rows1")
+</code></pre>
+
+<ul>
+  <li>Apply the following Group By Operation, to group the data by week:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-72.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>(The last group by field, which you cannot quite see is called ‘Area of Work’)</p>
+
+<p>The data should now, finally, look something like this!</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-73.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Hit ‘<em>Close and Load</em>’, to load the data into an excel worksheet</li>
+</ul>
+
+<p>The Inventory use, along with Availability by week, in hours, for each Employee should then look something like this, with both Use in Hours per day, and Availability in Hours for the given week, shown side by side.</p>
+
+<p>So not as trivial as we first thought – but at least we have an accurately processed dataset now!</p>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-74.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>The final ETL code of this query should look something like this:</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+
+let
+    Source = Excel.CurrentWorkbook(),
+    Inventory_Use = Source{[Name=&quot;Inventory_Use&quot;]}[Content],
+    #&quot;Filtered Rows&quot; = Table.SelectRows(Inventory_Use, each ([Column3] &lt;&gt; null)),
+    #&quot;Removed Columns&quot; = Table.RemoveColumns(#&quot;Filtered Rows&quot;,{&quot;Column1&quot;}),
+    #&quot;ReplacedNullandBlanks&quot; = List.Transform(Table.ColumnNames(#&quot;Removed Columns&quot;), each {_, (_) =&gt; if _ = null or _ = &quot;&quot; then 0 else _}),
+    #&quot;TransformColumns&quot; = Table.TransformColumns(#&quot;Removed Columns&quot;, #&quot;ReplacedNullandBlanks&quot;),
+    #&quot;Promoted Headers&quot; = Table.PromoteHeaders(TransformColumns, [PromoteAllScalars=true]),
+    #&quot;Unpivoted Other Columns&quot; = Table.UnpivotOtherColumns(#&quot;Promoted Headers&quot;, {&quot;User ID&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Area of Work&quot;}, &quot;Attribute&quot;, &quot;Value&quot;),
+    #&quot;Filtered Rows1&quot; = Table.SelectRows(#&quot;Unpivoted Other Columns&quot;, each Text.Contains([Attribute], &quot;/&quot;)),
+    #&quot;Changed Type&quot; = Table.TransformColumnTypes(#&quot;Filtered Rows1&quot;,{{&quot;Attribute&quot;, type datetime}}),
+    #&quot;Renamed Columns&quot; = Table.RenameColumns(#&quot;Changed Type&quot;,{{&quot;Attribute&quot;, &quot;Date&quot;}}),
+    #&quot;Changed Type1&quot; = Table.TransformColumnTypes(#&quot;Renamed Columns&quot;,{{&quot;Date&quot;, type date}, {&quot;Value&quot;, type number}}),
+    #&quot;Renamed Columns1&quot; = Table.RenameColumns(#&quot;Changed Type1&quot;,{{&quot;Value&quot;, &quot;Worked Hours&quot;}}),
+    #&quot;Inserted Start of Week (Mon)&quot; = Table.AddColumn(#&quot;Renamed Columns1&quot;, &quot;Start of Week (Mon)&quot;, each Date.StartOfWeek([Date], Day.Monday), type date),
+    #&quot;Merged Queries&quot; = Table.NestedJoin(#&quot;Inserted Start of Week (Mon)&quot;, {&quot;Date&quot;, &quot;User ID&quot;}, #&quot;Availability - Daily&quot;, {&quot;Dates&quot;, &quot;User ID&quot;}, &quot;Availability_Daily&quot;, JoinKind.LeftOuter),
+    #&quot;Expanded Availability_Daily&quot; = Table.ExpandTableColumn(#&quot;Merged Queries&quot;, &quot;Availability_Daily&quot;, {&quot;Available Hours&quot;, &quot;Country&quot;, &quot;Department&quot;}, {&quot;Available Hours&quot;, &quot;Country&quot;, &quot;Department&quot;}),
+    #&quot;Sorted Rows1&quot; = Table.Sort(#&quot;Expanded Availability_Daily&quot;,{{&quot;User ID&quot;, Order.Ascending}, {&quot;Date&quot;, Order.Ascending}, {&quot;Country&quot;, Order.Ascending}, {&quot;Department&quot;, Order.Ascending}}),
+    #&quot;Buffered Table&quot; = Table.Buffer(#&quot;Sorted Rows1&quot;),
+    #&quot;Grouped Rows&quot; = Table.Group(#&quot;Buffered Table&quot;, {&quot;Start of Week (Mon)&quot;, &quot;User ID&quot;, &quot;First Name&quot;, &quot;Last Name&quot;, &quot;Country&quot;, &quot;Department&quot;, &quot;Area of Work&quot;}, {{&quot;Worked Hours&quot;, each List.Sum([Worked Hours]), type nullable number}, {&quot;Available Hours&quot;, each List.Sum([Available Hours]), type nullable number}})
+in
+    #&quot;Grouped Rows&quot;
+
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">
+let
+    Source = Excel.CurrentWorkbook(),
+    Inventory_Use = Source{[Name="Inventory_Use"]}[Content],
+    #"Filtered Rows" = Table.SelectRows(Inventory_Use, each ([Column3] &lt;&gt; null)),
+    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"Column1"}),
+    #"ReplacedNullandBlanks" = List.Transform(Table.ColumnNames(#"Removed Columns"), each {_, (_) =&gt; if _ = null or _ = "" then 0 else _}),
+    #"TransformColumns" = Table.TransformColumns(#"Removed Columns", #"ReplacedNullandBlanks"),
+    #"Promoted Headers" = Table.PromoteHeaders(TransformColumns, [PromoteAllScalars=true]),
+    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Promoted Headers", {"User ID", "First Name", "Last Name", "Area of Work"}, "Attribute", "Value"),
+    #"Filtered Rows1" = Table.SelectRows(#"Unpivoted Other Columns", each Text.Contains([Attribute], "/")),
+    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows1",{{"Attribute", type datetime}}),
+    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Attribute", "Date"}}),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date", type date}, {"Value", type number}}),
+    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type1",{{"Value", "Worked Hours"}}),
+    #"Inserted Start of Week (Mon)" = Table.AddColumn(#"Renamed Columns1", "Start of Week (Mon)", each Date.StartOfWeek([Date], Day.Monday), type date),
+    #"Merged Queries" = Table.NestedJoin(#"Inserted Start of Week (Mon)", {"Date", "User ID"}, #"Availability - Daily", {"Dates", "User ID"}, "Availability_Daily", JoinKind.LeftOuter),
+    #"Expanded Availability_Daily" = Table.ExpandTableColumn(#"Merged Queries", "Availability_Daily", {"Available Hours", "Country", "Department"}, {"Available Hours", "Country", "Department"}),
+    #"Sorted Rows1" = Table.Sort(#"Expanded Availability_Daily",{{"User ID", Order.Ascending}, {"Date", Order.Ascending}, {"Country", Order.Ascending}, {"Department", Order.Ascending}}),
+    #"Buffered Table" = Table.Buffer(#"Sorted Rows1"),
+    #"Grouped Rows" = Table.Group(#"Buffered Table", {"Start of Week (Mon)", "User ID", "First Name", "Last Name", "Country", "Department", "Area of Work"}, {{"Worked Hours", each List.Sum([Worked Hours]), type nullable number}, {"Available Hours", each List.Sum([Available Hours]), type nullable number}})
+in
+    #"Grouped Rows"
+
+</code></pre>
+
+<h3 id="create-a-data-model-to-show-inventory-utilisation">Create a Data Model to show Inventory Utilisation</h3>
+
+<ul>
+  <li>With the final dataset from above, an Inventory Utilisation table and chart can now be created, like shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-75.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/hr-inventory-utilisation-table-76.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>A report showing Inventory Utilisation for each Employee, from the above data, can be found in this <em>DAX article:</em> <a href="/../docs/guides/data-analytics/dax-samples/hr-inventory-utilisation-table.html"><strong>Showing HR Inventory Utilisation over time</strong></a>.</li>
+</ul>
+
+<h3 id="etl-extensions--adaptations">ETL Extensions &amp; Adaptations</h3>
+
+<p>Note, possible extensions to this ETL, could include:</p>
+
+<ul>
+  <li>Showing Utilisations on a Monthly level, or, if needed, Hourly level (for example, if you wanted to see what utilisations looked like for <strong><em>Day</em></strong> and <strong><em>Overnight</em></strong> shift work)</li>
+  <li>Adding ‘<strong><em>Job Grade</em></strong>’, ‘<strong><em>Office</em></strong>’, and ‘<strong><em>Freelance or Permanent</em></strong>’ as extra fields, in addition to ‘<strong><em>Country</em></strong>’ and ‘<strong><em>Department</em></strong>’, to each Employee’s record in the Availability data (if supported by your company ERP)</li>
+  <li>Adding extra fields, such as ‘<strong><em>Project Code</em></strong>’, ‘<strong><em>Internal Codes</em></strong>’, and ‘<strong><em>Status Codes</em></strong>’ to the Timesheet data, to get more accurate and granular timesheet tracking (again, if supported by your company ERP)</li>
+</ul>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#inventory-availability">Inventory Availability</a></li>
+<li class="toc-entry toc-h3"><a href="#holiday-data">Holiday Data</a></li>
+<li class="toc-entry toc-h3"><a href="#timesheet-data">Timesheet Data</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#steps">Steps:</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#list-all-dates-from-the-timesheet-data">List all dates from the Timesheet data:</a></li>
+<li class="toc-entry toc-h3"><a href="#find-min-date">Find Min Date</a></li>
+<li class="toc-entry toc-h3"><a href="#find-max-date">Find Max Date</a></li>
+<li class="toc-entry toc-h3"><a href="#show-inventory-availability-by-day--shortfall-check-adding-dates">Show Inventory Availability by day – shortfall check (adding dates)</a></li>
+<li class="toc-entry toc-h3"><a href="#show-inventory-availability-by-day--shortfall-check-adding-logic-columns">Show Inventory Availability by day – shortfall check (adding logic columns)</a></li>
+<li class="toc-entry toc-h3"><a href="#show-inventory-availability-by-day-adding-dates">Show Inventory Availability by day (adding dates)</a></li>
+<li class="toc-entry toc-h3"><a href="#show-inventory-availability-by-day-adding-logic-columns">Show Inventory Availability by day (adding logic columns)</a></li>
+<li class="toc-entry toc-h3"><a href="#show-inventory-availability-by-day-add-running-total-column">Show Inventory Availability by day (add running total column)</a></li>
+<li class="toc-entry toc-h3"><a href="#show-inventory-availability-by-day-add-columns-from-shortfall-check-query">Show Inventory Availability by day (add columns from Shortfall check query)</a></li>
+<li class="toc-entry toc-h3"><a href="#show-inventory-availability-by-week">Show Inventory Availability by week</a></li>
+<li class="toc-entry toc-h3"><a href="#show-inventory-use-by-week">Show Inventory Use by week</a></li>
+<li class="toc-entry toc-h3"><a href="#create-a-data-model-to-show-inventory-utilisation">Create a Data Model to show Inventory Utilisation</a></li>
+<li class="toc-entry toc-h3"><a href="#etl-extensions--adaptations">ETL Extensions &amp; Adaptations</a></li>
+</ul>
+</li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

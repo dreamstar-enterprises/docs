@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Tranforming Data into Tables | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-integration-and-etl/etl.html"><span class="">Data Integration & ETL</span></a></li>
+        <li><a href=/docs/guides/data-integration-and-etl/data-wrangling-techniques/introduction.html><span class="">Data Wrangling Techniques</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/introduction.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/mismatched-tables.html">Mismatched Tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/preserving-context.html">Preserving Context</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/data-into-tables.html">Transforming Data into Tables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/generalised-unpivoting.html">Generalised unpivoting</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/generalisable-function.html">Creating a Generalisable function</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/slowly-changing-datasets.html">Dealing with slowly changing Datasets</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/the-challenge.html">The Challenge! - combining revenue files</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/data-wrangling-techniques/data-cop.html">Data Cop! - detecting revenue changes</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="tranforming-data-into-tables">Tranforming Data into Tables</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 23/06/2019</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>In the study of linguistics, scholars often distinguish between syntax, semantics, and <em>pragmatics</em>. While syntax focuses on the relationship between words, semantics deals with the meaning of sentences, <em>pragmatics</em> focuses on the way different contexts can influence the interpretation of a message - that is, the way you design your tables, significantly affects the way they are interpreted.</p>
+
+<p>So just as where a different social context, or tone of voice, can affect the way a communicated message is interpreted, in data analytics, the design of tables can significantly affect the way it is analysed and interpreted.</p>
+
+<p>In this article we show how any table, with a 2 x 2 level hierarchy, can be transformed into a form that the data in it can readily be analysed.</p>
+
+<p>The figure below shows revenues, by sales person, by company name, for different product categories, and their sub-categories. Although the table does summarize information, it is not in a form that makes it easy to analyse.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-01.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>Instead we need to transform the table, by taking the following steps.</p>
+
+<h2 id="steps">Steps</h2>
+
+<h3 id="1-load-the-data">1.	Load the data</h3>
+
+<ul>
+  <li>
+    <p>Open a new Excel File, and on the Data Tab, select ‘Get Data’, ‘From File’, ‘From Workbook’</p>
+  </li>
+  <li>
+    <p>Select the file called <em>“Data with incorrect design.xlsx”</em> – as shown below, and load it into the Query Editor so it looks like this:</p>
+  </li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-02.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Click on the text that says <em>‘Table’</em> in the <em>Data</em> column, in the Revenues row, to load the revenue data, as shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-03.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="2-remove-grand-total-column">2.	Remove Grand Total column</h3>
+
+<p>After loading the information, you should then remove the “<em>Grand Total</em>” column – which is the last column in the preview pane.</p>
+
+<ul>
+  <li>Do not hard code this but do this dynamically by adding the following as an extra Applied Step – and as shown below.</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+   = Table.RemoveColumns(Revenues_DefinedName,{List.Last(Table.ColumnNames(Revenues_DefinedName))})
+">
+  </button>
+</div>
+<pre><code class="language-powerquery-m">   = Table.RemoveColumns(Revenues_DefinedName,{List.Last(Table.ColumnNames(Revenues_DefinedName))})
+</code></pre>
+
+<p>The data should look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-04.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="3-remove-grant-total-row">3.	Remove Grant Total row</h3>
+
+<ul>
+  <li>After removing the “<em>Grand Total</em>” Column, remove the “<em>Grand Total</em>” row, - which is the bottom row, using the <em>RemoveLastN</em> function, as shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-05.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="4-fill-down-the-salesperson-column">4.	Fill down the SalesPerson column</h3>
+
+<ul>
+  <li>Use the <em>Fill Down</em> function to fill down the blanks in the main anchor column, called <em>SalesPerson</em> - as shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-06.png" alt="" style="width: 100%; max-width: 72.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>This should fill down the <em>SalesPerson</em> column and replace any null values with the correct values in each row.</p>
+
+<h3 id="5--merge-text-columns">5.  Merge text columns</h3>
+
+<ul>
+  <li>After the Fill Down operation, use the Merged Columns function to merge Column1, and Column2.</li>
+  <li>In the Merge Columns dialog box that opens, select Colon as the Separator, and then click OK to close the dialog box.</li>
+</ul>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+The above assumes the <em>SalesPerson</em> and <em>CompanyName</em> columns do not contain a colon. This means that the same separator can be used to split the columns later on. You may, however, choose a special combination of characters as the separator instead.</p>
+</div>
+
+<p>The data should look as follows:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-07.png" alt="" style="width: 100%; max-width: 72.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="6-transpose-the-data-table">6.	Transpose the data table</h3>
+
+<ul>
+  <li>After Merging the two columns, on the Transform Tab, select Transpose, to transpose the whole table.</li>
+</ul>
+
+<p>It should now look something like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-08.png" alt="" style="width: 100%; max-width: 72.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="7-fill-down-the-category-column">7.	Fill down the Category column</h3>
+
+<ul>
+  <li>Once Transposed, select the Fill Down function to fill out the gaps in the new anchor column (Product Category) – as shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-09.png" alt="" style="width: 100%; max-width: 72.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="8-promote-headers">8.	Promote Headers</h3>
+
+<ul>
+  <li>After the second Fill Down operation, promote the top row as Headers – as shown below:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-10.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="9-unpivot-the-data-table">9.	Unpivot the data table</h3>
+
+<ul>
+  <li>After this, select the first two columns above – those representing the product category, and supplier name.</li>
+  <li>Then on the Transform tab, click the Unpivot Columns drop-down menu, and then select Unpivot Other Columns</li>
+</ul>
+
+<p>The data should now look like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-11.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="10--split-columns">10.	 Split columns</h3>
+
+<p>Now, fix the <em>Attribute</em> column – which, as it stands, consists of the merged <em>SalesPerson</em>, and <em>CompanyName</em> columns.</p>
+
+<ul>
+  <li>To do this, select the Attribute column, and then on the Transform tab, select Split Column, By Delimiter.</li>
+  <li>In the Split Column By Delimiter dialog box that opens, set Select or Enter Delimiter to Colon, and then click Ok to close the dialog box.</li>
+</ul>
+
+<p>The final result should look as follows:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-12.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="11-rename-columns-and-filter-out-subtotals">11.	Rename columns and filter out subtotals</h3>
+
+<ul>
+  <li>Rename the remaining columns to as follows:</li>
+</ul>
+
+<ol class="numbered-list">
+  <li>First column: <em>Parent Category</em></li>
+  <li>Second column: <em>Category</em></li>
+  <li>Third column: <em>Sales Person</em></li>
+  <li>Fourth column: <em>Company</em></li>
+  <li>Fifth column: <em>Revenue</em></li>
+</ol>
+
+<ul>
+  <li>Finally, filter out sub-totals in the Sales Person column, as follows:</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-13.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="12-close--load-data">12.	Close &amp; Load data</h3>
+
+<ul>
+  <li>Finally, on the Home tab, click Close and Load, to load the unpivoted data into the report – and Voila, you are done!</li>
+</ul>
+
+<p>The data should look like this, in its final form:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/data-into-tables-14.png" alt="" style="width: 100%; max-width: 72.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h2 id="final-comments">Final Comments</h2>
+
+<p>Reiterating the linguistics analogy from earlier, with this ETL, we have moved from syntax, to semantics, to the realm of pragmatics. Essentially, here you should be aware of how different contexts can shape the perceived meaning of results.</p>
+
+<p>To summarise what was carried out, the steps were to:</p>
+
+<ol class="lower-roman">
+  <li>Remove any <em>Grand Total</em> columns, and rows,</li>
+  <li>Fill down the original anchor column,</li>
+  <li>Merge them into a single column,</li>
+  <li>Transpose the table,</li>
+  <li>Fill down the new anchor columns,</li>
+  <li>Select Use First Row as Headers,</li>
+  <li>Unpivot the data table,</li>
+  <li>Split the merged <em>Attribute</em> column,</li>
+  <li>Name the columns accordingly, and</li>
+  <li>Filter out the any subtotal rows.</li>
+</ol>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#steps">Steps</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-load-the-data">1.	Load the data</a></li>
+<li class="toc-entry toc-h3"><a href="#2-remove-grand-total-column">2.	Remove Grand Total column</a></li>
+<li class="toc-entry toc-h3"><a href="#3-remove-grant-total-row">3.	Remove Grant Total row</a></li>
+<li class="toc-entry toc-h3"><a href="#4-fill-down-the-salesperson-column">4.	Fill down the SalesPerson column</a></li>
+<li class="toc-entry toc-h3"><a href="#5--merge-text-columns">5.  Merge text columns</a></li>
+<li class="toc-entry toc-h3"><a href="#6-transpose-the-data-table">6.	Transpose the data table</a></li>
+<li class="toc-entry toc-h3"><a href="#7-fill-down-the-category-column">7.	Fill down the Category column</a></li>
+<li class="toc-entry toc-h3"><a href="#8-promote-headers">8.	Promote Headers</a></li>
+<li class="toc-entry toc-h3"><a href="#9-unpivot-the-data-table">9.	Unpivot the data table</a></li>
+<li class="toc-entry toc-h3"><a href="#10--split-columns">10.	 Split columns</a></li>
+<li class="toc-entry toc-h3"><a href="#11-rename-columns-and-filter-out-subtotals">11.	Rename columns and filter out subtotals</a></li>
+<li class="toc-entry toc-h3"><a href="#12-close--load-data">12.	Close &amp; Load data</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#final-comments">Final Comments</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

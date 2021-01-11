@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Autocomplete Input with Debounce | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/javascript/javascript.html"><span class="">JavaScript</span></a></li>
+        <li><a href=/docs/guides/javascript/javascript-promises/overview.html><span class="">JavaScript - Promises</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/overview.html">Promises - Basic Syntax</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/More-About.html">Promises - More About</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/All-Method.html">Promises - All Method</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Race-Method.html">Promises - Race Method</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Fetch-Method.html">Promises - Fetch Method</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Finally-Method.html">Promises - Finally Method</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/AllSettled-Method.html">Promises - AllSettled Method</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Any-Method.html">Promises - Any Method</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Synchronous-vs-Asynchronous.html">Synchronous vs Asynchronous</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Loading-Multiple-Files.html">Promises - Loading Multiple Files</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Fetch-and-Promise-All.html">Fetch combined with Promise All</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Combining-Promises-with-Async-Await.html">Async/Await combined with Promises</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Autocomplete-Input-with-Debounce.html">Autocomplete Input with Debounce</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Web-Share-API.html">Web Share API</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/javascript/javascript-promises/Error-Handling.html">Error Handling in Promises</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+                </ul>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="autocomplete-input-with-debounce">Autocomplete Input with Debounce</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • JavaScript • 08/12/2020</time>
+
+<h2 class="colored-green">Video</h2>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/2qRE071fWxw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+
+<h2 class="colored-orange">JavaScript Notes</h2>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: HTML">HTML</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Debouncing&lt;/title&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+        &lt;style&gt;
+            
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Heading&lt;/h1&gt;
+        &lt;form&gt;
+            &lt;input type=&quot;search&quot; id=&quot;txt-search&quot; /&gt;
+        &lt;/form&gt;
+        
+        &lt;p id=&quot;output&quot;&gt;&lt;/p&gt;
+        &lt;ul id=&quot;matches&quot;&gt;&lt;/ul&gt;
+        
+        &lt;h3&gt;Full List&lt;/h3&gt;
+        &lt;pre&gt;&#39;apple&#39;, &#39;acorn&#39;, &#39;bee&#39;, &#39;beet&#39;, &#39;beef&#39;, &#39;bunny&#39;, &#39;cookie&#39;, 
+        &#39;corn&#39;, &#39;corndog&#39;, &#39;dog&#39;, &#39;dogma&#39;, &#39;echo&#39;, &#39;elephant&#39;&lt;/pre&gt;
+        
+        &lt;script&gt;
+            const KEY = &#39;debounce-terms&#39;;
+            
+            let init = function(){
+                //document.getElementById(&#39;txt-search&#39;).addEventListener(&#39;input&#39;, search);
+                document.getElementById(&#39;txt-search&#39;).addEventListener(&#39;input&#39;, efficientSearch);
+                
+                let terms = [&#39;apple&#39;, &#39;acorn&#39;, &#39;bee&#39;, &#39;beet&#39;, &#39;beef&#39;, &#39;bunny&#39;, &#39;cookie&#39;, 
+                             &#39;corn&#39;, &#39;corndog&#39;, &#39;dog&#39;, &#39;dogma&#39;, &#39;echo&#39;, &#39;elephant&#39;];
+                localStorage.setItem(KEY, JSON.stringify(terms));
+            }
+             
+            let search = function(ev){
+                let text = ev.target.value;
+                document.getElementById(&#39;output&#39;).textContent = `List Matching ${text}`;
+                let ul = document.getElementById(&#39;matches&#39;);
+                
+                //call an asynchronous search to match what has been typed
+                getList(text)
+                .then((list)=&gt;{
+                    ul.innerHTML = &#39;&#39;;
+                    if( list.length == 0){
+                        let li = document.createElement(&#39;li&#39;);
+                        li.textContent = &quot;NO MATCHES&quot;;
+                        ul.appendChild(li);
+                    }else{
+                        list.forEach(item=&gt;{
+                            let li = document.createElement(&#39;li&#39;);
+                            li.textContent = item;
+                            ul.appendChild(li);
+                        })
+                    }
+                })
+                .catch(err=&gt;console.warn(err));
+            }
+            
+            let getList = function(txt){
+                return new Promise((resolve, reject)=&gt;{
+                    //use setTimeout with random value to show what can happen
+                    let r = Math.floor(Math.random()*1000);
+                    setTimeout((function(){
+                        let t = &#39;^&#39; + this.toString();
+                        let pattern = new RegExp(t, &#39;i&#39;); //starts with t
+                        let terms = JSON.parse(localStorage.getItem(KEY));
+                        let matches = terms.filter(term =&gt; pattern.test(term));
+                        console.log(&#39;matches&#39;, matches);
+                        resolve(matches);
+                    }).bind(txt), r);
+                })
+            }
+            
+            let debounce = function(func, wait, immediate) {
+                var timeout;
+                return function() {
+                    var context = this, args = arguments;
+                    var later = function() {
+                        timeout = null;
+                        if (!immediate) func.apply(context, args);
+                    };
+                    var callNow = immediate &amp;&amp; !timeout;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                    if (callNow) func.apply(context, args);
+                };
+            };
+            
+            let efficientSearch = debounce(function(ev){
+                let text = ev.target.value;
+                document.getElementById(&#39;output&#39;).textContent = `List Matching ${text}`;
+                let ul = document.getElementById(&#39;matches&#39;);
+                
+                //call an asynchronous search to match what has been typed
+                getList(text)
+                .then((list)=&gt;{
+                    ul.innerHTML = &#39;&#39;;
+                    if( list.length == 0){
+                        let li = document.createElement(&#39;li&#39;);
+                        li.textContent = &quot;NO MATCHES&quot;;
+                        ul.appendChild(li);
+                    }else{
+                        list.forEach(item=&gt;{
+                            let li = document.createElement(&#39;li&#39;);
+                            li.textContent = item;
+                            ul.appendChild(li);
+                        })
+                    }
+                })
+                .catch(err=&gt;console.warn(err));
+            }, 300);
+            //call the debounced function at most once every 300ms
+               
+            document.addEventListener(&#39;DOMContentLoaded&#39;, init);
+            
+            //debounce function - thanks to David Walsh
+            //https://davidwalsh.name/javascript-debounce-function
+            //who took this from underscore.js
+        &lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+">
+  </button>
+</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Debouncing<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Heading<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;form&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">id=</span><span class="s">"txt-search"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+        
+        <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"output"</span><span class="nt">&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"matches"</span><span class="nt">&gt;&lt;/ul&gt;</span>
+        
+        <span class="nt">&lt;h3&gt;</span>Full List<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;pre&gt;</span>'apple', 'acorn', 'bee', 'beet', 'beef', 'bunny', 'cookie', 
+        'corn', 'corndog', 'dog', 'dogma', 'echo', 'elephant'<span class="nt">&lt;/pre&gt;</span>
+        
+        <span class="nt">&lt;script&gt;</span>
+            <span class="kd">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">debounce-terms</span><span class="dl">'</span><span class="p">;</span>
+            
+            <span class="kd">let</span> <span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+                <span class="c1">//document.getElementById('txt-search').addEventListener('input', search);</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">txt-search</span><span class="dl">'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">,</span> <span class="nx">efficientSearch</span><span class="p">);</span>
+                
+                <span class="kd">let</span> <span class="nx">terms</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">apple</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">acorn</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">bee</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">beet</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">beef</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">bunny</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">cookie</span><span class="dl">'</span><span class="p">,</span> 
+                             <span class="dl">'</span><span class="s1">corn</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">corndog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dogma</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">echo</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">elephant</span><span class="dl">'</span><span class="p">];</span>
+                <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="nx">KEY</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">terms</span><span class="p">));</span>
+            <span class="p">}</span>
+             
+            <span class="kd">let</span> <span class="nx">search</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">){</span>
+                <span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">output</span><span class="dl">'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`List Matching </span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+                <span class="kd">let</span> <span class="nx">ul</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">matches</span><span class="dl">'</span><span class="p">);</span>
+                
+                <span class="c1">//call an asynchronous search to match what has been typed</span>
+                <span class="nx">getList</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">list</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+                    <span class="nx">ul</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+                    <span class="k">if</span><span class="p">(</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                        <span class="kd">let</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">);</span>
+                        <span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">NO MATCHES</span><span class="dl">"</span><span class="p">;</span>
+                        <span class="nx">ul</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+                    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                        <span class="nx">list</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span><span class="o">=&gt;</span><span class="p">{</span>
+                            <span class="kd">let</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">);</span>
+                            <span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">item</span><span class="p">;</span>
+                            <span class="nx">ul</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+                        <span class="p">})</span>
+                    <span class="p">}</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="o">=&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+            <span class="p">}</span>
+            
+            <span class="kd">let</span> <span class="nx">getList</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">txt</span><span class="p">){</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+                    <span class="c1">//use setTimeout with random value to show what can happen</span>
+                    <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">1000</span><span class="p">);</span>
+                    <span class="nx">setTimeout</span><span class="p">((</span><span class="kd">function</span><span class="p">(){</span>
+                        <span class="kd">let</span> <span class="nx">t</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">^</span><span class="dl">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+                        <span class="kd">let</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="dl">'</span><span class="s1">i</span><span class="dl">'</span><span class="p">);</span> <span class="c1">//starts with t</span>
+                        <span class="kd">let</span> <span class="nx">terms</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="nx">KEY</span><span class="p">));</span>
+                        <span class="kd">let</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">terms</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">term</span> <span class="o">=&gt;</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">term</span><span class="p">));</span>
+                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">matches</span><span class="dl">'</span><span class="p">,</span> <span class="nx">matches</span><span class="p">);</span>
+                        <span class="nx">resolve</span><span class="p">(</span><span class="nx">matches</span><span class="p">);</span>
+                    <span class="p">}).</span><span class="nx">bind</span><span class="p">(</span><span class="nx">txt</span><span class="p">),</span> <span class="nx">r</span><span class="p">);</span>
+                <span class="p">})</span>
+            <span class="p">}</span>
+            
+            <span class="kd">let</span> <span class="nx">debounce</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">wait</span><span class="p">,</span> <span class="nx">immediate</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">timeout</span><span class="p">;</span>
+                <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">;</span>
+                    <span class="kd">var</span> <span class="nx">later</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="nx">timeout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">immediate</span><span class="p">)</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+                    <span class="p">};</span>
+                    <span class="kd">var</span> <span class="nx">callNow</span> <span class="o">=</span> <span class="nx">immediate</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">timeout</span><span class="p">;</span>
+                    <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">);</span>
+                    <span class="nx">timeout</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">later</span><span class="p">,</span> <span class="nx">wait</span><span class="p">);</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nx">callNow</span><span class="p">)</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+                <span class="p">};</span>
+            <span class="p">};</span>
+            
+            <span class="kd">let</span> <span class="nx">efficientSearch</span> <span class="o">=</span> <span class="nx">debounce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">){</span>
+                <span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">output</span><span class="dl">'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s2">`List Matching </span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+                <span class="kd">let</span> <span class="nx">ul</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">matches</span><span class="dl">'</span><span class="p">);</span>
+                
+                <span class="c1">//call an asynchronous search to match what has been typed</span>
+                <span class="nx">getList</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">list</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">{</span>
+                    <span class="nx">ul</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+                    <span class="k">if</span><span class="p">(</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                        <span class="kd">let</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">);</span>
+                        <span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">NO MATCHES</span><span class="dl">"</span><span class="p">;</span>
+                        <span class="nx">ul</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+                    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                        <span class="nx">list</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span><span class="o">=&gt;</span><span class="p">{</span>
+                            <span class="kd">let</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">);</span>
+                            <span class="nx">li</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">item</span><span class="p">;</span>
+                            <span class="nx">ul</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+                        <span class="p">})</span>
+                    <span class="p">}</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="o">=&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+            <span class="p">},</span> <span class="mi">300</span><span class="p">);</span>
+            <span class="c1">//call the debounced function at most once every 300ms</span>
+               
+            <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
+            
+            <span class="c1">//debounce function - thanks to David Walsh</span>
+            <span class="c1">//https://davidwalsh.name/javascript-debounce-function</span>
+            <span class="c1">//who took this from underscore.js</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#video">Video</a></li>
+<li class="toc-entry toc-h2"><a href="#javascript-notes">JavaScript Notes</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

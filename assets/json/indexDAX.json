@@ -1,0 +1,1075 @@
+var searchIndex = [
+
+    {
+        "title": "Finance - Weekly Ops Report",
+        "date": "November 26, 2020",
+        "url": "dax-samples/finance-weekly-ops-report.html",
+        "content": "A sample that compares Actual to Forecast Revenues, by Month and Client. ProForma Revenues are also shown along with a breakdown of Actual Revenue into Confirmed, Proposed, and Speculative components.",
+        "tags_measure": ['Sales', 'Forecasts'],
+        "tags_dimension": ['Customers', 'Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DIVIDE', 'FILTER', 'MAX', 'SUM']
+    },
+    {
+        "title": "Finance - P&L Reports",
+        "date": "November 12, 2020",
+        "url": "dax-samples/finance-pnl-reports.html",
+        "content": "A sample that from P&L data shows, by Location (P&L): (i) Sales, (ii) Staff Costs, and (iii) Operating Profit, and (iv) Conversion, - for different Financial scenarios: e.g.: Actuals, Budget, Forecast (Q1RF, Q2RF, Q3RF), and ProForma",
+        "tags_measure": ['Sales', 'Salary', 'Profits', 'Conversion', 'Budgets', 'Forecasts'],
+        "tags_dimension": ['PnL', 'Calendar Time'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'DATATABLE', 'DATESINPERIOD', 'DATESMTD', 'DATESYTD', 'DIVIDE', 'FILTERS', 'FORMAT', 'GENERATE', 'GENERATESERIES', 'HASONEFILTER', 'HASONEVALUE', 'IFERROR', 'ISBLANK', 'ISFILTERED', 'LASTDATE', 'MAX', 'SAMEPERIODLASTYEAR', 'SELECTEDVALUE', 'SUM', 'SUMX', 'SWITCH', 'VALUES' ]
+    },
+    {
+        "title": "Finance - Balance Sheet Reports",
+        "date": "November 03, 2020",
+        "url": "dax-samples/finance-balance-sheet-reports.html",
+        "content": "A sample that from Balance Sheet data shows, by Location (P&L) and Client, across various Ageing Brackets: (i) Accounts Receviables, (ii) Accrued Revenue, and (iii) Net Working Capital (for the company as a whole)",
+        "tags_measure": ['Sales', 'Debtors', 'Accrued Revenue', 'Net Working Capital'],
+        "tags_dimension": ['PnL', 'Customers', 'Calendar Time'],
+        "tags_dax": ['ALL', 'AVERAGE', 'AVERAGEX', 'CALCULATE', 'CALENDAR', 'DATESINPERIOD', 'DAY', 'DATE', 'DIVIDE', 'DISTINCTCOUNT', 'FORMAT', 'FILTER', 'GENERATE', 'GENERATESERIES', 'HASONEFILTER', 'IFERROR', 'ISBLANK', 'LASTDATE', 'MAX', 'MONTH', 'SAMEPERIODLASTYEAR', 'SELECTEDVALUE', 'SUM', 'SUMMARIZE', 'SUMX', 'SWITCH', 'YEAR']
+    },
+    {
+        "title": "Finance - Sales Tracking – Quarterly to Daily Budget",
+        "date": "November 01, 2020",
+        "url": "dax-samples/finance-sales-tracking-quarter-to-day-budget.html",
+        "content": "A sample that compares Actual Sales against Budgeted Sales, but after converting a Quarterly Budget to a Daily Budget based on the number of weekdays in each month",
+        "tags_measure": ['Sales', 'Budgets'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'ALLEXCEPT', 'CALCULATE', 'CONTAINS', 'COUNTROWS', 'CROSSJOIN', 'DAY', 'DIVIDE', 'FORMAT', 'FILTER', 'ISFILTERED', 'KEEPFILTERS', 'MONTH', 'SUM', 'SUMX', 'TOTALQTD', 'TOTALYTD', 'VALUES', 'WEEKDAY', 'WEEKNUM', 'YEAR']
+    },
+    {
+        "title": "Finance - P&L Tracking - Customised & Nested Pivot Tables",
+        "date": "November 01, 2020",
+        "url": "dax-samples/finance-pnl-tracking-customised-pivots.html",
+        "content": "A sample that compares Actuals against Budgets, for each P&L line, using a Customised & '3-level' Nested Pivot Table",
+        "tags_measure": ['Sales', 'Profits', 'Salary', 'Budgets'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'SUM', 'SWITCH', 'VALUES']
+    },
+    {
+        "title": "Finance - P&L Tracking - Cube Formulae",
+        "date": "November 01, 2020",
+        "url": "dax-samples/finance-pnl-tracking-cube.html",
+        "content": "A sample that compares Actuals against Budgets, for each P&L line, using Excel Cube Formulae",
+        "tags_measure": ['Sales', 'Profits', 'Salary', 'Budgets'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['DATEVALUE', 'DIVIDE', 'MONTH', 'SUM', 'YEAR']
+    },
+    {
+        "title": "Finance - Payroll Tracking",
+        "date": "October 29, 2020",
+        "url": "dax-samples/finance-payroll-tracking.html",
+        "content": "A sample that shows and calculates variances between Actual, Forecast, and Budgeted pay to (i) Employees, and (ii) Contract Staff, for a particular year",
+        "tags_measure": ['Salary', 'Budgets', 'Forecasts'],
+        "tags_dimension": ['PnL', 'Department', 'Sub-department', 'Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DIVIDE', 'FILTER', 'HASONEVALUE', 'ISFILTERED', 'MAX', 'SUM', 'SUMX', 'TRIM', 'VALUES']
+    },
+    {
+        "title": "Finance - Daily Cashflows",
+        "date": "October 22, 2020",
+        "url": "dax-samples/finance-daily-cashflows.html",
+        "content": "A sample that shows over a 92 day period (i) Projected Payments, (ii) Projected Receipts, and (iii) Projected Cash Balances, by Country, after converting all cashflows into GBP currency",
+        "tags_measure": ['Cash'],
+        "tags_dimension": ['Country', 'Calendar Time'],
+        "tags_dax": ['AVERAGE', 'CALCULATE', 'FILTER', 'MAX', 'SUM', 'SUMMARIZE', 'SUMX', 'TODAY']
+    },
+    {
+        "title": "HR - Salary Increases",
+        "date": "October 21, 2020",
+        "url": "dax-samples/hr-salary-increases.html",
+        "content": "A sample that shows a variety of metrics on Salaries and Salary Increases, by (i) Gender, (ii) Calendar Month, and (iii) Reason for receiving the increase",
+        "tags_measure": ['Salary', 'Employees'],
+        "tags_dimension": ['Gender', 'Calendar Time', 'Salary Increase Reason', 'Increase Eligibility'],
+        "tags_dax": ['ALLEXCEPT', 'AVERAGE', 'AVERAGEX', 'CALCULATE', 'CALCULATETABLE', 'CALENDAR', 'COUNTA', 'COUNTX', 'EARLIER', 'EOMONTH', 'FILTER', 'ISBLANK', 'MAX', 'MIN', 'SUM', 'SUMMARIZE', 'SUMX', 'SWITCH', 'TODAY', 'WEEKDAY']
+    },
+    {
+        "title": "HR - Accepted Open Roles",
+        "date": "October 19, 2020",
+        "url": "dax-samples/hr-accepted-open-roles.html",
+        "content": "A sample that shows the No. of Accepted Open Roles by (i) Type of HR Reference Check, and (ii) whether Probation has been passed or not",
+        "tags_measure": ['Accepted Open Roles'],
+        "tags_dimension": ['Probation Status', 'HR Reference Check'],
+        "tags_dax": []
+    },
+    {
+        "title": "HR - Open Roles",
+        "date": "October 8, 2020",
+        "url": "dax-samples/hr-open-roles.html",
+        "content": "A sample that shows the No. of Open Roles by (i) Recruitment Status, (ii) Type of Hire, (iii) Time to Fill, and (iv) Expected Hire Date",
+        "tags_measure": ['Open Roles'],
+        "tags_dimension": ['Recruitment Stage', 'Hire Type', 'Time to Fill', 'Expected Hire Date'],
+        "tags_dax": ['TODAY', 'SWITCH']
+    },
+    {
+        "title": "HR - Exit Interviews",
+        "date": "October 8, 2020",
+        "url": "dax-samples/hr-exit-interviews.html",
+        "content": "A sample that shows a variety of valuable information on Exit Interviews, such as (i) Response Rates, (ii) Leaving Scores, (iii) Leaving Reasons, (iv) Answers to Other Exit Interview Questions",
+        "tags_measure": ['Exit Interviews', 'Leaving Scores', 'Response Rates'],
+        "tags_dimension": ['Job Grade', 'Department', 'Leaving Reason', 'Calendar Time'],
+        "tags_dax": ['CALCULATE', 'COUNT', 'DIVIDE', 'FILTER', 'MONTH', 'SUMMARIZE', 'YEAR']
+    },
+    {
+        "title": "HR - Starters & Leavers",
+        "date": "October 8, 2020",
+        "url": "dax-samples/hr-starters-and-leavers.html",
+        "content": "A sample that shows a variety of information on (i) Starters, (ii) Leavers, (iii) Turnover Rates, and (iv) Tenure of Leavers",
+        "tags_measure": ['Employees', 'Calendar Time', 'Recruitment Costs'],
+        "tags_dimension": ['Job Grade', 'Department', 'Recruitment Method', 'Calendar Time'],
+        "tags_dax": ['CALCULATE', 'COUNT', 'DIVIDE', 'FILTER', 'MONTH', 'SUMMARIZE', 'YEAR']
+    },
+    {
+        "title": "HR - Inventory, Tenure, & Salary",
+        "date": "October 3, 2020",
+        "url": "dax-samples/hr-inventory-tenure-salary.html",
+        "content": "A sample that shows various metrics on: (i) Employee Inventory movements, (ii) Employee Tenure, and (iii) Employee Salary",
+        "tags_measure": ['Employees', 'Calendar Time', 'Salary'],
+        "tags_dimension": ['Job Grade', 'Department', 'Employees', 'Gender', 'Calendar Time', 'Tenure Bracket'],
+        "tags_dax": ['ALLEXCEPT', 'AVERAGE', 'AVERAGEX', 'CALCULATE', 'CALENDAR', 'COUNTA', 'CROSSJOIN', 'DATESBETWEEN', 'DIVIDE', 'EARLIER', 'EOMONTH', 'FILTER', 'ISFILTERED', 'ISBLANK', 'PREVIOUSMONTH', 'MIN', 'MAX', 'SUM', 'SUMMARIZE', 'SUMX', 'SWITCH', 'TODAY', 'WEEKDAY']
+    },
+	{
+        "title": "HR - Metrics Report: Monthly Salaries, Pro-Rated Salaries, Average Salaries, Running Average Salaries, Total To Date Salaries, and Annual Compensation Ratios",
+        "date": "September 30, 2020",
+        "url": "dax-samples/hr-metrics-report-salaries.html",
+        "content": "A sample that a variety of HR Salary Metrics such as: (i) Monthly Salaires, (ii) Pro-Rated Salaries, (iii) Per Month Average and Multi-Month Running Average Salaries, (iv) Total Salaries to Date, (v) Annual FTE Salaries, and (vi) Annual Compensation Ratios.",
+        "tags_measure": ['Salary', 'Compensation Ratio'],
+        "tags_dimension": ['Employees', 'Job Grade', 'Country', 'Department', 'Full or Part', 'Age Group', 'Gender', 'Calendar Time' ],
+        "tags_dax": ['ALL', 'ALLEXCEPT', 'AVERAGE', 'AVERAGEX', 'CALCULATE', 'CALCULATETABLE', 'CALENDAR','DATESBETWEEN', 'DISTINCTCOUNT', 'DIVIDE', 'EARLIER', 'EOMONTH', 'FILTER', 'ISBLANK', 'ISFILTERED', 'LOOKUPVALUE', 'MAX', 'MIN', 'SUM', 'SUMMARIZE', 'SUMX', 'SWITCH', 'TODAY', 'WEEKDAY']
+    },
+	{
+        "title": "HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&L) over time",
+        "date": "September 27, 2020",
+        "url": "dax-samples/hr-payroll-analytics-and-tracking-changes.html",
+        "content": "A sample that shows (i) Various Payroll Measures, e.g. on: Salary, Pension, ERs NI, and (ii) Changes in a Employee's Job Grade, Department, and/or P&L, each month.",
+        "tags_measure": ['Salary', 'Job Grade', 'Department', 'PnL'],
+        "tags_dimension": ['Employees', 'PnL', 'Department', 'Job Grade', 'Nominal Ledger', 'Calendar Time' ],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'AVERAGE', 'CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GROUPBY', 'HASONEFILTER', 'HASONEVALUE', 'MAX', 'MONTH', 'PREVIOUSMONTH', 'RANKX', 'SUM', 'SUMMARIZE', 'SWITCH', 'TOPN', 'TOTALYTD']
+    },
+	{
+        "title": "HR - Showing Inventory Utilisation over time",
+        "date": "September 24, 2020",
+        "url": "dax-samples/hr-inventory-utilisation-table.html",
+        "content": "A sample that shows Inventory Utilisation (i) As a table, for each Employee, on a weekly basis, by three main time categories: Client, Non-Client, and Category 3, and (ii) As a stacked bar chart, filterable, by Country, Department, and Employee",
+        "tags_measure": ['Hours'],
+        "tags_dimension": ['Employees', 'Country', 'Department', 'Calendar Time'],
+        "tags_dax": ['ADDCOLUMNS', 'AVERAGE', 'CALCULATE', 'DIVIDE', 'GROUPBY', 'SUM']
+    },
+	{
+        "title": "HR - Showing Employee Salaries & analysing trends in Actual and Average Running (Pro-Rated) Salaries over time",
+        "date": "September 17, 2020",
+        "url": "dax-samples/hr-salary-inventory-table.html",
+        "content": "A sample that shows (i) each Employee's Monthly Salary, across different Job Grades, Departments, Countries, Offices, and Departments, and (ii) each Employee's Running Average Monthly Salary (Pro Rated to a full month) by Job Grade",
+        "tags_measure": ['Salary'],
+        "tags_dimension": ['Employees', 'Job Grade', 'Country', 'Department', 'Full or Part', 'Calendar Time'],
+        "tags_dax": ['ALLEXCEPT', 'AVERAGE', 'AVERAGEX', 'CALCULATE', 'CALCULATETABLE', 'CALENDAR', 'CROSSJOIN', 'DATESBETWEEN', 'DISTINCTCOUNT', 'DIVIDE', 'EARLIER', 'EOMONTH', 'FILTER', 'ISBLANK', 'ISFILTERED', 'MIN', 'MAX', 'SUM', 'SUMMARIZE', 'SUMX', 'SWITCH', 'TODAY', 'WEEKDAY']
+    },
+	{
+        "title": "HR - Showing Inventory Movements & analysing Total Running Tenure over time",
+        "date": "September 15, 2020",
+        "url": "dax-samples/hr-inventory-table-and-tenure.html",
+        "content": "A sample that shows Employee movements (External and Internal), across different Job Grades, Countries, Offices, and Departments - by Month, and Quarter. Total Running Tenure (in Years), and split by Job Grade (in Months), are also shown.",
+        "tags_measure": ['Employees', 'Calendar Time'],
+        "tags_dimension": ['Job Grade', 'Department', 'Employees', 'Gender', 'Calendar Time', 'Tenure Bracket'],
+        "tags_dax": ['ALLEXCEPT', 'AVERAGE', 'AVERAGEX', 'CALCULATE', 'COUNTA', 'CROSSJOIN', 'EARLIER', 'FILTER', 'ISFILTERED', 'ISBLANK', 'MIN', 'MAX', 'SUM', 'SUMMARIZE', 'SUMX', 'SWITCH', 'TODAY']
+    },
+	{
+        "title": "Comparing Customer Lists Virtually",
+        "date": "July 30, 2019",
+        "url": "dax-samples/comparing-customer-lists-virtually.html",
+        "content": "A sample that shows shows: (i) Total Customers per product, this year; (ii) Total Customers per product, last year; and (iii) No. of Customers who bought both this year and last year",
+        "tags_measure": ['Sales', 'Customers'],
+        "tags_dimension": ['Products'],
+        "tags_dax": ['CALCULATETABLE', 'COUNTROWS', 'DATESBETWEEN', 'GENERATE', 'INTERSECT', 'MIN', 'MAX', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Pareto Chart – Sales by Product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/pareto-chart-sales-by-product.html",
+        "content": "A sample that shows shows: (i) Total Sales by Product; and (ii) Total Cumulative Sales as a Percentage of All Sales.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Products'],
+        "tags_dax": ['ALLSELECTED', 'CALCULATE', 'DIVIDE', 'FILTER', 'GENERATE', 'SUMMARIZE', 'SUMX' ]
+    },
+	{
+        "title": "Highest Buying Customer per Product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/highest-buying-customer-per-product.html",
+        "content": "A sample that shows shows: (i) The Highest Buying Customer per Product; and (ii) The Sales of the Highest Buying Customer per Product.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Products', 'Geography'],
+        "tags_dax": ['MAXX', 'GENERATE', 'SUMMARIZE', 'SUMX', 'TOPN' ]
+    },
+	{
+        "title": "Time Intelligence Patterns",
+        "date": "July 30, 2019",
+        "url": "dax-samples/time-intelligence-patterns.html",
+        "content": "A sample that shows shows: (i) Total Sales; (ii) Total Sales Last Quarter; (iii) Total Sales Month to Date; and (iv) Opening Balance Sales.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['OPENINGBALANCEMONTH', 'CALCULATE', 'DATEADD', 'DATESMTD', 'GENERATE', 'SUMX']
+    },
+	{
+        "title": "Dynamic Segmentation, with Parameters",
+        "date": "July 30, 2019",
+        "url": "dax-samples/dynamic-segmentation-with-parameters.html",
+        "content": "A sample that shows the Sales of the Top N, and Bottom Customers, dynamically, in a Standard Table, 100% Bar Chart, and by Region.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Products', 'Geography'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'GENERATESERIES', 'SELECTEDVALUE', 'SUMMARIZE', 'SUMX', 'TOPN', 'VALUES' ]
+    },
+	{
+        "title": "Sales from Top 3 Customers of any given Product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-top-3-customers-any-product.html",
+        "content": "A sample that shows Sales from the Top 3 Customers of any given Product.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Products', 'Geography'],
+        "tags_dax": ['CALCULATE', 'GENERATE', 'SUMMARIZE', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "Calculating Dynamic % of Totals",
+        "date": "July 30, 2019",
+        "url": "dax-samples/calculating-dynamic-percentage-of-totals.html",
+        "content": "A sample that shows Revenue for each product as a % of Total Sales for all products.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Products'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DATEADD', 'DIVIDE', 'GENERATE', 'SUMX' ]
+    },
+	{
+        "title": "Cumulative Sales, using ALLEXCEPT, to ensure no resetting of Start Date",
+        "date": "July 30, 2019",
+        "url": "dax-samples/cumulative-sales-using-allexcept.html",
+        "content": "A sample that shows Cumulative Sales, using ALLEXCEPT, to ensure no resetting of the Cumulative Calculation from the original the Start Date.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALLEXCEPT', 'CALCULATE', 'FILTER', 'GENERATE', 'GROUPBY', 'MAX', 'MAXX', 'SUMX']
+    },
+	{
+        "title": "HR - Staff Turnover, based on Leaving Dates",
+        "date": "July 30, 2019",
+        "url": "dax-samples/staff-turnover-based-on-leaving-dates.html",
+        "content": "A sample that shows Staff Turnover over time, based on each Staff Member's Leaving Date.",
+        "tags_measure": ['Employees'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'ISBLANK', 'MIN', 'MAX', 'VALUES']
+    },
+	{
+        "title": "Correct Totals with Iterators",
+        "date": "July 30, 2019",
+        "url": "dax-samples/correct-totals-with-iterators.html",
+        "content": "A sample that shows the minimum of this year's and last year's sales.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'DATEADD', 'GENERATE', 'MIN', 'SUMMARIZE', 'SUMX']
+    },
+	{
+        "title": "Handling Multiple Currencies",
+        "date": "July 30, 2019",
+        "url": "dax-samples/handling-multiple-currencies.html",
+        "content": "A sample that shows Sales in both Local and GBP Currencies.",
+        "tags_measure": ['Sales', 'Exchange Rates'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['GENERATE', 'LOOKUPVALUE', 'SUMX']
+    },
+	{
+        "title": "Dynamic lists of Top Customers",
+        "date": "July 30, 2019",
+        "url": "dax-samples/dynamic-lists-of-top-customers.html",
+        "content": "A sample that shows a dynamic ranking of: (i) Top Customers by Sales; (ii) Top Customers by Profits; and (iii) Top Customers by Profit Margins.",
+        "tags_measure": ['Sales', 'Profits'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DIVIDE', 'FILTER', 'GENERATE', 'RANKX', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Max Sales for a Product & Region combination, using the GROUPBY function",
+        "date": "July 30, 2019",
+        "url": "dax-samples/max-sales-using-groupby-function.html",
+        "content": "A sample that shows (i) Maximum Total Sales for a particular Customer, but for a particular Product and Region combination.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Product', 'Geography'],
+        "tags_dax": ['GENERATE', 'GROUPBY', 'MAXX', 'SUMX']
+    },
+	{
+        "title": "Aged Receivable Balances (Days left till Due Date)",
+        "date": "July 30, 2019",
+        "url": "dax-samples/aged-receivables-due-dates.html",
+        "content": "A sample that shows an Analysis of: (i) Aged Receivables due, for different customers, grouped by the No. of Days left till their Invoice Due Date.",
+        "tags_measure": ['Sales', 'Receivables'],
+        "tags_dimension": ['Customers', 'Calendar Time'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'DATEDIFF', 'FILTER', 'GENERATE', 'MAX', 'MIN', 'SUMX' ]
+    },
+	{
+        "title": "No. of Sales made exceeding 2,500 in value. No. of Sales made to Top 4 Customers",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-above-2500-sales-top-4-customers.html",
+        "content": "A sample that shows and compares: (i) The Total No. of Sales Orders made; (ii) The Total No. of Sales Orders made, that are above 2,500; and (iii) The Total No. of Sales Orders, made by only the Top 4 Customers.",
+        "tags_measure": ['Sales', 'Orders'],
+        "tags_dimension": ['Customers', 'Products', 'Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'CALCULATETABLE', 'COUNTROWS', 'FILTER', 'GENERATE', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "Dynamic Headings for a DAX Visualisation",
+        "date": "July 30, 2019",
+        "url": "dax-samples/dynamic-headings-dax-visualisation.html",
+        "content": "A sample that creates a Dynamic Heading for a DAX Visualisation - for example to show the Highest Sales made, over a particular Time Period.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALLSELECTED', 'CALCULATE', 'DATE', 'FORMAT', 'GENERATE', 'MAX', 'MAXX', 'MONTH', 'SUMX', 'VALUES', 'YEAR']
+    },
+	{
+        "title": "Highlighting the Last period in a DAX Visualisation",
+        "date": "July 30, 2019",
+        "url": "dax-samples/highlighting-last-period-in-dax-visualization.html",
+        "content": "A sample that highlights the Last Period in a DAX Visualisation - for example when showing Sales made, across time, for each month in a year.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'DATE', 'GENERATE', 'MAX', 'MONTH', 'SUMX', 'YEAR']
+    },
+	{
+        "title": "Sales of Top most selling, and Bottom most selling Product, for each Customer",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-of-top-and-bottom-most-selling-product.html",
+        "content": "A sample that shows the Sales of the Top most selling, and Bottom most selling Product, for each customer.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Products'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'GENERATE', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "Total Sales, Min & Max of a particular Sales Order, Min & Max Sales by Product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/min-and-max-sales-order-and-product.html",
+        "content": "A sample that shows (i) Total Sales; (ii) The Minimum & Maximum Sales of a particular Sales Order; (iii) The Minimum & Maximum Sales of a particular Product (which may include several Sales Orders).",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Products', 'Orders'],
+        "tags_dax": ['GENERATE', 'MAXX', 'MINX', 'SUMX']
+    },
+	{
+        "title": "HR - Staffing Levels over time, based on each Member’s Join and Leave dates",
+        "date": "July 30, 2019",
+        "url": "dax-samples/staffing-levels-over-time.html",
+        "content": "A sample that shows Staffing Levels over time, based on each Staff Members Join and Leave Date.",
+        "tags_measure": ['Employees'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'ISBLANK', 'MIN', 'MAX', 'VALUES']
+    },
+	{
+        "title": "Occupancy Dates, each month, based on a Patient’s Admission & Departure Dates",
+        "date": "July 30, 2019",
+        "url": "dax-samples/occupancy-based-on-admission-departure-dates.html",
+        "content": "A sample that shows the Occupancy Days, each month, based on a Patient's Admission & Departure Dates.",
+        "tags_measure": ['Occupancy'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['GENERATE', 'MAX', 'MIN', 'SELECTEDVALUE']
+    },
+	{
+        "title": "Average of Monthly Sales, Year to Date",
+        "date": "July 30, 2019",
+        "url": "dax-samples/average-of-monthly-sales-year-to-date.html",
+        "content": "A sample that shows the Average of Monthly Sales (Year to Date).",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'AVERAGEX', 'CALCULATE', 'FILTER', 'GENERATE', 'MAX', 'SUMX', 'TOTALYTD', 'VALUES']
+    },
+	{
+        "title": "Latest Date taken by each of a Questionnaire’s Participants",
+        "date": "July 30, 2019",
+        "url": "dax-samples/latest-date-by-questionnaire-participant.html",
+        "content": "A sample that shows the Latest (or Maximum) Date taken by each of a Questionnaire's Participants.",
+        "tags_measure": ['Calendar Time'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'FILTER', 'GENERATE', 'MAXX', 'SELECTEDVALUE']
+    },
+	{
+        "title": "Numbering of Workdays and Weekends, within any given month",
+        "date": "July 30, 2019",
+        "url": "dax-samples/numbering-of-workdays-and-weekends.html",
+        "content": "A sample that shows, in ascending order: (i) a Count of the Number of Workdays, and (ii) a Count of the Number of Weekends.",
+        "tags_measure": ['Calendar Time'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'AVERAGE', 'CALCULATE', 'FILTER', 'GENERATE', 'SELECTEDVALUE', 'RANKX' ]
+    },
+	{
+        "title": "Sales of Customers, and Products with Sales Value exceeding 3,000",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-of-customers-and-products-value-exceeding-3000.html",
+        "content": "A sample that shows (i) Total Sales of those Customers whose Sales exceed 3,000, and (ii) Total Sales of those Products sold to Customers whose Sales Value exceed 3,000.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Products', 'Geography'],
+        "tags_dax": ['FILTER', 'GENERATE', 'SUMMARIZE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "No. & Sales of Customers buying 2 (or 3) months in a row",
+        "date": "July 30, 2019",
+        "url": "dax-samples/no-and-sales-of-customers-buying-consecutive-months.html",
+        "content": "A sample that shows the No. & Total Sales of Customers that have bought 2 (or 3) months in a row, from any given month, using the INTERSECT function.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Calendar Time'],
+        "tags_dax": ['CALCULATE', 'CALCULATETABLE', 'COUNTROWS', 'DATEADD', 'GENERATE', 'INTERSECT', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "When a Customer might next buy, based on Historical Purchase Pattern",
+        "date": "July 30, 2019",
+        "url": "dax-samples/when-a-customer-might-buy-next.html",
+        "content": "A sample that shows when a Customer might buy next, based on the difference between the No. of Days since their Last Purchase, and the Average No. of Days between each Historical Purchase.",
+        "tags_measure": ['Sales', 'Calendar Time'],
+        "tags_dimension": ['Customers', 'Geography'],
+        "tags_dax": ['ALL', 'DIVIDE', 'DISTINCTCOUNT', 'FIRSTDATE', 'GENERATE', 'ISBLANK', 'LASTDATE', 'MAXX', 'SUMX', 'VALUE']
+    },
+	{
+        "title": "Percentage of Total Sales from New Customers Only",
+        "date": "July 30, 2019",
+        "url": "dax-samples/percentage-sales-from-new-customers.html",
+        "content": "A sample that shows, (i) Total Sales, (ii) Total Sales from New Customers, and (iii) The Percentage of Sales from New Customers Only.",
+        "tags_measure": ['Sales', 'Customers'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'CALCULATETABLE', 'DIVIDE', 'EXCEPT', 'FILTER', 'GENERATE', 'MIN', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "No. of Actual Customers, and No. of Returning Customers (90 Day Churn Rate)",
+        "date": "July 30, 2019",
+        "url": "dax-samples/actual-and-returning-customers.html",
+        "content": "A sample that shows, (i) The No. of Actual Customers sales have been made to, and (ii) The No. of Returning Customers that sales have been made to in a given time period.",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Geography','Calendar Time'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'CALCULATETABLE', 'COUNTROWS', 'DISTINCTCOUNT', 'EXCEPT', 'FILTER', 'GENERATE', 'MIN', 'VALUES' ]
+    },
+	{
+        "title": "No. of New Customers, with and without Churn Rate, and No. of Lost Customers",
+        "date": "July 30, 2019",
+        "url": "dax-samples/new-customers-lost-customers.html",
+        "content": "A sample that shows, (i) The No. of  New Customers, (ii) The No. of New Customers (based on a 1,500 Day Churn Rate), and (iii) The No. of Lost Customers (based on a 90 Day Churn Rate).",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Geography','Calendar Time'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'CALCULATETABLE', 'COUNTROWS', 'DISTINCTCOUNT', 'EXCEPT', 'FILTER', 'GENERATE', 'MIN', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Sales to New Customers Only, and Sales made only to Old Customers",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-to-new-and-old-customers.html",
+        "content": "A sample that shows, side by side: (i) The Sales to New Customers Only, and (ii) The Sales made only to Old Customers.",
+        "tags_measure": ['Sales', 'Customers'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'MIN', 'SUMX', 'VALUES' ]
+    },
+	{
+        "title": "Comparison of Cumulative Monthly Budget with Actual Cumulative Sales, and Actual Cumulative Sales from LY",
+        "date": "July 30, 2019",
+        "url": "dax-samples/cumulative-budget-vs-sales-vs-sales-ly.html",
+        "content": "A sample that shows how: (i) Cumulative Sales compare to Cumulative Sales from Last Year, and against (ii) a Cumulative Budget (where the annual budget has been dynamically allocated across months using a monthly weighting).",
+        "tags_measure": ['Sales', 'Budgets'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALLEXCEPT', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'ISBLANK', 'LOOKUPVALUE', 'MAX', 'SAMEPERIODLASTYEAR', 'SELECTEDVALUE', 'SUMX' ]
+    },
+	{
+        "title": "Allocation of a Monthly Product Budget using the TREATAS function",
+        "date": "July 30, 2019",
+        "url": "dax-samples/allocation-of-monthly-product-budget-using-treatas.html",
+        "content": "A sample that allocates a Monthly Product Budget, by month, without using filter relationships, but instead by using the TREATAS function.",
+        "tags_measure": ['Sales', 'Budgets'],
+        "tags_dimension": ['Products', 'Calendar Time'],
+        "tags_dax": ['ADDCOLUMNS', 'ALL', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'CROSSJOIN', 'DISTINCT', 'DIVIDE', 'FILTER', 'GENERATE', 'HASONEVALUE', 'SELECTEDVALUE', 'SUM', 'SUMMARIZE', 'SUMMARIZECOLUMNS', 'SUMX', 'TREATAS', 'VALUES' ]
+    },
+	{
+        "title": "Allocation of Monthly Product Budget, calculated dynamically, across different Date & Time periods",
+        "date": "July 30, 2019",
+        "url": "dax-samples/allocation-of-monthly-product-budget-dynamically.html",
+        "content": "A sample that shows how a Monthly Product Budget can be allocated dynamically across different time periods (E.g. even down to Days in a particular month, if the budget has been pre-determined at a Product & Monthly level).",
+        "tags_measure": ['Budgets'],
+        "tags_dimension": ['Products', 'Calendar Time'],
+        "tags_dax": ['ADDCOLUMNS', 'ALL', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'CROSSJOIN', 'DISTINCT', 'DIVIDE', 'FILTER', 'GENERATE', 'HASONEVALUE', 'SELECTEDVALUE', 'SUM', 'SUMMARIZE', 'SUMMARIZECOLUMNS', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Allocation of Annual Budget (by Monthly weightings given). Comparison with Total Actual Sales - 2",
+        "date": "July 30, 2019",
+        "url": "dax-samples/annual-budget-compared-with-sales-2.html",
+        "content": "A sample that shows how (i) Actual Total Sales compare to (ii) a pre-determined Budget (where the Budget has been allocated monthly using a monthly percentage Weighting).",
+        "tags_measure": ['Sales', 'Budgets'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['AVERAGE', 'CALCULATE', 'HASONEVALUE', 'GENERATE', 'ISBLANK', 'LOOKUPVALUE', 'SELECTEDVALUE', 'SUMX', 'TREATAS', 'VALUES']
+    },
+	{
+        "title": "Allocation of Annual Budget (by Monthly weightings given). Comparison with Total Actual Sales",
+        "date": "July 30, 2019",
+        "url": "dax-samples/annual-budget-compared-with-sales.html",
+        "content": "A sample that shows how (i) Actual Total Sales compare to (ii) a pre-determined Budget (where the Budget has been allocated monthly using a monthly percentage Weighting).",
+        "tags_measure": ['Sales', 'Budgets'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'AVERAGEX', 'CALCULATE', 'COUNTROWS', 'FILTER', 'FORMAT', 'GENERATE', 'ISBLANK', 'ISFILTERED', 'LASTDATE', 'LOOKUPVALUE', 'MONTH', 'SELECTEDVALUE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Customers buying behind trend - Comparisons between CY & LY 90D Sales Running Totals",
+        "date": "July 30, 2019",
+        "url": "dax-samples/customers-buying-behind-trend.html",
+        "content": "A sample that shows which customers are buying behind trend, by comparing their 90D Sales Running Total this year, to their 90D Sales Running Totals from last year.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers','Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'FILTER', 'GENERATE', 'MAX', 'SAMEPERIODLASTYEAR', 'SUMX']
+    },
+	{
+        "title": "Comparison of Average Sales Order Size, to Average Sales Order Size for All Regions",
+        "date": "July 30, 2019",
+        "url": "dax-samples/comparing-average-sales-order-sizes.html",
+        "content": "A sample that shows: (i) The average Sales Order Size (i.e. average sales amount / transaction), across different products and customers, and compares this to the (ii) Average Sales Order Size for All Regions.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers','Products', 'Geography'],
+        "tags_dax": ['ALL', 'AVERAGEX', 'CALCULATE', 'GENERATE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Customer Transaction History, by Transactions made over the past 4 Quarters",
+        "date": "July 30, 2019",
+        "url": "dax-samples/customer-transaction-history-over-last-4-quarters.html",
+        "content": "A sample that, for each customer, shows: (i) The Total number of Transacting Days; (ii) The number of Transactions made, each quarter, over the past year.",
+        "tags_measure": ['Sales', 'Orders'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'COUNTROWS', 'DISTINCTCOUNT', 'FILTER', 'FIRSTDATE', 'GENERATE', 'LASTDATE', 'LASTNONBLANK', 'MAXX', 'SUMX']
+    },
+	{
+        "title": "Comparison of Cumulative Sales against the Cumulative Sales Run Rate",
+        "date": "July 30, 2019",
+        "url": "dax-samples/comparison-of-cumulative-sales-against-run-rate.html",
+        "content": "A sample that shows, (i) Cumulative Sales; (ii) Average Daily Run Rate in Sales; and (iii) Cumulative Sales Run Rate (based on the Average Daily Run Rate).",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'ISBLANK', 'MAX', 'MAXX', 'MIN', 'SUMMARIZE', 'SUMX']
+    },
+	{
+        "title": "Total Sales, both before and after, a particular Date (even when date is dynamically selected)",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-before-and-after-particular-date.html",
+        "content": "A sample that shows, in a dynamic way, the Total Sales, both before and after a particular Date.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'GENERATE', 'GENERATESERIES', 'ISFILTERED', 'MAX', 'SELECTEDVALUE', 'SUMX']
+    },
+	{
+        "title": "Projecting Total Sales from Q3 2017, repeatedly, every Quarter",
+        "date": "July 30, 2019",
+        "url": "dax-samples/projecting-sales-from-particular-quarter-repeatedly.html",
+        "content": "A sample that compares: (i) Total Sales, against (ii) Total Sales from Q3 2017, projected repeatedly, every quarter.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'FILTER', 'GENERATE', 'ISFILTERED', 'MIN', 'SUMX']
+    },
+	{
+        "title": "Comparison of Current Month Sales vs Sales of Best Selling previous Month",
+        "date": "July 30, 2019",
+        "url": "dax-samples/current-month-sales-vs-previous-best-selling-month.html",
+        "content": "A sample that compares: (i) Total Sales against (ii) The Total Sales of the Best Selling Previous Month.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DIVIDE', 'FILTER', 'GENERATE', 'ISBLANK', 'MIN', 'SUMMARIZE', 'SUMX', 'TOPN']
+    },
+	{
+        "title": "Total Sales made from a Customer’s Last Purchase (Previous) Date",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-from-customers-last-purchase-date.html",
+        "content": "A sample that shows: (i) Total Sales made on a particular Date, along with (ii) Total Sales made from (a particular customer's) previous Purchase Date.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'FILTER', 'GENERATE', 'MAX', 'SUMX']
+    },
+	{
+        "title": "Total Sales from Last Week (Calculation also works across Years)",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-from-last-year.html",
+        "content": "A sample that shows the: (i) Total Sales made each Week; along with (ii) Total Sales made from the previous Week.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'FILTER', 'GENERATE', 'MAX', 'SELECTEDVALUE', 'SUMX']
+    },
+	{
+        "title": "Average Sales per Month, along with the Sum of all Average Sales of each Month",
+        "date": "July 30, 2019",
+        "url": "dax-samples/average-sales-per-month-with-sum-of-all-averages.html",
+        "content": "A sample that shows the: (i) Total Sales made each Month; (ii) The Average Sales made each Month; and (iii) The Total Sum (over the year) of the Average Sales of each month.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['AVERAGEX', 'GENERATE', 'HASONEVALUE', 'SUMMARIZE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Day with the Highest Average Sales per Day",
+        "date": "July 30, 2019",
+        "url": "dax-samples/day-with-highest-average-sales-per-day.html",
+        "content": "A sample that shows, for each Product, the Day, where the Average Sales per Day is the highest.",
+        "tags_measure": ['Sales', 'Calendar Time'],
+        "tags_dimension": ['Products'],
+        "tags_dax": ['AVERAGEX', 'GENERATE', 'MAXX', 'SUMMARIZE', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "Comparison of Average Sales per Day - Weekdays vs Weekends",
+        "date": "July 30, 2019",
+        "url": "dax-samples/average-sales-per-day-weekend-weekdays.html",
+        "content": "A sample that shows how: (i) Average Sales per Day over Weekdays, compare to (ii) Average Sales per Day over Weekends",
+        "tags_measure": ['Sales', 'Calendar Time'],
+        "tags_dimension": ['Customers', 'Products'],
+        "tags_dax": ['AVERAGEX', 'FILTER', 'GENERATE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Comparison of Average Monthly Sales to Average Monthly Sales from LY – by region",
+        "date": "July 30, 2019",
+        "url": "dax-samples/average-monthly-sales-average-monthly-sales-ly.html",
+        "content": "A sample that compares the Average Monthly Sales for the current year against Average Monthly Sales from the prior year, for each Region.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time', 'Geography'],
+        "tags_dax": ['AVERAGEX', 'CALCULATE', 'GENERATE', 'SAMEPERIODLASTYEAR', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Comparing Cumulative Sales for the current month, with Cumulative Sales from a month, and two months ago",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-last-month-two-months.html",
+        "content": "A sample that shows: (i) cumulative Sales for the current year, and compares this to (ii) cumulative Sales from last month, and (iii) cumuative Sales from 2 months ago.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALLSELECTED', 'CALCULATE', 'DATEADD', 'FILTER', 'GENERATE', 'ISBLANK', 'MAX', 'SUMX' ]
+    },
+	{
+        "title": "Total Sales vs LY 90 Day Moving Average Total Sales",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-vs-ly-90-moving-average-sales.html",
+        "content": "A sample that compares (i) Totals Sales, against (ii) Last Years' 90 Day Moving Average Sales.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'AVERAGEX', 'CALCULATE', 'FILTER', 'GENERATE', 'MAX', 'SAMEPERIODLASTYEAR', 'SUMX']
+    },
+	{
+        "title": "Total Sales YTD with cut off",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-ytd-with-cut-off.html",
+        "content": "A sample that shows Total Sales YTD with a year end cut off.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'GENERATE', 'MAXX', 'MIN', 'TOTALYTD', 'SUMX']
+    },
+	{
+        "title": "Total Sales – Current, Last 30, and Last 90 Day, Running Totals",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-current-30-90.html",
+        "content": "A sample that shows (on the same graph): (i) Total Sales; (ii) 30 Day Running Total Sales, and (iii) 90 Day Running Total Sales.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'FILTER', 'GENERATE', 'MAX', 'SUMX' ]
+    },
+	{
+        "title": "Total Sales from Top 1 Selling Sales Person as a Percentage of Total Sales",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-of-top-sales-person-as-percentage-total-sales.html",
+        "content": "A sample that shows the Total Sales from Top 1 Selling Sales Person as a Percentage of Total Sales, shown by Quarter, and Region.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Sales People', 'Geography'],
+        "tags_dax": ['ALL', 'CALCULATE', 'COUNTROWS', 'DIVIDE', 'GENERATE', 'SELECTEDVALUE', 'SUMMARIZE', 'SUMX', 'TOPN' ]
+    },
+	{
+        "title": "Profit Margin Growth, of Top 3 Most Profitable Sales People, by Profit Margin Growth",
+        "date": "July 30, 2019",
+        "url": "dax-samples/profit-margin-growth-of-top-3-most-profitable-sales-people.html",
+        "content": "A sample that shows the Profit Margin Growth, of the Top 3 Most Profitable Sales People, by their Profit Margin Growth.",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Sales People'],
+        "tags_dax": ['CALCULATE', 'DATEADD', 'DIVIDE', 'GENERATE', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "Comparison of Total Sales to Average Sales of Top 3 best Sales People. Also, sales of Top 2 best selling products, as a % of Total Sales",
+        "date": "July 30, 2019",
+        "url": "dax-samples/comparison-of-sales-to-average-sales.html",
+        "content": "A sample that compares, for each Sales Person, (i) the Total Sales of the Top 3 best selling Sales People against (ii) the Average Sales, of the Top 3 best selling Sales People.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Sales People'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'AVERAGEX', 'CALCULATE', 'COUNTROWS', 'DIVIDE', 'GENERATE', 'MAXX', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "Grouping of Sales People, by No. of Transactions made in the last 180 days",
+        "date": "July 30, 2019",
+        "url": "dax-samples/grouping-sales-people-by-transactions-last-180-days.html",
+        "content": "A sample that shows, for each Sales Person, the No. of Transactions made in the last 180 days. Additionally, Sales People are categorised into groups.",
+        "tags_measure": ['Orders'],
+        "tags_dimension": ['Sales People'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'MAXX', 'SELECTEDVALUE']
+    },
+	{
+        "title": "Total Sales of Top 3 Best Selling Sales People",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-of-top-3-sales-people.html",
+        "content": "A sample that shows who the Top 3 Sales People are, by Sales, for each Region, and Product",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Sales People', 'Geography', 'Products'],
+        "tags_dax": ['CALCULATE', 'GENERATE', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "No. and Percentage of Customers who bought a particular Product, more than once",
+        "date": "July 30, 2019",
+        "url": "dax-samples/no-and-percentage-buying-products-more-than-once.html",
+        "content": "A sample that shows the No. and Percentage of Customers who have purchased a particular Product, more than once.",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Products'],
+        "tags_dax": ['AVERAGEX', 'COUNTROWS', 'DISTINCTCOUNT', 'DIVIDE', 'FILTER', 'GENERATE', 'SUMMARIZE' ]
+    },
+	{
+        "title": "First products purchased by customers",
+        "date": "July 30, 2019",
+        "url": "dax-samples/first-products-purchased-by-customers.html",
+        "content": "A sample that shows the first Product a Customer purchased, as determined by their first Purchase Date.",
+        "tags_measure": ['Products'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'GENERATE', 'MAXX', 'MIN', 'SUMMARIZE', 'SUMX', 'TOPN']
+    },
+	{
+        "title": "Rank Total Sales, by Customers and Products",
+        "date": "July 30, 2019",
+        "url": "dax-samples/rank-sales-by-customers-and-products.html",
+        "content": "A sample that ranks Total Sales, by Customers and Products.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Products'],
+        "tags_dax": ['ALL', 'CROSSJOIN', 'GENERATE', 'RANKX', 'SUMX']
+    },
+	{
+        "title": "Last Purchase Date, and Purchase Amount, by Customer and Product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/last-purchase-date-purchase-amount.html",
+        "content": "A sample that shows the last Purchase Date, and Purchase amount of: (i) a particular Customer, and (ii) a particular Product.",
+        "tags_measure": ['Sales', 'Calendar Time'],
+        "tags_dimension": ['Customers', 'Products'],
+        "tags_dax": ['CALCULATE', 'GENERATE', 'LASTDATE', 'LASTNONBLANK', 'SUMX']
+    },
+	{
+        "title": "Basket Analysis – No. of Customers who bought an initial basked of products, which also overlap with another basket of products",
+        "date": "July 30, 2019",
+        "url": "dax-samples/basket-analysis-customers-buying-different-basket-of-goods.html",
+        "content": "A sample that shows (i) the no. of Customers that bought an initial basket of products, where the products purchased also overlap with another basket of products.",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Products', 'Basket Analysis'],
+        "tags_dax": ['CALCULATE', 'CALCULATETABLE', 'COUNTROWS', 'DISTINCTCOUNT', 'GENERATE', 'INTERSECT', 'TREATAS', 'VALUES']
+    },
+	{
+        "title": "Cross Selling Analysis (Matrix) 2 – No. of Customers who bought one type of product, who also bought another type of product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/cross-selling-analysis-customers-who-bought-multiple-products-2.html",
+        "content": "A sample that shows the no. of Customers who bought one particular product, who also bought another type of product; both as (i) an absolute number, and (ii) a percentage.",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Products', 'Cross-Selling Analysis'],
+        "tags_dax": ['ALL', 'CALCULATE', 'CALCULATETABLE', 'COUNTROWS', 'DISTINCTCOUNT', 'DIVIDE', 'GENERATE', 'INTERSECT', 'SELECTEDVALUE', 'TREATAS', 'USERELATIONSHIP', 'VALUES']
+    },
+    {
+        "title": "Cross Selling Analysis (Matrix) – No. of Customers who bought one type of product, who also bought another type of product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/cross-selling-analysis-customers-who-bought-multiple-products-3.html",
+        "content": "A sample that shows (i) The No. of Customers who bought one particular product, who also bought another type of product; and (ii) As a Percentage - the No. of Customers who bought one particular product who also bought another type of product.",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Products', 'Cross-Selling Analysis'],
+        "tags_dax": ['ALL', 'CALCULATE', 'CALCULATETABLE', 'DISTINCTCOUNT', 'DIVIDE', 'GENERATE', 'SELECTEDVALUE', 'USERELATIONSHIP', 'VALUES']
+    },
+	{
+        "title": "Cross Selling Analysis – No. of Customers who bought one type of product, who also bought another type of product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/cross-selling-analysis-customers-who-bought-multiple-products.html",
+        "content": "A sample that shows the number of customers that bought one type of product, that also bought another type of product - both absolute, and as a percentage.",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Products', 'Cross-Selling Analysis'],
+        "tags_dax": ['ALL', 'CALCULATE', 'CALCULATETABLE', 'DISTINCTCOUNT', 'DIVIDE', 'GENERATE', 'SELECTEDVALUE', 'USERELATIONSHIP', 'VALUES' ]
+    },
+	{
+        "title": "Customer Cohort Analysis – Grouping of Customers into Monthly Cohorts based on their purchase dates",
+        "date": "July 30, 2019",
+        "url": "dax-samples/customer-cohort-analysis-customers-grouped-by-dates.html",
+        "content": "A sample that groups each customer into a \"Join Month Cohort\", based on the month in which they made their first purchase. Customers are then further grouped according to their Rentention period.",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Cohort Analysis'],
+        "tags_dax": ['ALL', 'CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'MIN', 'SELECTEDVALUE', 'TREATAS', 'VALUE', 'VALUES']
+    },
+	{
+        "title": "Total Sales of only those Customers meeting certain Threshold criteria",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-of-customers-meeting-threshold-criteria.html",
+        "content": "A sample that shows the Total Sales of only those Customers who meet certain performance criteria - in (i) Annual Sales; (ii) No. of Annual Transactions; and (iii) Annual Profit Margins.",
+        "tags_measure": ['Sales', 'Profits', 'Orders'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'SELECTEDVALUE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Total Sales vs Profit Margin, based on Grouping of Customers by a Percentile Ranking of Total Sales made",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-vs-profit-margin-customers-grouped-sales.html",
+        "content": "A sample that compares Total Sales against Profit Margins, based on a discrete Grouping of Customers (e.g. Bottom, Middle, Top - according to their Percentile Ranking of Total Sales made).",
+        "tags_measure": ['Sales', 'Profits'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'SAMEPERIODLASTYEAR', 'SELECTEDVALUE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Total Sales vs Total Sales LY, based on a Grouping of Customers by their Sales, and Sales Growth",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-vs-total-sales-ly-customers-grouped-sales-and-sales-growth.html",
+        "content": "A sample that compares Total Sales against Total Sales LY, based on a discrete Grouping of Customers (e.g. Outlier, Non-Outlier - depending on each Customer's Total Sales and Sales Growth).",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'SAMPERIODLASTYEAR', 'SELECTEDVALUE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Total Sales vs Total Sales LY, based on a Binary Grouping of Customers by their Sales Growth",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-vs-total-sales-ly-customers-grouped-by-sales-growth-binary.html",
+        "content": "A sample that compares Total Sales and Total Sales LY, based on a binary Grouping of Customers (e.g. Negative Growth, Positive Growth - depending on each Customer's Sales Growth).",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'SAMEPERIODLASTYEAR', 'SELECTEDVALUE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Total Sales vs Total Sales LY, based on a Grouping of Customers by their Sales Growth",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-vs-total-sales-ly-customers-grouped-by-sales-growth.html",
+        "content": "A sample that compares Total Sales and Total Sales LY, based on a discrete Grouping of Customers (e.g. Average Growth, Great Growth, Poor Growth - depending on each Customer's Sales Growth).",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'SAMEPERIODLASTYEAR', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Profits Margins vs Sales, based on Customer Grouping by Total Profits",
+        "date": "July 30, 2019",
+        "url": "dax-samples/profit-margins-vs-sales-by-customer-grouping-by-profits.html",
+        "content": "A sample that compares Profit Margins, and Total Sales, based on a discrete Grouping of Customers (e.g. Good Clients, Ok Clients, Poor Clients, Top Clients - depending on each Customer's Total Profit).",
+        "tags_measure": ['Sales', 'Profits'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Customer Margins Contracting Over Time",
+        "date": "July 30, 2019",
+        "url": "dax-samples/customer-margins-contracting-over-time.html",
+        "content": "A sample that compares CY Profit Margins against Profit Margin Growth (over the Prior year). Other Financial Measures, such as Total Profits, and Total Sales are also shown.",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DATEADD', 'DIVIDE', 'GENERATE', 'SAMEPERIODLASTYEAR', 'SUMX']
+    },
+	{
+        "title": "Customer Sales Contracting Over Time",
+        "date": "July 30, 2019",
+        "url": "dax-samples/customer-sales-contracting-over-time.html",
+        "content": "A sample that compares CY Sales to LY Sales, both in a Cumulative, and Non-Cumulative format.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Products', 'Calendar Time' ],
+        "tags_dax": ['ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'MAX', 'SAMEPERIODLASTYEAR', 'SUM', 'SUMX' ]
+    },
+	{
+        "title": "Average of Total Sales & Total Transactions per Product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/average-of-total-sales-and-total-transactions-per-product.html",
+        "content": "A sample that compares the (i) Avg. of Total Sales / Product, and (ii) Avg. of Total Transactions / Products, for a Selection of prodcuts, vs ALL Products.",
+        "tags_measure": ['Sales', 'Orders'],
+        "tags_dimension": ['Customers', 'Calendar Time' ],
+        "tags_dax": ['ALL', 'AVERAGEX', 'CALCULATE', 'COUNTROWS', 'GENERATE', 'SUMX', 'VALUES' ]
+    },
+	{
+        "title": "Testing the Pareto Rule - Percentage of Sales from Highest Ranked Customers by Sales (Top 30%)",
+        "date": "July 30, 2019",
+        "url": "dax-samples/percentage-of-sales-by-highest-ranked-customers-by-sales.html",
+        "content": "A sample that shows the Total Sales of the Top Most Buying Customers, as a % of Total Sales, for each Region, and in each Quarter.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Geography', 'Calendar Time' ],
+        "tags_dax": ['ALL', 'CALCULATE', 'DISTINCTCOUNT', 'DIVIDE', 'FILTER', 'GENERATE', 'ISBLANK', 'SUMX', 'RANKX', 'ROUND', 'VALUES']
+    },
+	{
+        "title": "Percent of Total Sales, from Top 1 Most buying Customer, in each Region",
+        "date": "July 30, 2019",
+        "url": "dax-samples/percentage-of-sales-from-top-customer-by-region.html",
+        "content": "A sample that shows the Total Sales of the Top 1 Most Buying Customer, as a % of Total Sales, for each Region, and in each Quarter.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Geography' ],
+        "tags_dax": ['ALL', 'CALCULATE', 'COUNTROWS', 'DISTINCTCOUNT', 'DIVIDE', 'GENERATE', 'SELECTEDVALUE', 'SUMMARIZE', 'SUMX', 'TOPN']
+    },
+	{
+        "title": "Percentage breakdown of Sales, based on a Customer grouping, by sales",
+        "date": "July 30, 2019",
+        "url": "dax-samples/percentage-of-sales-based-on-customer-grouping-by-sales.html",
+        "content": "A sample that shows the breakup of Total Sales, based on a discrete Grouping of Customers by Sales (e.g. Top 3, Rank 3-6, the Rest).",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Calendar Time' ],
+        "tags_dax": ['ALL', 'CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'SUMX', 'VALUES' ]
+    },
+	{
+        "title": "Top 3 most Profitable Customers - for each Region and Product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/top-3-most-profitable-customers.html",
+        "content": "A sample that shows who the Top 3 Most Profitable Customers are, for each Region, and each Product Category.",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Customers', 'Products', 'Geography' ],
+        "tags_dax": ['ALL', 'CALCULATE', 'GENERATE', 'ISFILTERED', 'RANKX', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "Total Sales made over time, to Top 3 buying Customers",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-over-time-to-top-3-customers.html",
+        "content": "A sample that shows sales through time, but only of the Top 3 buying Customers, by quarter.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'FILTER', 'GENERATE', 'RANKX', 'SUMX']
+    },
+	{
+        "title": "Total Sales made over time to all Customers",
+        "date": "July 30, 2019",
+        "url": "dax-samples/total-sales-over-time-to-all-customers.html",
+        "content": "A sample that show sales through time, by quarter, by customer.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Customers', 'Calendar Time'],
+        "tags_dax": ['GENERATE', 'SUMX']
+    },
+	{
+        "title": "Unique Customers sold to over time",
+        "date": "July 30, 2019",
+        "url": "dax-samples/unique-customers-sold-to-over-time.html",
+        "content": "A sample that shows the Total No. of unique Customers sold to over time.",
+        "tags_measure": ['Customers'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['DISTINCTCOUNT', 'GENERATE']
+    },
+	{
+        "title": "Cumulative Sales, from best selling to lowest selling Product",
+        "date": "July 30, 2019",
+        "url": "dax-samples/cumulative-sales-from-best-selling-to-lowest-selling-products.html",
+        "content": "A sample that shows total cumulative sales, starting from the best selling Product, to the lowest selling Product.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Products'],
+        "tags_dax": ['ALL', 'CALCULATE', 'FILTER', 'GENERATE', 'RANKX', 'SELECTEDVALUE', 'SUMMARIZE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Average number of unique products bought, by each Customer, each Quarter",
+        "date": "July 30, 2019",
+        "url": "dax-samples/average-number-of-unique-products-bought.html",
+        "content": "A sample that shows the Average number of unique products bought each Quarter, by each Customer.",
+        "tags_measure": ['Products'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['ALL', 'AVERAGEX', 'CALCULATE', 'DISTINCTCOUNT', 'GENERATE', 'VALUES']
+    },
+	{
+        "title": "Unique Products purchased, and Total Sales",
+        "date": "July 30, 2019",
+        "url": "dax-samples/unique-products-purchased-and-total-sales.html",
+        "content": "A sample that shows how many Unique Products each customer has bought, along with their Total Sales.",
+        "tags_measure": ['Sales', 'Products'],
+        "tags_dimension": ['Customers', 'Calendar Time'],
+        "tags_dax": ['DISTINTCOUNT', 'GENERATE', 'SUMX']
+    },
+	{
+        "title": "Top 2 selling products, by Sales and Sales Units – by Region",
+        "date": "July 30, 2019",
+        "url": "dax-samples/top-2-selling-products-by-sales-by-sales-units.html",
+        "content": "A sample that determines what the Top 2 Selling Products are, (i) By Sales, and (ii) By Sales Units, for each Region.",
+        "tags_measure": ['Sales', 'Sales Quantity'],
+        "tags_dimension": ['Geography', 'Products', 'Customers'],
+        "tags_dax": ['ALL', 'CALCULATE', 'GENERATE', 'SUM', 'SUMX', 'TOPN', 'VALUES']
+    },
+	{
+        "title": "Average of Total Sales & Total Transactions per Customer",
+        "date": "July 30, 2019",
+        "url": "dax-samples/average-sales-transactions-per-customer.html",
+        "content": "A sample that compares: (i) Avg. of Total Sales / Customer, and (ii) Avg. of Total Transactions / Customer, for a selection of customers, vs. ALL customers.",
+        "tags_measure": ['Sales', 'Orders'],
+        "tags_dimension": ['Customers', 'Products', 'Calendar Time'],
+        "tags_dax": ['ALL', 'AVERAGEX', 'CALCULATE', 'COUNTROWS', 'GENERATE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Potential Profits being missed?",
+        "date": "July 30, 2019",
+        "url": "dax-samples/potential-profits-being-missed.html",
+        "content": "A sample sample that shows missed potential profit opportunities for each customer (based on the difference in Profit Margins for a particular customer and the average Profit Margins across all customers).",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DIVIDE', 'GENERATE', 'SUMX']
+    },
+	{
+        "title": "Factors driving YoY Profit Growth",
+        "date": "July 30, 2019",
+        "url": "dax-samples/factors-driving-yoy-profit-growth.html",
+        "content": "A sample that shows the extent to which different factors affect YoY Profit Growth (i.e. whether driven mostly by an increase YoY Sales Growth %, or by an increase in YoY Profit Margin Growth).",
+        "tags_measure": ['Sales', 'Profits'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'DATEADD', 'DIVIDE', 'GENERATE', 'SAMEPERIODLASTYEAR', 'SUMX']
+    },
+	{
+        "title": "YoY Sales Growth vs YoY Profit Margin Growth",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-growth-vs-profit-margin-growth.html",
+        "content": "A sample that shows YoY Sales Growth % against YoY Profit Margin Growth for each Customer (disaggregated into two groups: whether YoY Profit Margin Growth is positive, or negative).",
+        "tags_measure": ['Sales', 'Profits'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DATEADD', 'DIVIDE', 'FILTER', 'GENERATE', 'SAMEPERIODLASTYEAR', 'SELECTEDVALUE', 'SUMX']
+    },
+	{
+        "title": "YoY Sales Growth vs YoY Profit Growth",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-growth-vs-profit-growth.html",
+        "content": "A sample that shows YoY Sales Growth % against YoY Profit Growth for each Customer (disaggregated into two groups: whether YoY Profit Growth is positive, or negative).",
+        "tags_measure": ['Sales', 'Profits'],
+        "tags_dimension": ['Customers'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'SAMEPERIODLASTYEAR', 'SELECTEDVALUE', 'SUMX']
+    },
+	{
+        "title": "Profits – based on a Virtual Grouping of Products",
+        "date": "July 30, 2019",
+        "url": "dax-samples/profits-virtual-grouping-products.html",
+        "content": "A sample that shows Total Profits based on a Virtual Grouping of Products (e.g. into Category 1, Category 2, and Category 3).",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Products'],
+        "tags_dax": ['GENERATE', 'SUMX']
+    },
+	{
+        "title": "Profits – Categorical Grouping by Profit Margin",
+        "date": "July 30, 2019",
+        "url": "dax-samples/profits-grouped-products-by-margin.html",
+        "content": "A sample that shows Total Profits based on a discrete grouping (High, Medium, and Low Categories) of each Product's Average Profit Margin.",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Products'],
+        "tags_dax": ['CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GENERATE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Average Sales, Profits, and Profit Margins per Transaction",
+        "date": "July 30, 2019",
+        "url": "dax-samples/average-sales-profits.html",
+        "content": "A sample that shows the average sales, average profits, and margins per transaction.",
+        "tags_measure": ['Sales', 'Profits'],
+        "tags_dimension": ['Products', 'Customers', 'Calendar Time' ],
+        "tags_dax": ['AVERAGEX', 'DIVIDE', 'GENERATE', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Profits: by Geography, Product, Customer, and Sales Person",
+        "date": "July 30, 2019",
+        "url": "dax-samples/profits-by-various-dimensions.html",
+        "content": "A sample shows that shows how Profits can be shown by various dimensions, e.g. by: Geography, Product, Customer, and Sales Person.",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Geography', 'Products', 'Customers', 'Sales Person' ],
+        "tags_dax": ['DIVIDE', 'GENERATE', 'SUMX']
+    },
+	{
+        "title": "Scenario vs Budgeted Profit: Sensitivity Analysis",
+        "date": "July 30, 2019",
+        "url": "dax-samples/scenario-vs-budget-sensitivity-analysis.html",
+        "content": "A sample showing the gap between Budgeted, and Scenario Profits, from changing three levers - Price, Cost, and/or Demand.",
+        "tags_measure": ['Profits', 'Budgets'],
+        "tags_dimension": ['Sensitivity Analysis'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DATEADD', 'DIVIDE', 'EXCEPT', 'GENERATE', 'INTERSECT', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Profits: Sensitivity Analysis",
+        "date": "July 30, 2019",
+        "url": "dax-samples/profits-sensitivity-analysis.html",
+        "content": "A sample showing the effect on Total Profits, from changing three levers - Price, Cost, and/or Demand.",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Sensitivity Analysis'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DATEADD', 'DIVIDE', 'EXCEPT', 'GENERATE', 'INTERSECT', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Profits: Scenario Analysis",
+        "date": "July 30, 2019",
+        "url": "dax-samples/profits-scenario-analysis.html",
+        "content": "A sample showing the effect on Portfolio Profits, after levering a price change to a selection of products, and assuming a corresponding change in demand.",
+        "tags_measure": ['Profits'],
+        "tags_dimension": ['Scenario Analysis', 'Products', 'Calendar Time'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'DATEADD', 'DIVIDE', 'EXCEPT', 'FILTER', 'GENERATE', 'INTERSECT', 'MAX', 'SUMX', 'VALUES']
+    },
+	{
+        "title": "Sales: Scenario Analysis",
+        "date": "July 30, 2019",
+        "url": "dax-samples/sales-scenario-analysis.html",
+        "content": "A sample showing the effect on Total Portfolio Sales, from increasing the price of a selection of products, by a specific percentage amount.",
+        "tags_measure": ['Sales'],
+        "tags_dimension": ['Scenario Analysis', 'Products', 'Calendar Time'],
+        "tags_dax": ['ALL', 'ALLSELECTED', 'CALCULATE', 'DIVIDE', 'GENERATE', 'HASONEVALUE', 'SUMX', 'VALUES']
+    }
+    
+];

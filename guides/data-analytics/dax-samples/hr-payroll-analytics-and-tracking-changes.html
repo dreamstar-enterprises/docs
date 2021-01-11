@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&L) over time | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/about/">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+    
+    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-analytics/data-analytics.html"><span class="">Data Analytics</span></a></li>
+        <li><a href=/docs/guides/data-analytics/data-analytics.html><span class="">DAX Samples</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile  is-one-fifth-tablet is-one-seventh-desktop ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+                
+                
+                <a href="../data-analytics.html">
+                    <span id="earlierPage" class="is-primary">
+                        <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+                    </span>
+                </a>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column  is-four-fifths-tablet is-six-sevenths-desktop ">
+            <div class="columns has-large-gaps is-gapless-mobile ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
+                    <main id="main" class ="content" lang="eng-us">
+                        <h1 id="hr---payroll-analytics-and-tracking-employee-profile-changes-eg-job-grade-department-and-pl-over-time">HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&amp;L) over time</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Analytics • 27/09/2020</time>
+
+<div class="has-margin-top-medium">
+  <p><a class="button is-small is-primary no_icon" href="https://1drv.ms/u/s!Ahu8OSSAtOMzlTT0x5CJm_afIOjo?e=e2b2sR" target="_blank">
+    <span>
+        Download Sample
+    </span>
+    <span class=" has-margin-left-small material-icons">
+        cloud_download
+    </span>
+</a></p>
+</div>
+
+<h2 id="hr---payroll-analytics-and-tracking-employee-profile-changes-eg-job-grade-department-and-pl-over-time-1">HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&amp;L) over time</h2>
+
+<p>This sample takes the following sample Payroll dataset (if you have an HR ERP that supports it):…</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-payroll-analytics-and-tracking-changes-data.png');" src="images/hr-payroll-analytics-and-tracking-changes-data.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<h3 id="payroll-analytics">Payroll Analytics</h3>
+
+<p>…and shows the following HR metrics:</p>
+
+<ol class="lower-roman">
+  <li>Each <strong>Payroll Line</strong>, for each Employee, in a Matrix Table format</li>
+  <li>Each person’s <strong>Payroll Rank</strong> in the Month (if there is a tied Rank (e.g. two Employees paid exactly the same), then the tied rank is broken by ranking alphabetically by the Employee’s User ID, within the tied set)</li>
+  <li>Each person’s <strong>Payroll</strong> as a <strong>% of the Total Payroll</strong></li>
+  <li>The <strong>Cumulative %</strong> of each person’s Payroll (according to that person’s Payroll Rank)</li>
+  <li>The <strong>Total Salary</strong> by Month, with <strong>ERs NI</strong>, and <strong>Pension</strong>, also shown as a <strong>% of Salary</strong></li>
+  <li>The <strong>Total Payroll Breakdown</strong> by Month (as a Bar Chart)</li>
+  <li>The <strong>Total Payroll Breakdown</strong> by <em>Department</em>, by Month (as 100% Stacked Bar Chart)</li>
+  <li><strong>Payroll changes</strong>, by person, from the Prior Month</li>
+  <li><strong>Job Grade</strong>, <strong>Department</strong>, or <strong>P&amp;L</strong> changes, by person, from the Prior Month</li>
+</ol>
+
+<p>Where relevant, YTD equivalent measures are also shown. Measures are also filterable by: <em>User ID</em>, <em>P&amp;L</em>, <em>Department</em>, <em>Job Grade</em>, <em>Nominal Ledger Line</em>, and <em>Month</em></p>
+
+<h2 id="model-extensions">Model Extensions</h2>
+
+<p>Possible extensions to this model, could include:</p>
+
+<ul>
+  <li>Adding ‘<strong><em>Freelance or Permanent</em></strong>’ as an extra field to distinguish between amounts paid to these different staff types</li>
+  <li>Freelance records could be automatically linked and created from their agency Timesheet submissions.</li>
+</ul>
+
+<h2 id="dashboard---snippet">Dashboard - Snippet</h2>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-payroll-analytics-and-tracking-changes-db.png');" src="images/hr-payroll-analytics-and-tracking-changes-db.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<!-- Trigger/Open The Modal -->
+<p><button id="modalBtn-2" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiYzE4NzBiNjktNTZkNS00MGU4LTkwZmQtZDk0NjY5M2MzMzg5IiwidCI6ImE1MzNjNTc0LWNiYjMtNDBiNi04OGI4LTkzMDkyZjMyYzc0OSJ9','_blank')">Open interactive version - 6 pgs</button></p>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&amp;L) over time</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<div class="alert alert-warning alerts-font" role="alert">
+  <p><i class="fa fa-warning"></i> <b>Important: </b>
+<br />
+When using multiple filters in this Dashboard / Report, ensure that you de-select the appropriate Users from the User filter, and appropriate months from the Month filter.</p>
+
+  <p>For example if you filter first by <em>Department</em>, and choose: ‘Graph ML Neo4j’, whilst the data will visually show, in the Matrix Table, just the users: 002, and 001 (as the only users to have worked in the selected department) the <em>User Filter</em> will likely still say <em>‘All’</em>. Ensure that from this filter, you select just users 002, and 001, by de-selecting the other users.</p>
+
+  <p>This needs to be done, to ensure that in the Measures: <strong><em>[%] of Total</em></strong>, and <strong><em>Cumulative [%]</em></strong>, the denominator gets properly  <em>re-based</em>/<em>re-calculated</em>, and takes into account the revised list of correct Users. If you do not do this, these measures will still consider the denominator to be from all Users in the Dataset, and will show the Payroll Amounts as a [%] of all Users, rather than all <em>selected</em> users. You will know something is not quite right as <strong><em>Cumulative [%]</em></strong> measure will not total to 100%, if the correct Users are not selected/de-selected.</p>
+
+  <p>The de-selection / re-selection on the User filter needs to be done manually. The ‘<em>User</em>’ filter will not get filtered automatically when using the other filters – this is a small bug in Power BI! The same similarly applies to the <em>‘Month’</em> filter, if viewing the data over only a few selected Months.</p>
+
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-payroll-analytics-and-tracking-changes-2-db.png');" src="images/hr-payroll-analytics-and-tracking-changes-2-db.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-payroll-analytics-and-tracking-changes-3-db.png');" src="images/hr-payroll-analytics-and-tracking-changes-3-db.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-payroll-analytics-and-tracking-changes-4-db.png');" src="images/hr-payroll-analytics-and-tracking-changes-4-db.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-payroll-analytics-and-tracking-changes-5-db.png');" src="images/hr-payroll-analytics-and-tracking-changes-5-db.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-payroll-analytics-and-tracking-changes-6-db.png');" src="images/hr-payroll-analytics-and-tracking-changes-6-db.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<h2 id="data-model---snippet">Data Model - Snippet</h2>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-payroll-analytics-and-tracking-changes-dm.png');" src="images/hr-payroll-analytics-and-tracking-changes-dm.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<h2 id="main-measures">Main Measures</h2>
+
+<h3 id="amount-gbp">Amount [GBP]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Amount [GBP]]] = CALCULATE ( SUM ( Payroll_Data[Amount] ) )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Amount [GBP]]] = CALCULATE ( SUM ( Payroll_Data[Amount] ) )
+</code></pre>
+
+<h3 id="amount-gbp-by-person">Amount [GBP]] by Person</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Amount [GBP]] by Person] = CALCULATE (
+    SUM ( Payroll_Data[Amount] ),
+    ALLSELECTED(Payroll_Data[P&amp;L]),
+    ALLSELECTED(Payroll_Data[Department]),
+    ALLSELECTED(Payroll_Data[Job Grade])
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Amount [GBP]] by Person] = CALCULATE (
+    SUM ( Payroll_Data[Amount] ),
+    ALLSELECTED(Payroll_Data[P&amp;L]),
+    ALLSELECTED(Payroll_Data[Department]),
+    ALLSELECTED(Payroll_Data[Job Grade])
+)
+</code></pre>
+
+<h3 id="amount-as--of-total">Amount as [%]] of Total</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Amount as [%]] of Total] = DIVIDE (
+        [Amount [GBP]]],
+        [Total Amount [GBP]] Selected Persons Only],
+        BLANK ()
+    )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Amount as [%]] of Total] = DIVIDE (
+        [Amount [GBP]]],
+        [Total Amount [GBP]] Selected Persons Only],
+        BLANK ()
+    )
+</code></pre>
+
+<h3 id="calculation-type">Calculation Type</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Calculation Type =
+IF (
+    HASONEVALUE ( &#39;Calculation Type&#39;[Calc Type] ),
+    VALUES ( &#39;Calculation Type&#39;[Calc Type] ),
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Calculation Type =
+IF (
+    HASONEVALUE ( 'Calculation Type'[Calc Type] ),
+    VALUES ( 'Calculation Type'[Calc Type] ),
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="cumulative-">Cumulative [%]]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Cumulative [%]]] = DIVIDE (
+    [Cumulative [GBP]] (without Ties)],
+    [Total Amount [GBP]] Selected Persons Only],
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Cumulative [%]]] = DIVIDE (
+    [Cumulative [GBP]] (without Ties)],
+    [Total Amount [GBP]] Selected Persons Only],
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="cumulative-gbp-with-ties">Cumulative [GBP]] (with Ties)</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Cumulative [GBP]] (with Ties)] = VAR PersonRank = [Person Rank with Ties]
+RETURN
+    CALCULATE (
+        [Amount [GBP]] by Person],
+        TOPN (
+            PersonRank,
+            GROUPBY (
+                SUMMARIZE (
+                    ALLSELECTED ( Payroll_Data ),
+                    [User ID],
+                    [First Name],
+                    [Last Name],
+                    [P&amp;L],
+                    [Department],
+                    [Job Grade]
+                ),
+                [User ID],
+                [First Name],
+                [Last Name]
+            ),
+            [Amount [GBP]] by Person]
+        )
+    )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Cumulative [GBP]] (with Ties)] = VAR PersonRank = [Person Rank with Ties]
+RETURN
+    CALCULATE (
+        [Amount [GBP]] by Person],
+        TOPN (
+            PersonRank,
+            GROUPBY (
+                SUMMARIZE (
+                    ALLSELECTED ( Payroll_Data ),
+                    [User ID],
+                    [First Name],
+                    [Last Name],
+                    [P&amp;L],
+                    [Department],
+                    [Job Grade]
+                ),
+                [User ID],
+                [First Name],
+                [Last Name]
+            ),
+            [Amount [GBP]] by Person]
+        )
+    )
+</code></pre>
+
+<h3 id="cumulative-gbp-without-ties">Cumulative [GBP]] (without Ties)</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Cumulative [GBP]] (without Ties)] = VAR PersonRank = [Person Rank without Ties]
+VAR PersonWithRankNotAbove =
+    FILTER (
+        GROUPBY (
+            SUMMARIZE (
+                ALLSELECTED ( Payroll_Data ),
+                [User ID],
+                [First Name],
+                [Last Name],
+                [P&amp;L],
+                [Department],
+                [Job Grade]
+            ),
+            [User ID],
+            [First Name],
+            [Last Name],
+            [P&amp;L],
+            [Department],
+            [Job Grade]
+        ),
+        [Person Rank without Ties] &lt;= PersonRank
+    )
+VAR TotalUptoCurrentPerson =
+    CALCULATE ( [Amount [GBP]] by Person], PersonWithRankNotAbove )
+RETURN
+    TotalUptoCurrentPerson
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Cumulative [GBP]] (without Ties)] = VAR PersonRank = [Person Rank without Ties]
+VAR PersonWithRankNotAbove =
+    FILTER (
+        GROUPBY (
+            SUMMARIZE (
+                ALLSELECTED ( Payroll_Data ),
+                [User ID],
+                [First Name],
+                [Last Name],
+                [P&amp;L],
+                [Department],
+                [Job Grade]
+            ),
+            [User ID],
+            [First Name],
+            [Last Name],
+            [P&amp;L],
+            [Department],
+            [Job Grade]
+        ),
+        [Person Rank without Ties] &lt;= PersonRank
+    )
+VAR TotalUptoCurrentPerson =
+    CALCULATE ( [Amount [GBP]] by Person], PersonWithRankNotAbove )
+RETURN
+    TotalUptoCurrentPerson
+</code></pre>
+
+<h3 id="ers-ni--of-salary-multi-threaded">ERs NI [%]] of Salary Multi-Threaded</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[ERs NI [%]] of Salary Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = &quot;YTD&quot;, [YTD ERs NI as [%]] of YTD Salary],
+    [Calculation Type] = &quot;Normal&quot;, [ERs NI [%]] of Salary],
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[ERs NI [%]] of Salary Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = "YTD", [YTD ERs NI as [%]] of YTD Salary],
+    [Calculation Type] = "Normal", [ERs NI [%]] of Salary],
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="ers-ni-gbp-multi-threaded">ERs NI [GBP]] Multi-Threaded</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[ERs NI [GBP]] Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = &quot;YTD&quot;, [YTD ERs NI [GBP]]],
+    [Calculation Type] = &quot;Normal&quot;, [ERs NI [GBP]]],
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[ERs NI [GBP]] Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = "YTD", [YTD ERs NI [GBP]]],
+    [Calculation Type] = "Normal", [ERs NI [GBP]]],
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="pension--of-salary-multi-threaded">Pension [%]] of Salary Multi-Threaded</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Pension [%]] of Salary Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = &quot;YTD&quot;, [YTD Pension [%]] of YTD Salary],
+    [Calculation Type] = &quot;Normal&quot;, [Pension [%]] of Salary],
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Pension [%]] of Salary Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = "YTD", [YTD Pension [%]] of YTD Salary],
+    [Calculation Type] = "Normal", [Pension [%]] of Salary],
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="pension-gbp-multi-threaded">Pension [GBP]] Multi-Threaded</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Pension [GBP]] Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = &quot;YTD&quot;, [YTD Pension [GBP]]],
+    [Calculation Type] = &quot;Normal&quot;, [Pension [GBP]]],
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Pension [GBP]] Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = "YTD", [YTD Pension [GBP]]],
+    [Calculation Type] = "Normal", [Pension [GBP]]],
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="salary-gbp-multi-threaded">Salary [GBP]] Multi-Threaded</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Salary [GBP]] Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = &quot;YTD&quot;, [YTD Salary [GBP]]],
+    [Calculation Type] = &quot;Normal&quot;, [Salary [GBP]]],
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Salary [GBP]] Multi-Threaded] = 
+SWITCH (
+    TRUE (),
+    [Calculation Type] = "YTD", [YTD Salary [GBP]]],
+    [Calculation Type] = "Normal", [Salary [GBP]]],
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="ers-ni--of-salary">ERs NI [%]] of Salary</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[ERs NI [%]] of Salary] = DIVIDE([ERs NI [GBP]]], [Salary [GBP]]], BLANK())
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[ERs NI [%]] of Salary] = DIVIDE([ERs NI [GBP]]], [Salary [GBP]]], BLANK())
+</code></pre>
+
+<h3 id="ers-ni-gbp">ERs NI [GBP]]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[ERs NI [GBP]]] = CALCULATE(SUM(Payroll_Data[Amount]), Payroll_Data[NL Line]=&quot;ERs NI&quot;)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[ERs NI [GBP]]] = CALCULATE(SUM(Payroll_Data[Amount]), Payroll_Data[NL Line]="ERs NI")
+</code></pre>
+
+<h3 id="pension--of-salary">Pension [%]] of Salary</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Pension [%]] of Salary] = DIVIDE([Pension [GBP]]], [Salary [GBP]]], BLANK())
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Pension [%]] of Salary] = DIVIDE([Pension [GBP]]], [Salary [GBP]]], BLANK())
+</code></pre>
+
+<h3 id="pension-gbp">Pension [GBP]]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Pension [GBP]]] = CALCULATE(SUM(Payroll_Data[Amount]), Payroll_Data[NL Line]=&quot;Pension&quot;)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Pension [GBP]]] = CALCULATE(SUM(Payroll_Data[Amount]), Payroll_Data[NL Line]="Pension")
+</code></pre>
+
+<h3 id="salary-gbp">Salary [GBP]]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Salary [GBP]]] = CALCULATE(SUM(Payroll_Data[Amount]), Payroll_Data[NL Line]=&quot;Salary&quot;)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Salary [GBP]]] = CALCULATE(SUM(Payroll_Data[Amount]), Payroll_Data[NL Line]="Salary")
+</code></pre>
+
+<h3 id="ytd-ers-ni-gbp">YTD ERs NI [GBP]]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[YTD ERs NI [GBP]]] = TOTALYTD([ERs NI [GBP]]], Payroll_Data[Month])
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[YTD ERs NI [GBP]]] = TOTALYTD([ERs NI [GBP]]], Payroll_Data[Month])
+</code></pre>
+
+<h3 id="ytd-ers-ni-as--of-ytd-salary">YTD ERs NI as [%]] of YTD Salary</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[YTD ERs NI as [%]] of YTD Salary] = DIVIDE([YTD ERs NI [GBP]]], [YTD Salary [GBP]]], BLANK())
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[YTD ERs NI as [%]] of YTD Salary] = DIVIDE([YTD ERs NI [GBP]]], [YTD Salary [GBP]]], BLANK())
+</code></pre>
+
+<h3 id="ytd-pension--of-ytd-salary">YTD Pension [%]] of YTD Salary</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[YTD Pension [%]] of YTD Salary] = DIVIDE([YTD Pension [GBP]]], [YTD Salary [GBP]]], BLANK())
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[YTD Pension [%]] of YTD Salary] = DIVIDE([YTD Pension [GBP]]], [YTD Salary [GBP]]], BLANK())
+</code></pre>
+
+<h3 id="ytd-pension-gbp">YTD Pension [GBP]]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[YTD Pension [GBP]]] = TOTALYTD([Pension [GBP]]], Payroll_Data[Month])
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[YTD Pension [GBP]]] = TOTALYTD([Pension [GBP]]], Payroll_Data[Month])
+</code></pre>
+
+<h3 id="ytd-salary-gbp">YTD Salary [GBP]]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[YTD Salary [GBP]]] = TOTALYTD([Salary [GBP]]], Payroll_Data[Month])
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[YTD Salary [GBP]]] = TOTALYTD([Salary [GBP]]], Payroll_Data[Month])
+</code></pre>
+
+<h3 id="person-rank-with-ties">Person Rank with Ties</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Person Rank with Ties = IF (
+    NOT ( HASONEVALUE ( Payroll_Data[User ID] ) ),
+    COUNTROWS ( GROUPBY ( ALLSELECTED ( Payroll_Data ), [User ID] ) ),
+    RANKX (
+        GROUPBY (
+            SUMMARIZE (
+                ALLSELECTED ( Payroll_Data ),
+                [User ID],
+                [First Name],
+                [Last Name],
+                [P&amp;L],
+                [Department],
+                [Job Grade]
+            ),
+            [User ID],
+            [First Name],
+            [Last Name]
+        ),
+        [Amount [GBP]] by Person],
+        ,
+        DESC,
+        SKIP
+    )
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Person Rank with Ties = IF (
+    NOT ( HASONEVALUE ( Payroll_Data[User ID] ) ),
+    COUNTROWS ( GROUPBY ( ALLSELECTED ( Payroll_Data ), [User ID] ) ),
+    RANKX (
+        GROUPBY (
+            SUMMARIZE (
+                ALLSELECTED ( Payroll_Data ),
+                [User ID],
+                [First Name],
+                [Last Name],
+                [P&amp;L],
+                [Department],
+                [Job Grade]
+            ),
+            [User ID],
+            [First Name],
+            [Last Name]
+        ),
+        [Amount [GBP]] by Person],
+        ,
+        DESC,
+        SKIP
+    )
+)
+</code></pre>
+
+<h3 id="person-rank-without-ties">Person Rank without Ties</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Person Rank without Ties = VAR CurrentPersonTotal = [Amount [GBP]] by Person]
+VAR CurrentPerson =
+    MAX ( Payroll_Data[User ID] )
+VAR AllRelevantPersons =
+    FILTER (
+        FILTER (
+            GROUPBY (
+                SUMMARIZE (
+                    ALLSELECTED ( Payroll_Data ),
+                    [User ID],
+                    [First Name],
+                    [Last Name],
+                    [P&amp;L],
+                    [Department],
+                    [Job Grade]
+                ),
+                [User ID],
+                [First Name],
+                [Last Name]
+            ),
+            [Amount [GBP]] by Person] &gt;= CurrentPersonTotal
+        ),
+        VAR TotalAmount = [Amount [GBP]] by Person]
+        VAR IteratedPerson = [User ID]
+        RETURN
+             ( TotalAmount &gt; CurrentPersonTotal ) + ( TotalAmount = CurrentPersonTotal ) * ( IteratedPerson &lt; CurrentPerson )
+    )
+VAR Result =
+    1 + COUNTROWS ( AllRelevantPersons )
+VAR ShouldCalc =
+    ISFILTERED ( Payroll_Data[User ID]  ) &amp;&amp; HASONEVALUE ( Payroll_Data[User ID] )
+RETURN
+    SWITCH (
+        TRUE (),
+        NOT ( HASONEVALUE ( Payroll_Data[User ID]  ) ), COUNTROWS ( GROUPBY ( ALLSELECTED ( Payroll_Data ), [User ID] ) ),
+        ShouldCalc, Result,
+        BLANK ()
+    )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Person Rank without Ties = VAR CurrentPersonTotal = [Amount [GBP]] by Person]
+VAR CurrentPerson =
+    MAX ( Payroll_Data[User ID] )
+VAR AllRelevantPersons =
+    FILTER (
+        FILTER (
+            GROUPBY (
+                SUMMARIZE (
+                    ALLSELECTED ( Payroll_Data ),
+                    [User ID],
+                    [First Name],
+                    [Last Name],
+                    [P&amp;L],
+                    [Department],
+                    [Job Grade]
+                ),
+                [User ID],
+                [First Name],
+                [Last Name]
+            ),
+            [Amount [GBP]] by Person] &gt;= CurrentPersonTotal
+        ),
+        VAR TotalAmount = [Amount [GBP]] by Person]
+        VAR IteratedPerson = [User ID]
+        RETURN
+             ( TotalAmount &gt; CurrentPersonTotal ) + ( TotalAmount = CurrentPersonTotal ) * ( IteratedPerson &lt; CurrentPerson )
+    )
+VAR Result =
+    1 + COUNTROWS ( AllRelevantPersons )
+VAR ShouldCalc =
+    ISFILTERED ( Payroll_Data[User ID]  ) &amp;&amp; HASONEVALUE ( Payroll_Data[User ID] )
+RETURN
+    SWITCH (
+        TRUE (),
+        NOT ( HASONEVALUE ( Payroll_Data[User ID]  ) ), COUNTROWS ( GROUPBY ( ALLSELECTED ( Payroll_Data ), [User ID] ) ),
+        ShouldCalc, Result,
+        BLANK ()
+    )
+</code></pre>
+
+<h3 id="total-amount-gbp">Total Amount [GBP]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Total Amount [GBP]] Selected Persons Only] = CALCULATE (
+    SUM ( Payroll_Data[Amount] ),
+    ALLSELECTED ( Payroll_Data[User ID] ),
+    ALLSELECTED ( Payroll_Data[First Name] ),
+    ALLSELECTED ( Payroll_Data[Last Name] ),
+    ALL ( Payroll_Data[P&amp;L] ),
+    ALL ( Payroll_Data[Department] ),
+    ALL ( Payroll_Data[Job Grade] )
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Total Amount [GBP]] Selected Persons Only] = CALCULATE (
+    SUM ( Payroll_Data[Amount] ),
+    ALLSELECTED ( Payroll_Data[User ID] ),
+    ALLSELECTED ( Payroll_Data[First Name] ),
+    ALLSELECTED ( Payroll_Data[Last Name] ),
+    ALL ( Payroll_Data[P&amp;L] ),
+    ALL ( Payroll_Data[Department] ),
+    ALL ( Payroll_Data[Job Grade] )
+)
+</code></pre>
+
+<h2 id="change-measures">Change Measures</h2>
+
+<h3 id="amount-m-1-gbp-by-person">Amount M-1 [GBP]] by Person</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Amount M-1 [GBP]] by Person] = 
+CALCULATE ( [Amount [GBP]] by Person], PREVIOUSMONTH ( Payroll_Data[Month] ) )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Amount M-1 [GBP]] by Person] = 
+CALCULATE ( [Amount [GBP]] by Person], PREVIOUSMONTH ( Payroll_Data[Month] ) )
+</code></pre>
+
+<h3 id="department-change">Department Change</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Department Change = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER ( Payroll_Data[Month] ) ),
+    SWITCH (
+        TRUE (),
+        [Last Department] = [Last Department PM], &quot;No Change&quot;,
+        &quot;Change&quot;
+    ),
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Department Change = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER ( Payroll_Data[Month] ) ),
+    SWITCH (
+        TRUE (),
+        [Last Department] = [Last Department PM], "No Change",
+        "Change"
+    ),
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="department-change-color">Department Change Color</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Department Change Color = 
+VAR DepartmentGrade = [Department Change]
+RETURN
+    SWITCH (
+        TRUE (),
+        DepartmentGrade = &quot;Change&quot;, &quot;#FFF7A9&quot;,
+        DepartmentGrade = &quot;No Change&quot;, &quot;#EBEBEB&quot;,
+        &quot;#FFFFFF&quot;
+    )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Department Change Color = 
+VAR DepartmentGrade = [Department Change]
+RETURN
+    SWITCH (
+        TRUE (),
+        DepartmentGrade = "Change", "#FFF7A9",
+        DepartmentGrade = "No Change", "#EBEBEB",
+        "#FFFFFF"
+    )
+</code></pre>
+
+<h3 id="job-grade-change">Job Grade Change</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Job Grade Change = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER ( Payroll_Data[Month] ) ),
+    SWITCH (
+        TRUE (),
+        [Last Job Grade] = [Last Job Grade PM], &quot;No Change&quot;,
+        &quot;Change&quot;
+    ),
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Job Grade Change = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER ( Payroll_Data[Month] ) ),
+    SWITCH (
+        TRUE (),
+        [Last Job Grade] = [Last Job Grade PM], "No Change",
+        "Change"
+    ),
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="job-grade-change-color">Job Grade Change Color</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Job Grade Change Color = 
+VAR JobGrade = [Job Grade Change]
+RETURN
+    SWITCH (
+        TRUE (),
+        JobGrade = &quot;Change&quot;, &quot;#FFF7A9&quot;,
+        JobGrade = &quot;No Change&quot;, &quot;#EBEBEB&quot;,
+        &quot;#FFFFFF&quot;
+    )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Job Grade Change Color = 
+VAR JobGrade = [Job Grade Change]
+RETURN
+    SWITCH (
+        TRUE (),
+        JobGrade = "Change", "#FFF7A9",
+        JobGrade = "No Change", "#EBEBEB",
+        "#FFFFFF"
+    )
+</code></pre>
+
+<h3 id="last-department">Last Department</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Last Department = CALCULATE (
+    MAX ( Payroll_Data[Department] ),
+    FILTER (
+        GROUPBY ( Payroll_Data, [P&amp;L], [Job Grade], [User ID], [Month], [NL Line], [Start Date] ),
+        Payroll_Data[Start Date] = MAX ( Payroll_Data[Start Date] )
+    ),
+    ALL(Payroll_Data[P&amp;L]),
+    ALL(Payroll_Data[Job Grade])
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Last Department = CALCULATE (
+    MAX ( Payroll_Data[Department] ),
+    FILTER (
+        GROUPBY ( Payroll_Data, [P&amp;L], [Job Grade], [User ID], [Month], [NL Line], [Start Date] ),
+        Payroll_Data[Start Date] = MAX ( Payroll_Data[Start Date] )
+    ),
+    ALL(Payroll_Data[P&amp;L]),
+    ALL(Payroll_Data[Job Grade])
+)
+</code></pre>
+
+<h3 id="last-department-pm">Last Department PM</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Last Department PM = CALCULATE (
+    [Last Department],
+    PREVIOUSMONTH ( Payroll_Data[Month] ),
+    ALL ( Payroll_Data[P&amp;L] ),
+    ALL ( Payroll_Data[Job Grade] )
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Last Department PM = CALCULATE (
+    [Last Department],
+    PREVIOUSMONTH ( Payroll_Data[Month] ),
+    ALL ( Payroll_Data[P&amp;L] ),
+    ALL ( Payroll_Data[Job Grade] )
+)
+</code></pre>
+
+<h3 id="last-job-grade">Last Job Grade</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Last Job Grade = CALCULATE (
+    MAX(Payroll_Data[Job Grade]),
+    FILTER (
+        GROUPBY ( Payroll_Data, [P&amp;L], [Department], [User ID], [Month], [NL Line], [Start Date] ),
+        Payroll_Data[Start Date] = MAX(Payroll_Data[Start Date])
+    ),
+    ALL(Payroll_Data[P&amp;L]),
+    ALL(Payroll_Data[Department])
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Last Job Grade = CALCULATE (
+    MAX(Payroll_Data[Job Grade]),
+    FILTER (
+        GROUPBY ( Payroll_Data, [P&amp;L], [Department], [User ID], [Month], [NL Line], [Start Date] ),
+        Payroll_Data[Start Date] = MAX(Payroll_Data[Start Date])
+    ),
+    ALL(Payroll_Data[P&amp;L]),
+    ALL(Payroll_Data[Department])
+)
+</code></pre>
+
+<h3 id="last-job-grade-pm">Last Job Grade PM</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Last Job Grade PM = CALCULATE (
+    [Last Job Grade],
+    PREVIOUSMONTH ( Payroll_Data[Month] ),
+    ALL ( Payroll_Data[P&amp;L] ),
+    ALL ( Payroll_Data[Department] )
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Last Job Grade PM = CALCULATE (
+    [Last Job Grade],
+    PREVIOUSMONTH ( Payroll_Data[Month] ),
+    ALL ( Payroll_Data[P&amp;L] ),
+    ALL ( Payroll_Data[Department] )
+)
+</code></pre>
+
+<h3 id="last-pl">Last P&amp;L</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Last P&amp;L = CALCULATE (
+    MAX ( Payroll_Data[P&amp;L] ),
+    FILTER (
+        GROUPBY ( Payroll_Data, [Department], [Job Grade], [User ID], [Month], [NL Line], [Start Date] ),
+        Payroll_Data[Start Date] = MAX ( Payroll_Data[Start Date] )
+    ),
+    ALL(Payroll_Data[Department]),
+    ALL(Payroll_Data[Job Grade])
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Last P&amp;L = CALCULATE (
+    MAX ( Payroll_Data[P&amp;L] ),
+    FILTER (
+        GROUPBY ( Payroll_Data, [Department], [Job Grade], [User ID], [Month], [NL Line], [Start Date] ),
+        Payroll_Data[Start Date] = MAX ( Payroll_Data[Start Date] )
+    ),
+    ALL(Payroll_Data[Department]),
+    ALL(Payroll_Data[Job Grade])
+)
+</code></pre>
+
+<h3 id="last-pl-pm">Last P&amp;L PM</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Last P&amp;L PM = CALCULATE (
+    [Last P&amp;L],
+    PREVIOUSMONTH ( Payroll_Data[Month] ),
+    ALL ( Payroll_Data[Department] ),
+    ALL ( Payroll_Data[Job Grade] )
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Last P&amp;L PM = CALCULATE (
+    [Last P&amp;L],
+    PREVIOUSMONTH ( Payroll_Data[Month] ),
+    ALL ( Payroll_Data[Department] ),
+    ALL ( Payroll_Data[Job Grade] )
+)
+</code></pre>
+
+<h3 id="pl-change">P&amp;L Change</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+P&amp;L Change = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER ( Payroll_Data[Month] ) ),
+    SWITCH (
+        TRUE (),
+        [Last P&amp;L] = [Last P&amp;L PM], &quot;No Change&quot;,
+        &quot;Change&quot;
+    ),
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">P&amp;L Change = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER ( Payroll_Data[Month] ) ),
+    SWITCH (
+        TRUE (),
+        [Last P&amp;L] = [Last P&amp;L PM], "No Change",
+        "Change"
+    ),
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="pl-change-color">P&amp;L Change Color</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+P&amp;L Change Color = 
+VAR PnL = [P&amp;L Change]
+RETURN
+    SWITCH (
+        TRUE (),
+        PnL = &quot;Change&quot;, &quot;#FFF7A9&quot;,
+        PnL = &quot;No Change&quot;, &quot;#EBEBEB&quot;,
+        &quot;#FFFFFF&quot;
+    )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">P&amp;L Change Color = 
+VAR PnL = [P&amp;L Change]
+RETURN
+    SWITCH (
+        TRUE (),
+        PnL = "Change", "#FFF7A9",
+        PnL = "No Change", "#EBEBEB",
+        "#FFFFFF"
+    )
+</code></pre>
+
+<h3 id="payroll-change">Payroll Change</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Payroll Change = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER ( Payroll_Data[Month] ) ),
+    SWITCH (
+        TRUE (),
+        [Payroll Variance [GBP]]] &gt; 5, &quot;Up&quot;,
+        [Payroll Variance [GBP]]] &lt; 5, &quot;Down&quot;,
+        &quot;No Change +/- £5&quot;
+    ),
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Payroll Change = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER ( Payroll_Data[Month] ) ),
+    SWITCH (
+        TRUE (),
+        [Payroll Variance [GBP]]] &gt; 5, "Up",
+        [Payroll Variance [GBP]]] &lt; 5, "Down",
+        "No Change +/- £5"
+    ),
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="payroll-variance-gbp">Payroll Variance [GBP]]</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+[Payroll Variance [GBP]]] = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER( Payroll_Data[Month]) ),
+    [Amount [GBP]] by Person] - [Amount M-1 [GBP]] by Person],
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">[Payroll Variance [GBP]]] = IF (
+    AND ( MONTH ( AVERAGE ( Payroll_Data[Month] ) ) &lt;&gt; 1, HASONEFILTER( Payroll_Data[Month]) ),
+    [Amount [GBP]] by Person] - [Amount M-1 [GBP]] by Person],
+    BLANK ()
+)
+</code></pre>
+
+
+                        
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#hr---payroll-analytics-and-tracking-employee-profile-changes-eg-job-grade-department-and-pl-over-time-1">HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&amp;L) over time</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#payroll-analytics">Payroll Analytics</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#model-extensions">Model Extensions</a></li>
+<li class="toc-entry toc-h2"><a href="#dashboard---snippet">Dashboard - Snippet</a></li>
+<li class="toc-entry toc-h2"><a href="#data-model---snippet">Data Model - Snippet</a></li>
+<li class="toc-entry toc-h2"><a href="#main-measures">Main Measures</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#amount-gbp">Amount [GBP]</a></li>
+<li class="toc-entry toc-h3"><a href="#amount-gbp-by-person">Amount [GBP]] by Person</a></li>
+<li class="toc-entry toc-h3"><a href="#amount-as--of-total">Amount as [%]] of Total</a></li>
+<li class="toc-entry toc-h3"><a href="#calculation-type">Calculation Type</a></li>
+<li class="toc-entry toc-h3"><a href="#cumulative-">Cumulative [%]]</a></li>
+<li class="toc-entry toc-h3"><a href="#cumulative-gbp-with-ties">Cumulative [GBP]] (with Ties)</a></li>
+<li class="toc-entry toc-h3"><a href="#cumulative-gbp-without-ties">Cumulative [GBP]] (without Ties)</a></li>
+<li class="toc-entry toc-h3"><a href="#ers-ni--of-salary-multi-threaded">ERs NI [%]] of Salary Multi-Threaded</a></li>
+<li class="toc-entry toc-h3"><a href="#ers-ni-gbp-multi-threaded">ERs NI [GBP]] Multi-Threaded</a></li>
+<li class="toc-entry toc-h3"><a href="#pension--of-salary-multi-threaded">Pension [%]] of Salary Multi-Threaded</a></li>
+<li class="toc-entry toc-h3"><a href="#pension-gbp-multi-threaded">Pension [GBP]] Multi-Threaded</a></li>
+<li class="toc-entry toc-h3"><a href="#salary-gbp-multi-threaded">Salary [GBP]] Multi-Threaded</a></li>
+<li class="toc-entry toc-h3"><a href="#ers-ni--of-salary">ERs NI [%]] of Salary</a></li>
+<li class="toc-entry toc-h3"><a href="#ers-ni-gbp">ERs NI [GBP]]</a></li>
+<li class="toc-entry toc-h3"><a href="#pension--of-salary">Pension [%]] of Salary</a></li>
+<li class="toc-entry toc-h3"><a href="#pension-gbp">Pension [GBP]]</a></li>
+<li class="toc-entry toc-h3"><a href="#salary-gbp">Salary [GBP]]</a></li>
+<li class="toc-entry toc-h3"><a href="#ytd-ers-ni-gbp">YTD ERs NI [GBP]]</a></li>
+<li class="toc-entry toc-h3"><a href="#ytd-ers-ni-as--of-ytd-salary">YTD ERs NI as [%]] of YTD Salary</a></li>
+<li class="toc-entry toc-h3"><a href="#ytd-pension--of-ytd-salary">YTD Pension [%]] of YTD Salary</a></li>
+<li class="toc-entry toc-h3"><a href="#ytd-pension-gbp">YTD Pension [GBP]]</a></li>
+<li class="toc-entry toc-h3"><a href="#ytd-salary-gbp">YTD Salary [GBP]]</a></li>
+<li class="toc-entry toc-h3"><a href="#person-rank-with-ties">Person Rank with Ties</a></li>
+<li class="toc-entry toc-h3"><a href="#person-rank-without-ties">Person Rank without Ties</a></li>
+<li class="toc-entry toc-h3"><a href="#total-amount-gbp">Total Amount [GBP]</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#change-measures">Change Measures</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#amount-m-1-gbp-by-person">Amount M-1 [GBP]] by Person</a></li>
+<li class="toc-entry toc-h3"><a href="#department-change">Department Change</a></li>
+<li class="toc-entry toc-h3"><a href="#department-change-color">Department Change Color</a></li>
+<li class="toc-entry toc-h3"><a href="#job-grade-change">Job Grade Change</a></li>
+<li class="toc-entry toc-h3"><a href="#job-grade-change-color">Job Grade Change Color</a></li>
+<li class="toc-entry toc-h3"><a href="#last-department">Last Department</a></li>
+<li class="toc-entry toc-h3"><a href="#last-department-pm">Last Department PM</a></li>
+<li class="toc-entry toc-h3"><a href="#last-job-grade">Last Job Grade</a></li>
+<li class="toc-entry toc-h3"><a href="#last-job-grade-pm">Last Job Grade PM</a></li>
+<li class="toc-entry toc-h3"><a href="#last-pl">Last P&amp;L</a></li>
+<li class="toc-entry toc-h3"><a href="#last-pl-pm">Last P&amp;L PM</a></li>
+<li class="toc-entry toc-h3"><a href="#pl-change">P&amp;L Change</a></li>
+<li class="toc-entry toc-h3"><a href="#pl-change-color">P&amp;L Change Color</a></li>
+<li class="toc-entry toc-h3"><a href="#payroll-change">Payroll Change</a></li>
+<li class="toc-entry toc-h3"><a href="#payroll-variance-gbp">Payroll Variance [GBP]]</a></li>
+</ul>
+</li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/guides/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/tech-blogs/">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>
