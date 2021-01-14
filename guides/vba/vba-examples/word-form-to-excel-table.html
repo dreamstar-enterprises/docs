@@ -517,11 +517,12 @@
 
 <h2 id="excel-workbook">Excel WorkBook</h2>
 
-<p>After pressing the export button, you should then automatically see the WorkBook populated, with data in the Table in the WorkSheet that was specified earlier (in this case, “CAR Register”).</p>
+<p>After pressing the export button, you should see the data populated automatically in the Table in the WorkSheet that was specified earlier (in this case, in the sheet called: “CAR Register”).</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/word-form-to-excel-table-05.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('word-form-to-excel-table-05.png');" src="images/word-form-to-excel-table-05.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -530,13 +531,39 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<p>You can then print out both the original Microsoft Word User Form, and file it away, with the peace of mind that the data has also been accurately (digitally) sent, and stored (again, digitally!) in a Spreadsheet, that can quickly be retrieved for later use!</p>
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>VBA - Word Form to Excel Table</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<p>You can then print out both the original Microsoft Word User Form, and file it away, and save the data in a Spreadsheet, that can quickly be retrieved for later use!</p>
 
 <h2 id="create-vba-module">Create VBA Module</h2>
 
-<p>Use the following VBA Code. This creates a Macro. Ensure you assign it to the Export button in the form. 
-Ensure too that the file path to where the Excel file is, is set correctly.</p>
+<p>Use the following VBA Code to create a Macro. Ensure you assign it to the Export button in the form. 
+Ensure too you set the correct file path to where the Excel file is stored.</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: VBA">VBA</span>
@@ -666,7 +693,7 @@ End Sub
 
 <h2 id="activate-correct-vba-objects-in-word">Activate correct VBA Objects (in Word)</h2>
 
-<p>For the solution to work, ensure that you have the following checked under references in Microsoft Word - especially ‘<em>Microsoft Excel 16.0 Object Library</em>’ or above. Click on VBA Editor, then Choose the Tools menu, then ‘<em>References</em>’. You need to do this in the VBA editor in Microsoft Word (not Microsoft Excel).</p>
+<p>For the solution to work, ensure that you have the following checked under references in Microsoft Word - especially ‘<em>Microsoft Excel 16.0 Object Library</em>’ or greater. To do this, click on VBA Editor, then Choose the Tools menu, then ‘<em>References</em>’ and select the correct library. You need to do this in the VBA editor in Microsoft Word (not Microsoft Excel).</p>
 
 <figure>
     

@@ -431,9 +431,32 @@
 
 <h2 id="screenshots">Screenshots</h2>
 
-<figure>
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>VBA - Locking Sheets</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/locking-sheets-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('locking-sheets-01.png');" src="images/locking-sheets-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -442,9 +465,15 @@
     </figcaption>
     
 </figure>
-<figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/locking-sheets-02.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('locking-sheets-02.png');" src="images/locking-sheets-02.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -453,6 +482,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h2 id="vba-module-code--locking-sheets">VBA Module Code – Locking Sheets</h2>
 
