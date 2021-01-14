@@ -922,9 +922,28 @@
 
 <p>You have so far been able to obtain following HR data (something you got from your H.R. ERP).</p>
 
-<figure>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>HR - Inventory Movements &amp; Tenure</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/hr-inventory-table-1.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('hr-inventory-table-1.png');" src="images/hr-inventory-table-1.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -933,6 +952,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>You see that every time an Employee’s Country, Office, Department, Job Grade, or Full or Part Time status changes, a new entry is created. This is needed so you can see each important change to an Employee’s profile. (Sadly, not many H.R. driven ERPs can record even this detail, but let’s assume that the one you have, can!) - (You could even optionally add <em>Salary</em> here too, as an extra field to track, if you wanted to!)</p>
 
@@ -1786,9 +1809,10 @@ List.Min({Number.From(Date.AddDays(DateTime.Date(DateTime.LocalNow()), 1)), Numb
 
 <p>If you now load the query into a worksheet, you should see the additional columns, added before, and after the Cross-Join operation, as well as the additional rows from the Cross Join, to get to the desired Inventory Management Table.</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/hr-inventory-table-40.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('hr-inventory-table-40.png');" src="images/hr-inventory-table-40.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -1797,6 +1821,10 @@ List.Min({Number.From(Date.AddDays(DateTime.Date(DateTime.LocalNow()), 1)), Numb
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h3 id="7-create-a-hr-inventory-management-table">7. Create a HR Inventory Management Table</h3>
 

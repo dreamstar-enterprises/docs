@@ -926,9 +926,28 @@
 
 <p>Let us start with the following data from your HR ERP.</p>
 
-<figure>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>HR - Inventory Utilisation</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/hr-inventory-utilisation-table-1.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('hr-inventory-utilisation-table-1.png');" src="images/hr-inventory-utilisation-table-1.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -937,6 +956,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>This shows the availability history of each Employee. This is obviously a slowly changing dimension – as each employee’s profile seldom stays the same, so we have a new record for each change in: “Country”, “Department”, “Full or Part Time” working status, “Preferred Days Worked”, and/or “Hours worked per Day”.</p>
 
@@ -2832,21 +2855,10 @@ in
   <li>With the final dataset from above, an Inventory Utilisation table and chart can now be created, like shown below:</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/hr-inventory-utilisation-table-75.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<figure>
-    
-        <img class="docimage" src="images/hr-inventory-utilisation-table-76.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('hr-inventory-utilisation-table-75.png');" src="images/hr-inventory-utilisation-table-75.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -2855,6 +2867,27 @@ in
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('hr-inventory-utilisation-table-76.png');" src="images/hr-inventory-utilisation-table-76.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>A report showing Inventory Utilisation for each Employee, from the above data, can be found in this <em>DAX article:</em> <a href="/../docs/guides/data-analytics/dax-samples/hr-inventory-utilisation-table.html"><strong>Showing HR Inventory Utilisation over time</strong></a>.</li>
@@ -2868,6 +2901,7 @@ in
   <li>Showing Utilisations on a Monthly level, or, if needed, Hourly level (for example, if you wanted to see what utilisations looked like for <strong><em>Day</em></strong> and <strong><em>Overnight</em></strong> shift work)</li>
   <li>Adding ‘<strong><em>Job Grade</em></strong>’, ‘<strong><em>Office</em></strong>’, and ‘<strong><em>Freelance or Permanent</em></strong>’ as extra fields, in addition to ‘<strong><em>Country</em></strong>’ and ‘<strong><em>Department</em></strong>’, to each Employee’s record in the Availability data (if supported by your company ERP)</li>
   <li>Adding extra fields, such as ‘<strong><em>Project Code</em></strong>’, ‘<strong><em>Internal Codes</em></strong>’, and ‘<strong><em>Status Codes</em></strong>’ to the Timesheet data, to get more accurate and granular timesheet tracking (again, if supported by your company ERP)</li>
+  <li>Consideration of ‘<strong><em>Annual Leave</em></strong>’, and ‘<strong><em>Toil hours</em></strong>’ on Availability. For past dates, these hours will probably already be on the Actual (Inventory Use) Timesheet, so can be taken from they. For future dates, these hours may not be on the Timesheet, and so may need to be obtained from a separate ‘<strong><em>Annual Leave</em></strong>’ report.</li>
 </ul>
 
                         
