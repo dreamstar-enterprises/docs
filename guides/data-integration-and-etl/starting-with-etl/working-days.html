@@ -929,6 +929,30 @@
 
 <p>Most Annual Leave reports come in the following format, reflecting the nature in which the requests are made. A start date, and then the number of days requested.</p>
 
+<figure>
+    
+        <img class="docimage" src="images/working-days-1.png" alt="" style="width: 100%; max-width: 89%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<p>Unfortunately, Power Query does not yet have in-built functions equivalent to the Excel functions, WORKDAYS.INTL, or NETWORKDAYS.INTL, so these need to be created from scratch.</p>
+
+<p>We explain how to do this, in this article.</p>
+
+<h2 id="steps">Steps</h2>
+<h3 id="1-load-the-data-into-power-query">1. Load the Data into Power Query</h3>
+
+<ul>
+  <li>Load the Annual Leave report data into Power Query</li>
+  <li>Remove blank columns, or rows, and promote the first row to headers, so the data looks something like this:</li>
+</ul>
+
 <!-- ************************************************ -->
 
 <!-- The Modal -->
@@ -954,7 +978,7 @@
 <div class="img-wrap">
   <figure>
     
-        <img class="docimage" onclick="showImage('working-days-1.png');" src="images/working-days-1.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('working-days-2.png');" src="images/working-days-2.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -967,30 +991,6 @@
     <p class="img-hover-description">Click to view large-sized image</p>
   </div>
 </div>
-
-<p>Unfortunately, Power Query does not yet have in-built functions equivalent to the Excel functions, WORKDAYS.INTL, or NETWORKDAYS.INTL, so these need to be created from scratch.</p>
-
-<p>We explain how to do this, in this article.</p>
-
-<h2 id="steps">Steps</h2>
-<h3 id="1-load-the-data-into-power-query">1. Load the Data into Power Query</h3>
-
-<ul>
-  <li>Load the Annual Leave report data into Power Query</li>
-  <li>Remove blank columns, or rows, and promote the first row to headers, so the data looks something like this:</li>
-</ul>
-
-<figure>
-    
-        <img class="docimage" src="images/working-days-2.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
 
 <ul>
   <li>Call the query ‘<em>Leave – Cleaned</em>’</li>
