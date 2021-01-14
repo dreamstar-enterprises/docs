@@ -927,7 +927,7 @@
 
 <p>In this example we show how it is possible to create custom functions to accurately calculate a staff’s annual leave.</p>
 
-<p>Most Annual Leave reports come in the following format, reflecting the nature in which the requests are made. A start date, and then the number of days requested.</p>
+<p>Most Annual Leave reports come in the following format, reflecting the nature in which the requests are made with (i) a start date, and the (ii) number of days requested.</p>
 
 <figure>
     
@@ -936,14 +936,14 @@
 
     
     <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
+        <i>Raw Annual Leave Report Data</i>
     </figcaption>
     
 </figure>
 
-<p>Unfortunately, Power Query does not yet have in-built functions equivalent to the Excel functions, WORKDAYS.INTL, or NETWORKDAYS.INTL, so these need to be created from scratch.</p>
+<p>Unfortunately, Power Query does not yet have in-built functions equivalent to the Excel functions, WORKDAYS.INTL, or NETWORKDAYS.INTL, so these need to be created from scratch, before we can transform and expand this report so that it shows all the Annual Leave dates for each row request (see the end of this article).</p>
 
-<p>We explain how to do this, in this article.</p>
+<p>We explain how to do this transformation adn expansion in this article.</p>
 
 <h2 id="steps">Steps</h2>
 <h3 id="1-load-the-data-into-power-query">1. Load the Data into Power Query</h3>
@@ -1393,7 +1393,7 @@ The variable ‘let CurrentCountry = [Country]’ is defined outside the <strong
 
     
     <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
+        <i>Transformed &amp; Expanded Annual Leave Report Data</i>
     </figcaption>
     
 </figure>
