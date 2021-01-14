@@ -541,6 +541,13 @@
         
       </li>
   
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/working-days.html">Working Day functions</a></li>
+    
+          
+        
+      </li>
+  
 </ul>
         
       </li>
@@ -1259,7 +1266,7 @@ In ‘M’ code, <strong><em>‘each’</em></strong> is just syntax sugar, or s
 
   <p>In the above case, <strong><em>“_”</em></strong> (the underscore) is a throw-away variable, that refers to each table object returned by the Table.Group function</p>
 
-  <p>So, you can modify <strong><em>each _</em></strong>, so that instead of just returning each table object, it returns each table object with the running total column merged to it.</p>
+  <p>So, you can modify <strong><em>each _</em></strong> in the above code, so that instead of just returning a table object, it returns each table object with an additional running total column merged onto it. Refer to the ‘M’ code below.</p>
 </div>
 
 <ul>
@@ -1278,10 +1285,10 @@ In ‘M’ code, <strong><em>‘each’</em></strong> is just syntax sugar, or s
     
 </figure>
 
-<p>Focussing on the inner let / in portion of the code above:</p>
+<p>Focusing on the inner let / in portion of the code above:</p>
 
 <ul>
-  <li>The table object, “_” is passed in as a parameter of type table</li>
+  <li>The table object, “_” is passed in as a parameter of type table to a new sub-function</li>
   <li>The Table.ToColumns function converts each column of the “_” table object, into a list of lists</li>
   <li>The ‘&amp;{fnRunningTotal(_ “Sales”) }’ appends the returned ‘running total’ list, into this list of lists</li>
   <li>The Table.FromColumns function then converts the list of lists back into a table, with the headings of the original table object, plus “Running Total”, as the heading of the newly appended column</li>

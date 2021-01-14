@@ -2641,9 +2641,9 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .mainContainer .primary-holder #main-column .content figure figcaption { text-align: center; }
 
-.mainContainer .primary-holder #main-column .content .docimage { height: auto; margin-top: 0.5rem; padding: 1.2rem; transition-property: all; transition-duration: 120ms; transition-timing-function: linear; transition-delay: 0s; }
+.mainContainer .primary-holder #main-column .content .docimage { height: auto; margin-top: 0.5rem; padding: 2.8%; transition-property: all; transition-duration: 120ms; transition-timing-function: linear; transition-delay: 0s; }
 
-.mainContainer .primary-holder #main-column .content .docimage:hover { border-radius: 2px; -webkit-box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.2); }
+.mainContainer .primary-holder #main-column .content .docimage:hover { border-radius: 4px; -webkit-box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.2); }
 
 .mainContainer .primary-holder #main-column .content .img-wrap { position: relative; }
 
