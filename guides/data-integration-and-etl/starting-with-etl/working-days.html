@@ -939,7 +939,7 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>In this example we show how it is possible to create custom functions to accurately calculate a staff’s annual leave.</p>
+<p>In this article we show how it is possible to create custom functions to accurately calculate a staff’s annual leave.</p>
 
 <p>Most Annual Leave reports come in the following format, reflecting the nature in which the requests are made with (i) a start date, and the (ii) number of days requested.</p>
 
@@ -955,9 +955,9 @@
     
 </figure>
 
-<p>Unfortunately, Power Query does not yet have in-built functions equivalent to the Excel functions, WORKDAYS.INTL, or NETWORKDAYS.INTL, so these need to be created from scratch, before we can transform and expand this report so that it shows all the Annual Leave dates for each row request (see the end of this article).</p>
+<p>Unfortunately, Power Query does not yet have in-built functional equivalents to the Excel functions, WORKDAYS.INTL, and NETWORKDAYS.INTL, so these need to be created from scratch, before this report can be expanded to show all the Annual Leave dates, requested in each row (see how the data looks like at the end of this article).</p>
 
-<p>In this article, we explain how to create custom ETL functions to do this kind of data transformation and expansion.</p>
+<p>In what follows, we explain how to do such a transformation by building custom functions.</p>
 
 <h2 id="steps">Steps</h2>
 <h3 id="1-load-the-data-into-power-query">1. Load the Data into Power Query</h3>
