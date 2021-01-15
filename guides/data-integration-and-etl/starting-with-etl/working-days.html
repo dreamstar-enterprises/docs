@@ -1153,9 +1153,9 @@
     
 </figure>
 
-<p>This will be almost identical to the Excel WORKDAY.INTL function, except that this function will return not just one end date, but a list of dates, from the start date to the end date (skipping weekends and public holidays).</p>
+<p>This will be almost identical to the Excel WORKDAY.INTL function, except that this function will return not just one end date, but a list of dates, that runs from the start date to the end date (skipping weekends and public holidays). These are the actual Annual Leave dates.</p>
 
-<p>Regarding parameters, the following mapping will be used when defining what weekends are:</p>
+<p>Regarding the weekend parameter, the following mapping will be used when defining what weekends are:</p>
 
 <figure>
     
@@ -1169,7 +1169,7 @@
     
 </figure>
 
-<p>Here is the function:</p>
+<p>Here is the final function:</p>
 
 <div class="img-wrap">
   <figure>
@@ -1205,15 +1205,15 @@
   </div>
 </div>
 
-<p>We will not go through every step here, but the key functional elements are:</p>
+<p>We will not go through every step here, but the key functional elements involve:</p>
 
 <ul>
-  <li>Converting the weekend parameter (whether entered as text or numbers) into an array list of numbers: e.g. {0,1}, or {6,0}, etc. where 0 represents a Saturday, and 6 represents a Friday</li>
-  <li><em>List.Transform</em> is probably the most useful function here, as it allows one to apply any kind of sub-function (2nd parameter) to each item of whatever list (1st parameter) is passed in.</li>
-  <li>For each start date, generating a list of dates that goes at least 15 days into the future, or more, depending on how many annual leave days have been requested</li>
-  <li>Then from this list, removing any weekends, and holidays</li>
-  <li>Then, determining what the End Date should be</li>
-  <li>Finally, filtering the list to include only those dates up to the End Date, and not any days beyond this</li>
+  <li>Converting the weekend parameter (whether entered as text or numbers) into an array of numbers: e.g. {0,1}, or {6,0}, etc. where 0 represents a Saturday, and 6 represents a Friday, and so on.</li>
+  <li><em>List.Transform</em> is probably the most useful function here, as it allows one to apply any kind of sub-function (2nd parameter) to each item of any data list (1st parameter) passed into it.</li>
+  <li>Then, generating a list of dates from the requested start date that goes at least 15 days into the future, or more, depending on how many annual leave days have been requested</li>
+  <li>Then from this generated list, removing any weekends, and holidays</li>
+  <li>Then, determining what the last Annual Leave date should be</li>
+  <li>To then, finally, filtering the list to include only those dates up to the last Annual Leave date, and not any dates beyond this</li>
 </ul>
 
 <h3 id="4-create-a-networkdaysintl-function">4. Create a NetWorkDays.Intl function</h3>
@@ -1234,7 +1234,7 @@
 
 <p>The function would use the same Weekend Mapping as the earlier modified WORKDAY.INTL function.</p>
 
-<p>Here is the function:</p>
+<p>Here is the final function:</p>
 
 <!-- ************************************************ -->
 
@@ -1275,13 +1275,13 @@
 <p>The function is very similar to the earlier modified WORKDAY.INTL function except the last few steps:</p>
 
 <ul>
-  <li>The initial list of dates generated is from the Start Date to End Date – a guess estimate of future dates does not have to be generated – as the start and end dates are known.</li>
-  <li>After removing weekends and holidays, the function then returns a simple day count of items left in the list</li>
+  <li>The initial list of dates generated is from the Start Date to last Annual Leave date – a guess estimate of future dates does not have to be generated – as the start and last dates are known.</li>
+  <li>After removing weekends and holidays, the function then returns a simple count of days left in the list</li>
 </ul>
 
 <h3 id="5-create-an-annual-leave-query">5. Create an Annual Leave query</h3>
 
-<p>With both custom functions created, we can now transform the original Annual Leave data, to list all Annual Leave dates.</p>
+<p>With both custom functions created, we can now transform the original Annual Leave data, so it lists all Annual Leave dates on separate rows.</p>
 
 <p>The following ‘M’-code can be used:</p>
 
@@ -1303,13 +1303,13 @@
 </div>
 
 <ul>
-  <li>The first step references to the ‘<em>Leave – Cleaned</em>’ query created earlier</li>
-  <li>Another column is then added which lists all Working Days for each row of data. This is where the custom <strong><em>fnWorkdays</em></strong> function is sued, with all four parameters passed in.</li>
+  <li>The first step of the query references to the ‘<em>Leave – Cleaned</em>’ query created earlier</li>
+  <li>After this, a column is then added to show all the Annual Leave Dates (as a <em>List Object</em>) for each row of data (i.e for each request). This is where the custom <strong><em>fnWorkdays</em></strong> function has been used, with all four parameters passed in.</li>
 </ul>
 
 <div class="alert alert-info alerts-font" role="alert">
   <p><i class="fa fa-info-circle"></i> <b>Note: </b><br />
-The variable ‘<em>let CurrentCountry = [Country]</em>’ is defined outside the <strong><em>fnWorkdays</em></strong> function so the value can be properly called from within any sub-functions. This needs to be done, as parameters 3 and 4 of <strong><em>fnWorkdays</em></strong>  are in themselves functions - that get the correct list of holidays, or weekends, for each person, depending on the country the request is made from.</p>
+The variable ‘<em>let CurrentCountry = [Country]</em>’ is defined outside the <strong><em>fnWorkdays</em></strong> function so the value can be properly called from within any sub-functions. This needs to be done, as parameters 3 and 4 of <strong><em>fnWorkdays</em></strong>  are in themselves defined as sub-functions - that get the correct list of public holidays, or weekends, for each row of data, depending on the country the leave request is made from.</p>
 </div>
 
 <p>At this point, the data will look something like this:</p>
@@ -1332,7 +1332,7 @@ The variable ‘<em>let CurrentCountry = [Country]</em>’ is defined outside th
 </div>
 
 <ul>
-  <li>The next step is to expand the list of dates, and change its format to dates, so it looks like this:</li>
+  <li>The next step is to expand the list of dates, and change the datatype of this column to dates, so it looks like this:</li>
 </ul>
 
 <div class="img-wrap">
@@ -1353,7 +1353,7 @@ The variable ‘<em>let CurrentCountry = [Country]</em>’ is defined outside th
 </div>
 
 <ul>
-  <li>We then use our second custom function to count the number of working days between the columns ‘<em>Start Date</em>’ and ‘<em>Dates</em>’ so it looks like this:</li>
+  <li>We then use the second custom function <strong><em>fnNetWorkdays</em></strong> to count the number of working days between the two dates: ‘<em>Start Date</em>’ and ‘<em>Dates</em>’, and add this as an extra column, so the data now looks like this:</li>
 </ul>
 
 <div class="img-wrap">
@@ -1374,7 +1374,7 @@ The variable ‘<em>let CurrentCountry = [Country]</em>’ is defined outside th
 </div>
 
 <ul>
-  <li>Finally, we add a conditional column to correctly account for any half days (assumed to occur at the end of the requested period)</li>
+  <li>Finally, we add a conditional column to correctly account for any half days (which are assumed to occur at the end of each requested period)</li>
 </ul>
 
 <div class="img-wrap">
@@ -1395,12 +1395,12 @@ The variable ‘<em>let CurrentCountry = [Country]</em>’ is defined outside th
 </div>
 
 <ul>
-  <li>As the last step to the query, we remove the <em>Networkdays</em> column as it is no longer needed.</li>
+  <li>As the last step, we remove the <em>Networkdays</em> column that was just added, as it is no longer needed.</li>
 </ul>
 
 <h3 id="6-load-query-to-excel">6. Load Query to Excel</h3>
 
-<p>When the query is loaded to Excel, it should return results like this, showing all the Annual Leave dates, for each person and request - that importantly, takes into account days that are weekends and/or public holidays!</p>
+<p>When the query is loaded to Excel, it should return results in the following format, showing all the Annual Leave dates, for each request, on a separate row. Importantly, this generated list of Annual Leave dates automatically takes into account any dates that might be weekends or public holidays.</p>
 
 <figure>
     
@@ -1416,7 +1416,7 @@ The variable ‘<em>let CurrentCountry = [Country]</em>’ is defined outside th
 
 <h3 id="7-final-query">7. Final Query</h3>
 
-<p>The final query list should look something like this:</p>
+<p>The final query list should look something like this, returning the data in the desired format!</p>
 
 <figure>
     
@@ -1430,7 +1430,7 @@ The variable ‘<em>let CurrentCountry = [Country]</em>’ is defined outside th
     
 </figure>
 
-<p>The techniques described in this article can be flexed to accommodate for any number of other complex date / data transformations.</p>
+<p>The techniques described in this article can of course be flexed to any manner of degree, to accommodate for numerous other complex date/data scenarios and transformations. You just need to know how to create, and be comfortable working with custom functions!</p>
 
                         
                             <div id="mainNavBottom">
