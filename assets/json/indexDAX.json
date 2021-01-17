@@ -460,10 +460,10 @@ var searchIndex = [
         "tags_dax": ['ALLEXCEPT', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'ISBLANK', 'LOOKUPVALUE', 'MAX', 'SAMEPERIODLASTYEAR', 'SELECTEDVALUE', 'SUMX' ]
     },
 	{
-        "title": "Allocation of a Monthly Product Budget using the TREATAS function",
+        "title": "Allocation of a Monthly Product Budget using the TREATAS and FILTER functions",
         "date": "July 30, 2019",
         "url": "dax-samples/allocation-of-monthly-product-budget-using-treatas.html",
-        "content": "A sample that allocates a Monthly Product Budget, by month, without using filter relationships, but instead by using the TREATAS function.",
+        "content": "A sample that allocates a Monthly Product Budget, down to individual days, without using model relationships (with the Calendar Table), but instead by using the TREATAS and FILTER functions.",
         "tags_measure": ['Sales', 'Budgets'],
         "tags_dimension": ['Products', 'Calendar Time'],
         "tags_dax": ['ADDCOLUMNS', 'ALL', 'ALLSELECTED', 'CALCULATE', 'COUNTROWS', 'CROSSJOIN', 'DISTINCT', 'DIVIDE', 'FILTER', 'GENERATE', 'HASONEVALUE', 'SELECTEDVALUE', 'SUM', 'SUMMARIZE', 'SUMMARIZECOLUMNS', 'SUMX', 'TREATAS', 'VALUES' ]

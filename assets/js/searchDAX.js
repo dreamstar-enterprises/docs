@@ -644,12 +644,11 @@
 		// Variables
 		current_Page = parseInt(page);
 		sessionStorage.setItem("topInput", query.trim());
-		var priority0 = []; // for search in measure and dimension tag fields
-		var priority1 = []; // for search in title fields
-		var priority2 = []; // for search in content fields
+		var priority0 = []; // for search in measure, dimension, and dax tag fields
+		var priority1 = []; // for search in title & content fields
 		var results = [];
 
-		// Search Measure & Dimension Tags
+		// Search Measure, Dimension, & DAX Tags
 		if(checkedItemArray.length > 0 || checkedItemArray2.length > 0 || checkedItemArray3.length > 0){
 			let tagArray = checkedItemArray;
 			let tagArray2 = checkedItemArray2;
@@ -706,11 +705,9 @@
 		if(query.trim()){
 			priority0.forEach(function (article) {
 				// Convert Input String into Array of Words
-				if(matchWordsPartial(article.title, query.match(/\b(\w+)\b/g)).length > 0) return priority1.push(article);
-				if(matchWordsPartial(article.content, query.match(/\b(\w+)\b/g)).length > 0) priority2.push(article);
+				if(matchWordsPartial(article.title.concat(' ', article.content), query.match(/\b(\w+)\b/g)).length > 0) priority1.push(article);
 			});
-			// Combine the results into a single array
-			results = results.concat(priority1, priority2);
+			results = priority1;
 		} else {
 			results = priority0;
 		}
@@ -785,13 +782,13 @@
 		};
 
 		var html =
-				'<li class="grid-item">' +
-					'<article class="card">' +
+				'<li class="grid-item dax">' +
+					'<article class="card dax">' +
 						'<div class="card-content">' +
-							'<a class="card-content-title" href="' + article.url + '">' +
+							'<a class="card-content-title dax" href="' + article.url + '">' +
 								'<h3>' + article.title + '</h3>' +
 							'</a>' +
-							'<ul class="card-content-metadata">' +
+							'<ul class="card-content-metadata dax">' +
 								'<li>' +
 									'<time>' +
 										article.date +
