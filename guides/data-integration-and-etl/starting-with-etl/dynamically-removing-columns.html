@@ -13,13 +13,15 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Removing columns | StarBase </title>
+		<title>Dynamically removing columns | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
 		<!-- link to Main Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
 		<!-- link to Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..400&display=swap" rel="stylesheet">
 		<!-- link to Font awesome -->
 		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
 		<!-- link to Material Icons -->
@@ -65,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-bar-item">
-                    <a class = "nav-bar-button has-hover-underline" href="/docs/tech-blogs/">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/articles-and-blogs/article-search.html">
                         <span>
                             <!---->
                             Articles & Blogs
@@ -215,7 +217,8 @@
         <!-- Left Hand Side Tree-->
         <div class="left-sidebar column is-hidden-mobile  is-one-third-tablet is-one-quarter-desktop ">
             <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
-                
+
+                <!-- Include LHS Menu -->
                 
                 <form class = "has-margin-bottom-small" action="javascript:" role="search">
                     <label class="visually-hidden">Search</label>
@@ -407,6 +410,20 @@
         
       </li>
   
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/dynamically-removing-columns.html">Dynamically removing columns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/dynamically-expanding-columns.html">Dynamically expanding columns</a></li>
+    
+          
+        
+      </li>
+  
 </ul>
         
       </li>
@@ -427,7 +444,7 @@
       </li>
   
     
-      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/removing-columns.html">Removing columns</a></li>
+      <li class="none"><a href="/docs/guides/data-integration-and-etl/starting-with-etl/selecting-removing-columns.html">Selecting & Removing columns</a></li>
     
           
         
@@ -907,6 +924,8 @@
   
 </ul>
                 </ul>
+
+                <!-- Include the Correct Back Button -->
                 
             </nav>
         </div>
@@ -914,32 +933,49 @@
         
 
         <!-- Primary Holder -->    
-        <div class="primary-holder column   is-two-thirds-tablet is-three-quarters-desktop ">
-            <div class="columns has-large-gaps is-gapless-mobile ">
+        <div class="primary-holder column 
+          
+        is-two-thirds-tablet is-three-quarters-desktop 
+        ">
+            <div class="columns has-large-gaps is-gapless-mobile 
+            
+            ">
 
                  <!-- Main Column -->
-                <div id="main-column" class="column  is-full is-four-fifths-desktop ">
-                    <main id="main" class ="content" lang="eng-us">
-                        <h1 id="removing-columns">Removing columns</h1>
-<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 25/02/2018</time>
+                <div id="main-column" class="column 
+                 
+                is-full is-four-fifths-desktop 
+                ">
+                    <main id="main" class ="
+                    
+                        content
+                    " lang="eng-us">
+                        <h1 id="dynamically-removing-columns">Dynamically removing columns</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 15/01/2019</time>
 
 <h2 id="overview">Overview</h2>
 
-<p>‘M’ code has two main functions for selecting and removing columns: <strong><em>Table.RemoveColumns</em></strong>, <strong><em>Table.SelectColumns</em></strong></p>
+<p>In this article we explain how to dynamically remove columns when passing data through a an ETL. This is particularly useful if column positions change, or the dataset expands over time with new columns.</p>
 
-<p>Both functions accept a third argument, which can be <em>MissingField.Ignore</em>, or <em>MissingField.UseNull</em>.</p>
-
-<p><em>MissingField.Ignore</em> ignores the missing column, while <em>MissingField.UseNull</em> keeps the column name and fills it with nulls. <em>MissingField.UseNull</em> is more practical than its sibling <em>MissingField.Ignore</em>, especially when used with <strong><em>Table.SelectColumns</em></strong>, as it allows you to ensure the selected column names are included in the end result.</p>
-
-<p>Generally speaking, when selecting columns, to reduce the risk of an ETL refresh failure, it is always better to focus on the columns you want to keep, than on the ones you want to remove.</p>
-
-<p>Removing columns based on their position can also be better than referencing them by name.</p>
-
-<p>Suppose you have data like follows:</p>
+<p>Imagine we have defined the following data as a named range in Excel:</p>
 
 <figure>
     
-        <img class="docimage" src="images/removing-columns-1.png" alt="" style="width: 100%; max-width: 65.9%" />
+        <img class="docimage" src="images/dynamically-removing-columns-1.png" alt="" style="width: 100%; max-width: 89%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>Named Range</i>
+    </figcaption>
+    
+</figure>
+
+<p>When the named range is loaded to Power Query, it will look something like this:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/dynamically-removing-columns-2.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -949,157 +985,128 @@
     
 </figure>
 
-<p>In this article, we explain different possible methods of removing and/or selecting columns from such data:</p>
+<p>Here, the first three columns are needed, the others are not. You could use just the <strong><em>Table.SelectColumns</em></strong> function to select only the first three columns. Doing this, however, will hardcode the column names, “<em>Column1</em>”, “<em>Column2</em>”, and “<em>Column3</em>” into the query. So, if the position of the data columns later changes, the query will not work.</p>
 
-<h2 id="selecting-or-removing-columns-based-on-their-position">Selecting or removing columns based on their position</h2>
+<h2 id="use-other-table-functions">Use other Table functions</h2>
 
-<p>The following code will remove the first column:</p>
+<p>A better way would be to instead:</p>
 
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-    = Table.RemoveColumns(Source, List.First(Table.ColumnNames(Source)))
-">
-  </button>
+<ul>
+  <li>Combine the tables in the column called “<em>Content</em>” using the function <strong><em>Table.Combine</em></strong>. This will expand all the data across all the tables - (in this case there is only one table to expand).</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/dynamically-removing-columns-3.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Promote the first row to headers, using the function <strong><em>Table.PromoteHeaders</em></strong></li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/dynamically-removing-columns-4.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Then, extract the headers only, using the function <strong><em>Table.ColumnNames</em></strong>. The headers will appear as a vertical list.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/dynamically-removing-columns-5.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Next, remove any items with the name “<em>Column</em>”, “ “, “”, or a null in them. You can use any filtering criteria here you like.</li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/dynamically-removing-columns-6.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<ul>
+  <li>Once the list is filtered, you can then, but not any earlier, use the function <strong><em>Table.SelectColumns</em></strong> – to restrict which columns are included, as defined in the list in the earlier step, <em>FilteredCols</em></li>
+</ul>
+
+<figure>
+    
+        <img class="docimage" src="images/dynamically-removing-columns-7.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h2 id="add-new-column-and-re-test">Add new column and re-test</h2>
+
+<p>Now, if you can add a new field to the data, like so:</p>
+
+<figure>
+    
+        <img class="docimage" src="images/dynamically-removing-columns-8.png" alt="" style="width: 100%; max-width: 89%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i>Named Range</i>
+    </figcaption>
+    
+</figure>
+
+<p>Without changing the query, the new data in column E should automatically appear in the query (but not Columns D, F, G, H or I).</p>
+
+<p>This is indeed what happens! - the column ‘<em>New Field</em>’ is appended at the end - and not the blank columns.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/dynamically-removing-columns-9.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b><br />
+This query itself should be created in a separate file. If you loaded the query into the same file as the source data, you will likely have to modify the <strong><em>Table.Combine</em></strong> step so you do not accidently end up re-importing query output back into the query as a new table input, each time the query is run. If you did this, you would create a circular loop!</p>
 </div>
-<pre><code class="language-powerquery-m">    = Table.RemoveColumns(Source, List.First(Table.ColumnNames(Source)))
-</code></pre>
-
-<figure>
-    
-        <img class="docimage" src="images/removing-columns-2.png" alt="" style="width: 100%; max-width: 65.9%" />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<p>The following code will remove the last column of the table:</p>
-
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-    = Table.RemoveColumns(Source, List.Last(Table.ColumnNames(Source), 1))
-">
-  </button>
-</div>
-<pre><code class="language-powerquery-m">    = Table.RemoveColumns(Source, List.Last(Table.ColumnNames(Source), 1))
-</code></pre>
-
-<figure>
-    
-        <img class="docimage" src="images/removing-columns-3.png" alt="" style="width: 100%; max-width: 65.9%" />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<p>The following will keep the 2nd and 3rd columns only:</p>
-
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-    = Table.SelectColumns(Source, List.Range(Table.ColumnNames(Source), 1, 2))
-">
-  </button>
-</div>
-<pre><code class="language-powerquery-m">    = Table.SelectColumns(Source, List.Range(Table.ColumnNames(Source), 1, 2))
-</code></pre>
-
-<figure>
-    
-        <img class="docimage" src="images/removing-columns-4.png" alt="" style="width: 100%; max-width: 33.0%" />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<p>The <strong><em>List.Range</em></strong> function receives a list as the first argument, then a zero based offset, and then count of items to return.</p>
-
-<p>If you need to select 2 non-adjacent columns, say “Color”, and “Revenue”, you would use the following code:</p>
-
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-    = Table.SelectColumns(Source, {Table.ColumnNames(Source){2}, Table.ColumnNames(Source){5}})
-">
-  </button>
-</div>
-<pre><code class="language-powerquery-m">    = Table.SelectColumns(Source, {Table.ColumnNames(Source){2}, Table.ColumnNames(Source){5}})
-</code></pre>
-
-<figure>
-    
-        <img class="docimage" src="images/removing-columns-5.png" alt="" style="width: 100%; max-width: 33.0%" />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<h2 id="selecting-or-removing-columns-based-on-their-name">Selecting or removing columns based on their name</h2>
-
-<p>The following uses the <strong><em>List.Select</em></strong> function to remove columns that contain the substring “Supp”:</p>
-
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-    = Table.RemoveColumns(Source, List.Select(Table.ColumnNames(Source), each Text.Contains(_, &quot;Supp&quot;)))
-">
-  </button>
-</div>
-<pre><code class="language-powerquery-m">    = Table.RemoveColumns(Source, List.Select(Table.ColumnNames(Source), each Text.Contains(_, "Supp")))
-</code></pre>
-
-<figure>
-    
-        <img class="docimage" src="images/removing-columns-6.png" alt="" style="width: 100%; max-width: 65.9%" />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<p>The same results using <strong><em>Table.SelectColumns</em></strong> and the reverse selection logic:</p>
-
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: M-Code">M-Code</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-    = Table.SelectColumns(Source, List.Select(Table.ColumnNames(Source), each not Text.Contains(_, &quot;Supp&quot;)))
-">
-  </button>
-</div>
-<pre><code class="language-powerquery-m">    = Table.SelectColumns(Source, List.Select(Table.ColumnNames(Source), each not Text.Contains(_, "Supp")))
-</code></pre>
-
-<figure>
-    
-        <img class="docimage" src="images/removing-columns-7.png" alt="" style="width: 100%; max-width: 65.9%" />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
 
 
                         
@@ -1168,8 +1175,8 @@
                             </header>
                             <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
-<li class="toc-entry toc-h2"><a href="#selecting-or-removing-columns-based-on-their-position">Selecting or removing columns based on their position</a></li>
-<li class="toc-entry toc-h2"><a href="#selecting-or-removing-columns-based-on-their-name">Selecting or removing columns based on their name</a></li>
+<li class="toc-entry toc-h2"><a href="#use-other-table-functions">Use other Table functions</a></li>
+<li class="toc-entry toc-h2"><a href="#add-new-column-and-re-test">Add new column and re-test</a></li>
 </ul>
                         </nav>
 

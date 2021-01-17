@@ -1,0 +1,26 @@
+var searchIndex = [
+
+    {
+        "title": "MBA: Reflections One Year On",
+        "date": "July 19, 2017",
+        "url": "",
+        "content": "When I decided to pursue my MBA, I had several objectives in mind; I knew that after working for a couple of years in the professional services in...",
+        "image_url": "articles/images/mba-reflections.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['July'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "How to build a durable company?",
+        "date": "July 18, 2017",
+        "url": "articles/durable-company.html",
+        "content": "A few interesting lessons on how to build a valuable company by Peter Thiel, American entrepreneur, venture capitalist, and philanthropist...",
+        "image_url": "articles/images/durable.png",
+        "tags_year": ['2017'],
+        "tags_month": ['July'],
+        "tags_type": ['Article']
+    }
+    
+];
+
+
