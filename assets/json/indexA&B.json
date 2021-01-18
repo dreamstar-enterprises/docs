@@ -1,23 +1,113 @@
 var searchIndex = [
 
     {
-        "title": "MBA: Reflections One Year On",
-        "date": "July 19, 2017",
-        "url": "",
-        "content": "When I decided to pursue my MBA, I had several objectives in mind; I knew that after working for a couple of years in the professional services in...",
-        "image_url": "articles/images/mba-reflections.jpg",
+        "title": "How to build a durable company?",
+        "date": "July 14, 2017",
+        "url": "articles/durable-company.html",
+        "content": "A few interesting lessons on how to build a valuable company by Peter Thiel, American entrepreneur, venture capitalist, and philanthropist – and founder of the Founder’s Fund...",
+        "image_url": "articles/images/durable.png",
         "tags_year": ['2017'],
         "tags_month": ['July'],
         "tags_type": ['Article']
     },
     {
-        "title": "How to build a durable company?",
-        "date": "July 18, 2017",
-        "url": "articles/durable-company.html",
-        "content": "A few interesting lessons on how to build a valuable company by Peter Thiel, American entrepreneur, venture capitalist, and philanthropist...",
-        "image_url": "articles/images/durable.png",
-        "tags_year": ['2017'],
-        "tags_month": ['July'],
+        "title": "Watch the Disruptors (not the Incumbents)",
+        "date": "January 01, 2016",
+        "url": "articles/watch-disruptors.html",
+        "content": "A summary of article from the Institute of Directors on investing, by Thomas Hulme, now investor at Google Ventures, about widening your sources of inspiration...",
+        "image_url": "articles/images/watch-disruptors.jpg",
+        "tags_year": ['2016'],
+        "tags_month": ['January'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Tips on Business Writing",
+        "date": "December 15, 2015",
+        "url": "articles/business-writing.html",
+        "content": "Top tips on Business Writing from Business Stalwart, David Ogilvy - People who think well, write well. Woolly minded people write woolly memos, woolly letters...",
+        "image_url": "articles/images/business-writing.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Importance of Business Marketing?",
+        "date": "December 15, 2015",
+        "url": "articles/business-marketing.html",
+        "content": "You might sometimes hear the management of a company complain about how much they spend on marketing. Instead, they’d rather spend their budget...",
+        "image_url": "articles/images/business-marketing.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Providing Praise and Recognition",
+        "date": "December 13, 2015",
+        "url": "articles/praise-recognition.html",
+        "content": "Providing praise and recognition is an important managerial and leadership practice. This means showing appreciation to others for outstanding performance...",
+        "image_url": "articles/images/praise-recognition.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "A few reasons why everyone should be ambitious!",
+        "date": "December 12, 2015",
+        "url": "articles/be-ambitious.html",
+        "content": "I heard something this week that caught my attention and really surprised me. A colleague in a meeting at work, was told to not be too ambitious - that blue skies thinking...",
+        "image_url": "articles/images/be-ambitious.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "What makes a good leader?",
+        "date": "November 29, 2015",
+        "url": "articles/good-leader.html",
+        "content": "Aside from acquiring new knowledge and learning new skills, a big focus of an MBA is on developing ones leadership confidence, and there are plenty of opportunities...",
+        "image_url": "articles/images/good-leader.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['November'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "The Copenhagen Wheel!",
+        "date": "October 9, 2015",
+        "url": "articles/copenhagen-wheel.html",
+        "content": "Very impressive Startup: Superpedestrian - a robotics company spun out of MIT...",
+        "image_url": "articles/images/copenhagen-wheel.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['October'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Any new multi-sided platforms on the Horizon?",
+        "date": "October 9, 2015",
+        "url": "articles/multi-sided.html",
+        "content": "Next week, I am excited about starting a course called 'Digital Economy: Foundations and Strategies'. I have been reading up about various topics related to this area...",
+        "image_url": "articles/images/multi-sided.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['October'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Google Connects the Rest of the World!",
+        "date": "October 9, 2015",
+        "url": "articles/google-connects.html",
+        "content": "Listening to the talk by Sundar Pichai at the Mobile Me conference in Barcelona, I couldn't help but feel inspired. Here was a man of very extraordinary abilities...",
+        "image_url": "articles/images/google-connects.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['October'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "MBA: Reflections One Year On",
+        "date": "October 1, 2015",
+        "url": "articles/mba-reflections.html",
+        "content": "When I chose to pursue my MBA, I had several objectives in mind; I knew that after working in the professional services industry for a few years that I wanted to broaden...",
+        "image_url": "articles/images/mba-reflections.jpg",
+        "tags_year": ['2015'],
+        "tags_month": ['October'],
         "tags_type": ['Article']
     }
     

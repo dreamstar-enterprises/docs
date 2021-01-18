@@ -2541,7 +2541,9 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .mainContainer .primary-holder #main-column .content.articles-and-blogs h3 { margin-top: 16px; font-size: 1.25rem; }
 
-.mainContainer .primary-holder #main-column .content.articles-and-blogs p { font-family: 'Nunito', sans-serif; font-size: 1.15rem; font-weight: 350; line-height: 1.8rem; }
+.mainContainer .primary-holder #main-column .content.articles-and-blogs p { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 350; line-height: 1.8rem; }
+
+.mainContainer .primary-holder #main-column .content.articles-and-blogs ul, .mainContainer .primary-holder #main-column .content.articles-and-blogs li { font-family: 'Fraunces', serif; font-size: 1.08rem; font-weight: 350; line-height: 1.8rem; }
 
 .mainContainer .primary-holder #main-column .content .alerts-font { font-family: 'Zilla Slab'; }
 
@@ -2654,6 +2656,8 @@ a.view-on-github:hover { text-decoration: underline; }
 .mainContainer .primary-holder #main-column .content .docimage { height: auto; margin-top: 0.5rem; padding: 2.8%; transition-property: all; transition-duration: 120ms; transition-timing-function: linear; transition-delay: 0s; }
 
 .mainContainer .primary-holder #main-column .content .docimage:hover { border-radius: 4px; -webkit-box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.2); }
+
+.mainContainer .primary-holder #main-column .content .docimage.no-hover { border-radius: 0px; -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2); }
 
 .mainContainer .primary-holder #main-column .content .img-wrap { position: relative; }
 
@@ -3951,11 +3955,11 @@ a.box:active { box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.125), 0 0 0 1px #0065
 
 .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; -webkit-transition: .4s; transition: .4s; }
 
-input:checked + .slider.dax { background-color: rgba(255, 174, 0, 0.699); }
+input:checked + .slider.dax { background-color: rgba(241, 110, 3, 0.658); }
 
 input:checked + .slider.articles-and-blogs { background-color: #ff353cc9; }
 
-input:focus + .slider.dax { box-shadow: 0 0 1px rgba(255, 174, 0, 0.699); }
+input:focus + .slider.dax { box-shadow: 0 0 1px rgba(241, 110, 3, 0.658); }
 
 input:focus + .slider.articles-and-blogs { box-shadow: 0 0 1px #ff353cc9; }
 
