@@ -11,7 +11,17 @@ var searchIndex = [
         "tags_type": ['Article']
     },
     {
-        "title": "Watch the Disruptors (not the Incumbents)",
+        "title": "Serendipity favours the connected",
+        "date": "January 01, 2016",
+        "url": "articles/serendipity-connected.html",
+        "content": "In an ever-changing world our ability to move quickly is vital. Our own networks, of people and data, help us to unlock this potential, and allow us to form unique connections...",
+        "image_url": "articles/images/serendipity-connected.jpg",
+        "tags_year": ['2016'],
+        "tags_month": ['January'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Watch the Disruptors (not the Incumbents!)",
         "date": "January 01, 2016",
         "url": "articles/watch-disruptors.html",
         "content": "A summary of article from the Institute of Directors on investing, by Thomas Hulme, now investor at Google Ventures, about widening your sources of inspiration...",
