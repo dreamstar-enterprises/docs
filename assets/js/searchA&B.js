@@ -664,7 +664,7 @@
 							'</ul>' +
 							'<p class="card-content-description articles-and-blogs">' + '<i>' + article.date + " - " + '</i>' + article.content + '</p>' +
 							'<ul class="tags">' +
-								tags_year + tags_month +
+								tags_year + tags_month + tags_type +
 							'</ul>' +
 						'</div>' +
 					'</article>' +

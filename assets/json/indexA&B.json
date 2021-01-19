@@ -11,6 +11,26 @@ var searchIndex = [
         "tags_type": ['Article']
     },
     {
+        "title": "The Capitalist's Dilemma",
+        "date": "January 05, 2016",
+        "url": "articles/capitalists-dilemma.html",
+        "content": "I first heard about Clayton Christensen when I read his book, 'The Innovator’s Dilemma' when I was a student at University. Here is an interesting talk from him on what he calls...",
+        "image_url": "articles/images/capitalists-dilemma.jpg",
+        "tags_year": ['2016'],
+        "tags_month": ['January'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Why Science Matters!",
+        "date": "January 01, 2016",
+        "url": "articles/science-matters.html",
+        "content": "Here is an excerpt I came across from the website, Gates Notes. Here, Bill (Gates) remarks on how Neil deGrasse Tyson, the American astrophysicist, gives us one of the most compelling...",
+        "image_url": "articles/images/science-matters.jpg",
+        "tags_year": ['2016'],
+        "tags_month": ['January'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Serendipity favours the connected",
         "date": "January 01, 2016",
         "url": "articles/serendipity-connected.html",
