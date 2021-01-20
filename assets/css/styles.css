@@ -3235,13 +3235,13 @@ button { color: #171717; background-color: transparent; cursor: pointer; }
 
 .card .card-content p.card-content-description { line-height: 1.25; font-size: 0.875rem; }
 
-.card .card-content p.card-content-description.articles-and-blogs { font-family: 'Raleway', sans-serif; line-height: 1.6; font-size: 1.0rem; }
+.card .card-content p.card-content-description.articles-and-blogs { font-family: 'Raleway', sans-serif; font-weight: 450; line-height: 1.6; font-size: 1.0rem; }
 
 @supports (display: grid) { .card .card-content p.card-content-description { -webkit-line-clamp: 4; max-height: inherit !important; padding-bottom: 0 !important; }
-  .card .card-content p.card-content-description.articles-and-blogs { font-family: 'Raleway', sans-serif; }
+  .card .card-content p.card-content-description.articles-and-blogs { font-family: 'Raleway', sans-serif; font-weight: 450; }
   .card .card-content p.card-content-description:after { display: none; } }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { .card .card-content p.card-content-description { position: relative; overflow: hidden; max-height: 4rem; padding-bottom: 1rem; } .card .card-content p.card-content-description.articles-and-blogs { font-family: 'Raleway', sans-serif; } .card .card-content p.card-content-description:after { position: absolute; z-index: 2; bottom: -1px; right: 0; left: 0; height: 1rem; content: ''; } }
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { .card .card-content p.card-content-description { position: relative; overflow: hidden; max-height: 4rem; padding-bottom: 1rem; } .card .card-content p.card-content-description.articles-and-blogs { font-family: 'Raleway', sans-serif; font-weight: 450; } .card .card-content p.card-content-description:after { position: absolute; z-index: 2; bottom: -1px; right: 0; left: 0; height: 1rem; content: ''; } }
 
 .checkbox { cursor: pointer; display: flex; line-height: 1.25; position: relative; align-items: center; }
 
