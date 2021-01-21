@@ -1,6 +1,46 @@
 var searchIndex = [
 
     {
+        "title": "How to think about your employees!",
+        "date": "November 2, 2017",
+        "url": "articles/think-about-employees.html",
+        "content": "Employees should be thought of as people you train, nurture and develop! When successful businesses think about their customers, they don’t just think about...",
+        "image_url": "articles/images/think-about-employees.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['November'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Data Analytics and A.I.",
+        "date": "November 1, 2017",
+        "url": "articles/data-analytics-ai.html",
+        "content": "What is Data Analytics? Data analytics extracts insights from large amounts of data and turns this into value (business knowledge, ideas, even deeper insights)! Repeating these analytic...",
+        "image_url": "articles/images/data-analytics-ai.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['November'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Business Process Re-Engineering",
+        "date": "October 15, 2017",
+        "url": "articles/process-re-engineering.html",
+        "content": "An interesting article I read recently! I thought I knew about Business Process Engineering, but this captures it nicely! What is Business Process Engineering? It involves the...",
+        "image_url": "articles/images/process-re-engineering.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['October'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Reflections a few years on - 26 Questions!",
+        "date": "October 13, 2017",
+        "url": "articles/reflections-few-years-on.html",
+        "content": "Inspired by the thoughts and views of people I respect and greatly admire - I spent some time this week reflecting on the past few years, the next few years, and where life’s next new exciting...",
+        "image_url": "articles/images/reflections-few-years-on.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['October'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "How to build a durable company?",
         "date": "July 14, 2017",
         "url": "articles/durable-company.html",
@@ -8,6 +48,46 @@ var searchIndex = [
         "image_url": "articles/images/durable.png",
         "tags_year": ['2017'],
         "tags_month": ['July'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "A.I. on our work and lives!",
+        "date": "July 12, 2017",
+        "url": "articles/ai-work-lives.html",
+        "content": "Viewpoints on how Mike Quindazzi believes A.I. is likely to affect our work and lives (the way we work, transact, commute, and socialise). It’s a continuum. Firstly, recognise that A.I. means different things to different...",
+        "image_url": "articles/images/ai-work-lives.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['July'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Steve Jobs - Founders and why we need them!",
+        "date": "June 30, 2017",
+        "url": "articles/founders-league.html",
+        "content": "How was Jobs different to Gates? - Gates as a businessman kept his products open, and wanted to run the world. Jobs was an artist, who preferred closed systems, and spent his time thinking about great products...",
+        "image_url": "articles/images/founders-league.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['June'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Smart Computers & A.I. - Friend or Foe?",
+        "date": "June 29, 2017",
+        "url": "articles/smart-computers.html",
+        "content": "Everyone expects computers to do more in the future – so much so – that in 30 years from now - there will be nothing left for people to do! Is this really true? People see it as a replay of globalization of the near...",
+        "image_url": "articles/images/smart-computers.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['June'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "7 Questions every early stage business must ask",
+        "date": "June 27, 2017",
+        "url": "articles/start-up.html",
+        "content": "There are several questions that every early stage, or indeed any business, must ask. These are big questions, with no simple answers, but they should guide your thinking! The Engineering Question...",
+        "image_url": "articles/images/start-up.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['June'],
         "tags_type": ['Article']
     },
     {
@@ -361,10 +441,10 @@ var searchIndex = [
         "tags_type": ['Article']
     },
     {
-        "title": "Importance of Business Marketing?",
+        "title": "The Importance of Business Marketing?",
         "date": "December 15, 2015",
         "url": "articles/business-marketing.html",
-        "content": "You might sometimes hear company management complain about how much they spend on marketing. They’d rather spend their budget on something else such as: Research ...",
+        "content": "You might sometimes hear company management complain about how much they're spending on marketing. They’d rather spend their budget on something else such as: Research ...",
         "image_url": "articles/images/business-marketing.jpg",
         "tags_year": ['2015'],
         "tags_month": ['December'],
