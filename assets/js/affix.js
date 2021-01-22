@@ -17,11 +17,11 @@
     }
     // update the position of the affixed content
     function update() {
-        const spacing = 24;
+        const spacing = 42;
         const leftspacing = 24;
         const rightspacing = 12;
         const viewportHeight = window.innerHeight;
-        const top = Math.max(0, primary.getBoundingClientRect().top) + spacing;
+        const top = Math.max(0, primary.getBoundingClientRect().top - 24) + spacing;
         const bottom = Math.max(0, viewportHeight - footer.getBoundingClientRect().top) + spacing;
         if (left !== null && !left.hasAttribute('disable-affix')) {
             left.style.width = `${getParentColumnWidth(left) - leftspacing * 2}px`;

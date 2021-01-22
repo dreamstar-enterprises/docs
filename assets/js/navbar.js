@@ -77,6 +77,20 @@
         })
     }
 
+    // When the user scrolls the page, execute scrollIndicator
+    window.addEventListener("scroll", function () {
+        scrollIndicator(); 
+    }, false);
+
+    let winheight = document.documentElement.scrollHeight;
+    let docheight = document.documentElement.clientHeight;
+
+    function scrollIndicator() {
+        let winScroll =  document.documentElement.scrollTop;
+        let scrolled = (winScroll / (winheight - docheight)) * 100;
+        document.getElementById("myBar").style.width = scrolled + "%";
+    } 
+
 })();
 
 // WAIT TILL DOCUMENT HAS LOADED BEFORE INITIATING FUNCTIONS
