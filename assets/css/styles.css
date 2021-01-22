@@ -2332,7 +2332,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .header-holder .progress-container { width: 100%; height: 2px; background: transparent; }
 
-.header-holder .progress-bar { height: 2px; background: #f81119; width: 0%; }
+.header-holder .progress-bar-scroll { height: 2px; background: #f81119; width: 0%; }
 
 .header-holder .content-header { margin: 0; border-bottom: 1px solid #e7e7e7; }
 
