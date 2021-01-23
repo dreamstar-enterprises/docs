@@ -2412,7 +2412,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .header-holder .content-header .sharing-menu .is-hidden { display: none; }
 
-.nav-bar { display: flex; overflow: hidden; justify-content: space-between; align-items: stretch; min-height: 54px; height: 54px; box-sizing: border-box; margin-left: auto; margin-right: auto; border-bottom: 1px solid lightgrey; }
+.nav-bar { display: flex; overflow: hidden; justify-content: space-between; align-items: stretch; min-height: 44px; height: 44px; box-sizing: border-box; margin-left: auto; margin-right: auto; border-bottom: 1px solid lightgrey; }
 
 @media screen and (min-width: 768px), print { .nav-bar { padding-left: 1rem; padding-right: 1rem; } }
 
@@ -2422,7 +2422,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 @media screen and (min-width: 1795px), print { .nav-bar { padding-left: calc(50% - 1600px / 2); padding-right: calc(50% - 1600px / 2); } }
 
-.nav-bar .nav-bar-logo { position: relative; width: 180px; height: 50px; background-size: contain; }
+.nav-bar .nav-bar-logo { position: relative; width: 144px; height: 40px; background-size: contain; }
 
 .nav-bar .nav-bar-logo .overlay { position: absolute; height: 100%; width: 100%; top: 0; bottom: 0; left: 0; right: 0; opacity: 0; transition: .4s ease; background-color: white; }
 
@@ -2571,7 +2571,7 @@ a.view-on-github:hover { text-decoration: underline; }
 @-o-keyframes slidein { from { transform: translateY(-25px); }
   to { transform: translateY(0); } }
 
-.mainContainer .primary-holder #main-column .content.articles-and-blogs h1, .mainContainer .primary-holder #main-column .content.articles-and-blogs h2, .mainContainer .primary-holder #main-column .content.articles-and-blogs h2.likeAnH1, .mainContainer .primary-holder #main-column .content.articles-and-blogs h3 { font-size: 100%; font-weight: 600; font-family: 'Marcellus', serif; }
+.mainContainer .primary-holder #main-column .content.articles-and-blogs h1, .mainContainer .primary-holder #main-column .content.articles-and-blogs h2, .mainContainer .primary-holder #main-column .content.articles-and-blogs h2.likeAnH1, .mainContainer .primary-holder #main-column .content.articles-and-blogs h3, .mainContainer .primary-holder #main-column .content.articles-and-blogs h4, .mainContainer .primary-holder #main-column .content.articles-and-blogs h5, .mainContainer .primary-holder #main-column .content.articles-and-blogs h6 { font-size: 100%; font-weight: 600; font-family: 'Marcellus', serif; }
 
 .mainContainer .primary-holder #main-column .content.articles-and-blogs h1, .mainContainer .primary-holder #main-column .content.articles-and-blogs h2.likeAnH1 { overflow-wrap: break-word; margin-top: 0; margin-bottom: 12px; line-height: 1.3; font-size: 2.5rem; word-break: break-word; }
 
@@ -2818,7 +2818,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .uhf-container.has-padding { width: 100%; margin-right: 0; margin-left: 0; }
 
-.uhf-container.has-top-padding { padding-top: 1.5rem; }
+.uhf-container.has-top-padding { padding-top: 1.25rem; }
 
 @media screen and (max-width: 859px) { .uhf-container:not(.has-padding) { max-width: calc(100% - 32px); width: calc(100% - 32px); } }
 
@@ -2927,7 +2927,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .footerContainer .site-resources .site-resources-inner ul li a.focus-visible { outline-color: white; }
 
-.footerContainer .footer-bar-logo { position: relative; width: 180px; height: 50px; background-size: contain; }
+.footerContainer .footer-bar-logo { position: relative; width: 144px; height: 40px; background-size: contain; }
 
 .footerContainer .footer-bar-logo .overlay { position: absolute; height: 100%; width: 100%; top: 0; bottom: 0; left: 0; right: 0; opacity: 0; transition: .4s ease; background-color: white; }
 

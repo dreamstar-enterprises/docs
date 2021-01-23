@@ -1,6 +1,176 @@
 var searchIndex = [
 
     {
+        "title": "Experiences to date: UofCambridge, PwC, Manchester Business School, Jaguar Land Rover, WPP, and Diageo!",
+        "date": "December 9, 2019",
+        "url": "articles/experiences-to-date.html",
+        "content": "A big thanks to Harsh Batra (Vice President of Ethos Data) for arranging this! And also to all the other great people - colleagues, coaches, mentors, and friends - I've had the opportunity to work with...",
+        "image_url": "articles/images/experiences-to-date.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Taking the fear out of giving feedback",
+        "date": "November 9, 2019",
+        "url": "articles/feedback-fear.html",
+        "content": "Whether you work in HR, or it's that time of the year of to give formal appraisals and assessments, or you want to need to give informal feedback, here are some useful tips on how you can take some of the fear out of the process, to maintain a friendly, and collaborative work environment...",
+        "image_url": "articles/images/feedback-fear.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['November'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Experiences in Data Visualisation & Business Intelligence",
+        "date": "June 6, 2019",
+        "url": "articles/experiences-in-dv-and-bi.html",
+        "content": "Freelance experiences - After finishing up with my MBA about 2.5 years ago, I thought the time might be right to see what it might be like working as a freelancer, through my own limited company. It was a tough choice, and partly driven by circumstances outside of my control...",
+        "image_url": "articles/images/experiences-in-dv-and-bi.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['June'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Data Visualisation and Business Intelligence. What is it? Why is it important? Some Myths debunked!",
+        "date": "June 4, 2019",
+        "url": "articles/data-visualisation-and-business-intelligence.html",
+        "content": "WHAT IS DATA VISUALISATION & BUSINESS INTELLIGENCE? Data Visualisation and Business Intelligence is the process of aggregating raw data from disparate sources, and then cleaning and...",
+        "image_url": "articles/images/data-visualisation-and-business-intelligence.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['June'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Data Engineer vs Data Scientist",
+        "date": "May 8, 2019",
+        "url": "articles/data-engineer-vs-data-scientist.html",
+        "content": "There is a significant overlap between data engineers and data scientists when it comes to what is involved, what their skills and responsibilities are, but here are the *main* differences: Data Engineers are...",
+        "image_url": "articles/images/data-engineer-vs-data-scientist.png",
+        "tags_year": ['2019'],
+        "tags_month": ['May'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Do not let the sun go down on your anger",
+        "date": "May 1, 2019",
+        "url": "articles/sun-anger.html",
+        "content": "Anger itself is not a wholly bad thing, but it is how we use it determines the extent of its badness. Legitimate, righteous anger towards an injustice can be productive. However, uncalled for anger, driven by our own...",
+        "image_url": "articles/images/sun-anger.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['May'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Sometimes things need to be believed first, before they can be seen!",
+        "date": "April 11, 2019",
+        "url": "articles/believe-before-see.html",
+        "content": "In his book on “Blizscaling” – the lightning fast path to building a massively valuable company by Reid Hoffman, Reid gives some very compelling reasons for why and how a Blitzscaling strategy might work for...",
+        "image_url": "articles/images/believe-before-see.png",
+        "tags_year": ['2019'],
+        "tags_month": ['April'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "The Utopian View of A.I.",
+        "date": "March 30, 2019",
+        "url": "articles/utopian-ai.html",
+        "content": "Why should we promote and develop human-entered A.I. technologies and applications? In fact, why should we as humanity, really care about A.I. at all? These were questions that came to mind when...",
+        "image_url": "articles/images/utopian-ai.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['March'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Creative Agencies vs Media Agencies! - why all the confusion?",
+        "date": "March 12, 2019",
+        "url": "articles/creative-vs-media.html",
+        "content": "Lots of confusion around these two terms. There are many good answers out there, reflecting the fact that the business of making and producing advertising isn’t all that well-defined. But here is one...",
+        "image_url": "articles/images/creative-vs-media.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['March'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Leadership re-visited!",
+        "date": "March 9, 2019",
+        "url": "articles/leadership-revisited.html",
+        "content": "As a headstrong leader, what might be three important leadership attributes to exhibit, when you’re working in a growing or inspiring venture? Here are the views of one inspiring leader I currently resonate:...",
+        "image_url": "articles/images/leadership-revisited.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['March'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "4 important business questions",
+        "date": "February 17, 2019",
+        "url": "articles/4-business-questions.html",
+        "content": "Is customer experience important? Yes, genuine customer orientation, if you have it, makes customers truly love your services and drives value. Try to strive for a supreme experience (which...",
+        "image_url": "articles/images/4-business-questions.png",
+        "tags_year": ['2019'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "The A.I. Playbook (how to get started!)",
+        "date": "October 18, 2018",
+        "url": "articles/ai-playbook.html",
+        "content": "Artificial intelligence (A.I.) is clearly destined to become one of the greatest technological advances of our time, but as the technology rapidly develops, how can companies directly benefit from applying A.I. to...",
+        "image_url": "articles/images/ai-playbook.png",
+        "tags_year": ['2018'],
+        "tags_month": ['October'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Technology in 2050 - Discovering the extent of our own ignorance",
+        "date": "October 6, 2018",
+        "url": "articles/techonology-2050.html",
+        "content": "How much do we really know about the technology of 2050? Well, to set about predicting the future it helps to have a toolkit! The clues are there and can be found...",
+        "image_url": "articles/images/techonology-2050.jpg",
+        "tags_year": ['2018'],
+        "tags_month": ['October'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "The World of B.I. - How to make a \"fair\"​ comparison!",
+        "date": "September 13, 2018",
+        "url": "articles/world-of-bi.html",
+        "content": "Many tools are now coming up in the Business Intelligence (BI), and as expected, users now want to understand the differences between Product X and...",
+        "image_url": "articles/images/world-of-bi.jpg",
+        "tags_year": ['2018'],
+        "tags_month": ['September'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Conquer and live without the fear of failure!",
+        "date": "November 8, 2017",
+        "url": "articles/conquer-failure.html",
+        "content": "Conquer and live life to the full, without fear of failure! Often, when you choose what to do, or not to do, because the world thinks about goals, because it thinks about success, and about failure, people...",
+        "image_url": "articles/images/conquer-failure.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['November'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Staying Physically Fit",
+        "date": "November 6, 2017",
+        "url": "articles/physically-fit.html",
+        "content": "I’m no fitness instructor, or health clinician, or doctor, to advise you to be healthy and fit, but what I can say, is that to many people, keeping fit is one of the most important, but least urgent things...",
+        "image_url": "articles/images/physically-fit.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['November'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Lead with Gratitude!",
+        "date": "November 3, 2017",
+        "url": "articles/lead-with-gratitude.html",
+        "content": "It’s no secret that mind-set can affect your mood and behaviour. Plenty of research shows that the way you “think” about yourself and the world around yourself and...",
+        "image_url": "articles/images/lead-with-gratitude.jpg",
+        "tags_year": ['2017'],
+        "tags_month": ['November'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "How to think about your employees!",
         "date": "November 2, 2017",
         "url": "articles/think-about-employees.html",
