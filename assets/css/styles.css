@@ -3131,7 +3131,7 @@ button { color: #171717; background-color: transparent; cursor: pointer; }
 
 .button.is-small { border-radius: 2px; font-size: 0.875rem; }
 
-.button.is-small .icon { height: 0.875rem; }
+.button.is-small .icon { height: 1.1rem; }
 
 @media screen and (max-width: 767px), screen and (min-resolution: 120dpi) and (max-width: 767.9px) { .button.is-small-mobile { border-radius: 2px; font-size: 0.875rem; } .button.is-small-mobile .icon { height: 0.875rem; } }
 

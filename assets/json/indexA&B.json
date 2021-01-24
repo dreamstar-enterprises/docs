@@ -1,6 +1,76 @@
 var searchIndex = [
 
     {
+        "title": "Legacy obstacles to business building!",
+        "date": "January 15, 2020",
+        "url": "articles/building-business.html",
+        "content": "About 12 years ago, I walked into a small bookstore, in a small English town, and picked up a book called “The Innovator’s Dilemma” – by Clayton Christiansen. (now since named by The Economist as one of the six most important books about business)...",
+        "image_url": "articles/images/building-business.png",
+        "tags_year": ['2020'],
+        "tags_month": ['January'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Amazon - Love it, or Fear it!",
+        "date": "December 29, 2019",
+        "url": "articles/love-it-fear-it.html",
+        "content": "The New York Times recently helped coin a term for the top-five tech companies that are increasingly dominating our lives: The Frightful Five, better known as: Apple, Google, Microsoft, Amazon, and...",
+        "image_url": "articles/images/love-it-fear-it.png",
+        "tags_year": ['2019'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Discpline and Moral Values",
+        "date": "December 28, 2019",
+        "url": "articles/moral-values.html",
+        "content": "Much has happened in the educational space over the past 50 years, but little has been as dramatic or as universal as the move towards discipline and moral values. Discipline is needed for...",
+        "image_url": "articles/images/moral-values.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Retail, Hospitality, Manufacturing, and Finance working together with Analytics, Technology, & The Cloud",
+        "date": "December 24, 2019",
+        "url": "articles/the-cloud.html",
+        "content": "Customer Centricity - Analytics and Technology providers are all changing their organization to be more customer centric – so they really understand, from the customer's point of view, what journey they're trying to make...",
+        "image_url": "articles/images/the-cloud.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "The Five Freedoms of Business",
+        "date": "December 22, 2019",
+        "url": "articles/five-freedoms.html",
+        "content": "In life, luck does matter! There may be some things outside your control, but you actually have far more control over your life than you think. It’s very tempting, when things do go wrong: to blame other...",
+        "image_url": "articles/images/five-freedoms.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Tips and Learnings for a Great New You!",
+        "date": "December 21, 2019",
+        "url": "articles/tips-and-learnings.html",
+        "content": "Time Management vs Attention Management? I think it’s all about \"Attention Management\". In my life, whenever I’ve found something I want to do, and do right, I’m really compelled to finish it! Whatever other demands...",
+        "image_url": "articles/images/tips-and-learnings.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Leading a fulfilling and motivating career!",
+        "date": "December 21, 2019",
+        "url": "articles/fulfiling-career.html",
+        "content": "What makes for an awesome career? - Find a handful of incredible mentors who you can learn a lot from! Be attentive to what they have to say, and practice what you think will be most effective & useful...",
+        "image_url": "articles/images/fulfiling-career.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['December'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Experiences to date: UofCambridge, PwC, Manchester Business School, Jaguar Land Rover, WPP, and Diageo!",
         "date": "December 9, 2019",
         "url": "articles/experiences-to-date.html",
@@ -14,10 +84,40 @@ var searchIndex = [
         "title": "Taking the fear out of giving feedback",
         "date": "November 9, 2019",
         "url": "articles/feedback-fear.html",
-        "content": "Whether you work in HR, or it's that time of the year of to give formal appraisals and assessments, or you want to need to give informal feedback, here are some useful tips on how you can take some of the fear out of the process, to maintain a friendly, and collaborative work environment...",
+        "content": "Whether you work in HR, or it's that time of the year of to give formal appraisals and assessments, or you want to need to give informal feedback, here are some useful tips on how you can take some of the fear out of the process, to maintain a friendly, and collaborative...",
         "image_url": "articles/images/feedback-fear.jpg",
         "tags_year": ['2019'],
         "tags_month": ['November'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "The Philosophy of Management",
+        "date": "July 30, 2019",
+        "url": "articles/philosophy-management.html",
+        "content": "A very wise quote from Clarence Francis on the Philosophy of Management: \"You can buy a man's time, you can buy a man's physical presence at a certain place, you can even buy a measured number of skilled muscular motions per day or...",
+        "image_url": "articles/images/philosophy-management.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['July'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Marketing Intelligence re-defined!",
+        "date": "July 28, 2019",
+        "url": "articles/marketing-intelligence.html",
+        "content": "Marketing Intelligence re-defined! Traditional market research methods such as surveys, questionnaires, structured / semi-structured interviews, and observations are often very time and labour consuming. Putting together a thorough marketing intelligence...",
+        "image_url": "articles/images/marketing-intelligence.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['July'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "How Venture Capital firms go about researching and sourcing their investments",
+        "date": "July 27, 2019",
+        "url": "articles/vc-sourcing.html",
+        "content": "Kelvin Au is the Global Managing Partner of the Founder’s Factory, a London based VC fund, that helps start-ups develop, test, and scale their business ideas. As most VCs go, it’s quite a fascinating company...",
+        "image_url": "articles/images/vc-sourcing-deals.jpg",
+        "tags_year": ['2019'],
+        "tags_month": ['July'],
         "tags_type": ['Article']
     },
     {
