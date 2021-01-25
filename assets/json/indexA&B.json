@@ -1,6 +1,16 @@
 var searchIndex = [
 
     {
+        "title": "Humans vs Algorithms!",
+        "date": "January 19, 2020",
+        "url": "articles/algorithms-humans.html",
+        "content": "We as homo-sapiens – as possibly, quite an intelligent and successful genus, or species, on this planet - like to imagine ourselves as being uniquely capable of a whole range of different things...",
+        "image_url": "articles/images/algorithms-humans.jpg",
+        "tags_year": ['2020'],
+        "tags_month": ['January'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Legacy obstacles to business building!",
         "date": "January 15, 2020",
         "url": "articles/building-business.html",
