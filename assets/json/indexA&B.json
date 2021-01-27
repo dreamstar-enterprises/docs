@@ -1,6 +1,66 @@
 var searchIndex = [
 
     {
+        "title": "Implementing A.I./deep learning into enterprise environments",
+        "date": "February 29, 2020",
+        "url": "articles/ai-enterprise.html",
+        "content": "Start small - First, choose one part of your organization where you can implement A.I. and run a pilot there. If it works, you will be able to do the same in other departments...",
+        "image_url": "articles/images/ai-enterprise.jpg",
+        "tags_year": ['2020'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "DAX vs Python vs R",
+        "date": "February 29, 2020",
+        "url": "articles/dax-python-r.html",
+        "content": "Think of it this way… PowerBI, Tableau etc. are like being a TV weather reporter… You can present the information about the weather very well and you can visualize it in a way that people understand. You can...",
+        "image_url": "articles/images/dax-python-r.jpg",
+        "tags_year": ['2020'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Mentors, Money (Fuel Units), and Optimism!",
+        "date": "February 9, 2020",
+        "url": "articles/fuel-units.html",
+        "content": "It’s like what the Warren Buffet said \"The more you learn the more you (have the potential) to earn.\" Having a close mentor can change your life and can change your life forever!...",
+        "image_url": "articles/images/fuel-units.jpg",
+        "tags_year": ['2020'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "What makes a great leader?",
+        "date": "February 8, 2020",
+        "url": "articles/great-leader.html",
+        "content": "Passion - Most people can lead. But do they want to lead? When you bring someone into your team, you want someone who’s not only capable of leading your team into victory but who’s motivated to do...",
+        "image_url": "articles/images/great-leader.jpg",
+        "tags_year": ['2020'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Key Learnings from Bob Iger, CEO of Walt Disney",
+        "date": "February 05, 2020",
+        "url": "articles/walt-disney.html",
+        "content": "A series of interesting interview notes, on the CEO and Chairman of the Walt Disney Company, Bob Iger – by my friend Harsh Batra. What makes you such a good dealmaker? Hard Work, Luck...",
+        "image_url": "articles/images/walt-disney.jpg",
+        "tags_year": ['2020'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
+        "title": "Don't Compare",
+        "date": "February 05, 2020",
+        "url": "articles/dont-compare.html",
+        "content": "Charlie Munger, the successful American businessman, investor, and now philanthropist, once said that \"Envy is a really stupid sin, because it is the one thing you could never possibly have any fun at. There...",
+        "image_url": "articles/images/dont-compare.jpg",
+        "tags_year": ['2020'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Humans vs Algorithms!",
         "date": "January 19, 2020",
         "url": "articles/algorithms-humans.html",
@@ -24,7 +84,7 @@ var searchIndex = [
         "title": "Amazon - Love it, or Fear it!",
         "date": "December 29, 2019",
         "url": "articles/love-it-fear-it.html",
-        "content": "The New York Times recently helped coin a term for the top-five tech companies that are increasingly dominating our lives: The Frightful Five, better known as: Apple, Google, Microsoft, Amazon, and...",
+        "content": "The New York Times recently helped coin a term for the top-five tech companies that are increasingly dominating our lives: The Frightful Five, or better known as: Apple, Google, Microsoft, Amazon,...",
         "image_url": "articles/images/love-it-fear-it.png",
         "tags_year": ['2019'],
         "tags_month": ['December'],
@@ -134,7 +194,7 @@ var searchIndex = [
         "title": "Experiences in Data Visualisation & Business Intelligence",
         "date": "June 6, 2019",
         "url": "articles/experiences-in-dv-and-bi.html",
-        "content": "Freelance experiences - After finishing up with my MBA about 2.5 years ago, I thought the time might be right to see what it might be like working as a freelancer, through my own limited company. It was a tough choice, and partly driven by circumstances outside of my control...",
+        "content": "Freelance experiences - After finishing up with my MBA about 2.5 years ago, I thought the time might be right to see what it would be like to work as a freelancer through my own limited company. It was a tough choice, and partly driven by circumstances outside of my control...",
         "image_url": "articles/images/experiences-in-dv-and-bi.jpg",
         "tags_year": ['2019'],
         "tags_month": ['June'],
