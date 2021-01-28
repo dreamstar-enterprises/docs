@@ -2583,6 +2583,14 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .mainContainer .primary-holder #main-column .content.articles-and-blogs ul, .mainContainer .primary-holder #main-column .content.articles-and-blogs li { font-family: 'Fraunces', serif; font-size: 1.08rem; font-weight: 350; line-height: 1.8rem; }
 
+.mainContainer .primary-holder #main-column .content.articles-and-blogs p a:not(.button) { text-decoration: none; border-bottom: 2px solid #f81119; transition: 120ms linear; transition-property: background-color; color: #000000; font-family: 'Source Serif Pro', serif; padding-left: 2px; padding-right: 2px; }
+
+.mainContainer .primary-holder #main-column .content.articles-and-blogs p a:not(.button):visited { border-bottom: 2px solid #f81119; color: #000000; }
+
+.mainContainer .primary-holder #main-column .content.articles-and-blogs p a:not(.button):hover { border-bottom: 2px solid #f81119; background-color: #f81119; color: white; }
+
+.mainContainer .primary-holder #main-column .content.articles-and-blogs p a:not(.button):active { border-bottom: 2px solid #f81119; }
+
 .mainContainer .primary-holder #main-column .content .alerts-font { font-family: 'Zilla Slab'; }
 
 .mainContainer .primary-holder #main-column .content blockquote, .mainContainer .primary-holder #main-column .content dd, .mainContainer .primary-holder #main-column .content dl, .mainContainer .primary-holder #main-column .content dt, .mainContainer .primary-holder #main-column .content fieldset, .mainContainer .primary-holder #main-column .content figure, .mainContainer .primary-holder #main-column .content h1, .mainContainer .primary-holder #main-column .content h2, .mainContainer .primary-holder #main-column .content h3, .mainContainer .primary-holder #main-column .content h4, .mainContainer .primary-holder #main-column .content h5, .mainContainer .primary-holder #main-column .content h6, .mainContainer .primary-holder #main-column .content hr, .mainContainer .primary-holder #main-column .content iframe, .mainContainer .primary-holder #main-column .content legend, .mainContainer .primary-holder #main-column .content li, .mainContainer .primary-holder #main-column .content ol, .mainContainer .primary-holder #main-column .content p, .mainContainer .primary-holder #main-column .content pre, .mainContainer .primary-holder #main-column .content textarea, .mainContainer .primary-holder #main-column .content ul { padding: 0; margin: 0; }

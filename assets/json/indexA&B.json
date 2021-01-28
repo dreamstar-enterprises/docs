@@ -54,7 +54,7 @@ var searchIndex = [
         "title": "Don't Compare",
         "date": "February 05, 2020",
         "url": "articles/dont-compare.html",
-        "content": "Charlie Munger, the successful American businessman, investor, and now philanthropist, once said that \"Envy is a really stupid sin, because it is the one thing you could never possibly have any fun at. There...",
+        "content": "Charlie Munger, the successful American businessman, investor, and now philanthropist, once said \"Envy is a really stupid sin, because it is the one thing you could never possibly have any fun at. There...",
         "image_url": "articles/images/dont-compare.jpg",
         "tags_year": ['2020'],
         "tags_month": ['February'],
@@ -523,9 +523,9 @@ var searchIndex = [
     {
         "title": "Spirit of Enterprise (& Management)",
         "date": "August 28, 2016",
-        "url": "articles/spriit-of-enterprise.html",
+        "url": "articles/spirit-of-enterprise.html",
         "content": "A snippet of an article in the Monocle, one of my favourite magzines on Affairs, Business, Culture and Design - up there (these days) with other published magazines like HBR, and the MIT Tech Review...",
-        "image_url": "articles/images/spriit-of-enterprise.jpg",
+        "image_url": "articles/images/spirit-of-enterprise.jpg",
         "tags_year": ['2016'],
         "tags_month": ['August'],
         "tags_type": ['Article']
