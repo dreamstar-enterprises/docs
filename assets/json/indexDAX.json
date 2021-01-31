@@ -145,10 +145,10 @@ var searchIndex = [
         "tags_dax": ['ALL', 'ALLEXCEPT', 'AVERAGE', 'AVERAGEX', 'CALCULATE', 'CALCULATETABLE', 'CALENDAR','DATESBETWEEN', 'DISTINCTCOUNT', 'DIVIDE', 'EARLIER', 'EOMONTH', 'FILTER', 'ISBLANK', 'ISFILTERED', 'LOOKUPVALUE', 'MAX', 'MIN', 'SUM', 'SUMMARIZE', 'SUMX', 'SWITCH', 'TODAY', 'WEEKDAY']
     },
 	{
-        "title": "HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&L) over time",
+        "title": "HR - Payroll Analytics, and Employee Profile Changes (Job Grade, Department, and P&L) over time",
         "date": "September 27, 2020",
         "url": "dax-samples/hr-payroll-analytics-and-tracking-changes.html",
-        "content": "A sample that shows (i) Various Payroll Measures, e.g. on: Salary, Pension, ERs NI, and (ii) Changes in a Employee's Job Grade, Department, and/or P&L, each month.",
+        "content": "A sample that shows (i) Various Payroll Measures, on: Salary, Pension, ERs NI; as well as (ii) Changes in an Employee's Profile (e.g. in Job Grade, Department, and P&L assignment), over time (i.e. month on month profile changes).",
         "tags_measure": ['Salary', 'Job Grade', 'Department', 'PnL'],
         "tags_dimension": ['Employees', 'PnL', 'Department', 'Job Grade', 'Nominal Ledger', 'Calendar Time' ],
         "tags_dax": ['ALL', 'ALLSELECTED', 'AVERAGE', 'CALCULATE', 'COUNTROWS', 'DIVIDE', 'FILTER', 'GROUPBY', 'HASONEFILTER', 'HASONEVALUE', 'MAX', 'MONTH', 'PREVIOUSMONTH', 'RANKX', 'SUM', 'SUMMARIZE', 'SWITCH', 'TOPN', 'TOTALYTD']

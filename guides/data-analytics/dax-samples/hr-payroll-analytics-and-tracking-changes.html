@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&L) over time | StarBase </title>
+		<title>HR - Payroll Analytics, and Employee Profile Changes (Job Grade, Department, and P&L) over time | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png" />
 		<!-- link to Main Stylesheets -->
@@ -270,7 +270,7 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="hr---payroll-analytics-and-tracking-employee-profile-changes-eg-job-grade-department-and-pl-over-time">HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&amp;L) over time</h1>
+                        <h1 id="hr---payroll-analytics-and-employee-profile-changes-job-grade-department-and-pl-over-time">HR - Payroll Analytics, and Employee Profile Changes (Job Grade, Department, and P&amp;L) over time</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Data Analytics • 27/09/2020</time>
 
 <div class="has-margin-top-medium">
@@ -284,9 +284,9 @@
 </a></p>
 </div>
 
-<h2 id="hr---payroll-analytics-and-tracking-employee-profile-changes-eg-job-grade-department-and-pl-over-time-1">HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&amp;L) over time</h2>
+<h2 id="hr---payroll-analytics-and-employee-profile-changes-job-grade-department-and-pl-over-time-1">HR - Payroll Analytics, and Employee Profile Changes (Job Grade, Department, and P&amp;L) over time</h2>
 
-<p>This sample takes the following sample Payroll dataset (if you have an HR ERP that supports it):…</p>
+<p>This sample takes the following sample Payroll dataset:…</p>
 
 <div class="img-wrap">
   <figure>
@@ -310,11 +310,11 @@
 <p>…and shows the following HR metrics:</p>
 
 <ol class="lower-roman">
-  <li>Each <strong>Payroll Line</strong>, for each Employee, in a Matrix Table format</li>
-  <li>Each person’s <strong>Payroll Rank</strong> in the Month (if there is a tied Rank (e.g. two Employees paid exactly the same), then the tied rank is broken by ranking alphabetically by the Employee’s User ID, within the tied set)</li>
-  <li>Each person’s <strong>Payroll</strong> as a <strong>% of the Total Payroll</strong></li>
-  <li>The <strong>Cumulative %</strong> of each person’s Payroll (according to that person’s Payroll Rank)</li>
-  <li>The <strong>Total Salary</strong> by Month, with <strong>ERs NI</strong>, and <strong>Pension</strong>, also shown as a <strong>% of Salary</strong></li>
+  <li>All relevant <strong>Payroll Lines</strong>, for each Employee, in Matrix format</li>
+  <li>Each person’s <strong>Payroll Rank</strong>, in a given Month, for each Payroll line. (If there is a tied Rank (e.g. two Employees paid exactly the same), then the tied rank is broken by ranking alphabetically on the Employee’s User ID, within the tied set)</li>
+  <li>Each person’s <strong>Payroll Line</strong> as a <strong>% of that Payroll line’s Total</strong></li>
+  <li>The <strong>Cumulative % Total</strong> of each Payroll line (according to each person’s Payroll Rank)</li>
+  <li>The <strong>Total Salary</strong> by Month, along with <strong>ERs NI</strong> and <strong>Pension</strong>, shown as a <strong>% of Total Salary</strong></li>
   <li>The <strong>Total Payroll Breakdown</strong> by Month (as a Bar Chart)</li>
   <li>The <strong>Total Payroll Breakdown</strong> by <em>Department</em>, by Month (as 100% Stacked Bar Chart)</li>
   <li><strong>Payroll changes</strong>, by person, from the Prior Month</li>
@@ -328,8 +328,8 @@
 <p>Possible extensions to this model, could include:</p>
 
 <ul>
-  <li>Adding ‘<strong><em>Freelance or Permanent</em></strong>’ as an extra field to distinguish between amounts paid to these different staff types</li>
-  <li>Freelance records could be automatically linked and created from their agency Timesheet submissions.</li>
+  <li>Adding ‘<strong><em>Freelance or Permanent</em></strong>’ as an extra field to distinguish between amounts paid to different staff types</li>
+  <li>Freelance records could be automatically linked and created from their Agency or own Limited Company Timesheet submissions.</li>
 </ul>
 
 <h2 id="dashboard---snippet">Dashboard - Snippet</h2>
@@ -379,9 +379,9 @@
 <br />
 When using multiple filters in this Dashboard / Report, ensure that you de-select the appropriate Users from the User filter, and appropriate months from the Month filter.</p>
 
-  <p>For example if you filter first by <em>Department</em>, and choose: ‘Graph ML Neo4j’, whilst the data will visually show, in the Matrix Table, just the users: 002, and 001 (as the only users to have worked in the selected department) the <em>User Filter</em> will likely still say <em>‘All’</em>. Ensure that from this filter, you select just users 002, and 001, by de-selecting the other users.</p>
+  <p>For example if you filter first by <em>Department</em>, and choose: ‘Graph ML Neo4j’, whilst the data will visually show, in the Matrix Table, just the users: 002, and 001 (as the only users to have worked in the selected department, ‘Graph ML Neo4j’) the <em>User Filter</em> will likely still say <em>‘All’</em>. Ensure that from this filter, you select just users 002, and 001, by de-selecting the other users.</p>
 
-  <p>This needs to be done, to ensure that in the Measures: <strong><em>[%] of Total</em></strong>, and <strong><em>Cumulative [%]</em></strong>, the denominator gets properly  <em>re-based</em>/<em>re-calculated</em>, and takes into account the revised list of correct Users. If you do not do this, these measures will still consider the denominator to be from all Users in the Dataset, and will show the Payroll Amounts as a [%] of all Users, rather than all <em>selected</em> users. You will know something is not quite right as <strong><em>Cumulative [%]</em></strong> measure will not total to 100%, if the correct Users are not selected/de-selected.</p>
+  <p>This needs to be done, to ensure that in the Measures: <strong><em>[%] of Total</em></strong>, and <strong><em>Cumulative [%]</em></strong> in the Matrix Table, the denominator gets properly  <em>re-based</em>/<em>re-calculated</em>, and takes into account the revised list of correct Users. If you do not do this, these measures will still consider the denominator to be from all Users in the dataset, and will show the Payroll Amounts as a [%] of all Users, rather than all <em>selected</em> users. You will know something is not quite right as <strong><em>Cumulative [%]</em></strong> measure will not total to 100%, if the correct Users are not selected/de-selected.</p>
 
   <p>The de-selection / re-selection on the User filter needs to be done manually. The ‘<em>User</em>’ filter will not get filtered automatically when using the other filters – this is a small bug in Power BI! The same similarly applies to the <em>‘Month’</em> filter, if viewing the data over only a few selected Months.</p>
 
@@ -1559,7 +1559,7 @@ Payroll Change = IF (
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#hr---payroll-analytics-and-tracking-employee-profile-changes-eg-job-grade-department-and-pl-over-time-1">HR - Payroll Analytics, and Tracking Employee Profile Changes (e.g. Job Grade, Department, and P&amp;L) over time</a>
+<li class="toc-entry toc-h2"><a href="#hr---payroll-analytics-and-employee-profile-changes-job-grade-department-and-pl-over-time-1">HR - Payroll Analytics, and Employee Profile Changes (Job Grade, Department, and P&amp;L) over time</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#payroll-analytics">Payroll Analytics</a></li>
 </ul>
