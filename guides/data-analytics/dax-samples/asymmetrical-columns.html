@@ -284,6 +284,28 @@
 </a></p>
 </div>
 
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Asymmetrical Visuals</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
 <h2 id="overview">Overview</h2>
 
 <p>This article explains the stand alone concept of how to build a visual with asymmetrical columns and rows in Power BI, using both standard DAX measures, and the more flexible, Calculation Groups.</p>
@@ -308,9 +330,10 @@
 
 <p>Not every report you build may have simple layout requirements as in the one above. When using an Excel Pivot Table, there is a feature called “<em>Field, Items and Sets</em>” that makes the process of creating asymmetric pivot tables relatively easy, but this doesn’t exist in Power BI. To help better understand this, here is an example of an asymmetric visual (Power BI matrix in this case).</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-2.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-2.png');" src="images/asymmetric-rows-columns-2.png" alt="" style="width: 100%; max-width: 89%" />
     
 
     
@@ -319,6 +342,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>In the example above, the first 4 years come from the year column, just like before, but now there are 2 additional columns at the end of the matrix that are not simply the addition of the other columns. To create the last 2 columns above, Measures need to be written, but, currently, you can’t have both Measures and Columns from a model showing like this, in the same Power BI matrix. Rather, you need to build a solution that leverages a separate table to generate the columns needed, and then to generate the results you need in each column.</p>
 
@@ -437,9 +464,10 @@
 
 <p>Technically, this model is now a <strong>Snowflake Schema</strong> and this is a good example of a time when it is OK to step away from the recommended <strong>Star Schema</strong>.</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-7.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-7.png');" src="images/asymmetric-rows-columns-7.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -448,6 +476,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h3 id="write-a-switch-measure-to-generate-the-result">Write a SWITCH Measure to generate the result</h3>
 
@@ -499,9 +531,10 @@ Values to Display =
   <li>Next, create the matrix. Place the column <em>HeaderTable[Display Value]</em> (#1 below) on Columns and the SWITCH measure <em>[Values to Display]</em> (#2 below) on Values. The Display Value column has been sorted by the sort order column.</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-8.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-8.png');" src="images/asymmetric-rows-columns-8.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -510,6 +543,10 @@ Values to Display =
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>There are some blank rows in the matrix for <em>Lights</em>, and <em>Panniers</em>. This is caused by the format string mentioned above. When there are no sales, the percentage change will return <strong><em>BLANK( )</em></strong>. When the result is blank, it is hidden in the visual. The <strong><em>FORMAT</em></strong> function has the effect of turning that blank into an empty string. Empty strings are not hidden automatically, so that is why the blank line now appears. This can be fixed the following code modification.</p>
 
@@ -593,9 +630,10 @@ Values to Display =
   <li>Go to Tabular Editor. You can find the tables in the data model in the left panel under the Tables folder. Right-click on the Tables folder to create a new calculation group. Name it as Sales Horizon (#1 below).</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-9.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-9.png');" src="images/asymmetric-rows-columns-9.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -604,6 +642,10 @@ Values to Display =
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h3 id="create-calculation-items-in-the-calculation-group">Create Calculation Items in the Calculation Group</h3>
 
@@ -686,9 +728,10 @@ table:hover{
 
 <p>There are different ways you could write the DAX formula for this calculation item. For example, you could hardcode <em>[Total Sales]</em> instead of SELECTEDMEASURE(), but the latter allows a lot more flexibility in the use of this calculation group (explained later).</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-10.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-10.png');" src="images/asymmetric-rows-columns-10.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -697,14 +740,19 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>Next, create the calculation items for 2018, 2019, and 2020 (#1 below) by simply copying 2017 and pasting it 3 times, then changing the name and the formula accordingly (#2 below).</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-11.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-11.png');" src="images/asymmetric-rows-columns-11.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -713,14 +761,19 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>Next, create the calculation item Chg 2020 vs 2019 as shown below. The reason you can see question marks next to the calculation items above is that the calculation group does not get validated by Power BI until it is saved. So click on the Save button. Click also on the DAX Formatter button to format the formulas.</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-12.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-12.png');" src="images/asymmetric-rows-columns-12.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -729,14 +782,19 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>The last calculation item required is the % Chg. The measure is shown below. The code from above can reused.</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-13.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-13.png');" src="images/asymmetric-rows-columns-13.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -745,6 +803,10 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h3 id="assign-the-ordinal-values-for-the-calculation-items">Assign the Ordinal Values for the Calculation Items</h3>
 
@@ -754,9 +816,10 @@ table:hover{
   <li>Change the ordinal parameter for 2017 to 0 as shown below (#1 below).</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-14.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-14.png');" src="images/asymmetric-rows-columns-14.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -765,6 +828,10 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>Next change the ordinal numbers for 2018, 2019, 2020, Chg 2020 vs 2019, and % Chg to 1,2,3,4, and 5 respectively.</li>
@@ -776,9 +843,10 @@ table:hover{
   <li>This is the last step in creating the calculation group and calculation items. It is possible to define the format of each calculation item separately as relevant. This is done in the property “Format String Expression” of the calculation item (#1 below). This has only been done for the last item in the list – the % Chg calculation. By not setting the format for the other items, the base measure formatting will be used instead.</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-15.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-15.png');" src="images/asymmetric-rows-columns-15.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -787,6 +855,10 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>Save the work in Tabular Editor and switched to Power BI Desktop. Power BI should prompt a message to refresh the calculation group  - click on the button Refresh Now.</li>
@@ -819,9 +891,10 @@ table:hover{
   </li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/asymmetric-rows-columns-17.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('asymmetric-rows-columns-17.png');" src="images/asymmetric-rows-columns-17.png" alt="" style="width: 100%; max-width: 89%" />
     
 
     
@@ -830,6 +903,10 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h2 id="final-comments">Final Comments</h2>
 
