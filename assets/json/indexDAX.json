@@ -220,7 +220,7 @@ var searchIndex = [
         "title": "Dynamic Segmentation, with Parameters",
         "date": "July 30, 2019",
         "url": "dax-samples/dynamic-segmentation-with-parameters.html",
-        "content": "A sample that shows the Sales of the Top N, and Bottom Customers, dynamically, in a Standard Table, 100% Bar Chart, and by Region.",
+        "content": "A sample that shows the Sales of the Top N, and Bottom Customers, dynamically, in a Standard Table, 100% Bar Chart, and Regional Donut Chart.",
         "tags_measure": ['Sales'],
         "tags_dimension": ['Products', 'Geography'],
         "tags_dax": ['CALCULATE', 'COUNTROWS', 'FILTER', 'GENERATE', 'GENERATESERIES', 'SELECTEDVALUE', 'SUMMARIZE', 'SUMX', 'TOPN', 'VALUES' ]
