@@ -76,7 +76,7 @@ var searchIndex = [
         "title": "Finance - Daily Cashflows",
         "date": "October 22, 2020",
         "url": "dax-samples/finance-daily-cashflows.html",
-        "content": "A sample that shows over a 92 day period (i) Projected Payments, (ii) Projected Receipts, and (iii) Projected Cash Balances, by Country, after converting all cashflows into GBP currency",
+        "content": "A sample that shows over a 92 day period (i) Projected Payments, (ii) Projected Receipts, and (iii) Projected Cash Balances, by Country, after converting all cashflows into the currency, GBP",
         "tags_measure": ['Cash'],
         "tags_dimension": ['Country', 'Calendar Time'],
         "tags_dax": ['AVERAGE', 'CALCULATE', 'FILTER', 'MAX', 'SUM', 'SUMMARIZE', 'SUMX', 'TODAY']
