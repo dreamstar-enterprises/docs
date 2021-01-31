@@ -21,7 +21,7 @@
 		<!-- link to Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
 		<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"> 
-		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@200..400&display=swap" rel="stylesheet"> 
 		<!-- link to Font awesome -->
 		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
@@ -36,7 +36,9 @@
 		<a id="top"></a>
 			<!-- Header Holder --> 
 
-<div class="header-holder has-default-focus"  >
+<div class="header-holder has-default-focus"
+  
+  >
     <div class="nav-bar">
         <!---->
         <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
@@ -50,7 +52,10 @@
         <nav class="nav-bar-nav">
             <ul class="nav-bar-nav-list">
                 <li class="nav-bar-item is-category has-spacing">
-                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                    <a class = "nav-bar-button title has-hover-underline is-6 
+                    
+                    
+                    " href="/docs/">
                         <span>
                             <!---->
                             Docs
@@ -59,7 +64,11 @@
                     </a>
                 </li>
                 <li class="nav-bar-item">
-                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    underline
+                    
+                    " href="/docs/">
                         <span>
                             <!---->
                             Guides
@@ -68,7 +77,10 @@
                     </a>
                 </li>
                 <li class="nav-bar-item">
-                    <a class = "nav-bar-button has-hover-underline" href="/docs/articles-and-blogs/article-search.html">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/articles-and-blogs/article-search.html">
                         <span>
                             <!---->
                             Articles & Blogs
@@ -99,8 +111,11 @@
         <span class = "nav-bar-spacer i-hidden-mobile"></span>
         <!---->
     </div>
-    
-    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+</div>
+
+
+<div class="header-holder transparent has-default-focus" style="position: sticky; top: 0; left: 0; right: 0;">
+    <div class="content-header uhf-container has-padding has-default-focus is-flexbox" style="padding-top: 0px; padding-bottom: 1px;">
         
 <!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
 
@@ -206,7 +221,9 @@
 
 <!-- end of / Page Functions -->
     </div>
-    
+    <div class="progress-container">
+        <div class="progress-bar-scroll" id="myBar"></div>
+    </div>
 </div>
 
 <!-- end of /.header-holder -->
@@ -952,7 +969,7 @@
                 ">
                     <main id="main" class ="
                     
-                        content
+                        content docs
                     " lang="eng-us">
                         <h1 id="dynamically-removing-columns">Dynamically removing columns</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 15/01/2019</time>
@@ -963,9 +980,32 @@
 
 <p>Imagine we have defined the following data as a named range in Excel:</p>
 
-<figure>
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Dynamically Removing Columnss</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-1.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-1.png');" src="images/dynamically-removing-columns-1.png" alt="" style="width: 100%; max-width: 89%" />
     
 
     
@@ -974,12 +1014,17 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>When the named range is loaded to Power Query, it will look something like this:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-2.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-2.png');" src="images/dynamically-removing-columns-2.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -988,6 +1033,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>Here, the first three columns are needed, the others are not. You could use just the <strong><em>Table.SelectColumns</em></strong> function to select only the first three columns. Doing this, however, will hardcode the column names, “<em>Column1</em>”, “<em>Column2</em>”, and “<em>Column3</em>” into the query. So, if the position of the data columns later changes, the query will not work.</p>
 
@@ -999,9 +1048,10 @@
   <li>Combine the tables in the column called “<em>Content</em>” using the function <strong><em>Table.Combine</em></strong>. This will expand all the data across all the tables - (in this case there is only one table to expand).</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-3.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-3.png');" src="images/dynamically-removing-columns-3.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -1010,14 +1060,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>Promote the first row to headers, using the function <strong><em>Table.PromoteHeaders</em></strong></li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-4.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-4.png');" src="images/dynamically-removing-columns-4.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -1026,14 +1081,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>Then, extract the headers only, using the function <strong><em>Table.ColumnNames</em></strong>. The headers will appear as a vertical list.</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-5.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-5.png');" src="images/dynamically-removing-columns-5.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -1042,14 +1102,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>Next, remove any items with the name “<em>Column</em>”, “ “, “”, or a null in them. You can use any filtering criteria here you like.</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-6.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-6.png');" src="images/dynamically-removing-columns-6.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -1058,14 +1123,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <ul>
   <li>Once the list is filtered, you can then, but not any earlier, use the function <strong><em>Table.SelectColumns</em></strong> – to restrict which columns are included, as defined in the list in the earlier step, <em>FilteredCols</em></li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-7.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-7.png');" src="images/dynamically-removing-columns-7.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -1074,14 +1144,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h2 id="add-new-column-and-re-test">Add new column and re-test</h2>
 
 <p>Now, if you can add a new field to the data, like so:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-8.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-8.png');" src="images/dynamically-removing-columns-8.png" alt="" style="width: 100%; max-width: 89%" />
     
 
     
@@ -1090,14 +1165,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>Without changing the query, the new data in column E should automatically appear in the query (but not Columns D, F, G, H or I).</p>
 
 <p>This is indeed what happens! - the column ‘<em>New Field</em>’ is appended at the end - and not the blank columns.</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-removing-columns-9.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('dynamically-removing-columns-9.png');" src="images/dynamically-removing-columns-9.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -1106,6 +1186,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <div class="alert alert-info alerts-font" role="alert">
   <p><i class="fa fa-info-circle"></i> <b>Note: </b><br />

@@ -469,17 +469,17 @@
 
 	// Clear all Filters
 	var clearFilter = function (){
-		measureValues.forEach(function (measureValue, i) {
+		measureValues.forEach(function (currentValue , i) {
 			measureItems[i].classList.remove('is-hidden')
 			measureItems[i].firstElementChild.firstElementChild.checked = false;
 		});
 
-		nonMeasureValues.forEach(function (nonMeasureValue, i) {
+		nonMeasureValues.forEach(function (currentValue, i) {
 			nonMeasureItems[i].classList.remove('is-hidden')
 			nonMeasureItems[i].firstElementChild.firstElementChild.checked = false;
 		});
 
-		daxValues.forEach(function (daxValue, i) {
+		daxValues.forEach(function (currentValue, i) {
 			daxItems[i].classList.remove('is-hidden')
 			daxItems[i].firstElementChild.firstElementChild.checked = false;
 		});
@@ -711,6 +711,90 @@
 		} else {
 			results = priority0;
 		}
+
+		// Add Article Counts by Measures to Page
+			// Show Measures for all Matched Articles
+			let measureArray = [];
+
+			results.forEach(function (article) {
+				for (let i=0; i < article.tags_measure.length; i++) {
+					measureValues.forEach(function (measure){
+						if(article.tags_measure[i] == measure) measureArray.push(article.tags_measure[i]);
+					});
+				}
+			});
+
+			// Show Article Count Grouped by Measure
+			let measureObjectCount = measureArray.reduce((r,c) => (r[c] = (r[c] || 0) + 1, r), {});
+
+			// Clear all Counts from Meaure Items in HTML
+			measureValues.forEach(function (currentValue, i) {
+				measureItems[i].firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML = "";
+			});
+			
+			// Add Updated Counts for all Measure Items in HTML
+			Object.keys(measureObjectCount).forEach(function(key) {
+				let measureElementId = "filter-" + key.replace(/\s+/g, '-').toLowerCase() + "-m";
+				let measureElement = document.getElementById(measureElementId).nextElementSibling.nextElementSibling.nextElementSibling;
+				measureElement.innerHTML = "&nbsp (" + measureObjectCount[key] + ")";
+			});
+
+
+		// Add Article Counts by Non-Measures to Page
+			// Show Non-Measures for all Matched Articles
+			let nonMeasureArray = [];
+
+			results.forEach(function (article) {
+				for (let i=0; i < article.tags_dimension.length; i++) {
+					nonMeasureValues.forEach(function (dimension){
+						if(article.tags_dimension[i] == dimension) nonMeasureArray.push(article.tags_dimension[i]);
+					});
+				}
+			});
+
+			// Show Article Count Grouped by Non-Measure
+			let nonMeasureObjectCount = nonMeasureArray.reduce((r,c) => (r[c] = (r[c] || 0) + 1, r), {});
+
+			// Clear all Counts from Non-Meaure Items in HTML
+			nonMeasureValues.forEach(function (currentValue, i) {
+				nonMeasureItems[i].firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML = "";
+			});
+			
+			// Add Updated Counts for all Non-Measure Items in HTML
+			Object.keys(nonMeasureObjectCount).forEach(function(key) {
+				let nonMeasureElementId = "filter-" + key.replace(/\s+/g, '-').toLowerCase() + "-nm";
+				let nonMeasureElement = document.getElementById(nonMeasureElementId).nextElementSibling.nextElementSibling.nextElementSibling;
+				nonMeasureElement.innerHTML = "&nbsp (" + nonMeasureObjectCount[key] + ")";
+			});
+
+
+		// Add Article Counts by DAX to Page
+			// Show DAX for all Matched Articles
+			let daxArray = [];
+
+			results.forEach(function (article) {
+				for (let i=0; i < article.tags_dax.length; i++) {
+					daxValues.forEach(function (dax){
+						if(article.tags_dax[i] == dax) daxArray.push(article.tags_dax[i]);
+					});
+				}
+			});
+
+			// Show Article Count Grouped by DAX
+			let daxObjectCount = daxArray.reduce((r,c) => (r[c] = (r[c] || 0) + 1, r), {});
+
+			// Clear all Counts from DAX Items in HTML
+			daxValues.forEach(function (currentValue, i) {
+				daxItems[i].firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML = "";
+			});
+			
+			// Add Updated Counts for all DAX Items in HTML
+			Object.keys(daxObjectCount).forEach(function(key) {
+				let daxElementId = "filter-" + key.replace(/\s+/g, '-').toLowerCase() + "-dax";
+				let daxElement = document.getElementById(daxElementId).nextElementSibling.nextElementSibling.nextElementSibling;
+				daxElement.innerHTML = "&nbsp (" + daxObjectCount[key] + ")";
+			});
+
 
 		// Display the results
 		displayList(results, resultList, items_per_page, current_Page);
@@ -956,6 +1040,9 @@
 			});
 		}
 		// Also, create Measure Tags
+		while (checkedItemArray.length > 0) {
+			checkedItemArray.shift();
+			}
 		measureValues.forEach(function (measureValue, i) {
 			if(measureItems[i].firstElementChild.firstElementChild.checked){
 				// Count checked items
@@ -975,6 +1062,9 @@
 		});
 
 		// Also, create Non-Measure Tags
+		while (checkedItemArray2.length > 0) {
+			checkedItemArray2.shift();
+			}
 		nonMeasureValues.forEach(function (nonMeasureValue, i) {
 			if(nonMeasureItems[i].firstElementChild.firstElementChild.checked){
 				// Count checked items
@@ -994,6 +1084,9 @@
 		});
 
 		// Also, create DAX Tags
+		while (checkedItemArray3.length > 0) {
+			checkedItemArray3.shift();
+			}
 		daxValues.forEach(function (daxValue, i) {
 			if(daxItems[i].firstElementChild.firstElementChild.checked){
 				// Count checked items

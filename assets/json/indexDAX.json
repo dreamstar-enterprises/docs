@@ -1,6 +1,15 @@
 var searchIndex = [
 
     {
+        "title": "Building a Matrix with Asymmetrical Columns and Rows",
+        "date": "December 01, 2020",
+        "url": "dax-samples/asymmetrical-columns.html",
+        "content": "A sample that explains how to build a visual with asymmetrical columns and rows in Power BI, using both standard DAX measures, and the more flexible, Calculation Groups.",
+        "tags_measure": ['Sales', 'Sales Quantity'],
+        "tags_dimension": ['Calendar Time', 'Products'],
+        "tags_dax": ['ALL', 'CALCULATE', 'CALCULATION GROUPS', 'DIVIDE', 'ISBLANK', 'SELECTEDVALUE', 'SELECTEDMEASURE', 'SUM', 'SWITCH']
+    },
+    {
         "title": "Finance - Weekly Ops Report",
         "date": "November 26, 2020",
         "url": "dax-samples/finance-weekly-ops-report.html",

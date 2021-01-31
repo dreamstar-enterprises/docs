@@ -395,7 +395,7 @@
 
 	// Clear all Year Filters
 	var clearFilter2 = function (){
-		yearValues.forEach(function (yearValue, i) {
+		yearValues.forEach(function (currentValue, i) {
 			yearItems[i].classList.remove('is-hidden')
 			yearItems[i].firstElementChild.firstElementChild.checked = false;
 		});
@@ -422,7 +422,7 @@
 
 	// Clear all Month Filters
 	var clearFilter3 = function (){
-		monthValues.forEach(function (monthValue, i) {
+		monthValues.forEach(function (currentValue, i) {
 			monthItems[i].classList.remove('is-hidden')
 			monthItems[i].firstElementChild.firstElementChild.checked = false;
 		});
@@ -449,7 +449,7 @@
 
 	// Clear all Type Filters
 	var clearFilter4 = function (){
-		typeValues.forEach(function (typeValue, i) {
+		typeValues.forEach(function (currentValue, i) {
 			typeItems[i].classList.remove('is-hidden')
 			typeItems[i].firstElementChild.firstElementChild.checked = false;
 		});
@@ -563,7 +563,7 @@
 		} else {
 			priority0 = searchIndex;
 		}
-
+		
 
 		// Do Search, provided Query String is not Empty, or at least one Filter Item is checked. Otherwise, return All Results
 		if(query.trim()){
@@ -575,6 +575,88 @@
 		} else {
 			results = priority0;
 		}
+
+
+		// Add Article Counts by Year to Page
+			// Show Years for all Matched Articles
+			let yearArray = [];
+
+			results.forEach(function (article) {
+				for (let i=0; i < article.tags_year.length; i++) {
+					yearValues.forEach(function (year){
+						if(article.tags_year[i] == year) yearArray.push(article.tags_year[i]);
+					});
+				}
+			});
+
+			// Show Article Count Grouped by Year
+			let yearObjectCount = yearArray.reduce((r,c) => (r[c] = (r[c] || 0) + 1, r), {});
+
+			// Clear all Counts from Year Items in HTML
+			yearValues.forEach(function (currentValue, i) {
+				yearItems[i].firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML = "";
+			});
+			
+			// Add Updated Counts for all Year Items in HTML
+			Object.keys(yearObjectCount).forEach(function(key) {
+				let yearElementId = "filter-" + key.replace(/\s+/g, '-').toLowerCase() + "-y";
+				let yearElement = document.getElementById(yearElementId).nextElementSibling.nextElementSibling.nextElementSibling;
+				yearElement.innerHTML = "&nbsp (" + yearObjectCount[key] + ")";
+			});
+
+		// Add Article Counts by Month to Page
+			// Show Months for all Matched Articles
+			let monthArray = [];
+
+			results.forEach(function (article) {
+				for (let i=0; i < article.tags_month.length; i++) {
+					monthValues.forEach(function (month){
+						if(article.tags_month[i] == month) monthArray.push(article.tags_month[i]);
+					});
+				}
+			});
+
+			// Show Article Count Grouped by Month
+			let monthObjectCount = monthArray.reduce((r,c) => (r[c] = (r[c] || 0) + 1, r), {});
+
+			// Clear all Counts from Month Items in HTML
+			monthValues.forEach(function (currentValue, i) {
+				monthItems[i].firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML = "";
+			});
+			
+			// Add Updated Counts for all Month Items in HTML
+			Object.keys(monthObjectCount).forEach(function(key) {
+				let monthElementId = "filter-" + key.replace(/\s+/g, '-').toLowerCase() + "-m";
+				let monthElement = document.getElementById(monthElementId).nextElementSibling.nextElementSibling.nextElementSibling;
+				monthElement.innerHTML = "&nbsp (" + monthObjectCount[key] + ")";
+			});
+
+		// Add Article Counts by Type to Page
+			// Show Types for all Matched Articles
+			let typeArray = [];
+
+			results.forEach(function (article) {
+				for (let i=0; i < article.tags_type.length; i++) {
+					typeValues.forEach(function (type){
+						if(article.tags_type[i] == type) typeArray.push(article.tags_type[i]);
+					});
+				}
+			});
+
+			// Show Article Count Grouped by Type
+			let typeObjectCount = typeArray.reduce((r,c) => (r[c] = (r[c] || 0) + 1, r), {});
+
+			// Clear all Counts from Type Items in HTML
+			typeValues.forEach(function (currentValue, i) {
+				typeItems[i].firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML = "";
+			});
+			
+			// Add Updated Counts for all Type Items in HTML
+			Object.keys(typeObjectCount).forEach(function(key) {
+				let typeElementId = "filter-" + key.replace(/\s+/g, '-').toLowerCase() + "-type";
+				let typeElement = document.getElementById(typeElementId).nextElementSibling.nextElementSibling.nextElementSibling;
+				typeElement.innerHTML = "&nbsp (" + typeObjectCount[key] + ")";
+			});
 
 		// Display the results
 		displayList(results, resultList, items_per_page, current_Page);
@@ -823,6 +905,9 @@
 			});
 		}
 		// Also, create Year Tags
+		while (checkedItemArray.length > 0) {
+			checkedItemArray.shift();
+			}
 		yearValues.forEach(function (yearValue, i) {
 			if(yearItems[i].firstElementChild.firstElementChild.checked){
 				// Count checked items
@@ -842,6 +927,9 @@
 		});
 
 		// Also, create Month Tags
+		while (checkedItemArray2.length > 0) {
+			checkedItemArray2.shift();
+			}
 		monthValues.forEach(function (monthValue, i) {
 			if(monthItems[i].firstElementChild.firstElementChild.checked){
 				// Count checked items
@@ -861,6 +949,9 @@
 		});
 
 		// Also, create Type Tags
+		while (checkedItemArray3.length > 0) {
+			checkedItemArray3.shift();
+			}
 		typeValues.forEach(function (typeValue, i) {
 			if(typeItems[i].firstElementChild.firstElementChild.checked){
 				// Count checked items

@@ -21,7 +21,7 @@
 		<!-- link to Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
 		<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"> 
-		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@200..400&display=swap" rel="stylesheet"> 
 		<!-- link to Font awesome -->
 		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
@@ -36,7 +36,9 @@
 		<a id="top"></a>
 			<!-- Header Holder --> 
 
-<div class="header-holder has-default-focus"  >
+<div class="header-holder has-default-focus"
+  
+  >
     <div class="nav-bar">
         <!---->
         <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
@@ -50,7 +52,10 @@
         <nav class="nav-bar-nav">
             <ul class="nav-bar-nav-list">
                 <li class="nav-bar-item is-category has-spacing">
-                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                    <a class = "nav-bar-button title has-hover-underline is-6 
+                    
+                    
+                    " href="/docs/">
                         <span>
                             <!---->
                             Docs
@@ -59,7 +64,11 @@
                     </a>
                 </li>
                 <li class="nav-bar-item">
-                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    underline
+                    
+                    " href="/docs/">
                         <span>
                             <!---->
                             Guides
@@ -68,7 +77,10 @@
                     </a>
                 </li>
                 <li class="nav-bar-item">
-                    <a class = "nav-bar-button has-hover-underline" href="/docs/articles-and-blogs/article-search.html">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/articles-and-blogs/article-search.html">
                         <span>
                             <!---->
                             Articles & Blogs
@@ -99,8 +111,11 @@
         <span class = "nav-bar-spacer i-hidden-mobile"></span>
         <!---->
     </div>
-    
-    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+</div>
+
+
+<div class="header-holder transparent has-default-focus" style="position: sticky; top: 0; left: 0; right: 0;">
+    <div class="content-header uhf-container has-padding has-default-focus is-flexbox" style="padding-top: 0px; padding-bottom: 1px;">
         
 <!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
 
@@ -206,7 +221,9 @@
 
 <!-- end of / Page Functions -->
     </div>
-    
+    <div class="progress-container">
+        <div class="progress-bar-scroll" id="myBar"></div>
+    </div>
 </div>
 
 <!-- end of /.header-holder -->
@@ -952,7 +969,7 @@
                 ">
                     <main id="main" class ="
                     
-                        content
+                        content docs
                     " lang="eng-us">
                         <h1 id="dynamically-expanding-columns">Dynamically expanding columns</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 15/01/2019</time>
@@ -997,6 +1014,28 @@
     
 </figure>
 
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Dynamically Expanding Columnss</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
 <h2 id="steps">Steps</h2>
 
 <p>These are the steps to follow:</p>
@@ -1005,9 +1044,10 @@
 
 <p>When you import the file into Power Query, it should look something like this:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-expanding-columns-4.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('dynamically-expanding-columns-4.png');" src="images/dynamically-expanding-columns-4.png" alt="" style="width: 100%; max-width: 89%" />
     
 
     
@@ -1016,14 +1056,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h3 id="promote-headers">Promote headers</h3>
 
 <p>If you click on a cell in the <em>Data</em> column, you should see the data from that sheet, like shown below:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-expanding-columns-5.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('dynamically-expanding-columns-5.png');" src="images/dynamically-expanding-columns-5.png" alt="" style="width: 100%; max-width: 89%" />
     
 
     
@@ -1032,6 +1077,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>The data, however, does not have the first row promoted to headers.</p>
 
@@ -1039,9 +1088,10 @@
   <li>Adding the following step will promote the headers in each sheet, and store the results in a table object in a column called <em>Custom</em> – like shown below:</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-expanding-columns-6.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('dynamically-expanding-columns-6.png');" src="images/dynamically-expanding-columns-6.png" alt="" style="width: 100%; max-width: 89%" />
     
 
     
@@ -1050,6 +1100,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h3 id="use-table-functions">Use Table functions</h3>
 
@@ -1089,9 +1143,10 @@
   <li>Finally, the <strong><em>Table.ExpandTableColumn</em></strong> function will expand all the columns defined in the earlier ‘<em>ColNames</em>’ step</li>
 </ul>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/dynamically-expanding-columns-9.png" alt="" style="width: 100%; max-width: 89%" />
+        <img class="docimage" onclick="showImage('dynamically-expanding-columns-9.png');" src="images/dynamically-expanding-columns-9.png" alt="" style="width: 100%; max-width: 89%" />
     
 
     
@@ -1100,6 +1155,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>That’s it! Up to this point, the query should still work - even if new columns are added (to any of the sheets), and also if there is a name change to any of the existing column headings. (You need to make sure though that after this point in the query, you don’t add a <em>Change datatype</em> step, as this will hardcode the column headings into the actual query - which you don’t want. Instead, the data formats can be set later in Excel)</p>
 

@@ -21,7 +21,7 @@
 		<!-- link to Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
 		<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"> 
-		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300..400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@200..400&display=swap" rel="stylesheet"> 
 		<!-- link to Font awesome -->
 		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
@@ -36,7 +36,9 @@
 		<a id="top"></a>
 			<!-- Header Holder --> 
 
-<div class="header-holder has-default-focus"  >
+<div class="header-holder has-default-focus"
+  
+  >
     <div class="nav-bar">
         <!---->
         <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
@@ -50,7 +52,10 @@
         <nav class="nav-bar-nav">
             <ul class="nav-bar-nav-list">
                 <li class="nav-bar-item is-category has-spacing">
-                    <a class = "nav-bar-button title has-hover-underline is-6" href="/docs/">
+                    <a class = "nav-bar-button title has-hover-underline is-6 
+                    
+                    
+                    " href="/docs/">
                         <span>
                             <!---->
                             Docs
@@ -59,7 +64,11 @@
                     </a>
                 </li>
                 <li class="nav-bar-item">
-                    <a class = "nav-bar-button has-hover-underline" href="/docs/">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    underline
+                    
+                    " href="/docs/">
                         <span>
                             <!---->
                             Guides
@@ -68,7 +77,10 @@
                     </a>
                 </li>
                 <li class="nav-bar-item">
-                    <a class = "nav-bar-button has-hover-underline" href="/docs/articles-and-blogs/article-search.html">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/articles-and-blogs/article-search.html">
                         <span>
                             <!---->
                             Articles & Blogs
@@ -99,8 +111,11 @@
         <span class = "nav-bar-spacer i-hidden-mobile"></span>
         <!---->
     </div>
-    
-    <div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none is-flexbox">
+</div>
+
+
+<div class="header-holder transparent has-default-focus" style="position: sticky; top: 0; left: 0; right: 0;">
+    <div class="content-header uhf-container has-padding has-default-focus is-flexbox" style="padding-top: 0px; padding-bottom: 1px;">
         
 <!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
 
@@ -206,7 +221,9 @@
 
 <!-- end of / Page Functions -->
     </div>
-    
+    <div class="progress-container">
+        <div class="progress-bar-scroll" id="myBar"></div>
+    </div>
 </div>
 
 <!-- end of /.header-holder -->
@@ -952,7 +969,7 @@
                 ">
                     <main id="main" class ="
                     
-                        content
+                        content docs
                     " lang="eng-us">
                         <h1 id="shaping-vs-modelling">Shaping vs Modelling</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Data Integration &amp; ETL • 25/02/2018</time>
@@ -963,7 +980,7 @@
 
 <h2 id="shaping-and-modelling-data">Shaping and Modelling data</h2>
 
-<p>To help delineate (with language/labels) between the process of loading data and process of modelling data, <strong>in this article we use “Shaping” as a replacement term for Power Query/Get Data, and “Modelling” as a replacement term for Power Pivot.</strong></p>
+<p>To help delineate (with language/labels) between the process of loading data, and process of modelling data, <strong>in this article we use “Shaping” as a replacement term for Power Query/Get Data, and “Modelling” as a replacement term for Power Pivot.</strong></p>
 
 <h2 id="definition-of-shaping">Definition of Shaping</h2>
 
@@ -980,6 +997,20 @@
 
 <p>As a matter of best practice, tables should only be loaded with the data that is actually needed.</p>
 
+<h3 id="data-shaping">Data Shaping</h3>
+
+<p>The process of shaping data includes:</p>
+
+<ul>
+  <li>Restructuring data coming from source tables into new tables that meet the requirements for the reporting database.  The table structure in a relational database is seldom (if ever) appropriate a tool like Power BI.  Don’t fall into the trap of just loading what is in your source data.</li>
+  <li>Selecting only the columns and rows that are needed. Load everything you need, and nothing you don’t. It’s easy to make changes later if needed.</li>
+  <li>Pre-aggregating data, if desired, though not recommended, sometimes this can be useful.</li>
+  <li>Naming/renaming the columns and tables to be business user friendly.</li>
+  <li>Loading everything into the Power BI database (a data model).</li>
+</ul>
+
+<p>Where possible, it is better to do this shaping work inside views in a relational database (if you have one). If this is not possible for any reason, Power Query is there to do this work for you.</p>
+
 <h2 id="definition-of-modelling">Definition of Modelling</h2>
 
 <p>Modelling as distinct from Shaping, is the process of building <strong>relationships</strong> between tables and converting business requirements into measures and calculated columns, for example, using a language such as DAX. These measures and calculated columns contain:</p>
@@ -991,6 +1022,25 @@
 </ul>
 
 <p>Before Self Service Business Intelligence, data modelling was always done by expert IT professionals using a complex language like MDX. The complexity of such languages then put it very far out of reach of users, as it was too hard to learn casually. DAX helps to overcome some of these past usabilty challenges.</p>
+
+<h3 id="data-modelling">Data Modelling</h3>
+
+<p>Data modelling includes:</p>
+
+<ul>
+  <li><strong>Deciding</strong> what data to load and what to not load.</li>
+  <li><strong>Deciding</strong> on a table schema; one table, two tables, many tables?  A star schema is always preferred.</li>
+  <li>Joining tables using relationships (where needed)</li>
+  <li>Writing the business logic in measures to extract the value adding insights from your raw data.</li>
+  <li>Correctly formatting measures and columns to meet the business requirements (e.g. currency, percentage, appropriate number of decimals)</li>
+  <li>Assigning good business names to the measures that accurately describes what is being calculated.</li>
+</ul>
+
+<p>The <strong>decision on what to load is part of modelling</strong>, but the <strong>process of structuring the data is part of shaping</strong>. Both concepts are closely linked and are mutually dependent.</p>
+
+<h2 id="things-are-not-always-clear-cut">Things Are Not Always Clear Cut</h2>
+
+<p>One thing that creates a lot of confusion for new Power BI users is that <strong>there are at least 2 ways to add columns to data</strong>. You can add a column using Power Query or you can add a calculated column using DAX. It may be possible for a third way; add the data back at the source database instead. Regardless of which method you use, <strong>the decision</strong> on whether to add the column (or not), and what should be in the column, <strong>is a data modelling decision</strong>. It is debatable if the process of actually adding a <strong>calculated column</strong> is shaping or modelling, but it is probably <strong>a shaping task</strong>.</p>
 
 <h2 id="two-ways-to-add-columns">Two ways to add columns</h2>
 
@@ -1016,11 +1066,24 @@
   <li>Add the column during the modelling process (Power Pivot)</li>
 </ol>
 
-<p><strong>If you add the column at the source, then you have access to it for your current BI (Power Pivot) needs but also for future BI needs</strong>. Adding the column at the source provides the most reuse, and if you need to make a change down the track, it will be the least maintenance. But sometimes you cannot do that for various reasons, or you cannot do it quickly.</p>
+<p><strong>If you add the column at the source, then you have access to it for your current BI (Power Pivot) needs but also for future BI needs</strong>. Adding the column at the source provides the most reuse, and if you need to make a change down the track, it will be the least maintenance. But sometimes you cannot do that for various reasons, or you cannot do it quickly, so, often this is not an option particularly for self service BI.</p>
 
-<p><strong>If you add the column during shaping, it will be loaded and compressed with all other columns during data load</strong>. This normally means better overall table compression and hence a good outcome for the overall model.</p>
+<p><strong>If you add the column during shaping, it will be loaded and compressed with all other columns during data load</strong>. This normally means better overall table compression and hence a good outcome for the overall model. It also keeps all the shaping tasks together, which can make it more intuitive to find things and easier to maintain.</p>
 
 <p><strong>The most common reason you would add a column during the modelling process is if you needed to leverage other parts of the model to create the data.</strong> An example here would be if you wanted to use a measure (e.g. Total Sales) in your data model to create a new column in the model (e.g. Banded groups of Customers based on High, Med, Low annual sales).</p>
+
+<p>If you tried to do this task inside Power Query, it would be quite some additional work. You would have to work out the total sales for each customer in Power Query, and that would require you to:</p>
+
+<ol class="numbered-list">
+  <li>Create a join between the customer table and the sales table</li>
+  <li>Pre-aggregate the sales data for each customer</li>
+  <li>Group the customers into the size bands using the business logic you need</li>
+  <li>Add the column (high, medium, low)</li>
+</ol>
+
+<p>Points 1 and 2 above will most likely already exist in the data model itself. Table relationships in models can be used to more easily add a new calculated column using DAX. In short, a calculated column is preferred when it leverages the logic of a model (measures and relationships), so the logic is not repeated inside Power Query.</p>
+
+<p>But <strong>don’t fall into the trap of using too many calculated columns</strong> instead of writing measures.</p>
 
 <p>The picture below shows the broader picture of how the different technologies - Power Query, Power Pivot, and Power BI all fit together, and in what order. The Data Model is commonly referred to as Power Pivot, and the Dashboarding tool, Power BI.</p>
 
@@ -1036,7 +1099,7 @@
     
 </figure>
 
-<p>Hopefully, this gives you a better understanding of the differences between shaping and modelling!</p>
+<p>Hopefully, this gives you a better understanding of the differences between <strong>shaping</strong> and <strong>modelling</strong>!</p>
 
 
                         
@@ -1106,8 +1169,17 @@
                             <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
 <li class="toc-entry toc-h2"><a href="#shaping-and-modelling-data">Shaping and Modelling data</a></li>
-<li class="toc-entry toc-h2"><a href="#definition-of-shaping">Definition of Shaping</a></li>
-<li class="toc-entry toc-h2"><a href="#definition-of-modelling">Definition of Modelling</a></li>
+<li class="toc-entry toc-h2"><a href="#definition-of-shaping">Definition of Shaping</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#data-shaping">Data Shaping</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#definition-of-modelling">Definition of Modelling</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#data-modelling">Data Modelling</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#things-are-not-always-clear-cut">Things Are Not Always Clear Cut</a></li>
 <li class="toc-entry toc-h2"><a href="#two-ways-to-add-columns">Two ways to add columns</a></li>
 </ul>
                         </nav>

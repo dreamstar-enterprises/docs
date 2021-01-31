@@ -2432,6 +2432,12 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .nav-bar .nav-bar-button { display: flex; align-items: center; justify-content: center; align-self: stretch; flex-shrink: 0; flex-grow: 0; min-width: 54px; padding: 0 0.5rem; background-color: transparent; color: #171717; border: none; text-decoration: none !important; white-space: nowrap; font-size: 0.875rem; line-height: normal; cursor: pointer; outline-offset: -0.125rem !important; transition-duration: 120ms; transition-timing-function: linear; transition-delay: 0s; }
 
+.nav-bar .nav-bar-button.underline, .nav-bar .nav-bar-button.underline:visited { color: #e82127; }
+
+.nav-bar .nav-bar-button.underline > span { position: relative; }
+
+.nav-bar .nav-bar-button.underline > :first-child:after { content: ''; display: block; position: absolute; border-bottom: 2px solid; left: 0; right: 0; bottom: -0.125rem; }
+
 .nav-bar .nav-bar-button:visited { color: #171717; }
 
 .nav-bar .nav-bar-button.is-title, .nav-bar .nav-bar-button.nav-bar-menu { font-size: 1rem; word-break: break-word; padding: 0; background-color: transparent; line-height: normal; }
@@ -2539,7 +2545,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .mainContainer .primary-holder #main-column .content { /* MODAL */ /* MODAL */ /* The Modal (background) */ /* Modal Content */ /* Add Animation */ /* The Close Button */ /* Video Wrapper */ /* Header Colours */ }
 
-.mainContainer .primary-holder #main-column .content.docs h1, .mainContainer .primary-holder #main-column .content.docs h2.likeAnH1 { overflow-wrap: break-word; margin-top: 0; margin-bottom: 12px; line-height: 1.3; font-size: 2.5rem; word-break: break-word; -webkit-animation: fadein 1.25s forwards, slidein 1.15s forwards; /* Safari, Chrome and Opera > 12.1 */ -moz-animation: fadein 1.25s forwards, slidein 1.15s forwards; /* Firefox < 16 */ -ms-animation: fadein 1.25s forwards, slidein 1.15s forwards; /* Internet Explorer */ -o-animation: fadein 1.25s forwards, slidein 1.15s forwards; /* Opera < 12.1 */ animation: fadein 1.25s forwards, slidein 1.15s forwards; /* Firefox < 16 */ /* Safari, Chrome and Opera > 12.1 */ /* Internet Explorer */ /* Opera < 12.1 */ }
+.mainContainer .primary-holder #main-column .content.docs h1, .mainContainer .primary-holder #main-column .content.docs h2.likeAnH1 { overflow-wrap: break-word; margin-top: 0; margin-bottom: 12px; line-height: 1.3; font-size: 2.5rem; word-break: break-word; -webkit-animation: fadein 1s forwards, slidein 1.15s forwards; /* Safari, Chrome and Opera > 12.1 */ -moz-animation: fadein 1s forwards, slidein 1.15s forwards; /* Firefox < 16 */ -ms-animation: fadein 1s forwards, slidein 1.15s forwards; /* Internet Explorer */ -o-animation: fadein 1s forwards, slidein 1.15s forwards; /* Opera < 12.1 */ animation: fadein 1s forwards, slidein 1.15s forwards; /* Firefox < 16 */ /* Safari, Chrome and Opera > 12.1 */ /* Internet Explorer */ /* Opera < 12.1 */ }
 
 @keyframes fadein { from { opacity: 0; }
   to { opacity: 1; } }
@@ -3304,6 +3310,10 @@ button { color: #171717; background-color: transparent; cursor: pointer; }
 
 .checkbox { cursor: pointer; display: flex; line-height: 1.25; position: relative; align-items: center; }
 
+.checkbox-count-articles-and-blogs { font-size: small; font-style: italic; color: #eb142a; }
+
+.checkbox-count-dax { font-size: small; font-style: italic; color: rgba(236, 87, 0, 0.959); }
+
 .checkbox:hover .checkbox-check:before { content: '\2714' !important; }
 
 .checkbox input[type='checkbox'] { border: 0; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; word-wrap: normal; }
@@ -3418,7 +3428,11 @@ button { color: #171717; background-color: transparent; cursor: pointer; }
 
 .box { background-color: white; box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.125), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.125); display: block; padding: 1.25rem; border: 1px solid #f2f2f2; }
 
-.box-transparent { background-color: transparent; display: block; padding: 1.25rem; border: 1px solid transparent; max-width: 400px; }
+.box-transparent { background-color: transparent; display: block; padding: 0.0rem; border: 1px solid transparent; position: relative; z-index: 50; }
+
+.has-rising-shadow-hover-transparent a.title-link:first-of-type::before { content: ''; display: block; position: absolute; opacity: 0; z-index: -1; left: -5%; top: -25px; width: calc(100% + 10%); height: calc(100% + 45px); background: white; -webkit-box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2); transition: opacity 400ms; }
+
+.has-rising-shadow-hover-transparent:hover a.title-link:first-of-type::before { transition: opacity 400ms; opacity: 1; }
 
 a.box:hover { box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.125), 0 0 0 1px #0065b3; }
 
@@ -3568,11 +3582,7 @@ a.box:active { box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.125), 0 0 0 1px #0065
 
 .has-border-high-contrast-hover:hover { border: 1px solid white; transition: all 300ms linear; }
 
-.has-rising-shadow-hover:hover { display: block; width: calc(100% + 0px); height: calc(100% + 0px); background-color: white; transition: all 200ms linear; -webkit-box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2); }
-
-.has-rising-shadow-hover-transparent { transition: all 200ms linear; }
-
-.has-rising-shadow-hover-transparent:hover { display: block; width: calc(100% + 0px); height: calc(100% + 10px); background-color: white; transition: all 200ms linear; -webkit-box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2); }
+.has-rising-shadow-hover:hover { display: block; background-color: white; transition: all 200ms linear; -webkit-box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2); box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2); }
 
 /* TITLES */
 .title { font-size: 1.1875rem; font-weight: 500; line-height: 1.125; }
@@ -3944,7 +3954,7 @@ a.box:active { box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.125), 0 0 0 1px #0065
 /* IMAGES */
 .eyebrow { display: block; padding-bottom: 3px; font-size: .875rem; }
 
-.image + .text-wrapper { margin-top: 20px; }
+.image + .text-wrapper { margin-top: 15px; }
 
 .image.is-32x32 { height: 32px; width: 32px; }
 
