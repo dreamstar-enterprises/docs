@@ -12,7 +12,7 @@
 
     let winScroll = 0;
     let navbarButtons = document.getElementsByClassName('nav-bar-item');
-    navbarButtons[0].firstElementChild.style.fontSize = "1.000rem";
+    navbarButtons[0].firstElementChild.style.fontSize = "0.950rem";
     navbarButtons[1].firstElementChild.style.fontSize = "0.750rem";
     navbarButtons[2].firstElementChild.style.fontSize = "0.750rem";
     navbarButtons[3].firstElementChild.style.fontSize = "0.750rem";
@@ -27,14 +27,14 @@
         navbarButtons[0].firstElementChild.firstElementChild;
 
         if(winScroll > 110) {
-            navbarButtons[0].firstElementChild.style.fontSize = "1.125rem";
+            navbarButtons[0].firstElementChild.style.fontSize = "1.100rem";
 
             navbarButtons[1].firstElementChild.style.fontSize = "0.875rem";
             navbarButtons[2].firstElementChild.style.fontSize = "0.875rem";
             navbarButtons[3].firstElementChild.style.fontSize = "0.875rem";
             navbarButtons[4].firstElementChild.style.fontSize = "0.875rem";
         } else {
-            navbarButtons[0].firstElementChild.style.fontSize = "1.000rem";
+            navbarButtons[0].firstElementChild.style.fontSize = "0.950rem";
 
             navbarButtons[1].firstElementChild.style.fontSize = "0.750rem";
             navbarButtons[2].firstElementChild.style.fontSize = "0.750rem";
