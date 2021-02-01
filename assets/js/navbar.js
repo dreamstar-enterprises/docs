@@ -83,13 +83,13 @@
     }, false);
 
     let docheight = document.documentElement.clientHeight;
-
     function scrollIndicator() {
         let winheight = document.documentElement.scrollHeight;
         let winScroll =  document.documentElement.scrollTop;
         let scrolled = (winScroll / (winheight - docheight)) * 100;
         document.getElementById("myBar").style.width = scrolled + "%";
     } 
+
 
 })();
 
