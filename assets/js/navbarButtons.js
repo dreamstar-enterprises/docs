@@ -12,11 +12,12 @@
 
     let winScroll = 0;
     let navbarButtons = document.getElementsByClassName('nav-bar-item');
-    navbarButtons[0].firstElementChild.style.fontSize = "0.950rem";
-    navbarButtons[1].firstElementChild.style.fontSize = "0.750rem";
-    navbarButtons[2].firstElementChild.style.fontSize = "0.750rem";
-    navbarButtons[3].firstElementChild.style.fontSize = "0.750rem";
-    navbarButtons[4].firstElementChild.style.fontSize = "0.750rem";
+    navbarButtons[0].firstElementChild.style.fontSize = "1.025rem";
+
+    navbarButtons[1].firstElementChild.style.fontSize = "0.800rem";
+    navbarButtons[2].firstElementChild.style.fontSize = "0.800rem";
+    navbarButtons[3].firstElementChild.style.fontSize = "0.800rem";
+    navbarButtons[4].firstElementChild.style.fontSize = "0.800rem";
 
     function navbarEffect() {
         // When the user scrolls
@@ -34,12 +35,12 @@
             navbarButtons[3].firstElementChild.style.fontSize = "0.875rem";
             navbarButtons[4].firstElementChild.style.fontSize = "0.875rem";
         } else {
-            navbarButtons[0].firstElementChild.style.fontSize = "0.950rem";
+            navbarButtons[0].firstElementChild.style.fontSize = "1.025rem";
 
-            navbarButtons[1].firstElementChild.style.fontSize = "0.750rem";
-            navbarButtons[2].firstElementChild.style.fontSize = "0.750rem";
-            navbarButtons[3].firstElementChild.style.fontSize = "0.750rem";
-            navbarButtons[4].firstElementChild.style.fontSize = "0.750rem";
+            navbarButtons[1].firstElementChild.style.fontSize = "0.800rem";
+            navbarButtons[2].firstElementChild.style.fontSize = "0.800rem";
+            navbarButtons[3].firstElementChild.style.fontSize = "0.800rem";
+            navbarButtons[4].firstElementChild.style.fontSize = "0.800rem";
         }
     };
 

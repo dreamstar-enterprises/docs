@@ -2430,7 +2430,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .nav-bar .nav-bar-logo .alt-logo { color: red; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); text-align: center; }
 
-.nav-bar .nav-bar-button { display: flex; align-items: center; justify-content: center; align-self: stretch; flex-shrink: 0; flex-grow: 0; min-width: 54px; padding: 0 0.5rem; background-color: transparent; color: #171717; border: none; text-decoration: none !important; white-space: nowrap; font-size: 0.875rem; line-height: normal; cursor: pointer; outline-offset: -0.125rem !important; transition-duration: 120ms; transition-timing-function: linear; transition-delay: 0s; transition: all .3s linear; }
+.nav-bar .nav-bar-button { display: flex; align-items: center; justify-content: center; align-self: stretch; flex-shrink: 0; flex-grow: 0; min-width: 54px; padding: 0 0.5rem; background-color: transparent; color: #171717; border: none; text-decoration: none !important; white-space: nowrap; font-size: 0.800rem; line-height: normal; cursor: pointer; outline-offset: -0.125rem !important; transition-duration: 120ms; transition-timing-function: linear; transition-delay: 0s; transition: all .25s linear; }
 
 .nav-bar .nav-bar-button.underline, .nav-bar .nav-bar-button.underline:visited { color: #e82127; }
 
@@ -3615,9 +3615,11 @@ a.box:active { box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.125), 0 0 0 1px #0065
 
 .title.is-5.is-responsive { font-size: 1.25rem; }
 
-.title.is-6 { font-size: 1.125rem; }
+.title.is-6 { font-size: 1.025rem; }
 
-.title.is-6.is-responsive { font-size: 1.125rem; }
+.title.is-6.is-responsive { font-size: 1.025rem; }
+
+.title.is-7 { font-size: 1.100rem; }
 
 .title.is-8 { font-size: 0.75rem; }
 
