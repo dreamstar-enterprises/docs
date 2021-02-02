@@ -85,7 +85,7 @@ var searchIndex = [
         "title": "HR - Salary Increases",
         "date": "October 21, 2020",
         "url": "dax-samples/hr-salary-increases.html",
-        "content": "A sample that shows a variety of metrics on Salaries and Salary Increases, by (i) Gender, (ii) Calendar Month, and (iii) Reason for receiving the increase",
+        "content": "A sample that shows a variety of metrics on Salaries and Salary Increases, by (i) Gender, (ii) Calendar Month, and (iii) reason for receiving any increases",
         "tags_measure": ['Salary', 'Employees'],
         "tags_dimension": ['Gender', 'Calendar Time', 'Salary Increase Reason', 'Increase Eligibility'],
         "tags_dax": ['ALLEXCEPT', 'AVERAGE', 'AVERAGEX', 'CALCULATE', 'CALCULATETABLE', 'CALENDAR', 'COUNTA', 'COUNTX', 'EARLIER', 'EOMONTH', 'FILTER', 'ISBLANK', 'MAX', 'MIN', 'SUM', 'SUMMARIZE', 'SUMX', 'SWITCH', 'TODAY', 'WEEKDAY']
