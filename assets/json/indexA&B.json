@@ -1,6 +1,16 @@
 var searchIndex = [
 
     {
+        "title": "Learnings from an Ex 'Professional Services' Partner",
+        "date": "February 8, 2021",
+        "url": "articles/learnings-from-an-ex-partner.html",
+        "content": "I was really fascinated by an interview I saw recently between Sudeshna Sen, from the organisation, Abundance Psyche, and David Lancefield, ex-Partner of...",
+        "image_url": "articles/images/learnings-from-an-ex-partner.jpg",
+        "tags_year": ['2021'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Implementing A.I./deep learning into enterprise environments",
         "date": "February 29, 2020",
         "url": "articles/ai-enterprise.html",
@@ -194,7 +204,7 @@ var searchIndex = [
         "title": "Experiences in Data Visualisation & Business Intelligence",
         "date": "June 6, 2019",
         "url": "articles/experiences-in-dv-and-bi.html",
-        "content": "Freelance experiences - After completing my MBA 2.5 years ago (at the time of writing), I felt the time might be right to see what it might be like to work as a freelancer through my own company. It was a tentative choice, something, you might think, people only much later in their careers go on...",
+        "content": "Freelance experiences - After completing my MBA 2.5 years ago (at the time of writing), I felt the time might be right to see what it might be like to work as a freelancer through my own company. It was not something I had ever done before, but it was also a tentative choice...",
         "image_url": "articles/images/experiences-in-dv-and-bi.jpg",
         "tags_year": ['2019'],
         "tags_month": ['June'],
