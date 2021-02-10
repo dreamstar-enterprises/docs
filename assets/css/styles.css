@@ -2430,13 +2430,13 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .nav-bar .nav-bar-logo .alt-logo { color: red; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); text-align: center; }
 
-.nav-bar .nav-bar-button { display: flex; align-items: center; justify-content: center; align-self: stretch; flex-shrink: 0; flex-grow: 0; min-width: 54px; padding: 0 0.5rem; background-color: transparent; color: #171717; border: none; text-decoration: none !important; white-space: nowrap; font-size: 0.800rem; line-height: normal; cursor: pointer; outline-offset: -0.125rem !important; transition-duration: 120ms; transition-timing-function: linear; transition-delay: 0s; transition: all .25s linear; }
+.nav-bar .nav-bar-button { display: flex; align-items: center; justify-content: center; align-self: stretch; flex-shrink: 0; flex-grow: 0; min-width: 54px; padding: 0 0.5rem; background-color: transparent; color: #171717; border: none; text-decoration: none !important; white-space: nowrap; font-size: 0.800rem; line-height: normal; cursor: pointer; outline-offset: -0.125rem !important; transition-duration: 120ms; transition-timing-function: linear; transition-delay: 0s; transition: all .12s linear; }
 
 .nav-bar .nav-bar-button.underline, .nav-bar .nav-bar-button.underline:visited { color: #e82127; }
 
 .nav-bar .nav-bar-button.underline > span { position: relative; }
 
-.nav-bar .nav-bar-button.underline > :first-child:after { content: ''; display: block; position: absolute; border-bottom: 2px solid; left: 0; right: 0; bottom: -0.125rem; }
+.nav-bar .nav-bar-button.underline > :first-child:after { content: ''; display: block; position: absolute; border-bottom: 3px solid; left: 0; right: 0; bottom: -0.325rem; }
 
 .nav-bar .nav-bar-button:visited { color: #171717; }
 
@@ -2446,7 +2446,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .nav-bar > .nav-bar-button:first-child { padding-left: 0; }
 
-.nav-bar .nav-bar-button.has-hover-underline:active:not([aria-expanded='true']) > :first-child:after, .nav-bar .nav-bar-button.is-active.has-hover-underline:not([aria-expanded='true']) > :first-child:after, .nav-bar .nav-bar-button.has-hover-underline:hover:not([aria-expanded='true']) > :first-child:after, .nav-bar .nav-bar-button.focus-visible.has-hover-underline:not([aria-expanded='true']) > :first-child:after { content: ''; display: block; position: absolute; border-bottom: 2px solid; left: 0; right: 0; bottom: -0.125rem; }
+.nav-bar .nav-bar-button.has-hover-underline:active:not([aria-expanded='true']) > :first-child:after, .nav-bar .nav-bar-button.is-active.has-hover-underline:not([aria-expanded='true']) > :first-child:after, .nav-bar .nav-bar-button.has-hover-underline:hover:not([aria-expanded='true']) > :first-child:after, .nav-bar .nav-bar-button.focus-visible.has-hover-underline:not([aria-expanded='true']) > :first-child:after { content: ''; display: block; position: absolute; border-bottom: 3px solid; left: 0; right: 0; bottom: -0.325rem; }
 
 .nav-bar .nav-bar-button.has-hover-underline:active:not([aria-expanded='true']) > :first-child, .nav-bar .nav-bar-button.is-active.has-hover-underline:not([aria-expanded='true']) > :first-child, .nav-bar .nav-bar-button.has-hover-underline:hover:not([aria-expanded='true']) > :first-child, .nav-bar .nav-bar-button.focus-visible.has-hover-underline:not([aria-expanded='true']) > :first-child { position: relative; }
 
