@@ -1,6 +1,16 @@
 var searchIndex = [
 
     {
+        "title": "Bill Gates - The Big Challenge of Climate Change!",
+        "date": "February 15, 2021",
+        "url": "articles/challenge-of-climate-change.html",
+        "content": "Some thoughts from Bill Gates, co-founder of software company Microsoft, and now global philanthropist, on why he believes Climate Change will be a much...",
+        "image_url": "articles/images/challenge-of-climate-change.jpg",
+        "tags_year": ['2021'],
+        "tags_month": ['February'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Learnings from an Ex 'Professional Services' Partner",
         "date": "February 8, 2021",
         "url": "articles/learnings-from-an-ex-partner.html",
