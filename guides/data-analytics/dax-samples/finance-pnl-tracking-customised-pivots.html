@@ -517,12 +517,12 @@ CALCULATE ( [Actual Amt], Headers[Header] = "Cost of Sales" )
   <span class="language-name" aria-label="Language name: DAX">DAX</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 GP Act :=
-[Rev Act] - [CoS Act]
+[Rev Act] + [CoS Act]
 ">
   </button>
 </div>
 <pre><code class="language-DAX">GP Act :=
-[Rev Act] - [CoS Act]
+[Rev Act] + [CoS Act]
 </code></pre>
 
 <h3 id="opex-act">OpEx Act</h3>
@@ -545,12 +545,12 @@ CALCULATE ( [Actual Amt], Headers[Header] = "Operating Expenses" )
   <span class="language-name" aria-label="Language name: DAX">DAX</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 OI Act :=
-[GP Act] - [OpEx Act]
+[GP Act] + [OpEx Act]
 ">
   </button>
 </div>
 <pre><code class="language-DAX">OI Act :=
-[GP Act] - [OpEx Act]
+[GP Act] + [OpEx Act]
 </code></pre>
 
 <h3 id="oie-act">OI&amp;E Act</h3>
@@ -615,12 +615,12 @@ CALCULATE ( [Actual Amt], Headers[Header] = "Taxes" )
   <span class="language-name" aria-label="Language name: DAX">DAX</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 NI Act :=
-[GP Act] - [OI&amp;E Act] - [D&amp;A Act] - [II&amp;E Act] - [Taxes Act]
+[OI Act] + [OI&amp;E Act] + [D&amp;A Act] + [II&amp;E Act] + [Taxes Act]
 ">
   </button>
 </div>
 <pre><code class="language-DAX">NI Act :=
-[GP Act] - [OI&amp;E Act] - [D&amp;A Act] - [II&amp;E Act] - [Taxes Act]
+[OI Act] + [OI&amp;E Act] + [D&amp;A Act] + [II&amp;E Act] + [Taxes Act]
 </code></pre>
 
 <h3 id="is-subtotal-act">IS Subtotal Act</h3>
@@ -645,7 +645,7 @@ IF (
         10, [NI Act],
         BLANK ()
     ),
-    100
+    BLANK ()
 )
 ">
   </button>
@@ -667,7 +667,7 @@ IF (
         10, [NI Act],
         BLANK ()
     ),
-    100
+    BLANK ()
 )
 </code></pre>
 
@@ -749,12 +749,12 @@ CALCULATE ( [Budget Amt], Headers[Header] = "Cost of Sales" )
   <span class="language-name" aria-label="Language name: DAX">DAX</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 GP Bud :=
-[Rev Bud] - [CoS Bud]
+[Rev Bud] + [CoS Bud]
 ">
   </button>
 </div>
 <pre><code class="language-DAX">GP Bud :=
-[Rev Bud] - [CoS Bud]
+[Rev Bud] + [CoS Bud]
 </code></pre>
 
 <h3 id="opex-bud">OpEx Bud</h3>
@@ -777,12 +777,12 @@ CALCULATE ( [Budget Amt], Headers[Header] = "Operating Expenses" )
   <span class="language-name" aria-label="Language name: DAX">DAX</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 OI Bud :=
-[GP Bud] - [OpEx Bud]
+[GP Bud] + [OpEx Bud]
 ">
   </button>
 </div>
 <pre><code class="language-DAX">OI Bud :=
-[GP Bud] - [OpEx Bud]
+[GP Bud] + [OpEx Bud]
 </code></pre>
 
 <h3 id="oie-bud">OI&amp;E Bud</h3>
@@ -847,12 +847,12 @@ CALCULATE ( [Budget Amt], Headers[Header] = "Taxes" )
   <span class="language-name" aria-label="Language name: DAX">DAX</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 NI Bud :=
-[GP Bud] - [OI&amp;E Bud] - [D&amp;A Bud] - [II&amp;E Bud] - [Taxes Bud]
+[OI Bud] + [OI&amp;E Bud] + [D&amp;A Bud] + [II&amp;E Bud] + [Taxes Bud]
 ">
   </button>
 </div>
 <pre><code class="language-DAX">NI Bud :=
-[GP Bud] - [OI&amp;E Bud] - [D&amp;A Bud] - [II&amp;E Bud] - [Taxes Bud]
+[OI Bud] + [OI&amp;E Bud] + [D&amp;A Bud] + [II&amp;E Bud] + [Taxes Bud]
 </code></pre>
 
 <h3 id="is-subtotal-bud">IS Subtotal Bud</h3>
@@ -877,7 +877,7 @@ IF (
         10, [NI Bud],
         BLANK ()
     ),
-    100
+    BLANK ()
 )
 ">
   </button>
@@ -899,7 +899,7 @@ IF (
         10, [NI Bud],
         BLANK ()
     ),
-    100
+    BLANK ()
 )
 </code></pre>
 
@@ -938,21 +938,11 @@ IF (
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: DAX">DAX</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-Variance $ :=
-IF (
-    MAX ( Headers[Var Display] ) = 1,
-    [Actual Total] - [Budget Total],
-    [Budget Total] - [Actual Total]
-)
+Variance $ := [Actual Total] - [Budget Total],
 ">
   </button>
 </div>
-<pre><code class="language-DAX">Variance $ :=
-IF (
-    MAX ( Headers[Var Display] ) = 1,
-    [Actual Total] - [Budget Total],
-    [Budget Total] - [Actual Total]
-)
+<pre><code class="language-DAX">Variance $ := [Actual Total] - [Budget Total],
 </code></pre>
 
 <h3 id="variance--1">Variance %</h3>
@@ -960,15 +950,12 @@ IF (
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: DAX">DAX</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-Variance % :=
-DIVIDE ( [Variance $], [Budget Total] )
+Variance % := DIVIDE ( [Variance $], [Budget Total] )
 ">
   </button>
 </div>
-<pre><code class="language-DAX">Variance % :=
-DIVIDE ( [Variance $], [Budget Total] )
+<pre><code class="language-DAX">Variance % := DIVIDE ( [Variance $], [Budget Total] )
 </code></pre>
-
 
                         
                         
