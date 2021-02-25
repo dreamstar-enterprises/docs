@@ -9,17 +9,11 @@
     let page_title = [...document.querySelectorAll("#main h1")][0] ? [...document.querySelectorAll("#main h1")][0].textContent : null;
     let page_url = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
 
-    // Function for highlighting active NavBar and BreadCrumb links
+    // Function for highlighting active BreadCrumb link
     highlightNavBar()
     function highlightNavBar() {
         let target = window.location.pathname;
-
-        // Find first "a" and "b" with the target as href
-        let navbar = [...document.querySelectorAll(".nav-bar-nav-list a")].find(a => a.pathname === target) 
-        if(navbar){
-            navbar.classList.add("is-active")
-        }
-
+        // Find the first breadcrumb link with same link as the window pathname
         let breadcrumb = [...document.querySelectorAll(".breadcrumbs a")].find(a => a.pathname === target)
         if(breadcrumb){
             breadcrumb.parentElement.classList.add("is-active")
