@@ -1,6 +1,16 @@
 var searchIndex = [
 
     {
+        "title": "Personal Ways of Working and Working Styles",
+        "date": "March 25, 2021",
+        "url": "articles/ways-of-working.html",
+        "content": "A bit more about me, as I reflect on my own personal and preferred working style...",
+        "image_url": "articles/images/ways-of-working.jpg",
+        "tags_year": ['2021'],
+        "tags_month": ['March'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Bill Gates - The Big Challenge of Climate Change!",
         "date": "February 15, 2021",
         "url": "articles/challenge-of-climate-change.html",
