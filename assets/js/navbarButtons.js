@@ -22,8 +22,6 @@
     function navbarEffect() {
         // When the user scrolls
         winScroll =  document.documentElement.scrollTop;
-        
-        console.log(winScroll);
 
         navbarButtons[0].firstElementChild.firstElementChild;
 
