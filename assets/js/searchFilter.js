@@ -15,7 +15,7 @@
       input.addEventListener('keyup', searchQuery);
       input.addEventListener("mouseenter", () => removeInputFocusListeners());
       input.addEventListener("mouseleave", () => addInputFocusListeners());
-      
+
       suggestions.addEventListener("mouseenter", () => removeInputFocusListeners());
       suggestions.addEventListener("mouseleave", () => addInputFocusListeners());
     };

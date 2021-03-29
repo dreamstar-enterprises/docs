@@ -1,6 +1,15 @@
 var searchIndex = [
 
     {
+        "title": "Finance - P&L Tracking - Customised & Nested Pivot Tables - Alternative",
+        "date": "March 29, 2021",
+        "url": "dax-samples/finance-pnl-tracking-customised-pivots-alt.html",
+        "content": "A sample that compares Actuals against Budgets, for each P&L line, using a Customised & '3-level' Nested Pivot Table",
+        "tags_measure": ['Sales', 'Profits', 'Salary', 'Budgets'],
+        "tags_dimension": ['Calendar Time'],
+        "tags_dax": ['ALL', 'CALCULATE', 'DIVIDE', 'ISFILTERED', 'MAX', 'MIN', 'SUM', 'SUMX', 'SWITCH', 'VALUES']
+    },
+    {
         "title": "Building a Matrix with Asymmetrical Columns and Rows",
         "date": "December 01, 2020",
         "url": "dax-samples/asymmetrical-columns.html",
