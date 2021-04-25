@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL CREATE TABLE Statement | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,65 +715,171 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-create-table-statement">SQL CREATE TABLE Statement</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<style>
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #e40707;
+  color: white;
+}
+table tr:hover {background-color: #f5f5f5;}
+table {
+    margin-top: 0.5rem;
+    padding: 1.2rem;
+    -moz-border-radius: 5px !important;
+    border-radius: 5px;
+    transition-property: all;
+    transition-duration: 120ms;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+table:hover{
+    border-radius: 5px;
+    -webkit-box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
+    box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
+}
+</style>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
+<h2 id="the-sql-create-table-statement">The SQL CREATE TABLE Statement</h2>
 
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<p>The <code class="language-plaintext highlighter-rouge">CREATE TABLE</code> statement is used to create a new table in a database.</p>
+
+<h3 id="syntax">Syntax</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
-FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+); 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="p">(</span>
+    <span class="n">column1</span> <span class="n">datatype</span><span class="p">,</span>
+    <span class="n">column2</span> <span class="n">datatype</span><span class="p">,</span>
+    <span class="n">column3</span> <span class="n">datatype</span><span class="p">,</span>
+   <span class="p">....</span>
+<span class="p">);</span> 
 </code></pre></div></div>
 
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
+<p>The column parameters specify the names of the columns of the table.</p>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<p>The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).</p>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+For an overview of the available data types, go to the complete <a href="sql-datatypes.html">Data Types Reference</a>.</p>
+</div>
+
+<h2 id="sql-create-table-example">SQL CREATE TABLE Example</h2>
+
+<p>The following example creates a table called “Persons” that contains five columns: PersonID, LastName, FirstName, Address, and City:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="p">(</span>
+    <span class="n">PersonID</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">Address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">City</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<p>The PersonID column is of type int and will hold an integer.</p>
+
+<p>The LastName, FirstName, Address, and City columns are of type varchar and will hold characters, and the maximum length for these fields is 255 characters.</p>
+
+<p>The empty “Persons” table will now look like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PersonID</th>
+      <th>LastName</th>
+      <th>FirstName</th>
+      <th>Address</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+The empty “Persons” table can now be filled with data with the <a href="sql-insert-into.html">SQL INSERT INTO</a> statement..</p>
+</div>
+
+<h2 id="create-table-using-another-table">Create Table Using Another Table</h2>
+
+<p>A copy of an existing table can also be created using <code class="language-plaintext highlighter-rouge">CREATE TABLE</code>.</p>
+
+<p>The new table gets the same column definitions. All columns or specific columns can be selected.</p>
+
+<p>If you create a new table using an existing table, the new table will be filled with the existing values from the old table.</p>
+
+<h3 id="syntax-1">Syntax</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
+CREATE TABLE new_table_name AS
+    SELECT column1, column2,...
+    FROM existing_table_name
+    WHERE ....; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">new_table_name</span> <span class="k">AS</span>
+    <span class="k">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,...</span>
+    <span class="k">FROM</span> <span class="n">existing_table_name</span>
+    <span class="k">WHERE</span> <span class="p">....;</span> 
+</code></pre></div></div>
+
+<p>The following SQL creates a new table called “TestTables” (which is a copy of the “Customers” table):</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CREATE TABLE TestTable AS
+SELECT customername, contactname
+FROM customers; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">TestTable</span> <span class="k">AS</span>
+<span class="k">SELECT</span> <span class="n">customername</span><span class="p">,</span> <span class="n">contactname</span>
+<span class="k">FROM</span> <span class="n">customers</span><span class="p">;</span> 
 </code></pre></div></div>
 
                         
@@ -841,12 +947,17 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
+<li class="toc-entry toc-h2"><a href="#the-sql-create-table-statement">The SQL CREATE TABLE Statement</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#syntax">Syntax</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-create-table-example">SQL CREATE TABLE Example</a></li>
+<li class="toc-entry toc-h2"><a href="#create-table-using-another-table">Create Table Using Another Table</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#syntax-1">Syntax</a></li>
+</ul>
+</li>
 </ul>
                         </nav>
 

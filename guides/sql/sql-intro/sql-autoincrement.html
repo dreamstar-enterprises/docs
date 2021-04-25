@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL AUTO INCREMENT Field | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,66 +715,217 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-auto-increment-field">SQL AUTO INCREMENT Field</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<h2 id="auto-increment-field">AUTO INCREMENT Field</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+<p>Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
+<p>Often this is the primary key field that we would like to be created automatically every time a new record is inserted.</p>
 
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<h2 id="syntax-for-mysql">Syntax for MySQL</h2>
 
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: SQL">SQL</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
-FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
-">
-  </button>
-</div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
-</code></pre></div></div>
-
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
-
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<p>The following SQL statement defines the “Personid” column to be an auto-increment primary key field in the “Persons” table:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
+CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid)
+); 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="p">(</span>
+    <span class="n">Personid</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">Age</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Personid</span><span class="p">)</span>
+<span class="p">);</span> 
 </code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<p>MySQL uses the <code class="language-plaintext highlighter-rouge">AUTO_INCREMENT</code> keyword to perform an auto-increment feature.</p>
+
+<p>By default, the starting value for <code class="language-plaintext highlighter-rouge">AUTO_INCREMENT</code> is 1, and it will increment by 1 for each new record.</p>
+
+<p>To let the <code class="language-plaintext highlighter-rouge">AUTO_INCREMENT</code> sequence start with another value, use the following SQL statement:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
+ALTER TABLE Persons AUTO_INCREMENT=100; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span> 
 </code></pre></div></div>
+
+<p>To insert a new record into the “Persons” table, we will NOT have to specify a value for the “Personid” column (a unique value will be added automatically):</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+INSERT INTO Persons (FirstName,LastName)
+VALUES (&#39;Lars&#39;,&#39;Monsen&#39;); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">FirstName</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="s1">'Lars'</span><span class="p">,</span><span class="s1">'Monsen'</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<p>The SQL statement above would insert a new record into the “Persons” table. The “Personid” column would be assigned a unique value. The “FirstName” column would be set to “Lars” and the “LastName” column would be set to “Monsen”.</p>
+
+<h2 id="syntax-for-sql-server">Syntax for SQL Server</h2>
+
+<p>The following SQL statement defines the “Personid” column to be an auto-increment primary key field in the “Persons” table:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CREATE TABLE Persons (
+    Personid int IDENTITY(1,1) PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="p">(</span>
+    <span class="n">Personid</span> <span class="nb">int</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">Age</span> <span class="nb">int</span>
+<span class="p">);</span> 
+</code></pre></div></div>
+
+<p>The MS SQL Server uses the IDENTITY keyword to perform an auto-increment feature.</p>
+
+<p>In the example above, the starting value for IDENTITY is 1, and it will increment by 1 for each new record.</p>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+To specify that the “Personid” column should start at value 10 and increment by 5, change it to <code class="language-plaintext highlighter-rouge">IDENTITY(10,5)</code>.</p>
+</div>
+
+<p>To insert a new record into the “Persons” table, we will NOT have to specify a value for the “Personid” column (a unique value will be added automatically):</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+INSERT INTO Persons (FirstName,LastName)
+VALUES (&#39;Lars&#39;,&#39;Monsen&#39;); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">FirstName</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="s1">'Lars'</span><span class="p">,</span><span class="s1">'Monsen'</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<p>The SQL statement above would insert a new record into the “Persons” table. The “Personid” column would be assigned a unique value. The “FirstName” column would be set to “Lars” and the “LastName” column would be set to “Monsen”.</p>
+
+<h2 id="syntax-for-access">Syntax for Access</h2>
+
+<p>The following SQL statement defines the “Personid” column to be an auto-increment primary key field in the “Persons” table:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CREATE TABLE Persons (
+    Personid AUTOINCREMENT PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="p">(</span>
+    <span class="n">Personid</span> <span class="n">AUTOINCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">Age</span> <span class="nb">int</span>
+<span class="p">);</span> 
+</code></pre></div></div>
+
+<p>The MS Access uses the <code class="language-plaintext highlighter-rouge">AUTOINCREMENT</code> keyword to perform an auto-increment feature.</p>
+
+<p>By default, the starting value for <code class="language-plaintext highlighter-rouge">AUTOINCREMENT</code> is 1, and it will increment by 1 for each new record.</p>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+To specify that the “Personid” column should start at value 10 and increment by 5, change the autoincrement to <code class="language-plaintext highlighter-rouge">AUTOINCREMENT(10,5)</code>.</p>
+</div>
+
+<p>To insert a new record into the “Persons” table, we will NOT have to specify a value for the “Personid” column (a unique value will be added automatically):</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+INSERT INTO Persons (FirstName,LastName)
+VALUES (&#39;Lars&#39;,&#39;Monsen&#39;); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">FirstName</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="s1">'Lars'</span><span class="p">,</span><span class="s1">'Monsen'</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<p>The SQL statement above would insert a new record into the “Persons” table. The “Personid” column would be assigned a unique value. The “FirstName” column would be set to “Lars” and the “LastName” column would be set to “Monsen”.</p>
+
+<h2 id="syntax-for-oracle">Syntax for Oracle</h2>
+
+<p>In Oracle the code is a little bit more tricky.</p>
+
+<p>You will have to create an auto-increment field with the sequence object (this object generates a number sequence).</p>
+
+<p>Use the following <code class="language-plaintext highlighter-rouge">CREATE SEQUENCE</code> syntax:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CREATE SEQUENCE seq_person
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="n">SEQUENCE</span> <span class="n">seq_person</span>
+<span class="k">MINVALUE</span> <span class="mi">1</span>
+<span class="k">START</span> <span class="k">WITH</span> <span class="mi">1</span>
+<span class="k">INCREMENT</span> <span class="k">BY</span> <span class="mi">1</span>
+<span class="k">CACHE</span> <span class="mi">10</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<p>The code above creates a sequence object called seq_person, that starts with 1 and will increment by 1. It will also cache up to 10 values for performance. The cache option specifies how many sequence values will be stored in memory for faster access.</p>
+
+<p>To insert a new record into the “Persons” table, we will have to use the nextval function (this function retrieves the next value from seq_person sequence):</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+INSERT INTO Persons (Personid,FirstName,LastName)
+VALUES (seq_person.nextval,&#39;Lars&#39;,&#39;Monsen&#39;); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">Personid</span><span class="p">,</span><span class="n">FirstName</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="n">seq_person</span><span class="p">.</span><span class="n">nextval</span><span class="p">,</span><span class="s1">'Lars'</span><span class="p">,</span><span class="s1">'Monsen'</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<p>The SQL statement above would insert a new record into the “Persons” table. The “Personid” column would be assigned the next number from the seq_person sequence. The “FirstName” column would be set to “Lars” and the “LastName” column would be set to “Monsen”.</p>
+
 
                         
                             <div id="mainNavBottom">
@@ -841,12 +992,11 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#auto-increment-field">AUTO INCREMENT Field</a></li>
+<li class="toc-entry toc-h2"><a href="#syntax-for-mysql">Syntax for MySQL</a></li>
+<li class="toc-entry toc-h2"><a href="#syntax-for-sql-server">Syntax for SQL Server</a></li>
+<li class="toc-entry toc-h2"><a href="#syntax-for-access">Syntax for Access</a></li>
+<li class="toc-entry toc-h2"><a href="#syntax-for-oracle">Syntax for Oracle</a></li>
 </ul>
                         </nav>
 

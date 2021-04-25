@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL Working With Dates | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,66 +715,211 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-working-with-dates">SQL Working With Dates</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<style>
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #e40707;
+  color: white;
+}
+table tr:hover {background-color: #f5f5f5;}
+table {
+    margin-top: 0.5rem;
+    padding: 1.2rem;
+    -moz-border-radius: 5px !important;
+    border-radius: 5px;
+    transition-property: all;
+    transition-duration: 120ms;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+table:hover{
+    border-radius: 5px;
+    -webkit-box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
+    box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
+}
+</style>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
+<h2 id="sql-dates">SQL Dates</h2>
 
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+The most difficult part when working with dates is to be sure that the format of the date you are trying to insert, matches the format of the date column in the database.</p>
+</div>
+
+<p>As long as your data contains only the date portion, your queries will work as expected. However, if a time portion is involved, it gets more complicated.</p>
+
+<h2 id="sql-date-data-types">SQL Date Data Types</h2>
+
+<h3 id="mysql">MySQL</h3>
+
+<p><strong>MySQL</strong> comes with the following data types for storing a date or a date/time value in the database:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">DATE</code> - format YYYY-MM-DD</li>
+  <li><code class="language-plaintext highlighter-rouge">DATETIME</code> - format: YYYY-MM-DD HH:MI:SS</li>
+  <li><code class="language-plaintext highlighter-rouge">TIMESTAMP</code> - format: YYYY-MM-DD HH:MI:SS</li>
+  <li><code class="language-plaintext highlighter-rouge">YEAR</code> - format YYYY or YY</li>
+</ul>
+
+<h3 id="sql-server">SQL Server</h3>
+
+<p><strong>SQL Server</strong> comes with the following data types for storing a date or a date/time value in the database:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">DATE</code> - format YYYY-MM-DD</li>
+  <li><code class="language-plaintext highlighter-rouge">DATETIME</code> - format: YYYY-MM-DD HH:MI:SS</li>
+  <li><code class="language-plaintext highlighter-rouge">SMALLDATETIME</code> - format: YYYY-MM-DD HH:MI:SS</li>
+  <li><code class="language-plaintext highlighter-rouge">TIMESTAMP</code> - format: a unique number</li>
+</ul>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+The date types are chosen for a column when you create a new table in your database!</p>
+</div>
+
+<h2 id="sql-working-with-dates-1">SQL Working with Dates</h2>
+
+<p>Look at the following table:</p>
+
+<h3 id="orders-table">Orders Table</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>OrderId</th>
+      <th>ProductName</th>
+      <th>OrderDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Geitost</td>
+      <td>2008-11-11</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Camembert Pierrot</td>
+      <td>2008-11-09</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mozzarella di Giovanni</td>
+      <td>2008-11-11</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Mascarpone Fabioli</td>
+      <td>2008-10-29</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Now we want to select the records with an OrderDate of “2008-11-11” from the table above.</p>
+
+<p>We use the following <code class="language-plaintext highlighter-rouge">SELECT</code> statement:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
-FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
+ SELECT * FROM Orders WHERE OrderDate=&#39;2008-11-11&#39;
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Orders</span> <span class="k">WHERE</span> <span class="n">OrderDate</span><span class="o">=</span><span class="s1">'2008-11-11'</span>
 </code></pre></div></div>
 
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
+<p>The result-set will look like this:</p>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<table>
+  <thead>
+    <tr>
+      <th>OrderId</th>
+      <th>ProductName</th>
+      <th>OrderDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Geitost</td>
+      <td>2008-11-11</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mozzarella di Giovanni</td>
+      <td>2008-11-11</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+Two dates can easily be compared if there is no time component involved!</p>
+</div>
+
+<p>Now, assume that the “Orders” table looks like this (notice the added time-component in the “OrderDate” column):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>OrderId</th>
+      <th>ProductName</th>
+      <th>OrderDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Geitost</td>
+      <td>2008-11-11 13:23:44</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Camembert Pierrot</td>
+      <td>2008-11-09 15:45:21</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mozzarella di Giovanni</td>
+      <td>2008-11-11 11:12:01</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Mascarpone Fabioli</td>
+      <td>2008-10-29 14:56:59</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If we use the same SELECT statement as above:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
+ SELECT * FROM Orders WHERE OrderDate=&#39;2008-11-11&#39;
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Orders</span> <span class="k">WHERE</span> <span class="n">OrderDate</span><span class="o">=</span><span class="s1">'2008-11-11'</span>
 </code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<p>we will get no result! This is because the query is looking only for dates with no time portion.</p>
 
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: SQL">SQL</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
-">
-  </button>
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+To keep your queries simple and easy to maintain, do not use time-components in your dates, unless you have to!</p>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
-</code></pre></div></div>
 
                         
                             <div id="mainNavBottom">
@@ -841,12 +986,18 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
+<li class="toc-entry toc-h2"><a href="#sql-dates">SQL Dates</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-date-data-types">SQL Date Data Types</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#mysql">MySQL</a></li>
+<li class="toc-entry toc-h3"><a href="#sql-server">SQL Server</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-working-with-dates-1">SQL Working with Dates</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#orders-table">Orders Table</a></li>
+</ul>
+</li>
 </ul>
                         </nav>
 

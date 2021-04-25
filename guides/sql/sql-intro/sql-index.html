@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL CREATE INDEX Statement | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,65 +715,141 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-create-index-statement">SQL CREATE INDEX Statement</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<h2 id="sql-create-index-statement-1">SQL CREATE INDEX Statement</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+<p>The <code class="language-plaintext highlighter-rouge">CREATE INDEX</code> statement is used to create indexes in tables.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
+<p>Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.</p>
 
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+Updating a table with indexes takes more time than updating a table without (because the indexes also need an update). So, only create indexes on columns that will be frequently searched against.</p>
+</div>
+
+<h3 id="create-index-syntax">CREATE INDEX Syntax</h3>
+
+<p>Creates an index on a table. Duplicate values are allowed:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
-FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
+CREATE INDEX index_name
+ON table_name (column1, column2, ...); 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">index_name</span>
+<span class="k">ON</span> <span class="k">table_name</span> <span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="p">...);</span> 
 </code></pre></div></div>
 
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
+<h3 id="create-unique-index-syntax">CREATE UNIQUE INDEX Syntax</h3>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<p>Creates a unique index on a table. Duplicate values are not allowed:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
+CREATE UNIQUE INDEX index_name
+ON table_name (column1, column2, ...); 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">UNIQUE</span> <span class="k">INDEX</span> <span class="n">index_name</span>
+<span class="k">ON</span> <span class="k">table_name</span> <span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="p">...);</span> 
 </code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+The syntax for creating indexes varies among different databases. Therefore: Check the syntax for creating indexes in your database.</p>
+</div>
+
+<h2 id="create-index-example">CREATE INDEX Example</h2>
+
+<p>The SQL statement below creates an index named “idx_lastname” on the “LastName” column in the “Persons” table:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
+CREATE INDEX idx_lastname
+ON Persons (LastName); 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">idx_lastname</span>
+<span class="k">ON</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">LastName</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<p>If you want to create an index on a combination of columns, you can list the column names within the parentheses, separated by commas:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CREATE INDEX idx_pname
+ON Persons (LastName, FirstName); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">idx_pname</span>
+<span class="k">ON</span> <span class="n">Persons</span> <span class="p">(</span><span class="n">LastName</span><span class="p">,</span> <span class="n">FirstName</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<h2 id="drop-index-statement">DROP INDEX Statement</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">DROP INDEX</code> statement is used to delete an index in a table.</p>
+
+<h3 id="ms-access">MS Access:</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+DROP INDEX index_name ON table_name; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span> <span class="k">ON</span> <span class="k">table_name</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h3 id="sql-server">SQL Server:</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+DROP INDEX table_name.index_name; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">INDEX</span> <span class="k">table_name</span><span class="p">.</span><span class="n">index_name</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h3 id="db2oracle">DB2/Oracle:</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+DROP INDEX index_name; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h3 id="mysql">MySQL:</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+ALTER TABLE table_name
+DROP INDEX index_name; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span>
+<span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">index_name</span><span class="p">;</span> 
 </code></pre></div></div>
 
                         
@@ -841,12 +917,21 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
+<li class="toc-entry toc-h2"><a href="#sql-create-index-statement-1">SQL CREATE INDEX Statement</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#create-index-syntax">CREATE INDEX Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#create-unique-index-syntax">CREATE UNIQUE INDEX Syntax</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#create-index-example">CREATE INDEX Example</a></li>
+<li class="toc-entry toc-h2"><a href="#drop-index-statement">DROP INDEX Statement</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#ms-access">MS Access:</a></li>
+<li class="toc-entry toc-h3"><a href="#sql-server">SQL Server:</a></li>
+<li class="toc-entry toc-h3"><a href="#db2oracle">DB2/Oracle:</a></li>
+<li class="toc-entry toc-h3"><a href="#mysql">MySQL:</a></li>
+</ul>
+</li>
 </ul>
                         </nav>
 

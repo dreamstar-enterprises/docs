@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL UNIQUE Constraint | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,65 +715,159 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-unique-constraint">SQL UNIQUE Constraint</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<h2 id="sql-unique-constraint-1">SQL UNIQUE Constraint</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+<p>The <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint ensures that all values in a column are different.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
+<p>Both the <code class="language-plaintext highlighter-rouge">UNIQUE</code> and <code class="language-plaintext highlighter-rouge">PRIMARY KEY</code> constraints provide a guarantee for uniqueness for a column or set of columns.</p>
 
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<p>A <code class="language-plaintext highlighter-rouge">PRIMARY KEY</code> constraint automatically has a <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint.</p>
+
+<p>However, you can have many <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraints per table, but only one <code class="language-plaintext highlighter-rouge">PRIMARY KEY</code> constraint per table.</p>
+
+<h2 id="sql-unique-constraint-on-create-table">SQL UNIQUE Constraint on CREATE TABLE</h2>
+
+<p>The following SQL creates a <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint on the “ID” column when the “Persons” table is created:</p>
+
+<h3 id="sql-server--oracle--ms-access">SQL Server / Oracle / MS Access:</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
-FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
+CREATE TABLE Persons (
+    ID int NOT NULL UNIQUE,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="p">(</span>
+    <span class="n">ID</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span><span class="p">,</span>
+    <span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">Age</span> <span class="nb">int</span>
+<span class="p">);</span>
 </code></pre></div></div>
 
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
-
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<h3 id="mysql">MySQL:</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    UNIQUE (ID)
+); 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="p">(</span>
+    <span class="n">ID</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">Age</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="k">UNIQUE</span> <span class="p">(</span><span class="n">ID</span><span class="p">)</span>
+<span class="p">);</span> 
 </code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<p>To name a <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint, and to define a <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint on multiple columns, use the following SQL syntax:</p>
+
+<h3 id="mysql--sql-server--oracle--ms-access">MySQL / SQL Server / Oracle / MS Access:</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT UC_Person UNIQUE (ID,LastName)
+); 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Persons</span> <span class="p">(</span>
+    <span class="n">ID</span> <span class="nb">int</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">LastName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">FirstName</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">Age</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="k">CONSTRAINT</span> <span class="n">UC_Person</span> <span class="k">UNIQUE</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">LastName</span><span class="p">)</span>
+<span class="p">);</span> 
+</code></pre></div></div>
+
+<h2 id="sql-unique-constraint-on-alter-table">SQL UNIQUE Constraint on ALTER TABLE</h2>
+
+<p>To create a <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint on the “ID” column when the table is already created, use the following SQL:</p>
+
+<h3 id="mysql--sql-server--oracle--ms-access-1">MySQL / SQL Server / Oracle / MS Access:</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+ALTER TABLE Persons
+ADD UNIQUE (ID); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="k">ADD</span> <span class="k">UNIQUE</span> <span class="p">(</span><span class="n">ID</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<p>To name a <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint, and to define a <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint on multiple columns, use the following SQL syntax:</p>
+
+<h3 id="mysql--sql-server--oracle--ms-access-2">MySQL / SQL Server / Oracle / MS Access:</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+ALTER TABLE Persons
+ADD CONSTRAINT UC_Person UNIQUE (ID,LastName);
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">UC_Person</span> <span class="k">UNIQUE</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">LastName</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="drop-a-unique-constraint">DROP a UNIQUE Constraint</h2>
+
+<p>To drop a <code class="language-plaintext highlighter-rouge">UNIQUE</code> constraint, use the following SQL:</p>
+
+<h3 id="mysql-1">MySQL:</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+ALTER TABLE Persons
+DROP INDEX UC_Person; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">UC_Person</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h3 id="sql-server--oracle--ms-access-1">SQL Server / Oracle / MS Access:</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+ALTER TABLE Persons
+DROP CONSTRAINT UC_Person; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Persons</span>
+<span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">UC_Person</span><span class="p">;</span> 
 </code></pre></div></div>
 
                         
@@ -841,12 +935,26 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
+<li class="toc-entry toc-h2"><a href="#sql-unique-constraint-1">SQL UNIQUE Constraint</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-unique-constraint-on-create-table">SQL UNIQUE Constraint on CREATE TABLE</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#sql-server--oracle--ms-access">SQL Server / Oracle / MS Access:</a></li>
+<li class="toc-entry toc-h3"><a href="#mysql">MySQL:</a></li>
+<li class="toc-entry toc-h3"><a href="#mysql--sql-server--oracle--ms-access">MySQL / SQL Server / Oracle / MS Access:</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-unique-constraint-on-alter-table">SQL UNIQUE Constraint on ALTER TABLE</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#mysql--sql-server--oracle--ms-access-1">MySQL / SQL Server / Oracle / MS Access:</a></li>
+<li class="toc-entry toc-h3"><a href="#mysql--sql-server--oracle--ms-access-2">MySQL / SQL Server / Oracle / MS Access:</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#drop-a-unique-constraint">DROP a UNIQUE Constraint</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#mysql-1">MySQL:</a></li>
+<li class="toc-entry toc-h3"><a href="#sql-server--oracle--ms-access-1">SQL Server / Oracle / MS Access:</a></li>
+</ul>
+</li>
 </ul>
                         </nav>
 

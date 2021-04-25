@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL Data Types for MySQL, SQL Server, and MS Access | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,66 +715,554 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-data-types-for-mysql-sql-server-and-ms-access">SQL Data Types for MySQL, SQL Server, and MS Access</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<style>
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #e40707;
+  color: white;
+}
+table tr:hover {background-color: #f5f5f5;}
+table {
+    margin-top: 0.5rem;
+    padding: 1.2rem;
+    -moz-border-radius: 5px !important;
+    border-radius: 5px;
+    transition-property: all;
+    transition-duration: 120ms;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+table:hover{
+    border-radius: 5px;
+    -webkit-box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
+    box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
+}
+</style>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
+<p>The data type of a column defines what value the column can hold: integer, character, money, date and time, binary, and so on.</p>
 
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<h2 id="sql-data-types">SQL Data Types</h2>
 
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: SQL">SQL</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
-FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
-">
-  </button>
+<p>Each column in a database table is required to have a name and a data type.</p>
+
+<p>An SQL developer must decide what type of data that will be stored inside each column when creating a table. The data type is a guideline for SQL to understand what type of data is expected inside of each column, and it also identifies how SQL will interact with the stored data.</p>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+Data types might have different names in different database. And even if the name is the same, the size and other details may be different! <strong>Always check the documentation!</strong></p>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
-</code></pre></div></div>
 
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
+<h2 id="mysql-data-types-version-80">MySQL Data Types (Version 8.0)</h2>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<p>In MySQL there are three main data types: string, numeric, and date and time.</p>
 
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: SQL">SQL</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
-">
-  </button>
+<h3 id="string-data-types">String Data Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CHAR(size)</td>
+      <td>A FIXED length string (can contain letters, numbers, and special characters). The size parameter specifies the column length in characters - can be from 0 to 255. Default is 1</td>
+    </tr>
+    <tr>
+      <td>VARCHAR(size)</td>
+      <td>A VARIABLE length string (can contain letters, numbers, and special characters). The size parameter specifies the maximum column length in characters - can be from 0 to 65535</td>
+    </tr>
+    <tr>
+      <td>BINARY(size)</td>
+      <td>Equal to CHAR(), but stores binary byte strings. The size parameter specifies the column length in bytes. Default is 1</td>
+    </tr>
+    <tr>
+      <td>TINYBLOB</td>
+      <td>For BLOBs (Binary Large OBjects). Max length: 255 bytes</td>
+    </tr>
+    <tr>
+      <td>TINYTEXT</td>
+      <td>Holds a string with a maximum length of 255 characters</td>
+    </tr>
+    <tr>
+      <td>TEXT(size)</td>
+      <td>Holds a string with a maximum length of 65,535 bytes</td>
+    </tr>
+    <tr>
+      <td>BLOB(size)</td>
+      <td>For BLOBs (Binary Large OBjects). Holds up to 65,535 bytes of data</td>
+    </tr>
+    <tr>
+      <td>MEDIUMTEXT</td>
+      <td>Holds a string with a maximum length of 16,777,215 characters</td>
+    </tr>
+    <tr>
+      <td>MEDIUMBLOB</td>
+      <td>For BLOBs (Binary Large OBjects). Holds up to 16,777,215 bytes of data</td>
+    </tr>
+    <tr>
+      <td>LONGTEXT</td>
+      <td>Holds a string with a maximum length of 4,294,967,295 characters</td>
+    </tr>
+    <tr>
+      <td>LONGBLOB</td>
+      <td>For BLOBs (Binary Large OBjects). Holds up to 4,294,967,295 bytes of data</td>
+    </tr>
+    <tr>
+      <td>ENUM(val1, val2, val3, …)</td>
+      <td>A string object that can have only one value, chosen from a list of possible values. You can list up to 65535 values in an ENUM list. If a value is inserted that is not in the list, a blank value will be inserted. The values are sorted in the order you enter them</td>
+    </tr>
+    <tr>
+      <td>SET(val1, val2, val3, …)</td>
+      <td>A string object that can have 0 or more values, chosen from a list of possible values. You can list up to 64 values in a SET list</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="numeric-data-types">Numeric Data Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BIT(size)</td>
+      <td>A bit-value type. The number of bits per value is specified in size. The size parameter can hold a value from 1 to 64. The default value for size is 1.</td>
+    </tr>
+    <tr>
+      <td>TINYINT(size)</td>
+      <td>A very small integer. Signed range is from -128 to 127. Unsigned range is from 0 to 255. The size parameter specifies the maximum display width (which is 255)</td>
+    </tr>
+    <tr>
+      <td>BOOL</td>
+      <td>Zero is considered as false, nonzero values are considered as true.</td>
+    </tr>
+    <tr>
+      <td>BOOLEAN</td>
+      <td>Equal to BOOL</td>
+    </tr>
+    <tr>
+      <td>SMALLINT(size)</td>
+      <td>A small integer. Signed range is from -32768 to 32767. Unsigned range is from 0 to 65535. The size parameter specifies the maximum display width (which is 255)</td>
+    </tr>
+    <tr>
+      <td>MEDIUMINT(size)</td>
+      <td>A medium integer. Signed range is from -8388608 to 8388607. Unsigned range is from 0 to 16777215. The size parameter specifies the maximum display width (which is 255)</td>
+    </tr>
+    <tr>
+      <td>INT(size)</td>
+      <td>A medium integer. Signed range is from -2147483648 to 2147483647. Unsigned range is from 0 to 4294967295. The size parameter specifies the maximum display width (which is 255)</td>
+    </tr>
+    <tr>
+      <td>INTEGER(size)</td>
+      <td>Equal to INT(size)</td>
+    </tr>
+    <tr>
+      <td>BIGINT(size)</td>
+      <td>A large integer. Signed range is from -9223372036854775808 to 9223372036854775807. Unsigned range is from 0 to 18446744073709551615. The size parameter specifies the maximum display width (which is 255)</td>
+    </tr>
+    <tr>
+      <td>FLOAT(size, d)</td>
+      <td>A floating point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter. This syntax is deprecated in MySQL 8.0.17, and it will be removed in future MySQL versions</td>
+    </tr>
+    <tr>
+      <td>FLOAT(p)</td>
+      <td>A floating point number. MySQL uses the p value to determine whether to use FLOAT or DOUBLE for the resulting data type. If p is from 0 to 24, the data type becomes FLOAT(). If p is from 25 to 53, the data type becomes DOUBLE()</td>
+    </tr>
+    <tr>
+      <td>DOUBLE(size, d)</td>
+      <td>A normal-size floating point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter</td>
+    </tr>
+    <tr>
+      <td>DOUBLE PRECISION(size, d)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DECIMAL(size, d)</td>
+      <td>An exact fixed-point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter. The maximum number for size is 65. The maximum number for d is 30. The default value for size is 10. The default value for d is 0.</td>
+    </tr>
+    <tr>
+      <td>DEC(size, d)</td>
+      <td>Equal to DECIMAL(size,d)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+All the numeric data types may have an extra option: UNSIGNED or ZEROFILL. If you add the UNSIGNED option, MySQL disallows negative values for the column. If you add the ZEROFILL option, MySQL automatically also adds the UNSIGNED attribute to the column.</p>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
-</code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<h3 id="date-and-time-data-types">Date and Time Data Types</h3>
 
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: SQL">SQL</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
-">
-  </button>
-</div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th>Data type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DATE</td>
+      <td>A date. Format: YYYY-MM-DD. The supported range is from ‘1000-01-01’ to ‘9999-12-31’</td>
+    </tr>
+    <tr>
+      <td>DATETIME(fsp)</td>
+      <td>A date and time combination. Format: YYYY-MM-DD hh:mm:ss. The supported range is from ‘1000-01-01 00:00:00’ to ‘9999-12-31 23:59:59’. Adding DEFAULT and ON UPDATE in the column definition to get automatic initialization and updating to the current date and time</td>
+    </tr>
+    <tr>
+      <td>TIMESTAMP(fsp)</td>
+      <td>A timestamp. TIMESTAMP values are stored as the number of seconds since the Unix epoch (‘1970-01-01 00:00:00’ UTC). Format: YYYY-MM-DD hh:mm:ss. The supported range is from ‘1970-01-01 00:00:01’ UTC to ‘2038-01-09 03:14:07’ UTC. Automatic initialization and updating to the current date and time can be specified using DEFAULT CURRENT_TIMESTAMP and ON UPDATE CURRENT_TIMESTAMP in the column definition</td>
+    </tr>
+    <tr>
+      <td>TIME(fsp)</td>
+      <td>A time. Format: hh:mm:ss. The supported range is from ‘-838:59:59’ to ‘838:59:59’</td>
+    </tr>
+    <tr>
+      <td>YEAR</td>
+      <td>A year in four-digit format. Values allowed in four-digit format: 1901 to 2155, and 0000. MySQL 8.0 does not support year in two-digit format.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="sql-server-data-types">SQL Server Data Types</h2>
+
+<h3 id="string-data-types-1">String Data Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data type</th>
+      <th>Description</th>
+      <th>Max size</th>
+      <th>Storage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>char(n)</td>
+      <td>Fixed width character string</td>
+      <td>8,000 characters</td>
+      <td>Defined width</td>
+    </tr>
+    <tr>
+      <td>varchar(n)</td>
+      <td>Variable width character string</td>
+      <td>8,000 characters</td>
+      <td>2 bytes + number of chars</td>
+    </tr>
+    <tr>
+      <td>varchar(max)</td>
+      <td>Variable width character string</td>
+      <td>1,073,741,824 characters</td>
+      <td>2 bytes + number of chars</td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td>Variable width character string</td>
+      <td>2GB of text data</td>
+      <td>4 bytes + number of chars</td>
+    </tr>
+    <tr>
+      <td>nchar</td>
+      <td>Fixed width Unicode string</td>
+      <td>4,000 characters</td>
+      <td>Defined width x 2</td>
+    </tr>
+    <tr>
+      <td>nvarchar</td>
+      <td>Variable width Unicode string</td>
+      <td>4,000 characters</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nvarchar(max)</td>
+      <td>Variable width Unicode string</td>
+      <td>536,870,912 characters</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ntext</td>
+      <td>Variable width Unicode string</td>
+      <td>2GB of text data</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>binary(n)</td>
+      <td>Fixed width binary string</td>
+      <td>8,000 bytes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>varbinary</td>
+      <td>Variable width binary string</td>
+      <td>8,000 bytes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>varbinary(max)</td>
+      <td>Variable width binary string</td>
+      <td>2GB</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>image</td>
+      <td>Variable width binary string</td>
+      <td>2GB</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="numeric-data-types-1">Numeric Data Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data type</th>
+      <th>Description</th>
+      <th>Storage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bit</td>
+      <td>Integer that can be 0, 1, or NULL</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tinyint</td>
+      <td>Allows whole numbers from 0 to 255</td>
+      <td>1 byte</td>
+    </tr>
+    <tr>
+      <td>smallint</td>
+      <td>Allows whole numbers between -32,768 and 32,767</td>
+      <td>2 bytes</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td>Allows whole numbers between -2,147,483,648 and 2,147,483,647</td>
+      <td>4 bytes</td>
+    </tr>
+    <tr>
+      <td>bigint</td>
+      <td>Allows whole numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807</td>
+      <td>8 bytes</td>
+    </tr>
+    <tr>
+      <td>decimal(p,s)</td>
+      <td>Fixed precision and scale numbers. Allows numbers from -10^38 +1 to 10^38 –1. The p parameter indicates the maximum total number of digits that can be stored (both to the left and to the right of the decimal point). p must be a value from 1 to 38. Default is 18. The s parameter indicates the maximum number of digits stored to the right of the decimal point. s must be a value from 0 to p. Default value is 0</td>
+      <td>5-17 bytes</td>
+    </tr>
+    <tr>
+      <td>numeric(p,s)</td>
+      <td>Fixed precision and scale numbers. Allows numbers from -10^38 +1 to 10^38 –1. The p parameter indicates the maximum total number of digits that can be stored (both to the left and to the right of the decimal point). p must be a value from 1 to 38. Default is 18. The s parameter indicates the maximum number of digits stored to the right of the decimal point. s must be a value from 0 to p. Default value is 0</td>
+      <td>5-17 bytes</td>
+    </tr>
+    <tr>
+      <td>smallmoney</td>
+      <td>Monetary data from -214,748.3648 to 214,748.3647</td>
+      <td>4 bytes</td>
+    </tr>
+    <tr>
+      <td>money</td>
+      <td>Monetary data from -922,337,203,685,477.5808 to 922,337,203,685,477.5807</td>
+      <td>8 bytes</td>
+    </tr>
+    <tr>
+      <td>float(n)</td>
+      <td>Floating precision number data from -1.79E + 308 to 1.79E + 308. The n parameter indicates whether the field should hold 4 or 8 bytes. float(24) holds a 4-byte field and float(53) holds an 8-byte field. Default value of n is 53.</td>
+      <td>4 or 8 bytes</td>
+    </tr>
+    <tr>
+      <td>real</td>
+      <td>Floating precision number data from -3.40E + 38 to 3.40E + 38</td>
+      <td>4 bytes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="date-and-time-data-types-1">Date and Time Data Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data type</th>
+      <th>Description</th>
+      <th>Storage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>datetime</td>
+      <td>From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds</td>
+      <td>8 bytes</td>
+    </tr>
+    <tr>
+      <td>datetime2</td>
+      <td>From January 1, 0001 to December 31, 9999 with an accuracy of 100 nanoseconds</td>
+      <td>6-8 bytes</td>
+    </tr>
+    <tr>
+      <td>smalldatetime</td>
+      <td>From January 1, 1900 to June 6, 2079 with an accuracy of 1 minute</td>
+      <td>4 bytes</td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>Store a date only. From January 1, 0001 to December 31, 9999</td>
+      <td>3 bytes</td>
+    </tr>
+    <tr>
+      <td>time</td>
+      <td>Store a time only to an accuracy of 100 nanoseconds</td>
+      <td>3-5 bytes</td>
+    </tr>
+    <tr>
+      <td>datetimeoffset</td>
+      <td>The same as datetime2 with the addition of a time zone offset</td>
+      <td>8-10 bytes</td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Stores a unique number that gets updated every time a row gets created or modified. The timestamp value is based upon an internal clock and does not correspond to real time. Each table may have only one timestamp variable</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="other-data-types">Other Data Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sql_variant</td>
+      <td>Stores up to 8,000 bytes of data of various data types, except text, ntext, and timestamp</td>
+    </tr>
+    <tr>
+      <td>uniqueidentifier</td>
+      <td>Stores a globally unique identifier (GUID)</td>
+    </tr>
+    <tr>
+      <td>xml</td>
+      <td>Stores XML formatted data. Maximum 2GB</td>
+    </tr>
+    <tr>
+      <td>cursor</td>
+      <td>Stores a reference to a cursor used for database operations</td>
+    </tr>
+    <tr>
+      <td>table</td>
+      <td>Stores a result-set for later processing</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="ms-access-data-types">MS Access Data Types</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data type</th>
+      <th>Description</th>
+      <th>Storage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Text</td>
+      <td>Use for text or combinations of text and numbers. 255 characters maximum</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Memo</td>
+      <td>Memo is used for larger amounts of text. Stores up to 65,536 characters. <strong>Note:</strong> You cannot sort a memo field. However, they are searchable</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Byte</td>
+      <td>Allows whole numbers from 0 to 255</td>
+      <td>1 byte</td>
+    </tr>
+    <tr>
+      <td>Integer</td>
+      <td>Allows whole numbers between -32,768 and 32,767</td>
+      <td>2 bytes</td>
+    </tr>
+    <tr>
+      <td>Long</td>
+      <td>Allows whole numbers between -2,147,483,648 and 2,147,483,647</td>
+      <td>4 bytes</td>
+    </tr>
+    <tr>
+      <td>Single</td>
+      <td>Single precision floating-point. Will handle most decimals</td>
+      <td>4 bytes</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td>Double precision floating-point. Will handle most decimals</td>
+      <td>8 bytes</td>
+    </tr>
+    <tr>
+      <td>Currency</td>
+      <td>Use for currency. Holds up to 15 digits of whole dollars, plus 4 decimal places. <strong>Tip:</strong> You can choose which country’s currency to use</td>
+      <td>8 bytes</td>
+    </tr>
+    <tr>
+      <td>AutoNumber</td>
+      <td>AutoNumber fields automatically give each record its own number, usually starting at 1</td>
+      <td>4 bytes</td>
+    </tr>
+    <tr>
+      <td>Date/Time</td>
+      <td>Use for dates and times</td>
+      <td>8 bytes</td>
+    </tr>
+    <tr>
+      <td>Yes/No</td>
+      <td>A logical field can be displayed as Yes/No, True/False, or On/Off. In code, use the constants True and False (equivalent to -1 and 0). <strong>Note:</strong> Null values are not allowed in Yes/No fields</td>
+      <td>1 bit</td>
+    </tr>
+    <tr>
+      <td>Ole Object</td>
+      <td>Can store pictures, audio, video, or other BLOBs (Binary Large OBjects)</td>
+      <td>up to 1GB</td>
+    </tr>
+    <tr>
+      <td>Hyperlink</td>
+      <td>Contain links to other files, including web pages</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Lookup Wizard</td>
+      <td>Let you type a list of options, which can then be chosen from a drop-down list</td>
+      <td>4 bytes</td>
+    </tr>
+  </tbody>
+</table>
 
                         
                             <div id="mainNavBottom">
@@ -841,12 +1329,23 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
+<li class="toc-entry toc-h2"><a href="#sql-data-types">SQL Data Types</a></li>
+<li class="toc-entry toc-h2"><a href="#mysql-data-types-version-80">MySQL Data Types (Version 8.0)</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#string-data-types">String Data Types</a></li>
+<li class="toc-entry toc-h3"><a href="#numeric-data-types">Numeric Data Types</a></li>
+<li class="toc-entry toc-h3"><a href="#date-and-time-data-types">Date and Time Data Types</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-server-data-types">SQL Server Data Types</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#string-data-types-1">String Data Types</a></li>
+<li class="toc-entry toc-h3"><a href="#numeric-data-types-1">Numeric Data Types</a></li>
+<li class="toc-entry toc-h3"><a href="#date-and-time-data-types-1">Date and Time Data Types</a></li>
+<li class="toc-entry toc-h3"><a href="#other-data-types">Other Data Types</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#ms-access-data-types">MS Access Data Types</a></li>
 </ul>
                         </nav>
 

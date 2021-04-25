@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL Views | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,66 +715,173 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-views">SQL Views</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<h2 id="sql-create-view-statement">SQL CREATE VIEW Statement</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+<p>In SQL, a view is a virtual table based on the result-set of an SQL statement.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
+<p>A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.</p>
 
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<p>You can add SQL statements and functions to a view and present the data as if the data were coming from one single table.</p>
+
+<p>A view is created with the <code class="language-plaintext highlighter-rouge">CREATE VIEW</code> statement.</p>
+
+<h3 id="create-view-syntax">CREATE VIEW Syntax</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
 FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
+WHERE condition; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">view_name</span> <span class="k">AS</span>
+<span class="k">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="p">...</span>
 <span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
+<span class="k">WHERE</span> <span class="n">condition</span><span class="p">;</span> 
 </code></pre></div></div>
 
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+A view always shows up-to-date data! The database engine recreates the view, every time a user queries it.</p>
+</div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<h2 id="sql-create-view-examples">SQL CREATE VIEW Examples</h2>
+
+<p>The following SQL creates a view that shows all customers from Brazil:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
+CREATE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName
+FROM Customers
+WHERE Country = &#39;Brazil&#39;; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="p">[</span><span class="n">Brazil</span> <span class="n">Customers</span><span class="p">]</span> <span class="k">AS</span>
+<span class="k">SELECT</span> <span class="n">CustomerName</span><span class="p">,</span> <span class="n">ContactName</span>
+<span class="k">FROM</span> <span class="n">Customers</span>
+<span class="k">WHERE</span> <span class="n">Country</span> <span class="o">=</span> <span class="s1">'Brazil'</span><span class="p">;</span> 
 </code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<p>We can query the view above as follows:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
+SELECT * FROM [Brazil Customers]; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">Brazil</span> <span class="n">Customers</span><span class="p">];</span> 
 </code></pre></div></div>
+
+<p>The following SQL creates a view that selects every product in the “Products” table with a price higher than the average price:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CREATE VIEW [Products Above Average Price] AS
+SELECT ProductName, Price
+FROM Products
+WHERE Price &gt; (SELECT AVG(Price) FROM Products); 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="p">[</span><span class="n">Products</span> <span class="n">Above</span> <span class="n">Average</span> <span class="n">Price</span><span class="p">]</span> <span class="k">AS</span>
+<span class="k">SELECT</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">Price</span>
+<span class="k">FROM</span> <span class="n">Products</span>
+<span class="k">WHERE</span> <span class="n">Price</span> <span class="o">&gt;</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">Price</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Products</span><span class="p">);</span> 
+</code></pre></div></div>
+
+<p>We can query the view above as follows:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+SELECT * FROM [Products Above Average Price]; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">Products</span> <span class="n">Above</span> <span class="n">Average</span> <span class="n">Price</span><span class="p">];</span> 
+</code></pre></div></div>
+
+<h2 id="sql-updating-a-view">SQL Updating a View</h2>
+
+<p>A view can be updated with the <code class="language-plaintext highlighter-rouge">CREATE OR REPLACE VIEW</code> statement.</p>
+
+<h3 id="sql-create-or-replace-view-syntax">SQL CREATE OR REPLACE VIEW Syntax</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CREATE OR REPLACE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">VIEW</span> <span class="n">view_name</span> <span class="k">AS</span>
+<span class="k">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="p">...</span>
+<span class="k">FROM</span> <span class="k">table_name</span>
+<span class="k">WHERE</span> <span class="n">condition</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<p>The following SQL adds the “City” column to the “Brazil Customers” view:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CREATE OR REPLACE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName, City
+FROM Customers
+WHERE Country = &#39;Brazil&#39;; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">VIEW</span> <span class="p">[</span><span class="n">Brazil</span> <span class="n">Customers</span><span class="p">]</span> <span class="k">AS</span>
+<span class="k">SELECT</span> <span class="n">CustomerName</span><span class="p">,</span> <span class="n">ContactName</span><span class="p">,</span> <span class="n">City</span>
+<span class="k">FROM</span> <span class="n">Customers</span>
+<span class="k">WHERE</span> <span class="n">Country</span> <span class="o">=</span> <span class="s1">'Brazil'</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h2 id="sql-dropping-a-view">SQL Dropping a View</h2>
+
+<p>A view is deleted with the <code class="language-plaintext highlighter-rouge">DROP VIEW</code> statement.</p>
+
+<h3 id="sql-drop-view-syntax">SQL DROP VIEW Syntax</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+DROP VIEW view_name; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">VIEW</span> <span class="n">view_name</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<p>The following SQL drops the “Brazil Customers” view:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+DROP VIEW [Brazil Customers]; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">VIEW</span> <span class="p">[</span><span class="n">Brazil</span> <span class="n">Customers</span><span class="p">];</span> 
+</code></pre></div></div>
+
 
                         
                             <div id="mainNavBottom">
@@ -841,12 +948,22 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
+<li class="toc-entry toc-h2"><a href="#sql-create-view-statement">SQL CREATE VIEW Statement</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#create-view-syntax">CREATE VIEW Syntax</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-create-view-examples">SQL CREATE VIEW Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-updating-a-view">SQL Updating a View</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#sql-create-or-replace-view-syntax">SQL CREATE OR REPLACE VIEW Syntax</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#sql-dropping-a-view">SQL Dropping a View</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#sql-drop-view-syntax">SQL DROP VIEW Syntax</a></li>
+</ul>
+</li>
 </ul>
                         </nav>
 

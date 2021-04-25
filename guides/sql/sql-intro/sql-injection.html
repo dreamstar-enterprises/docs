@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL Injection | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,66 +715,295 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-injection">SQL Injection</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<h2 id="sql-injection-1">SQL Injection</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+<p>SQL injection is a code injection technique that might destroy your database.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
+<p>SQL injection is one of the most common web hacking techniques.</p>
 
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<p>SQL injection is the placement of malicious code in SQL statements, via web page input.</p>
 
-<div class="copy-code-container">
-  <span class="language-name" aria-label="Language name: SQL">SQL</span>
-  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
-FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
-">
-  </button>
-</div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
-</code></pre></div></div>
+<h2 id="sql-in-web-pages">SQL in Web Pages</h2>
 
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
+<p>SQL injection usually occurs when you ask a user for input, like their username/userid, and instead of a name/id, the user gives you an SQL statement that you will <strong>unknowingly</strong> run on your database.</p>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<p>Look at the following example which creates a <code class="language-plaintext highlighter-rouge">SELECT</code> statement by adding a variable (txtUserId) to a select string. The variable is fetched from user input (getRequestString):</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
+txtUserId = getRequestString(&quot;UserId&quot;);
+txtSQL = &quot;SELECT * FROM Users WHERE UserId = &quot; + txtUserId;
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">txtUserId</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"UserId"</span><span class="p">);</span>
+<span class="n">txtSQL</span> <span class="o">=</span> <span class="nv">"SELECT * FROM Users WHERE UserId = "</span> <span class="o">+</span> <span class="n">txtUserId</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<p>The rest of this page describes the potential dangers of using user input in SQL statements.</p>
+
+<h2 id="sql-injection-based-on-11-is-always-true">SQL Injection Based on 1=1 is Always True</h2>
+
+<p>Look at the example above again. The original purpose of the code was to create an SQL statement to select a user, with a given user id.</p>
+
+<p>If there is nothing to prevent a user from entering “wrong” input, the user can enter some “smart” input like this:</p>
+
+<p>UserId: 105 OR 1=1</p>
+
+<p>Then, the SQL statement will look like this:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
+SELECT * FROM Users WHERE UserId = 105 OR 1=1; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">UserId</span> <span class="o">=</span> <span class="mi">105</span> <span class="k">OR</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> 
 </code></pre></div></div>
+
+<p>The SQL above is valid and will return ALL rows from the “Users” table, since <strong>OR 1=1</strong> is always TRUE.</p>
+
+<p>Does the example above look dangerous? What if the “Users” table contains names and passwords?</p>
+
+<p>The SQL statement above is much the same as this:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+SELECT UserId, Name, Password FROM Users WHERE UserId = 105 or 1=1; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">UserId</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Password</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">UserId</span> <span class="o">=</span> <span class="mi">105</span> <span class="k">or</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<p>A hacker might get access to all the user names and passwords in a database, by simply inserting 105 OR 1=1 into the input field.</p>
+
+<h2 id="sql-injection-based-on--is-always-true">SQL Injection Based on “”=”” is Always True</h2>
+
+<p>Here is an example of a user login on a web site:</p>
+
+<p>Username: John Doe<br />
+Password: myPass</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+uName = getRequestString(&quot;username&quot;);
+uPass = getRequestString(&quot;userpassword&quot;);
+
+sql = &#39;SELECT * FROM Users WHERE Name =&quot;&#39; + uName + &#39;&quot; AND Pass =&quot;&#39; + uPass + &#39;&quot;&#39;
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">uName</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"username"</span><span class="p">);</span>
+<span class="n">uPass</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"userpassword"</span><span class="p">);</span>
+
+<span class="k">sql</span> <span class="o">=</span> <span class="s1">'SELECT * FROM Users WHERE Name ="'</span> <span class="o">+</span> <span class="n">uName</span> <span class="o">+</span> <span class="s1">'" AND Pass ="'</span> <span class="o">+</span> <span class="n">uPass</span> <span class="o">+</span> <span class="s1">'"'</span>
+</code></pre></div></div>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+ SELECT * FROM Users WHERE Name =&quot;John Doe&quot; AND Pass =&quot;myPass&quot; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">Name</span> <span class="o">=</span><span class="nv">"John Doe"</span> <span class="k">AND</span> <span class="n">Pass</span> <span class="o">=</span><span class="nv">"myPass"</span> 
+</code></pre></div></div>
+
+<p>A hacker might get access to user names and passwords in a database by simply inserting “ OR “”=” into the user name or password text box:</p>
+
+<p>User Name: “ or “”=”<br />
+Password: “ or “”=”</p>
+
+<p>The code at the server will create a valid SQL statement like this:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+ SELECT * FROM Users WHERE Name =&quot;&quot; or &quot;&quot;=&quot;&quot; AND Pass =&quot;&quot; or &quot;&quot;=&quot;&quot; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">Name</span> <span class="o">=</span><span class="nv">""</span> <span class="k">or</span> <span class="nv">""</span><span class="o">=</span><span class="nv">""</span> <span class="k">AND</span> <span class="n">Pass</span> <span class="o">=</span><span class="nv">""</span> <span class="k">or</span> <span class="nv">""</span><span class="o">=</span><span class="nv">""</span> 
+</code></pre></div></div>
+
+<p>The SQL above is valid and will return all rows from the “Users” table, since <strong>OR “”=”“</strong> is always TRUE.</p>
+
+<h2 id="sql-injection-based-on-batched-sql-statements">SQL Injection Based on Batched SQL Statements</h2>
+
+<p>Most databases support batched SQL statement.</p>
+
+<p>A batch of SQL statements is a group of two or more SQL statements, separated by semicolons.</p>
+
+<p>The SQL statement below will return all rows from the “Users” table, then delete the “Suppliers” table.</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+SELECT * FROM Users; DROP TABLE Suppliers 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span><span class="p">;</span> <span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">Suppliers</span> 
+</code></pre></div></div>
+
+<p>Look at the following example:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+txtUserId = getRequestString(&quot;UserId&quot;);
+txtSQL = &quot;SELECT * FROM Users WHERE UserId = &quot; + txtUserId;
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">txtUserId</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"UserId"</span><span class="p">);</span>
+<span class="n">txtSQL</span> <span class="o">=</span> <span class="nv">"SELECT * FROM Users WHERE UserId = "</span> <span class="o">+</span> <span class="n">txtUserId</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>And the following input:</p>
+
+<p>User id: 105; DROP TABLE Suppliers</p>
+
+<p>The valid SQL statement would look like this:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+SELECT * FROM Users WHERE UserId = 105; DROP TABLE Suppliers; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Users</span> <span class="k">WHERE</span> <span class="n">UserId</span> <span class="o">=</span> <span class="mi">105</span><span class="p">;</span> <span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">Suppliers</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h2 id="use-sql-parameters-for-protection">Use SQL Parameters for Protection</h2>
+
+<p>To protect a web site from SQL injection, you can use SQL parameters.</p>
+
+<p>SQL parameters are values that are added to an SQL query at execution time, in a controlled manner.</p>
+
+<h3 id="aspnet-razor-example">ASP.NET Razor Example</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+txtUserId = getRequestString(&quot;UserId&quot;);
+txtSQL = &quot;SELECT * FROM Users WHERE UserId = @0&quot;;
+db.Execute(txtSQL,txtUserId);
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">txtUserId</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"UserId"</span><span class="p">);</span>
+<span class="n">txtSQL</span> <span class="o">=</span> <span class="nv">"SELECT * FROM Users WHERE UserId = @0"</span><span class="p">;</span>
+<span class="n">db</span><span class="p">.</span><span class="k">Execute</span><span class="p">(</span><span class="n">txtSQL</span><span class="p">,</span><span class="n">txtUserId</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Note that parameters are represented in the SQL statement by a @ marker.</p>
+
+<p>The SQL engine checks each parameter to ensure that it is correct for its column and are treated literally, and not as part of the SQL to be executed.</p>
+
+<h3 id="another-example">Another Example</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+txtNam = getRequestString(&quot;CustomerName&quot;);
+txtAdd = getRequestString(&quot;Address&quot;);
+txtCit = getRequestString(&quot;City&quot;);
+txtSQL = &quot;INSERT INTO Customers (CustomerName,Address,City) Values(@0,@1,@2)&quot;;
+db.Execute(txtSQL,txtNam,txtAdd,txtCit);
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">txtNam</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"CustomerName"</span><span class="p">);</span>
+<span class="n">txtAdd</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"Address"</span><span class="p">);</span>
+<span class="n">txtCit</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"City"</span><span class="p">);</span>
+<span class="n">txtSQL</span> <span class="o">=</span> <span class="nv">"INSERT INTO Customers (CustomerName,Address,City) Values(@0,@1,@2)"</span><span class="p">;</span>
+<span class="n">db</span><span class="p">.</span><span class="k">Execute</span><span class="p">(</span><span class="n">txtSQL</span><span class="p">,</span><span class="n">txtNam</span><span class="p">,</span><span class="n">txtAdd</span><span class="p">,</span><span class="n">txtCit</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="examples">Examples</h2>
+
+<p>The following examples shows how to build parameterized queries in some common web languages.</p>
+
+<p>SELECT STATEMENT IN ASP.NET:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+txtUserId = getRequestString(&quot;UserId&quot;);
+sql = &quot;SELECT * FROM Customers WHERE CustomerId = @0&quot;;
+command = new SqlCommand(sql);
+command.Parameters.AddWithValue(&quot;@0&quot;,txtUserId);
+command.ExecuteReader();
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">txtUserId</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"UserId"</span><span class="p">);</span>
+<span class="k">sql</span> <span class="o">=</span> <span class="nv">"SELECT * FROM Customers WHERE CustomerId = @0"</span><span class="p">;</span>
+<span class="n">command</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SqlCommand</span><span class="p">(</span><span class="k">sql</span><span class="p">);</span>
+<span class="n">command</span><span class="p">.</span><span class="k">Parameters</span><span class="p">.</span><span class="n">AddWithValue</span><span class="p">(</span><span class="nv">"@0"</span><span class="p">,</span><span class="n">txtUserId</span><span class="p">);</span>
+<span class="n">command</span><span class="p">.</span><span class="n">ExecuteReader</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>INSERT INTO STATEMENT IN ASP.NET:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+txtNam = getRequestString(&quot;CustomerName&quot;);
+txtAdd = getRequestString(&quot;Address&quot;);
+txtCit = getRequestString(&quot;City&quot;);
+txtSQL = &quot;INSERT INTO Customers (CustomerName,Address,City) Values(@0,@1,@2)&quot;;
+command = new SqlCommand(txtSQL);
+command.Parameters.AddWithValue(&quot;@0&quot;,txtNam);
+command.Parameters.AddWithValue(&quot;@1&quot;,txtAdd);
+command.Parameters.AddWithValue(&quot;@2&quot;,txtCit);
+command.ExecuteNonQuery();
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">txtNam</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"CustomerName"</span><span class="p">);</span>
+<span class="n">txtAdd</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"Address"</span><span class="p">);</span>
+<span class="n">txtCit</span> <span class="o">=</span> <span class="n">getRequestString</span><span class="p">(</span><span class="nv">"City"</span><span class="p">);</span>
+<span class="n">txtSQL</span> <span class="o">=</span> <span class="nv">"INSERT INTO Customers (CustomerName,Address,City) Values(@0,@1,@2)"</span><span class="p">;</span>
+<span class="n">command</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SqlCommand</span><span class="p">(</span><span class="n">txtSQL</span><span class="p">);</span>
+<span class="n">command</span><span class="p">.</span><span class="k">Parameters</span><span class="p">.</span><span class="n">AddWithValue</span><span class="p">(</span><span class="nv">"@0"</span><span class="p">,</span><span class="n">txtNam</span><span class="p">);</span>
+<span class="n">command</span><span class="p">.</span><span class="k">Parameters</span><span class="p">.</span><span class="n">AddWithValue</span><span class="p">(</span><span class="nv">"@1"</span><span class="p">,</span><span class="n">txtAdd</span><span class="p">);</span>
+<span class="n">command</span><span class="p">.</span><span class="k">Parameters</span><span class="p">.</span><span class="n">AddWithValue</span><span class="p">(</span><span class="nv">"@2"</span><span class="p">,</span><span class="n">txtCit</span><span class="p">);</span>
+<span class="n">command</span><span class="p">.</span><span class="n">ExecuteNonQuery</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>INSERT INTO STATEMENT IN PHP:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+$stmt = $dbh-&gt;prepare(&quot;INSERT INTO Customers (CustomerName,Address,City)
+VALUES (:nam, :add, :cit)&quot;);
+$stmt-&gt;bindParam(&#39;:nam&#39;, $txtNam);
+$stmt-&gt;bindParam(&#39;:add&#39;, $txtAdd);
+$stmt-&gt;bindParam(&#39;:cit&#39;, $txtCit);
+$stmt-&gt;execute();
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span><span class="n">stmt</span> <span class="o">=</span> <span class="err">$</span><span class="n">dbh</span><span class="o">-&gt;</span><span class="k">prepare</span><span class="p">(</span><span class="nv">"INSERT INTO Customers (CustomerName,Address,City)
+VALUES (:nam, :add, :cit)"</span><span class="p">);</span>
+<span class="err">$</span><span class="n">stmt</span><span class="o">-&gt;</span><span class="n">bindParam</span><span class="p">(</span><span class="s1">':nam'</span><span class="p">,</span> <span class="err">$</span><span class="n">txtNam</span><span class="p">);</span>
+<span class="err">$</span><span class="n">stmt</span><span class="o">-&gt;</span><span class="n">bindParam</span><span class="p">(</span><span class="s1">':add'</span><span class="p">,</span> <span class="err">$</span><span class="n">txtAdd</span><span class="p">);</span>
+<span class="err">$</span><span class="n">stmt</span><span class="o">-&gt;</span><span class="n">bindParam</span><span class="p">(</span><span class="s1">':cit'</span><span class="p">,</span> <span class="err">$</span><span class="n">txtCit</span><span class="p">);</span>
+<span class="err">$</span><span class="n">stmt</span><span class="o">-&gt;</span><span class="k">execute</span><span class="p">();</span>
+</code></pre></div></div>
+
 
                         
                             <div id="mainNavBottom">
@@ -841,12 +1070,18 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
+<li class="toc-entry toc-h2"><a href="#sql-injection-1">SQL Injection</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-in-web-pages">SQL in Web Pages</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-injection-based-on-11-is-always-true">SQL Injection Based on 1=1 is Always True</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-injection-based-on--is-always-true">SQL Injection Based on “”=”” is Always True</a></li>
+<li class="toc-entry toc-h2"><a href="#sql-injection-based-on-batched-sql-statements">SQL Injection Based on Batched SQL Statements</a></li>
+<li class="toc-entry toc-h2"><a href="#use-sql-parameters-for-protection">Use SQL Parameters for Protection</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#aspnet-razor-example">ASP.NET Razor Example</a></li>
+<li class="toc-entry toc-h3"><a href="#another-example">Another Example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#examples">Examples</a></li>
 </ul>
                         </nav>
 

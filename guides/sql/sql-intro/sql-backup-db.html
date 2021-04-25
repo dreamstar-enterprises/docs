@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>SQL EXISTS Operator | StarBase </title>
+		<title>SQL BACKUP DATABASE for SQL Server | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -715,66 +715,92 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="sql-exists-operator">SQL EXISTS Operator</h1>
+                        <h1 id="sql-backup-database-for-sql-server">SQL BACKUP DATABASE for SQL Server</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • SQL • 15/04/2021</time>
 
-<h2 id="the-sql-exists-operator">The SQL EXISTS Operator</h2>
+<h2 id="the-sql-backup-database-statement">The SQL BACKUP DATABASE Statement</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator is used to test for the existence of any record in a subquery.</p>
+<p>The <code class="language-plaintext highlighter-rouge">BACKUP DATABASE</code> statement is used in SQL Server to create a full back up of an existing SQL database.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">EXISTS</code> operator returns TRUE if the subquery returns one or more records.</p>
-
-<h3 id="exists-syntax">EXISTS Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT column_name(s)
-FROM table_name
-WHERE EXISTS
-(SELECT column_name FROM table_name WHERE condition); 
+BACKUP DATABASE databasename
+TO DISK = &#39;filepath&#39;; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="k">table_name</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span>
-<span class="p">(</span><span class="k">SELECT</span> <span class="k">column_name</span> <span class="k">FROM</span> <span class="k">table_name</span> <span class="k">WHERE</span> <span class="n">condition</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BACKUP</span> <span class="k">DATABASE</span> <span class="n">databasename</span>
+<span class="k">TO</span> <span class="n">DISK</span> <span class="o">=</span> <span class="s1">'filepath'</span><span class="p">;</span> 
 </code></pre></div></div>
 
-<h2 id="sql-exists-examples">SQL EXISTS Examples</h2>
+<h2 id="the-sql-backup-with-differential-statement">The SQL BACKUP WITH DIFFERENTIAL Statement</h2>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price less than 20:</p>
+<p>A differential back up only backs up the parts of the database that have changed since the last full database backup.</p>
+
+<h3 id="syntax-1">Syntax</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price &lt; 20); 
+BACKUP DATABASE databasename
+TO DISK = &#39;filepath&#39;
+WITH DIFFERENTIAL; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BACKUP</span> <span class="k">DATABASE</span> <span class="n">databasename</span>
+<span class="k">TO</span> <span class="n">DISK</span> <span class="o">=</span> <span class="s1">'filepath'</span>
+<span class="k">WITH</span> <span class="n">DIFFERENTIAL</span><span class="p">;</span> 
 </code></pre></div></div>
 
-<p>The following SQL statement returns TRUE and lists the suppliers with a product price equal to 22:</p>
+<h2 id="backup-database-example">BACKUP DATABASE Example</h2>
+
+<p>The following SQL statement creates a full back up of the existing database “testDB” to the D disk:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: SQL">SQL</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-SELECT SupplierName
-FROM Suppliers
-WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22); 
+BACKUP DATABASE testDB
+TO DISK = &#39;D:\backups\testDB.bak&#39;; 
 ">
   </button>
 </div>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SupplierName</span>
-<span class="k">FROM</span> <span class="n">Suppliers</span>
-<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ProductName</span> <span class="k">FROM</span> <span class="n">Products</span> <span class="k">WHERE</span> <span class="n">Products</span><span class="p">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">Suppliers</span><span class="p">.</span><span class="n">supplierID</span> <span class="k">AND</span> <span class="n">Price</span> <span class="o">=</span> <span class="mi">22</span><span class="p">);</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BACKUP</span> <span class="k">DATABASE</span> <span class="n">testDB</span>
+<span class="k">TO</span> <span class="n">DISK</span> <span class="o">=</span> <span class="s1">'D:</span><span class="se">\b</span><span class="s1">ackups</span><span class="se">\t</span><span class="s1">estDB.bak'</span><span class="p">;</span> 
 </code></pre></div></div>
+
+<div class="alert alert-warning alerts-font" role="alert">
+  <p><i class="fa fa-warning"></i> <b>Important: </b>
+<br />
+Always back up the database to a different drive than the actual database. Then, if you get a disk crash, you will not lose your backup file along with the database.</p>
+</div>
+
+<h2 id="backup-with-differential-example">BACKUP WITH DIFFERENTIAL Example</h2>
+
+<p>The following SQL statement creates a differential back up of the database “testDB”:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: SQL">SQL</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+BACKUP DATABASE testDB
+TO DISK = &#39;D:\backups\testDB.bak&#39;
+WITH DIFFERENTIAL; 
+">
+  </button>
+</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BACKUP</span> <span class="k">DATABASE</span> <span class="n">testDB</span>
+<span class="k">TO</span> <span class="n">DISK</span> <span class="o">=</span> <span class="s1">'D:</span><span class="se">\b</span><span class="s1">ackups</span><span class="se">\t</span><span class="s1">estDB.bak'</span>
+<span class="k">WITH</span> <span class="n">DIFFERENTIAL</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+A differential back up reduces the back up time (since only the changes are backed up).</p>
+</div>
 
                         
                             <div id="mainNavBottom">
@@ -841,12 +867,18 @@ WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppl
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-sql-exists-operator">The SQL EXISTS Operator</a>
+<li class="toc-entry toc-h2"><a href="#the-sql-backup-database-statement">The SQL BACKUP DATABASE Statement</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#exists-syntax">EXISTS Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#syntax">Syntax</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#sql-exists-examples">SQL EXISTS Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#the-sql-backup-with-differential-statement">The SQL BACKUP WITH DIFFERENTIAL Statement</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#syntax-1">Syntax</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#backup-database-example">BACKUP DATABASE Example</a></li>
+<li class="toc-entry toc-h2"><a href="#backup-with-differential-example">BACKUP WITH DIFFERENTIAL Example</a></li>
 </ul>
                         </nav>
 
