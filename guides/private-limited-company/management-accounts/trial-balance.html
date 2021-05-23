@@ -484,11 +484,34 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This tab shows all Debit and Credit accounts across the workbook.</p>
+<p>This Tab shows all Debit and Credit accounts across the workbook.</p>
 
-<figure>
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Trial Balance</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/trial-balance-01.png" alt="" style="width: 100%; max-width: 72.5%" />
+        <img class="docimage" onclick="showImage('trial-balance-01.png');" src="images/trial-balance-01.png" alt="" style="width: 100%; max-width: 72.5%" />
     
 
     
@@ -497,8 +520,12 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<p>The important check here is that the total of all credits and total of all debits should match so the difference is zero. This ensures that the accounts, as a whole, balance. This is the main purpose of a Trial Balance in Finance &amp; Accounting.</p>
+<p>The important check here is that the total of all Credits and total of all Debits should match so the difference is zero. This ensures that the accounts, as a whole, balance. This is the main purpose of a Trial Balance in Finance, Tax, and Accounting.</p>
 
 
                         

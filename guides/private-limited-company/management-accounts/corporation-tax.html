@@ -484,11 +484,34 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This tab takes the final profit figure from the Profit &amp; Loss tab, and uses it to calculate Corporation Tax. (The Corporation Tax figure is in turn linked back from this page to the Corporation Tax line in the Profit &amp; Loss tab).</p>
+<p>This Tab takes the final profit figure from the Profit &amp; Loss tab, and uses it to calculate the Corporation Tax. (The Corporation Tax figure is in turn linked back from this Tab to the Corporation Tax line in the Profit &amp; Loss Tab).</p>
 
-<figure>
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Corporation Tax</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/corporation-tax-01.png" alt="" style="width: 100%; max-width: 72.5%" />
+        <img class="docimage" onclick="showImage('corporation-tax-01.png');" src="images/corporation-tax-01.png" alt="" style="width: 100%; max-width: 79.1%" />
     
 
     
@@ -497,10 +520,15 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <div class="alert alert-secondary alerts-font" role="alert">
   <p><i class="fa fa-info-circle"></i> <b>Info: </b>
-The additional yellow box at the bottom shows, separately, the amount of personal tax payable by the company’s director for any dividends received he/she receives from the company. The Dividend figure shown above (as the starting poing to the calculation) is taken from the Dividend Cash Payment recorded in the April Monthly Transaction tab.</p>
+<br />
+The additional yellow box at the bottom shows, separately, the amount of personal tax payable by the company’s director for any dividends received he/she receives from the company. The Dividend figure shown above (as the starting point to the calculation) is taken from the Dividend Cash Payment recorded in April’s Monthly Transaction Tab.</p>
 </div>
 
                         

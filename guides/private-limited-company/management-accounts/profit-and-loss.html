@@ -484,22 +484,9 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This tab shows the overall profit &amp; loss performance of the company:</p>
+<p>This Tab shows the overall Profit &amp; Loss performance of the company:</p>
 
-<figure>
-    
-        <img class="docimage" src="images/profit-and-loss-01.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<!-- Trigger/Open The Modal -->
-<p><button id="modalBtn">Open large-sized image</button></p>
+<!-- ************************************************ -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -513,9 +500,18 @@
 </span></p>
     </div>
     <div class="modal-body">
-      <figure>
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/profit-and-loss-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('profit-and-loss-01.png');" src="images/profit-and-loss-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -524,12 +520,12 @@
     </figcaption>
     
 </figure>
-    </div>
-    <div class="modal-footer"></div>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
   </div>
 </div>
 
-<p>The data here is linked from all the other sheets, so there should be nothing additional you have to do there.</p>
+<p>The financial data here is linked from all the other sheets in the WorkBook, so there should be nothing additional you have to do there.</p>
 
                         
                             <div id="mainNavBottom">

@@ -484,22 +484,9 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This tab shows the credit and debit position of all customers and suppliers each month. (It also shows any amounts that may be owed as ‘director’s other earnings’, if, for example, any ‘benefits in kind’ had been arranged and paid by director’s themselves):</p>
+<p>This Tab shows the Credit and Debit position of all customers and suppliers each month. (It also shows any amounts that might be owed as ‘Director’s (Other Salary)’, if, for example, there were any Taxable ‘benefits in kind’, that had been arranged and paid for by the Director themselves, and then later re-imbursed directly by the Company (which considered this re-imbursement as a form of Other Salary to that Director):</p>
 
-<figure>
-    
-        <img class="docimage" src="images/customer-supplier-balances-01.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<!-- Trigger/Open The Modal -->
-<p><button id="modalBtn">Open large-sized image</button></p>
+<!-- ************************************************ -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -507,15 +494,24 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <h4>Customer &amp; Supplier balances</h4>
+      <h4>Customer &amp; Supplier Balances</h4>
       <p><span class="close">
 ×
 </span></p>
     </div>
     <div class="modal-body">
-      <figure>
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/customer-supplier-balances-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('customer-supplier-balances-01.png');" src="images/customer-supplier-balances-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -524,16 +520,16 @@
     </figcaption>
     
 </figure>
-    </div>
-    <div class="modal-footer"></div>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
   </div>
 </div>
 
-<p>The data here is linked from all the other sheets, so there should be nothing additional you have to do here, apart from:</p>
+<p>The financial data here is linked from all the other sheets in the WorkBook, so there should be nothing additional you have to do here, apart from:</p>
 
 <ul>
-  <li>Ensuring the <em>Checks Cells</em> net to nil, and</li>
-  <li>Updating the page for any new customers, or suppliers</li>
+  <li>Ensuring the cells that have the text description <em>Check</em> next to them, show a figure of nil, and then</li>
+  <li>Updating the page for any New Customers, or Suppliers that should go here on this <em>Purchase &amp; Sales Ledger</em>.</li>
 </ul>
 
                         

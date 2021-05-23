@@ -484,22 +484,9 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This tab shows the net movement in receivables over the year. The total movement shown should agree with that shown in the ‘Customer &amp; Suppliers’ tab.</p>
+<p>This Tab shows the net movement in Receivables over the year. The total movement shown should agree with that shown in the ‘Customer &amp; Suppliers’ Tab.</p>
 
-<figure>
-    
-        <img class="docimage" src="images/aged-receivables-01.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<!-- Trigger/Open The Modal -->
-<p><button id="modalBtn">Open large-sized image</button></p>
+<!-- ************************************************ -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -507,15 +494,24 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <h4>Movement in Receivables</h4>
+      <h4>Aged Receivables</h4>
       <p><span class="close">
 ×
 </span></p>
     </div>
     <div class="modal-body">
-      <figure>
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/aged-receivables-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('aged-receivables-01.png');" src="images/aged-receivables-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -524,14 +520,260 @@
     </figcaption>
     
 </figure>
-    </div>
-    <div class="modal-footer"></div>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
   </div>
 </div>
 
-<p>The data here is linked from all the other sheets, so there should be nothing additional you have to do here.</p>
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('aged-receivables-02.png');" src="images/aged-receivables-02.png" alt="" style="width: 100%; max-width: " />
+    
 
-<p>You may have to occassional reset the filter (i.e. de-select, and reselect it), as new transactions are added, as the table will not automatically refresh any applied filters for new transactions.</p>
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('aged-receivables-03.png');" src="images/aged-receivables-03.png" alt="" style="width: 100%; max-width: 72.5%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<h2 id="columns-at-end-of-receivables-table">Columns at end of Receivables Table:</h2>
+
+<p>The columns at the end of this Receivables table show:</p>
+
+<h3 id="cash-amounts--cash-dates">Cash Amounts &amp; Cash Dates</h3>
+
+<p>These columns try to match up Cash Amounts to Invoices (if matching references have been given to both the Invoice line, and relevant Cash Flow line).</p>
+
+<p>The Cash Dates shown here are the first Dates of any Cash Payments or Receipts that might have been made (e.g. if there are two separate Cash lines that pay towards the same Invoice.)</p>
+
+<h3 id="the-invoice-amount-os">The Invoice Amount O/S</h3>
+
+<p>This column shows what amounts are outstanding - that is how much of each Invoice has not been paid.</p>
+
+<h3 id="total-receivables-due">Total Receivables due</h3>
+
+<p>These columns show the:</p>
+
+<p>(i) V.A.T. Due; (ii) Receivables Due (excluding V.A.T.); and then (iii) Total Receivable Due, at the End of the Month (E.o.M.)</p>
+
+<p>Formulae used in these columns have been showed below:</p>
+
+<h4 id="vat-due-formula">V.A.T. Due Formula</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    =LET(
+    amount_vat,[@VAT], tax_date, [@[Tax Point Date]], transaction, [@Transaction],
+    start_date_month, EOMONTH(TODAY(),-1) + 1, end_date_month, EOMONTH(start_date_month, 0),
+    date_matrix_vat,(tax_date&lt;=end_date_month), amount_matrix_vat, amount_vat*date_matrix_vat,
+    amount_total, IF(OR(transaction= &quot;S/L- Invoice&quot;, transaction = &quot;P/L - Invoice&quot;), amount_matrix_vat, 0),
+    amount_total)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">    =LET(
+    amount_vat,[@VAT], tax_date, [@[Tax Point Date]], transaction, [@Transaction],
+    start_date_month, EOMONTH(TODAY(),-1) + 1, end_date_month, EOMONTH(start_date_month, 0),
+    date_matrix_vat,(tax_date&lt;=end_date_month), amount_matrix_vat, amount_vat*date_matrix_vat,
+    amount_total, IF(OR(transaction= "S/L- Invoice", transaction = "P/L - Invoice"), amount_matrix_vat, 0),
+    amount_total)
+</code></pre>
+
+<h4 id="receivables-due-formula">Receivables Due Formula</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    =LET(
+    amount_net, [@Net], due_date, [@[Cash Due Date]], start_date, [@[Start Date]], end_date, [@[End Date]], invoice_cash_date, IF([@[Invoice Date / Cash Date]] = 0, 2958465,[@[Invoice Date / Cash Date]]), contract, [@[Contract Type]], transaction, [@Transaction], start_date_month, EOMONTH(TODAY(),-1) + 1, end_date_month, EOMONTH(start_date_month, 0), start_date_previous_month, EOMONTH(start_date_month, -2) + 1, end_date_previous_month, EOMONTH(start_date_month, -1),
+    recognition_date, IF(contract = &quot;Non-Cancellable&quot;, MIN(end_date, due_date), IF(contract = &quot;Cancellable&quot;, MAX(MIN(end_date, invoice_cash_date), start_date), invoice_cash_date)),
+    recognition_date_matrix, (recognition_date &lt;= end_date_month),
+    amount_matrix_net, amount_net*recognition_date_matrix,
+    amount_matrix_net_pro_rated, amount_net*((end_date_month &gt;= start_date)*1*IF(end_date &lt;= end_date_month, end_date, end_date_month) - start_date + 1) / (end_date - start_date + 1) * recognition_date_matrix,
+    amount_result, IF(OR(transaction = &quot;S/L- Invoice&quot;, transaction = &quot;P/L - Invoice&quot;), IF(contract = &quot;Cancellable&quot;, amount_matrix_net_pro_rated, amount_matrix_net), 0),
+    amount_result)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">    =LET(
+    amount_net, [@Net], due_date, [@[Cash Due Date]], start_date, [@[Start Date]], end_date, [@[End Date]], invoice_cash_date, IF([@[Invoice Date / Cash Date]] = 0, 2958465,[@[Invoice Date / Cash Date]]), contract, [@[Contract Type]], transaction, [@Transaction], start_date_month, EOMONTH(TODAY(),-1) + 1, end_date_month, EOMONTH(start_date_month, 0), start_date_previous_month, EOMONTH(start_date_month, -2) + 1, end_date_previous_month, EOMONTH(start_date_month, -1),
+    recognition_date, IF(contract = "Non-Cancellable", MIN(end_date, due_date), IF(contract = "Cancellable", MAX(MIN(end_date, invoice_cash_date), start_date), invoice_cash_date)),
+    recognition_date_matrix, (recognition_date &lt;= end_date_month),
+    amount_matrix_net, amount_net*recognition_date_matrix,
+    amount_matrix_net_pro_rated, amount_net*((end_date_month &gt;= start_date)*1*IF(end_date &lt;= end_date_month, end_date, end_date_month) - start_date + 1) / (end_date - start_date + 1) * recognition_date_matrix,
+    amount_result, IF(OR(transaction = "S/L- Invoice", transaction = "P/L - Invoice"), IF(contract = "Cancellable", amount_matrix_net_pro_rated, amount_matrix_net), 0),
+    amount_result)
+</code></pre>
+
+<h4 id="total-receivables-due-formula">Total Receivables Due Formula</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=[@[VAT Due &#39;@ EoM]]+[@[Receivable Due &#39;@ EoM]]
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=[@[VAT Due '@ EoM]]+[@[Receivable Due '@ EoM]]
+</code></pre>
+
+<h3 id="cash-due-date">Cash Due Date</h3>
+<p>This column shows the Cash Due Date for each Invoice. This will vary depending on whether the Contract is ‘Cancellable’, or ‘Non-Cancellable’</p>
+
+<p>The Formula used in this column has been showed below:</p>
+
+<h4 id="cash-due-date-formula">Cash Due Date Formula</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=IF([@[Contract Type]] = &quot;Non-Cancellable&quot;, MIN([@[End Date]], [@[Due Date]]), IF([@[Contract Type]] = &quot;Cancellable&quot;, [@[Due Date]], [@[Invoice Date / Cash Date]]))
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=IF([@[Contract Type]] = "Non-Cancellable", MIN([@[End Date]], [@[Due Date]]), IF([@[Contract Type]] = "Cancellable", [@[Due Date]], [@[Invoice Date / Cash Date]]))
+</code></pre>
+
+<h3 id="aged-receivables">Aged Receivables</h3>
+
+<p>These columns show how old the Receivables are based on their Cash Due Date.</p>
+
+<p>Formulae used in these columns have been showed below:</p>
+
+<h4 id="not-yet-due">Not Yet Due</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=IF(TODAY()-[@[Cash Due Date]]&lt;=0,[@[Total Receivable &#39;@ EoM]],0)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=IF(TODAY()-[@[Cash Due Date]]&lt;=0,[@[Total Receivable '@ EoM]],0)
+</code></pre>
+
+<h4 id="0-30-days">0-30 Days</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=IF(AND(TODAY()-[@[Cash Due Date]]&lt;=30,TODAY()-[@[Cash Due Date]]&gt;0),[@[Total Receivable &#39;@ EoM]],0)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=IF(AND(TODAY()-[@[Cash Due Date]]&lt;=30,TODAY()-[@[Cash Due Date]]&gt;0),[@[Total Receivable '@ EoM]],0)
+</code></pre>
+
+<h4 id="30-60-days">30-60 Days</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=IF(AND(TODAY()-[@[Cash Due Date]]&lt;=60,TODAY()-[@[Cash Due Date]]&gt;30),[@[Total Receivable &#39;@ EoM]],0)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=IF(AND(TODAY()-[@[Cash Due Date]]&lt;=60,TODAY()-[@[Cash Due Date]]&gt;30),[@[Total Receivable '@ EoM]],0)
+</code></pre>
+
+<h4 id="60-90-days">60-90 Days</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=IF(AND(TODAY()-[@[Cash Due Date]]&lt;=90,TODAY()-[@[Cash Due Date]]&gt;60),[@[Total Receivable &#39;@ EoM]],0)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=IF(AND(TODAY()-[@[Cash Due Date]]&lt;=90,TODAY()-[@[Cash Due Date]]&gt;60),[@[Total Receivable '@ EoM]],0)
+</code></pre>
+
+<h4 id="older">Older</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=IF(TODAY()-[@[Cash Due Date]]&gt;90,[@[Total Receivable &#39;@ EoM]],0)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=IF(TODAY()-[@[Cash Due Date]]&gt;90,[@[Total Receivable '@ EoM]],0)
+</code></pre>
+
+<h3 id="total-cash-amounts">Total Cash Amounts</h3>
+
+<p>This column shows all the Cash Receipts or Cash Payments that have gone through the Sales or Purchase Ledger.</p>
+
+<p>The Formula used in this column has been shown below:</p>
+
+<h4 id="total-cash-amounts-1">Total Cash Amounts</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=IF(AND(OR([@Transaction] = &quot;Co. Bank Receipt&quot;, [@Transaction] = &quot;Co. Bank Payment&quot;), OR([@Ledger] = &quot;P/L&quot;, [@Ledger] = &quot;S/L&quot;)), [@[Inv Amount / Cash Amount]], 0)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=IF(AND(OR([@Transaction] = "Co. Bank Receipt", [@Transaction] = "Co. Bank Payment"), OR([@Ledger] = "P/L", [@Ledger] = "S/L")), [@[Inv Amount / Cash Amount]], 0)
+</code></pre>
+
+<h3 id="unbilled-receivables">Unbilled Receivables</h3>
+
+<p>This column shows all Receivables that have been recognised in the Accounts, but where no Invoice has yet been raised (e.g. for any Invoice that might have been raised much after the end date of the Work Period specified in that Invoice).</p>
+
+<p>The Formula used in this column has been shown below:</p>
+
+<h4 id="unbilled-receivable-formulae">Unbilled Receivable Formulae</h4>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=LET(
+transaction, [@Transaction], contract, [@[Contract Type]], invoice_cash_date, IF([@[Invoice Date / Cash Date]] = 0, 2958465,[@[Invoice Date / Cash Date]]), due_date, [@[Due Date]], receivable_due_at_EoM, [@[Total Receivable &#39;@ EoM]], start_date, [@[Start Date]], end_date, [@[End Date]],
+recognition_date, IF( contract = &quot;Non-Cancellable&quot;, MIN(end_date, due_date), IF(contract = &quot;Cancellable&quot;, MAX(MIN(end_date, invoice_cash_date), start_date), invoice_cash_date)),
+unbilled_receivable, IF(AND(invoice_cash_date &gt; recognition_date, invoice_cash_date &gt; TODAY()), receivable_due_at_EoM,  0),
+result, IF( OR(transaction = &quot;S/L- Invoice&quot;, transaction = &quot;P/L - Invoice&quot;), unbilled_receivable, 0), result)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=LET(
+transaction, [@Transaction], contract, [@[Contract Type]], invoice_cash_date, IF([@[Invoice Date / Cash Date]] = 0, 2958465,[@[Invoice Date / Cash Date]]), due_date, [@[Due Date]], receivable_due_at_EoM, [@[Total Receivable '@ EoM]], start_date, [@[Start Date]], end_date, [@[End Date]],
+recognition_date, IF( contract = "Non-Cancellable", MIN(end_date, due_date), IF(contract = "Cancellable", MAX(MIN(end_date, invoice_cash_date), start_date), invoice_cash_date)),
+unbilled_receivable, IF(AND(invoice_cash_date &gt; recognition_date, invoice_cash_date &gt; TODAY()), receivable_due_at_EoM,  0),
+result, IF( OR(transaction = "S/L- Invoice", transaction = "P/L - Invoice"), unbilled_receivable, 0), result)
+</code></pre>
+
+<h2 id="other-comments-on-the-receivable-table">Other comments on the Receivable Table</h2>
+
+<p>The financial data in this Table is linked from the other sheets in this Workbook, so there should be nothing additional you have to do in this sheet.</p>
+
+<p>You may also have to occassional reset the filter (i.e. de-select, and reselect it), as new transactions are added, as the table will not automatically do this - you need to refresh the ‘<em>Ledger</em>’ column filter.</p>
+
 
                         
                             <div id="mainNavBottom">
@@ -599,6 +841,18 @@
                             </header>
                             <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#columns-at-end-of-receivables-table">Columns at end of Receivables Table:</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#cash-amounts--cash-dates">Cash Amounts &amp; Cash Dates</a></li>
+<li class="toc-entry toc-h3"><a href="#the-invoice-amount-os">The Invoice Amount O/S</a></li>
+<li class="toc-entry toc-h3"><a href="#total-receivables-due">Total Receivables due</a></li>
+<li class="toc-entry toc-h3"><a href="#cash-due-date">Cash Due Date</a></li>
+<li class="toc-entry toc-h3"><a href="#aged-receivables">Aged Receivables</a></li>
+<li class="toc-entry toc-h3"><a href="#total-cash-amounts">Total Cash Amounts</a></li>
+<li class="toc-entry toc-h3"><a href="#unbilled-receivables">Unbilled Receivables</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#other-comments-on-the-receivable-table">Other comments on the Receivable Table</a></li>
 </ul>
                         </nav>
 

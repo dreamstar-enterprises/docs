@@ -484,11 +484,38 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This tab can be used for registering any fixed assets, so their net asset value, and depreciation can be calculated. The figures in the Fixed Asset Register should be shown excluding VAT.</p>
+<p>This Tab can be used for registering any fixed assets, so their net asset value, and depreciation can be calculated. The figures in the Fixed Asset Register should be shown excluding V.A.T..</p>
 
-<figure>
+<p>The Depreciation Amounts are shown in the Depreciation Line in the ‘<em>Profit &amp; Loss</em>’ Tab.</p>
+
+<p>This Tab is used to keep track of inventory. (Currently not used)</p>
+
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Fixed Assets</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/fixed-assets-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('fixed-assets-01.png');" src="images/fixed-assets-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -497,10 +524,15 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/fixed-assets-02.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('fixed-assets-02.png');" src="images/fixed-assets-02.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -509,10 +541,15 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h2 id="formula-used">Formula used</h2>
 
-<p>The formula to calculate the Accumulated Depreciation (shown at the bottom of the sheet) is quite involved. The overall logic used is shown below:</p>
+<p>The formulae created to calculate the Accumulated Depreciation (shown at the bottom of the sheet) are quite involved. 
+The overall logic though has been laid out below:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>

@@ -484,7 +484,7 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The monthly transaction tabs are where (almost) all daily and weekly transactions should be recorded. There are 12 of them, one for each month.</p>
+<p>The monthly transaction Tabs are where (almost) all daily and weekly transactions should be recorded. There are 12 of them, one for each month.</p>
 
 <h2 id="january-example">January example</h2>
 
@@ -492,65 +492,7 @@
 
 <p>These are shown in the pictures below:</p>
 
-<figure>
-    
-        <img class="docimage" src="images/monthly-transactions-01.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<figure>
-    
-        <img class="docimage" src="images/monthly-transactions-02.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<figure>
-    
-        <img class="docimage" src="images/monthly-transactions-03.png" alt="" style="width: 100%; max-width: 75.8%" />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<div class="alert alert-secondary alerts-font" role="alert">
-  <p><i class="fa fa-info-circle"></i> <b>Info: </b>
-The red headed columns: <strong><em>VAT</em></strong>, <strong><em>Net</em></strong>, and <strong><em>Gross</em></strong> are automatically calculated, and do not need to be filled in.</p>
-</div>
-
-<h2 id="transaction-table">Transaction table</h2>
-
-<p>Although there are other tables shown in the sheet, only one table needs to be completed - the main transaction table in the middle, as shown below:</p>
-
-<figure>
-    
-        <img class="docimage" src="images/monthly-transactions-04.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<!-- Trigger/Open The Modal -->
-<p><button id="modalBtn">Open large-sized image</button></p>
+<!-- ************************************************ -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -558,15 +500,24 @@ The red headed columns: <strong><em>VAT</em></strong>, <strong><em>Net</em></str
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <h4>January - Transaction Table</h4>
+      <h4>Monthly Transactions</h4>
       <p><span class="close">
 ×
 </span></p>
     </div>
     <div class="modal-body">
-      <figure>
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/monthly-transactions-04.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('monthly-transactions-01.png');" src="images/monthly-transactions-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -575,14 +526,74 @@ The red headed columns: <strong><em>VAT</em></strong>, <strong><em>Net</em></str
     </figcaption>
     
 </figure>
-    </div>
-    <div class="modal-footer"></div>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('monthly-transactions-02.png');" src="images/monthly-transactions-02.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('monthly-transactions-03.png');" src="images/monthly-transactions-03.png" alt="" style="width: 100%; max-width: 75.8%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="alert alert-secondary alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Info: </b>
+The red headed columns: <strong><em>V.A.T.</em></strong>, <strong><em>Net</em></strong>, and <strong><em>Gross</em></strong> are calculated by the formulae that have been created, and do not need to be filled in. Any Monetary amount should be filled in the column called <strong><em>Inv Amount / Cash Amount</em></strong>.</p>
+</div>
+
+<h2 id="transaction-table">Transaction table</h2>
+
+<p>Although there are other tables shown in the sheet (such as the ones that show a summary of the Monthly V.A.T., and Cash Movements in the month), only one table needs to be completed - the main Transaction Table shown in the middle part of the sheet, as shown below:</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('monthly-transactions-04.png');" src="images/monthly-transactions-04.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
   </div>
 </div>
 
 <h2 id="transactions">Transactions</h2>
 
-<p>Below, we talk through a handful of the transactions that were made in January, in an attempt to better explain what is going on.</p>
+<p>Below, we go through a sample of the transactions that were made in January, to better explain what is going on.</p>
 
 <style>
 table th {
@@ -619,7 +630,7 @@ table:hover{
 
 <h3 id="jan---1">Jan - 1:</h3>
 
-<p>As shown in the screenshots above, this transaction is for the purchase of a 6-month subscription for 1000GB on online space from AWS (Amazon Web Services). Field inputs were set as follows:</p>
+<p>As shown from the screenshots above, this transaction is for the purchase of a 6-month subscription of 1000 G.B. on data storage space from A.W.S. (Amazon Web Services). Field inputs were set as follows:</p>
 
 <table>
   <thead>
@@ -630,56 +641,72 @@ table:hover{
   </thead>
   <tbody>
     <tr>
+      <td><em>Invoice / Cash Date</em></td>
+      <td>This is 18/01/2020 – the date on the invoice</td>
+    </tr>
+    <tr>
+      <td><em>Tax Point Date</em></td>
+      <td>This is 18/01/2020 – this is calculated by the created formula</td>
+    </tr>
+    <tr>
       <td><em>Start Date</em></td>
       <td>This is 18/01/2020 - the date the service starts</td>
     </tr>
     <tr>
       <td><em>End Date</em></td>
-      <td>This is 17/08/2020 - the date the service ends</td>
-    </tr>
-    <tr>
-      <td><em>Invoice Date</em></td>
-      <td>This is 18/01/2020 – the date the invoice was received</td>
-    </tr>
-    <tr>
-      <td><em>Tax Point Date</em></td>
-      <td>This is 18/01/2020 – the same as the invoice date</td>
+      <td>This is 17/07/2020 - the date the service ends</td>
     </tr>
     <tr>
       <td><em>Transaction</em></td>
-      <td>This is a purchase Invoice, so: ‘<em>P/L – Invoice</em>’ is selected</td>
+      <td>This is a purchase Invoice, so: ‘<em>P/L – Invoice</em>’ is selected (to indicate this is an Invoice from a Supplier)</td>
     </tr>
     <tr>
-      <td><em>Due Date</em></td>
-      <td>This is 18/01/2020 – the same as the invoice date</td>
+      <td><em>Contract Type</em></td>
+      <td>This is Non-Cancellable, meaning that the Amount, if the Due Date has passed, cannot be refunded.</td>
+    </tr>
+    <tr>
+      <td><em>Cash Due Date</em></td>
+      <td>This is 45 days after the date of the Invoice (and is when the Cash should be paid)</td>
     </tr>
     <tr>
       <td><em>Account</em></td>
-      <td>This is Purchasing Agent, as the 6-month service has already been paid upfront by a Purchasing Agent</td>
+      <td>This is Purchasing Agent, to indicate who the amount needs to be paid to (in this case to a Purchasing Agent, who paid for the amount, on behalf of the Company)</td>
     </tr>
     <tr>
       <td><em>Ledger</em></td>
-      <td>This is set as ‘<em>P/L</em>’, as the transaction goes to the Purchasing Ledger (the company now owes the Purchasing Agent)</td>
+      <td>This is set as ‘<em>P/L</em>’, as the transaction goes to the Purchasing Ledger (the company now owes money to the Purchasing Agent)</td>
     </tr>
     <tr>
       <td><em>Description</em></td>
-      <td>This is “<em>Subscription of 1000GB on AWS</em>”</td>
+      <td>This is “<em>Subscription of 1000 G.B. on A.W.S.</em>”</td>
     </tr>
     <tr>
       <td><em>Analysis</em></td>
-      <td>This is ‘<em>IT costs</em>’ to reflect the nature of the cost</td>
+      <td>The expense relates to ‘<em>I.T. costs</em>’ to show what the amount was spent on (in this case an Information Technology related cost)</td>
     </tr>
     <tr>
-      <td><em>VAT Rate</em></td>
-      <td>This is 20%, as the service is 20% VAT chargeable</td>
+      <td><em>Taxable Benefit?</em></td>
+      <td>This is to indicate whether the amount is a Taxable Benefit or not - which here it is not.</td>
     </tr>
     <tr>
-      <td><em>Invoice Amount</em></td>
-      <td>This is entered as £15.99, as the total cost, including VAT, of the service</td>
+      <td><em>Status</em></td>
+      <td>This is to indicate whether the Amount has been paid or not - (but it is not linked to anything)</td>
     </tr>
     <tr>
-      <td><em>VAT Amount</em></td>
-      <td>This is calculated automatically as £2.67</td>
+      <td><em>Ref</em></td>
+      <td>This is where the Invoice Reference Number should be recorded.</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. Rate</em></td>
+      <td>This is 20%, as the expense is 20% V.A.T. chargeable</td>
+    </tr>
+    <tr>
+      <td><em>Invoice / Cash Amount</em></td>
+      <td>This is entered as £15.99, as the total cost, including V.A.T., of the service</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. Amount</em></td>
+      <td>This is calculated by the formula created, as £2.67</td>
     </tr>
     <tr>
       <td><em>Net Amount</em></td>
@@ -691,14 +718,14 @@ table:hover{
     </tr>
     <tr>
       <td><em>Type</em></td>
-      <td>As the expense runs over several months, it needs to be deferred, so: ‘<em>Acc/Def Expense</em>’ is selected, so the deferred aspects properly show in the P&amp;L, and B/S</td>
+      <td>As the expense related to work that is carried out over several months, the option: ‘<em>Acc/Def Expense</em>’ should be selected, so the Accrued / Deferred aspects properly show in the P&amp;L, and B/S</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="jan---2">Jan - 2:</h3>
 
-<p>This is payment by the Purchasing Agent, of the previous year’s Annual Confirmation Statement. Field inputs were set as follows:</p>
+<p>This is payment by the Purchasing Agent, of the previous year’s Annual Confirmation Statement (for 2019, but paid by the Purchasing Agent in January 2020). Field inputs were set as follows:</p>
 
 <table>
   <thead>
@@ -709,32 +736,36 @@ table:hover{
   </thead>
   <tbody>
     <tr>
-      <td><em>Start Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>End Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>Invoice Date</em></td>
-      <td>This is 01/01/2020 – the date the invoice was received from the Purchasing Agent</td>
+      <td><em>Invoice / Cash Date</em></td>
+      <td>This is 01/01/2020 – the date on the invoice</td>
     </tr>
     <tr>
       <td><em>Tax Point Date</em></td>
-      <td>This is 01/01/2020 – the same as the invoice date</td>
+      <td>This is 01/01/2020 – this is calculated by the created formula</td>
+    </tr>
+    <tr>
+      <td><em>Start Date</em></td>
+      <td>This is Not Applicable - (as this is a one-off payment)</td>
+    </tr>
+    <tr>
+      <td><em>End Date</em></td>
+      <td>This is Not Applicable - (as this is a one-off payment)</td>
     </tr>
     <tr>
       <td><em>Transaction</em></td>
-      <td>This is a purchase Invoice, so: ‘<em>P/L – Invoice</em>’ is selected</td>
+      <td>This is a Purchase Invoice, so: ‘<em>P/L – Invoice</em>’ is selected</td>
     </tr>
     <tr>
-      <td><em>Due Date</em></td>
-      <td>This is 01/01/2020 – the same as the invoice date</td>
+      <td><em>Contract Type</em></td>
+      <td>Nothing needs to be selected, as this is a one-off transaction</td>
+    </tr>
+    <tr>
+      <td><em>Cash Due Date</em></td>
+      <td>This is 30 Days after the Due Date</td>
     </tr>
     <tr>
       <td><em>Account</em></td>
-      <td>This is Purchasing Agent, as the invoice was paid by the Purchasing Agent, and then forwarded to the company</td>
+      <td>This is set as Purchasing Agent, as the invoice was paid by the Purchasing Agent, with details then forwarded by the Agent to the Company</td>
     </tr>
     <tr>
       <td><em>Ledger</em></td>
@@ -746,30 +777,42 @@ table:hover{
     </tr>
     <tr>
       <td><em>Analysis</em></td>
-      <td>This is ‘<em>Legal and Professional</em>’ to reflect the nature of the cost</td>
+      <td>This is ‘<em>Legal and Professional</em>’ to show what type of cost this expense was for</td>
     </tr>
     <tr>
-      <td><em>VAT Rate</em></td>
-      <td>This is 0%, as the service is not VAT chargeable</td>
+      <td><em>Taxable Benefit?</em></td>
+      <td>This is to indicate whether the amount is a Taxable Benefit or not - which here it is not.</td>
     </tr>
     <tr>
-      <td><em>Invoice Amount</em></td>
-      <td>This is entered as £13.00, as the total cost, including VAT, of the service</td>
+      <td><em>Status</em></td>
+      <td>This is to indicate whether the Amount has been paid or not - (but it is not linked to anything)</td>
     </tr>
     <tr>
-      <td><em>VAT / Net / Gross Amounts</em></td>
+      <td><em>Ref</em></td>
+      <td>This is where a reference if available should be recorded.</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. Rate</em></td>
+      <td>This is 0%, as the expense is not V.A.T. chargeable</td>
+    </tr>
+    <tr>
+      <td><em>Invoice / Cash Amount</em></td>
+      <td>This is entered as £13.00, as the total cost, including V.A.T., of the service</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. / Net / Gross Amounts</em></td>
       <td>These are automatically calculated from the other fields in the record</td>
     </tr>
     <tr>
       <td><em>Type</em></td>
-      <td>-</td>
+      <td>Not applicable as a one-off charge.</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="jan---3">Jan - 3:</h3>
 
-<p>This is an invoice raised to Toyota, for work done over 2 weeks in January. Field inputs were set as follows:</p>
+<p>This is a Sales Invoice raised to Toyota, for work done over 2 weeks in January. Field inputs were set as follows:</p>
 
 <table>
   <thead>
@@ -780,6 +823,14 @@ table:hover{
   </thead>
   <tbody>
     <tr>
+      <td><em>Invoice / Cash Date</em></td>
+      <td>This is 01/01/2020 – the date on the invoice</td>
+    </tr>
+    <tr>
+      <td><em>Tax Point Date</em></td>
+      <td>This is 15/01/2020 – and calculated from the created formula</td>
+    </tr>
+    <tr>
       <td><em>Start Date</em></td>
       <td>This is 02/01/2020 – the date the work started</td>
     </tr>
@@ -788,20 +839,16 @@ table:hover{
       <td>This is 14/01/2020 – the date the work ended</td>
     </tr>
     <tr>
-      <td><em>Invoice Date</em></td>
-      <td>This is 15/01/2020 – the date the invoice was raised</td>
-    </tr>
-    <tr>
-      <td><em>Tax Point Date</em></td>
-      <td>This is 15/01/2020 – the same as the invoice date</td>
-    </tr>
-    <tr>
       <td><em>Transaction</em></td>
       <td>This time, this is a sales Invoice, so: ‘<em>S/L – Invoice</em>’ is selected</td>
     </tr>
     <tr>
-      <td><em>Due Date</em></td>
-      <td>This is 15/01/2020 – the same as the invoice date</td>
+      <td><em>Contract Type</em></td>
+      <td>This is Non-Cancellable, meaning that the Amount, if the Due Date has passed, cannot be refunded.</td>
+    </tr>
+    <tr>
+      <td><em>Cash Due Date</em></td>
+      <td>This is 13/07/2020 – about 6 months after the Invoice Date</td>
     </tr>
     <tr>
       <td><em>Account</em></td>
@@ -817,30 +864,42 @@ table:hover{
     </tr>
     <tr>
       <td><em>Analysis</em></td>
-      <td>This is ‘<em>Sales</em>’ to indicate the line relates to income</td>
+      <td>This is ‘<em>Sales</em>’ to indicate the line relates to Sales Income</td>
     </tr>
     <tr>
-      <td><em>VAT Rate</em></td>
-      <td>This is 20%, as the service was 20% VAT chargeable</td>
+      <td><em>Taxable Benefit?</em></td>
+      <td>This is to indicate whether the amount is a Taxable Benefit or not - which here it is not.</td>
     </tr>
     <tr>
-      <td><em>Invoice Amount</em></td>
-      <td>This is entered as £144 (inclusive of VAT)</td>
+      <td><em>Status</em></td>
+      <td>This is to indicate whether the Amount has been paid or not - (but it is not linked to anything)</td>
     </tr>
     <tr>
-      <td><em>VAT / Net / Gross Amounts</em></td>
+      <td><em>Ref</em></td>
+      <td>This is where the Invoice Reference Number should be recorded.</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. Rate</em></td>
+      <td>This is 20%, as the service was 20% V.A.T. chargeable</td>
+    </tr>
+    <tr>
+      <td><em>Invoice / Cash Amount</em></td>
+      <td>This is entered as £144 (inclusive of V.A.T.)</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. / Net / Gross Amounts</em></td>
       <td>These are automatically calculated from the other fields in the record</td>
     </tr>
     <tr>
       <td><em>Type</em></td>
-      <td>-</td>
+      <td>As the expense related to work that is carried out over several months, the option: ‘<em>Acc/Def Expense</em>’ should be selected, so the Accrued / Deferred aspects properly show in the P&amp;L, and B/S</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="jan---8">Jan - 8:</h3>
+<h3 id="jan---7">Jan - 7:</h3>
 
-<p>This is the payment of NICs due to HMRC, following the payment of Salary in the month (shown in another transaction). Field inputs were set as follows:</p>
+<p>This is the payment of N.I.C.s due to H.M.R.C., following the payment of Salary in the month (shown as a separate transaction in the Table). Field inputs were set as follows:</p>
 
 <table>
   <thead>
@@ -851,67 +910,71 @@ table:hover{
   </thead>
   <tbody>
     <tr>
-      <td><em>Start Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>End Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>Invoice Date</em></td>
-      <td>This is 13/01/2020 – the date the cash payment was made</td>
+      <td><em>Invoice / Cash Date</em></td>
+      <td>This is 20/01/2020 – the date the cash payment was made</td>
     </tr>
     <tr>
       <td><em>Tax Point Date</em></td>
-      <td>This is 13/01/2020 – the same as the invoice date</td>
+      <td>This is 15/01/2020 – and calculated from the created formula</td>
+    </tr>
+    <tr>
+      <td><em>Start Date</em></td>
+      <td>This is Not Applicable - (as this is a one-off payment)</td>
+    </tr>
+    <tr>
+      <td><em>End Date</em></td>
+      <td>This is Not Applicable - (as this is a one-off payment)</td>
     </tr>
     <tr>
       <td><em>Transaction</em></td>
-      <td>This is set as <em>‘Co. Bank Payment’</em>, as the transaction relates to the payment of cash, rather than any invoice</td>
+      <td>This is set as <em>‘Co. Bank Payment’</em>, as the transaction was done by cash (there was no invoice)</td>
     </tr>
     <tr>
-      <td><em>Due Date</em></td>
-      <td>This is 13/01/2020 – the same as the invoice date</td>
+      <td><em>Contract Type</em></td>
+      <td>Nothing needs to be selected, as this is a one-off transaction</td>
+    </tr>
+    <tr>
+      <td><em>Cash Due Date</em></td>
+      <td>As a Cash Transaction itself, nothing needs to be selected</td>
     </tr>
     <tr>
       <td><em>Account</em></td>
-      <td>This is Toyota, as the invoice was raised and sent to them</td>
-    </tr>
-    <tr>
-      <td><em>Ledger</em></td>
-      <td>empty - as in this workbook the HMRC account is not shown in the Purchase or Sales Ledger</td>
-    </tr>
-    <tr>
-      <td><em>Description</em></td>
-      <td>This is “<em>HMRC NICs Payment</em>”</td>
+      <td>This is set as H.M.R.C. N.I.C.s to show what the payment relates to</td>
     </tr>
     <tr>
       <td><em>Analysis</em></td>
       <td>This is ‘<em>HMRC PAYE / NIC</em>’</td>
     </tr>
     <tr>
-      <td><em>VAT Rate</em></td>
-      <td>This is <em>‘Non VAT able’</em> – as this is a cash payment, VAT is not relevant</td>
+      <td><em>Taxable Benefit?</em></td>
+      <td>This is to indicate whether the amount is a Taxable Benefit or not - which here it is not.</td>
     </tr>
     <tr>
-      <td><em>Invoice Amount</em></td>
-      <td>This is entered as (£173.43) – the actual amount of cash paid. All cash transactions (whether receipt or payment) should be entered in as a negative number</td>
+      <td><em>Status</em></td>
+      <td>This is to indicate whether the Amount has been paid or not - (but it is not linked to anything)</td>
     </tr>
     <tr>
-      <td><em>VAT / Net / Gross Amounts</em></td>
+      <td><em>Ref</em></td>
+      <td>This is where the Invoice Reference Number should be recorded, but it is not applicable in this case.</td>
+    </tr>
+    <tr>
+      <td><em>Invoice / Cash Amount</em></td>
+      <td>As this is a cash payment, this is entered into as a negative number</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. / Net / Gross Amounts</em></td>
       <td>These are automatically calculated from the other fields in the record</td>
     </tr>
     <tr>
       <td><em>Type</em></td>
-      <td>-</td>
+      <td>Not applicable for Cash Payments.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="jan---10">Jan - 10:</h3>
+<h3 id="jan---9">Jan - 9:</h3>
 
-<p>The is the receipt of cash for the earlier work done, and earlier sales invoice raised for Toyota. Field inputs were set as follows:</p>
+<p>The is the receipt of cash for the work that had been done, and when the sales invoice had been raised and sent to Toyota. Field inputs were set as follows:</p>
 
 <table>
   <thead>
@@ -922,28 +985,32 @@ table:hover{
   </thead>
   <tbody>
     <tr>
-      <td><em>Start Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>End Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>Invoice Date</em></td>
-      <td>This is 13/01/2020 – the date the cash was received</td>
+      <td><em>Invoice / Cash Date</em></td>
+      <td>This is 20/01/2020 – the date the Cash was received</td>
     </tr>
     <tr>
       <td><em>Tax Point Date</em></td>
-      <td>This is 13/01/2020 – the same as the invoice date</td>
+      <td>This is 20/01/2020 – and calculated from the created formula</td>
+    </tr>
+    <tr>
+      <td><em>Start Date</em></td>
+      <td>This is Not Applicable - (as this is a one-off payment)</td>
+    </tr>
+    <tr>
+      <td><em>End Date</em></td>
+      <td>This is Not Applicable - (as this is a one-off payment)</td>
     </tr>
     <tr>
       <td><em>Transaction</em></td>
-      <td>This is set as <em>‘Co. Bank Payment’</em>, as the transaction is a receipt of cash</td>
+      <td>This is set as <em>‘Co. Bank Receipt’</em>, as the transaction was done by cash (there was no invoice)</td>
     </tr>
     <tr>
-      <td><em>Due Date</em></td>
-      <td>This is 13/01/2020 – the same as the invoice date</td>
+      <td><em>Contract Type</em></td>
+      <td>Nothing needs to be selected, as this is a one-off transaction</td>
+    </tr>
+    <tr>
+      <td><em>Cash Due Date</em></td>
+      <td>As a Cash Transaction itself, nothing needs to be selected</td>
     </tr>
     <tr>
       <td><em>Account</em></td>
@@ -959,23 +1026,35 @@ table:hover{
     </tr>
     <tr>
       <td><em>Analysis</em></td>
-      <td>This is ‘<em>Sales Payment</em>’ to indicate the line relates to the receipt of cash on income</td>
+      <td>This is ‘<em>Sales Payment</em>’ to indicate the line relates to the receipt of Cash relating to Sales Income</td>
     </tr>
     <tr>
-      <td><em>VAT Rate</em></td>
-      <td>This is <em>‘Non VAT able’</em> – as this is a cash receipt, VAT is not relevant</td>
+      <td><em>Taxable Benefit?</em></td>
+      <td>This is to indicate whether the amount is a Taxable Benefit or not - which here it is not.</td>
     </tr>
     <tr>
-      <td><em>Invoice Amount</em></td>
+      <td><em>Status</em></td>
+      <td>This is to indicate whether the Amount has been paid or not - (but it is not linked to anything)</td>
+    </tr>
+    <tr>
+      <td><em>Ref</em></td>
+      <td>This is where the Invoice Reference Number should be recorded, but it is not applicable in this case.</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. Rate</em></td>
+      <td>This is <em>‘Non VAT able’</em> – as this is a cash receipt, V.A.T. is not relevant</td>
+    </tr>
+    <tr>
+      <td><em>Invoice / Cash Amount</em></td>
       <td>This is entered as (£144.00) – the actual amount of cash received. All cash transactions (whether receipt or payment) should be entered in as a negative number.</td>
     </tr>
     <tr>
-      <td><em>VAT / Net / Gross Amounts</em></td>
+      <td><em>V.A.T. / Net / Gross Amounts</em></td>
       <td>These are automatically calculated from the other fields in the record</td>
     </tr>
     <tr>
       <td><em>Type</em></td>
-      <td>-</td>
+      <td>Not applicable for Cash Receipts.</td>
     </tr>
   </tbody>
 </table>
@@ -984,7 +1063,7 @@ table:hover{
 
 <p>The is the payment of cash to purchase a Laptop (Fixed Asset) from the Apple Store.</p>
 
-<p>The analysis of Fixed Assets is done elsewhere in the workbook, but details of the payment need to be recorded here.</p>
+<p>The record-keeping of Fixed Assets is done in a separate tab in the workbook, but the details of the Fixed Asset Purchase needs to be recorded here.</p>
 
 <p>Field inputs were set as follows:</p>
 
@@ -997,36 +1076,40 @@ table:hover{
   </thead>
   <tbody>
     <tr>
-      <td><em>Start Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>End Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>Invoice Date</em></td>
-      <td>27/01/2020 – the date the cash was paid</td>
+      <td><em>Invoice / Cash Date</em></td>
+      <td>10/01/2020 – this is the date the Cash was paid</td>
     </tr>
     <tr>
       <td><em>Tax Point Date</em></td>
-      <td>27/01/2020 – the same as the invoice date</td>
+      <td>This is 10/01/2020 – and calculated from the created formula</td>
+    </tr>
+    <tr>
+      <td><em>Start Date</em></td>
+      <td>This is Not Applicable - (as this is a one-off payment)</td>
+    </tr>
+    <tr>
+      <td><em>End Date</em></td>
+      <td>This is Not Applicable - (as this is a one-off payment)</td>
     </tr>
     <tr>
       <td><em>Transaction</em></td>
-      <td>This is set as <em>‘Co. Bank Payment’</em>, as the transaction is a payment of cash</td>
+      <td>This is set as <em>‘Co. Bank Payment’</em>, as the transaction was done by cash (there was no invoice)</td>
     </tr>
     <tr>
-      <td><em>Due Date</em></td>
-      <td>27/01/2020 – the same as the invoice date</td>
+      <td><em>Contract Type</em></td>
+      <td>Nothing needs to be selected, as this is a one-off transaction</td>
+    </tr>
+    <tr>
+      <td><em>Cash Due Date</em></td>
+      <td>As a Cash Transaction itself, nothing needs to be selected</td>
     </tr>
     <tr>
       <td><em>Account</em></td>
-      <td>This is Apple Store, as the cash is paid to them</td>
+      <td>This is Apple, as the cash is paid to them</td>
     </tr>
     <tr>
       <td><em>Ledger</em></td>
-      <td>This is set as <em>‘P/L’</em>, as the Transaction goes to the Purchase Ledger, against the account Apple Store</td>
+      <td>This is set as <em>‘P/L’</em>, as the Transaction now goes to the Purchase Ledger, to cancel out the amount recorded from the line, where the Purchase Invoice had been recorded</td>
     </tr>
     <tr>
       <td><em>Description</em></td>
@@ -1037,33 +1120,116 @@ table:hover{
       <td>This is ‘<em>Office Equipment</em>’</td>
     </tr>
     <tr>
-      <td><em>VAT Rate</em></td>
-      <td>This is <em>‘Non VAT able’</em> – as this is a cash payment, VAT is not relevant to this line</td>
+      <td><em>Taxable Benefit?</em></td>
+      <td>This is to indicate whether the amount is a Taxable Benefit or not - which here it is not.</td>
+    </tr>
+    <tr>
+      <td><em>Status</em></td>
+      <td>This is to indicate whether the Amount has been paid or not - (but it is not linked to anything)</td>
+    </tr>
+    <tr>
+      <td><em>Ref</em></td>
+      <td>This is where the Invoice Reference Number should be recorded, but it is not applicable in this case.</td>
+    </tr>
+    <tr>
+      <td><em>V.A.T. Rate</em></td>
+      <td>This is <em>‘Non VAT able’</em> – as this is a cash payment, V.A.T. is not relevant to this line</td>
     </tr>
     <tr>
       <td><em>Invoice Amount</em></td>
       <td>This is entered as (£1,952.40) - the actual amount of cash paid. All cash transactions (whether receipt or payment) should be entered in as a negative number.</td>
     </tr>
     <tr>
-      <td><em>VAT / Net / Gross Amounts</em></td>
+      <td><em>V.A.T. / Net / Gross Amounts</em></td>
       <td>These are automatically calculated from the other fields in the record</td>
     </tr>
     <tr>
       <td><em>Type</em></td>
-      <td>-</td>
+      <td>Not applicable for Cash Payments.</td>
     </tr>
   </tbody>
 </table>
 
 <p>Hopefully, now you get the gist of how to fill in the <strong>Transaction Table</strong>!</p>
 
-<h2 id="vat-table">VAT table</h2>
+<h2 id="cash-date-and-cash-amount">Cash Date and Cash Amount</h2>
 
-<p>For every Monthly Transaction Table, a summary of the Input and Output VAT is also shown at the bottom of the sheet, like shown below for January:</p>
+<p>Note that the last two columns in each Transaction table try to show the Cash Date, and Cash Amounts paid or received for each Invoice. That is, through M.S. Excel formulae, they try to match up for each Invoice Line, the amount of Cash that has actually been paid or received, to that particular Invoice.</p>
 
-<figure>
+<p>The formula will only work, if the reference to the Invoice that is shown in the ‘Ref’ column has been recorded in the Cash Payment or Receipt lines, that the Invoice relates to - so the Cash Amounts can actually be linked back.</p>
+
+<p>The formula will also only work if a Cash Amount wholly pays an Invoice. or when a Cash Amount wholly pays an Invoice and other Invoices, where the other Invoices aren’t partially paid by other Cash Amounts on other lines.</p>
+
+<p>The Cash due date shown on the Invoice line will also only show the first Cash date, if for example, there happen to be two separate Cash payments that pay the same Invoice.</p>
+
+<p>If in doubt, the Formulas that have been created can always be manually overridden, with the most appropriate Dates and Cash Amounts.</p>
+
+<p>The respective formulae used have been show below:</p>
+
+<h3 id="cash-date-formula">Cash Date Formula</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = LET(cash_date, [@[Invoice Date / Cash Date]], transaction, [@Transaction], reference, [@Ref], account,[@Account],
+    cash_date_matched, XLOOKUP(1, ((Table_Combined[Transaction]=&quot;Co. Bank Receipt&quot;) + (Table_Combined[Transaction]=&quot;Co. Bank Payment&quot;)) * (ISNUMBER(SEARCH(reference,Table_Combined[Ref]))) * (TRIM(account)=TRIM(Table_Combined[Account])), Table_Combined[Invoice Date / Cash Date], &quot;not found&quot;, 1, 1),
+    cash_date_found, IF(ISBLANK(reference), &quot;&quot;, cash_date_matched ),
+    IF(NOT(OR(transaction=&quot;Co. Bank Receipt&quot;, transaction=&quot;Co. Bank Payment&quot;)), cash_date_found, &quot;&quot;))
+">
+  </button>
+</div>
+<pre><code class="language-Excel">    = LET(cash_date, [@[Invoice Date / Cash Date]], transaction, [@Transaction], reference, [@Ref], account,[@Account],
+    cash_date_matched, XLOOKUP(1, ((Table_Combined[Transaction]="Co. Bank Receipt") + (Table_Combined[Transaction]="Co. Bank Payment")) * (ISNUMBER(SEARCH(reference,Table_Combined[Ref]))) * (TRIM(account)=TRIM(Table_Combined[Account])), Table_Combined[Invoice Date / Cash Date], "not found", 1, 1),
+    cash_date_found, IF(ISBLANK(reference), "", cash_date_matched ),
+    IF(NOT(OR(transaction="Co. Bank Receipt", transaction="Co. Bank Payment")), cash_date_found, ""))
+</code></pre>
+
+<h3 id="cash-amount-formula">Cash Amount Formula</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+    = LET(cash_date, [@[Invoice Date / Cash Date]], transaction, [@Transaction], reference, [@Ref], account,[@Account],
+    cash_amount_exact_match, ABS(SUMPRODUCT(Table_Combined[Inv Amount / Cash Amount],--((Table_Combined[Transaction]=&quot;Co. Bank Receipt&quot;)+(Table_Combined[Transaction]=&quot;Co. Bank Payment&quot;)), --(Table_Combined[Ref]=reference), --(TRIM(Table_Combined[Account])=TRIM(account)))),
+    cash_amount_partial_matches, ABS(SUMPRODUCT(Table_Combined[Inv Amount / Cash Amount],--((Table_Combined[Transaction]=&quot;Co. Bank Receipt&quot;)+(Table_Combined[Transaction]=&quot;Co. Bank Payment&quot;)), --((ISNUMBER(SEARCH(reference,Table_Combined[Ref])))), --(TRIM(Table_Combined[Account])=TRIM(account)))),
+    cash_amount_other_matches, cash_amount_partial_matches - cash_amount_exact_match,
+    cash_row_match,IF( ((Table_Combined[Transaction]=&quot;Co. Bank Receipt&quot;)+(Table_Combined[Transaction]=&quot;Co. Bank Payment&quot;)) * ISNUMBER(SEARCH(reference,Table_Combined[Ref])) * (TRIM(account)=TRIM(Table_Combined[Account])),ROW(Table_Combined[Ref])-ROW(Table_Combined[[#Headers],[Ref]]),0), cash_row_match_filtered, FILTER(cash_row_match, cash_row_match&lt;&gt;0), cash_row_reference_match, UNIQUE(INDEX(Table_Combined[Ref], cash_row_match_filtered)), cash_reference_match_joined, TEXTJOIN(&quot;; &quot;,,cash_row_reference_match),
+    unique_cash_ref_match, UNIQUE(TRIM(MID(SUBSTITUTE(cash_reference_match_joined,&quot;;&quot;,REPT(&quot; &quot;,100)),SEQUENCE(10,,1,100),100))),
+    other_linked_invoice_references, FILTER(unique_cash_ref_match, (unique_cash_ref_match&lt;&gt;&quot;&quot;)*(unique_cash_ref_match&lt;&gt;reference)),
+    invoice_amount, [@[Inv Amount / Cash Amount]],
+    invoice_amounts_linked_to_other_cash_matches, SUM(SUMIFS(Table_Combined[Inv Amount / Cash Amount], Table_Combined[Transaction], &quot;&lt;&gt;Co. Bank Receipt&quot;, Table_Combined[Transaction], &quot;&lt;&gt;Co. Bank Payment&quot;, Table_Combined[Ref], other_linked_invoice_references, Table_Combined[Account], TRIM(account))),
+    left_over_invoice_amount, invoice_amount - cash_amount_exact_match,
+    apportioned_cash_to_this_invoice_from_other_cash_matches, (left_over_invoice_amount)/(invoice_amounts_linked_to_other_cash_matches + left_over_invoice_amount) * cash_amount_other_matches,
+    total_allocated_cash, cash_amount_exact_match + IFERROR(apportioned_cash_to_this_invoice_from_other_cash_matches, 0),
+    total_allocated_cash_display, IF(ISBLANK(reference), &quot;&quot;, total_allocated_cash ),
+    IF(NOT(OR(transaction=&quot;Co. Bank Receipt&quot;, transaction=&quot;Co. Bank Payment&quot;)), total_allocated_cash_display, &quot;&quot;))
+">
+  </button>
+</div>
+<pre><code class="language-Excel">    = LET(cash_date, [@[Invoice Date / Cash Date]], transaction, [@Transaction], reference, [@Ref], account,[@Account],
+    cash_amount_exact_match, ABS(SUMPRODUCT(Table_Combined[Inv Amount / Cash Amount],--((Table_Combined[Transaction]="Co. Bank Receipt")+(Table_Combined[Transaction]="Co. Bank Payment")), --(Table_Combined[Ref]=reference), --(TRIM(Table_Combined[Account])=TRIM(account)))),
+    cash_amount_partial_matches, ABS(SUMPRODUCT(Table_Combined[Inv Amount / Cash Amount],--((Table_Combined[Transaction]="Co. Bank Receipt")+(Table_Combined[Transaction]="Co. Bank Payment")), --((ISNUMBER(SEARCH(reference,Table_Combined[Ref])))), --(TRIM(Table_Combined[Account])=TRIM(account)))),
+    cash_amount_other_matches, cash_amount_partial_matches - cash_amount_exact_match,
+    cash_row_match,IF( ((Table_Combined[Transaction]="Co. Bank Receipt")+(Table_Combined[Transaction]="Co. Bank Payment")) * ISNUMBER(SEARCH(reference,Table_Combined[Ref])) * (TRIM(account)=TRIM(Table_Combined[Account])),ROW(Table_Combined[Ref])-ROW(Table_Combined[[#Headers],[Ref]]),0), cash_row_match_filtered, FILTER(cash_row_match, cash_row_match&lt;&gt;0), cash_row_reference_match, UNIQUE(INDEX(Table_Combined[Ref], cash_row_match_filtered)), cash_reference_match_joined, TEXTJOIN("; ",,cash_row_reference_match),
+    unique_cash_ref_match, UNIQUE(TRIM(MID(SUBSTITUTE(cash_reference_match_joined,";",REPT(" ",100)),SEQUENCE(10,,1,100),100))),
+    other_linked_invoice_references, FILTER(unique_cash_ref_match, (unique_cash_ref_match&lt;&gt;"")*(unique_cash_ref_match&lt;&gt;reference)),
+    invoice_amount, [@[Inv Amount / Cash Amount]],
+    invoice_amounts_linked_to_other_cash_matches, SUM(SUMIFS(Table_Combined[Inv Amount / Cash Amount], Table_Combined[Transaction], "&lt;&gt;Co. Bank Receipt", Table_Combined[Transaction], "&lt;&gt;Co. Bank Payment", Table_Combined[Ref], other_linked_invoice_references, Table_Combined[Account], TRIM(account))),
+    left_over_invoice_amount, invoice_amount - cash_amount_exact_match,
+    apportioned_cash_to_this_invoice_from_other_cash_matches, (left_over_invoice_amount)/(invoice_amounts_linked_to_other_cash_matches + left_over_invoice_amount) * cash_amount_other_matches,
+    total_allocated_cash, cash_amount_exact_match + IFERROR(apportioned_cash_to_this_invoice_from_other_cash_matches, 0),
+    total_allocated_cash_display, IF(ISBLANK(reference), "", total_allocated_cash ),
+    IF(NOT(OR(transaction="Co. Bank Receipt", transaction="Co. Bank Payment")), total_allocated_cash_display, ""))
+</code></pre>
+
+<h2 id="vat-table">V.A.T. table</h2>
+
+<p>For every Monthly Transaction Table, a summary of the Input and Output V.A.T. is also shown at the bottom of the sheet, like shown below for January:</p>
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/monthly-transactions-05.png" alt="" style="width: 100%; max-width: 65.9%" />
+        <img class="docimage" onclick="showImage('monthly-transactions-05.png');" src="images/monthly-transactions-05.png" alt="" style="width: 100%; max-width: 65.9%" />
     
 
     
@@ -1072,16 +1238,21 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<p>The figures are calculated automatically from other data in the sheet. The table is needed by the ‘<em>VAT Returns</em>’ tab, to correctly submit any VAT returns.</p>
+<p>The figures are calculated through formula from the other tabs in the WorkBook. The table is needed to complete the information in the ‘<em>V.A.T. Returns</em>’ Tab, to correctly submit any V.A.T. returns.</p>
 
 <h2 id="bank-table">Bank table</h2>
 
-<p>A summary of the cash position is also shown at the top of the sheet, like shown below for January:</p>
+<p>A summary of the Opening and Closing Cash Positions, and Cash Payments and Cash Receipts in the month, are also shown at the top of the sheet, as shown below for the month of January:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/monthly-transactions-06.png" alt="" style="width: 100%; max-width: 29.7%" />
+        <img class="docimage" onclick="showImage('monthly-transactions-06.png');" src="images/monthly-transactions-06.png" alt="" style="width: 100%; max-width: 29.7%" />
     
 
     
@@ -1090,16 +1261,21 @@ table:hover{
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h2 id="tax-point-date">Tax Point Date</h2>
 <div class="alert alert-warning alerts-font" role="alert">
   <p><i class="fa fa-warning"></i> <b>Important: </b>
 <br />
 <br />
-<strong>Rules:</strong> <strong><em>Tax Point Date</em></strong>: There are special rules from HMRC about what this date should be set as, depending on whether a service or good was provided, and depending on whether the invoice was raised in advance or arrears. 
+<strong>Rules:</strong> <strong><em>Tax Point Date</em></strong>: There are specific Tax rules from H.M.R.C. about what this date should be set as, depending on whether a service or good has been provided, and on whether the invoice has raised in advance (before providing the good or service) or arrears (after providing the good or service). 
 <br />
 <br />
-In general, the <strong><em>Tax Point Date</em></strong> should be set as the earlier of: the <strong><em>Date of Cash payment</em></strong>, or <strong><em>Date of Invoice</em></strong> (whichever is earlier). If an Invoice is issued in arrears, and is 15 days after the date of supply, the Tax Point Date should be the <strong><em>Date of supply</em></strong>.</p>
+In general, the <strong><em>Tax Point Date</em></strong> should be set as the earlier of: the <strong><em>Date of Cash Payment</em></strong>, <strong><em>Date of Invoice</em></strong>, or <strong><em>Date of Supply</em></strong> (whichever is earlier). If an Invoice is issued in arrears, after the <strong><em>Date of Supply</em></strong>, the Tax Point Date can be the <strong><em>Date of the Invoice</em></strong> (that is, when it is after the <strong><em>Date of Supply</em></strong>) but only when the <strong><em>Date of Invoice</em></strong> is 14 or less days after the <strong><em>Date of Supply</em></strong>. If it is more, the Tax-Point Date becomes the <strong><em>Date of Supply</em></strong> (or <strong><em>Date of Cash Payment</em></strong> if that was even earlier).</p>
+
 </div>
 
 <div class="callout callout-warning alerts-font">
@@ -1108,7 +1284,7 @@ In general, the <strong><em>Tax Point Date</em></strong> should be set as the ea
 
   <p>The rules (as of the time of writing this article!) are summarised here:</p>
 
-  <p>In any supply, there are four relevant stages to bear in mind: 1) making goods available, 2) completion of a service, 3) invoicing, 4) payment:</p>
+  <p>In any supply, there are four relevant stages to bear in mind: 1) Making goods available, 2) Completion of a service, 3) Invoicing, and 4) Payment:</p>
 
   <table>
 <colgroup>
@@ -1127,15 +1303,15 @@ In general, the <strong><em>Tax Point Date</em></strong> should be set as the ea
     <td>Date of supply</td>
     </tr>
     <tr>
-    <td>VAT invoice issued</td>
+    <td>V.A.T. invoice issued</td>
     <td>Date of invoice</td>
     </tr>
     <tr>
-    <td>VAT invoice issued 15 days or more after the date of supply</td>
+    <td>V.A.T. invoice issued 15 days or more after the date of supply</td>
     <td>Date supply took place</td>
     </tr>
     <tr>
-    <td>Payment in advance of supply and no VAT invoice yet issued</td>
+    <td>Payment in advance of supply and no V.A.T. invoice yet issued</td>
     <td>Date payment received</td>
     </tr>
     <tr>
@@ -1153,14 +1329,14 @@ In general, the <strong><em>Tax Point Date</em></strong> should be set as the ea
 
   <p><strong><em>Additional Points:</em></strong></p>
   <ul>
-    <li>As a buyer, you cannot reclaim input VAT, without a valid VAT invoice</li>
-    <li>If you pay a supplier invoice in advance, you cannot reclaim the VAT element of the payment without a valid VAT invoice</li>
-    <li>If you reclaim input VAT on a supplier’s invoice, but fail to pay the supplier within 6 months, you usually have to repay the VAT.</li>
+    <li>As a buyer, you cannot reclaim input V.A.T., without a valid V.A.T. invoice</li>
+    <li>If you pay a supplier invoice in advance, you cannot reclaim the V.A.T. element of the payment without a valid V.A.T. invoice</li>
+    <li>If you reclaim input V.A.T. on a supplier’s invoice, but fail to pay the supplier within 6 months, you usually have to repay the V.A.T.</li>
   </ul>
 
-  <p><strong><em>HMRC:</em></strong>
+  <p><strong><em>H.M.R.C.:</em></strong>
 <br />
-But check the latest HMRC guidance here: <a href="https://www.gov.uk/vat-record-keeping/time-of-supply-or-tax-point" target="_blank">VAT Record Keeping</a></p>
+But check the latest HMRC guidance here: <a href="https://www.gov.uk/vat-record-keeping/time-of-supply-or-tax-point" target="_blank">V.A.T. Record Keeping</a></p>
 
 </div>
 
@@ -1168,23 +1344,23 @@ But check the latest HMRC guidance here: <a href="https://www.gov.uk/vat-record-
 <div class="alert alert-info alerts-font" role="alert">
   <p><i class="fa fa-info-circle"></i> <b>Note: </b>
 <br />
-If you’re buying services and goods yourself for the company (e.g. as a Director), we’ve considered these transactions to have been made in the capacity of a purchasing agent.</p>
+If you’re buying services and goods yourself for the company (e.g. as a Director), we’ve considered these to be (having read through some H.M.R.C. guidance on this) to be transactions made in the capacity of a Purchasing Agent.</p>
 </div>
 
 <div class="callout callout-info alerts-font">
 
   <p><strong>Buying Agent</strong></p>
 
-  <p>Buying as an agent simply means you have your own account with the company, so that settlements can be properly recorded and tracked.</p>
+  <p>Buying as an agent simply means you have your own account with the company, so settlements can be properly recorded and tracked.</p>
 
-  <p>Any cash payments made by the company to settle such agent purchases, would be recorded as ‘<em>Co. Bank Payment</em>’, with the ‘<em>Expense Reimbursement</em>’ option chosen under the Analysis field.</p>
+  <p>Any cash payments made by the company to settle such agent purchases, would be recorded as a ‘<em>Co. Bank Payment</em>’, with the ‘<em>Expense Reimbursement</em>’ option chosen under the field called ‘Analysis’.</p>
 </div>
 
 <div class="callout callout-default alerts-font">
   <p><strong>More information</strong></p>
 
   <p>More information about buying agents can be found on the Government’s own website here:
-<a href="https://www.gov.uk/guidance/vat-guide-notice-700#how-agents-are-involved-with-vat" target="_blank">Agents and VAT - HMRC</a></p>
+<a href="https://www.gov.uk/guidance/vat-guide-notice-700#how-agents-are-involved-with-vat" target="_blank">Agents and VAT - H.M.R.C.</a></p>
 
 </div>
 
@@ -1274,12 +1450,18 @@ If you’re buying services and goods yourself for the company (e.g. as a Direct
 <li class="toc-entry toc-h3"><a href="#jan---1">Jan - 1:</a></li>
 <li class="toc-entry toc-h3"><a href="#jan---2">Jan - 2:</a></li>
 <li class="toc-entry toc-h3"><a href="#jan---3">Jan - 3:</a></li>
-<li class="toc-entry toc-h3"><a href="#jan---8">Jan - 8:</a></li>
-<li class="toc-entry toc-h3"><a href="#jan---10">Jan - 10:</a></li>
+<li class="toc-entry toc-h3"><a href="#jan---7">Jan - 7:</a></li>
+<li class="toc-entry toc-h3"><a href="#jan---9">Jan - 9:</a></li>
 <li class="toc-entry toc-h3"><a href="#jan---15">Jan - 15:</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#vat-table">VAT table</a></li>
+<li class="toc-entry toc-h2"><a href="#cash-date-and-cash-amount">Cash Date and Cash Amount</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#cash-date-formula">Cash Date Formula</a></li>
+<li class="toc-entry toc-h3"><a href="#cash-amount-formula">Cash Amount Formula</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#vat-table">V.A.T. table</a></li>
 <li class="toc-entry toc-h2"><a href="#bank-table">Bank table</a></li>
 <li class="toc-entry toc-h2"><a href="#tax-point-date">Tax Point Date</a></li>
 <li class="toc-entry toc-h2"><a href="#purchasing-agent">Purchasing Agent</a></li>

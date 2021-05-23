@@ -484,24 +484,11 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This tab shows a summary of all transactions entered in the <em>Mnth1</em> to <em>Mnth12</em> tabs, grouped by Transaction Type.</p>
+<p>This Tab shows a summary of all transactions entered in the <em>Mnth1</em> to <em>Mnth12</em> tabs, grouped by Transaction Type.</p>
 
 <p>Only figures, <strong><em>NET of VAT</em></strong>, are shown:</p>
 
-<figure>
-    
-        <img class="docimage" src="images/tl-analysis-01.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<!-- Trigger/Open The Modal -->
-<p><button id="modalBtn">Open large-sized image</button></p>
+<!-- ************************************************ -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -515,9 +502,18 @@
 </span></p>
     </div>
     <div class="modal-body">
-      <figure>
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/tl-analysis-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('tl-analysis-01.png');" src="images/tl-analysis-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -526,8 +522,8 @@
     </figcaption>
     
 </figure>
-    </div>
-    <div class="modal-footer"></div>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
   </div>
 </div>
 

@@ -484,38 +484,35 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This tab combines the datasets from the ‘Accrual’ and ‘Deferral’ tabs. 
-This is so that both Deferrals, and Accruals, even though calculated in different ways, can be seen in one Dataset.</p>
+<p>This tab combines the datasets from the ‘<em>Accrual</em>’ and ‘<em>Deferral</em>’ Tabs. 
+This is so that both Deferrals, and Accruals, even though calculated in different ways, can be seen in one Financial Dataset.</p>
 
-<figure>
-    
-        <img class="docimage" src="images/combined-01.png" alt="" style="width: 100%; max-width: " />
-    
+<!-- ************************************************ -->
 
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
-<p>Trade Debtor / Creditor, and VAT movements are also shown, in this tab:</p>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Accruals</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
 
-<figure>
-    
-        <img class="docimage" src="images/combined-02.png" alt="" style="width: 100%; max-width: " />
-    
+<!-- ************************************************ -->
 
+<div class="img-wrap">
+  <figure>
     
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<figure>
-    
-        <img class="docimage" src="images/combined-03.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('combined-01.png');" src="images/combined-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -524,6 +521,108 @@ This is so that both Deferrals, and Accruals, even though calculated in differen
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<p>Trade Debtor / Creditor, and V.A.T. movements are also shown, in this Tab:</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('combined-02.png');" src="images/combined-02.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('combined-03.png');" src="images/combined-03.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<h2 id="formulae-used">Formulae used</h2>
+
+<h3 id="trade-debtor--creditor-movements">Trade Debtor / Creditor movements</h3>
+
+<p>The following logic is used to calculate the movement in Trade Debtors / Creditors</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=LET(
+    amount_net, Table_Combined[@[Net]:[Net]], due_date, Table_Combined[@[Cash Due Date]:[Cash Due Date]], start_date, Table_Combined[@[Start Date]:[Start Date]], end_date, Table_Combined[@[End Date]:[End Date]], invoice_cash_date, IF(Table_Combined[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]] = 0, 2958465, Table_Combined[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]]), contract, Table_Combined[@[Contract Type]:[Contract Type]], ledger, Table_Combined[@[Ledger]:[Ledger]], start_date_month, AN$3, end_date_month, EOMONTH(start_date_month, 0), start_date_previous_month, EOMONTH(start_date_month, -2) + 1, end_date_previous_month, EOMONTH(start_date_month, -1),
+    recognition_date, IF(contract = &quot;Non-Cancellable&quot;, MIN(end_date, due_date), IF(contract = &quot;Cancellable&quot;, MAX(MIN(end_date, invoice_cash_date), start_date), invoice_cash_date)),
+    recognition_date_matrix,(recognition_date &gt;= start_date_month)*(recognition_date &lt;= end_date_month),
+    amount_matrix_net, amount_net*recognition_date_matrix,
+    recognition_date_matrix_pro_rated, recognition_date &lt;= end_date_month,
+    amount_matrix_net_pro_rated, amount_net*((end_date_month &gt;= start_date)*1*IF(end_date &lt;= end_date_month, end_date, end_date_month) - start_date + 1) / (end_date - start_date + 1) * recognition_date_matrix_pro_rated,
+    recognition_date_matrix_pro_rated_previous_month, recognition_date &lt;= end_date_previous_month,
+    amount_matrix_net_pro_rated_previous_month, amount_net*((end_date_previous_month &gt;= start_date)*1*IF(end_date &lt;= end_date_previous_month, end_date, end_date_previous_month) - start_date + 1) / (end_date - start_date + 1) * recognition_date_matrix_pro_rated_previous_month,
+    amount_matrix_net_pro_rated_movement, amount_matrix_net_pro_rated - amount_matrix_net_pro_rated_previous_month,
+    amount_result, IF(OR(ledger = &quot;S/L&quot;, ledger = &quot;P/L&quot;), IF(contract = &quot;Cancellable&quot;, amount_matrix_net_pro_rated_movement, amount_matrix_net), 0),
+    -amount_result)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=LET(
+    amount_net, Table_Combined[@[Net]:[Net]], due_date, Table_Combined[@[Cash Due Date]:[Cash Due Date]], start_date, Table_Combined[@[Start Date]:[Start Date]], end_date, Table_Combined[@[End Date]:[End Date]], invoice_cash_date, IF(Table_Combined[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]] = 0, 2958465, Table_Combined[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]]), contract, Table_Combined[@[Contract Type]:[Contract Type]], ledger, Table_Combined[@[Ledger]:[Ledger]], start_date_month, AN$3, end_date_month, EOMONTH(start_date_month, 0), start_date_previous_month, EOMONTH(start_date_month, -2) + 1, end_date_previous_month, EOMONTH(start_date_month, -1),
+    recognition_date, IF(contract = "Non-Cancellable", MIN(end_date, due_date), IF(contract = "Cancellable", MAX(MIN(end_date, invoice_cash_date), start_date), invoice_cash_date)),
+    recognition_date_matrix,(recognition_date &gt;= start_date_month)*(recognition_date &lt;= end_date_month),
+    amount_matrix_net, amount_net*recognition_date_matrix,
+    recognition_date_matrix_pro_rated, recognition_date &lt;= end_date_month,
+    amount_matrix_net_pro_rated, amount_net*((end_date_month &gt;= start_date)*1*IF(end_date &lt;= end_date_month, end_date, end_date_month) - start_date + 1) / (end_date - start_date + 1) * recognition_date_matrix_pro_rated,
+    recognition_date_matrix_pro_rated_previous_month, recognition_date &lt;= end_date_previous_month,
+    amount_matrix_net_pro_rated_previous_month, amount_net*((end_date_previous_month &gt;= start_date)*1*IF(end_date &lt;= end_date_previous_month, end_date, end_date_previous_month) - start_date + 1) / (end_date - start_date + 1) * recognition_date_matrix_pro_rated_previous_month,
+    amount_matrix_net_pro_rated_movement, amount_matrix_net_pro_rated - amount_matrix_net_pro_rated_previous_month,
+    amount_result, IF(OR(ledger = "S/L", ledger = "P/L"), IF(contract = "Cancellable", amount_matrix_net_pro_rated_movement, amount_matrix_net), 0),
+    -amount_result)
+</code></pre>
+
+<h3 id="vat-account-movements">V.A.T. Account movements</h3>
+
+<p>The following logic is used to calculate the movement in the V.A.T. Account.</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+=LET(
+    amount_vat,Table_Combined[@[VAT]:[VAT]], tax_date, Table_Combined[@[Tax Point Date]:[Tax Point Date]], ledger, Table_Combined[@[Ledger]:[Ledger]],
+    start_date_month, AZ$3, end_date_month, EOMONTH(start_date_month, 0),
+    date_matrix_vat,(tax_date&gt;=start_date_month)*(tax_date&lt;=end_date_month), amount_matrix_vat, amount_vat*date_matrix_vat,
+    amount_total, IF(OR(ledger= &quot;S/L&quot;, ledger = &quot;P/L&quot;), amount_matrix_vat, 0),
+    amount_total)
+">
+  </button>
+</div>
+<pre><code class="language-Excel">=LET(
+    amount_vat,Table_Combined[@[VAT]:[VAT]], tax_date, Table_Combined[@[Tax Point Date]:[Tax Point Date]], ledger, Table_Combined[@[Ledger]:[Ledger]],
+    start_date_month, AZ$3, end_date_month, EOMONTH(start_date_month, 0),
+    date_matrix_vat,(tax_date&gt;=start_date_month)*(tax_date&lt;=end_date_month), amount_matrix_vat, amount_vat*date_matrix_vat,
+    amount_total, IF(OR(ledger= "S/L", ledger = "P/L"), amount_matrix_vat, 0),
+    amount_total)
+</code></pre>
 
 <h2 id="next">Next</h2>
 
@@ -596,6 +695,12 @@ This is so that both Deferrals, and Accruals, even though calculated in differen
                             </header>
                             <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#formulae-used">Formulae used</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#trade-debtor--creditor-movements">Trade Debtor / Creditor movements</a></li>
+<li class="toc-entry toc-h3"><a href="#vat-account-movements">V.A.T. Account movements</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#next">Next</a></li>
 </ul>
                         </nav>

@@ -484,13 +484,36 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>Just as with accruals, the workbook tries to make the task of calculating any <em>Deferred Revenue</em>, or <em>Deferred Expenses</em> as hassle free as possible. This is what the Deferrals tab is for.</p>
+<p>As with the ‘Accruals’ Tab, the ‘Deferrals’ Tab workbook tries to make the task of calculating and showing any <em>Deferred Revenue</em> or <em>Deferred Expense</em> as hassle free as possible.</p>
 
-<p>Although you should not really have to do anything in this tab, the tab is visible so you can see exactly how the Deferral calculations are being made. Below are some screen shots:</p>
+<!-- ************************************************ -->
 
-<figure>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Deferrals</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<p>Below are some screen shots:</p>
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/deferrals-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('deferrals-01.png');" src="images/deferrals-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -499,14 +522,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<p>There are quite a few deferred expenses (for supplier invoices received and paid in advance of the given service). For example, you can see that a Rent invoice was raised for £1,050, sometime in February, but which applies to a service that covers the period from between the middle of February to the middle of March – so some of this expense needs to be deferred into March.</p>
+<p>There are quite a few deferred expenses (for supplier invoices received and paid in advance of the given service). For example, you can see that a Rent invoice was raised for £1,050, sometime in February, but which applies to Rent that covers the period from between the middle of February to the middle of March – so some of this expense needs to be deferred into March.</p>
 
-<p>This is exactly what the adjacent columns show:</p>
+<p>This is exactly what the Profit &amp; Loss columns show:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/deferrals-02.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('deferrals-02.png');" src="images/deferrals-02.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -515,14 +543,19 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>An amount of £289.66, has been charged in February, and the remaining £760.34 has been charged in March.</p>
 
-<p>As also expected, there is a <em>Deferred Expense</em> balance at the end of February, of £760.34.</p>
+<p>As also expected, there is a <em>Deferred Expense</em> balance at the end of February, of £760.34 in February.</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/deferrals-03.png" alt="" style="width: 100%; max-width: 69.2%" />
+        <img class="docimage" onclick="showImage('deferrals-03.png');" src="images/deferrals-03.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -531,242 +564,71 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<p>That is really all there is to this tab. The only thing you need to be careful of is to ensure that the Table doesn’t run out of rows, as the number of transactions in the workbook grows. Otherwise just drag and expand the rows in the Table accordingly.</p>
+<p>You have to be careful that the Table doesn’t run out of rows, as the number of transactions grow. If this happens, just drag and expand the Table from the bottom in order to add more rows.</p>
 
 <h2 id="formulae-used">Formulae used</h2>
 
 <h3 id="deferred-revenue--expense">Deferred Revenue / Expense</h3>
-<p>The following logic is used to calculate the <em>Deferred Revenue</em> / <em>Expense Charge</em> to the Profit &amp; Loss. It can easily be customised for your own specific accounting rule logic, if they depart from the normal rules:</p>
+<p>The following logic is used to calculate the <em>Revenue</em> / <em>Expense Charge</em> to the Profit &amp; Loss. It can easily be customised for your own specific accounting logic, if they depart from the normal rules:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-= IFERROR(LET(
-    start_date,Table_Deferrals[@[Start Date]:[Start Date]],end_date,Table_Deferrals[@[End Date]:[End Date]],days, MAX(end_date-start_date+1, 0),date_array,SEQUENCE(1,days,start_date,1),amount,Table_Deferrals[@[Net]:[Net]],
-    start_date_month,Y$16,end_date_month,DATE(YEAR(start_date_month),MONTH(start_date_month)+1,0),
-    date_matrix,(TRANSPOSE(date_array)&gt;=start_date_month)*(TRANSPOSE(date_array)&lt;=end_date_month), days_in_month, TRANSPOSE(MMULT(TRANSPOSE(date_matrix),SEQUENCE(ROWS(date_matrix),1,1,0))),
-    pnl_amount,days_in_month/days*amount,
-    full_amount, AND(Table_Deferrals[@[Invoice Date]:[Invoice Date]]&gt;EOMONTH(start_date_month,-1),Table_Deferrals[@[Invoice Date]:[Invoice Date]]&lt;=EOMONTH(start_date_month,0)),
-    acc_def_test, OR(Table_Deferrals[@[Type]:[Type]]=&quot;Acc/Def Revenue&quot;,Table_Deferrals[@[Type]:[Type]]=&quot;Acc/Def Expense&quot;),
-    pnl_result, SWITCH(TRUE(), acc_def_test, pnl_amount, full_amount, Table_Deferrals[@[Net]:[Net]], 0), pnl_result), &quot;&quot;)
+=IFERROR(LET(
+    start_date, Table_Deferrals[@[Start Date]:[Start Date]], end_date, Table_Deferrals[@[End Date]:[End Date]], days, MAX(end_date-start_date+1, 0), date_array, SEQUENCE(1,days,start_date,1), amount,Table_Deferrals[@[Net]:[Net]], invoice_cash_date, IF(Table_Deferrals[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]] = 0, 2958465, Table_Deferrals[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]]), accrual_type, Table_Deferrals[@[Type]:[Type]],
+    start_date_month, AB$16, end_date_month,DATE(YEAR(start_date_month),MONTH(start_date_month)+1,0),
+    date_matrix, (TRANSPOSE(date_array)&gt;=start_date_month)*(TRANSPOSE(date_array)&lt;=end_date_month),
+    days_in_month, TRANSPOSE(MMULT(TRANSPOSE(date_matrix),SEQUENCE(ROWS(date_matrix),1,1,0))),
+    pnl_amount, days_in_month/days*amount,
+    rev_point_in_time_test, AND(invoice_cash_date &gt;= start_date_month, invoice_cash_date &lt;=EOMONTH(start_date_month,0)),
+    acc_def_test, OR(accrual_type =&quot;Acc/Def Revenue&quot;, accrual_type =&quot;Acc/Def Expense&quot;),
+    pnl_result, SWITCH(TRUE(), acc_def_test, pnl_amount, rev_point_in_time_test, amount, 0), pnl_result), &quot;&quot;)
 ">
   </button>
 </div>
-<pre><code class="language-Excel">= IFERROR(LET(
-    start_date,Table_Deferrals[@[Start Date]:[Start Date]],end_date,Table_Deferrals[@[End Date]:[End Date]],days, MAX(end_date-start_date+1, 0),date_array,SEQUENCE(1,days,start_date,1),amount,Table_Deferrals[@[Net]:[Net]],
-    start_date_month,Y$16,end_date_month,DATE(YEAR(start_date_month),MONTH(start_date_month)+1,0),
-    date_matrix,(TRANSPOSE(date_array)&gt;=start_date_month)*(TRANSPOSE(date_array)&lt;=end_date_month), days_in_month, TRANSPOSE(MMULT(TRANSPOSE(date_matrix),SEQUENCE(ROWS(date_matrix),1,1,0))),
-    pnl_amount,days_in_month/days*amount,
-    full_amount, AND(Table_Deferrals[@[Invoice Date]:[Invoice Date]]&gt;EOMONTH(start_date_month,-1),Table_Deferrals[@[Invoice Date]:[Invoice Date]]&lt;=EOMONTH(start_date_month,0)),
-    acc_def_test, OR(Table_Deferrals[@[Type]:[Type]]="Acc/Def Revenue",Table_Deferrals[@[Type]:[Type]]="Acc/Def Expense"),
-    pnl_result, SWITCH(TRUE(), acc_def_test, pnl_amount, full_amount, Table_Deferrals[@[Net]:[Net]], 0), pnl_result), "")
+<pre><code class="language-Excel">=IFERROR(LET(
+    start_date, Table_Deferrals[@[Start Date]:[Start Date]], end_date, Table_Deferrals[@[End Date]:[End Date]], days, MAX(end_date-start_date+1, 0), date_array, SEQUENCE(1,days,start_date,1), amount,Table_Deferrals[@[Net]:[Net]], invoice_cash_date, IF(Table_Deferrals[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]] = 0, 2958465, Table_Deferrals[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]]), accrual_type, Table_Deferrals[@[Type]:[Type]],
+    start_date_month, AB$16, end_date_month,DATE(YEAR(start_date_month),MONTH(start_date_month)+1,0),
+    date_matrix, (TRANSPOSE(date_array)&gt;=start_date_month)*(TRANSPOSE(date_array)&lt;=end_date_month),
+    days_in_month, TRANSPOSE(MMULT(TRANSPOSE(date_matrix),SEQUENCE(ROWS(date_matrix),1,1,0))),
+    pnl_amount, days_in_month/days*amount,
+    rev_point_in_time_test, AND(invoice_cash_date &gt;= start_date_month, invoice_cash_date &lt;=EOMONTH(start_date_month,0)),
+    acc_def_test, OR(accrual_type ="Acc/Def Revenue", accrual_type ="Acc/Def Expense"),
+    pnl_result, SWITCH(TRUE(), acc_def_test, pnl_amount, rev_point_in_time_test, amount, 0), pnl_result), "")
 </code></pre>
 
 <h3 id="deferred-balance">Deferred Balance</h3>
 
-<p>The following is used to calculate the <em>Deferred Revenue</em> / <em>Expense</em> Balance for the Balance Sheet. This can also be customised for your own specific accounting rule logic, if they depart from the normal rules:</p>
+<p>The following is used to calculate the <em>Deferred Revenue</em> / <em>Deferred Expense</em> Balance for the Balance Sheet. This can also be customised for your own specific accounting logic, if they depart from the normal rules:</p>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: MS Excel">MS Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-= IFERROR(LET(
-    amount,Table_Deferrals[@[Net]:[Net]],pnl,Table_Deferrals[@[JAN P&amp;L]:[DEC P&amp;L]], due_date, Table_Deferrals[@[Due Date]:[Due Date]],
-    start_month, $AK$16, start_date_month, AK$16, end_date_month,DATE(YEAR(start_date_month),MONTH(start_date_month)+1,0), start_date_months, EOMONTH(start_month, SEQUENCE(1,12,0,1) - 1) + 1,
-    start_date, Table_Deferrals[@[Start Date]:[Start Date]], end_date, Table_Deferrals[@[End Date]:[End Date]],
-    date_matrix,TRANSPOSE(start_date_months)&lt;=start_date_month, amount_matrix, TRANSPOSE(pnl)*date_matrix,
-    prior_year_amount, IF(AND(start_date &lt; start_month, end_date &gt;= start_month), (start_month - 1 - start_date + 1)/(end_date - start_date + 1) * amount, 0),
-    accrued_amount, TRANSPOSE(MMULT(TRANSPOSE(amount_matrix),SEQUENCE(ROWS(amount_matrix),1,1,0))) + prior_year_amount,
-    deferred_amount, amount - ROUNDDOWN(accrued_amount, 4), initial_recognition_result, IF(due_date &gt;= end_date_month + 1, 0, deferred_amount),
-    deferred_test, OR(Table_Deferrals[@[Type]:[Type]]=&quot;Acc/Def Revenue&quot;,Table_Deferrals[@[Type]:[Type]]=&quot;Acc/Def Expense&quot;),
-    deferred_BS, SWITCH(TRUE(), deferred_test, initial_recognition_result, 0), deferred_BS),&quot;&quot;)
+=IFERROR(LET(
+    amount,Table_Deferrals[@[Net]:[Net]], due_date, Table_Deferrals[@[Cash Due Date]:[Cash Due Date]], contract, Table_Deferrals[@[Contract Type]:[Contract Type]],
+    invoice_cash_date, IF(Table_Deferrals[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]] = 0, 2958465, Table_Deferrals[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]]), deferral_type, Table_Deferrals[@[Type]:[Type]], start_date, Table_Deferrals[@[Start Date]:[Start Date]], end_date, Table_Deferrals[@[End Date]:[End Date]], start_date_month, AN$16, end_date_month, EOMONTH(start_date_month, 0),
+    recognition_date, IF(contract = &quot;Non-Cancellable&quot;, MIN(end_date, due_date), IF(contract = &quot;Cancellable&quot;, MAX(MIN(end_date, invoice_cash_date), start_date), invoice_cash_date)),
+    deferred_amount,  (end_date_month &lt; end_date)*1*(end_date - (IF(end_date_month &lt; start_date, start_date, end_date_month + 1) ) + 1) / (end_date - start_date + 1) * amount,
+    initial_recognition_result, IF(recognition_date &gt;= end_date_month + 1, 0, deferred_amount),
+    deferred_test, OR(deferral_type = &quot;Acc/Def Revenue&quot;, deferral_type = &quot;Acc/Def Expense&quot;),
+    deferred_BS, SWITCH(TRUE(), deferred_test, IF(contract = &quot;Cancellable&quot;, 0, initial_recognition_result), 0), deferred_BS),&quot;&quot;)
 ">
   </button>
 </div>
-<pre><code class="language-Excel">= IFERROR(LET(
-    amount,Table_Deferrals[@[Net]:[Net]],pnl,Table_Deferrals[@[JAN P&amp;L]:[DEC P&amp;L]], due_date, Table_Deferrals[@[Due Date]:[Due Date]],
-    start_month, $AK$16, start_date_month, AK$16, end_date_month,DATE(YEAR(start_date_month),MONTH(start_date_month)+1,0), start_date_months, EOMONTH(start_month, SEQUENCE(1,12,0,1) - 1) + 1,
-    start_date, Table_Deferrals[@[Start Date]:[Start Date]], end_date, Table_Deferrals[@[End Date]:[End Date]],
-    date_matrix,TRANSPOSE(start_date_months)&lt;=start_date_month, amount_matrix, TRANSPOSE(pnl)*date_matrix,
-    prior_year_amount, IF(AND(start_date &lt; start_month, end_date &gt;= start_month), (start_month - 1 - start_date + 1)/(end_date - start_date + 1) * amount, 0),
-    accrued_amount, TRANSPOSE(MMULT(TRANSPOSE(amount_matrix),SEQUENCE(ROWS(amount_matrix),1,1,0))) + prior_year_amount,
-    deferred_amount, amount - ROUNDDOWN(accrued_amount, 4), initial_recognition_result, IF(due_date &gt;= end_date_month + 1, 0, deferred_amount),
-    deferred_test, OR(Table_Deferrals[@[Type]:[Type]]="Acc/Def Revenue",Table_Deferrals[@[Type]:[Type]]="Acc/Def Expense"),
-    deferred_BS, SWITCH(TRUE(), deferred_test, initial_recognition_result, 0), deferred_BS),"")
+<pre><code class="language-Excel">=IFERROR(LET(
+    amount,Table_Deferrals[@[Net]:[Net]], due_date, Table_Deferrals[@[Cash Due Date]:[Cash Due Date]], contract, Table_Deferrals[@[Contract Type]:[Contract Type]],
+    invoice_cash_date, IF(Table_Deferrals[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]] = 0, 2958465, Table_Deferrals[@[Invoice Date / Cash Date]:[Invoice Date / Cash Date]]), deferral_type, Table_Deferrals[@[Type]:[Type]], start_date, Table_Deferrals[@[Start Date]:[Start Date]], end_date, Table_Deferrals[@[End Date]:[End Date]], start_date_month, AN$16, end_date_month, EOMONTH(start_date_month, 0),
+    recognition_date, IF(contract = "Non-Cancellable", MIN(end_date, due_date), IF(contract = "Cancellable", MAX(MIN(end_date, invoice_cash_date), start_date), invoice_cash_date)),
+    deferred_amount,  (end_date_month &lt; end_date)*1*(end_date - (IF(end_date_month &lt; start_date, start_date, end_date_month + 1) ) + 1) / (end_date - start_date + 1) * amount,
+    initial_recognition_result, IF(recognition_date &gt;= end_date_month + 1, 0, deferred_amount),
+    deferred_test, OR(deferral_type = "Acc/Def Revenue", deferral_type = "Acc/Def Expense"),
+    deferred_BS, SWITCH(TRUE(), deferred_test, IF(contract = "Cancellable", 0, initial_recognition_result), 0), deferred_BS),"")
 </code></pre>
-
-<h2 id="deferral-scenarios">Deferral Scenarios</h2>
-
-<p>Unlike Accruals, Deferrals get booked ahead of time, so having to book expenses or revenue retrospectively, or on the go, does not apply.</p>
-
-<p>For Deferred transactions, if, for example, in the middle of <em>Month 1</em>, you get an invoice for £120, for a service that is for the six months, you would book the following transaction:</p>
-
-<style>
-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #e40707;
-  color: white;
-}
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 80%;
-}
-table tr:hover {background-color: #f5f5f5;}
-table {
-    margin-top: 0.5rem;
-    padding: 1.2rem;
-    -moz-border-radius: 5px !important;
-    border-radius: 5px;
-    transition-property: all;
-    transition-duration: 120ms;
-    transition-timing-function: linear;
-    transition-delay: 0s;
-}
-
-table:hover{
-    border-radius: 5px;
-    -webkit-box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
-    box-shadow:0 0px 24px 0 rgba(0,0,0,0.3);
-}
-</style>
-
-<p><strong>In Month 1 tab:</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><em>Invoice Date</em></td>
-      <td>15/01/2020</td>
-    </tr>
-    <tr>
-      <td><em>Tax Point Date</em></td>
-      <td>15/01/2020</td>
-    </tr>
-    <tr>
-      <td><em>Start Date</em></td>
-      <td>01/01/2020</td>
-    </tr>
-    <tr>
-      <td><em>End Date</em></td>
-      <td>30/06/2020</td>
-    </tr>
-    <tr>
-      <td><em>Transaction</em></td>
-      <td>P/L Invoice (or S/L Invoice)</td>
-    </tr>
-    <tr>
-      <td><em>Due Date</em></td>
-      <td>28/01/2020</td>
-    </tr>
-    <tr>
-      <td><em>Ledger</em></td>
-      <td>P/L (or S/L)</td>
-    </tr>
-    <tr>
-      <td><em>Invoice Amount</em></td>
-      <td>£120</td>
-    </tr>
-    <tr>
-      <td><em>Type</em></td>
-      <td>Deferred Expense (or Deferred Revenue)</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Then, if you also pay the invoice in full towards the end of <em>Month 1</em>, you would book this transaction:</p>
-
-<p><strong>In Month 1 tab:</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><em>Invoice Date</em></td>
-      <td>28/01/2020</td>
-    </tr>
-    <tr>
-      <td><em>Tax Point Date</em></td>
-      <td>28/01/2020</td>
-    </tr>
-    <tr>
-      <td><em>Start Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>End Date</em></td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><em>Transaction</em></td>
-      <td>Co. Bank Payment</td>
-    </tr>
-    <tr>
-      <td><em>Due Date</em></td>
-      <td>28/01/2020</td>
-    </tr>
-    <tr>
-      <td><em>Ledger</em></td>
-      <td>P/L (or S/L)</td>
-    </tr>
-    <tr>
-      <td><em>Invoice Amount</em></td>
-      <td>(£120) - negative number</td>
-    </tr>
-    <tr>
-      <td><em>Type</em></td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>In terms of accounting debits and credits, the following is what is happening:</p>
-
-<figure>
-    
-        <img class="docimage" src="images/deferrals-04.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<h2 id="cash-before-invoice">Cash before invoice?</h2>
-
-<p>The scenario of cash being received before any invoice has been sent or received is highly unlikely, so has not been considered.</p>
-
-<p>In terms of accounting entries, though, you are likely to do something like the following to account for an early payment or receipt.</p>
-
-<figure>
-    
-        <img class="docimage" src="images/accruals-07.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<p>The net affect would be the recognition of either some <em>Deferred Expense</em> or some <em>Deferred Income</em></p>
 
 <h2 id="new-revenue-rules">New Revenue Rules</h2>
 
@@ -775,30 +637,37 @@ table:hover{
 <br />
 <strong>IFRS 15</strong> vs <strong>IAS 18</strong></p>
 
-  <p>In 2018, there was a slight change to the accounting recognition of revenue (these rules don’t apply to expenses)</p>
+  <p>In 2018, there was a slight change to the accounting recognition of revenue</p>
 
-  <p>IFRS 15 replaced IAS 18, as the main revenue recognition standard. 
-The standard has more complex rules around when revenue can be recongised. Performance obligations to a contract have to be separately identified, and unlike IAS 18, any contract liability (deferred revenue) and trade receivable need to be shown net until the earlier of either:</p>
+  <p>I.F.R.S. 15 replaced I.A.S. 18, as the main revenue recognition standard.</p>
+
+  <p>The standard has more complex rules around when revenue can be recognised. For example, performance obligations to a contract have to be separately identified, and unlike IAS 18, any contract liability (deferred revenue) and trade receivable, needs to be shown net until there is an unconditional right to payment. This is usually the earlier of either:</p>
 
   <ul>
     <li>The date the payment becomes due (i.e. when the ‘receivable’ is recognised), or</li>
     <li>The date the goods or services are delivered (i.e. when a ‘contract asset’ (accrued revenue) is recognised).</li>
   </ul>
 
-  <p>Under IFRS 15, payment, for non-cancellable contracts, payment becomes due on the date at which the cash payment should be received under the contract, not the invoice date of the trade receivable.</p>
+  <p>Whether or not an invoice has been issued, does not dictate whether or not an entity has an unconditional right to receive payment.</p>
 
-  <p>Under IAS 18, deferred revenue and trade receivables could be recognised <em>‘Gross’</em> on the balance sheet. Under IFRS 15, they need to be recognised <em>‘Net’</em></p>
+  <p>For <strong><em>cancellable contracts</em></strong>, an unconditional right to receive payment usually arises when all performance obligations have been met and an invoice has been raised. This is when a receivable will usually be recognised.</p>
+
+  <p>But an invoice doesn’t always have to be raised for there to be an unconditional right to payment. For example, if an invoice is sent much after all performance obligations have been completed, an unbilled receivable can still be recorded. Equally, if an invoice is raised in advance of the start of any performance obligation, a receivable should only be recognised if there was an unconditional right to receive payment.</p>
+
+  <p>The I.F.R.S. 15 rules further stipulate that in the case of <strong><em>non-cancellable contracts</em></strong>, a receivable can be recognised even if performance obligations have not been met, or even if they have not even started. In such cases, a receivable can be recognised on the cash payment due date stipulated in the contract.</p>
+
+  <p>Under I.A.S. 18, the rules were simpler, and deferred revenue and trade receivables could be recognised <em>‘Gross’</em> on the balance sheet. Under I.F.R.S. 15, they need to be recognised <em>‘Net’</em>, until there is an unconditional right to payment.</p>
 
 </div>
 
 <div class="callout callout-warning alerts-font">
   <p><strong>Example</strong></p>
 
-  <p>If as a company, you invoice in full at the start (say 1 January 2020), for a 2 year maintenance service contract, totalling £24,000, which is payable in full on 31 March 2020, you would make the following entries:</p>
+  <p>To explain the differences between I.A.S. 18 and I.F.R.S. 15 further, if as a company, you invoice in full at the start (say 1 January 2020), for a 2 year maintenance service contract, totalling £24,000, which is payable in full on 31 March 2020, you would make the following entries:</p>
 
-  <p><strong><em>IAS 18</em></strong></p>
+  <p><strong><em>I.A.S. 18</em></strong></p>
 
-  <p>Under IAS 18, the following entries would be made:</p>
+  <p>Under I.A.S. 18, the following entries would be made:</p>
 
   <p><em>1 January:</em><br />
 Dr Receviable £24,000<br />
@@ -819,9 +688,9 @@ Cr Revenue £1,000</p>
 </div>
 
 <div class="callout callout-warning alerts-font">
-  <p><strong><em>IFRS 15</em></strong></p>
+  <p><strong><em>I.F.R.S. 15</em></strong></p>
 
-  <p>Under IFRS 15, the following entries would be made:</p>
+  <p>Under I.F.R.S. 15, the following entries would be made:</p>
 
   <p><em>1 January:</em><br />
 Dr -<br />
@@ -846,36 +715,46 @@ Cr Contract Liability (Deferred Revenue) £21,000</p>
 
 <div class="alert alert-warning alerts-font" role="alert">
   <p><i class="fa fa-warning"></i> <b>Important: </b><br />
-The example was taken from here: <a href="https://www.bdo.co.uk/en-gb/insights/business-edge/business-edge-2018/will-advance-billing-hurt-your-balance-sheet" target="_blank">BDO IFRS 15 - Revenue Example</a></p>
+The example was taken from here: <a href="https://www.bdo.co.uk/en-gb/insights/business-edge/business-edge-2018/will-advance-billing-hurt-your-balance-sheet" target="_blank">B.D.O. I.F.R.S. 15 - Revenue Example - non-cancellable contracts</a></p>
 </div>
 
 <div class="callout callout-danger alerts-font">
   <p><strong>How do the New Rules affect this workbook?</strong></p>
 
-  <p>Fortunately, the rule change does not affect the workbook and its calculations too much. Sales Invoices are usually raised in arrears, after the work is done (the example above is for a Sales Invoice raised in advance). There is also the option, if needed, to record any accruals over each month, on the go, until such time the invoice is issued, instead of relying on retrospectively recording accruals.</p>
+  <p>This Tab has been designed to accommodate the new rules.</p>
 
-  <p><strong><em>Cash Due Date vs Invoice Date:</em></strong></p>
+  <p><strong><em>Cancellable Contracts:</em></strong></p>
 
-  <p>The only small difference from the old standard is that the Trade Receivable should, according to our reading of the new rules, be recognised when the cash for the invoice is due, rather than on the invoice date (for non-cancellable contracts).</p>
+  <p>For Cancellable Contracts, amounts get recognised based on the Invoice Date.</p>
 
-  <p>So, if a sales invoice was raised on 15/03/2020, and was due for payment on 22/03/2020 (c. 7 days later) any Trade Receivable on the Balance Sheet ought to be recognised on 22/03/2020, (and any Accrued Revenue, if there is any, reversed on that date), instead of on 15/03/2020, the Invoice Date.</p>
+  <ul>
+    <li>
+      <p>If an Invoice gets raised before the Period of Work, then a Receivable/Payable will recognised from when the Period of Work Starts, and build up each month to the Total Amount till the end of the Period of Work.</p>
+    </li>
+    <li>
+      <p>If an Invoice gets raised some time during the Period of Work, then when the Period of Work Starts an Accrued Revenue/Expense will get recognised, uptil the date of the Invoice gets raised. On this date the Accrual will then get reversed to a Receivable/Payable, which will then build up each month to the Total Amount till the end of the Period of Work.</p>
+    </li>
+    <li>
+      <p>If an Invoice gets raised after the Period of Work, then an Accrued Revenue / Expense will get recognised till the end of the Period of Work. On the end date of the Period of Work, the full amount of the Accrual will then get reversed to an Unbilled Receivable / Payable.</p>
+    </li>
+  </ul>
 
-  <p>Accordingly, therefore, the “Due Date” field should be set to 22/03/2020.</p>
+  <p><strong><em>Non-Cancellable Contracts:</em></strong></p>
 
-  <p><strong><em>VAT due on Tax Point Date:</em></strong></p>
+  <p>For Non-Cancellable Contracts, amounts get recognised based on the Cash Due Date.</p>
 
-  <p>However, according to other rules, the VAT payable or recoverable is still based on the Tax Point Date, which in this case is 15/03/2020 (the earlier of the <em>Invoice Date</em> and <em>Date of Supply</em> if the <em>Invoice Date</em> is before the <em>Date of Supply</em> or the <em>Invoice Date</em> if the <em>Invoice Date</em> is after but within 14 days after the <em>Date of Supply</em> - otherwise the Tax Point Date becomes the <em>Date of Supply</em>).</p>
+  <ul>
+    <li>
+      <p>If the Cash Due Date is before the Period of Work, then the Full Amount of Receivable / Payable will get recognised on this date, along with a Deferred Revenue / Expense. The Deferral will then gradually reduce to Nil each month till the end of the Period of Work.</p>
+    </li>
+    <li>
+      <p>If the Cash Due Date occurs at some time during the Period of Work, then when the Period of Work Starts, an Accrued Revenue / Expense will get recognised, uptil the date of the Cash Due Date. On this date the Accrual will then get reversed to the Full Amount of the Receivable / Payable, along with any Deferred Revenue / Expense. The Deferral will then gradually reduce to Nil each month till the end of the Period of Work.</p>
+    </li>
+    <li>
+      <p>If the Cash Due Date occurs after the Period of Work, then Accrued Revenue/Expense will get recognised over the Period of Work. At the end of the Period of Work, this will get reversed to the Full Amount of the Receivable / Payable resulting in an Unbilled Receivable / Payable.</p>
+    </li>
+  </ul>
 
-  <p><strong><em>Interpretation:</em></strong></p>
-
-  <p>Therefore, if the <em>Tax Point</em> date is earlier than the <em>Due Date</em>, the following would be recognised</p>
-
-  <p>Dr Receivable (VAT Amount)<br />
-Cr VAT Payable (VAT Amount)</p>
-
-  <p>This is what we believe should happen. The VAT payable should be recognised on the <em>Tax Point Date</em> - and the other side to Receivables, even though the full receivable won’t really be recognised until the Invoice Due Date (in accordnace with IFRS 15).</p>
-
-  <p>So, overall, it looks like we are still ok, with the new rules.</p>
 </div>
 
 <div class="callout callout-default alerts-font">
@@ -884,10 +763,10 @@ Cr VAT Payable (VAT Amount)</p>
   <p>More information about the IFRS 15 and IAS 18 standards can be found here:</p>
   <ul>
     <li>
-      <p><a href="https://www.icaew.com/technical/financial-reporting/ifrs/ifrs-standards/ifrs-15-revenue-from-contracts-with-customers" target="_blank">IFRS 15 - ICAEW website</a></p>
+      <p><a href="https://www.icaew.com/technical/financial-reporting/ifrs/ifrs-standards/ifrs-15-revenue-from-contracts-with-customers" target="_blank">I.F.R.S. 15 - I.C.A.E.W. website</a></p>
     </li>
     <li>
-      <p><a href="https://www.icaew.com/library/subject-gateways/accounting-standards/ifrs/ias-18" target="_blank">IAS 18 - ICAEW website</a></p>
+      <p><a href="https://www.icaew.com/library/subject-gateways/accounting-standards/ifrs/ias-18" target="_blank">I.A.S. 18 - I.C.A.E.W. website</a></p>
     </li>
   </ul>
 </div>
@@ -965,8 +844,6 @@ Cr VAT Payable (VAT Amount)</p>
 <li class="toc-entry toc-h3"><a href="#deferred-balance">Deferred Balance</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#deferral-scenarios">Deferral Scenarios</a></li>
-<li class="toc-entry toc-h2"><a href="#cash-before-invoice">Cash before invoice?</a></li>
 <li class="toc-entry toc-h2"><a href="#new-revenue-rules">New Revenue Rules</a></li>
 </ul>
                         </nav>

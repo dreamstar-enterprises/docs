@@ -484,22 +484,9 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The validation tab is where all the data validation lists used elsewhere across the workbook can be recorded.</p>
+<p>The Validation Tab is where all the data validation lists used across the workbook can be recorded.</p>
 
-<figure>
-    
-        <img class="docimage" src="images/validation-01.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<!-- Trigger/Open The Modal -->
-<p><button id="modalBtn">Open large-sized image</button></p>
+<!-- ************************************************ -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -513,9 +500,18 @@
 </span></p>
     </div>
     <div class="modal-body">
-      <figure>
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/validation-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('validation-01.png');" src="images/validation-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -524,16 +520,16 @@
     </figcaption>
     
 </figure>
-    </div>
-    <div class="modal-footer"></div>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
   </div>
 </div>
 
-<p>It can be helpful, from a maintenance point of view, to have these lists recorded all in one sheet. As this is Excel, you can change the lists any time, if you need to.</p>
+<p>It can be helpful, from a maintenance perspective, to have these Validation lists recorded all in one sheet. As this is M.S. Excel, you can edit these lists at any time, if you need to.</p>
 
 <h3 id="validation-lists">Validation lists</h3>
 
-<p>Right now, the page has 8 different lists. These are explained below:</p>
+<p>Right now, the page has 9 different lists, explained below:</p>
 
 <table>
   <thead>
@@ -545,31 +541,39 @@
   <tbody>
     <tr>
       <td><em>Transaction</em></td>
-      <td>used to label the nature of each transaction, i.e. whether a cash receipt or payment, a purchase invoice (or credit), a sales invoice (or credit), or only an accrual</td>
+      <td>used to label the nature of each transaction, i.e. whether a Cash Receipt or Payment, a Purchase Invoice, a Sales Invoice, or only an Accrual</td>
     </tr>
     <tr>
       <td><em>Ledger</em></td>
-      <td>used to label whether the transaction forms part of the sales (S/L) or purchase (ledger)</td>
+      <td>used to label whether the transaction forms part of the Sales (S/L) or Purchase (ledger)</td>
     </tr>
     <tr>
       <td><em>Analysis</em></td>
-      <td>used to categorise the nature of the transaction for analysis purposes</td>
+      <td>used to categorise the nature of the transaction if the separate elements need to be examined in greater detail</td>
     </tr>
     <tr>
       <td><em>Status</em></td>
-      <td>used to indicate whether a sale or purchase transaction has been paid in cash yet or not</td>
+      <td>used to indicate whether a Sale or Purchase Invoice has been paid in Cash yet or not</td>
     </tr>
     <tr>
-      <td><em>VAT</em></td>
-      <td>used to specify the different categories of VAT, e.g. whether at 20%, 10%, Blocked, etc.</td>
+      <td><em>Taxable Benefit?</em></td>
+      <td>used to indicate whether a Transaction is a Taxable Benefit or Not</td>
     </tr>
     <tr>
-      <td>Type</td>
-      <td>used to indicate whether there is an accrued or deferred element to a transaction. (The calculations themselves are done in the <em>‘Accruals’</em>, and <em>‘Deferrals’</em> tabs of the workbook)</td>
+      <td><em>V.A.T.</em></td>
+      <td>used to specify the different categories of V.A.T., e.g. whether at 20%, 10%, blocked, etc.</td>
+    </tr>
+    <tr>
+      <td><em>Type</em></td>
+      <td>used to indicate whether there is an Accrued or Deferred element to a transaction.</td>
     </tr>
     <tr>
       <td><em>Month</em></td>
-      <td>used to list of all months in the year. (The list is used when specifying the months needed to calculate total net VAT payable or receivable, in the ‘<em>VAT Returns</em>’ tab)</td>
+      <td>used to list of all months in the year.</td>
+    </tr>
+    <tr>
+      <td><em>Contract Type</em></td>
+      <td>used to indicate whether, for example, a Revenue Contract is Cancellable or Non-Cancellable.</td>
     </tr>
   </tbody>
 </table>
@@ -606,9 +610,9 @@ table:hover{
 }
 </style>
 
-<h2 id="next">Next</h2>
+<h2 id="next-tabs">Next Tabs</h2>
 
-<p>We will skip the ‘<em>Accruals</em>’, ‘<em>Deferrals</em>’ and ‘<em>Combined</em>’ tabs for now, as they will make more sense, after explaining the ‘<em>Mnth 1: Mnth 12</em>’, and other tabs.</p>
+<p>We will skip the ‘<em>Accruals</em>’, ‘<em>Deferrals</em>’ and ‘<em>Combined</em>’ Tabs for now, (which are straight after the ‘Index’ Tab), and will go through them after explaining the ‘<em>Mnth 1: Mnth 12</em>’ and other Tabs in the WorkBook, when they make more sense.</p>
 
 
                         
@@ -681,7 +685,7 @@ table:hover{
 <li class="toc-entry toc-h3"><a href="#validation-lists">Validation lists</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#next">Next</a></li>
+<li class="toc-entry toc-h2"><a href="#next-tabs">Next Tabs</a></li>
 </ul>
                         </nav>
 
