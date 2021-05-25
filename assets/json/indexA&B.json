@@ -1,6 +1,16 @@
 var searchIndex = [
 
     {
+        "title": "Soul Machines",
+        "date": "May 06, 2021",
+        "url": "articles/soul-machines.html",
+        "content": "An extra-ordinary company doing extra-ordinary things - Soul Machines, a New Zealand that is giving Digital Humans, Digital Brains!",
+        "image_url": "articles/images/soul-machines.jpg",
+        "tags_year": ['2021'],
+        "tags_month": ['May'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Personal Ways of Working and Working Styles",
         "date": "March 25, 2021",
         "url": "articles/ways-of-working.html",
