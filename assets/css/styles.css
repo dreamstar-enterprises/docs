@@ -2418,7 +2418,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 @media screen and (min-width: 860px), print { .nav-bar { padding-left: 24px; padding-right: 24px; } }
 
-@media screen and (min-width: 1084px), print { .nav-bar { padding-left: 5vw; padding-right: 5vw; } }
+@media screen and (min-width: 1084px), print { .nav-bar { padding-left: 1.5vw; padding-right: 1.5vw; } }
 
 @media screen and (min-width: 1795px), print { .nav-bar { padding-left: calc(50% - 1600px / 2); padding-right: calc(50% - 1600px / 2); } }
 
@@ -2844,7 +2844,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 @media screen and (min-width: 860px), print { .uhf-container:not(.has-padding) { max-width: calc(100% - 48px); width: calc(100% - 48px); } }
 
-@media screen and (min-width: 1084px), print { .uhf-container:not(.has-padding) { max-width: calc(100% - 10vw); width: calc(100% - 10vw); } .uhf-container.is-fluid:not(.has-padding) { margin-right: 5vw; margin-left: 5vw; max-width: none; width: auto; } }
+@media screen and (min-width: 1084px), print { .uhf-container:not(.has-padding) { max-width: calc(100% - 3vw); width: calc(100% - 3vw); } .uhf-container.is-fluid:not(.has-padding) { margin-right: 5vw; margin-left: 5vw; max-width: none; width: auto; } }
 
 @media screen and (min-width: 1795px), print { .uhf-container:not(.has-padding) { margin-right: auto; margin-left: auto; max-width: 1600px; width: 1600px; } }
 
@@ -2852,7 +2852,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 @media screen and (min-width: 860px), print { .uhf-container.has-padding { padding-right: 24px; padding-left: 24px; } }
 
-@media screen and (min-width: 1084px), print { .uhf-container.has-padding { padding-right: 5vw; padding-left: 5vw; } }
+@media screen and (min-width: 1084px), print { .uhf-container.has-padding { padding-right: 1.5vw; padding-left: 1.5vw; } }
 
 @media screen and (min-width: 1795px), print { .uhf-container.has-padding { padding-right: calc(50% - 1600px / 2); padding-left: calc(50% - 1600px / 2); } }
 
@@ -2865,7 +2865,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .columns:not(:last-child) { margin-bottom: calc(1.5rem - 0.75rem); }
 
-.columns.has-large-gaps { margin-left: -1.5rem; margin-right: -1.5rem; margin-top: -1.0rem; }
+.columns.has-large-gaps { margin-left: -1.5rem; margin-top: -1.0rem; }
 
 .columns.has-large-gaps:last-child { margin-bottom: -1.5rem; }
 
