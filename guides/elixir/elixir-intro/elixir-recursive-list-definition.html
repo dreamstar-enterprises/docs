@@ -343,13 +343,6 @@
       </li>
   
     
-      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-pipeline-operators.html">Pipeline Operators</a></li>
-    
-          
-        
-      </li>
-  
-    
       <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-formatting.html">Formatting</a></li>
     
           
@@ -485,7 +478,7 @@
                         <h1 id="recursive-list-definition">Recursive List Definition</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Erlang &amp; Elixir • 04/12/2021</time>
 
-<h2 id="pair-of-head-and-tail">Pair of Head and Tail</h2>
+<h2 id="head--tail-pair">Head &amp; Tail pair</h2>
 
 <p>A list can be represented by a pair (head, tail), where head is the first element of the list and tail “points” to the (head, tail) pair of the remaining elements.</p>
 
@@ -546,7 +539,7 @@ iex(2)&gt; tl([1, 2, 3, 4])
 
 <p>Both operations are <em>O(1)</em>, because they amount to reading one or the other value from the (head, tail ) pair.</p>
 
-<h2 id="pushing-elements-to-list">Pushing Elements to List</h2>
+<h2 id="pushing-elements-to-a-list">Pushing Elements to a List</h2>
 
 <p>It is simple and efficient to push a new element to the top of the list:</p>
 
@@ -635,9 +628,9 @@ iex(2)&gt; new_list = [:new_element | a_list]
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#pair-of-head-and-tail">Pair of Head and Tail</a></li>
+<li class="toc-entry toc-h2"><a href="#head--tail-pair">Head &amp; Tail pair</a></li>
 <li class="toc-entry toc-h2"><a href="#head--tail-functions">Head &amp; Tail Functions</a></li>
-<li class="toc-entry toc-h2"><a href="#pushing-elements-to-list">Pushing Elements to List</a></li>
+<li class="toc-entry toc-h2"><a href="#pushing-elements-to-a-list">Pushing Elements to a List</a></li>
 </ul>
                         </nav>
 
