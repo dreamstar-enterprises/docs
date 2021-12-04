@@ -3946,6 +3946,8 @@ a.box:active { box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.125), 0 0 0 1px #0065
 
 [class*="has-text"][class$="vbasic"], [class*="has-text"][class$="vbasic-hover"]:hover { color: #012168 !important; }
 
+[class*="has-text"][class$="elixir"], [class*="has-text"][class$="elixir-hover"]:hover { color: #cc004e !important; }
+
 [class*="has-text"][class$="articles-and-blogs"], [class*="has-text"][class$="articles-and-blogs-hover"]:hover { color: #e61429 !important; }
 
 [class*="has-background"] { outline-color: white !important; padding-top: 1.4rem; padding-left: 0.8rem; padding-right: 0.8rem; padding-bottom: 1.4rem; display: flex; justify-content: center; align-items: center; }
@@ -3963,6 +3965,8 @@ a.box:active { box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.125), 0 0 0 1px #0065
 [class*="has-background"][class*="sql"] { background-color: #f8920c !important; }
 
 [class*="has-background"][class*="vbasic"] { background-color: #012168 !important; }
+
+[class*="has-background"][class*="elixir"] { background-color: #cc004e !important; }
 
 [class*="has-background"][class*="articles-and-blogs"] { background-color: #e61429 !important; }
 
