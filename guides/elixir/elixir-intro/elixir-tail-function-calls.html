@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Tail Function Calls | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@200..400&display=swap" rel="stylesheet">
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"
+  
+  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6 
+                    
+                    
+                    " href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    underline
+                    
+                    " href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/articles-and-blogs/article-search.html">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/about/about.html">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+</div>
+
+
+<div class="header-holder transparent has-default-focus" style="position: sticky; top: 0; left: 0; right: 0;">
+    <div class="content-header uhf-container has-padding has-default-focus is-flexbox" style="padding-top: 0px; padding-bottom: 1px;">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/elixir/elixir.html"><span class="">Erlang & Elixir</span></a></li>
+        <li><a href=/docs/guides/elixir/elixir-intro/elixir-intro.html><span class="">Elixir - The Beginnings</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar-scroll" id="myBar"></div>
+    </div>
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile 
+         
+        is-one-third-tablet is-one-quarter-desktop 
+        ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+
+                <!-- Include LHS Menu -->
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-intro.html">Elixir Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Building Blocks</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Organising Code</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-variables.html">Variables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-modules.html">Modules</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-functions.html">Functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-imports.html">Imports</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-aliases.html">Aliases</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-module-attributes.html">Module Attributes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-type-specification.html">Type Specification</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-comments.html">Comments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-pipeline-operators.html">Pipeline Operators</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-formatting.html">Formatting</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Type System</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-numbers.html">Numbers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-atoms.html">Atoms</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-short-circuit-operators.html">Short-Circuit Operators</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-tuples.html">Tuples</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Lists</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-lists.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-recursive-list-definition.html">Recursive Definition</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-immutability.html">Immutability</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-maps.html">Maps</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-binaries-and-bitstrings.html">Binaries & Bitstrings</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-strings.html">Strings</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-first-class-functions.html">First Class Functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-other-types.html">Other Types</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-higher-level-types.html">Higher Level Types</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-io-lists.html">IO Lists</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-operators.html">Operators</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-macros.html">Macros</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Control Flow</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Pattern Matching</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-pattern-matching.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-match-operator.html">The Match Operator</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-tuples.html">Matching Tuples</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-constants.html">Matching Constants</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-variables-in-patterns.html">Variables in Patterns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-lists.html">Matching Lists</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-maps.html">Matching Maps</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-bitstrings-and-binaries.html">Matching Bitstrings & Binaries</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-compound-matches.html">Compound Matches</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-general-behaviour.html">General Behaviour</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Matching with Functions</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-with-functions.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-multiclause-functions.html">Multiclause Functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-guards.html">Guards</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-multiclause-lambdas.html">Multiclause Lambdas</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Conditionals</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-conditionals.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-branching-with-multiclause-functions.html">Branching with Multiclause Functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-classical-branching-constructs.html">Classical Branching Constructs</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-with-special-form.html">The with special form</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Loops and Iterations</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-loops-and-iterations.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-iterating-with-recursion.html">Iterating with Recursion</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-tail-function-calls.html">Tail Function Calls</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-higher-order-functions.html">Higher-order functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-comprehensions.html">Comprehensions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-streams.html">Streams</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Data Abstractions</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-data-abstraction.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Abstracting with Modules</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-module-abstraction.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-basic-abstraction.html">Basic Abstraction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-composing-abstractions.html">Composing Abstractions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-structuring-data-with-maps.html">Structuring Data with Maps</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-abstracting-with-structs.html">Abstracting with Structs</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-data-transparency.html">Data Transparency</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Hierarchical Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-hierarchical-data.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-generating-ids.html">Generating IDs</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-updating-entries.html">Updating Entries</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-immutable-hierarchical-updates.html">Immutable Hierarchical Updates</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-iterative-updates.html">Iterative Updates</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-importing-from-a-file.html">Exercise - Importing from a File</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Polymorphism with Protocols</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-polymorphism-protocols.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-protocol-basics.html">Protocol Basics</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-implementing-a-protocol.html">Implementing a Protocol</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-built-in-protocols.html">Built In Protocols</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Concurrency Primitives</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-concurrency-in-beam.html">Concurrency in BEAM</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Processes</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-working-with-processes.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-creating-processes.html">Creating Processes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-message-passing.html">Message Passing</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Stateful Server Processes</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-stateful-server-processes.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-server-processes.html">Server Processes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-keeping-process-state.html">Keeping a Process State</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-mutable-state.html">Mutable State</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-complex-states.html">Complex States</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-registered-processes.html">Registered Processes</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Runtime Considerations</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-process-is-sequential.html">A Process is Sequential</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-unlimited-process-mailboxes.html">Unlimited Process Mailboxes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-shared-nothing-concurrency.html">Shared-Nothing Concurrency</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-scheduler-inner-workings.html">Scheduler Inner Workings</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Generic Server Processes</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Building a Generic Server Process</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-building-generic-server-process.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-plugging-in-with-modules.html">Plugging in with Modules</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-implementing-generic-code.html">Implementing Generic Code</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-using-generic-abstraction.html">Using the Generic Abstraction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-supporting-asynchronous-requests.html">Supporting Asynchronous Requests</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-refactoring-the-todoserver.html">Exercise - Refactoring the to-do-server</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Using the GenServer</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-using-the-genserver.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-otp-behaviours.html">OTP Behaviours</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-plugging-into-genserver.html">Plugging into GenServer</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-handling-requests.html">Handling Requests</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-handling-plain-messages.html">Handling Plain Messages</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-other-genserver-features.html">Other GenServer features</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-process-lifecycle.html">Process Lifecycle</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-otp-compliant-processes.html">OTP-Compliant Processes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-genserver-powered-todoserver.html">Exercise - Genserver-Powered to-do-server</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+
+                <!-- Include the Correct Back Button -->
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column 
+          
+        is-two-thirds-tablet is-three-quarters-desktop 
+        ">
+            <div class="columns has-large-gaps is-gapless-mobile 
+            
+            ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column 
+                 
+                is-full is-four-fifths-desktop 
+                ">
+                    <main id="main" class ="
+                    
+                        content docs
+                    " lang="eng-us">
+                        <h1 id="tail-function-calls">Tail Function Calls</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Erlang &amp; Elixir • 04/12/2021</time>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>If the last thing a function does is call another function (or itself), it is a <em>tail</em> call:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+def original_fun(...) do
+  ...
+  another_fun(...)            
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">original_fun</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">do</span>
+  <span class="o">...</span>
+  <span class="n">another_fun</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>            
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Elixir treats tail calls in a specific manner by performing a <em>tail-call optimization</em>.</p>
+
+<p>In this case, calling a function doesn’t result in the usual stack push, but instead something like a goto or a jump  statement happens. Additional stack space isn’t allocated before calling the function, which in turn means the tail 
+function call consumes no additional memory.</p>
+
+<p>In the previous snippet, the last thing done in <code class="language-plaintext highlighter-rouge">original_fun</code> is the call of <code class="language-plaintext highlighter-rouge">another_fun</code>. The final result of <code class="language-plaintext highlighter-rouge">original_fun</code> is the result of <code class="language-plaintext highlighter-rouge">another_fun</code>. This is why the compiler can safely perform the operation by jumping to the beginning of <code class="language-plaintext highlighter-rouge">another_fun</code> without doing additional memory allocation. When <code class="language-plaintext highlighter-rouge">another_fun</code> finishes, you return to whatever place in <code class="language-plaintext highlighter-rouge">original_fun</code> that it was called from.</p>
+
+<p>Tail calls are especially useful in recursive functions. A tail-recursive function — that is, a function that calls itself at the very end — can run virtually forever without consuming additional memory.</p>
+
+<p>The following function is the Elixir equivalent of an endless loop:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+def loop_forever(...) do
+  ...
+  loop_forever(...)
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">loop_forever</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">do</span>
+  <span class="o">...</span>
+  <span class="n">loop_forever</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Because tail recursion doesn’t consume additional memory, it’s an appropriate solution for arbitrarily large iterations. There is a downside, though. Whereas classical (non-tail) recursion has a more declarative feel to it, tail recursion tends to looks more procedural.</p>
+
+<p>The following converts the <code class="language-plaintext highlighter-rouge">ListHelper.sum/1</code> function to the tail-recursive version.</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+defmodule ListHelper do
+  def sum(list) do
+    do_sum(0, list)
+  end
+
+  defp do_sum(current_sum, []) do
+    current_sum
+  end
+
+  defp do_sum(current_sum, [head | tail]) do
+    new_sum = head + current_sum
+    do_sum(new_sum, tail)
+  end
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defmodule</span> <span class="no">ListHelper</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="n">sum</span><span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">do_sum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">do_sum</span><span class="p">(</span><span class="n">current_sum</span><span class="p">,</span> <span class="p">[])</span> <span class="k">do</span>
+    <span class="n">current_sum</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">do_sum</span><span class="p">(</span><span class="n">current_sum</span><span class="p">,</span> <span class="p">[</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">])</span> <span class="k">do</span>
+    <span class="n">new_sum</span> <span class="o">=</span> <span class="n">head</span> <span class="o">+</span> <span class="n">current_sum</span>
+    <span class="n">do_sum</span><span class="p">(</span><span class="n">new_sum</span><span class="p">,</span> <span class="n">tail</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>There are two functions. The exported function <code class="language-plaintext highlighter-rouge">sum/1</code> is called by the module clients, and on the surface it works like before.</p>
+
+<p>The recursion takes place in the private <code class="language-plaintext highlighter-rouge">do_sum/2</code> function, which is implemented as tail-recursive. It’s a two-clause function. Here is the second clause in isolation:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+defp do_sum(current_sum, [head | tail]) do
+  new_sum = head + current_sum                   
+  do_sum(new_sum, tail)                          
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defp</span> <span class="n">do_sum</span><span class="p">(</span><span class="n">current_sum</span><span class="p">,</span> <span class="p">[</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">])</span> <span class="k">do</span>
+  <span class="n">new_sum</span> <span class="o">=</span> <span class="n">head</span> <span class="o">+</span> <span class="n">current_sum</span>                   
+  <span class="n">do_sum</span><span class="p">(</span><span class="n">new_sum</span><span class="p">,</span> <span class="n">tail</span><span class="p">)</span>                          
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This clause expects two arguments: the non-empty list to operate on, and the sum calculated so far (<code class="language-plaintext highlighter-rouge">current_sum</code>). It then calculates the new sum and calls itself recursively with the remainder of the list and the new sum. Because the call happens at the very end, the function is tail-recursive, and the call consumes no additional memory.</p>
+
+<p>The variable <code class="language-plaintext highlighter-rouge">new_sum</code> is introduced here just to make things more obvious. You could also inline the computation:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+defp do_sum(current_sum, [head | tail]) do
+  do_sum(head + current_sum, tail)
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defp</span> <span class="n">do_sum</span><span class="p">(</span><span class="n">current_sum</span><span class="p">,</span> <span class="p">[</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">])</span> <span class="k">do</span>
+  <span class="n">do_sum</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="n">current_sum</span><span class="p">,</span> <span class="n">tail</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This function is still tail-recursive because it calls itself at the very end.</p>
+
+<p>For the first clause:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+defp do_sum(current_sum, []) do
+  current_sum
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defp</span> <span class="n">do_sum</span><span class="p">(</span><span class="n">current_sum</span><span class="p">,</span> <span class="p">[])</span> <span class="k">do</span>
+  <span class="n">current_sum</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This clause stops the recursion. It matches on an empty list, which is the last step of the iteration. When you get here, there’s nothing else to sum, so it returns the accumulated result.</p>
+
+<p>For the function <code class="language-plaintext highlighter-rouge">sum/1</code>:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+def sum(list) do
+  do_sum(0, list)
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">sum</span><span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">do_sum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This function initializes the value of the <code class="language-plaintext highlighter-rouge">current_sum</code> parameter that’s passed recursively in <code class="language-plaintext highlighter-rouge">do_sum</code>.</p>
+
+<p>The tail recursion is a direct equivalent of a classical loop in other languages.</p>
+
+<p>The parameter <code class="language-plaintext highlighter-rouge">current_sum</code> is a classical accumulator: the result is incrementally added to it, in each iteration step. The <code class="language-plaintext highlighter-rouge">do_sum/2</code> function implements the iteration step and passes the accumulator from one step to the next. The first clause of <code class="language-plaintext highlighter-rouge">do_sum/2</code> defines the ending point of the iteration and returns the accumulator value.</p>
+
+<p>Testing the function from the shell, you should get:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+iex(1)&gt; ListHelper.sum([1, 2, 3])
+6
+
+iex(2)&gt; ListHelper.sum([])
+0
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iex</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span> <span class="no">ListHelper</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="mi">6</span>
+
+<span class="n">iex</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span> <span class="no">ListHelper</span><span class="o">.</span><span class="n">sum</span><span class="p">([])</span>
+<span class="mi">0</span>
+</code></pre></div></div>
+
+<h2 id="recognising-tail-calls">Recognising Tail Calls</h2>
+
+<p>Tail calls can take different shapes - e.g. they can also happen in a conditional expression:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+def fun(...) do
+  ...
+  if something do
+    ...
+    another_fun(...)     
+  end
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">fun</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">do</span>
+  <span class="o">...</span>
+  <span class="k">if</span> <span class="n">something</span> <span class="k">do</span>
+    <span class="o">...</span>
+    <span class="n">another_fun</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>     
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>The call to <code class="language-plaintext highlighter-rouge">another_fun</code> is a tail call because it’s a last thing the function does. The same rule holds for <code class="language-plaintext highlighter-rouge">unless</code>, <code class="language-plaintext highlighter-rouge">cond</code>, <code class="language-plaintext highlighter-rouge">case</code>, and <code class="language-plaintext highlighter-rouge">with</code> expressions.</p>
+
+<p>The following code isn’t a tail call:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+def fun(...) do
+  1 + another_fun(...)    
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">fun</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">do</span>
+  <span class="mi">1</span> <span class="o">+</span> <span class="n">another_fun</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>    
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This is because the call to <code class="language-plaintext highlighter-rouge">another_fun</code> isn’t the last thing done in the fun function. After <code class="language-plaintext highlighter-rouge">another_fun</code> finishes, its result is incremented by 1 to compute the final result of fun.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>Here are some more examples:</p>
+
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">list_len/1</code> function that calculates the length of a list</li>
+  <li>A <code class="language-plaintext highlighter-rouge">range/2</code> function that takes two integers, from and to, and returns a list of all numbers in the given range</li>
+  <li>A <code class="language-plaintext highlighter-rouge">positive/1</code> function that takes a list and returns another list that contains only the positive numbers from the input list</li>
+</ul>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+defmodule Loop do
+  def list_len([]), do: 0
+
+  def list_len([_ | tail]) do
+    1 + list_len(tail)
+  end
+
+  def range(from, to) when from &gt; to do
+    []
+  end
+
+  def range(from, to) do
+    [from | range(from + 1, to)]
+  end
+
+  def positive([]), do: []
+
+  def positive([head | tail]) when head &gt; 0 do
+    [head | positive(tail)]
+  end
+
+  def positive([_ | tail]) do
+    positive(tail)
+  end
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defmodule</span> <span class="no">Loop</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="n">list_len</span><span class="p">([]),</span> <span class="k">do</span><span class="p">:</span> <span class="mi">0</span>
+
+  <span class="k">def</span> <span class="n">list_len</span><span class="p">([</span><span class="n">_</span> <span class="o">|</span> <span class="n">tail</span><span class="p">])</span> <span class="k">do</span>
+    <span class="mi">1</span> <span class="o">+</span> <span class="n">list_len</span><span class="p">(</span><span class="n">tail</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="n">range</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span> <span class="ow">when</span> <span class="n">from</span> <span class="o">&gt;</span> <span class="n">to</span> <span class="k">do</span>
+    <span class="p">[]</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="n">range</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span> <span class="k">do</span>
+    <span class="p">[</span><span class="n">from</span> <span class="o">|</span> <span class="n">range</span><span class="p">(</span><span class="n">from</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">to</span><span class="p">)]</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="n">positive</span><span class="p">([]),</span> <span class="k">do</span><span class="p">:</span> <span class="p">[]</span>
+
+  <span class="k">def</span> <span class="n">positive</span><span class="p">([</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">])</span> <span class="ow">when</span> <span class="n">head</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">do</span>
+    <span class="p">[</span><span class="n">head</span> <span class="o">|</span> <span class="n">positive</span><span class="p">(</span><span class="n">tail</span><span class="p">)]</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="n">positive</span><span class="p">([</span><span class="n">_</span> <span class="o">|</span> <span class="n">tail</span><span class="p">])</span> <span class="k">do</span>
+    <span class="n">positive</span><span class="p">(</span><span class="n">tail</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>These are the <em>tail-call</em> equivalent versions:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+defmodule Loop do
+  def list_len(list), do: calc_list_len(list, 0)
+
+  defp calc_list_len([], len), do: len
+
+  defp calc_list_len([_ | tail], len) do
+    calc_list_len(tail, len + 1)
+  end
+
+
+  def range(from, to) do
+    make_range(from, to, [])
+  end
+
+  defp make_range(from, to, result) when from &gt; to do
+    result
+  end
+
+  defp make_range(from, to, result) do
+    make_range(from, to - 1, [to | result])
+  end
+
+
+  def positive(list) do
+    filter_positive(list, [])
+  end
+
+  defp filter_positive([], result) do
+    Enum.reverse(result)
+  end
+
+  defp filter_positive([head | tail], result) when head &gt; 0 do
+    filter_positive(tail, [head | result])
+  end
+
+  defp filter_positive([_ | tail], result) do
+    filter_positive(tail, result)
+  end
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defmodule</span> <span class="no">Loop</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="n">list_len</span><span class="p">(</span><span class="n">list</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">calc_list_len</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+  <span class="k">defp</span> <span class="n">calc_list_len</span><span class="p">([],</span> <span class="n">len</span><span class="p">),</span> <span class="k">do</span><span class="p">:</span> <span class="n">len</span>
+
+  <span class="k">defp</span> <span class="n">calc_list_len</span><span class="p">([</span><span class="n">_</span> <span class="o">|</span> <span class="n">tail</span><span class="p">],</span> <span class="n">len</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">calc_list_len</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="k">end</span>
+
+
+  <span class="k">def</span> <span class="n">range</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">make_range</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="p">[])</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">make_range</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span> <span class="ow">when</span> <span class="n">from</span> <span class="o">&gt;</span> <span class="n">to</span> <span class="k">do</span>
+    <span class="n">result</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">make_range</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">make_range</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="n">to</span> <span class="o">|</span> <span class="n">result</span><span class="p">])</span>
+  <span class="k">end</span>
+
+
+  <span class="k">def</span> <span class="n">positive</span><span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">filter_positive</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="p">[])</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">filter_positive</span><span class="p">([],</span> <span class="n">result</span><span class="p">)</span> <span class="k">do</span>
+    <span class="no">Enum</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">filter_positive</span><span class="p">([</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">],</span> <span class="n">result</span><span class="p">)</span> <span class="ow">when</span> <span class="n">head</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">do</span>
+    <span class="n">filter_positive</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="p">[</span><span class="n">head</span> <span class="o">|</span> <span class="n">result</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">filter_positive</span><span class="p">([</span><span class="n">_</span> <span class="o">|</span> <span class="n">tail</span><span class="p">],</span> <span class="n">result</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">filter_positive</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Recursion is the basic looping technique, and no loop can be done without it.</p>
+
+<p>Many typical tasks also can be performed by using higher-order functions.</p>
+
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#recognising-tail-calls">Recognising Tail Calls</a></li>
+<li class="toc-entry toc-h2"><a href="#examples">Examples</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/articles-and-blogs/article-search.html">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/about.html">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/" target="_blank">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>
