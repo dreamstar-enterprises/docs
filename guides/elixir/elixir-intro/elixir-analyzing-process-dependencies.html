@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Analyzing Process Dependencies | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@200..400&display=swap" rel="stylesheet">
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"
+  
+  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6 
+                    
+                    
+                    " href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    underline
+                    
+                    " href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/articles-and-blogs/article-search.html">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/about/about.html">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+</div>
+
+
+<div class="header-holder transparent has-default-focus" style="position: sticky; top: 0; left: 0; right: 0;">
+    <div class="content-header uhf-container has-padding has-default-focus is-flexbox" style="padding-top: 0px; padding-bottom: 1px;">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/elixir/elixir.html"><span class="">Erlang & Elixir</span></a></li>
+        <li><a href=/docs/guides/elixir/elixir-intro/elixir-intro.html><span class="">Elixir - The Beginnings</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar-scroll" id="myBar"></div>
+    </div>
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile 
+         
+        is-one-third-tablet is-one-quarter-desktop 
+        ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+
+                <!-- Include LHS Menu -->
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-intro.html">Elixir Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Building Blocks</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Organising Code</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-variables.html">Variables</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-modules.html">Modules</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-functions.html">Functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-imports.html">Imports</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-aliases.html">Aliases</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-module-attributes.html">Module Attributes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-type-specification.html">Type Specification</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-comments.html">Comments</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-pipeline-operators.html">Pipeline Operators</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-formatting.html">Formatting</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Type System</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-numbers.html">Numbers</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-atoms.html">Atoms</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-short-circuit-operators.html">Short-Circuit Operators</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-tuples.html">Tuples</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Lists</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-lists.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-recursive-list-definition.html">Recursive Definition</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-immutability.html">Immutability</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-maps.html">Maps</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-binaries-and-bitstrings.html">Binaries & Bitstrings</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-strings.html">Strings</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-first-class-functions.html">First Class Functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-other-types.html">Other Types</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-higher-level-types.html">Higher Level Types</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-io-lists.html">IO Lists</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-operators.html">Operators</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-macros.html">Macros</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Control Flow</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Pattern Matching</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-pattern-matching.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-match-operator.html">The Match Operator</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-tuples.html">Matching Tuples</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-constants.html">Matching Constants</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-variables-in-patterns.html">Variables in Patterns</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-lists.html">Matching Lists</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-maps.html">Matching Maps</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-bitstrings-and-binaries.html">Matching Bitstrings & Binaries</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-compound-matches.html">Compound Matches</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-general-behaviour.html">General Behaviour</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Matching with Functions</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-matching-with-functions.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-multiclause-functions.html">Multiclause Functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-guards.html">Guards</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-multiclause-lambdas.html">Multiclause Lambdas</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Conditionals</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-conditionals.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-branching-with-multiclause-functions.html">Branching with Multiclause Functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-classical-branching-constructs.html">Classical Branching Constructs</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-with-special-form.html">The with special form</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Loops and Iterations</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-loops-and-iterations.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-iterating-with-recursion.html">Iterating with Recursion</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-tail-function-calls.html">Tail Function Calls</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-higher-order-functions.html">Higher-order functions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-comprehensions.html">Comprehensions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-streams.html">Streams</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Data Abstractions</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-data-abstraction.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Abstracting with Modules</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-module-abstraction.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-basic-abstraction.html">Basic Abstraction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-composing-abstractions.html">Composing Abstractions</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-structuring-data-with-maps.html">Structuring Data with Maps</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-abstracting-with-structs.html">Abstracting with Structs</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-data-transparency.html">Data Transparency</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Hierarchical Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-hierarchical-data.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-generating-ids.html">Generating IDs</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-updating-entries.html">Updating Entries</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-immutable-hierarchical-updates.html">Immutable Hierarchical Updates</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-iterative-updates.html">Iterative Updates</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-importing-from-a-file.html">Exercise - Importing from a File</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Polymorphism with Protocols</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-polymorphism-protocols.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-protocol-basics.html">Protocol Basics</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-implementing-a-protocol.html">Implementing a Protocol</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-built-in-protocols.html">Built In Protocols</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Concurrency Primitives</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-concurrency-in-beam.html">Concurrency in BEAM</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Working with Processes</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-working-with-processes.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-creating-processes.html">Creating Processes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-message-passing.html">Message Passing</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Stateful Server Processes</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-stateful-server-processes.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-server-processes.html">Server Processes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-keeping-process-state.html">Keeping a Process State</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-mutable-state.html">Mutable State</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-complex-states.html">Complex States</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-registered-processes.html">Registered Processes</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Runtime Considerations</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-process-is-sequential.html">A Process is Sequential</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-unlimited-process-mailboxes.html">Unlimited Process Mailboxes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-shared-nothing-concurrency.html">Shared-Nothing Concurrency</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-scheduler-inner-workings.html">Scheduler Inner Workings</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Generic Server Processes</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Building a Generic Server Process</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-building-generic-server-process.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-plugging-in-with-modules.html">Plugging in with Modules</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-implementing-generic-code.html">Implementing Generic Code</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-using-generic-abstraction.html">Using the Generic Abstraction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-supporting-asynchronous-requests.html">Supporting Asynchronous Requests</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-refactoring-the-todoserver.html">Refactoring the to-do-server</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Using the GenServer</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-using-the-genserver.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-otp-behaviours.html">OTP Behaviours</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-plugging-into-genserver.html">Plugging into GenServer</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-handling-requests.html">Handling Requests</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-handling-plain-messages.html">Handling Plain Messages</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-other-genserver-features.html">Other GenServer features</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-process-lifecycle.html">Process Lifecycle</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-otp-compliant-processes.html">OTP-Compliant Processes</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-genserver-powered-todoserver.html">GenServer-Powered to-do-server</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Building a Concurrent System</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-building-concurrent-systems.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-working-with-a-mix-project.html">Working with a Mix Project</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Managing Multiple To-Do Lists</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-managing-multiple-todolists.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-implementing-a-cache.html">Implementing a Cache</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-writing-tests.html">Writing Tests</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-analyzing-process-dependencies.html">Analyzing Process Dependencies</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Persisting Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-persisting-data.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-encoding-and-persisting.html">Encoding and Persisting</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-using-the-database.html">Using the Database</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-analyzing-the-system.html">Analyzing the System</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-addressing-the-bottleneck.html">Addressing the Process Bottleneck</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-pooling-and-synchronising.html">Pooling & Synchronizing</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-reasoning-with-processes.html">Reasoning with Processes</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+
+                <!-- Include the Correct Back Button -->
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column 
+          
+        is-two-thirds-tablet is-three-quarters-desktop 
+        ">
+            <div class="columns has-large-gaps is-gapless-mobile 
+            
+            ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column 
+                 
+                is-full is-four-fifths-desktop 
+                ">
+                    <main id="main" class ="
+                    
+                        content docs
+                    " lang="eng-us">
+                        <h1 id="analyzing-process-dependencies">Analyzing Process Dependencies</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Erlang &amp; Elixir • 04/12/2021</time>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>So far support has been developed for managing many to-do list instances. The end goal is to use this infrastructure in an HTTP server. In the Elixir/Erlang world, HTTP servers typically use a separate process for each request. Thus, if you have many simultaneous end users, you can expect many BEAM processes accessing your to-do cache and to-do servers.</p>
+
+<p>In the ToDo List example, clients are arbitrary clients, such as HTTP request-handler processes.</p>
+
+<ul>
+  <li>Multiple clients (possibly a large number of them) issue requests to the single to-do cache process.</li>
+  <li>Multiple clients communicate with multiple to-do server processes.</li>
+</ul>
+
+<p>The first point identifies a possible source of a bottleneck. Because you have only one to-do cache process, you can handle only one <code class="language-plaintext highlighter-rouge">server_process</code> request simultaneously, regardless of how many CPU resources you have.</p>
+
+<p>This problem may not be significant in practice. If your server_process takes, for example, one microsecond, the to-do cache could handle a load of up to 1,000,000 requests per second, which should be sufficient for most needs. But if request handling takes 100 milliseconds, you could process only 10 requests per second, and your system wouldn’t be able to handle higher loads.</p>
+
+<p>It’s easy to reason about an individual process. Regardless of how many concurrent requests are coming in, a single process can handle only one request at a time. Thus, a process is good enough if its request-handling rate is at least equal to the incoming rate. Otherwise, you have to either optimize the process or do other interventions.</p>
+
+<p>For this specific case, the to-do cache performs a very simple operation — a map lookup followed by an optional process creation and map update. According to a quick test, for 1 million to-do lists, it can take about 10 microseconds to start a new to-do server and put it in the map, or 2 microseconds to fetch the existing one. This should be sufficient for a load of at least 100,000 requests/sec, which seems like reasonable performance for this initial attempt. You can repeat the test on your machine, with the following code:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Elixir">Elixir</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+# Very quick, inconclusive load test
+#
+# Start from command line with:
+#   elixir --erl &quot;+P 2000000&quot; -S mix run -e LoadTest.run
+#
+# Note: the +P 2000000 sets maximum number of processes to 2 millions
+defmodule LoadTest do
+  @total_processes 1_000_000
+  @interval_size 100_000
+
+  def run do
+    {:ok, cache} = Todo.Cache.start()
+
+    interval_count = round(@total_processes / @interval_size)
+    Enum.each(0..(interval_count - 1), &amp;run_interval(cache, make_interval(&amp;1)))
+  end
+
+  defp make_interval(n) do
+    start = n * @interval_size
+    start..(start + @interval_size - 1)
+  end
+
+  defp run_interval(cache, interval) do
+    {time, _} =
+      :timer.tc(fn -&gt;
+        interval
+        |&gt; Enum.each(&amp;Todo.Cache.server_process(cache, &quot;cache_#{&amp;1}&quot;))
+      end)
+
+    IO.puts(&quot;#{inspect(interval)}: average put #{time / @interval_size} μs&quot;)
+
+    {time, _} =
+      :timer.tc(fn -&gt;
+        interval
+        |&gt; Enum.each(&amp;Todo.Cache.server_process(cache, &quot;cache_#{&amp;1}&quot;))
+      end)
+
+    IO.puts(&quot;#{inspect(interval)}: average get #{time / @interval_size} μs\n&quot;)
+  end
+end
+">
+  </button>
+</div>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Very quick, inconclusive load test</span>
+<span class="c1">#</span>
+<span class="c1"># Start from command line with:</span>
+<span class="c1">#   elixir --erl "+P 2000000" -S mix run -e LoadTest.run</span>
+<span class="c1">#</span>
+<span class="c1"># Note: the +P 2000000 sets maximum number of processes to 2 millions</span>
+<span class="k">defmodule</span> <span class="no">LoadTest</span> <span class="k">do</span>
+  <span class="nv">@total_processes</span> <span class="mi">1_000_000</span>
+  <span class="nv">@interval_size</span> <span class="mi">100_000</span>
+
+  <span class="k">def</span> <span class="n">run</span> <span class="k">do</span>
+    <span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="n">cache</span><span class="p">}</span> <span class="o">=</span> <span class="no">Todo</span><span class="o">.</span><span class="no">Cache</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="n">interval_count</span> <span class="o">=</span> <span class="n">round</span><span class="p">(</span><span class="nv">@total_processes</span> <span class="o">/</span> <span class="nv">@interval_size</span><span class="p">)</span>
+    <span class="no">Enum</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="p">(</span><span class="n">interval_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">run_interval</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">make_interval</span><span class="p">(</span><span class="nv">&amp;1</span><span class="p">)))</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">make_interval</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="nv">@interval_size</span>
+    <span class="n">start</span><span class="o">..</span><span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="nv">@interval_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">defp</span> <span class="n">run_interval</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span> <span class="k">do</span>
+    <span class="p">{</span><span class="n">time</span><span class="p">,</span> <span class="n">_</span><span class="p">}</span> <span class="o">=</span>
+      <span class="ss">:timer</span><span class="o">.</span><span class="n">tc</span><span class="p">(</span><span class="k">fn</span> <span class="o">-&gt;</span>
+        <span class="n">interval</span>
+        <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">&amp;</span><span class="no">Todo</span><span class="o">.</span><span class="no">Cache</span><span class="o">.</span><span class="n">server_process</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="s2">"cache_</span><span class="si">#{</span><span class="nv">&amp;1</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
+      <span class="k">end</span><span class="p">)</span>
+
+    <span class="no">IO</span><span class="o">.</span><span class="n">puts</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">inspect</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span><span class="si">}</span><span class="s2">: average put </span><span class="si">#{</span><span class="n">time</span> <span class="o">/</span> <span class="nv">@interval_size</span><span class="si">}</span><span class="s2"> μs"</span><span class="p">)</span>
+
+    <span class="p">{</span><span class="n">time</span><span class="p">,</span> <span class="n">_</span><span class="p">}</span> <span class="o">=</span>
+      <span class="ss">:timer</span><span class="o">.</span><span class="n">tc</span><span class="p">(</span><span class="k">fn</span> <span class="o">-&gt;</span>
+        <span class="n">interval</span>
+        <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="o">&amp;</span><span class="no">Todo</span><span class="o">.</span><span class="no">Cache</span><span class="o">.</span><span class="n">server_process</span><span class="p">(</span><span class="n">cache</span><span class="p">,</span> <span class="s2">"cache_</span><span class="si">#{</span><span class="nv">&amp;1</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
+      <span class="k">end</span><span class="p">)</span>
+
+    <span class="no">IO</span><span class="o">.</span><span class="n">puts</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">inspect</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span><span class="si">}</span><span class="s2">: average get </span><span class="si">#{</span><span class="n">time</span> <span class="o">/</span> <span class="nv">@interval_size</span><span class="si">}</span><span class="s2"> μs</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>There’s an added benefit to the sequential nature of processes. Because a process runs only one request at a time, its internal state is consistent. You know there can’t be multiple simultaneous updates of the process state, which makes race conditions in a single process impossible.</p>
+
+<p>With to-do servers. Once a client gets a to-do server pid, the list manipulation runs concurrently to all other activities in the system. Because you can expect list manipulations to be fairly involved, it’s beneficial to run those operations concurrently. This is where your system is concurrent and scal-able — it can manipulate multiple lists, using as many resources as possible.</p>
+
+<p>Process waiting for a message is suspended and doesn’t waste CPU resources. Thus, regardless of the number of processes, only those that are actually doing computations consume CPU. In this case, that means a client process doesn’t use CPU while it waits for a to-do server to finish.</p>
+
+<p>Finally, you can be sure that a single list can’t be modified by two simultaneous clients. A list is managed by a single process. Even if a million clients try to modify the same list, their requests will be serialized in the corresponding to-do server and handled one by one.</p>
+
+<p>Now you have a basic system that you can use to manipulate many to-do lists.</p>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/articles-and-blogs/article-search.html">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/about.html">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/" target="_blank">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>

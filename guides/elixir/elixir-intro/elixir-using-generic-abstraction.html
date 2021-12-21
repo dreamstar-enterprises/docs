@@ -1094,7 +1094,7 @@
       </li>
   
     
-      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-refactoring-the-todoserver.html">Exercise - Refactoring the to-do-server</a></li>
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-refactoring-the-todoserver.html">Refactoring the to-do-server</a></li>
     
           
         
@@ -1169,13 +1169,140 @@
       </li>
   
     
-      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-genserver-powered-todoserver.html">Exercise - Genserver-Powered to-do-server</a></li>
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-genserver-powered-todoserver.html">GenServer-Powered to-do-server</a></li>
     
           
         
       </li>
   
 </ul>
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Building a Concurrent System</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-building-concurrent-systems.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-working-with-a-mix-project.html">Working with a Mix Project</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Managing Multiple To-Do Lists</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-managing-multiple-todolists.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-implementing-a-cache.html">Implementing a Cache</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-writing-tests.html">Writing Tests</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-analyzing-process-dependencies.html">Analyzing Process Dependencies</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Persisting Data</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-persisting-data.html">Introduction</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-encoding-and-persisting.html">Encoding and Persisting</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-using-the-database.html">Using the Database</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-analyzing-the-system.html">Analyzing the System</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-addressing-the-bottleneck.html">Addressing the Process Bottleneck</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-pooling-and-synchronising.html">Pooling & Synchronizing</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/elixir/elixir-intro/elixir-reasoning-with-processes.html">Reasoning with Processes</a></li>
+    
+          
         
       </li>
   
@@ -1214,7 +1341,7 @@
                         <h1 id="using-the-generic-abstraction">Using the Generic Abstraction</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Erlang &amp; Elixir • 04/12/2021</time>
 
-<h2 id="using-the-generic-abstraction-1">Using the generic abstraction</h2>
+<h2 id="introduction">Introduction</h2>
 
 <p>To test the server process, you can implement a simple key/value store - one that can be used to store mappings between arbitrary terms. First you start with the <em>callback module</em>.</p>
 
@@ -1258,7 +1385,7 @@ end
 
 <p>This is what is needed to create a specific server process. Because the infinite loop and message-passing boilerplate are pushed to the generic code, the specific implementation is more concise and focused on its main task.</p>
 
-<p>A multiclause is ued in <code class="language-plaintext highlighter-rouge">handle_call/2</code> to handle different types of requests. This is the place where the specific implementation decides how to handle each request. The <code class="language-plaintext highlighter-rouge">ServerProcess</code> module is generic code that blindly forwards requests from client processes to the callback module.</p>
+<p>A multiclause is used in <code class="language-plaintext highlighter-rouge">handle_call/2</code> to handle different types of requests. This is the place where the specific implementation decides how to handle each request. The <code class="language-plaintext highlighter-rouge">ServerProcess</code> module is generic code that blindly forwards requests from client processes to the callback module.</p>
 
 <h2 id="testing-the-process">Testing the Process</h2>
 
@@ -1398,7 +1525,7 @@ end
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#using-the-generic-abstraction-1">Using the generic abstraction</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
 <li class="toc-entry toc-h2"><a href="#the-callback-module">The Callback Module</a></li>
 <li class="toc-entry toc-h2"><a href="#testing-the-process">Testing the Process</a></li>
 <li class="toc-entry toc-h2"><a href="#wrapping-server-process-function-calls">Wrapping Server Process function calls</a></li>
