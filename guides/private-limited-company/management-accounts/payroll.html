@@ -486,20 +486,7 @@
 
 <p>This is quite a complex tab that shows all the Salary Payments due, to the Company Director and then H.M.R.C. Tax, and N.I.C.s payments due to H.M.R.C..</p>
 
-<figure>
-    
-        <img class="docimage" src="images/payroll-01.png" alt="" style="width: 100%; max-width: " />
-    
-
-    
-    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
-        <i></i>
-    </figcaption>
-    
-</figure>
-
-<!-- Trigger/Open The Modal -->
-<p><button id="modalBtn">Open large-sized image</button></p>
+<!-- ************************************************ -->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -507,15 +494,24 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <h4>Payroll</h4>
+      <h4>Other Transactions</h4>
       <p><span class="close">
 ×
 </span></p>
     </div>
     <div class="modal-body">
-      <figure>
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-01.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-01.png');" src="images/payroll-01.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -524,8 +520,8 @@
     </figcaption>
     
 </figure>
-    </div>
-    <div class="modal-footer"></div>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
   </div>
 </div>
 
@@ -535,9 +531,10 @@
 
 <h2 id="notional-for-tax">Notional for Tax</h2>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-02.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-02.png');" src="images/payroll-02.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -546,6 +543,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h3 id="directors-salary">Director’s Salary:</h3>
 
@@ -553,9 +554,10 @@
 
 <p>When the Director is actually paid his or her Net Salary, this Cash Payment Transaction is recorded in the relevant ‘Monthly Transaction’ Tab, as shown below, for January:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-03.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-03.png');" src="images/payroll-03.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -564,10 +566,15 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-04.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-04.png');" src="images/payroll-04.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -576,6 +583,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h3 id="directors-other-salary">Director’s Other Salary:</h3>
 
@@ -585,9 +596,10 @@
 
 <p>For example, the figure of £1,200 shown below, arises from the following transaction that was recorded in March.</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-05.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-05.png');" src="images/payroll-05.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -596,10 +608,15 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-06.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-06.png');" src="images/payroll-06.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -608,6 +625,10 @@
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>Private Medical Insurance, for 3 months, was paid for by the Director personally. An invoice (or expense receipt) was then raised by the Director and sent to the company on the 23rd of March.</p>
 
@@ -618,9 +639,10 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
 
 <p>Note, the re-bursement to the Director of this amount can be seen in April Monthly Transaction Tab, as shown in the picture below:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-07.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-07.png');" src="images/payroll-07.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -629,10 +651,15 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-08.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-08.png');" src="images/payroll-08.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -641,14 +668,19 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h2 id="actual-for-accounting">Actual for Accounting</h2>
 
 <p>The next table shows the same picture, but with the cost of the Private Medical Insurance spread over the relevant period:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-09.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-09.png');" src="images/payroll-09.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -657,6 +689,10 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>As the Medical Insurance covers three months, the cost is spread over that time, from: the 23rd March to the 23rd June. Also, as V.A.T. is likely to be recoverable from H.M.R.C., the cost to the company of paying for this benefit, should just total to £1,000 - not £1,200 (as we assume that £200 can be claimed back from H.M.R.C.), which we can see it does from the above Picture.</p>
 
@@ -664,9 +700,10 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
 
 <p>This section calculates what Employer’s N.I.C. are due.</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-10.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-10.png');" src="images/payroll-10.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -675,14 +712,19 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p><em>Class 1 NIC</em> is calculated from the line ‘<em>Total Director’s Salary + BIK</em>’, in the <strong><em>Notional – for TAX</em></strong> section. This is done in the usual way – by first calculating the Y.T.D. amount, and then from that, the monthly charge.</p>
 
 <p>The <em>Class 1A</em> expense shown (of £82.80) arises from a completely separate transaction: in March, the company had arranged directly for Dental Insurance for the Director, of £600 Gross. Though this is not considered as Director’s Other Salary (as the company made all the arrangements), extra Class 1A NICs is still due (according to our interpretation of the H.M.R.C. rules)</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-11.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-11.png');" src="images/payroll-11.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -691,10 +733,15 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-12.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-12.png');" src="images/payroll-12.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -703,6 +750,10 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>Therefore £600 (Gross figure) * 13.8% = £82.8 in <em>Class 1A</em> is due, which is what is shown in the payroll line above (as the total figure).</p>
 
@@ -710,9 +761,10 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
 
 <p>Note the company later, in April, does settle directly with BUPA Health, the Dental Insurance, as shown in the second cash transaction below:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-13.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-13.png');" src="images/payroll-13.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -721,10 +773,15 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-14.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-14.png');" src="images/payroll-14.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -733,6 +790,10 @@ According to H.M.R.C., a B.I.K. is N.I.C./P.A.Y.E. chargeable on its Gross Amoun
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <div class="alert alert-secondary alerts-font" role="alert">
   <p><i class="fa fa-info-circle"></i> <b>Info: </b>
@@ -744,9 +805,10 @@ The Hilton Transaction, (the third transaction shown in the examples above) was 
 
 <p>This section calculates the P.A.Y.E and Employee’s N.I.C. that is due:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-15.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-15.png');" src="images/payroll-15.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -755,6 +817,10 @@ The Hilton Transaction, (the third transaction shown in the examples above) was 
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>Both are calculated from the line: ‘<em>Total Director’s Salary + BIK</em>’, from the total amount in the <strong><em>Notional – for TAX</em></strong> section above.</p>
 
@@ -764,9 +830,10 @@ The Hilton Transaction, (the third transaction shown in the examples above) was 
 
 <p>Final Net Director Salary Costs (both normal salary, and any other B.I.K.s) are shown as the last two lines. These are calculated from the section: <strong><em>Notional – for Accounting</em></strong>, and are after deducting Employee’s N.I.C.s and P.A.Y.E. (which are calculated from the section: <strong><em>Notional – for Tax</em></strong>)</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-16.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-16.png');" src="images/payroll-16.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -775,12 +842,17 @@ The Hilton Transaction, (the third transaction shown in the examples above) was 
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <p>All three lines: Director Salary, Director B.I.K. (Other salary), and P.A.Y.E./N.I.C. expenses, should appear in the Profit &amp; Loss page, as shown here:</p>
 
-<figure>
+<div class="img-wrap">
+  <figure>
     
-        <img class="docimage" src="images/payroll-17.png" alt="" style="width: 100%; max-width: " />
+        <img class="docimage" onclick="showImage('payroll-17.png');" src="images/payroll-17.png" alt="" style="width: 100%; max-width: " />
     
 
     
@@ -789,6 +861,10 @@ The Hilton Transaction, (the third transaction shown in the examples above) was 
     </figcaption>
     
 </figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
 
 <h2 id="extra-filings">Extra Filings</h2>
 
