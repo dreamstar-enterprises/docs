@@ -544,34 +544,34 @@ for file in files:
   <li>Scanning through each page of the input PDF file</li>
   <li>Then finding out when the name written after the ‘<em>Name:</em> ‘ field changes, from one page to another.</li>
   <li>When it does, it then extracts all the relevant pages upto that point into a PDF object</li>
-  <li>The PDF object is then written out as a new PDF file and saved in the folder called ‘<em>Output</em>’.</li>
+  <li>The PDF object is then written out as a new PDF file and saved into the folder called ‘<em>Output</em>’.</li>
 </ul>
 
-<p>For example, if a name repeats across several pages in the input file, the Script will loop through each page, adding each looped through page to the same PDF object, until the name changes. When the name changes, the PDF object is then saved out as a new PDF file, and the process repeats.</p>
+<p>For example, if a name repeats across several pages in the input file, the Script will loop through each page, adding each page to the same PDF object, until the name on the page changes. When the name does changes, the PDF object is then written out and saved as a new PDF file, after which the process repeats.</p>
 
 <ul>
-  <li>The firstname and surname are intelligently extracted from the detected name, and automatically included in the filename of each new PDF file.</li>
+  <li>Finally, he firstname and surname are intelligently extracted from the detected name, and automatically included in the filename of each new generated PDF.</li>
 </ul>
 
 <h2 id="bonus-feature">Bonus Feature!</h2>
 
-<p>The script also extracts the Employee No. from each page, along with the firstname and surname. This is useful as on some productions, Crew Members can have the same name (it does happen on large Crews!), so including the Employee No. allows for better identification.</p>
+<p>The script also extracts the Employee No. from each page (along with the firstname and surname). This is useful as on some productions, Crew Members can have the same name (it does happen on large Crews!), so including the Employee No. in the filename allows for better identification.</p>
 
 <div class="alert alert-warning alerts-font" role="alert">
   <p><i class="fa fa-warning"></i> <b>Important: </b>
 <br />
-Unforunately not all Payslips have a Employee No. - (a bug Sargent Disc, presumably, are working to resolve…). On pages where there is no Employee No., the word ‘<em>empty</em>’ is used instead as a replacement.</p>
+Unforunately not all Payslips have a Employee No. on them - (a bug Sargent Disc, presumably, are working to resolve…?). On pages where there is no Employee No., the word ‘<em>empty</em>’ is used instead as a replacement.</p>
 </div>
 
-<p>That’s it!</p>
+<p>That’s really all there is to it!</p>
 
 <h2 id="extensions">Extensions</h2>
 
 <p>The basic methods and concepts illustrated here can be extended to any text readble PDF (e.g. <em>V.A.T. Invoices</em>, <em>Purchase Orders</em>, <em>Contracts</em>, <em>Start Forms</em>, etc.)</p>
 
-<p>Python also has libraries for <em>MS Excel</em>, and various <em>Email Applications</em>, that these workflows can be further extended to.</p>
+<p>Furthermore, Python also has libraries that can work with applications like <em>MS Excel</em>, and various <em>Email Clients</em>, so the above workflows can, with some effort, be extended out even further!</p>
 
-<p>So, really, the sky’s the limit!</p>
+<p>The sky is the limit!</p>
 
 
                         
