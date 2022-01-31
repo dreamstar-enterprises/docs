@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Python - Example Scripts for Film | StarBase </title>
+		<title>Creating Folders - From M.S. Excel | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -337,23 +337,117 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="python---example-scripts-for-film">Python - Example Scripts for Film</h1>
+                        <h1 id="creating-folders---from-ms-excel">Creating Folders - From M.S. Excel</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Python • 30/01/2022</time>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="overview">Overview</h2>
 
-<p>This (work in progress) guide shows how Python can be used to computerize and automate some of the business processes followed in Media &amp; Entertainment Production Companies, (mainly Finance &amp; Accounts departments), to:</p>
+<p>This example shows how to create a list of folders from a list foldernames stored in an Excel file, using the Python library, <strong><em>openpyxl</em></strong>.</p>
+
+<p>As with all Scripts, the particulars shown below can be modified to suit your needs.</p>
+
+<h2 id="python-script">Python Script</h2>
+
+<p>The following shows the full script</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Python">Python</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+import os, openpyxl
+from pathlib import Path
+
+working_directory = Path.cwd()
+excel_file = Path(&#39;Excel_File.xlsx&#39;)
+output_folder = Path(&#39;Folders&#39;)
+output_folder_path = working_directory / output_folder
+data = str(excel_file)
+
+workbook = openpyxl.load_workbook(data)
+sheet = workbook[&#39;Sheet1&#39;]
+
+# Use this part when folder name is created just from one column
+# --------------------------------------------------------------
+column_values = [cell.value for col in sheet.iter_cols(
+    min_row = 3, max_row = None, min_col = 4, max_col = 4) for cell in col]
+
+for value in column_values:
+    folderName = value
+    os.makedirs(os.path.join(str(output_folder_path), str(folderName)))
+    print(&quot;Created folder: &quot;, folderName)
+">
+  </button>
+</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span><span class="p">,</span> <span class="n">openpyxl</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">working_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="n">excel_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'Excel_File.xlsx'</span><span class="p">)</span>
+<span class="n">output_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'Folders'</span><span class="p">)</span>
+<span class="n">output_folder_path</span> <span class="o">=</span> <span class="n">working_directory</span> <span class="o">/</span> <span class="n">output_folder</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">excel_file</span><span class="p">)</span>
+
+<span class="n">workbook</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="p">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">sheet</span> <span class="o">=</span> <span class="n">workbook</span><span class="p">[</span><span class="s">'Sheet1'</span><span class="p">]</span>
+
+<span class="c1"># Use this part when folder name is created just from one column
+# --------------------------------------------------------------
+</span><span class="n">column_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">cell</span><span class="p">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sheet</span><span class="p">.</span><span class="n">iter_cols</span><span class="p">(</span>
+    <span class="n">min_row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_row</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">min_col</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">max_col</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">col</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">column_values</span><span class="p">:</span>
+    <span class="n">folderName</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output_folder_path</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">folderName</span><span class="p">)))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Created folder: "</span><span class="p">,</span> <span class="n">folderName</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="how-to-use-it">How to Use it</h2>
 
 <ul>
-  <li>Reduce errors,</li>
-  <li>Increase quality,</li>
-  <li>Speed up time to delivery, and</li>
-  <li>Make work more fun &amp; engaging!</li>
+  <li>
+    <p>The input file is called <em>Excel_File.xlsx</em>. This has a list of folder names in a particular column</p>
+  </li>
+  <li>
+    <p>The script can be given any meaningful name but should have a file extension <em>.py</em> to tell the operating system it is a Python Script</p>
+  </li>
+  <li>
+    <p>The newly created folders are generated in the output folder called <em>Folders</em>. This folder should sit along side the input Excel file and python script</p>
+  </li>
+  <li>
+    <p>In the Excel file, the folder names are listed in the sheet called <em>Sheet1</em> - but this can be changed</p>
+  </li>
+  <li>
+    <p>The folder names start from row <em>3</em> (which is why the <em>min_row</em> variable has been set to <em>3</em>)</p>
+  </li>
+  <li>
+    <p>The folder names are started in column <em>D</em> (which is why the <em>min_col</em>, and <em>max_col</em> variables have been set to <em>4</em>)</p>
+  </li>
+  <li>
+    <p>The script can be run easily from any Python compiler on a Mac or Windows computer (<em>Visual Studio Code</em> is recommended!)</p>
+  </li>
+  <li>
+    <p>The script is super fast - it can do 2-3 days of folder creating work in about 5 seconds!</p>
+  </li>
 </ul>
 
-<p>This especially applies to high volume, complicated, and time-consuming manual tasks that can be more prone to mistake-making.</p>
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+  Re-running the script with folders already created with the same names will cause the Script to stop, and throw a ‘file exist’ error, so don’t forget to clear out the output folder everytime the script is run.</p>
+</div>
 
-<p>So, if this interests you and piques your curiosity, click through to find out more!</p>
+<h2 id="how-it-works">How it works</h2>
+
+<p>The script works by:</p>
+
+<ul>
+  <li>Opening the Excel file (once it knows its location)</li>
+  <li>Then it goes to the relevant row and column to the beginning of the list</li>
+  <li>It then goes through an iteration loop and extracts the raw value of each cell in the list, and creates a new folder with the name of this raw value</li>
+  <li>When it (the code!) gets to the end of the list, it will create one final folder called “<em>None</em>” - and then stop</li>
+</ul>
+
+<p>That’s it!</p>
+
 
                         
                             <div id="mainNavBottom">
@@ -420,7 +514,10 @@
                                 </div>
                             </header>
                             <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#python-script">Python Script</a></li>
+<li class="toc-entry toc-h2"><a href="#how-to-use-it">How to Use it</a></li>
+<li class="toc-entry toc-h2"><a href="#how-it-works">How it works</a></li>
 </ul>
                         </nav>
 
