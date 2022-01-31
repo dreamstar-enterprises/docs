@@ -372,8 +372,16 @@ column_values = [cell.value for col in sheet.iter_cols(
 
 for value in column_values:
     folderName = value
-    os.makedirs(os.path.join(str(output_folder_path), str(folderName)))
-    print(&quot;Created folder: &quot;, folderName)
+    fullfolderName = os.path.join(str(output_folder_path), str(folderName))
+    isDir = os.path.isdir(fullfolderName) 
+
+    # Only Create Folder, if it doesn&#39;t already exist
+    if not(isDir):
+        os.makedirs(os.path.join(fullfolderName))
+        print(&quot;Created folder: &quot;, folderName)
+    else:
+        print(&quot;The folder:&quot;, folderName, &quot;already exists&quot;)
+
 ">
   </button>
 </div>
@@ -396,8 +404,16 @@ for value in column_values:
 
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">column_values</span><span class="p">:</span>
     <span class="n">folderName</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="n">os</span><span class="p">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output_folder_path</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">folderName</span><span class="p">)))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Created folder: "</span><span class="p">,</span> <span class="n">folderName</span><span class="p">)</span>
+    <span class="n">fullfolderName</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output_folder_path</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">folderName</span><span class="p">))</span>
+    <span class="n">isDir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">fullfolderName</span><span class="p">)</span> 
+
+    <span class="c1"># Only Create Folder, if it doesn't already exist
+</span>    <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">isDir</span><span class="p">):</span>
+        <span class="n">os</span><span class="p">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">fullfolderName</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Created folder: "</span><span class="p">,</span> <span class="n">folderName</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"The folder:"</span><span class="p">,</span> <span class="n">folderName</span><span class="p">,</span> <span class="s">"already exists"</span><span class="p">)</span>
+
 </code></pre></div></div>
 
 <h2 id="how-to-use-it">How to Use it</h2>
@@ -432,7 +448,7 @@ for value in column_values:
 <div class="alert alert-info alerts-font" role="alert">
   <p><i class="fa fa-info-circle"></i> <b>Note: </b>
 <br />
-  Re-running the script with folders already created with the same names will cause the Script to stop, and throw a ‘file exist’ error, so don’t forget to clear out the output folder everytime the script is run.</p>
+  The Script will only create folders that don’t already exist. So, if you run the Script again, and the output folder has all the new folders in it, the Script will not create any the new folders again - only any new folder names that are in the Excel list but not in the output folder. So don’t forget to clear out the output folder everytime the script is run!</p>
 </div>
 
 <h2 id="how-it-works">How it works</h2>
@@ -443,10 +459,11 @@ for value in column_values:
   <li>Opening the Excel file (once it knows where it is)</li>
   <li>It then goes to the relevant sheet, row and column to where the list of folder names are</li>
   <li>It then goes through an iteration loop, extracting the raw value of each cell in the list, and creating a new folder for each one</li>
-  <li>When it (the code!) gets to the end of the list, it will create one final folder called “<em>None</em>” - and then stop</li>
+  <li>It then check whether the new folder already exists in the output folder. If it doesn’t exist, it will create a new folder, otherwise it will skip onto the next cell value in the Excel list</li>
+  <li>When it (the code!) gets to the end of the list, it will create one final folder called “<em>None</em>” - and then finally stop</li>
 </ul>
 
-<p>That’s it!</p>
+<p>That’s it! Enjoy!</p>
 
 
                         
