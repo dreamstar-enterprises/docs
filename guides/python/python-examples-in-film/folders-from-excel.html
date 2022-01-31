@@ -356,6 +356,7 @@
 import os, openpyxl
 from pathlib import Path
 
+# Specify Input and Output Locations
 working_directory = Path.cwd()
 excel_file = Path(&#39;Excel_File.xlsx&#39;)
 output_folder = Path(&#39;Folders&#39;)
@@ -365,8 +366,7 @@ data = str(excel_file)
 workbook = openpyxl.load_workbook(data)
 sheet = workbook[&#39;Sheet1&#39;]
 
-# Use this part when folder name is created just from one column
-# --------------------------------------------------------------
+# Create Folders
 column_values = [cell.value for col in sheet.iter_cols(
     min_row = 3, max_row = None, min_col = 4, max_col = 4) for cell in col]
 
@@ -380,7 +380,8 @@ for value in column_values:
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span><span class="p">,</span> <span class="n">openpyxl</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
-<span class="n">working_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="c1"># Specify Input and Output Locations
+</span><span class="n">working_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">.</span><span class="n">cwd</span><span class="p">()</span>
 <span class="n">excel_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'Excel_File.xlsx'</span><span class="p">)</span>
 <span class="n">output_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'Folders'</span><span class="p">)</span>
 <span class="n">output_folder_path</span> <span class="o">=</span> <span class="n">working_directory</span> <span class="o">/</span> <span class="n">output_folder</span>
@@ -389,8 +390,7 @@ for value in column_values:
 <span class="n">workbook</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="p">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">sheet</span> <span class="o">=</span> <span class="n">workbook</span><span class="p">[</span><span class="s">'Sheet1'</span><span class="p">]</span>
 
-<span class="c1"># Use this part when folder name is created just from one column
-# --------------------------------------------------------------
+<span class="c1"># Create Folders
 </span><span class="n">column_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">cell</span><span class="p">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sheet</span><span class="p">.</span><span class="n">iter_cols</span><span class="p">(</span>
     <span class="n">min_row</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_row</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">min_col</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">max_col</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">col</span><span class="p">]</span>
 
@@ -413,19 +413,19 @@ for value in column_values:
     <p>The newly created folders are generated in the output folder called <em>Folders</em>. This folder should sit along side the input Excel file and python script</p>
   </li>
   <li>
-    <p>In the Excel file, the folder names are listed in the sheet called <em>Sheet1</em> - but this can be changed</p>
+    <p>In the Excel file, the folder names are listed in the sheet called <em>Sheet1</em> - but this can be tailored to your own needs</p>
   </li>
   <li>
-    <p>The folder names start from row <em>3</em> (which is why the <em>min_row</em> variable has been set to <em>3</em>)</p>
+    <p>The folder names start from row <em>3</em> (which is why the <em>min_row</em> variable above has been set to <em>3</em>)</p>
   </li>
   <li>
-    <p>The folder names are started in column <em>D</em> (which is why the <em>min_col</em>, and <em>max_col</em> variables have been set to <em>4</em>)</p>
+    <p>The folder names are listed in column <em>D</em> (which is why the <em>min_col</em>, and <em>max_col</em> variables above have been set to <em>4</em>)</p>
   </li>
   <li>
     <p>The script can be run easily from any Python compiler on a Mac or Windows computer (<em>Visual Studio Code</em> is recommended!)</p>
   </li>
   <li>
-    <p>The script is super fast - it can do 2-3 days of folder creating work in about 5 seconds!</p>
+    <p>The script is super fast! It can do 2-3 days of folder creating work in about 5 seconds!</p>
   </li>
 </ul>
 
@@ -440,9 +440,9 @@ for value in column_values:
 <p>The script works by:</p>
 
 <ul>
-  <li>Opening the Excel file (once it knows its location)</li>
-  <li>Then it goes to the relevant row and column to the beginning of the list</li>
-  <li>It then goes through an iteration loop and extracts the raw value of each cell in the list, and creates a new folder with the name of this raw value</li>
+  <li>Opening the Excel file (once it knows where it is)</li>
+  <li>It then goes to the relevant sheet, row and column to where the list of folder names are</li>
+  <li>It then goes through an iteration loop, extracting the raw value of each cell in the list, and creating a new folder for each one</li>
   <li>When it (the code!) gets to the end of the list, it will create one final folder called “<em>None</em>” - and then stop</li>
 </ul>
 
