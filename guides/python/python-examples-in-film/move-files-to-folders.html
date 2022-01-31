@@ -382,7 +382,7 @@ destination_folder = Path(&#39;Folders&#39;)
 source_folder_path = working_directory / source_folder
 destination_folder_path = working_directory / destination_folder
 
-# find all the destination folders
+# find all the final destination folders
 folders = next(os.walk(str(destination_folder_path)))[1]
 
 # find all the source files
@@ -396,13 +396,13 @@ if len(folders) == 0 or len(source_files) == 0:
 else:
     for file in source_files:
         filename = file.name
-        # Extract the Employee number as the text between the paranthesis - i.e. ( )
+        # Extract the Employee number as the text between the paranthesis - i.e. ( ) in the filename of the source files
         empNo = filename[filename.find(&quot;(&quot;)+1:filename.rfind(&quot;)&quot;)]
 
         # Check that Employee number does not equal to EMPTY
         if empNo != &#39;EMPTY&#39;:
 
-            # Otherwise move matching file into matching folder
+            # Otherwise move matching souce file into matching final destination folder
             for folder in folders:
                 if folder.find(empNo) != -1:
                     shutil.move(str(file), str(destination_folder_path / folder))
@@ -425,7 +425,7 @@ print(&#39;All files moved&#39;)
 <span class="n">source_folder_path</span> <span class="o">=</span> <span class="n">working_directory</span> <span class="o">/</span> <span class="n">source_folder</span>
 <span class="n">destination_folder_path</span> <span class="o">=</span> <span class="n">working_directory</span> <span class="o">/</span> <span class="n">destination_folder</span>
 
-<span class="c1"># find all the destination folders
+<span class="c1"># find all the final destination folders
 </span><span class="n">folders</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">walk</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">destination_folder_path</span><span class="p">)))[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># find all the source files
@@ -439,13 +439,13 @@ print(&#39;All files moved&#39;)
 </span><span class="k">else</span><span class="p">:</span>
     <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">source_files</span><span class="p">:</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">name</span>
-        <span class="c1"># Extract the Employee number as the text between the paranthesis - i.e. ( )
+        <span class="c1"># Extract the Employee number as the text between the paranthesis - i.e. ( ) in the filename of the source files
 </span>        <span class="n">empNo</span> <span class="o">=</span> <span class="n">filename</span><span class="p">[</span><span class="n">filename</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"("</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">filename</span><span class="p">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">")"</span><span class="p">)]</span>
 
         <span class="c1"># Check that Employee number does not equal to EMPTY
 </span>        <span class="k">if</span> <span class="n">empNo</span> <span class="o">!=</span> <span class="s">'EMPTY'</span><span class="p">:</span>
 
-            <span class="c1"># Otherwise move matching file into matching folder
+            <span class="c1"># Otherwise move matching souce file into matching final destination folder
 </span>            <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">folder</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">empNo</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
                     <span class="n">shutil</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">file</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">destination_folder_path</span> <span class="o">/</span> <span class="n">folder</span><span class="p">))</span>
