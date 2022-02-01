@@ -2406,7 +2406,7 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .header-holder .content-header .dropdown { position: relative; }
 
-.header-holder .content-header .sharing-menu { position: absolute; margin-top: 12px; z-index: 100; width: auto; top: 100%; white-space: nowrap; background-color: white; border: 1px solid #e3e3e3; box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.125), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.125); }
+.header-holder .content-header .sharing-menu { position: absolute; margin-top: 12px; z-index: 100; width: auto; right: -5px; top: 100%; white-space: nowrap; background-color: white; border: 1px solid #e3e3e3; box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.125), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.125); }
 
 @media screen and (max-width: 1087px), screen and (min-resolution: 120dpi) and (max-width: 1087.9px) { .header-holder .content-header .sharing-menu { right: 0px; } }
 
