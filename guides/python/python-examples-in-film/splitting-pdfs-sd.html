@@ -568,10 +568,10 @@ for file in files:
   </li>
 </ul>
 
-<div class="alert alert-info alerts-font" role="alert">
-  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<div class="alert alert-warning alerts-font" role="alert">
+  <p><i class="fa fa-warning"></i> <b>Important: </b>
 <br />
-  Re-running the script will overwrite any files already in the <em>Output</em> folder with the same name, so don’t forget to clear out the folder everytime the script is run</p>
+  Re-running the script will overwrite any files already in the <em>Output</em> folder with the same name, so don’t forget to clear out the folder, and carefully check what filename you give to any newly generated PDFs, before running the script</p>
 </div>
 
 <h2 id="how-it-works">How it Works</h2>
@@ -595,8 +595,8 @@ for file in files:
 
 <p>The script also extracts the Employee No. from each page (along with the firstname and surname). This is useful as on some productions, Crew Members can have the same name (it does happen on large Crews!), so including the Employee No. in the filename allows for better identification.</p>
 
-<div class="alert alert-warning alerts-font" role="alert">
-  <p><i class="fa fa-warning"></i> <b>Important: </b>
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
 <br />
 Unforunately not all Payslips have a Employee No. on them - (a bug Sargent Disc, presumably, are working to resolve…?). On pages where there is no Employee No., the word ‘<em>empty</em>’ is used instead as a replacement.</p>
 </div>

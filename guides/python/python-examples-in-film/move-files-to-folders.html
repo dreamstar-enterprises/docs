@@ -382,8 +382,10 @@ destination_folder = Path(&#39;Folders&#39;)
 source_folder_path = working_directory / source_folder
 destination_folder_path = working_directory / destination_folder
 
-# find all the final destination folders
-folders = next(os.walk(str(destination_folder_path)))[1]
+# find all the destination folders (going down a depth of 2 child directories)
+folderDepth_1 = filter(lambda f: os.path.isdir(f), destination_folder_path.glob(&#39;*/&#39;))
+folderDepth_2 = filter(lambda f: os.path.isdir(f), destination_folder_path.glob(&#39;*/*/&#39;))
+folders = list(folderDepth_1) + list(folderDepth_2)
 
 # find all the source files
 source_files = list(source_folder_path.glob(&#39;*.pdf&#39;))
@@ -396,21 +398,21 @@ if len(folders) == 0 or len(source_files) == 0:
 else:
     for file in source_files:
         filename = file.name
-        # Extract the Employee number as the text between the paranthesis - i.e. ( ) in the filename of the source files
+        # Extract the Employee number as the text between the paranthesis - i.e. ( )
         empNo = filename[filename.find(&quot;(&quot;)+1:filename.rfind(&quot;)&quot;)]
 
         # Check that Employee number does not equal to EMPTY
         if empNo != &#39;EMPTY&#39;:
 
-            # Otherwise move matching souce file into matching final destination folder
+            # Otherwise move matching file into matching folder
             for folder in folders:
-                if folder.find(empNo) != -1:
-                    shutil.move(str(file), str(destination_folder_path / folder))
+                if str(folder).find(empNo) != -1:
+                    shutil.move(str(file), str(folder / os.path.basename(file)))
                     print(&#39;File moved successfully!&#39;)
                     break
-
+        
 # Print final message
-print(&#39;All files moved&#39;)    
+print(&#39;All files moved&#39;) 
 
 ">
   </button>
@@ -425,8 +427,10 @@ print(&#39;All files moved&#39;)
 <span class="n">source_folder_path</span> <span class="o">=</span> <span class="n">working_directory</span> <span class="o">/</span> <span class="n">source_folder</span>
 <span class="n">destination_folder_path</span> <span class="o">=</span> <span class="n">working_directory</span> <span class="o">/</span> <span class="n">destination_folder</span>
 
-<span class="c1"># find all the final destination folders
-</span><span class="n">folders</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">walk</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">destination_folder_path</span><span class="p">)))[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># find all the destination folders (going down a depth of 2 child directories)
+</span><span class="n">folderDepth_1</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">destination_folder_path</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'*/'</span><span class="p">))</span>
+<span class="n">folderDepth_2</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">destination_folder_path</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'*/*/'</span><span class="p">))</span>
+<span class="n">folders</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">folderDepth_1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">folderDepth_2</span><span class="p">)</span>
 
 <span class="c1"># find all the source files
 </span><span class="n">source_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">source_folder_path</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'*.pdf'</span><span class="p">))</span>
@@ -439,21 +443,21 @@ print(&#39;All files moved&#39;)
 </span><span class="k">else</span><span class="p">:</span>
     <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">source_files</span><span class="p">:</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">name</span>
-        <span class="c1"># Extract the Employee number as the text between the paranthesis - i.e. ( ) in the filename of the source files
+        <span class="c1"># Extract the Employee number as the text between the paranthesis - i.e. ( )
 </span>        <span class="n">empNo</span> <span class="o">=</span> <span class="n">filename</span><span class="p">[</span><span class="n">filename</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"("</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">filename</span><span class="p">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">")"</span><span class="p">)]</span>
 
         <span class="c1"># Check that Employee number does not equal to EMPTY
 </span>        <span class="k">if</span> <span class="n">empNo</span> <span class="o">!=</span> <span class="s">'EMPTY'</span><span class="p">:</span>
 
-            <span class="c1"># Otherwise move matching souce file into matching final destination folder
+            <span class="c1"># Otherwise move matching file into matching folder
 </span>            <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">folder</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">empNo</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-                    <span class="n">shutil</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">file</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">destination_folder_path</span> <span class="o">/</span> <span class="n">folder</span><span class="p">))</span>
+                <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">folder</span><span class="p">).</span><span class="n">find</span><span class="p">(</span><span class="n">empNo</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">file</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">folder</span> <span class="o">/</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">basename</span><span class="p">(</span><span class="nb">file</span><span class="p">)))</span>
                     <span class="k">print</span><span class="p">(</span><span class="s">'File moved successfully!'</span><span class="p">)</span>
                     <span class="k">break</span>
-
+        
 <span class="c1"># Print final message
-</span><span class="k">print</span><span class="p">(</span><span class="s">'All files moved'</span><span class="p">)</span>    
+</span><span class="k">print</span><span class="p">(</span><span class="s">'All files moved'</span><span class="p">)</span> 
 
 </code></pre></div></div>
 
@@ -464,7 +468,7 @@ print(&#39;All files moved&#39;)
     <p>The source folder is called <em>Payslips</em>. This has a list of all the source files</p>
   </li>
   <li>
-    <p>The parent destination folder is called <em>Folders</em>. This has, within it, several destination folders (where the source files need to be moved to)</p>
+    <p>The parent destination folder is called <em>Folders</em>. This has, within it, several destination folders (where the source files need to be moved to). All child directories going down 2 levels are searched.</p>
   </li>
   <li>
     <p>The script can be given any meaningful name but should have a file extension <em>.py</em> to tell the operating system it is a Python Script</p>
@@ -488,12 +492,12 @@ print(&#39;All files moved&#39;)
 <p>The script works by:</p>
 
 <ul>
-  <li>Extracting all sub-folders from within the parent destination folder</li>
+  <li>Extracting all sub-folders (level 1 and level 2 child directories) from within the parent destination folder</li>
   <li>Extracting all source files from the source folder (that have the file extension <em>.pdf</em>)</li>
-  <li>Checking that at least some destination folders and source files actually exist (i.e. that neither are nil)</li>
-  <li>Extracting the Employee number from the filename of the source file</li>
+  <li>Checking that at least some destination folders in the parent folder, and some source files in the source folder actually exist (i.e. that neither are nil)</li>
+  <li>Extracting the Employee number from the filename of each source file</li>
   <li>Matching this Employee number (provided one exists) with the first folder, whose folder name contains the same Employee number</li>
-  <li>Then, once their is a match, moving the file</li>
+  <li>Then, once there is a match, moving the file into the relevant folder</li>
   <li>A final message is then printed</li>
 </ul>
 
