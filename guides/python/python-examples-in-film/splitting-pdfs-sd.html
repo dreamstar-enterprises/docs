@@ -555,10 +555,10 @@ for file in files:
     <p>The script can be given any meaningful name but should have a file extension <em>.py</em> to tell the operating system it is a Python Script</p>
   </li>
   <li>
-    <p>The split PDFs are saved in a folder called <em>Output</em>. This folder should sit along side the input PDF file and python script, within the same working directory</p>
+    <p>The split PDFs are saved in a folder called <em>Output</em>. This (i) folder should sit alongside the (ii) input PDF file and (iii) Python script, within the same working directory</p>
   </li>
   <li>
-    <p>The name given to each new file saved can be modified by editing the last line of the Script</p>
+    <p>The name given to each new file saved can be modified by editing the last line of the Script above</p>
   </li>
   <li>
     <p>The script can be run easily from any Python compiler on a Mac or Windows computer (<em>Visual Studio Code</em> is recommended!)</p>
@@ -585,20 +585,22 @@ for file in files:
   <li>The PDF object is then written out as a new PDF file and saved into the folder called ‘<em>Output</em>’.</li>
 </ul>
 
-<p>For example, if a name repeats across several pages in the input file, the Script will loop through each page, adding each page to the same PDF object, until the name on the page changes. When the name does changes, the PDF object is then written out and saved as a new PDF file, after which the process repeats.</p>
+<p>For example, if a name repeats across several pages in the input file, the Script will keep looping through each page, and add each page to the <strong><em>same</em></strong> PDF object, <em>until</em> the name on the page changes. When it does detect a name change, it then writes out and saves PDF object as a new PDF file. The process then repeats.</p>
 
 <ul>
-  <li>Finally, the firstname and surname are intelligently extracted from the detected name, and automatically included in the filename of each new generated PDF.</li>
+  <li>Before each PDF file is saved, the firstname and surname are intelligently extracted from the detected name, and included in the filename of the newly generated PDF.</li>
 </ul>
 
 <h2 id="bonus-feature">Bonus Feature!</h2>
 
 <p>The script also extracts the Employee No. from each page (along with the firstname and surname). This is useful as on some productions, Crew Members can have the same name (it does happen on large Crews!), so including the Employee No. in the filename allows for better identification.</p>
 
+<p>So each file has the person’s firstname, surname, and Employee No. - which is just what you want!</p>
+
 <div class="alert alert-info alerts-font" role="alert">
   <p><i class="fa fa-info-circle"></i> <b>Note: </b>
 <br />
-Unforunately not all Payslips have a Employee No. on them - (a bug Sargent Disc, presumably, are working to resolve…?). On pages where there is no Employee No., the word ‘<em>empty</em>’ is used instead as a replacement.</p>
+Unforunately not all Payslips have a Employee No. on them - (a bug Sargent Disc, presumably, are working to resolve…?). On pages where there is no Employee No., the word ‘<em>empty</em>’ is used, instead, as a text placeholder replacement.</p>
 </div>
 
 <p>That’s really all there is to it!</p>
