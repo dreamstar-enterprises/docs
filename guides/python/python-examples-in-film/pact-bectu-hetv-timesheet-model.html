@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>PACT/BECTU - Timesheet Model (H.E.T.V.) | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@200..400&display=swap" rel="stylesheet">
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"
+  
+  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6 
+                    
+                    
+                    " href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    underline
+                    
+                    " href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/articles-and-blogs/article-search.html">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/about/about.html">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+</div>
+
+
+<div class="header-holder transparent has-default-focus" style="position: sticky; top: 0; left: 0; right: 0;">
+    <div class="content-header uhf-container has-padding has-default-focus is-flexbox" style="padding-top: 0px; padding-bottom: 1px;">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/python/python.html"><span class="">Python</span></a></li>
+        <li><a href=/docs/guides/python/python-examples-in-film/python-intro.html><span class="">Python - Examples in Media & Entertainment</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar-scroll" id="myBar"></div>
+    </div>
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile 
+         
+        is-one-third-tablet is-one-quarter-desktop 
+        ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+
+                <!-- Include LHS Menu -->
+                
+                <form class = "has-margin-bottom-small" action="javascript:" role="search">
+                    <label class="visually-hidden">Search</label>
+                    <div class="searchFilter is-block">
+                        <div class="control has-icons-left">
+                            <input id="searchFilter" class="searchFilter-input input control has-icons-left is-full-width is-small" role="combobox" maxlength="100" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Filter by title" type="text">
+                            <span class="icon is-small is-left">
+                                <img src="/../docs/assets/images/filter.png" class="filter-icon">
+                            </span>
+                        </div>
+                        <ul class="searchFilter-suggestions is-vertically-scrollable is-hidden"></ul>
+                    </div>
+                </form>
+
+                <ul class="toc is-vertically-scrollable has-flex-grow has-flex-shrink">
+                    <!-- Menu Series -->
+                    
+                    
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/python/python-examples-in-film/python-intro.html">Overview</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Spliting Large PDFs</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/python/python-examples-in-film/splitting-pdfs-sd.html">S.D. Payslips</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Creating Folders</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/python/python-examples-in-film/folders-from-excel.html">From M.S. Excel</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Moving Files & Folders</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/python/python-examples-in-film/move-files-to-folders.html">Files into Folders</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+    
+      <li class="treeitem"><span class="tree-expander"><span class="tree-indicator"><img src="/../docs/assets/images/chevron.png" class="chevron"></span>Timesheets</span></li>
+    
+        
+          
+<!-- Left Hand Side Tree --> 
+<ul class="treegroup">
+  
+    
+      <li class="none"><a href="/docs/guides/python/python-examples-in-film/pact-bectu-hetv-timesheet-model.html">PACT/BECTU Timesheet Model (H.E.T.V.)</a></li>
+    
+          
+        
+      </li>
+  
+</ul>
+        
+      </li>
+  
+</ul>
+                </ul>
+
+                <!-- Include the Correct Back Button -->
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column 
+          
+        is-two-thirds-tablet is-three-quarters-desktop 
+        ">
+            <div class="columns has-large-gaps is-gapless-mobile 
+            
+            ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column 
+                 
+                is-full is-four-fifths-desktop 
+                ">
+                    <main id="main" class ="
+                    
+                        content docs
+                    " lang="eng-us">
+                        <h1 id="pactbectu---timesheet-model-hetv">PACT/BECTU - Timesheet Model (H.E.T.V.)</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Python • 30/01/2022</time>
+
+<h2 id="overview">Overview</h2>
+
+<p>Here we show how the the PACT/BECTU Timesheet rules and guidelines can be modelled with Python. 
+(The same can be done in M.S. Excel!)</p>
+
+<p>This is a difficult Timesheet to model, not only because of the number of rules, but also because of:</p>
+
+<p><strong>1.</strong> The potential for knock on / knock back affects between two weeks of consecutive timesheets. E.g.:</p>
+
+<ol class="lower-roman">
+  <li>if compensatory rest is retrospectively given on a Monday in one week, removing the Night Premiums or Daily Broken Turnaround from the previous week,</li>
+  <li>if working on a Sunday in a prior week timesheet results in any 6th or 7th Days in the following week’s timesheet</li>
+</ol>
+
+<p><strong>2.</strong> Gaps in knowledge and sometimes disagreements or inconsistencies between <em>PACT</em> and <em>BECTU</em>. E.g.:</p>
+
+<ol class="lower-roman">
+  <li>on the definitions of <em>SCWDs</em> (is a <em>SWCD10</em>, 10 + 0.5 hours (<em>BECTU</em>), or 10.5 + 0.5 hours (<em>PACT</em>)?)</li>
+  <li>how any Broken Turnaround should be rounded up (by 30mins, or by 60 mins after the first hour)</li>
+  <li>whether travel days should be counted as a WORKING DAY or NON-WORKING DAY, and what reimbursements in cost and time should be when returning from a Resident Location or Outside the U.K., on a scheduled rest day.</li>
+</ol>
+
+<p><strong>3.</strong> Lack of detailed written guidance from <em>PACT</em>, and <em>BECTU</em>. E.g.:</p>
+
+<ol class="lower-roman">
+  <li>Definitions that lack clarity and specificity, often leaving too room for ambiguous interpretation on different scenarios.</li>
+  <li>Currently, there is no Timesheet system (that I have seen) in the industry that properly considers the affect of potentially breaching 2nd meal time breaks</li>
+</ol>
+
+<h2 id="python-script">Python Script</h2>
+
+<p>Nonetheless, below is an attempt to try and model this atomically / programatically:</p>
+
+<p>Much work still needs to be done, and I am in touch with the Head of <em>Screen Skills</em>, and am trying to contact some experts from <em>BECTU</em> to fill in the gaps!</p>
+
+<p>Below is how things stand, so far:</p>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: Python">Python</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+from datetime import datetime, timedelta
+import math
+
+## Functions
+#**************************************************************************************************************************#
+def string_to_date(date, time):
+    return datetime(
+            date.year, date.month, date.day, 
+            datetime.strptime(time, &#39;%H:%M&#39;).hour, 
+            datetime.strptime(time, &#39;%H:%M&#39;).minute)
+
+def camera_ot_roundup(camera_ot):
+    if timedelta(minutes = 0) &lt; camera_ot &lt;= timedelta(minutes = 60):
+        return timedelta(minutes = 30 * math.ceil(camera_ot / timedelta(hours = 0.5)))
+    elif camera_ot &gt; timedelta(minutes = 60):
+        return timedelta(hours = math.ceil(camera_ot / timedelta(hours = 1)))
+
+
+## Dates &amp; Times
+#**************************************************************************************************************************#
+today = datetime(2000, 1, 1)
+
+early_call_input = (&#39;06:00&#39;)
+early_call = string_to_date(today, early_call_input)
+
+midnight_input = (&#39;00:00&#39;)
+midnight = string_to_date(today, midnight_input) + timedelta(days=1)
+
+time_in_input = (&#39;07:40&#39;)
+time_in = string_to_date(today, time_in_input)
+
+unit_call_input = (&#39;08:00&#39;)
+unit_call = string_to_date(today, unit_call_input)
+# 1. Not sure about adjusting Unit Call if Time Out is before Unit Wrap? (E.g. Hair &amp; Makeup early starters)
+
+first_meal_start_input = (&#39;&#39;)
+if first_meal_start_input:
+    first_meal_start = string_to_date(today, first_meal_start_input)
+else:
+    first_meal_start = None
+
+first_meal_end_input = (&#39;&#39;)
+if first_meal_end_input:
+    first_meal_end = string_to_date(today, first_meal_end_input)
+else:
+    first_meal_end = None
+
+second_meal_start_input = (&#39;19:45&#39;)
+if second_meal_start_input:
+    second_meal_start = string_to_date(today, second_meal_start_input)
+else:
+    second_meal_start = None
+
+second_meal_end_input = (&#39;20:00&#39;)
+if second_meal_end_input:
+    second_meal_end = string_to_date(today, second_meal_end_input)
+else:
+    second_meal_end = None
+
+unit_wrap_input = (&#39;19:50&#39;)
+unit_wrap = string_to_date(today, unit_wrap_input)
+# 1. Adjust Unit Wrap if Time In is after Unit Call
+if time_in &gt; unit_call: 
+    unit_wrap = unit_wrap + (time_in - unit_call)
+if unit_wrap &lt; unit_call: 
+    unit_wrap = unit_wrap + timedelta(days=1)
+
+time_out_input = (&#39;19:50&#39;)
+time_out = string_to_date(today, time_out_input)
+if time_out &lt; time_in: 
+    time_out = time_out + timedelta(days=1)
+
+
+## Permitted Pre-Call &amp; Pre-Wrap Times
+#**************************************************************************************************************************#
+permitted_pre_call = timedelta(hours = 0, minutes = 0)
+permitted_post_wrap = timedelta(hours = 0, minutes = 0)
+
+
+## Working Day, and Day Type
+#**************************************************************************************************************************#
+
+# 1. Day types include: Working, Flat Day, T\&#39;round, Trvl, Hol, Bank Hol, Sick, Sick Unpaid, Sick Paid, Isolating, Paid Leave, Unpaid Leave, Not Wkng
+# 2. Working days include: CWD9, CWD10, SWD10, SWD11, and ERDD
+# 3. Not sure about SCWD9 and SCWD10!?!? BECTU and PACT interpretations are different!
+# 4. Where a Crew take time out from a rest day to travel (e.g. to catch a train on a Sunday afternoon, ready for Monday morning), appropriate compensation should be offered for interfering with their time off
+# 5. A travel day is a NON-WORKING day, in accordance with EU law, and EU Working Time Directives. Travel Days do not form part of the working week. (BECTU disagree with this)
+# 6. W.r.t. Travel on Rest days, all departments should be treated the same!
+# 7. A &#39;Turnaround&#39; day is a rest period between two periods of work. It could be either a weekend or rest day given when adjusting between night and daytime work
+working_day = &quot;SWD11&quot;
+day_type = &quot;Working&quot;
+
+
+## Bank Holidays
+#**************************************************************************************************************************#
+
+# 1. Not sure about the affect of this!?!?
+bank_holiday = &quot;No&quot;
+
+
+## Shooting Crew
+#**************************************************************************************************************************#
+
+# 1. Cam OT should only given for shooting crew
+shooting_crew = &quot;Yes&quot;
+
+
+## Grace Periods
+#**************************************************************************************************************************#
+
+# 1. Grace should not be given on New Shoots!
+# 2. Grace should only really be applied if Cam OT &lt;= 15 minutes
+# 3. The first two Grace Periods in a week are unpaid
+# 4. Where a third Grace Period is used in a working week, one hour OT shall be paid, or one hour thirty minutes given as compensatory rest in the same working week
+grace = &quot;No&quot; 
+grace_time = timedelta(minutes = 15)
+
+
+## Meals
+#**************************************************************************************************************************#
+
+# 1. A meal break of 1 hour should be given for a SWD10 or SWD11 working day
+# 2. A second meal break of 30 mins should also be due on a SWD10 and SWD11 working day (within 6 hours of the first meal break, excluding any Permitted Wrap Work and Permitted Grace Periods)
+# 3. A meal break time of 30mins should be given for a SCWD11 or SCWD10 working day
+# 4. CWD9 and CWD10 days do not have formal meal breaks, however a rest break of no less than 20 mins should be given, within 6 hours of starting work (or within 6 hours of completion of the previous break)
+# 5. Where work continues for more than one hour following the end of a CWD (excluding any Permitted Wrap Work and Permitted Grace Periods), the Producer should provide food and refreshments
+SWD_first_meal_break = timedelta(minutes = 60)
+SWD_second_meal_break = timedelta(minutes = 30)
+
+# 1. First meal delay - should begin no later than 6 hours after the Unit Call (on SWD10 and SWD11 working days)
+# 2. Second meal delay - should begin no later than 6 hours after the end of the First Meal Break (on SWD10 and SWD11 working days)
+first_meal_delay = timedelta(hours = 6)
+second_meal_delay = timedelta(hours = 6)
+
+
+## Calculate Scheduled Finish time
+#**************************************************************************************************************************#
+match working_day:
+    case &quot;CWD9&quot;:
+        scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=9)
+    case &quot;CWD10&quot;:
+        scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=10)
+    case &quot;SWD10&quot;:
+        if first_meal_start and first_meal_end:
+            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=10) + (first_meal_end - first_meal_start)
+            if second_meal_start and second_meal_end and scheduled_finish_time &gt; second_meal_start:
+                scheduled_finish_time = scheduled_finish_time + (second_meal_end - second_meal_start)
+        else:
+            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=10)
+            if second_meal_start and second_meal_end and scheduled_finish_time &gt; second_meal_start:
+                scheduled_finish_time = scheduled_finish_time + (second_meal_end - second_meal_start)
+    case &quot;SWD11&quot;:
+        if first_meal_start and first_meal_end:
+            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=11) + (first_meal_end - first_meal_start)
+            if second_meal_start and second_meal_end and scheduled_finish_time &gt; second_meal_start:
+                scheduled_finish_time = scheduled_finish_time + (second_meal_end - second_meal_start)
+        else:
+            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=11)
+            if second_meal_start and second_meal_end and scheduled_finish_time &gt; second_meal_start:
+                scheduled_finish_time = scheduled_finish_time + (second_meal_end - second_meal_start)
+    case _:
+        scheduled_finish_time = today
+        print(&quot;Working Day not found&quot;)
+
+print(scheduled_finish_time)
+
+## Overtime Functions
+#**************************************************************************************************************************#
+
+# Early Call OT 
+#----------------------#
+# 1. Early Call OT is given for Work starting before 6:00am
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+def early_call_fn(time_in, unit_call, early_call, permitted_pre_call):
+    if time_in and time_in &lt; unit_call and time_in &lt; early_call:
+        if unit_call &lt;= early_call and unit_call - time_in &gt;= permitted_pre_call:
+            return (unit_call - time_in) - permitted_pre_call
+        if unit_call &gt; early_call and unit_call - time_in &gt;= permitted_pre_call:
+            return min(unit_call - permitted_pre_call, early_call) - time_in
+
+# Pre-Call OT
+#----------------------#
+# 1. No Pre-Call OT given if the Unit Call is before 6:00am - it all becomes Early Call OT
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+def pre_call_fn(time_in, unit_call, early_call, permitted_pre_call):
+    if time_in and early_call &lt; unit_call and time_in &lt; unit_call:
+        if unit_call - max(time_in, early_call) &gt;= permitted_pre_call:
+            return unit_call - max(time_in, early_call) - permitted_pre_call
+
+# Camera OT
+#----------------------#
+# 1. Camera OT only paid for Shooting Crew
+# 2. No Camera OT given: if Unit Wrap minus Scheduled Finish is less than 15 minutes AND if Grace is given
+# 3. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 4. Should be rounded up to the nearest 30mins, in the first hour, then the nearest 60mins, thereafter
+def camera_ot_fn(scheduled_finish_time, unit_wrap, time_in, time_out, shooting_crew, grace):
+    if shooting_crew == &quot;Yes&quot; and time_in and unit_wrap &gt; scheduled_finish_time and time_out &gt; scheduled_finish_time:
+        # should you also consider the time out here, should it be min(wrap, timeout)?
+        if unit_wrap - scheduled_finish_time &lt;= grace_time and grace == &quot;Yes&quot;:  
+            return 
+        else:
+            return min(unit_wrap, time_out) - scheduled_finish_time
+
+# Post-Wrap OT
+#----------------------#
+# 1. Post-Wrap OT calculated back from the Unit Wrap time, not Scheduled Finish time, if there is no Camera OT
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+def post_wrap_fn(scheduled_finish_time, camera_ot, unit_wrap, time_in, time_out, permitted_post_wrap, shooting_crew):
+    if camera_ot:
+        camera_ot = camera_ot_roundup(camera_ot)
+        unit_wrap = scheduled_finish_time + camera_ot
+    if time_in and time_out &gt; scheduled_finish_time:
+        if shooting_crew == &quot;No&quot;:
+            if time_out - scheduled_finish_time &gt;= permitted_post_wrap:
+                return time_out - scheduled_finish_time - permitted_post_wrap
+        if shooting_crew == &quot;Yes&quot; and camera_ot and time_out &gt; unit_wrap:
+            if time_out - unit_wrap &gt;= permitted_post_wrap:
+                return time_out - unit_wrap - permitted_post_wrap
+        if shooting_crew == &quot;Yes&quot; and unit_wrap &gt; scheduled_finish_time and camera_ot == None:
+            if time_out &gt; unit_wrap:
+                if time_out - unit_wrap &gt;= permitted_post_wrap: 
+                    #Is this line right, or should it go back to the scheduled finish time?
+                    return time_out - unit_wrap - permitted_post_wrap
+                # Also do you get no Wrap if the Time Out &lt; Unit Wrap
+        if shooting_crew == &quot;Yes&quot; and unit_wrap &lt;= scheduled_finish_time:
+            if time_out - scheduled_finish_time &gt;= permitted_post_wrap:
+                return time_out - scheduled_finish_time - permitted_post_wrap
+
+# Broken Turnaround OT 
+#----------------------#
+# 1. Workers should be given no less than 11 hours rest between the end of one work period and commencement of the next
+# 2. Workers should also have at least one scheduled rest day per 7 day period
+# 3. If one rest day is scheduled (e.g. in an &quot;eleven day fortnight&quot;), the total rest period should be 24 + 11 = 35 hours
+# 4. If two rest days are scheduled, the total rest period should be 48 + 11 = 59 hours
+# 5. If this scheduled rest period is broken, the worker should be given an equivalent period of compensatory rest. 
+# 6. If the broken rest time cannot be given back the worker, it should be paid at the applicable Overtime rate (at between £35/hr and £45/hr)
+# 7. Should be rounded up to the nearest 30mins
+
+# Meal Curtailment 1 OT 
+#----------------------#
+# 1. Due if, for an SWD, the first meal break is less than 60 mins
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+def meal_curtailment1_fn(time_in, time_out, unit_call, unit_wrap, first_meal_start, first_meal_end, first_meal_delay, SWD_first_meal_break, working_day):
+    if time_in and first_meal_start and first_meal_end and working_day:
+        if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and (first_meal_end - first_meal_start) &lt; SWD_first_meal_break:
+            if min(time_out, unit_wrap) &gt; first_meal_end:
+                return min(SWD_first_meal_break, min(time_out, unit_wrap) - first_meal_start) - (first_meal_end - first_meal_start)
+    elif time_in and not(first_meal_start) and not(first_meal_end) and working_day:
+        if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;]:
+            # should this be from unit_call or max(time_in, and unit_call?)
+            if min(time_out, unit_wrap) &gt; unit_call + first_meal_delay:
+                return min(SWD_first_meal_break, min(unit_wrap, time_out) - (unit_call + first_meal_delay))
+
+# Meal Curtailment 2 OT 
+#----------------------#
+# 1. Due if, for an SWD, the second meal break is less than 30 mins
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins (or added to Meal Curtailment 1 OT, and then rounded up?)
+def meal_curtailment2_fn(time_in, time_out, unit_call, unit_wrap, first_meal_start, first_meal_end, first_meal_delay, second_meal_start, second_meal_end, second_meal_delay, SWD_second_meal_break, working_day):
+    if time_in and second_meal_start and second_meal_end and working_day:
+        if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and (second_meal_end - second_meal_start) &lt; SWD_second_meal_break:
+            if min(time_out, unit_wrap) &gt; second_meal_end:
+                return min(SWD_second_meal_break, min(time_out, unit_wrap) - second_meal_start) - (second_meal_end - second_meal_start)
+    elif time_in and not(second_meal_start) and not(second_meal_end) and working_day:
+        if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and first_meal_start and first_meal_end:
+            if min(time_out, unit_wrap) &gt; first_meal_end + second_meal_delay:
+                return min(SWD_second_meal_break, min(unit_wrap, time_out) - (first_meal_end + second_meal_delay))
+        elif working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and not(first_meal_start) and not(first_meal_end):
+            # should this be from unit_call or max(time_in, and unit_call?)
+            if min(time_out, unit_wrap) &gt; unit_call + first_meal_delay + second_meal_delay:
+                return min(SWD_second_meal_break, min(unit_wrap, time_out) - (unit_call + first_meal_delay + second_meal_delay))
+
+# Meal Delay 1 OT
+#----------------------#
+# 1. Due if, for an SWD, the first meal break is more than 6 hours after the Unit Call (or is it Time In?)
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+def meal_delay1_fn(time_in, time_out, unit_call, unit_wrap, first_meal_start, first_meal_end, first_meal_delay, second_meal_start, second_meal_end, working_day):
+    if time_in and first_meal_start and first_meal_end and working_day:
+        # should this be from unit_call or max(time_in, and unit_call?)
+        if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and (first_meal_start - unit_call) &gt; first_meal_delay:
+            if min(time_out, unit_wrap) &gt; unit_call + first_meal_delay:
+                return min(first_meal_start, min(time_out, unit_wrap)) - unit_call - first_meal_delay
+    elif time_in and not(first_meal_start) and not(first_meal_end) and working_day:
+        if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and second_meal_start and second_meal_end:
+        # should this be from unit_call or max(time_in, and unit_call?)
+            if min(time_out, unit_wrap) &gt; unit_call + first_meal_delay:
+                return min(second_meal_start, min(time_out, unit_wrap)) - unit_call - first_meal_delay
+        elif working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and not(second_meal_start) and not(second_meal_end):
+        # should this be from unit_call or max(time_in, and unit_call?)
+            if min(time_out, unit_wrap) &gt; unit_call + first_meal_delay:
+                return min(time_out, unit_wrap) - unit_call - first_meal_delay
+
+# Meal Delay 2 OT
+#----------------------#
+# 1. Due if, for an SWD, the second meal break is more than 6 hours after the end of the previous meal break, excluding any Permitted Wrap Work and Permitted Grace Periods
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+def meal_delay2_fn(time_in, time_out, unit_wrap, first_meal_start, first_meal_end, second_meal_start, second_meal_end, second_meal_delay, working_day):
+    if time_in and first_meal_start and first_meal_end and second_meal_start and second_meal_end and working_day:
+        if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and (second_meal_start - first_meal_end) &gt; second_meal_delay:
+            if min(time_out, unit_wrap) &gt; first_meal_end + second_meal_delay:
+                return min(second_meal_start, min(time_out, unit_wrap)) - first_meal_end - second_meal_delay
+    elif time_in and first_meal_start and first_meal_end and not(second_meal_start) and not(second_meal_end) and working_day:
+        if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;]:
+            if min(time_out, unit_wrap) &gt; first_meal_end + second_meal_delay:
+                return min(time_out, unit_wrap) - first_meal_end - second_meal_delay
+
+# 6th Day OT 
+#----------------------#
+# 1. 6th Day OT is paid when a Sixth Consecutive Day needs to be worked. The fee paid is the same as the normal Daily Fee for a particular Crew Member, at 1.0T
+
+
+
+# 7th Day OT 
+#----------------------#
+# 1. 7th Day OT is paid when a Seventh Consecutive Day needs to be worked. The fee paid is usually double the normal Daily Fees of a particular Crew Member, at 2.0T. 
+
+
+
+# Night Premium OT 
+#----------------------#
+# 1. Night Work should always include all shooting hours worked past midnight - whether scheduled or un-scheduled
+# 2. Entitlement to paid compensatory rest accrued per continuous block of Night Work filming, whether one night only, or 4 weeks of continuous shoot
+# 3. Whether time is given back, or paid back, w.r.t. Night Premiums, paid compensatory rest is capped at the length of 1 contracted working day
+# 4. Only if compensatory rest is sufficient to consitute a full rest day at the end of a shoot (e.g. 10 or 11 hours), should a full paid rest day be given
+# 5. If a shoot is moving from nights to days, a paid rest day should be given
+# 6. Paid compensatory rest should be given by the end of the week or before the beginning of the next week
+# 7. Paid compensatory rest cannot be given on scheduled rest days (e.g. weekend days). For example, if a Crew finished at 4am on Saturday, Monday would normally be given as a paid rest day
+# 8. Prep &amp; Wrap times that go past midnight does not give rise to compensatory rest
+# 9. Night premiums are paid at the applicable daily rate, at 1.0T, not at 1.5T
+# 10. Should be rounded up to the nearest 30mins
+
+
+# 11 Day Fortnights ??
+#----------------------#
+
+
+
+## Calling Functions
+#**************************************************************************************************************************#
+
+early_call_ot = early_call_fn(time_in, unit_call, early_call, permitted_pre_call)
+print(&quot;Early-Call Overtime: &quot;, early_call_ot)
+
+pre_call_ot = pre_call_fn(time_in, unit_call, early_call, permitted_pre_call)
+print(&quot;Pre-Call Overtime: &quot;, pre_call_ot)
+
+camera_ot = camera_ot_fn(scheduled_finish_time, unit_wrap, time_in, time_out, shooting_crew, grace)
+print(&quot;Camera Overtime: &quot;, camera_ot)
+
+post_wrap_ot = post_wrap_fn(scheduled_finish_time, camera_ot, unit_wrap, time_in, time_out, permitted_post_wrap, shooting_crew)
+print(&quot;Post_Wrap Overtime: &quot;, post_wrap_ot)
+
+meal_curtailment1_ot = meal_curtailment1_fn(time_in, time_out, unit_call, unit_wrap, first_meal_start, first_meal_end, first_meal_delay, SWD_first_meal_break, working_day)
+print(&quot;Meal Curtailment 1: &quot;, meal_curtailment1_ot)
+
+meal_curtailment2_ot = meal_curtailment2_fn(time_in, time_out, unit_call, unit_wrap, first_meal_start, first_meal_end, first_meal_delay, second_meal_start, second_meal_end, second_meal_delay, SWD_second_meal_break, working_day)
+print(&quot;Meal Curtailment 2: &quot;, meal_curtailment2_ot)
+
+meal_delay1_ot = meal_delay1_fn(time_in, time_out, unit_call, unit_wrap, first_meal_start, first_meal_end, first_meal_delay, second_meal_start, second_meal_end, working_day)
+print(&quot;Meal Delay 1: &quot;, meal_delay1_ot)
+
+meal_delay2_ot = meal_delay2_fn(time_in, time_out, unit_wrap, first_meal_start, first_meal_end, second_meal_start, second_meal_end, second_meal_delay, working_day)
+print(&quot;Meal Delay 2: &quot;, meal_delay2_ot)
+
+">
+  </button>
+</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1">## Functions
+#**************************************************************************************************************************#
+</span><span class="k">def</span> <span class="nf">string_to_date</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="p">(</span>
+            <span class="n">date</span><span class="p">.</span><span class="n">year</span><span class="p">,</span> <span class="n">date</span><span class="p">.</span><span class="n">month</span><span class="p">,</span> <span class="n">date</span><span class="p">.</span><span class="n">day</span><span class="p">,</span> 
+            <span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="s">'%H:%M'</span><span class="p">).</span><span class="n">hour</span><span class="p">,</span> 
+            <span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="s">'%H:%M'</span><span class="p">).</span><span class="n">minute</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">camera_ot_roundup</span><span class="p">(</span><span class="n">camera_ot</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">camera_ot</span> <span class="o">&lt;=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">60</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">camera_ot</span> <span class="o">/</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)))</span>
+    <span class="k">elif</span> <span class="n">camera_ot</span> <span class="o">&gt;</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">60</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">camera_ot</span> <span class="o">/</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)))</span>
+
+
+<span class="c1">## Dates &amp; Times
+#**************************************************************************************************************************#
+</span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">early_call_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'06:00'</span><span class="p">)</span>
+<span class="n">early_call</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">early_call_input</span><span class="p">)</span>
+
+<span class="n">midnight_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'00:00'</span><span class="p">)</span>
+<span class="n">midnight</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">midnight_input</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">time_in_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'07:40'</span><span class="p">)</span>
+<span class="n">time_in</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">time_in_input</span><span class="p">)</span>
+
+<span class="n">unit_call_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'08:00'</span><span class="p">)</span>
+<span class="n">unit_call</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">unit_call_input</span><span class="p">)</span>
+<span class="c1"># 1. Not sure about adjusting Unit Call if Time Out is before Unit Wrap? (E.g. Hair &amp; Makeup early starters)
+</span>
+<span class="n">first_meal_start_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">''</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">first_meal_start_input</span><span class="p">:</span>
+    <span class="n">first_meal_start</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">first_meal_start_input</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">first_meal_start</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="n">first_meal_end_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">''</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">first_meal_end_input</span><span class="p">:</span>
+    <span class="n">first_meal_end</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">first_meal_end_input</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">first_meal_end</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="n">second_meal_start_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'19:45'</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">second_meal_start_input</span><span class="p">:</span>
+    <span class="n">second_meal_start</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">second_meal_start_input</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">second_meal_start</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="n">second_meal_end_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'20:00'</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">second_meal_end_input</span><span class="p">:</span>
+    <span class="n">second_meal_end</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">second_meal_end_input</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">second_meal_end</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="n">unit_wrap_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'19:50'</span><span class="p">)</span>
+<span class="n">unit_wrap</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">unit_wrap_input</span><span class="p">)</span>
+<span class="c1"># 1. Adjust Unit Wrap if Time In is after Unit Call
+</span><span class="k">if</span> <span class="n">time_in</span> <span class="o">&gt;</span> <span class="n">unit_call</span><span class="p">:</span> 
+    <span class="n">unit_wrap</span> <span class="o">=</span> <span class="n">unit_wrap</span> <span class="o">+</span> <span class="p">(</span><span class="n">time_in</span> <span class="o">-</span> <span class="n">unit_call</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">unit_wrap</span> <span class="o">&lt;</span> <span class="n">unit_call</span><span class="p">:</span> 
+    <span class="n">unit_wrap</span> <span class="o">=</span> <span class="n">unit_wrap</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">time_out_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'19:50'</span><span class="p">)</span>
+<span class="n">time_out</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">time_out_input</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">time_out</span> <span class="o">&lt;</span> <span class="n">time_in</span><span class="p">:</span> 
+    <span class="n">time_out</span> <span class="o">=</span> <span class="n">time_out</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1">## Permitted Pre-Call &amp; Pre-Wrap Times
+#**************************************************************************************************************************#
+</span><span class="n">permitted_pre_call</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">permitted_post_wrap</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">minutes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="c1">## Working Day, and Day Type
+#**************************************************************************************************************************#
+</span>
+<span class="c1"># 1. Day types include: Working, Flat Day, T\'round, Trvl, Hol, Bank Hol, Sick, Sick Unpaid, Sick Paid, Isolating, Paid Leave, Unpaid Leave, Not Wkng
+# 2. Working days include: CWD9, CWD10, SWD10, SWD11, and ERDD
+# 3. Not sure about SCWD9 and SCWD10!?!? BECTU and PACT interpretations are different!
+# 4. Where a Crew take time out from a rest day to travel (e.g. to catch a train on a Sunday afternoon, ready for Monday morning), appropriate compensation should be offered for interfering with their time off
+# 5. A travel day is a NON-WORKING day, in accordance with EU law, and EU Working Time Directives. Travel Days do not form part of the working week. (BECTU disagree with this)
+# 6. W.r.t. Travel on Rest days, all departments should be treated the same!
+# 7. A 'Turnaround' day is a rest period between two periods of work. It could be either a weekend or rest day given when adjusting between night and daytime work
+</span><span class="n">working_day</span> <span class="o">=</span> <span class="s">"SWD11"</span>
+<span class="n">day_type</span> <span class="o">=</span> <span class="s">"Working"</span>
+
+
+<span class="c1">## Bank Holidays
+#**************************************************************************************************************************#
+</span>
+<span class="c1"># 1. Not sure about the affect of this!?!?
+</span><span class="n">bank_holiday</span> <span class="o">=</span> <span class="s">"No"</span>
+
+
+<span class="c1">## Shooting Crew
+#**************************************************************************************************************************#
+</span>
+<span class="c1"># 1. Cam OT should only given for shooting crew
+</span><span class="n">shooting_crew</span> <span class="o">=</span> <span class="s">"Yes"</span>
+
+
+<span class="c1">## Grace Periods
+#**************************************************************************************************************************#
+</span>
+<span class="c1"># 1. Grace should not be given on New Shoots!
+# 2. Grace should only really be applied if Cam OT &lt;= 15 minutes
+# 3. The first two Grace Periods in a week are unpaid
+# 4. Where a third Grace Period is used in a working week, one hour OT shall be paid, or one hour thirty minutes given as compensatory rest in the same working week
+</span><span class="n">grace</span> <span class="o">=</span> <span class="s">"No"</span> 
+<span class="n">grace_time</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+
+
+<span class="c1">## Meals
+#**************************************************************************************************************************#
+</span>
+<span class="c1"># 1. A meal break of 1 hour should be given for a SWD10 or SWD11 working day
+# 2. A second meal break of 30 mins should also be due on a SWD10 and SWD11 working day (within 6 hours of the first meal break, excluding any Permitted Wrap Work and Permitted Grace Periods)
+# 3. A meal break time of 30mins should be given for a SCWD11 or SCWD10 working day
+# 4. CWD9 and CWD10 days do not have formal meal breaks, however a rest break of no less than 20 mins should be given, within 6 hours of starting work (or within 6 hours of completion of the previous break)
+# 5. Where work continues for more than one hour following the end of a CWD (excluding any Permitted Wrap Work and Permitted Grace Periods), the Producer should provide food and refreshments
+</span><span class="n">SWD_first_meal_break</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">SWD_second_meal_break</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 1. First meal delay - should begin no later than 6 hours after the Unit Call (on SWD10 and SWD11 working days)
+# 2. Second meal delay - should begin no later than 6 hours after the end of the First Meal Break (on SWD10 and SWD11 working days)
+</span><span class="n">first_meal_delay</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">second_meal_delay</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+
+
+<span class="c1">## Calculate Scheduled Finish time
+#**************************************************************************************************************************#
+</span><span class="n">match</span> <span class="n">working_day</span><span class="p">:</span>
+    <span class="n">case</span> <span class="s">"CWD9"</span><span class="p">:</span>
+        <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">case</span> <span class="s">"CWD10"</span><span class="p">:</span>
+        <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">case</span> <span class="s">"SWD10"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span><span class="p">:</span>
+            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;</span> <span class="n">second_meal_start</span><span class="p">:</span>
+                <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;</span> <span class="n">second_meal_start</span><span class="p">:</span>
+                <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
+    <span class="n">case</span> <span class="s">"SWD11"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span><span class="p">:</span>
+            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;</span> <span class="n">second_meal_start</span><span class="p">:</span>
+                <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;</span> <span class="n">second_meal_start</span><span class="p">:</span>
+                <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
+    <span class="n">case</span> <span class="n">_</span><span class="p">:</span>
+        <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">today</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Working Day not found"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">scheduled_finish_time</span><span class="p">)</span>
+
+<span class="c1">## Overtime Functions
+#**************************************************************************************************************************#
+</span>
+<span class="c1"># Early Call OT 
+#----------------------#
+# 1. Early Call OT is given for Work starting before 6:00am
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+</span><span class="k">def</span> <span class="nf">early_call_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">early_call</span><span class="p">,</span> <span class="n">permitted_pre_call</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">time_in</span> <span class="o">&lt;</span> <span class="n">unit_call</span> <span class="ow">and</span> <span class="n">time_in</span> <span class="o">&lt;</span> <span class="n">early_call</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">unit_call</span> <span class="o">&lt;=</span> <span class="n">early_call</span> <span class="ow">and</span> <span class="n">unit_call</span> <span class="o">-</span> <span class="n">time_in</span> <span class="o">&gt;=</span> <span class="n">permitted_pre_call</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">unit_call</span> <span class="o">-</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">-</span> <span class="n">permitted_pre_call</span>
+        <span class="k">if</span> <span class="n">unit_call</span> <span class="o">&gt;</span> <span class="n">early_call</span> <span class="ow">and</span> <span class="n">unit_call</span> <span class="o">-</span> <span class="n">time_in</span> <span class="o">&gt;=</span> <span class="n">permitted_pre_call</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">unit_call</span> <span class="o">-</span> <span class="n">permitted_pre_call</span><span class="p">,</span> <span class="n">early_call</span><span class="p">)</span> <span class="o">-</span> <span class="n">time_in</span>
+
+<span class="c1"># Pre-Call OT
+#----------------------#
+# 1. No Pre-Call OT given if the Unit Call is before 6:00am - it all becomes Early Call OT
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+</span><span class="k">def</span> <span class="nf">pre_call_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">early_call</span><span class="p">,</span> <span class="n">permitted_pre_call</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">early_call</span> <span class="o">&lt;</span> <span class="n">unit_call</span> <span class="ow">and</span> <span class="n">time_in</span> <span class="o">&lt;</span> <span class="n">unit_call</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">unit_call</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">early_call</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">permitted_pre_call</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">unit_call</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">early_call</span><span class="p">)</span> <span class="o">-</span> <span class="n">permitted_pre_call</span>
+
+<span class="c1"># Camera OT
+#----------------------#
+# 1. Camera OT only paid for Shooting Crew
+# 2. No Camera OT given: if Unit Wrap minus Scheduled Finish is less than 15 minutes AND if Grace is given
+# 3. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 4. Should be rounded up to the nearest 30mins, in the first hour, then the nearest 60mins, thereafter
+</span><span class="k">def</span> <span class="nf">camera_ot_fn</span><span class="p">(</span><span class="n">scheduled_finish_time</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">shooting_crew</span><span class="p">,</span> <span class="n">grace</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">shooting_crew</span> <span class="o">==</span> <span class="s">"Yes"</span> <span class="ow">and</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">unit_wrap</span> <span class="o">&gt;</span> <span class="n">scheduled_finish_time</span> <span class="ow">and</span> <span class="n">time_out</span> <span class="o">&gt;</span> <span class="n">scheduled_finish_time</span><span class="p">:</span>
+        <span class="c1"># should you also consider the time out here, should it be min(wrap, timeout)?
+</span>        <span class="k">if</span> <span class="n">unit_wrap</span> <span class="o">-</span> <span class="n">scheduled_finish_time</span> <span class="o">&lt;=</span> <span class="n">grace_time</span> <span class="ow">and</span> <span class="n">grace</span> <span class="o">==</span> <span class="s">"Yes"</span><span class="p">:</span>  
+            <span class="k">return</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">unit_wrap</span><span class="p">,</span> <span class="n">time_out</span><span class="p">)</span> <span class="o">-</span> <span class="n">scheduled_finish_time</span>
+
+<span class="c1"># Post-Wrap OT
+#----------------------#
+# 1. Post-Wrap OT calculated back from the Unit Wrap time, not Scheduled Finish time, if there is no Camera OT
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+</span><span class="k">def</span> <span class="nf">post_wrap_fn</span><span class="p">(</span><span class="n">scheduled_finish_time</span><span class="p">,</span> <span class="n">camera_ot</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">permitted_post_wrap</span><span class="p">,</span> <span class="n">shooting_crew</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">camera_ot</span><span class="p">:</span>
+        <span class="n">camera_ot</span> <span class="o">=</span> <span class="n">camera_ot_roundup</span><span class="p">(</span><span class="n">camera_ot</span><span class="p">)</span>
+        <span class="n">unit_wrap</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="n">camera_ot</span>
+    <span class="k">if</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">time_out</span> <span class="o">&gt;</span> <span class="n">scheduled_finish_time</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">shooting_crew</span> <span class="o">==</span> <span class="s">"No"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">time_out</span> <span class="o">-</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;=</span> <span class="n">permitted_post_wrap</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">time_out</span> <span class="o">-</span> <span class="n">scheduled_finish_time</span> <span class="o">-</span> <span class="n">permitted_post_wrap</span>
+        <span class="k">if</span> <span class="n">shooting_crew</span> <span class="o">==</span> <span class="s">"Yes"</span> <span class="ow">and</span> <span class="n">camera_ot</span> <span class="ow">and</span> <span class="n">time_out</span> <span class="o">&gt;</span> <span class="n">unit_wrap</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">time_out</span> <span class="o">-</span> <span class="n">unit_wrap</span> <span class="o">&gt;=</span> <span class="n">permitted_post_wrap</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">time_out</span> <span class="o">-</span> <span class="n">unit_wrap</span> <span class="o">-</span> <span class="n">permitted_post_wrap</span>
+        <span class="k">if</span> <span class="n">shooting_crew</span> <span class="o">==</span> <span class="s">"Yes"</span> <span class="ow">and</span> <span class="n">unit_wrap</span> <span class="o">&gt;</span> <span class="n">scheduled_finish_time</span> <span class="ow">and</span> <span class="n">camera_ot</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">time_out</span> <span class="o">&gt;</span> <span class="n">unit_wrap</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">time_out</span> <span class="o">-</span> <span class="n">unit_wrap</span> <span class="o">&gt;=</span> <span class="n">permitted_post_wrap</span><span class="p">:</span> 
+                    <span class="c1">#Is this line right, or should it go back to the scheduled finish time?
+</span>                    <span class="k">return</span> <span class="n">time_out</span> <span class="o">-</span> <span class="n">unit_wrap</span> <span class="o">-</span> <span class="n">permitted_post_wrap</span>
+                <span class="c1"># Also do you get no Wrap if the Time Out &lt; Unit Wrap
+</span>        <span class="k">if</span> <span class="n">shooting_crew</span> <span class="o">==</span> <span class="s">"Yes"</span> <span class="ow">and</span> <span class="n">unit_wrap</span> <span class="o">&lt;=</span> <span class="n">scheduled_finish_time</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">time_out</span> <span class="o">-</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;=</span> <span class="n">permitted_post_wrap</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">time_out</span> <span class="o">-</span> <span class="n">scheduled_finish_time</span> <span class="o">-</span> <span class="n">permitted_post_wrap</span>
+
+<span class="c1"># Broken Turnaround OT 
+#----------------------#
+# 1. Workers should be given no less than 11 hours rest between the end of one work period and commencement of the next
+# 2. Workers should also have at least one scheduled rest day per 7 day period
+# 3. If one rest day is scheduled (e.g. in an "eleven day fortnight"), the total rest period should be 24 + 11 = 35 hours
+# 4. If two rest days are scheduled, the total rest period should be 48 + 11 = 59 hours
+# 5. If this scheduled rest period is broken, the worker should be given an equivalent period of compensatory rest. 
+# 6. If the broken rest time cannot be given back the worker, it should be paid at the applicable Overtime rate (at between £35/hr and £45/hr)
+# 7. Should be rounded up to the nearest 30mins
+</span>
+<span class="c1"># Meal Curtailment 1 OT 
+#----------------------#
+# 1. Due if, for an SWD, the first meal break is less than 60 mins
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+</span><span class="k">def</span> <span class="nf">meal_curtailment1_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">first_meal_delay</span><span class="p">,</span> <span class="n">SWD_first_meal_break</span><span class="p">,</span> <span class="n">working_day</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">SWD_first_meal_break</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">first_meal_end</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">SWD_first_meal_break</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">first_meal_start</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">first_meal_end</span><span class="p">)</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]:</span>
+            <span class="c1"># should this be from unit_call or max(time_in, and unit_call?)
+</span>            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">unit_call</span> <span class="o">+</span> <span class="n">first_meal_delay</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">SWD_first_meal_break</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">unit_wrap</span><span class="p">,</span> <span class="n">time_out</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">unit_call</span> <span class="o">+</span> <span class="n">first_meal_delay</span><span class="p">))</span>
+
+<span class="c1"># Meal Curtailment 2 OT 
+#----------------------#
+# 1. Due if, for an SWD, the second meal break is less than 30 mins
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins (or added to Meal Curtailment 1 OT, and then rounded up?)
+</span><span class="k">def</span> <span class="nf">meal_curtailment2_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">first_meal_delay</span><span class="p">,</span> <span class="n">second_meal_start</span><span class="p">,</span> <span class="n">second_meal_end</span><span class="p">,</span> <span class="n">second_meal_delay</span><span class="p">,</span> <span class="n">SWD_second_meal_break</span><span class="p">,</span> <span class="n">working_day</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">SWD_second_meal_break</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">second_meal_end</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">SWD_second_meal_break</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">second_meal_start</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">second_meal_end</span><span class="p">)</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">first_meal_end</span> <span class="o">+</span> <span class="n">second_meal_delay</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">SWD_second_meal_break</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">unit_wrap</span><span class="p">,</span> <span class="n">time_out</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">+</span> <span class="n">second_meal_delay</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">first_meal_start</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">first_meal_end</span><span class="p">):</span>
+            <span class="c1"># should this be from unit_call or max(time_in, and unit_call?)
+</span>            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">unit_call</span> <span class="o">+</span> <span class="n">first_meal_delay</span> <span class="o">+</span> <span class="n">second_meal_delay</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">SWD_second_meal_break</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">unit_wrap</span><span class="p">,</span> <span class="n">time_out</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">unit_call</span> <span class="o">+</span> <span class="n">first_meal_delay</span> <span class="o">+</span> <span class="n">second_meal_delay</span><span class="p">))</span>
+
+<span class="c1"># Meal Delay 1 OT
+#----------------------#
+# 1. Due if, for an SWD, the first meal break is more than 6 hours after the Unit Call (or is it Time In?)
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+</span><span class="k">def</span> <span class="nf">meal_delay1_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">first_meal_delay</span><span class="p">,</span> <span class="n">second_meal_start</span><span class="p">,</span> <span class="n">second_meal_end</span><span class="p">,</span> <span class="n">working_day</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
+        <span class="c1"># should this be from unit_call or max(time_in, and unit_call?)
+</span>        <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">first_meal_start</span> <span class="o">-</span> <span class="n">unit_call</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">first_meal_delay</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">unit_call</span> <span class="o">+</span> <span class="n">first_meal_delay</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">first_meal_start</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">))</span> <span class="o">-</span> <span class="n">unit_call</span> <span class="o">-</span> <span class="n">first_meal_delay</span>
+    <span class="k">elif</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">first_meal_start</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">first_meal_end</span><span class="p">)</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span><span class="p">:</span>
+        <span class="c1"># should this be from unit_call or max(time_in, and unit_call?)
+</span>            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">unit_call</span> <span class="o">+</span> <span class="n">first_meal_delay</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">second_meal_start</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">))</span> <span class="o">-</span> <span class="n">unit_call</span> <span class="o">-</span> <span class="n">first_meal_delay</span>
+        <span class="k">elif</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">second_meal_start</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">second_meal_end</span><span class="p">):</span>
+        <span class="c1"># should this be from unit_call or max(time_in, and unit_call?)
+</span>            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">unit_call</span> <span class="o">+</span> <span class="n">first_meal_delay</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">-</span> <span class="n">unit_call</span> <span class="o">-</span> <span class="n">first_meal_delay</span>
+
+<span class="c1"># Meal Delay 2 OT
+#----------------------#
+# 1. Due if, for an SWD, the second meal break is more than 6 hours after the end of the previous meal break, excluding any Permitted Wrap Work and Permitted Grace Periods
+# 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
+# 3. Should be rounded up to the nearest 30mins
+</span><span class="k">def</span> <span class="nf">meal_delay2_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">second_meal_start</span><span class="p">,</span> <span class="n">second_meal_end</span><span class="p">,</span> <span class="n">second_meal_delay</span><span class="p">,</span> <span class="n">working_day</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span> <span class="ow">and</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">second_meal_start</span> <span class="o">-</span> <span class="n">first_meal_end</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">second_meal_delay</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">first_meal_end</span> <span class="o">+</span> <span class="n">second_meal_delay</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">second_meal_start</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">))</span> <span class="o">-</span> <span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">second_meal_delay</span>
+    <span class="k">elif</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">second_meal_start</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">second_meal_end</span><span class="p">)</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">first_meal_end</span> <span class="o">+</span> <span class="n">second_meal_delay</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">)</span> <span class="o">-</span> <span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">second_meal_delay</span>
+
+<span class="c1"># 6th Day OT 
+#----------------------#
+# 1. 6th Day OT is paid when a Sixth Consecutive Day needs to be worked. The fee paid is the same as the normal Daily Fee for a particular Crew Member, at 1.0T
+</span>
+
+
+<span class="c1"># 7th Day OT 
+#----------------------#
+# 1. 7th Day OT is paid when a Seventh Consecutive Day needs to be worked. The fee paid is usually double the normal Daily Fees of a particular Crew Member, at 2.0T. 
+</span>
+
+
+<span class="c1"># Night Premium OT 
+#----------------------#
+# 1. Night Work should always include all shooting hours worked past midnight - whether scheduled or un-scheduled
+# 2. Entitlement to paid compensatory rest accrued per continuous block of Night Work filming, whether one night only, or 4 weeks of continuous shoot
+# 3. Whether time is given back, or paid back, w.r.t. Night Premiums, paid compensatory rest is capped at the length of 1 contracted working day
+# 4. Only if compensatory rest is sufficient to consitute a full rest day at the end of a shoot (e.g. 10 or 11 hours), should a full paid rest day be given
+# 5. If a shoot is moving from nights to days, a paid rest day should be given
+# 6. Paid compensatory rest should be given by the end of the week or before the beginning of the next week
+# 7. Paid compensatory rest cannot be given on scheduled rest days (e.g. weekend days). For example, if a Crew finished at 4am on Saturday, Monday would normally be given as a paid rest day
+# 8. Prep &amp; Wrap times that go past midnight does not give rise to compensatory rest
+# 9. Night premiums are paid at the applicable daily rate, at 1.0T, not at 1.5T
+# 10. Should be rounded up to the nearest 30mins
+</span>
+
+<span class="c1"># 11 Day Fortnights ??
+#----------------------#
+</span>
+
+
+<span class="c1">## Calling Functions
+#**************************************************************************************************************************#
+</span>
+<span class="n">early_call_ot</span> <span class="o">=</span> <span class="n">early_call_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">early_call</span><span class="p">,</span> <span class="n">permitted_pre_call</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Early-Call Overtime: "</span><span class="p">,</span> <span class="n">early_call_ot</span><span class="p">)</span>
+
+<span class="n">pre_call_ot</span> <span class="o">=</span> <span class="n">pre_call_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">early_call</span><span class="p">,</span> <span class="n">permitted_pre_call</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Pre-Call Overtime: "</span><span class="p">,</span> <span class="n">pre_call_ot</span><span class="p">)</span>
+
+<span class="n">camera_ot</span> <span class="o">=</span> <span class="n">camera_ot_fn</span><span class="p">(</span><span class="n">scheduled_finish_time</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">shooting_crew</span><span class="p">,</span> <span class="n">grace</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Camera Overtime: "</span><span class="p">,</span> <span class="n">camera_ot</span><span class="p">)</span>
+
+<span class="n">post_wrap_ot</span> <span class="o">=</span> <span class="n">post_wrap_fn</span><span class="p">(</span><span class="n">scheduled_finish_time</span><span class="p">,</span> <span class="n">camera_ot</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">permitted_post_wrap</span><span class="p">,</span> <span class="n">shooting_crew</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Post_Wrap Overtime: "</span><span class="p">,</span> <span class="n">post_wrap_ot</span><span class="p">)</span>
+
+<span class="n">meal_curtailment1_ot</span> <span class="o">=</span> <span class="n">meal_curtailment1_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">first_meal_delay</span><span class="p">,</span> <span class="n">SWD_first_meal_break</span><span class="p">,</span> <span class="n">working_day</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Meal Curtailment 1: "</span><span class="p">,</span> <span class="n">meal_curtailment1_ot</span><span class="p">)</span>
+
+<span class="n">meal_curtailment2_ot</span> <span class="o">=</span> <span class="n">meal_curtailment2_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">first_meal_delay</span><span class="p">,</span> <span class="n">second_meal_start</span><span class="p">,</span> <span class="n">second_meal_end</span><span class="p">,</span> <span class="n">second_meal_delay</span><span class="p">,</span> <span class="n">SWD_second_meal_break</span><span class="p">,</span> <span class="n">working_day</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Meal Curtailment 2: "</span><span class="p">,</span> <span class="n">meal_curtailment2_ot</span><span class="p">)</span>
+
+<span class="n">meal_delay1_ot</span> <span class="o">=</span> <span class="n">meal_delay1_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_call</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">first_meal_delay</span><span class="p">,</span> <span class="n">second_meal_start</span><span class="p">,</span> <span class="n">second_meal_end</span><span class="p">,</span> <span class="n">working_day</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Meal Delay 1: "</span><span class="p">,</span> <span class="n">meal_delay1_ot</span><span class="p">)</span>
+
+<span class="n">meal_delay2_ot</span> <span class="o">=</span> <span class="n">meal_delay2_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">second_meal_start</span><span class="p">,</span> <span class="n">second_meal_end</span><span class="p">,</span> <span class="n">second_meal_delay</span><span class="p">,</span> <span class="n">working_day</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Meal Delay 2: "</span><span class="p">,</span> <span class="n">meal_delay2_ot</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h2 id="further-work">Further Work</h2>
+
+<p>This is far from complete, but hopefully you can see the logic, and how the rules can be structured in a way that strives to raise the standards of how work can be or should be done.</p>
+
+<p>Further work still needs to be done around:</p>
+
+<ol>
+  <li>Writing functions to round up the different types of OTs to the nearest half or nearest one hour</li>
+  <li>Working out out how to write the OT functions for (i) <em>Broken Turnaround</em>, (ii) <em>Night Premiums</em>, (iii) <em>6th Days</em>, (iv) <em>7th Days</em></li>
+  <li>Working out the impact of all the different Day Types: e.g. Sick Paid, Turnaround, Unpaid Leave, etc.</li>
+  <li>Incorporating the use of <em>SCWD</em>, <em>ERDD</em> days once I can find out clearer definitions</li>
+  <li>Working out the impact and effect on other payments such as <em>BOX</em>, <em>EQUIPMENT</em>, <em>COMPUTER</em>, and <em>MOBILE PHONE</em></li>
+  <li>Considering the impact and effect of Holidays and Bank Holidays</li>
+  <li>Building the different Holiday Entitlement Rules, for different worker types, e.g. (i) <em>PAYE</em>, (ii) <em>Schedule-D</em> (Sole Trader), and (iii) <em>Loan Out</em> (Ltd. Company)</li>
+  <li>Plus more stuff I may not have thought of….</li>
+</ol>
+
+                        
+                            <div id="mainNavBottom">
+    <a class="no_icon" href="">
+        <span id="previousPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+        </span>
+    </a>
+    <a class="no_icon" href="">
+        <span id="nextPage" class="">
+            <span class="iconify medium" data-icon="ic-sharp-arrow-forward" data-inline="false"></span>					
+        </span>
+    </a>
+</div>
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#python-script">Python Script</a></li>
+<li class="toc-entry toc-h2"><a href="#further-work">Further Work</a></li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/articles-and-blogs/article-search.html">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/about.html">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/" target="_blank">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+    <script src="/../docs/assets/js/lhsTree.js" type="application/javascript"></script>
+    <script src="/../docs/assets/js/searchFilter.js" type="application/javascript"></script>
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>
