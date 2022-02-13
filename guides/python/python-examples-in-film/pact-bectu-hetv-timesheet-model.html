@@ -446,12 +446,12 @@ early_call = string_to_date(today, early_call_input)
 midnight_input = (&#39;00:00&#39;)
 midnight = string_to_date(today, midnight_input) + timedelta(days=1)
 
-time_in_input = (&#39;07:40&#39;)
+time_in_input = (&#39;08:10&#39;)
 time_in = string_to_date(today, time_in_input)
 
 unit_call_input = (&#39;08:00&#39;)
 unit_call = string_to_date(today, unit_call_input)
-# 1. Not sure about adjusting Unit Call if Time Out is before Unit Wrap? (E.g. Hair &amp; Makeup early starters)
+# 1. Not sure about adjusting Unit Call if Time Out is before Unit Wrap? (E.g. Hair &amp; Makeup, early starters but also early finishers)
 
 first_meal_start_input = (&#39;&#39;)
 if first_meal_start_input:
@@ -557,25 +557,25 @@ second_meal_delay = timedelta(hours = 6)
 #**************************************************************************************************************************#
 match working_day:
     case &quot;CWD9&quot;:
-        scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=9)
+        scheduled_finish_time = max(unit_call, time_in) + timedelta(hours = 9)
     case &quot;CWD10&quot;:
-        scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=10)
+        scheduled_finish_time = max(unit_call, time_in) + timedelta(hours = 10)
     case &quot;SWD10&quot;:
         if first_meal_start and first_meal_end:
-            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=10) + (first_meal_end - first_meal_start)
+            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours = 10) + (first_meal_end - first_meal_start)
             if second_meal_start and second_meal_end and scheduled_finish_time &gt; second_meal_start:
                 scheduled_finish_time = scheduled_finish_time + (second_meal_end - second_meal_start)
         else:
-            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=10)
+            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours = 10)
             if second_meal_start and second_meal_end and scheduled_finish_time &gt; second_meal_start:
                 scheduled_finish_time = scheduled_finish_time + (second_meal_end - second_meal_start)
     case &quot;SWD11&quot;:
         if first_meal_start and first_meal_end:
-            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=11) + (first_meal_end - first_meal_start)
+            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours = 11) + (first_meal_end - first_meal_start)
             if second_meal_start and second_meal_end and scheduled_finish_time &gt; second_meal_start:
                 scheduled_finish_time = scheduled_finish_time + (second_meal_end - second_meal_start)
         else:
-            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours=11)
+            scheduled_finish_time = max(unit_call, time_in) + timedelta(hours = 11)
             if second_meal_start and second_meal_end and scheduled_finish_time &gt; second_meal_start:
                 scheduled_finish_time = scheduled_finish_time + (second_meal_end - second_meal_start)
     case _:
@@ -719,7 +719,7 @@ def meal_delay1_fn(time_in, time_out, unit_call, unit_wrap, first_meal_start, fi
 #----------------------#
 # 1. Due if, for an SWD, the second meal break is more than 6 hours after the end of the previous meal break, excluding any Permitted Wrap Work and Permitted Grace Periods
 # 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
-# 3. Should be rounded up to the nearest 30mins
+# 3. Should be rounded up to the nearest 30mins (or added to Meal Delay 1 OT, and then rounded up?)
 def meal_delay2_fn(time_in, time_out, unit_wrap, first_meal_start, first_meal_end, second_meal_start, second_meal_end, second_meal_delay, working_day):
     if time_in and first_meal_start and first_meal_end and second_meal_start and second_meal_end and working_day:
         if working_day in [&quot;SWD10&quot;, &quot;SWD11&quot;] and (second_meal_start - first_meal_end) &gt; second_meal_delay:
@@ -788,6 +788,7 @@ print(&quot;Meal Delay 1: &quot;, meal_delay1_ot)
 meal_delay2_ot = meal_delay2_fn(time_in, time_out, unit_wrap, first_meal_start, first_meal_end, second_meal_start, second_meal_end, second_meal_delay, working_day)
 print(&quot;Meal Delay 2: &quot;, meal_delay2_ot)
 
+
 ">
   </button>
 </div>
@@ -819,12 +820,12 @@ print(&quot;Meal Delay 2: &quot;, meal_delay2_ot)
 <span class="n">midnight_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'00:00'</span><span class="p">)</span>
 <span class="n">midnight</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">midnight_input</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">time_in_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'07:40'</span><span class="p">)</span>
+<span class="n">time_in_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'08:10'</span><span class="p">)</span>
 <span class="n">time_in</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">time_in_input</span><span class="p">)</span>
 
 <span class="n">unit_call_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'08:00'</span><span class="p">)</span>
 <span class="n">unit_call</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">unit_call_input</span><span class="p">)</span>
-<span class="c1"># 1. Not sure about adjusting Unit Call if Time Out is before Unit Wrap? (E.g. Hair &amp; Makeup early starters)
+<span class="c1"># 1. Not sure about adjusting Unit Call if Time Out is before Unit Wrap? (E.g. Hair &amp; Makeup, early starters but also early finishers)
 </span>
 <span class="n">first_meal_start_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">''</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">first_meal_start_input</span><span class="p">:</span>
@@ -930,25 +931,25 @@ print(&quot;Meal Delay 2: &quot;, meal_delay2_ot)
 #**************************************************************************************************************************#
 </span><span class="n">match</span> <span class="n">working_day</span><span class="p">:</span>
     <span class="n">case</span> <span class="s">"CWD9"</span><span class="p">:</span>
-        <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+        <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span>
     <span class="n">case</span> <span class="s">"CWD10"</span><span class="p">:</span>
-        <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
     <span class="n">case</span> <span class="s">"SWD10"</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span><span class="p">:</span>
-            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span>
+            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;</span> <span class="n">second_meal_start</span><span class="p">:</span>
                 <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;</span> <span class="n">second_meal_start</span><span class="p">:</span>
                 <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
     <span class="n">case</span> <span class="s">"SWD11"</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span><span class="p">:</span>
-            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span>
+            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">first_meal_end</span> <span class="o">-</span> <span class="n">first_meal_start</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;</span> <span class="n">second_meal_start</span><span class="p">:</span>
                 <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+            <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">unit_call</span><span class="p">,</span> <span class="n">time_in</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">scheduled_finish_time</span> <span class="o">&gt;</span> <span class="n">second_meal_start</span><span class="p">:</span>
                 <span class="n">scheduled_finish_time</span> <span class="o">=</span> <span class="n">scheduled_finish_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_meal_end</span> <span class="o">-</span> <span class="n">second_meal_start</span><span class="p">)</span>
     <span class="n">case</span> <span class="n">_</span><span class="p">:</span>
@@ -1092,7 +1093,7 @@ print(&quot;Meal Delay 2: &quot;, meal_delay2_ot)
 #----------------------#
 # 1. Due if, for an SWD, the second meal break is more than 6 hours after the end of the previous meal break, excluding any Permitted Wrap Work and Permitted Grace Periods
 # 2. Paid at the applicable Overtime rate, at £35/hr or 1.5T subject to a maximum of £45/hr
-# 3. Should be rounded up to the nearest 30mins
+# 3. Should be rounded up to the nearest 30mins (or added to Meal Delay 1 OT, and then rounded up?)
 </span><span class="k">def</span> <span class="nf">meal_delay2_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">second_meal_start</span><span class="p">,</span> <span class="n">second_meal_end</span><span class="p">,</span> <span class="n">second_meal_delay</span><span class="p">,</span> <span class="n">working_day</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">time_in</span> <span class="ow">and</span> <span class="n">first_meal_start</span> <span class="ow">and</span> <span class="n">first_meal_end</span> <span class="ow">and</span> <span class="n">second_meal_start</span> <span class="ow">and</span> <span class="n">second_meal_end</span> <span class="ow">and</span> <span class="n">working_day</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">working_day</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"SWD10"</span><span class="p">,</span> <span class="s">"SWD11"</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">second_meal_start</span> <span class="o">-</span> <span class="n">first_meal_end</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">second_meal_delay</span><span class="p">:</span>
@@ -1161,6 +1162,7 @@ print(&quot;Meal Delay 2: &quot;, meal_delay2_ot)
 <span class="n">meal_delay2_ot</span> <span class="o">=</span> <span class="n">meal_delay2_fn</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">time_out</span><span class="p">,</span> <span class="n">unit_wrap</span><span class="p">,</span> <span class="n">first_meal_start</span><span class="p">,</span> <span class="n">first_meal_end</span><span class="p">,</span> <span class="n">second_meal_start</span><span class="p">,</span> <span class="n">second_meal_end</span><span class="p">,</span> <span class="n">second_meal_delay</span><span class="p">,</span> <span class="n">working_day</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">"Meal Delay 2: "</span><span class="p">,</span> <span class="n">meal_delay2_ot</span><span class="p">)</span>
 
+
 </code></pre></div></div>
 
 <h2 id="further-work">Further Work</h2>
@@ -1174,6 +1176,7 @@ print(&quot;Meal Delay 2: &quot;, meal_delay2_ot)
   <li>Working out out how to write the OT functions for (i) <em>Broken Turnaround</em>, (ii) <em>Night Premiums</em>, (iii) <em>6th Days</em>, (iv) <em>7th Days</em></li>
   <li>Working out the impact of all the different Day Types: e.g. Sick Paid, Turnaround, Unpaid Leave, etc.</li>
   <li>Incorporating the use of <em>SCWD</em>, <em>ERDD</em> days once I can find out clearer definitions</li>
+  <li>Scoping in the impact of there being more than 2hr of Camera OT in a 7 day period / Actual Working Week</li>
   <li>Working out the impact and effect on other payments such as: <em>BOX</em>, <em>EQUIPMENT</em>, <em>COMPUTER</em>, and <em>MOBILE ALLOWANCE</em></li>
   <li>Considering the impact and effect of Holidays and Bank Holidays</li>
   <li>Building in the different Holiday Entitlement rules, for the different types of worker, e.g. (i) <em>PAYE</em>, (ii) <em>Schedule-D</em> (Sole Trader), and (iii) <em>Loan Out</em> (Ltd. Company)</li>
