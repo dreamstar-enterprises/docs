@@ -456,24 +456,32 @@ unit_call = string_to_date(today, unit_call_input)
 first_meal_start_input = (&#39;&#39;)
 if first_meal_start_input:
     first_meal_start = string_to_date(today, first_meal_start_input)
+    if first_meal_start &lt; unit_call: 
+        first_meal_start = first_meal_start + timedelta(days=1)
 else:
     first_meal_start = None
 
 first_meal_end_input = (&#39;&#39;)
 if first_meal_end_input:
     first_meal_end = string_to_date(today, first_meal_end_input)
+    if first_meal_end &lt; first_meal_start: 
+        first_meal_end = first_meal_end + timedelta(days=1)
 else:
     first_meal_end = None
 
 second_meal_start_input = (&#39;19:45&#39;)
 if second_meal_start_input:
     second_meal_start = string_to_date(today, second_meal_start_input)
+    if second_meal_start &lt; unit_call: 
+        second_meal_start = second_meal_start + timedelta(days=1)
 else:
     second_meal_start = None
 
 second_meal_end_input = (&#39;20:00&#39;)
 if second_meal_end_input:
     second_meal_end = string_to_date(today, second_meal_end_input)
+    if second_meal_end &lt; second_meal_start: 
+        second_meal_end = second_meal_end + timedelta(days=1)
 else:
     second_meal_end = None
 
@@ -830,24 +838,32 @@ print(&quot;Meal Delay 2: &quot;, meal_delay2_ot)
 <span class="n">first_meal_start_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">''</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">first_meal_start_input</span><span class="p">:</span>
     <span class="n">first_meal_start</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">first_meal_start_input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">first_meal_start</span> <span class="o">&lt;</span> <span class="n">unit_call</span><span class="p">:</span> 
+        <span class="n">first_meal_start</span> <span class="o">=</span> <span class="n">first_meal_start</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">first_meal_start</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="n">first_meal_end_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">''</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">first_meal_end_input</span><span class="p">:</span>
     <span class="n">first_meal_end</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">first_meal_end_input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">first_meal_end</span> <span class="o">&lt;</span> <span class="n">first_meal_start</span><span class="p">:</span> 
+        <span class="n">first_meal_end</span> <span class="o">=</span> <span class="n">first_meal_end</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">first_meal_end</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="n">second_meal_start_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'19:45'</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">second_meal_start_input</span><span class="p">:</span>
     <span class="n">second_meal_start</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">second_meal_start_input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">second_meal_start</span> <span class="o">&lt;</span> <span class="n">unit_call</span><span class="p">:</span> 
+        <span class="n">second_meal_start</span> <span class="o">=</span> <span class="n">second_meal_start</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">second_meal_start</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="n">second_meal_end_input</span> <span class="o">=</span> <span class="p">(</span><span class="s">'20:00'</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">second_meal_end_input</span><span class="p">:</span>
     <span class="n">second_meal_end</span> <span class="o">=</span> <span class="n">string_to_date</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="n">second_meal_end_input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">second_meal_end</span> <span class="o">&lt;</span> <span class="n">second_meal_start</span><span class="p">:</span> 
+        <span class="n">second_meal_end</span> <span class="o">=</span> <span class="n">second_meal_end</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">second_meal_end</span> <span class="o">=</span> <span class="bp">None</span>
 
