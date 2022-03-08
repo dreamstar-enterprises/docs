@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176158185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176158185-1');
+</script>
+
+		<title>Finance - P&L Tracking – Customised & Nested Pivot Tables | StarBase </title>
+		<!-- link to website tab icon -->
+		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
+		<!-- link to Main Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/../docs/assets/css/styles.css">
+		<!-- link to Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Zilla Slab' rel='stylesheet'>
+		<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@200..400&display=swap" rel="stylesheet">
+		<!-- link to Font awesome -->
+		<script src="https://kit.fontawesome.com/378306bc97.js" crossorigin="anonymous"></script>
+		<!-- link to Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- link to Iconify CDN -->
+		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+		<!-- link to UUID -->	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv5.min.js"></script>
+	</head>
+	<body>
+		<a id="top"></a>
+			<!-- Header Holder --> 
+
+<div class="header-holder has-default-focus"
+  
+  >
+    <div class="nav-bar">
+        <!---->
+        <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" href="https://sachin1882.wixsite.com/startechenterprises/guides" title="Go to parent site: StarTech Enterprises">
+            <div class="nav-bar-logo has-background-image">
+                <img src="https://fontmeme.com/permalink/200623/587d8aec23ed76c10e0b1ec43bc85f23.png" class="alt-logo has-background-image" width="180" height ="70">
+                <div class="overlay">
+                    <img src="/../docs/assets/images/starbase_logo.png" class="nav-bar-logo">
+                </div>
+            </div>
+        </a>
+        <nav class="nav-bar-nav">
+            <ul class="nav-bar-nav-list">
+                <li class="nav-bar-item is-category has-spacing">
+                    <a class = "nav-bar-button title has-hover-underline is-6 
+                    
+                    
+                    " href="/docs/">
+                        <span>
+                            <!---->
+                            Docs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    underline
+                    
+                    " href="/docs/">
+                        <span>
+                            <!---->
+                            Guides
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/articles-and-blogs/article-search.html">
+                        <span>
+                            <!---->
+                            Articles & Blogs
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline" href="/docs/videos/">
+                        <span>
+                            <!---->
+                            Videos
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-bar-item">
+                    <a class = "nav-bar-button has-hover-underline 
+                    
+                    
+                    " href="/docs/about/about.html">
+                        <span>
+                            <!---->
+                            About
+                            <!---->
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <span class = "nav-bar-spacer i-hidden-mobile"></span>
+        <!---->
+    </div>
+</div>
+
+
+<div class="header-holder transparent has-default-focus" style="position: sticky; top: 0; left: 0; right: 0;">
+    <div class="content-header uhf-container has-padding has-default-focus is-flexbox" style="padding-top: 0px; padding-bottom: 1px;">
+        
+<!-- Get correct Breadcrumb Links from Front Matter of loaded page-->
+
+<!-- Liquid Code -->
+    <!-- Page Root -->
+    
+
+    <!-- Page Type -->
+    
+
+    <!-- Page Category -->
+    
+
+    <!-- Page Series -->
+    
+<!-- / End of Liquid Code -->
+
+
+<!-- Breadcrumb Links --> 
+<nav class = "has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow">
+    <ul id="page-breadcrumbs" class="breadcrumbs">
+        <li><a href="/docs/"><span class ="">Docs</span></a></li>
+        <li><a href="/docs/"><span class ="">Guides</span></a></li>
+        <li><a href="/docs/guides/data-analytics/data-analytics.html"><span class="">Data Analytics</span></a></li>
+        <li><a href=/docs/guides/data-analytics/data-analytics.html><span class="">DAX Samples</span></a></li>
+
+        <!-- This part needs to be generated by JavaScript-->
+
+    </ul>
+</nav>
+<!-- end of / Breadcrumb links -->
+
+
+
+
+        <!-- Page Functions --> 
+
+<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+    <ul class="is-hidden-mobile action-list has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+        <li>
+            <button class="print button is-text has-inner-focus is-small is-icon-only-touch colorfill" type="button" title="Print this page" onclick="window.print()">
+                <span class="icon">
+                    <span class="iconify extra-small" data-icon="el:print" data-inline="false"></span>                </span>
+                <span class="is-visually-hidden-touch is-hidden-portrait">Print</span>
+            </button>
+        </li>
+        <li>
+            <button class="button is-text has-inner-focus is-small is-icon-only-touch colorfill" title="Send feedback about this page" onclick="location.href='#feedback'">
+                <span class="icon">
+                    <i class="fas fa-comments"></i>
+                </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+            </button>
+        </li>
+        <li id="share-menu-link">
+            <div class = "sharing dropdown has-caret">
+                <button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch colorfill" title="Share This Document">
+                    <span class="icon">
+                        <span class="iconify extra-small" data-icon="ls:share" data-inline="false"></span>
+                    </span>
+                    <span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+                </button>
+                <div id="sharing-menu" class="sharing-menu has-padding-small is-hidden">
+                    <ul>
+                        <li id="twitter-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-twitter colorfill"></i>
+                                </span>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li id="linkedin-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-linkedin-in colorfill"></i>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li id="facebook-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fab fa-facebook-f colorfill"></i>
+                                </span>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li id="email-link">
+                            <a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" href="" target="_blank">
+                                <span class="icon effect">
+                                    <i class="fas fa-envelope colorfill"></i>
+                                </span>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- end of / Page Functions -->
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar-scroll" id="myBar"></div>
+    </div>
+</div>
+
+<!-- end of /.header-holder -->
+			<!-- Main Container --> 
+<div class="mainContainer uhf-container  has-top-padding ">
+    <div class="columns has-large-gaps is-gapless-mobile ">
+
+        
+        <!-- Left Hand Side Tree-->
+        <div class="left-sidebar column is-hidden-mobile 
+         
+        is-one-fifth-tablet is-one-seventh-desktop 
+        ">
+            <nav class ="is-fixed is-flex is-flex-column" id="affixed-left-sidebar">
+
+                <!-- Include LHS Menu -->
+                
+                <a href="../data-analytics.html">
+                    <span id="earlierPage" class="is-primary">
+                        <span class="iconify medium" data-icon="ic-sharp-arrow-back" data-inline="false"></span>
+                    </span>
+                </a>
+                
+            </nav>
+        </div>
+         <!-- end of /left hand side tree -->
+        
+
+        <!-- Primary Holder -->    
+        <div class="primary-holder column 
+        
+         is-four-fifths-tablet is-six-sevenths-desktop 
+        ">
+            <div class="columns has-large-gaps is-gapless-mobile 
+            
+            ">
+
+                 <!-- Main Column -->
+                <div id="main-column" class="column 
+                 
+                is-full is-four-fifths-desktop 
+                ">
+                    <main id="main" class ="
+                    
+                        content docs
+                    " lang="eng-us">
+                        <h1 id="finance---pl-tracking--customised--nested-pivot-tables">Finance - P&amp;L Tracking – Customised &amp; Nested Pivot Tables</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Data Analytics • 01/11/2020</time>
+
+<div class="has-margin-top-medium">
+  <p><a class="button is-small is-primary no_icon" href="https://1drv.ms/x/s!Ahu8OSSAtOMzlmNbIsDwd2RByzlL?e=x6obaU" target="_blank">
+    <span>
+        Download Sample
+    </span>
+    <span class=" has-margin-left-small material-icons">
+        cloud_download
+    </span>
+</a></p>
+</div>
+
+<h2 id="finance---pl-tracking--customised--nested-pivot-tables-1">Finance - P&amp;L Tracking – Customised &amp; Nested Pivot Tables</h2>
+
+<p>In this sample, we track Actuals against Budgeted amounts, for each P&amp;L line, showing variances too, in a Pivot Table. Simple Pivot Tables are relatively easy to create and use, but for this file  we add the condition of also needing to show the additional lines such as ‘Gross Profit’, ‘Operating Income’, which do not appear in the source GL data - in effect we need to create a highly-customised customised Pivot Table.</p>
+
+<h2 id="data-inputs">Data Inputs</h2>
+<p>For this sample, we take the following data inputs:</p>
+
+<h3 id="dimensions">Dimensions</h3>
+
+<p>The dimension tables will be determined by the current structure of the business</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-pnl-tracking-custom-pivot-1-data.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="accounts-structure">Accounts Structure</h3>
+
+<p>This is where we define the layout and mappings of the P&amp;L lines to different Headings and Sub Accounts</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-pnl-tracking-custom-pivot-2-data.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-pnl-tracking-custom-pivot-3-data.png" alt="" style="width: 100%; max-width: 79.1%" />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="general-ledger">General Ledger</h3>
+
+<p>The GL here contains both the Actuals and Budgeted data for each month, so both datasets are already available to us in a nice, easy to work with format, in the same table.</p>
+
+<figure>
+    
+        <img class="docimage" src="images/finance-pnl-tracking-custom-pivot-4-data.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+
+<h3 id="pl-tracking-measures">P&amp;L Tracking Measures</h3>
+
+<p>The following specific measures are shown:</p>
+
+<ol class="lower-roman">
+  <li><strong>Actuals</strong></li>
+  <li><strong>Budget</strong></li>
+  <li><strong>Variance $</strong></li>
+  <li><strong>Variance %</strong></li>
+</ol>
+
+<h2 id="dashboard---snippet">Dashboard - Snippet</h2>
+
+<p>Unlike most of our other samples, the final output here in presented in Excel itself, rather than through a Power BI dashboard – which is great for visuals, but not as strong with tables. When it comes to just pivot tables, it is a matter of preference.</p>
+
+<p>The final file can also be downloaded here, if you want to review the formulae in detail:
+<a class="button is-small is-primary no_icon" href="https://1drv.ms/x/s!Ahu8OSSAtOMzlmNbIsDwd2RByzlL?e=x6obaU" target="_blank">
+    <span>
+        Download Sample
+    </span>
+    <span class=" has-margin-left-small material-icons">
+        cloud_download
+    </span>
+</a></p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-pnl-tracking-custom-pivot-1-db.png');" src="images/finance-pnl-tracking-custom-pivot-1-db.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>Finance - P&amp;L Tracking – Customised &amp; Nested Pivot Tables</h4>
+      <p><span class="close">
+×
+</span></p>
+    </div>
+    <div class="modal-body">
+      <!-- image inserted with JavaScript -->
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ************************************************ -->
+
+<h2 id="data-model---snippet">Data Model - Snippet</h2>
+
+<p>The final data model used is shown here:</p>
+
+<div class="img-wrap">
+  <figure>
+    
+        <img class="docimage" onclick="showImage('finance-pnl-tracking-custom-pivot-1-dm.png');" src="images/finance-pnl-tracking-custom-pivot-1-dm.png" alt="" style="width: 100%; max-width: " />
+    
+
+    
+    <figcaption style="text-align: center; color: #5e5e5e; font-size: 0.9rem;">
+        <i></i>
+    </figcaption>
+    
+</figure>
+  <div class="img-hover-description-layer">
+    <p class="img-hover-description">Click to view large-sized image</p>
+  </div>
+</div>
+
+<h2 id="measures">Measures</h2>
+
+<h3 id="sum-gl-amt">SUM GL Amt</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+SUM GL Amt :=
+SUM ( &#39;General_Ledger&#39;[Amount] )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">SUM GL Amt :=
+SUM ( 'General_Ledger'[Amount] )
+</code></pre>
+
+<h3 id="gl-amt-correct-signs">GL Amt (Correct Signs)</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+GL Amt (Correct Signs) :=
+SUMX ( Accounts, [SUM GL Amt] * Accounts[Report Sign] )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">GL Amt (Correct Signs) :=
+SUMX ( Accounts, [SUM GL Amt] * Accounts[Report Sign] )
+</code></pre>
+
+<h3 id="actual-amt">Actual Amt</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Actual Amt :=
+CALCULATE ( [GL Amt (Correct Signs)], Scenarios[ScenarioName] = &quot;Actual&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Actual Amt :=
+CALCULATE ( [GL Amt (Correct Signs)], Scenarios[ScenarioName] = "Actual" )
+</code></pre>
+
+<h3 id="rev-act">Rev Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Rev Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = &quot;Revenue&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Rev Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = "Revenue" )
+</code></pre>
+
+<h3 id="cos-act">CoS Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CoS Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = &quot;Cost of Sales&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">CoS Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = "Cost of Sales" )
+</code></pre>
+
+<h3 id="gp-act">GP Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+GP Act :=
+[Rev Act] + [CoS Act]
+">
+  </button>
+</div>
+<pre><code class="language-DAX">GP Act :=
+[Rev Act] + [CoS Act]
+</code></pre>
+
+<h3 id="opex-act">OpEx Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+OpEx Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = &quot;Operating Expenses&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">OpEx Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = "Operating Expenses" )
+</code></pre>
+
+<h3 id="oi-act">OI Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+OI Act :=
+[GP Act] + [OpEx Act]
+">
+  </button>
+</div>
+<pre><code class="language-DAX">OI Act :=
+[GP Act] + [OpEx Act]
+</code></pre>
+
+<h3 id="oie-act">OI&amp;E Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+OI&amp;E Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = &quot;Other Income &amp; Expense&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">OI&amp;E Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = "Other Income &amp; Expense" )
+</code></pre>
+
+<h3 id="da-act">D&amp;A Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+D&amp;A Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = &quot;Depreciation &amp; Amortization&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">D&amp;A Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = "Depreciation &amp; Amortization" )
+</code></pre>
+
+<h3 id="iie-act">II&amp;E Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+II&amp;E Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = &quot;Interest Income/Expense&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">II&amp;E Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = "Interest Income/Expense" )
+</code></pre>
+
+<h3 id="taxes-act">Taxes Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Taxes Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = &quot;Taxes&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Taxes Act :=
+CALCULATE ( [Actual Amt], Headers[Header] = "Taxes" )
+</code></pre>
+
+<h3 id="ni-act">NI Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+NI Act :=
+[OI Act] + [OI&amp;E Act] + [D&amp;A Act] + [II&amp;E Act] + [Taxes Act]
+">
+  </button>
+</div>
+<pre><code class="language-DAX">NI Act :=
+[OI Act] + [OI&amp;E Act] + [D&amp;A Act] + [II&amp;E Act] + [Taxes Act]
+</code></pre>
+
+<h3 id="is-subtotal-act">IS Subtotal Act</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+IS Subtotal Act :=
+IF (
+    COUNTROWS ( VALUES ( Headers[Header] ) ) = 1,
+    SWITCH (
+        VALUES ( Headers[Header ID] ),
+        1, [Rev Act],
+        2, [CoS Act],
+        3, [GP Act],
+        4, [OpEx Act],
+        5, [OI Act],
+        6, [OI&amp;E Act],
+        7, [D&amp;A Act],
+        8, [II&amp;E Act],
+        9, [Taxes Act],
+        10, [NI Act],
+        BLANK ()
+    ),
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">IS Subtotal Act :=
+IF (
+    COUNTROWS ( VALUES ( Headers[Header] ) ) = 1,
+    SWITCH (
+        VALUES ( Headers[Header ID] ),
+        1, [Rev Act],
+        2, [CoS Act],
+        3, [GP Act],
+        4, [OpEx Act],
+        5, [OI Act],
+        6, [OI&amp;E Act],
+        7, [D&amp;A Act],
+        8, [II&amp;E Act],
+        9, [Taxes Act],
+        10, [NI Act],
+        BLANK ()
+    ),
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="actual-total">Actual Total</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Actual Total :=
+IF (
+    MAX ( Headers[Summary] ) = 1
+        &amp;&amp; (
+            MAX ( Headers[Show Detail] ) = 1
+                || COUNTROWS ( VALUES ( Subheader[Subheader] ) ) &gt; 1
+        ),
+    [IS Subtotal Act],
+    [Actual Amt]
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Actual Total :=
+IF (
+    MAX ( Headers[Summary] ) = 1
+        &amp;&amp; (
+            MAX ( Headers[Show Detail] ) = 1
+                || COUNTROWS ( VALUES ( Subheader[Subheader] ) ) &gt; 1
+        ),
+    [IS Subtotal Act],
+    [Actual Amt]
+)
+</code></pre>
+
+<h3 id="budget-amt">Budget Amt</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Budget Amt :=
+CALCULATE ( [GL Amt (Correct Signs)], Scenarios[ScenarioName] = &quot;Budget&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Budget Amt :=
+CALCULATE ( [GL Amt (Correct Signs)], Scenarios[ScenarioName] = "Budget" )
+</code></pre>
+
+<h3 id="rev-bud">Rev Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Rev Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = &quot;Revenue&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Rev Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = "Revenue" )
+</code></pre>
+
+<h3 id="cos-bud">CoS Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+CoS Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = &quot;Cost of Sales&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">CoS Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = "Cost of Sales" )
+</code></pre>
+
+<h3 id="gp-bud">GP Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+GP Bud :=
+[Rev Bud] + [CoS Bud]
+">
+  </button>
+</div>
+<pre><code class="language-DAX">GP Bud :=
+[Rev Bud] + [CoS Bud]
+</code></pre>
+
+<h3 id="opex-bud">OpEx Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+OpEx Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = &quot;Operating Expenses&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">OpEx Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = "Operating Expenses" )
+</code></pre>
+
+<h3 id="oi-bud">OI Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+OI Bud :=
+[GP Bud] + [OpEx Bud]
+">
+  </button>
+</div>
+<pre><code class="language-DAX">OI Bud :=
+[GP Bud] + [OpEx Bud]
+</code></pre>
+
+<h3 id="oie-bud">OI&amp;E Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+OI&amp;E Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = &quot;Other Income &amp; Expense&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">OI&amp;E Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = "Other Income &amp; Expense" )
+</code></pre>
+
+<h3 id="da-bud">D&amp;A Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+D&amp;A Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = &quot;Depreciation &amp; Amortization&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">D&amp;A Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = "Depreciation &amp; Amortization" )
+</code></pre>
+
+<h3 id="iie-bud">II&amp;E Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+II&amp;E Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = &quot;Interest Income/Expense&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">II&amp;E Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = "Interest Income/Expense" )
+</code></pre>
+
+<h3 id="taxes-bud">Taxes Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Taxes Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = &quot;Taxes&quot; )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Taxes Bud :=
+CALCULATE ( [Budget Amt], Headers[Header] = "Taxes" )
+</code></pre>
+
+<h3 id="ni-bud">NI Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+NI Bud :=
+[OI Bud] + [OI&amp;E Bud] + [D&amp;A Bud] + [II&amp;E Bud] + [Taxes Bud]
+">
+  </button>
+</div>
+<pre><code class="language-DAX">NI Bud :=
+[OI Bud] + [OI&amp;E Bud] + [D&amp;A Bud] + [II&amp;E Bud] + [Taxes Bud]
+</code></pre>
+
+<h3 id="is-subtotal-bud">IS Subtotal Bud</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+IS Subtotal Bud :=
+IF (
+    COUNTROWS ( VALUES ( Headers[Header] ) ) = 1,
+    SWITCH (
+        VALUES ( Headers[Header ID] ),
+        1, [Rev Bud],
+        2, [CoS Bud],
+        3, [GP Bud],
+        4, [OpEx Bud],
+        5, [OI Bud],
+        6, [OI&amp;E Bud],
+        7, [D&amp;A Bud],
+        8, [II&amp;E Bud],
+        9, [Taxes Bud],
+        10, [NI Bud],
+        BLANK ()
+    ),
+    BLANK ()
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">IS Subtotal Bud :=
+IF (
+    COUNTROWS ( VALUES ( Headers[Header] ) ) = 1,
+    SWITCH (
+        VALUES ( Headers[Header ID] ),
+        1, [Rev Bud],
+        2, [CoS Bud],
+        3, [GP Bud],
+        4, [OpEx Bud],
+        5, [OI Bud],
+        6, [OI&amp;E Bud],
+        7, [D&amp;A Bud],
+        8, [II&amp;E Bud],
+        9, [Taxes Bud],
+        10, [NI Bud],
+        BLANK ()
+    ),
+    BLANK ()
+)
+</code></pre>
+
+<h3 id="budget-total">Budget Total</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Budget Total :=
+IF (
+    MAX ( Headers[Summary] ) = 1
+        &amp;&amp; (
+            MAX ( Headers[Show Detail] ) = 1
+                || COUNTROWS ( VALUES ( Subheader[Subheader] ) ) &gt; 1
+        ),
+    [IS Subtotal Bud],
+    [Budget Amt]
+)
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Budget Total :=
+IF (
+    MAX ( Headers[Summary] ) = 1
+        &amp;&amp; (
+            MAX ( Headers[Show Detail] ) = 1
+                || COUNTROWS ( VALUES ( Subheader[Subheader] ) ) &gt; 1
+        ),
+    [IS Subtotal Bud],
+    [Budget Amt]
+)
+</code></pre>
+
+<h3 id="variance-">Variance $</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Variance $ := [Actual Total] - [Budget Total],
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Variance $ := [Actual Total] - [Budget Total],
+</code></pre>
+
+<h3 id="variance--1">Variance %</h3>
+
+<div class="copy-code-container">
+  <span class="language-name" aria-label="Language name: DAX">DAX</span>
+  <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
+Variance % := DIVIDE ( [Variance $], [Budget Total] )
+">
+  </button>
+</div>
+<pre><code class="language-DAX">Variance % := DIVIDE ( [Variance $], [Budget Total] )
+</code></pre>
+
+                        
+                        
+                    </main>	
+                    
+                        <!-- Start of Feedback section -->
+<section class="feedback-section is-relative">
+    <h2 id="feedback" class="is-size-2 has-margin-top-large has-padding-top-medium"> Feedback </h2>
+    <div class="feedback has-margin-top-small has-margin-bottom-none">
+        <p id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">
+            Submit and view feedback
+        </p>
+        <div id="feedback-section-link" class="has-margin-top-large has-margin-bottom-none">
+            <a class="button has-margin-bottom-small" href="" target="_blank">
+                <span class="icon">
+                    <span class=github>
+                        <i class="fab fa-github"></i>
+                    </span>
+                </span>
+                <span>This page</span>
+            </a>
+        </div>
+    </div>
+    <div id="viewallfeedback-section-link" class="is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-medium">
+        <a class="view-on-github" href="" target="_blank">
+            <span class="icon">
+                <span class=github>
+                    <i class="fab fa-github"></i>
+                </span>
+            </span><span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+
+<!-- End of Feedback section -->
+                    
+                </div>
+
+                
+                 <!-- Right Hand Side Toc-->
+                 <div class="right-sidebar column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only">
+                    <nav class="doc-outline is-fixed is-vertically-scrollable", id="affixed-right-sidebar">
+                        <nav id="side-doc-outline">
+                            <header id="side-doc-title" class = "is-flex is-flex-row">
+                                <div>
+                                    <a href="#top">
+                                        <h3 title="Go to Top of Page">
+                                            <i class="fas fa-file-alt" style="color:#e82127;">&nbsp;</i>
+                                            In this article
+                                        </h3>
+                                    </a>
+                                </div>
+                            </header>
+                            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#finance---pl-tracking--customised--nested-pivot-tables-1">Finance - P&amp;L Tracking – Customised &amp; Nested Pivot Tables</a></li>
+<li class="toc-entry toc-h2"><a href="#data-inputs">Data Inputs</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#dimensions">Dimensions</a></li>
+<li class="toc-entry toc-h3"><a href="#accounts-structure">Accounts Structure</a></li>
+<li class="toc-entry toc-h3"><a href="#general-ledger">General Ledger</a></li>
+<li class="toc-entry toc-h3"><a href="#pl-tracking-measures">P&amp;L Tracking Measures</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#dashboard---snippet">Dashboard - Snippet</a></li>
+<li class="toc-entry toc-h2"><a href="#data-model---snippet">Data Model - Snippet</a></li>
+<li class="toc-entry toc-h2"><a href="#measures">Measures</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#sum-gl-amt">SUM GL Amt</a></li>
+<li class="toc-entry toc-h3"><a href="#gl-amt-correct-signs">GL Amt (Correct Signs)</a></li>
+<li class="toc-entry toc-h3"><a href="#actual-amt">Actual Amt</a></li>
+<li class="toc-entry toc-h3"><a href="#rev-act">Rev Act</a></li>
+<li class="toc-entry toc-h3"><a href="#cos-act">CoS Act</a></li>
+<li class="toc-entry toc-h3"><a href="#gp-act">GP Act</a></li>
+<li class="toc-entry toc-h3"><a href="#opex-act">OpEx Act</a></li>
+<li class="toc-entry toc-h3"><a href="#oi-act">OI Act</a></li>
+<li class="toc-entry toc-h3"><a href="#oie-act">OI&amp;E Act</a></li>
+<li class="toc-entry toc-h3"><a href="#da-act">D&amp;A Act</a></li>
+<li class="toc-entry toc-h3"><a href="#iie-act">II&amp;E Act</a></li>
+<li class="toc-entry toc-h3"><a href="#taxes-act">Taxes Act</a></li>
+<li class="toc-entry toc-h3"><a href="#ni-act">NI Act</a></li>
+<li class="toc-entry toc-h3"><a href="#is-subtotal-act">IS Subtotal Act</a></li>
+<li class="toc-entry toc-h3"><a href="#actual-total">Actual Total</a></li>
+<li class="toc-entry toc-h3"><a href="#budget-amt">Budget Amt</a></li>
+<li class="toc-entry toc-h3"><a href="#rev-bud">Rev Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#cos-bud">CoS Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#gp-bud">GP Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#opex-bud">OpEx Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#oi-bud">OI Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#oie-bud">OI&amp;E Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#da-bud">D&amp;A Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#iie-bud">II&amp;E Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#taxes-bud">Taxes Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#ni-bud">NI Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#is-subtotal-bud">IS Subtotal Bud</a></li>
+<li class="toc-entry toc-h3"><a href="#budget-total">Budget Total</a></li>
+<li class="toc-entry toc-h3"><a href="#variance-">Variance $</a></li>
+<li class="toc-entry toc-h3"><a href="#variance--1">Variance %</a></li>
+</ul>
+</li>
+</ul>
+                        </nav>
+
+                        <!-- Fixed Element-->
+                        <div>
+                            <a class="top-link hide" href="" id="js-top" title="Go to Top of Page">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                
+            </div>
+            <!-- end of /.columns -->
+        </div>	
+        <!-- end of /primary holder -->
+
+    </div>
+    <!-- end of /.columns -->
+</div>
+<!-- end of /.mainContainer -->
+			<!-- Footer Container --> 
+<div class="footerContainer">
+
+    
+    
+
+    <footer id="footer" class=" footer-layout   uhf-container has-padding">
+        <div class="">
+            <a href="https://startech-enterprises.github.io/docs/">
+                <img src="/../docs/assets/images/starbase_logo.png" class="footer-bar-logo">
+            </a>
+        </div>
+        <div class="is-flex is-full-height has-padding-right-extra-large-desktop has-padding-left-extra-large-desktop">
+            <a class="locale-selector-link has-flex-shrink-none" href="/../">
+                <span class="icon">
+                    <span><i class="fas fa-globe"></i></span>
+                </span>
+                <span class="locale-selector-link-text">English (United Kingdom)</span>
+            </a>
+        </div>
+        <ul class="links">
+            <li>
+                <a href="/docs/">Docs</a>
+            </li>
+            <li>
+                <a href="/docs/">Guides</a>
+            </li>
+            <li>
+                <a href="/docs/articles-and-blogs/article-search.html">Articles & Blogs</a>
+            </li>
+            <li>
+                <a href="/docs/videos/">Videos</a>
+            </li>
+            <li>
+                <a href="/docs/about/about.html">About</a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/startech-enterprises/" target="_blank">LinkedIn</a>
+            </li>
+            <li style="color: #e82127;">
+                <span class="icon">
+                    <span> <i class="fas fa-star"></i></span>
+                </span>Star Base 2020
+            </li>
+        </ul>
+    </footer>
+</div>
+<!-- end of / footerContainer -->
+	</body>
+		<!-- Reference to main JavaScript Files -->
+<script src="/../docs/assets/js/library.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/breadCrumb.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/navbar.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/affix.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/rhsToc.js" type="application/javascript"></script>
+
+
+
+
+<script src="/../docs/assets/js/scrollTop.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/gitFeedback.js" type="application/javascript"></script>
+<script src="/../docs/assets/js/copyCode.js" type="application/javascript"></script>
+</html>
