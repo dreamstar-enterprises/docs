@@ -380,11 +380,11 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>This particular example shows how a medium length Python Script can be used, together with the <strong><em>pyPDF2</em></strong> and <strong><em>pathlib</em></strong> libraries, to split a large PDF file into smaller individual files - quite a common task!</p>
+<p>This particular example shows how a medium length Python Script can be used, together with the <strong><em>pyPDF2</em></strong> and <strong><em>pathlib</em></strong> libraries, to split a large PDF file you might have received, into smaller individual files.</p>
 
-<p>The example shown below works on Payslip PDFs (such as those you might get from <em>Sargent Disc</em> - a small to medium sized payroll vendor that operates in the U.K. Film &amp; Entertainment space, and the kind of data files I used to work a lot with in a previous industry role, on an Apple TV+ Production.</p>
+<p>The example shown below works on Payslip PDFs (such as those you might get from Sargent Disc - a small to medium sized payroll vendor that operates in the U.K. Film &amp; Entertainment space, and the kind of data files I used to work a lot with in a previous industry role, on an Apple TV+ Production.</p>
 
-<p>As with all Scripts, the one below can be modified to suit your needs to work with any particular system (that's one advantage of scripts - they are flexible!)</p>
+<p>As with all Scripts, the one below can be modified to suit your needs to work with any particular system (that’s one advantage of scripts - they are flexible!)</p>
 
 <h2 id="python-script">Python Script</h2>
 
@@ -552,7 +552,7 @@ for file in files:
  
     <span class="c1"># Write PDF File
 </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
-        <span class="n">Path</span><span class="p">(</span><span class="n">output_folder_path</span> <span class="o">/</span> <span class="s">f"</span><span class="si">{</span><span class="n">surname</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">firstname</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s"> (</span><span class="si">{</span><span class="n">MatchedEmpNo</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s">)"</span><span class="p">),</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">Path</span><span class="p">(</span><span class="n">output_folder_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">surname</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">firstname</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s"> (</span><span class="si">{</span><span class="n">MatchedEmpNo</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s">)"</span><span class="p">),</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">pdfWriter</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 
@@ -571,10 +571,10 @@ for file in files:
     <p>The input file is called <em>Payslips.pdf</em>. This should be stored in the same folder as this script.</p>
   </li>
   <li>
-    <p>The script can be given any meaningful name, but should have a file extension <em>.py</em> to tell the operating system on your computer that it is a Python Script</p>
+    <p>The script can be given any meaningful name, but should have a file extension .py to tell the operating system on your computer that it is a Python Script</p>
   </li>
   <li>
-    <p>The smaller PDFs are saved in a folder called <em>Output</em>. So, one needs to be created that should sit alongside the (ii) <em>input PDF file</em> and (iii) <em>Python script</em>, within the same working directory</p>
+    <p>The split PDFs are saved in a folder called <em>Output</em>. This (i) <em>Ouput folder</em> should sit alongside the (ii) <em>input PDF file</em> and (iii) <em>Python script</em>, within the same working directory</p>
   </li>
   <li>
     <p>The name given to each new PDF file can be modified by editing the last line of the Script above</p>
@@ -583,7 +583,7 @@ for file in files:
     <p>The script can be run easily from any Python compiler on a Mac or Windows computer (<em>Visual Studio Code</em> is recommended!)</p>
   </li>
   <li>
-    <p>The script takes less than 5 seconds to process 500 payslips! If you work long hours, that is a phenomenal time-saving!</p>
+    <p>The script takes less than 5 seconds to process 500 payslips!</p>
   </li>
 </ul>
 
@@ -630,7 +630,7 @@ Unforunately not all Payslips have a Employee No. on them - (a bug Sargent Disc,
 
 <p>Other fields from the Payslip could also be extracted, such as <em>WEEK No.</em>, etc.</p>
 
-<p>Furthermore, Python also has libraries that can work with other applications like <em>MS Excel</em>, or <em>Email Clients</em> that you might use, so the above workflows can, with some effort, be extended out even further!</p>
+<p>Furthermore, Python also has libraries that can work with applications like <em>MS Excel</em>, and various <em>Email Clients</em>, so the above workflows can, with some effort, be extended out even further!</p>
 
 <p>The sky is the limit!</p>
 
@@ -699,7 +699,7 @@ Unforunately not all Payslips have a Employee No. on them - (a bug Sargent Disc,
                                     </a>
                                 </div>
                             </header>
-                            <ul class="section-nav">
+                            <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
 <li class="toc-entry toc-h2"><a href="#python-script">Python Script</a></li>
 <li class="toc-entry toc-h2"><a href="#how-to-use-it">How to Use it</a></li>
