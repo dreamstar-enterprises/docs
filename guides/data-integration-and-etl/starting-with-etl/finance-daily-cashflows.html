@@ -986,19 +986,15 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>A client once asked me in Mar 2020 (before Covid-19 began in the UK!) to see if I could improve how they prepared the business’ daily cashflow forecasts. They had a workbook that had until then been handled by one of their Finance Managers, but the CFO felt there might be some room for further improvement – so I said to her, I would take a look. (Before Covid-19, cashflows were never really a concern, but as the pandemic hit, it suddenly became a big concern for the department!)</p>
+<p>A client once asked me in Mar 2020 (before Covid-19 began in the UK!) to see if I could improve how they were preparing their business’ daily cashflow forecasts. The workbook was being maintained by one of their Finance Managers, but the C.F.O. felt there might be some room for further improvement – so I said to her, I would take a look. (Before Covid-19, cashflows were less of a concern, but as the pandemic hit, it became a growing concern for the department)</p>
 
-<p>The workbook was ok – lots of manually linked cells with long, very breakable formulae, quite a few manual fx conversions to do again manually, lots of sheets, and all a bit of a nightmare to update. Also, nothing was really forecast out for anything more than 10 days – so I wasn’t quite sure how it was ever called a forecast, but there you go!</p>
+<p>The workbook was ok – many manually linked cells with lengthy, difficult to update formulae. Quite a few manual foreign exchange conversions, several workbook sheets, quite time consuming to update. The forecast only went out for 10 days.</p>
 
-<p>The workbook had a sheet for scheduled payments, with payments categorised under two buckets: ‘Confirmed’ – for payments where they knew quite confidently, when they would go out, such as Payroll, and VAT. The other category was called ‘Estimated’ – for payments they weren’t as sure about – but still wanted to record.</p>
+<p>The workbook had a sheet for scheduled payments. This had two classes of payments: ‘Confirmed’ – payments they knew quite confidently would be paid out, such as Payroll, and V.A.T. payments to H.M.R.C. The other ‘Estimated’ – for payments they weren’t sure would be paid out – but still wanted to record.</p>
 
-<p>There was a similar schedule in the workbook for receipts. These, they had tried to link to a separate debtors sheet, to see upcoming estimated or confirmed receipts. The debtors sheet was updated by copying and pasting the contents from a separate debtors file.</p>
+<p>The workbook also had another sheet for scheduled receipts, but which they used to copy and paste from an entirely separate ‘Debtors’ workbook, that had the upcoming ‘Estimated’ or ‘Confirmed’ receipts.</p>
 
-<p>Needless to say, it all didn’t work very well. It wasn’t really a forecast, it was a big chore to update, and the formulae would easily break, whenever cell references changed, or whenever anything (e.g. debtors info.) was manually copied and pasted in from elsewhere - which was always to some extend out of date anyway!</p>
-
-<p>I didn’t have to spend much time to conclude that process was in dire need of some automation - something that would not only very effectively cut out all the existing hassle, but also all preparation time that went with it! So that’s exactly what I did! Automated the entire process, from beginning to end! This is what rest of this article shows you how to do! - How to prepare a 92-day forecast, daily cashflow, from a few needed data inputs.</p>
-
-<p>Though the input data itself could be directly linked elsewhere, further upstream, for the purposes of this article, we assume that this is where the data inputting effort starts!</p>
+<p>In this article, I show how I was able to help the client prepare a 92-day daily cashflow forecast.</p>
 
 <h2 id="data-inputs">Data Inputs</h2>
 
@@ -1054,12 +1050,12 @@
 
 <div class="alert alert-info alerts-font" role="alert">
   <p><i class="fa fa-info-circle"></i> <b>Note: </b>
-Here we make the implicit assumption that the payments keyed in, under each country are in the local currency of that country. (So, we don’t assume for this particular schedule that Payments out of Japan could be keyed in, as USD. It is possible to have such functionality, but we would need many more columns for that!)</p>
+Here I make the implicit assumption that the payments keyed in, under each country are in the local currency of that country. (So, I don’t assume for this particular schedule that Payments out of Japan could be keyed in, as USD. It is possible to have such functionality, but we would need many more columns for that!)</p>
 </div>
 
 <h3 id="receipt-inputs">Receipt Inputs</h3>
 
-<p>These are the projected receipts, in the local currency of each country. Depending on the certainty of receipts, each one would be classified as ‘Confirmed’ or ‘Estimated’. This kind of data might be directly linked to a separate Debtors schedule. Here, we assume data is keyed in a schedule like shown below:</p>
+<p>These are the projected receipts, in the local currency of each country. Depending on the certainty of receipts, each one would be classified as ‘Confirmed’ or ‘Estimated’. This kind of data might be directly linked to a separate Debtors schedule. Here, I assume data is keyed in a schedule like shown below:</p>
 
 <figure>
     
@@ -1298,7 +1294,7 @@ in
 
 <h3 id="3-receipts-data">3. Receipts data</h3>
 
-<p>You can repeat and mirror exactly the same steps as before to the Receipts data, so it looks like this:</p>
+<p>You can repeat and mirror the same steps as before to the Receipts data, so it looks like this:</p>
 
 <figure>
     
@@ -1368,7 +1364,7 @@ in
 
 <h3 id="4-combined-the-payments--receipts-data">4. Combined the Payments &amp; Receipts data</h3>
 
-<p>Now, we need to combine the Payments and receipt data into one table. This is relatively easy.</p>
+<p>Now, I need to combine the Payments and receipt data into one table. This is not so hard.</p>
 
 <ul>
   <li>Create a new query that references to the earlier Payments query</li>
@@ -1393,7 +1389,7 @@ in
 
 <h3 id="5-opening-daily-bank-balances">5. Opening Daily, Bank balances</h3>
 
-<p>Now, we need to get the Bank balances into the right form.</p>
+<p>Now, I need to get the Bank balances into the right form.</p>
 
 <ul>
   <li>Load the Bank balance data, so it looks like this:</li>
@@ -1413,7 +1409,7 @@ in
 
 <ul>
   <li>Insert a ‘<em>Start of Month</em>’ column, based on the value of the column called ‘<em>Today</em>’</li>
-  <li>After this, apply the following Merge operation (this is <strong><em>NOT</em></strong> quite the same as the Merge operation for the Payments and Receipts data earlier, as we need to convert from Contract Currency first, which is what the Bank Balances are stated in)</li>
+  <li>After this, apply the following Merge operation (this is <strong><em>NOT</em></strong> quite the same as the Merge operation for the Payments and Receipts data earlier, as I need to convert from Contract Currency first, which is what the Bank Balances are stated in)</li>
 </ul>
 
 <figure>
@@ -1571,7 +1567,7 @@ in
 
 <h3 id="6-merge-opening-cash-balance-and-projected-payments--receipt-data--part-1">6. Merge Opening Cash Balance, and Projected Payments + Receipt data – Part 1</h3>
 
-<p>Now, we are almost there! We now need to combine the Payments and Receipts data to the Opening Cash Balance, so the correct Closing balance is shown for each day. This will involve having to create some Running Total functions, too, which we will see later.</p>
+<p>Now, I am almost there! I now need to combine the Payments and Receipts data to the Opening Cash Balance, so the correct Closing balance is shown for each day. This will involve having to create some Running Total functions, too, which we will see later.</p>
 
 <ul>
   <li>First, start by creating a new query (called ‘<em>Projected Cash Balances (Confirmed &amp; Estimated)</em>’) by referencing the query called ‘<em>Opening Cash Balances</em>’ created earlier</li>
@@ -1675,12 +1671,12 @@ in
 </code></pre>
 
 <ul>
-  <li>…Before we go onto the next step, we have to create two Running Total functions, as these will be used in the next few steps:</li>
+  <li>…Before we go onto the next step, I have to create two Running Total functions, as these will be used in the next few steps:</li>
 </ul>
 
 <h3 id="7-create-running-total-functions">7. Create Running Total functions</h3>
 
-<p>We need to create two running total functions. One that will return the normal Running Total of the values in a specified column that is passed into it. The other function needs to do the same, but this time skip adding any numbers, when the value in the ‘<em>Type</em>’ column of the table equals ‘<em>Estimated</em>’</p>
+<p>I need to create two running total functions. One that will return the normal Running Total of the values in a specified column that is passed into it. The other function needs to do the same, but this time skip adding any numbers, when the value in the ‘<em>Type</em>’ column of the table equals ‘<em>Estimated</em>’</p>
 
 <p>The first running total function is quite straightforward:</p>
 
@@ -1729,7 +1725,7 @@ in
 
 <h3 id="8-merge-opening-cash-balance-and-projected-payments--receipt-data--part-2">8. Merge Opening Cash Balance, and Projected Payments + Receipt data – Part 2</h3>
 
-<p>With the two Running Total functions created, we return to where we were before with this Query</p>
+<p>With the two Running Total functions created, I return to where I was before with this Query</p>
 
 <ul>
   <li>Group the table by Country, with the following code, calling the first Running Total function</li>
@@ -1837,7 +1833,7 @@ in
     
 </figure>
 
-<p>Now, we need to create 4 new columns that add these Cumulative Totals to the Opening Bank Balance columns further to the left, to get to the Closing Balance on each day (which is what we are after!).</p>
+<p>Now, I need to create 4 new columns that add these Cumulative Totals to the Opening Bank Balance columns further to the left, to get to the Closing Balance on each day (which is what we are after!).</p>
 
 <ul>
   <li>Add the following 4 columns:</li>
@@ -1951,7 +1947,7 @@ in
   <li>Reorder the Index column to the front, and then assign a final Data type to each column</li>
 </ul>
 
-<p>The data when loaded back to Excel, should now give the final result we are after! – the closing balance each day, in GBP, and LCY, for each Country we have a bank account in - as shown below:</p>
+<p>The data when loaded back to Excel, should now give the final result (we are after!) – the closing balance each day, in GBP, and LCY, for each Country we have a bank account in - as shown below:</p>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -1988,7 +1984,7 @@ in
   </div>
 </div>
 
-<p>Once the inputs have been updated, this output data can now be re-created all at the click of a button!</p>
+<p>Once the inputs have been updated, this output data can now be re-created by clicking a button!</p>
 
 <ul>
   <li>Some people prefer to see graphs rather than tables. Therefore, to more easily visualise this data, we can then create a Data Model, and Report, from this final dataset. How to do this, has been explained further in this <em>DAX article</em>, here: <a href="/../docs/guides/data-analytics/dax-samples/finance-daily-cashflows.html"><strong>Finance - Daily Cashflows</strong></a>.</li>
@@ -2095,7 +2091,7 @@ in
 
 <h3 id="10-etl-extensions">10. ETL Extensions</h3>
 
-<p>In this article, although the transformations done up til this point allow for the recording of multiple currencies for bank accounts in one country (Australia has one bank account in AUD, and another in USD, for example), the payment and receipt schedules assume that the amounts are entered in the local currency of that country – not in multiple contract currencies. The <em>Payment</em> and <em>Receipt</em> schedules could be extended to allow for multiple currencies too. One would need to ensure that any amounts entered are assigned to the correct contract currency - which would require some extra effort to keep track of.</p>
+<p>In this article, although the transformations done up til this point allow for the recording of multiple currencies for ‘bank accounts’ in one country (Australia has one bank account in AUD, and another in USD, for example), the ‘payment and receipt’ schedules assume that the amounts are entered in the local currency of that country – not in multiple contract currencies. The <em>Payment</em> and <em>Receipt</em> schedules could be extended to allow for multiple currencies too. One would need to ensure that any amounts entered are assigned to the correct contract currency - which would require some extra effort to keep track of.</p>
 
                         
                             <div id="mainNavBottom">
@@ -2161,7 +2157,7 @@ in
                                     </a>
                                 </div>
                             </header>
-                            <ul class="section-nav">
+                            <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
 <li class="toc-entry toc-h2"><a href="#data-inputs">Data Inputs</a>
 <ul>
