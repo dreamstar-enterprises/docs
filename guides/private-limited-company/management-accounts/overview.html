@@ -484,29 +484,36 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Running any company requires that you keep active book of records, so you can keep track of its affairs. In practice, this usually means maintaining a set of management accounts – where you can keep a record of the company’s financial transactions, and track its overall financial performance.</p>
+<div class="alert alert-warning alerts-font" role="alert">
+  <p><i class="fa fa-warning"></i> <b>Important: </b>
+Note this guide is out of date now, as these management accounts have been updated further to comply with some more new and revised I.F.R.S. rules.</p>
+</div>
 
-<p>Such financial records can be maintained in well-known (but still quite costly) proprietary accounting software, such as: XERO, QuickBooks, and SAGE. However if you prefer the fluidity and flexibility of something like M.S. Excel, then that is also possible.</p>
+<p>Running a company requires that you keep an active book of records, so you can keep track of its affairs. In practice, this usually means maintaining a set of what are called ‘Management Accounts’ – for recording the company’s financial transactions, and to help track its financial performance and position.</p>
 
-<p>Maintaining records in M.S. Excel based Templates than in Accounting softwares, has certain advantages. Namely, the ability:</p>
+<p>Such financial records can be maintained in well-known proprietary accounting software, such as: XERO, QuickBooks, and SAGE. However if you prefer the fluidity and flexibility of something like M.S. Excel, then that is also possible.</p>
+
+<p>Maintaining records in M.S. Excel based Templates, rather than in Accounting softwares, has certain advantages.</p>
+
+<p>Namely, the ability:</p>
 
 <ul>
-  <li>To customise various output pages, if, for instance, Accounting rules change (which they often do); and</li>
-  <li>To integrate this financial data with a wide eco-system of other softwares too, such as those that allow you to perform various kinds of statistical work, or use algorithms that might allow you to benefit from emerging technologies such as: artificial intelligence, machine learning, and big data.</li>
-  <li>It may also be easier to connect this data to remote locations, such as data servers hosted and maintained by Cloud Service providers (such as M.S. Azure, and Amazon A.W.S.)</li>
+  <li>To customise various output pages, for any Accounting rule changes (which they often do);</li>
+  <li>To integrate the financial data with a wide eco-system of other softwares and E.R.P.s, with the potential to connect the data to M.L., and A.I. tools.</li>
+  <li>To connect the data more easily to remote locations, such as data servers hosted and maintained by Cloud Service providers (like M.S. Azure, and Amazon A.W.S.)</li>
 </ul>
 
-<p>In other words, if your data is in an M.S. Excel spreadsheet, it is can be possible to do much more with it, than if the data was all held inside an off-the-shelf accounting package that had poor external connection capabilities, and limited data export features.</p>
+<p>If your data is in an M.S. Excel spreadsheet, it can be possible to do a lot more with it, compared to off-the-shelf accounting packages - that may have poor external connection capabilities, and limited data export features.</p>
 
-<p>The goal of this guide is to show how it is possible to create a fully workable set of Management Accounts, all inside something like M.S. Excel. (Something that for the past 5 years, working as 1 person through a Limited Company, I have been able to do, without any problems!)</p>
+<p>The goal of this guide, therefore, is to show how it is possible to create a fully workable set of Management Accounts, all inside M.S. Excel.</p>
 
-<p>In this guide, we will cover the main components of this Template, such as ‘Tabs’ that show: the <strong><em>Profit &amp; Loss</em></strong>, <strong><em>Balance Sheet</em></strong>, and <strong><em>Cash Flow</em></strong> situation, but also how to handle some basic <strong><em>Tax</em></strong>, and aspects of <strong><em>Accrual Accounting</em></strong> such as: <em>Accrued Expenses</em>, <em>Prepayments</em>, <em>Accrued Revenue</em>, and <em>Deferred Income</em>, which are needed for <strong>Accrual-based</strong> accounting.</p>
+<p>In this guide, we will cover the main components of this Template, including ‘Tabs’ that show: the <strong><em>Profit &amp; Loss</em></strong>, <strong><em>Balance Sheet</em></strong>, and <strong><em>Cash Flow</em></strong> situation, and also how one could handle <strong><em>Tax</em></strong>, and the various aspects <strong>Accrual-based</strong> accounting, such as: <em>Accrued Expenses</em>, <em>Prepayments</em>, <em>Accrued Revenue</em>, and <em>Deferred Income</em>.</p>
 
 <div class="alert alert-warning alerts-font" role="alert">
   <p><i class="fa fa-warning"></i> <b>Important: </b>
 This guide assumes that you are already quite familiar with the concept of <strong><em>duality</em></strong> in finance – that is, the required pairing of parties to a financial transaction.</p>
 
-  <p>That is, just as to every buyer, there is a seller; or to every receiver, there is a giver; in financial record-keeping, to every debit, there is a matching credit (of some kind). So, if you record a transaction in one place, it will have an equal and opposite effect somewhere else - no exceptions!</p>
+  <p>That is, just as to every buyer, there is a seller; or to every receiver, there is a giver; in financial record-keeping, to every debit, there is always a matching credit (of some kind). So, if you record a transaction in one place, it will have an equal and opposite effect somewhere else - no exceptions!</p>
 
   <p>If you’re still a little unsure about the concept, try searching for the term “<em>duality principle in finance</em>” on your favourite search engine on the internet.</p>
 </div>
@@ -725,7 +732,7 @@ table:hover{
                                     </a>
                                 </div>
                             </header>
-                            <ul class="section-nav">
+                            <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
 <li class="toc-entry toc-h2"><a href="#management-account-template">Management Account Template</a></li>
 <li class="toc-entry toc-h2"><a href="#worksheets">Worksheets</a></li>
