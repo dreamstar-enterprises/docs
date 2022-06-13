@@ -384,9 +384,9 @@ When using multiple filters in this Dashboard / Report, ensure that you de-selec
 
   <p>For example if you filter first by <em>Department</em>, and choose: ‘Graph ML Neo4j’, whilst the data will visually show, in the Matrix Table, just the users: 002, and 001 (as the only users to have worked in the selected department, ‘Graph ML Neo4j’) the <em>User Filter</em> will likely still say <em>‘All’</em>. Ensure that from this filter, you select just users 002, and 001, by de-selecting the other users.</p>
 
-  <p>This needs to be done, to ensure that in the Measures: <strong><em>[%] of Total</em></strong>, and <strong><em>Cumulative [%]</em></strong> in the Matrix Table, the denominator gets properly  <em>re-based</em>/<em>re-calculated</em>, and takes into account the revised list of correct Users. If you do not do this, these measures will still consider the denominator to be from all Users in the dataset, and will show the Payroll Amounts as a [%] of all Users, rather than all <em>selected</em> users. You will know something is not quite right as <strong><em>Cumulative [%]</em></strong> measure will not total to 100%, if the correct Users are not selected/de-selected.</p>
+  <p>This needs to be done, to ensure that in the Measures: <strong><em>[%] of Total</em></strong>, and <strong><em>Cumulative [%]</em></strong> in the Matrix Table, the denominator gets properly  <em>re-based</em> and <em>re-calculated</em>, and takes into account the revised list of correct Users. If you do not do this, these measures will still consider the denominator to be from all Users in the dataset, and will show the Payroll Amounts as a [%] of all Users, rather than all <em>selected</em> users. You will know something is not quite right as <strong><em>Cumulative [%]</em></strong> measure will not total to 100%, if the correct Users are not selected / de-selected.</p>
 
-  <p>The de-selection / re-selection on the User filter needs to be done manually. The ‘<em>User</em>’ filter will not get filtered automatically when using the other filters – this is a small bug in Power BI! The same similarly applies to the <em>‘Month’</em> filter, if viewing the data over only a few selected Months.</p>
+  <p>The de-selection / re-selection on the User filter needs to be done manually. The ‘<em>User</em>’ filter will not get filtered automatically when using the other filters – this is a small bug in Power B.I.! The same similarly applies to the <em>‘Month’</em> filter, if viewing the data over only a few selected Months.</p>
 
 </div>
 
@@ -1561,7 +1561,7 @@ Payroll Change = IF (
                                     </a>
                                 </div>
                             </header>
-                            <ul class="section-nav">
+                            <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#hr---payroll-analytics-and-employee-profile-changes-job-grade-department-and-pl-over-time-1">HR - Payroll Analytics, and Employee Profile Changes (Job Grade, Department, and P&amp;L) over time</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#payroll-analytics">Payroll Analytics</a></li>
