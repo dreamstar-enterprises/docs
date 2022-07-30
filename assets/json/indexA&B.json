@@ -1,6 +1,16 @@
 var searchIndex = [
 
     {
+        "title": "Climate Change Action",
+        "date": "July 30, 2022",
+        "url": "articles/climate-change-action.html",
+        "content": "An opportunity to power our planet with clean energy. Our energy choices now will make or break the world's fight against climate change. We need to achieve 3 herculean feats and reimagine our economies with renewable energy at its heart.",
+        "image_url": "articles/images/climate-change-action.jpg",
+        "tags_year": ['2022'],
+        "tags_month": ['July'],
+        "tags_type": ['Article']
+    },
+    {
         "title": "Soul Machines",
         "date": "May 06, 2021",
         "url": "articles/soul-machines.html",
