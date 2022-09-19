@@ -572,47 +572,57 @@
                         <h1 id="array-tranformation-functions">Array Tranformation functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="aclean">ACLEAN</h2>
+<h2 id="apivot">APIVOT</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aclean.1164895/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/apivot.1167774/page-2#posts" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Cleans an array, replaces errors with null strings or removes the rows with errors or removes the rows with errors and blanks or null strings.</p>
+<p>Completes the pivot table layout “cosmetics” with labels and grand totals calculations. Calls <a href="../lambda-library/lambda-pivot.html">PIVOT</a>.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>a - array</li>
-  <li>k - 0 replaces errors with null strings, 1 removes only rows with errors, 2 removes rows with errors and blanks or null strings</li>
+  <li>r, c, v, fn - same arguments as the PIVOT function</li>
+  <li>[p] - pivot table name label, if omitted “PT”</li>
+  <li>[tc] - trailing column label, if omitted “GT”</li>
+  <li>[tr] - trailing row label, if omitted “GT”)</li>
 </ul>
+
+<h4 id="more-info">More Info:</h4>
+
+<p><em>NOTE</em>: If fn returns more than a single value, those values will be text joined.</p>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ACLEAN = LAMBDA(a,k,
-    LET(xk,OR(k={0,1,2}),
-       r,ROWS(a),sr,SEQUENCE(r),
-       x,ISERROR(a)*sr,y,sr*IFERROR(x+(a=&quot;&quot;),1),
-       z,AUNIQUE(SWITCH(k,0,0,1,x,2,y),),
-       xm,ISNA(XMATCH(sr,z)),
-       IF(xk,IFERROR(FILTER(IF(a=&quot;&quot;,&quot;&quot;,a),xm),&quot;&quot;),&quot;0 null strings for errors, 1 removes errors only, 2 removes errors and blanks&quot;)
+APIVOT = LAMBDA(r, c, v, fn, [p], [tr], [tc],
+    LET(
+        ur, SORT(UNIQUE(r)),
+        uc, TOROW(SORT(UNIQUE(c))),
+        x, VSTACK(IF(p = &quot;&quot;, &quot;PT&quot;, p), ur, IF(tc = &quot;&quot;, &quot;GT&quot;, tc)),
+        y, VSTACK(uc, PIVOT(r, c, v, fn), PIVOT(, c, v, fn)),
+        z, VSTACK(IF(tr = &quot;&quot;, &quot;GT&quot;, tr), PIVOT(r, , v, fn), PIVOT(, , v, fn)),
+        a, HSTACK(x, y, z),
+        FILTER(FILTER(a, TAKE(a, 1) &lt;&gt; 0), TAKE(a, , 1) &lt;&gt; 0)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ACLEAN = LAMBDA(a,k,
-    LET(xk,OR(k={0,1,2}),
-       r,ROWS(a),sr,SEQUENCE(r),
-       x,ISERROR(a)*sr,y,sr*IFERROR(x+(a=""),1),
-       z,AUNIQUE(SWITCH(k,0,0,1,x,2,y),),
-       xm,ISNA(XMATCH(sr,z)),
-       IF(xk,IFERROR(FILTER(IF(a="","",a),xm),""),"0 null strings for errors, 1 removes errors only, 2 removes errors and blanks")
+<pre><code class="language-excel">APIVOT = LAMBDA(r, c, v, fn, [p], [tr], [tc],
+    LET(
+        ur, SORT(UNIQUE(r)),
+        uc, TOROW(SORT(UNIQUE(c))),
+        x, VSTACK(IF(p = "", "PT", p), ur, IF(tc = "", "GT", tc)),
+        y, VSTACK(uc, PIVOT(r, c, v, fn), PIVOT(, c, v, fn)),
+        z, VSTACK(IF(tr = "", "GT", tr), PIVOT(r, , v, fn), PIVOT(, , v, fn)),
+        a, HSTACK(x, y, z),
+        FILTER(FILTER(a, TAKE(a, 1) &lt;&gt; 0), TAKE(a, , 1) &lt;&gt; 0)
     )
 );
 </code></pre>
@@ -682,7 +692,7 @@ ACLEAN = LAMBDA(a,k,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#aclean">ACLEAN</a>
+<li class="toc-entry toc-h2"><a href="#apivot">APIVOT</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>

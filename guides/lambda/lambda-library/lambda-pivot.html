@@ -572,47 +572,59 @@
                         <h1 id="array-tranformation-functions">Array Tranformation functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="aclean">ACLEAN</h2>
+<h2 id="pivot">PIVOT</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aclean.1164895/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/apivot.1167774/page-2#posts" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Cleans an array, replaces errors with null strings or removes the rows with errors or removes the rows with errors and blanks or null strings.</p>
+<p>Does “inner” array calculations of the Pivot Table. Used as a Helper function of <a href="../lambda-library/lambda-apivot.html">APIVOT</a>.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>a - array</li>
-  <li>k - 0 replaces errors with null strings, 1 removes only rows with errors, 2 removes rows with errors and blanks or null strings</li>
+  <li>r - ‘rows’ column of an array or table.</li>
+  <li>c - ‘columns’ column of an array or table</li>
+  <li>v - ‘values’ column of an array or table</li>
+  <li>fn - lambda helper function argument: LAMBDA(x,function(x))</li>
 </ul>
+
+<h4 id="more-info">More Info:</h4>
+
+<p><em>NOTE</em>: If fn returns more than a single value, those values will be text joined.</p>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ACLEAN = LAMBDA(a,k,
-    LET(xk,OR(k={0,1,2}),
-       r,ROWS(a),sr,SEQUENCE(r),
-       x,ISERROR(a)*sr,y,sr*IFERROR(x+(a=&quot;&quot;),1),
-       z,AUNIQUE(SWITCH(k,0,0,1,x,2,y),),
-       xm,ISNA(XMATCH(sr,z)),
-       IF(xk,IFERROR(FILTER(IF(a=&quot;&quot;,&quot;&quot;,a),xm),&quot;&quot;),&quot;0 null strings for errors, 1 removes errors only, 2 removes errors and blanks&quot;)
+PIVOT = LAMBDA(r,c,v,fn,
+    LET(
+        d, &quot;,&quot;,ur, SORT(UNIQUE(r)),uc, SORT(UNIQUE(c)),
+        w, ROWS(ur),l, ROWS(uc),
+        MAKEARRAY(w,l,LAMBDA(y,x,
+                LET(
+                    a, INDEX(ur, y),b, INDEX(uc, x),
+                    i, IF((a = r) * (b = c), v, &quot;&quot;),f, FILTER(i, i &lt;&gt; &quot;&quot;),
+                    fx, IF(ISERR(SUM(f)), &quot;&quot;, IFERROR(fn(f), &quot;&quot;)),
+                    IF(COUNTA(fx) &gt; 1, TEXTJOIN(d, , fx), fx))))
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ACLEAN = LAMBDA(a,k,
-    LET(xk,OR(k={0,1,2}),
-       r,ROWS(a),sr,SEQUENCE(r),
-       x,ISERROR(a)*sr,y,sr*IFERROR(x+(a=""),1),
-       z,AUNIQUE(SWITCH(k,0,0,1,x,2,y),),
-       xm,ISNA(XMATCH(sr,z)),
-       IF(xk,IFERROR(FILTER(IF(a="","",a),xm),""),"0 null strings for errors, 1 removes errors only, 2 removes errors and blanks")
+<pre><code class="language-excel">PIVOT = LAMBDA(r,c,v,fn,
+    LET(
+        d, ",",ur, SORT(UNIQUE(r)),uc, SORT(UNIQUE(c)),
+        w, ROWS(ur),l, ROWS(uc),
+        MAKEARRAY(w,l,LAMBDA(y,x,
+                LET(
+                    a, INDEX(ur, y),b, INDEX(uc, x),
+                    i, IF((a = r) * (b = c), v, ""),f, FILTER(i, i &lt;&gt; ""),
+                    fx, IF(ISERR(SUM(f)), "", IFERROR(fn(f), "")),
+                    IF(COUNTA(fx) &gt; 1, TEXTJOIN(d, , fx), fx))))
     )
 );
 </code></pre>
@@ -682,7 +694,7 @@ ACLEAN = LAMBDA(a,k,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#aclean">ACLEAN</a>
+<li class="toc-entry toc-h2"><a href="#pivot">PIVOT</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
