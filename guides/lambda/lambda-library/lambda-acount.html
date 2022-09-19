@@ -586,44 +586,49 @@
                         <h1 id="array-tranformation-functions">Array Tranformation functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="ahclean">AHCLEAN</h2>
+<h2 id="acount">ACOUNT</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/ahclean.1179924/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/acount.1184150/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Array Horizontal Clean, replaces errors with null strings and filters all the rows depending on nr. of blnks/null strings on each row.</p>
+<p>Replaces functionality of: COUNTIF(S)(range,range), COUNTIF(S) with expandable ranges for occurrence counting and COUNTIF(S)(range,unique(range)) for unique total counts. 
+Calls <a href="../lambda-library/lambda-aflat.html">AFLAT</a>, &amp; <a href="../lambda-library/lambda-aresize.html">ARESIZE</a>.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>[n] = 0 or omitted, filters only “full” rows sum(blnks) = 0</li>
-  <li>[n] &gt; 0 filters the rows that have sum(blnks) &lt;= n</li>
-  <li>[n] &lt; 0 filters only rows that have sum(blnks) &gt;= abs(n)</li>
+  <li>a - array</li>
+  <li>[ct] - count type argument: 0 or omitted, self-count; 1, occurrence self-count; 2, unique count</li>
+  <li>[pu] - print unique argument: 0 or omitted, unique count ; 1 or &lt;&gt; 0, array {unique values, unique count}</li>
 </ul>
+
+<h4 id="more-info">More Info:</h4>
+
+<p><em>NOTE</em>: [pu] will only work for when [ct] is ‘2’.</p>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AHCLEAN = LAMBDA(ar,[n],
-    LET(a,IF(ISERROR(ar),&quot;&quot;,IF(ar=&quot;&quot;,&quot;&quot;,ar)),
-      x,BYROW(a,LAMBDA(a,SUM(--(a=&quot;&quot;)))),
-      m,MIN(ABS(n),MAX(x)),
-      FILTER(a,IF(n&gt;=0,x&lt;=m,x&gt;=m))
+ACOUNT = LAMBDA(a,[ct],[pu],
+    LET(r,ROWS(a),f,AFLAT(a,1),w,ROWS(f),q,UNIQUE(AFLAT(a)),u,IF(ct=2,q,f),
+       p,MAP(u,LAMBDA(x,SUM(--(x=f)))),k,MAKEARRAY(w,,LAMBDA(r,i,SUM(--(INDEX(f,SEQUENCE(r))=INDEX(f,r))))),
+       y,SWITCH(ct,0,ARESIZE(p,r),1,ARESIZE(k,r),2,IF(pu,CHOOSE({1,2},q,p),p)),
+       IF(ISNA(y),&quot;check arg.&quot;,IFERROR(IF(ct=2,y,IF(a=&quot;&quot;,&quot;&quot;,y)),&quot;&quot;))
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AHCLEAN = LAMBDA(ar,[n],
-    LET(a,IF(ISERROR(ar),"",IF(ar="","",ar)),
-      x,BYROW(a,LAMBDA(a,SUM(--(a="")))),
-      m,MIN(ABS(n),MAX(x)),
-      FILTER(a,IF(n&gt;=0,x&lt;=m,x&gt;=m))
+<pre><code class="language-excel">ACOUNT = LAMBDA(a,[ct],[pu],
+    LET(r,ROWS(a),f,AFLAT(a,1),w,ROWS(f),q,UNIQUE(AFLAT(a)),u,IF(ct=2,q,f),
+       p,MAP(u,LAMBDA(x,SUM(--(x=f)))),k,MAKEARRAY(w,,LAMBDA(r,i,SUM(--(INDEX(f,SEQUENCE(r))=INDEX(f,r))))),
+       y,SWITCH(ct,0,ARESIZE(p,r),1,ARESIZE(k,r),2,IF(pu,CHOOSE({1,2},q,p),p)),
+       IF(ISNA(y),"check arg.",IFERROR(IF(ct=2,y,IF(a="","",y)),""))
     )
 );
 </code></pre>
@@ -693,7 +698,7 @@ AHCLEAN = LAMBDA(ar,[n],
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#ahclean">AHCLEAN</a>
+<li class="toc-entry toc-h2"><a href="#acount">ACOUNT</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>

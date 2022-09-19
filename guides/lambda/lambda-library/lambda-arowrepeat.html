@@ -505,6 +505,20 @@
       </li>
   
     
+      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-acount.html">ACOUNT</a></li>
+    
+          
+        
+      </li>
+  
+    
+      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-freq-simple.html">FREQ.SIMPLE</a></li>
+    
+          
+        
+      </li>
+  
+    
       <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-pd-rolling-aggregate.html">PD.ROLLING.AGGREGATE</a></li>
     
           
@@ -582,10 +596,6 @@
 
 <p>Repeats items in the first column of an array, by a ‘repeat number’ in the last column of the array.</p>
 
-<p>Solves the problem too of XLOOKUP not being able to return a ‘row’ of results, when the lookup value is an array (rather than a single value)</p>
-
-<p>Modified slightly from above reference.</p>
-
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
@@ -600,12 +610,13 @@
 AROWREPEAT = 
 LAMBDA(ar,
     LET(
-        b, TAKE(ar, , -1),
-        c, SEQUENCE(SUM(b)),
-        d, SCAN(0, b, LAMBDA(v, i, v + i)),
-
-        // the below line is the fix for the current XLOOKUP function
-        DROP(REDUCE(0, c, LAMBDA(a, e, VSTACK(a, XLOOKUP(e, d, DROP(ar,,-1), , 1, 1)))), 1)
+        a, DROP(ar, , -1),
+        n, TAKE(ar, , -1),
+        INDEX(
+            a,
+            TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2),
+            SEQUENCE(, COLUMNS(a))
+        )
     )
 );
 ">
@@ -614,12 +625,13 @@ LAMBDA(ar,
 <pre><code class="language-excel">AROWREPEAT = 
 LAMBDA(ar,
     LET(
-        b, TAKE(ar, , -1),
-        c, SEQUENCE(SUM(b)),
-        d, SCAN(0, b, LAMBDA(v, i, v + i)),
-
-        // the below line is the fix for the current XLOOKUP function
-        DROP(REDUCE(0, c, LAMBDA(a, e, VSTACK(a, XLOOKUP(e, d, DROP(ar,,-1), , 1, 1)))), 1)
+        a, DROP(ar, , -1),
+        n, TAKE(ar, , -1),
+        INDEX(
+            a,
+            TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2),
+            SEQUENCE(, COLUMNS(a))
+        )
     )
 );
 </code></pre>
