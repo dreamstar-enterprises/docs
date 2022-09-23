@@ -635,8 +635,10 @@
 
 <div class="alert alert-warning alerts-font" role="alert">
   <p><i class="fa fa-warning"></i> <b>Important: </b>
-As this function includes some recursive sub or helper functions, it is particularly resource intensive on Excel. <br />
-For example, on a set numbers, the formula = ARRANGEMENTS({1,2,3,4,5,6,7}, “c”, 7), which uses the two recursive functions T_P, and T_CA, crashes my Excel workbook.\</p>
+<br />
+As this function includes some recursive helper functions, it can be particularly resource intensive on Excel (depending on the arguments you use).</p>
+
+  <p>For example, on a set numbers, the formula = ARRANGEMENTS({1,2,3,4,5,6,7}, “c”, 7), which uses the two recursive functions T_P, and T_CA, crashes my Excel workbook. (It apparently though works for others.)</p>
 
   <p>Therefore, I would recommend, as a final step, copying and pasting the results of the function (once you get them) as ‘values’ (via ‘paste special’) . This will prevent the workbook from needing to re-calculate the cell formula everytime something in the workbook changes.</p>
 </div>
