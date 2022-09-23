@@ -612,11 +612,7 @@ LAMBDA(ar,
     LET(
         a, DROP(ar, , -1),
         n, TAKE(ar, , -1),
-        INDEX(
-            a,
-            TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2),
-            SEQUENCE(, COLUMNS(a))
-        )
+        INDEX(a, TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2), SEQUENCE(, COLUMNS(a)))
     )
 );
 ">
@@ -627,11 +623,7 @@ LAMBDA(ar,
     LET(
         a, DROP(ar, , -1),
         n, TAKE(ar, , -1),
-        INDEX(
-            a,
-            TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2),
-            SEQUENCE(, COLUMNS(a))
-        )
+        INDEX(a, TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2), SEQUENCE(, COLUMNS(a)))
     )
 );
 </code></pre>

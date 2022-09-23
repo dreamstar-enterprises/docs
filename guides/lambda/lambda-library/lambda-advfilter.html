@@ -618,24 +618,53 @@
 // Helper tool Lambdas
 // Boolean Multiplication
 // https://www.mrexcel.com/board/threads/t_afm.1168573/
-T_AFM = LAMBDA(a,cl,cr,p,
-    LET(n,COLUMNS(cl),x,INDEX(cl,n),y,INDEX(cr,n),z,INDEX(a,,x),
-       IF(n=1,p*(COUNTIFS(z,z,z,y)&gt;0),p*T_AFM(a,INDEX(cl,SEQUENCE(,n-1)),INDEX(cr,SEQUENCE(,n-1)),COUNTIFS(z,z,z,y)&gt;0))
+T_AFM = LAMBDA(a, cl, cr, p,
+    LET(
+        n, COLUMNS(cl),
+        x, INDEX(cl, n),
+        y, INDEX(cr, n),
+        z, INDEX(a, , x),
+        IF(
+            n = 1,
+            p * (COUNTIFS(z, z, z, y) &gt; 0),
+            p *
+                T_AFM(
+                    a,
+                    INDEX(cl, SEQUENCE(, n - 1)),
+                    INDEX(cr, SEQUENCE(, n - 1)),
+                    COUNTIFS(z, z, z, y) &gt; 0
+                )
+        )
     )
 );
 
 // Boolean Adding
 // https://www.mrexcel.com/board/threads/t_afa.1168572/
-T_AFA = LAMBDA(a,cl,cr,p,
-    LET(n,COLUMNS(cl),x,INDEX(cl,n),y,INDEX(cr,n),z,INDEX(a,,x),
-      IF(n=1,p+(COUNTIFS(z,z,z,y)&gt;0),p+T_AFA(a,INDEX(cl,SEQUENCE(,n-1)),INDEX(cr,SEQUENCE(,n-1)),COUNTIFS(z,z,z,y)&gt;0))
+T_AFA = LAMBDA(a, cl, cr, p,
+    LET(
+        n, COLUMNS(cl),
+        x, INDEX(cl, n),
+        y, INDEX(cr, n),
+        z, INDEX(a, , x),
+        IF(
+            n = 1,
+            p + (COUNTIFS(z, z, z, y) &gt; 0),
+            p +
+                T_AFA(
+                    a,
+                    INDEX(cl, SEQUENCE(, n - 1)),
+                    INDEX(cr, SEQUENCE(, n - 1)),
+                    COUNTIFS(z, z, z, y) &gt; 0
+                )
+        )
     )
 );
 
-ADVFILTER = LAMBDA(a,clm,crm,cla,cra,
-    LET(tm,IF(SUM(clm)=0,1,T_AFM(a,clm,crm,1)),
-        ta,IF(SUM(cla)=0,1,T_AFA(a,cla,cra,0)),
-        FILTER(a,tm*ta)
+ADVFILTER = LAMBDA(a, clm, crm, cla, cra,
+    LET(
+        tm, IF(SUM(clm) = 0, 1, T_AFM(a, clm, crm, 1)),
+        ta, IF(SUM(cla) = 0, 1, T_AFA(a, cla, cra, 0)),
+        FILTER(a, tm * ta)
     )
 );
 ">
@@ -644,24 +673,53 @@ ADVFILTER = LAMBDA(a,clm,crm,cla,cra,
 <pre><code class="language-excel">// Helper tool Lambdas
 // Boolean Multiplication
 // https://www.mrexcel.com/board/threads/t_afm.1168573/
-T_AFM = LAMBDA(a,cl,cr,p,
-    LET(n,COLUMNS(cl),x,INDEX(cl,n),y,INDEX(cr,n),z,INDEX(a,,x),
-       IF(n=1,p*(COUNTIFS(z,z,z,y)&gt;0),p*T_AFM(a,INDEX(cl,SEQUENCE(,n-1)),INDEX(cr,SEQUENCE(,n-1)),COUNTIFS(z,z,z,y)&gt;0))
+T_AFM = LAMBDA(a, cl, cr, p,
+    LET(
+        n, COLUMNS(cl),
+        x, INDEX(cl, n),
+        y, INDEX(cr, n),
+        z, INDEX(a, , x),
+        IF(
+            n = 1,
+            p * (COUNTIFS(z, z, z, y) &gt; 0),
+            p *
+                T_AFM(
+                    a,
+                    INDEX(cl, SEQUENCE(, n - 1)),
+                    INDEX(cr, SEQUENCE(, n - 1)),
+                    COUNTIFS(z, z, z, y) &gt; 0
+                )
+        )
     )
 );
 
 // Boolean Adding
 // https://www.mrexcel.com/board/threads/t_afa.1168572/
-T_AFA = LAMBDA(a,cl,cr,p,
-    LET(n,COLUMNS(cl),x,INDEX(cl,n),y,INDEX(cr,n),z,INDEX(a,,x),
-      IF(n=1,p+(COUNTIFS(z,z,z,y)&gt;0),p+T_AFA(a,INDEX(cl,SEQUENCE(,n-1)),INDEX(cr,SEQUENCE(,n-1)),COUNTIFS(z,z,z,y)&gt;0))
+T_AFA = LAMBDA(a, cl, cr, p,
+    LET(
+        n, COLUMNS(cl),
+        x, INDEX(cl, n),
+        y, INDEX(cr, n),
+        z, INDEX(a, , x),
+        IF(
+            n = 1,
+            p + (COUNTIFS(z, z, z, y) &gt; 0),
+            p +
+                T_AFA(
+                    a,
+                    INDEX(cl, SEQUENCE(, n - 1)),
+                    INDEX(cr, SEQUENCE(, n - 1)),
+                    COUNTIFS(z, z, z, y) &gt; 0
+                )
+        )
     )
 );
 
-ADVFILTER = LAMBDA(a,clm,crm,cla,cra,
-    LET(tm,IF(SUM(clm)=0,1,T_AFM(a,clm,crm,1)),
-        ta,IF(SUM(cla)=0,1,T_AFA(a,cla,cra,0)),
-        FILTER(a,tm*ta)
+ADVFILTER = LAMBDA(a, clm, crm, cla, cra,
+    LET(
+        tm, IF(SUM(clm) = 0, 1, T_AFM(a, clm, crm, 1)),
+        ta, IF(SUM(cla) = 0, 1, T_AFA(a, cla, cra, 0)),
+        FILTER(a, tm * ta)
     )
 );
 </code></pre>

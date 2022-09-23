@@ -608,19 +608,29 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AFLIP =LAMBDA(a,[f],
-    LET(r,ROWS(a),c,COLUMNS(a),sr,SEQUENCE(r),sc,SEQUENCE(,c),
-       x,IF(f,r-sr+1,sr),y,IF(f=1,sc,c-sc+1),
-       INDEX(IF(a=&quot;&quot;,&quot;&quot;,a),x,y)
+AFLIP = LAMBDA(a, [f],
+    LET(
+        r, ROWS(a),
+        c, COLUMNS(a),
+        sr, SEQUENCE(r),
+        sc, SEQUENCE(, c),
+        x, IF(f, r - sr + 1, sr),
+        y, IF(f = 1, sc, c - sc + 1),
+        INDEX(IF(a = &quot;&quot;, &quot;&quot;, a), x, y)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AFLIP =LAMBDA(a,[f],
-    LET(r,ROWS(a),c,COLUMNS(a),sr,SEQUENCE(r),sc,SEQUENCE(,c),
-       x,IF(f,r-sr+1,sr),y,IF(f=1,sc,c-sc+1),
-       INDEX(IF(a="","",a),x,y)
+<pre><code class="language-excel">AFLIP = LAMBDA(a, [f],
+    LET(
+        r, ROWS(a),
+        c, COLUMNS(a),
+        sr, SEQUENCE(r),
+        sc, SEQUENCE(, c),
+        x, IF(f, r - sr + 1, sr),
+        y, IF(f = 1, sc, c - sc + 1),
+        INDEX(IF(a = "", "", a), x, y)
     )
 );
 </code></pre>

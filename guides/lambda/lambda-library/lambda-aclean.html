@@ -608,25 +608,39 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ACLEAN = LAMBDA(a,k,
-    LET(xk,OR(k={0,1,2}),
-       r,ROWS(a),sr,SEQUENCE(r),
-       x,ISERROR(a)*sr,y,sr*IFERROR(x+(a=&quot;&quot;),1),
-       z,AUNIQUE(SWITCH(k,0,0,1,x,2,y),),
-       xm,ISNA(XMATCH(sr,z)),
-       IF(xk,IFERROR(FILTER(IF(a=&quot;&quot;,&quot;&quot;,a),xm),&quot;&quot;),&quot;0 null strings for errors, 1 removes errors only, 2 removes errors and blanks&quot;)
+ACLEAN = LAMBDA(a, k,
+    LET(
+        xk, OR(k = {0, 1, 2}),
+        r, ROWS(a),
+        sr, SEQUENCE(r),
+        x, ISERROR(a) * sr,
+        y, sr * IFERROR(x + (a = &quot;&quot;), 1),
+        z, AUNIQUE(SWITCH(k, 0, 0, 1, x, 2, y), ),
+        xm, ISNA(XMATCH(sr, z)),
+        IF(
+            xk,
+            IFERROR(FILTER(IF(a = &quot;&quot;, &quot;&quot;, a), xm), &quot;&quot;),
+            &quot;0 null strings for errors,1 removes errors only,2 removes errors and blanks&quot;
+        )
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ACLEAN = LAMBDA(a,k,
-    LET(xk,OR(k={0,1,2}),
-       r,ROWS(a),sr,SEQUENCE(r),
-       x,ISERROR(a)*sr,y,sr*IFERROR(x+(a=""),1),
-       z,AUNIQUE(SWITCH(k,0,0,1,x,2,y),),
-       xm,ISNA(XMATCH(sr,z)),
-       IF(xk,IFERROR(FILTER(IF(a="","",a),xm),""),"0 null strings for errors, 1 removes errors only, 2 removes errors and blanks")
+<pre><code class="language-excel">ACLEAN = LAMBDA(a, k,
+    LET(
+        xk, OR(k = {0, 1, 2}),
+        r, ROWS(a),
+        sr, SEQUENCE(r),
+        x, ISERROR(a) * sr,
+        y, sr * IFERROR(x + (a = ""), 1),
+        z, AUNIQUE(SWITCH(k, 0, 0, 1, x, 2, y), ),
+        xm, ISNA(XMATCH(sr, z)),
+        IF(
+            xk,
+            IFERROR(FILTER(IF(a = "", "", a), xm), ""),
+            "0 null strings for errors,1 removes errors only,2 removes errors and blanks"
+        )
     )
 );
 </code></pre>

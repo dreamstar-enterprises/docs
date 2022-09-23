@@ -610,117 +610,129 @@
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 PD.ROLLING.AGGREGATE
-=LAMBDA(x,window,agg,
-  LET(
-    _x,x,
-    _w,window,
-    _agg,agg,
-    _aggs,{&quot;average&quot;;&quot;count&quot;;&quot;counta&quot;;&quot;max&quot;;&quot;min&quot;
-          ;&quot;product&quot;;&quot;stdev.s&quot;;&quot;stdev.p&quot;;&quot;sum&quot;;&quot;var.s&quot;
-          ;&quot;var.p&quot;;&quot;median&quot;;&quot;mode.sngl&quot;;&quot;kurt&quot;;&quot;skew&quot;
-          ;&quot;sem&quot;},
-    _thk,LAMBDA(x,LAMBDA(x)),
-    _fn_aggs,MAKEARRAY(ROWS(_aggs),1,
-              LAMBDA(r,c,
+= LAMBDA(x, window, agg,
+    LET(
+        _x, x,
+        _w, window,
+        _agg, agg,
+        _aggs, {
+            &quot;average&quot;;
+            &quot;count&quot;;
+            &quot;counta&quot;;
+            &quot;max&quot;;
+            &quot;min&quot;;
+            &quot;product&quot;;
+            &quot;stdev.s&quot;;
+            &quot;stdev.p&quot;;
+            &quot;sum&quot;;
+            &quot;var.s&quot;;
+            &quot;var.p&quot;;
+            &quot;median&quot;;
+            &quot;mode.sngl&quot;;
+            &quot;kurt&quot;;
+            &quot;skew&quot;;
+            &quot;sem&quot;
+        },
+        _thk, LAMBDA(x, LAMBDA(x)),
+        _fn_aggs, MAKEARRAY(
+            ROWS(_aggs),
+            1,
+            LAMBDA(r, c,
                 CHOOSE(
-                  r,
-                  _thk(LAMBDA(x,AVERAGE(x))),
-                  _thk(LAMBDA(x,COUNT(x))),
-                  _thk(LAMBDA(x,COUNTA(x))),
-                  _thk(LAMBDA(x,MAX(x))),
-                  _thk(LAMBDA(x,MIN(x))),
-                  _thk(LAMBDA(x,PRODUCT(x))),
-                  _thk(LAMBDA(x,STDEV.S(x))),
-                  _thk(LAMBDA(x,STDEV.P(x))),
-                  _thk(LAMBDA(x,SUM(x))),
-                  _thk(LAMBDA(x,VAR.S(x))),
-                  _thk(LAMBDA(x,VAR.P(x))),
-                  _thk(LAMBDA(x,MEDIAN(x))),
-                  _thk(LAMBDA(x,MODE.SNGL(x))),
-                  _thk(LAMBDA(x,KURT(x))),
-                  _thk(LAMBDA(x,SKEW(x))),
-                  _thk(LAMBDA(x,STDEV.S(x)/SQRT(_w)))
+                    r,
+                    _thk(LAMBDA(x, AVERAGE(x))),
+                    _thk(LAMBDA(x, COUNT(x))),
+                    _thk(LAMBDA(x, COUNTA(x))),
+                    _thk(LAMBDA(x, MAX(x))),
+                    _thk(LAMBDA(x, MIN(x))),
+                    _thk(LAMBDA(x, PRODUCT(x))),
+                    _thk(LAMBDA(x, STDEV.S(x))),
+                    _thk(LAMBDA(x, STDEV.P(x))),
+                    _thk(LAMBDA(x, SUM(x))),
+                    _thk(LAMBDA(x, VAR.S(x))),
+                    _thk(LAMBDA(x, VAR.P(x))),
+                    _thk(LAMBDA(x, MEDIAN(x))),
+                    _thk(LAMBDA(x, MODE.SNGL(x))),
+                    _thk(LAMBDA(x, KURT(x))),
+                    _thk(LAMBDA(x, SKEW(x))),
+                    _thk(LAMBDA(x, STDEV.S(x) / SQRT(_w)))
                 )
-              )
-             ),
-    _fn,XLOOKUP(_agg,_aggs,_fn_aggs),
-    _i,SEQUENCE(ROWS(x)),
-    _s,SCAN(0,_i,
-        LAMBDA(a,b,
-          IF(
-            b&lt;_w,
-            NA(),
-            _thk(
-              MAKEARRAY(_w,1,
-                LAMBDA(r,c,
-                  INDEX(_x,b-_w+r)
-                )
-              )
             )
-          )
-        )
-       ),
-   _out,SCAN(0,_i,LAMBDA(a,b,_fn()(INDEX(_s,b,1)()))),
-   _out
-  )
+        ),
+        _fn, XLOOKUP(_agg, _aggs, _fn_aggs),
+        _i, SEQUENCE(ROWS(x)),
+        _s, SCAN(
+            0,
+            _i,
+            LAMBDA(a, b, IF(b &lt; _w, NA(), _thk(MAKEARRAY(_w, 1, LAMBDA(r, c, INDEX(_x, b - _w + r))))))
+        ),
+        _out, SCAN(0, _i, LAMBDA(a, b, _fn()(INDEX(_s, b, 1)()))),
+        _out
+    )
 );
 ">
   </button>
 </div>
 <pre><code class="language-excel">PD.ROLLING.AGGREGATE
-=LAMBDA(x,window,agg,
-  LET(
-    _x,x,
-    _w,window,
-    _agg,agg,
-    _aggs,{"average";"count";"counta";"max";"min"
-          ;"product";"stdev.s";"stdev.p";"sum";"var.s"
-          ;"var.p";"median";"mode.sngl";"kurt";"skew"
-          ;"sem"},
-    _thk,LAMBDA(x,LAMBDA(x)),
-    _fn_aggs,MAKEARRAY(ROWS(_aggs),1,
-              LAMBDA(r,c,
+= LAMBDA(x, window, agg,
+    LET(
+        _x, x,
+        _w, window,
+        _agg, agg,
+        _aggs, {
+            "average";
+            "count";
+            "counta";
+            "max";
+            "min";
+            "product";
+            "stdev.s";
+            "stdev.p";
+            "sum";
+            "var.s";
+            "var.p";
+            "median";
+            "mode.sngl";
+            "kurt";
+            "skew";
+            "sem"
+        },
+        _thk, LAMBDA(x, LAMBDA(x)),
+        _fn_aggs, MAKEARRAY(
+            ROWS(_aggs),
+            1,
+            LAMBDA(r, c,
                 CHOOSE(
-                  r,
-                  _thk(LAMBDA(x,AVERAGE(x))),
-                  _thk(LAMBDA(x,COUNT(x))),
-                  _thk(LAMBDA(x,COUNTA(x))),
-                  _thk(LAMBDA(x,MAX(x))),
-                  _thk(LAMBDA(x,MIN(x))),
-                  _thk(LAMBDA(x,PRODUCT(x))),
-                  _thk(LAMBDA(x,STDEV.S(x))),
-                  _thk(LAMBDA(x,STDEV.P(x))),
-                  _thk(LAMBDA(x,SUM(x))),
-                  _thk(LAMBDA(x,VAR.S(x))),
-                  _thk(LAMBDA(x,VAR.P(x))),
-                  _thk(LAMBDA(x,MEDIAN(x))),
-                  _thk(LAMBDA(x,MODE.SNGL(x))),
-                  _thk(LAMBDA(x,KURT(x))),
-                  _thk(LAMBDA(x,SKEW(x))),
-                  _thk(LAMBDA(x,STDEV.S(x)/SQRT(_w)))
+                    r,
+                    _thk(LAMBDA(x, AVERAGE(x))),
+                    _thk(LAMBDA(x, COUNT(x))),
+                    _thk(LAMBDA(x, COUNTA(x))),
+                    _thk(LAMBDA(x, MAX(x))),
+                    _thk(LAMBDA(x, MIN(x))),
+                    _thk(LAMBDA(x, PRODUCT(x))),
+                    _thk(LAMBDA(x, STDEV.S(x))),
+                    _thk(LAMBDA(x, STDEV.P(x))),
+                    _thk(LAMBDA(x, SUM(x))),
+                    _thk(LAMBDA(x, VAR.S(x))),
+                    _thk(LAMBDA(x, VAR.P(x))),
+                    _thk(LAMBDA(x, MEDIAN(x))),
+                    _thk(LAMBDA(x, MODE.SNGL(x))),
+                    _thk(LAMBDA(x, KURT(x))),
+                    _thk(LAMBDA(x, SKEW(x))),
+                    _thk(LAMBDA(x, STDEV.S(x) / SQRT(_w)))
                 )
-              )
-             ),
-    _fn,XLOOKUP(_agg,_aggs,_fn_aggs),
-    _i,SEQUENCE(ROWS(x)),
-    _s,SCAN(0,_i,
-        LAMBDA(a,b,
-          IF(
-            b&lt;_w,
-            NA(),
-            _thk(
-              MAKEARRAY(_w,1,
-                LAMBDA(r,c,
-                  INDEX(_x,b-_w+r)
-                )
-              )
             )
-          )
-        )
-       ),
-   _out,SCAN(0,_i,LAMBDA(a,b,_fn()(INDEX(_s,b,1)()))),
-   _out
-  )
+        ),
+        _fn, XLOOKUP(_agg, _aggs, _fn_aggs),
+        _i, SEQUENCE(ROWS(x)),
+        _s, SCAN(
+            0,
+            _i,
+            LAMBDA(a, b, IF(b &lt; _w, NA(), _thk(MAKEARRAY(_w, 1, LAMBDA(r, c, INDEX(_x, b - _w + r))))))
+        ),
+        _out, SCAN(0, _i, LAMBDA(a, b, _fn()(INDEX(_s, b, 1)()))),
+        _out
+    )
 );
 </code></pre>
 

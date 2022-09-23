@@ -601,17 +601,39 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AUNSTACK = LAMBDA(a,[h],
-    LET(x,ROWS(a),y,COLUMNS(a),k,MEDIAN(1,ABS(h),x),n,ROUNDUP(x/k,0),
-       IFERROR(MAKEARRAY(k,n*y,LAMBDA(r,c,INDEX(IF(a=&quot;&quot;,&quot;&quot;,a),k*QUOTIENT(c-1,y)+r,MOD(c-1,y)+1))),&quot;&quot;)
+AUNSTACK = LAMBDA(a, [h],
+    LET(
+        x, ROWS(a),
+        y, COLUMNS(a),
+        k, MEDIAN(1, ABS(h), x),
+        n, ROUNDUP(x / k, 0),
+        IFERROR(
+            MAKEARRAY(
+                k,
+                n * y,
+                LAMBDA(r, c, INDEX(IF(a = &quot;&quot;, &quot;&quot;, a), k * QUOTIENT(c - 1, y) + r, MOD(c - 1, y) + 1))
+            ),
+            &quot;&quot;
+        )
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AUNSTACK = LAMBDA(a,[h],
-    LET(x,ROWS(a),y,COLUMNS(a),k,MEDIAN(1,ABS(h),x),n,ROUNDUP(x/k,0),
-       IFERROR(MAKEARRAY(k,n*y,LAMBDA(r,c,INDEX(IF(a="","",a),k*QUOTIENT(c-1,y)+r,MOD(c-1,y)+1))),"")
+<pre><code class="language-excel">AUNSTACK = LAMBDA(a, [h],
+    LET(
+        x, ROWS(a),
+        y, COLUMNS(a),
+        k, MEDIAN(1, ABS(h), x),
+        n, ROUNDUP(x / k, 0),
+        IFERROR(
+            MAKEARRAY(
+                k,
+                n * y,
+                LAMBDA(r, c, INDEX(IF(a = "", "", a), k * QUOTIENT(c - 1, y) + r, MOD(c - 1, y) + 1))
+            ),
+            ""
+        )
     )
 );
 </code></pre>

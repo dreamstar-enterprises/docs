@@ -608,22 +608,32 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AUNIQUE = LAMBDA(a,k,
-    LET(x,OR(k={-1,0,1}),
-       af,AFLAT(a, 1),
-       au,UNIQUE(FILTER(af,af&lt;&gt;&quot;&quot;)),
-       IF(x,SWITCH(k,0,au,1,AUNQSRT(a,),-1,TRANSPOSE(AUNQSRT(TRANSPOSE(a),))),&quot;-1 vert., 0 all vert , 1 horiz.&quot;)
-   )
+AUNIQUE = LAMBDA(a, k,
+    LET(
+        x, OR(k = {-1, 0, 1}),
+        af, AFLAT(a, 1),
+        au, UNIQUE(FILTER(af, af &lt;&gt; &quot;&quot;)),
+        IF(
+            x,
+            SWITCH(k, 0, au, 1, AUNQSRT(a, ), -1, TRANSPOSE(AUNQSRT(TRANSPOSE(a), ))),
+            &quot;-1 vert., 0 all vert , 1 horiz.&quot;
+        )
+    )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AUNIQUE = LAMBDA(a,k,
-    LET(x,OR(k={-1,0,1}),
-       af,AFLAT(a, 1),
-       au,UNIQUE(FILTER(af,af&lt;&gt;"")),
-       IF(x,SWITCH(k,0,au,1,AUNQSRT(a,),-1,TRANSPOSE(AUNQSRT(TRANSPOSE(a),))),"-1 vert., 0 all vert , 1 horiz.")
-   )
+<pre><code class="language-excel">AUNIQUE = LAMBDA(a, k,
+    LET(
+        x, OR(k = {-1, 0, 1}),
+        af, AFLAT(a, 1),
+        au, UNIQUE(FILTER(af, af &lt;&gt; "")),
+        IF(
+            x,
+            SWITCH(k, 0, au, 1, AUNQSRT(a, ), -1, TRANSPOSE(AUNQSRT(TRANSPOSE(a), ))),
+            "-1 vert., 0 all vert , 1 horiz."
+        )
+    )
 );
 </code></pre>
 

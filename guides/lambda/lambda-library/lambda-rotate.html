@@ -610,15 +610,17 @@ This is not the same behavior as TRANSPOSE, which reflects an array on the main 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ROTATE = LAMBDA(arr,times,[iter],
+ROTATE = LAMBDA(arr, times, [iter],
     LET(
-        _times,MOD(times,4),
-        IF(_times=0,arr,
+        _times, MOD(times, 4),
+        IF(
+            _times = 0,
+            arr,
             LET(
-                _iter,IF(ISOMITTED(iter),1,iter),
-                _cols,COLUMNS(arr),
-                _rotated,INDEX(arr,SEQUENCE(1,ROWS(arr)),_cols-SEQUENCE(_cols)+1),
-                IF(_iter=_times,_rotated,ROTATE(_rotated,_times,_iter+1))
+                _iter, IF(ISOMITTED(iter), 1, iter),
+                _cols, COLUMNS(arr),
+                _rotated, INDEX(arr, SEQUENCE(1, ROWS(arr)), _cols - SEQUENCE(_cols) + 1),
+                IF(_iter = _times, _rotated, ROTATE(_rotated, _times, _iter + 1))
             )
         )
     )
@@ -626,15 +628,17 @@ ROTATE = LAMBDA(arr,times,[iter],
 ">
   </button>
 </div>
-<pre><code class="language-excel">ROTATE = LAMBDA(arr,times,[iter],
+<pre><code class="language-excel">ROTATE = LAMBDA(arr, times, [iter],
     LET(
-        _times,MOD(times,4),
-        IF(_times=0,arr,
+        _times, MOD(times, 4),
+        IF(
+            _times = 0,
+            arr,
             LET(
-                _iter,IF(ISOMITTED(iter),1,iter),
-                _cols,COLUMNS(arr),
-                _rotated,INDEX(arr,SEQUENCE(1,ROWS(arr)),_cols-SEQUENCE(_cols)+1),
-                IF(_iter=_times,_rotated,ROTATE(_rotated,_times,_iter+1))
+                _iter, IF(ISOMITTED(iter), 1, iter),
+                _cols, COLUMNS(arr),
+                _rotated, INDEX(arr, SEQUENCE(1, ROWS(arr)), _cols - SEQUENCE(_cols) + 1),
+                IF(_iter = _times, _rotated, ROTATE(_rotated, _times, _iter + 1))
             )
         )
     )

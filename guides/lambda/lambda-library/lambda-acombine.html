@@ -610,23 +610,31 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ACOMBINE = LAMBDA(a,cl,
-    LET(y,INDEX(a,SEQUENCE(ROWS(a)),IF(AND(cl),cl,SEQUENCE(,COLUMNS(a)))),
-       u,AUNIQUE(y,-1),v,TRANSPOSE(AUNQSRT(TRANSPOSE(u),1)),
-       r,ROWS(v),c,COLUMNS(v),s,SEQUENCE(,c),
-       x,MOD(ROUNDUP(SEQUENCE(r^c)/r^ABS(s-c),0)-1,r)*c+s,
-       ACLEAN(AXLOOKUP(x,IF(v=&quot;&quot;,0,SEQUENCE(r,c)),v,,,),1)
+ACOMBINE = LAMBDA(a, cl,
+    LET(
+        y, INDEX(a, SEQUENCE(ROWS(a)), IF(AND(cl), cl, SEQUENCE(, COLUMNS(a)))),
+        u, AUNIQUE(y, -1),
+        v, TRANSPOSE(AUNQSRT(TRANSPOSE(u), 1)),
+        r, ROWS(v),
+        c, COLUMNS(v),
+        s, SEQUENCE(, c),
+        x, MOD(ROUNDUP(SEQUENCE(r ^ c) / r ^ ABS(s - c), 0) - 1, r) * c + s,
+        ACLEAN(AXLOOKUP(x, IF(v = &quot;&quot;, 0, SEQUENCE(r, c)), v, , , ), 1)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ACOMBINE = LAMBDA(a,cl,
-    LET(y,INDEX(a,SEQUENCE(ROWS(a)),IF(AND(cl),cl,SEQUENCE(,COLUMNS(a)))),
-       u,AUNIQUE(y,-1),v,TRANSPOSE(AUNQSRT(TRANSPOSE(u),1)),
-       r,ROWS(v),c,COLUMNS(v),s,SEQUENCE(,c),
-       x,MOD(ROUNDUP(SEQUENCE(r^c)/r^ABS(s-c),0)-1,r)*c+s,
-       ACLEAN(AXLOOKUP(x,IF(v="",0,SEQUENCE(r,c)),v,,,),1)
+<pre><code class="language-excel">ACOMBINE = LAMBDA(a, cl,
+    LET(
+        y, INDEX(a, SEQUENCE(ROWS(a)), IF(AND(cl), cl, SEQUENCE(, COLUMNS(a)))),
+        u, AUNIQUE(y, -1),
+        v, TRANSPOSE(AUNQSRT(TRANSPOSE(u), 1)),
+        r, ROWS(v),
+        c, COLUMNS(v),
+        s, SEQUENCE(, c),
+        x, MOD(ROUNDUP(SEQUENCE(r ^ c) / r ^ ABS(s - c), 0) - 1, r) * c + s,
+        ACLEAN(AXLOOKUP(x, IF(v = "", 0, SEQUENCE(r, c)), v, , , ), 1)
     )
 );
 </code></pre>

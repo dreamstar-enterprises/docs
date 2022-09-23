@@ -618,19 +618,37 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AFLAT =LAMBDA(a,[ib],
-    IF(AND(ib&lt;&gt;{0,1}),&quot;check arguments&quot;,
-      LET(r,ROWS(a),c,COLUMNS(a),s,SEQUENCE(r*c),q,QUOTIENT(s-1,c)+1,m,MOD(s-1,c)+1,x,INDEX(IFERROR(IF(a=&quot;&quot;,&quot;&quot;,a),&quot;&quot;),q,m),
-       FILTER(x,IF(ib,TRUE,x&lt;&gt;&quot;&quot;)))
+AFLAT = LAMBDA(a, [ib],
+    IF(
+        AND(ib &lt;&gt; {0, 1}),
+        &quot;check arguments&quot;,
+        LET(
+            r, ROWS(a),
+            c, COLUMNS(a),
+            s, SEQUENCE(r * c),
+            q, QUOTIENT(s - 1, c) + 1,
+            m, MOD(s - 1, c) + 1,
+            x, INDEX(IFERROR(IF(a = &quot;&quot;, &quot;&quot;, a), &quot;&quot;), q, m),
+            FILTER(x, IF(ib, TRUE, x &lt;&gt; &quot;&quot;))
+        )
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AFLAT =LAMBDA(a,[ib],
-    IF(AND(ib&lt;&gt;{0,1}),"check arguments",
-      LET(r,ROWS(a),c,COLUMNS(a),s,SEQUENCE(r*c),q,QUOTIENT(s-1,c)+1,m,MOD(s-1,c)+1,x,INDEX(IFERROR(IF(a="","",a),""),q,m),
-       FILTER(x,IF(ib,TRUE,x&lt;&gt;"")))
+<pre><code class="language-excel">AFLAT = LAMBDA(a, [ib],
+    IF(
+        AND(ib &lt;&gt; {0, 1}),
+        "check arguments",
+        LET(
+            r, ROWS(a),
+            c, COLUMNS(a),
+            s, SEQUENCE(r * c),
+            q, QUOTIENT(s - 1, c) + 1,
+            m, MOD(s - 1, c) + 1,
+            x, INDEX(IFERROR(IF(a = "", "", a), ""), q, m),
+            FILTER(x, IF(ib, TRUE, x &lt;&gt; ""))
+        )
     )
 );
 </code></pre>

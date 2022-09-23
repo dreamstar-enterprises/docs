@@ -612,17 +612,10 @@ AMORT.SCHEDULE = LAMBDA(years, annual_rate, pv, [annual_frequency],
         _annual_rate, annual_rate,
         _pv, pv,
         _annual_frequency, annual_frequency,
-        _freq, 
-        SWITCH(
-            _annual_frequency,
-                &quot;Annual&quot;, 1,
-                &quot;Quarterly&quot;, 4,
-                &quot;Bi-Weekly&quot;, 26,
-                12
-            ),
-    
+        _freq, SWITCH(_annual_frequency, &quot;Annual&quot;, 1, &quot;Quarterly&quot;, 4, &quot;Bi-Weekly&quot;, 26, 12),
         MAKEARRAY(
-            _years * _freq, 6,
+            _years * _freq,
+            6,
             LAMBDA(row, col,
                 LET(
                     _periods, _years * _freq,
@@ -641,7 +634,7 @@ AMORT.SCHEDULE = LAMBDA(years, annual_rate, pv, [annual_frequency],
                     )
                 )
             )
-        )   
+        )
     )
 );
 ">
@@ -653,17 +646,10 @@ AMORT.SCHEDULE = LAMBDA(years, annual_rate, pv, [annual_frequency],
         _annual_rate, annual_rate,
         _pv, pv,
         _annual_frequency, annual_frequency,
-        _freq, 
-        SWITCH(
-            _annual_frequency,
-                "Annual", 1,
-                "Quarterly", 4,
-                "Bi-Weekly", 26,
-                12
-            ),
-    
+        _freq, SWITCH(_annual_frequency, "Annual", 1, "Quarterly", 4, "Bi-Weekly", 26, 12),
         MAKEARRAY(
-            _years * _freq, 6,
+            _years * _freq,
+            6,
             LAMBDA(row, col,
                 LET(
                     _periods, _years * _freq,
@@ -682,7 +668,7 @@ AMORT.SCHEDULE = LAMBDA(years, annual_rate, pv, [annual_frequency],
                     )
                 )
             )
-        )   
+        )
     )
 );
 </code></pre>

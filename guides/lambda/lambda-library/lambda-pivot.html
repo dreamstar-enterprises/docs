@@ -614,31 +614,53 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-PIVOT = LAMBDA(r,c,v,fn,
+PIVOT = LAMBDA(r, c, v, fn,
     LET(
-        d, &quot;,&quot;,ur, SORT(UNIQUE(r)),uc, SORT(UNIQUE(c)),
-        w, ROWS(ur),l, ROWS(uc),
-        MAKEARRAY(w,l,LAMBDA(y,x,
+        d, &quot;,&quot;,
+        ur, SORT(UNIQUE(r)),
+        uc, SORT(UNIQUE(c)),
+        w, ROWS(ur),
+        l, ROWS(uc),
+        MAKEARRAY(
+            w,
+            l,
+            LAMBDA(y, x,
                 LET(
-                    a, INDEX(ur, y),b, INDEX(uc, x),
-                    i, IF((a = r) * (b = c), v, &quot;&quot;),f, FILTER(i, i &lt;&gt; &quot;&quot;),
+                    a, INDEX(ur, y),
+                    b, INDEX(uc, x),
+                    i, IF((a = r) * (b = c), v, &quot;&quot;),
+                    f, FILTER(i, i &lt;&gt; &quot;&quot;),
                     fx, IF(ISERR(SUM(f)), &quot;&quot;, IFERROR(fn(f), &quot;&quot;)),
-                    IF(COUNTA(fx) &gt; 1, TEXTJOIN(d, , fx), fx))))
+                    IF(COUNTA(fx) &gt; 1, TEXTJOIN(d, , fx), fx)
+                )
+            )
+        )
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">PIVOT = LAMBDA(r,c,v,fn,
+<pre><code class="language-excel">PIVOT = LAMBDA(r, c, v, fn,
     LET(
-        d, ",",ur, SORT(UNIQUE(r)),uc, SORT(UNIQUE(c)),
-        w, ROWS(ur),l, ROWS(uc),
-        MAKEARRAY(w,l,LAMBDA(y,x,
+        d, ",",
+        ur, SORT(UNIQUE(r)),
+        uc, SORT(UNIQUE(c)),
+        w, ROWS(ur),
+        l, ROWS(uc),
+        MAKEARRAY(
+            w,
+            l,
+            LAMBDA(y, x,
                 LET(
-                    a, INDEX(ur, y),b, INDEX(uc, x),
-                    i, IF((a = r) * (b = c), v, ""),f, FILTER(i, i &lt;&gt; ""),
+                    a, INDEX(ur, y),
+                    b, INDEX(uc, x),
+                    i, IF((a = r) * (b = c), v, ""),
+                    f, FILTER(i, i &lt;&gt; ""),
                     fx, IF(ISERR(SUM(f)), "", IFERROR(fn(f), "")),
-                    IF(COUNTA(fx) &gt; 1, TEXTJOIN(d, , fx), fx))))
+                    IF(COUNTA(fx) &gt; 1, TEXTJOIN(d, , fx), fx)
+                )
+            )
+        )
     )
 );
 </code></pre>

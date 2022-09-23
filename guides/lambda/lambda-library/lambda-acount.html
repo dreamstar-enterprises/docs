@@ -614,21 +614,33 @@ Calls <a href="../lambda-library/lambda-aflat.html">AFLAT</a>, &amp; <a href="..
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ACOUNT = LAMBDA(a,[ct],[pu],
-    LET(r,ROWS(a),f,AFLAT(a,1),w,ROWS(f),q,UNIQUE(AFLAT(a)),u,IF(ct=2,q,f),
-       p,MAP(u,LAMBDA(x,SUM(--(x=f)))),k,MAKEARRAY(w,,LAMBDA(r,i,SUM(--(INDEX(f,SEQUENCE(r))=INDEX(f,r))))),
-       y,SWITCH(ct,0,ARESIZE(p,r),1,ARESIZE(k,r),2,IF(pu,CHOOSE({1,2},q,p),p)),
-       IF(ISNA(y),&quot;check arg.&quot;,IFERROR(IF(ct=2,y,IF(a=&quot;&quot;,&quot;&quot;,y)),&quot;&quot;))
+ACOUNT = LAMBDA(a, [ct], [pu],
+    LET(
+        r, ROWS(a),
+        f, AFLAT(a, 1),
+        w, ROWS(f),
+        q, UNIQUE(AFLAT(a)),
+        u, IF(ct = 2, q, f),
+        p, MAP(u, LAMBDA(x, SUM(--(x = f)))),
+        k, MAKEARRAY(w, , LAMBDA(r, i, SUM(--(INDEX(f, SEQUENCE(r)) = INDEX(f, r))))),
+        y, SWITCH(ct, 0, ARESIZE(p, r), 1, ARESIZE(k, r), 2, IF(pu, CHOOSE({1, 2}, q, p), p)),
+        IF(ISNA(y), &quot;check arg.&quot;, IFERROR(IF(ct = 2, y, IF(a = &quot;&quot;, &quot;&quot;, y)), &quot;&quot;))
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ACOUNT = LAMBDA(a,[ct],[pu],
-    LET(r,ROWS(a),f,AFLAT(a,1),w,ROWS(f),q,UNIQUE(AFLAT(a)),u,IF(ct=2,q,f),
-       p,MAP(u,LAMBDA(x,SUM(--(x=f)))),k,MAKEARRAY(w,,LAMBDA(r,i,SUM(--(INDEX(f,SEQUENCE(r))=INDEX(f,r))))),
-       y,SWITCH(ct,0,ARESIZE(p,r),1,ARESIZE(k,r),2,IF(pu,CHOOSE({1,2},q,p),p)),
-       IF(ISNA(y),"check arg.",IFERROR(IF(ct=2,y,IF(a="","",y)),""))
+<pre><code class="language-excel">ACOUNT = LAMBDA(a, [ct], [pu],
+    LET(
+        r, ROWS(a),
+        f, AFLAT(a, 1),
+        w, ROWS(f),
+        q, UNIQUE(AFLAT(a)),
+        u, IF(ct = 2, q, f),
+        p, MAP(u, LAMBDA(x, SUM(--(x = f)))),
+        k, MAKEARRAY(w, , LAMBDA(r, i, SUM(--(INDEX(f, SEQUENCE(r)) = INDEX(f, r))))),
+        y, SWITCH(ct, 0, ARESIZE(p, r), 1, ARESIZE(k, r), 2, IF(pu, CHOOSE({1, 2}, q, p), p)),
+        IF(ISNA(y), "check arg.", IFERROR(IF(ct = 2, y, IF(a = "", "", y)), ""))
     )
 );
 </code></pre>

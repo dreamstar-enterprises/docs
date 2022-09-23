@@ -612,19 +612,25 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AXLOOKUP = LAMBDA(lv,la,ra,nf,m,s,
-    LET(x,AND(OR(m={0,-1,1,2}),OR(s={0,1,-1})),sm,IF(s=0,1,s),
-       fla,AFLAT(la, 1),fra,AFLAT(ra, 1),
-       IF(x,XLOOKUP(lv,fla,fra,nf,m,sm),&quot;check values&quot;)
+AXLOOKUP = LAMBDA(lv, la, ra, nf, m, s,
+    LET(
+        x, AND(OR(m = {0, -1, 1, 2}), OR(s = {0, 1, -1})),
+        sm, IF(s = 0, 1, s),
+        fla, AFLAT(la, 1),
+        fra, AFLAT(ra, 1),
+        IF(x, XLOOKUP(lv, fla, fra, nf, m, sm), &quot;check values&quot;)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AXLOOKUP = LAMBDA(lv,la,ra,nf,m,s,
-    LET(x,AND(OR(m={0,-1,1,2}),OR(s={0,1,-1})),sm,IF(s=0,1,s),
-       fla,AFLAT(la, 1),fra,AFLAT(ra, 1),
-       IF(x,XLOOKUP(lv,fla,fra,nf,m,sm),"check values")
+<pre><code class="language-excel">AXLOOKUP = LAMBDA(lv, la, ra, nf, m, s,
+    LET(
+        x, AND(OR(m = {0, -1, 1, 2}), OR(s = {0, 1, -1})),
+        sm, IF(s = 0, 1, s),
+        fla, AFLAT(la, 1),
+        fra, AFLAT(ra, 1),
+        IF(x, XLOOKUP(lv, fla, fra, nf, m, sm), "check values")
     )
 );
 </code></pre>

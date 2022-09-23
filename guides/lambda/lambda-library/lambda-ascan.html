@@ -614,19 +614,29 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ASCAN = LAMBDA(a,[d],
-    LET(n,ISNUMBER(a),r,IF(n,a,0),o,IF(d,d^0*SIGN(d),0),y,IF(o=1,TRANSPOSE(r),r),
-      s,SCAN(0,y,LAMBDA(v,a,v+a)),x,s-IF(o,INDEX(s,,1)-INDEX(y,,1)),
-      IF(n,IF(o=1,TRANSPOSE(x),x),a)
+ASCAN = LAMBDA(a, [d],
+    LET(
+        n, ISNUMBER(a),
+        r, IF(n, a, 0),
+        o, IF(d, d ^ 0 * SIGN(d), 0),
+        y, IF(o = 1, TRANSPOSE(r), r),
+        s, SCAN(0, y, LAMBDA(v, a, v + a)),
+        x, s - IF(o, INDEX(s, , 1) - INDEX(y, , 1)),
+        IF(n, IF(o = 1, TRANSPOSE(x), x), a)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ASCAN = LAMBDA(a,[d],
-    LET(n,ISNUMBER(a),r,IF(n,a,0),o,IF(d,d^0*SIGN(d),0),y,IF(o=1,TRANSPOSE(r),r),
-      s,SCAN(0,y,LAMBDA(v,a,v+a)),x,s-IF(o,INDEX(s,,1)-INDEX(y,,1)),
-      IF(n,IF(o=1,TRANSPOSE(x),x),a)
+<pre><code class="language-excel">ASCAN = LAMBDA(a, [d],
+    LET(
+        n, ISNUMBER(a),
+        r, IF(n, a, 0),
+        o, IF(d, d ^ 0 * SIGN(d), 0),
+        y, IF(o = 1, TRANSPOSE(r), r),
+        s, SCAN(0, y, LAMBDA(v, a, v + a)),
+        x, s - IF(o, INDEX(s, , 1) - INDEX(y, , 1)),
+        IF(n, IF(o = 1, TRANSPOSE(x), x), a)
     )
 );
 </code></pre>

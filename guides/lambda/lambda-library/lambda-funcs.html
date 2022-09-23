@@ -600,61 +600,51 @@ Allows for creation of an array of functions which can be passed as a parameter 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-FUNCS = LAMBDA(
-    fn_1,[fn_2],[fn_3],[fn_4],[fn_5],
-    [fn_6],[fn_7],[fn_8],[fn_9],[fn_10],
+FUNCS = LAMBDA(fn_1, [fn_2], [fn_3], [fn_4], [fn_5], [fn_6], [fn_7], [fn_8], [fn_9], [fn_10],
     LET(
-
-      //An array indicating which functions are omitted
-      omitted_fns,
-        VSTACK(
-          ISOMITTED(fn_1),ISOMITTED(fn_2),
-          ISOMITTED(fn_3),ISOMITTED(fn_4),
-          ISOMITTED(fn_5),ISOMITTED(fn_6),
-          ISOMITTED(fn_7),ISOMITTED(fn_8),
-          ISOMITTED(fn_9),ISOMITTED(fn_10)
+        //An array indicating which functions are omitted
+        omitted_fns, VSTACK(
+            ISOMITTED(fn_1),
+            ISOMITTED(fn_2),
+            ISOMITTED(fn_3),
+            ISOMITTED(fn_4),
+            ISOMITTED(fn_5),
+            ISOMITTED(fn_6),
+            ISOMITTED(fn_7),
+            ISOMITTED(fn_8),
+            ISOMITTED(fn_9),
+            ISOMITTED(fn_10)
         ),
-
-      //count of the not omitted functions
-      fn_ct,SUM(--NOT(omitted_fns)),
-
-      //return the first fn_ct functions in an array
-      fns,
-        CHOOSE(SEQUENCE(fn_ct),
-          fn_1,fn_2,fn_3,fn_4,fn_5,
-          fn_6,fn_7,fn_8,fn_9,fn_10
-        ),
-      fns
+        //count of the not omitted functions
+        fn_ct, SUM(--NOT(omitted_fns)),
+        //return the first fn_ct functions in an array
+        fns, CHOOSE(SEQUENCE(fn_ct), fn_1, fn_2, fn_3, fn_4, fn_5, fn_6, fn_7, fn_8, fn_9, fn_10),
+        fns
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">FUNCS = LAMBDA(
-    fn_1,[fn_2],[fn_3],[fn_4],[fn_5],
-    [fn_6],[fn_7],[fn_8],[fn_9],[fn_10],
+<pre><code class="language-excel">FUNCS = LAMBDA(fn_1, [fn_2], [fn_3], [fn_4], [fn_5], [fn_6], [fn_7], [fn_8], [fn_9], [fn_10],
     LET(
-
-      //An array indicating which functions are omitted
-      omitted_fns,
-        VSTACK(
-          ISOMITTED(fn_1),ISOMITTED(fn_2),
-          ISOMITTED(fn_3),ISOMITTED(fn_4),
-          ISOMITTED(fn_5),ISOMITTED(fn_6),
-          ISOMITTED(fn_7),ISOMITTED(fn_8),
-          ISOMITTED(fn_9),ISOMITTED(fn_10)
+        //An array indicating which functions are omitted
+        omitted_fns, VSTACK(
+            ISOMITTED(fn_1),
+            ISOMITTED(fn_2),
+            ISOMITTED(fn_3),
+            ISOMITTED(fn_4),
+            ISOMITTED(fn_5),
+            ISOMITTED(fn_6),
+            ISOMITTED(fn_7),
+            ISOMITTED(fn_8),
+            ISOMITTED(fn_9),
+            ISOMITTED(fn_10)
         ),
-
-      //count of the not omitted functions
-      fn_ct,SUM(--NOT(omitted_fns)),
-
-      //return the first fn_ct functions in an array
-      fns,
-        CHOOSE(SEQUENCE(fn_ct),
-          fn_1,fn_2,fn_3,fn_4,fn_5,
-          fn_6,fn_7,fn_8,fn_9,fn_10
-        ),
-      fns
+        //count of the not omitted functions
+        fn_ct, SUM(--NOT(omitted_fns)),
+        //return the first fn_ct functions in an array
+        fns, CHOOSE(SEQUENCE(fn_ct), fn_1, fn_2, fn_3, fn_4, fn_5, fn_6, fn_7, fn_8, fn_9, fn_10),
+        fns
     )
 );
 </code></pre>

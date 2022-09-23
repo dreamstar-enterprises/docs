@@ -599,15 +599,11 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-TRANSFORM = LAMBDA(vector,transform_fns,
-  REDUCE(vector,transform_fns,LAMBDA(a,b,HSTACK(a,b(vector))))
-);
+TRANSFORM = LAMBDA(vector, transform_fns, REDUCE(vector, transform_fns, LAMBDA(a, b, HSTACK(a, b(vector)))));
 ">
   </button>
 </div>
-<pre><code class="language-excel">TRANSFORM = LAMBDA(vector,transform_fns,
-  REDUCE(vector,transform_fns,LAMBDA(a,b,HSTACK(a,b(vector))))
-);
+<pre><code class="language-excel">TRANSFORM = LAMBDA(vector, transform_fns, REDUCE(vector, transform_fns, LAMBDA(a, b, HSTACK(a, b(vector)))));
 </code></pre>
 
                         

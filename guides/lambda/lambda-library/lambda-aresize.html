@@ -616,19 +616,33 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ARESIZE = LAMBDA(a,[r],[c],
-    LET(x,ROWS(a),y,COLUMNS(a),t,x*y,z,ROUNDUP(IF(r,r,IF(c,t/c,x)),0),w,ROUNDUP(IF(c,c,IF(r,t/r,y)),0),
-      s,SEQUENCE(z,w),q,QUOTIENT(s-1,y)+1,m,MOD(s-1,y)+1,
-      IFERROR(INDEX(IF(a=&quot;&quot;,&quot;&quot;,a),q,m),&quot;&quot;)
+ARESIZE = LAMBDA(a, [r], [c],
+    LET(
+        x, ROWS(a),
+        y, COLUMNS(a),
+        t, x * y,
+        z, ROUNDUP(IF(r, r, IF(c, t / c, x)), 0),
+        w, ROUNDUP(IF(c, c, IF(r, t / r, y)), 0),
+        s, SEQUENCE(z, w),
+        q, QUOTIENT(s - 1, y) + 1,
+        m, MOD(s - 1, y) + 1,
+        IFERROR(INDEX(IF(a = &quot;&quot;, &quot;&quot;, a), q, m), &quot;&quot;)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ARESIZE = LAMBDA(a,[r],[c],
-    LET(x,ROWS(a),y,COLUMNS(a),t,x*y,z,ROUNDUP(IF(r,r,IF(c,t/c,x)),0),w,ROUNDUP(IF(c,c,IF(r,t/r,y)),0),
-      s,SEQUENCE(z,w),q,QUOTIENT(s-1,y)+1,m,MOD(s-1,y)+1,
-      IFERROR(INDEX(IF(a="","",a),q,m),"")
+<pre><code class="language-excel">ARESIZE = LAMBDA(a, [r], [c],
+    LET(
+        x, ROWS(a),
+        y, COLUMNS(a),
+        t, x * y,
+        z, ROUNDUP(IF(r, r, IF(c, t / c, x)), 0),
+        w, ROUNDUP(IF(c, c, IF(r, t / r, y)), 0),
+        s, SEQUENCE(z, w),
+        q, QUOTIENT(s - 1, y) + 1,
+        m, MOD(s - 1, y) + 1,
+        IFERROR(INDEX(IF(a = "", "", a), q, m), "")
     )
 );
 </code></pre>

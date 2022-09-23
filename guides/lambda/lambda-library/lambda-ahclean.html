@@ -609,21 +609,23 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AHCLEAN = LAMBDA(ar,[n],
-    LET(a,IF(ISERROR(ar),&quot;&quot;,IF(ar=&quot;&quot;,&quot;&quot;,ar)),
-      x,BYROW(a,LAMBDA(a,SUM(--(a=&quot;&quot;)))),
-      m,MIN(ABS(n),MAX(x)),
-      FILTER(a,IF(n&gt;=0,x&lt;=m,x&gt;=m))
+AHCLEAN = LAMBDA(ar, [n],
+    LET(
+        a, IF(ISERROR(ar), &quot;&quot;, IF(ar = &quot;&quot;, &quot;&quot;, ar)),
+        x, BYROW(a, LAMBDA(a, SUM(--(a = &quot;&quot;)))),
+        m, MIN(ABS(n), MAX(x)),
+        FILTER(a, IF(n &gt;= 0, x &lt;= m, x &gt;= m))
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AHCLEAN = LAMBDA(ar,[n],
-    LET(a,IF(ISERROR(ar),"",IF(ar="","",ar)),
-      x,BYROW(a,LAMBDA(a,SUM(--(a="")))),
-      m,MIN(ABS(n),MAX(x)),
-      FILTER(a,IF(n&gt;=0,x&lt;=m,x&gt;=m))
+<pre><code class="language-excel">AHCLEAN = LAMBDA(ar, [n],
+    LET(
+        a, IF(ISERROR(ar), "", IF(ar = "", "", ar)),
+        x, BYROW(a, LAMBDA(a, SUM(--(a = "")))),
+        m, MIN(ABS(n), MAX(x)),
+        FILTER(a, IF(n &gt;= 0, x &lt;= m, x &gt;= m))
     )
 );
 </code></pre>

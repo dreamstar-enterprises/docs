@@ -622,50 +622,56 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-PD.ROLLING.AGGREGATES = LAMBDA(x,windows,aggs,
-  LET(
-    _tr,LAMBDA(arr,LET(x,FILTER(arr,arr&lt;&gt;&quot;&quot;),IF(ROWS(x)=1,TRANSPOSE(x),x))),
-    _a,_tr(aggs),
-    _w,_tr(windows),
-    _resize,ROWS(_a)&lt;&gt;ROWS(_w),
-    _rs,LAMBDA(arr,resize_to,MAKEARRAY(resize_to,1,LAMBDA(r,c,IF(r&lt;=ROWS(arr),INDEX(arr,r,1),INDEX(arr,ROWS(arr),1))))),
-    _ms,MAX(ROWS(_a),ROWS(_w)),
-    _ar,IF(_resize,_rs(_a,_ms),_a),
-    _wr,IF(_resize,_rs(_w,_ms),_w),
-    _out,
-    MAKEARRAY(
-      ROWS(x),
-      _ms,
-      LAMBDA(r,c,
-        INDEX(pd.rolling.aggregate(x,INDEX(_wr,c,1),INDEX(_ar,c,1)),r,1)
-      )
-    ),
-    _out
-  )
+PD.ROLLING.AGGREGATES = LAMBDA(x, windows, aggs,
+    LET(
+        _tr, LAMBDA(arr, LET(x, FILTER(arr, arr &lt;&gt; &quot;&quot;), IF(ROWS(x) = 1, TRANSPOSE(x), x))),
+        _a, _tr(aggs),
+        _w, _tr(windows),
+        _resize, ROWS(_a) &lt;&gt; ROWS(_w),
+        _rs, LAMBDA(arr, resize_to,
+            MAKEARRAY(
+                resize_to,
+                1,
+                LAMBDA(r, c, IF(r &lt;= ROWS(arr), INDEX(arr, r, 1), INDEX(arr, ROWS(arr), 1)))
+            )
+        ),
+        _ms, MAX(ROWS(_a), ROWS(_w)),
+        _ar, IF(_resize, _rs(_a, _ms), _a),
+        _wr, IF(_resize, _rs(_w, _ms), _w),
+        _out, MAKEARRAY(
+            ROWS(x),
+            _ms,
+            LAMBDA(r, c, INDEX(pd.rolling.aggregate(x, INDEX(_wr, c, 1), INDEX(_ar, c, 1)), r, 1))
+        ),
+        _out
+    )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">PD.ROLLING.AGGREGATES = LAMBDA(x,windows,aggs,
-  LET(
-    _tr,LAMBDA(arr,LET(x,FILTER(arr,arr&lt;&gt;""),IF(ROWS(x)=1,TRANSPOSE(x),x))),
-    _a,_tr(aggs),
-    _w,_tr(windows),
-    _resize,ROWS(_a)&lt;&gt;ROWS(_w),
-    _rs,LAMBDA(arr,resize_to,MAKEARRAY(resize_to,1,LAMBDA(r,c,IF(r&lt;=ROWS(arr),INDEX(arr,r,1),INDEX(arr,ROWS(arr),1))))),
-    _ms,MAX(ROWS(_a),ROWS(_w)),
-    _ar,IF(_resize,_rs(_a,_ms),_a),
-    _wr,IF(_resize,_rs(_w,_ms),_w),
-    _out,
-    MAKEARRAY(
-      ROWS(x),
-      _ms,
-      LAMBDA(r,c,
-        INDEX(pd.rolling.aggregate(x,INDEX(_wr,c,1),INDEX(_ar,c,1)),r,1)
-      )
-    ),
-    _out
-  )
+<pre><code class="language-excel">PD.ROLLING.AGGREGATES = LAMBDA(x, windows, aggs,
+    LET(
+        _tr, LAMBDA(arr, LET(x, FILTER(arr, arr &lt;&gt; ""), IF(ROWS(x) = 1, TRANSPOSE(x), x))),
+        _a, _tr(aggs),
+        _w, _tr(windows),
+        _resize, ROWS(_a) &lt;&gt; ROWS(_w),
+        _rs, LAMBDA(arr, resize_to,
+            MAKEARRAY(
+                resize_to,
+                1,
+                LAMBDA(r, c, IF(r &lt;= ROWS(arr), INDEX(arr, r, 1), INDEX(arr, ROWS(arr), 1)))
+            )
+        ),
+        _ms, MAX(ROWS(_a), ROWS(_w)),
+        _ar, IF(_resize, _rs(_a, _ms), _a),
+        _wr, IF(_resize, _rs(_w, _ms), _w),
+        _out, MAKEARRAY(
+            ROWS(x),
+            _ms,
+            LAMBDA(r, c, INDEX(pd.rolling.aggregate(x, INDEX(_wr, c, 1), INDEX(_ar, c, 1)), r, 1))
+        ),
+        _out
+    )
 );
 </code></pre>
 

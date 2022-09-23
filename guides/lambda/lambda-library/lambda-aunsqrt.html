@@ -608,52 +608,56 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AUNQSRT = LAMBDA(ar,k,
-  LET(xk,OR(k={-1,0,1}),
-    r,ROWS(ar),
-    c,COLUMNS(ar),
-    sr,SEQUENCE(r),
-    s,SEQUENCE(r*c),
-    q,QUOTIENT(s-1,c)+1,
-    m,MOD(s-1,c)+1,
-    a,INDEX(IF(ar=&quot;&quot;,&quot;&quot;,ar),q,m),
-    x,a&lt;&gt;&quot;&quot;,qf,FILTER(CHOOSE({1,2},q,a),x),
-    y,SWITCH(k,-1,SORT(qf,{1,2},{1,-1}),0,UNIQUE(qf),1,SORT(qf,{1,2})),
-    na,INDEX(y,,2),
-    nq,INDEX(y,,1),
-    fq,FREQUENCY(nq,sr),
-    p,INDEX(fq,sr),
-    nc,MAX(p),
-    nsa,IF(p&gt;=SEQUENCE(,nc),SEQUENCE(r,nc)),
-    nsr,SMALL(nsa,SEQUENCE(SUM(p))),
-    rs,IFNA(XLOOKUP(nsa,nsr,na),&quot;&quot;),
-    IF(xk,rs,&quot;check var -1 (desc), 0 (unique), 1 (asc)&quot;)
-  )
+AUNQSRT = LAMBDA(ar, k,
+    LET(
+        xk, OR(k = {-1, 0, 1}),
+        r, ROWS(ar),
+        c, COLUMNS(ar),
+        sr, SEQUENCE(r),
+        s, SEQUENCE(r * c),
+        q, QUOTIENT(s - 1, c) + 1,
+        m, MOD(s - 1, c) + 1,
+        a, INDEX(IF(ar = &quot;&quot;, &quot;&quot;, ar), q, m),
+        x, a &lt;&gt; &quot;&quot;,
+        qf, FILTER(CHOOSE({1, 2}, q, a), x),
+        y, SWITCH(k, -1, SORT(qf, {1, 2}, {1, -1}), 0, UNIQUE(qf), 1, SORT(qf, {1, 2})),
+        na, INDEX(y, , 2),
+        nq, INDEX(y, , 1),
+        fq, FREQUENCY(nq, sr),
+        p, INDEX(fq, sr),
+        nc, MAX(p),
+        nsa, IF(p &gt;= SEQUENCE(, nc), SEQUENCE(r, nc)),
+        nsr, SMALL(nsa, SEQUENCE(SUM(p))),
+        rs, IFNA(XLOOKUP(nsa, nsr, na), &quot;&quot;),
+        IF(xk, rs, &quot;check var -1(desc),0(unique),1(asc)&quot;)
+    )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AUNQSRT = LAMBDA(ar,k,
-  LET(xk,OR(k={-1,0,1}),
-    r,ROWS(ar),
-    c,COLUMNS(ar),
-    sr,SEQUENCE(r),
-    s,SEQUENCE(r*c),
-    q,QUOTIENT(s-1,c)+1,
-    m,MOD(s-1,c)+1,
-    a,INDEX(IF(ar="","",ar),q,m),
-    x,a&lt;&gt;"",qf,FILTER(CHOOSE({1,2},q,a),x),
-    y,SWITCH(k,-1,SORT(qf,{1,2},{1,-1}),0,UNIQUE(qf),1,SORT(qf,{1,2})),
-    na,INDEX(y,,2),
-    nq,INDEX(y,,1),
-    fq,FREQUENCY(nq,sr),
-    p,INDEX(fq,sr),
-    nc,MAX(p),
-    nsa,IF(p&gt;=SEQUENCE(,nc),SEQUENCE(r,nc)),
-    nsr,SMALL(nsa,SEQUENCE(SUM(p))),
-    rs,IFNA(XLOOKUP(nsa,nsr,na),""),
-    IF(xk,rs,"check var -1 (desc), 0 (unique), 1 (asc)")
-  )
+<pre><code class="language-excel">AUNQSRT = LAMBDA(ar, k,
+    LET(
+        xk, OR(k = {-1, 0, 1}),
+        r, ROWS(ar),
+        c, COLUMNS(ar),
+        sr, SEQUENCE(r),
+        s, SEQUENCE(r * c),
+        q, QUOTIENT(s - 1, c) + 1,
+        m, MOD(s - 1, c) + 1,
+        a, INDEX(IF(ar = "", "", ar), q, m),
+        x, a &lt;&gt; "",
+        qf, FILTER(CHOOSE({1, 2}, q, a), x),
+        y, SWITCH(k, -1, SORT(qf, {1, 2}, {1, -1}), 0, UNIQUE(qf), 1, SORT(qf, {1, 2})),
+        na, INDEX(y, , 2),
+        nq, INDEX(y, , 1),
+        fq, FREQUENCY(nq, sr),
+        p, INDEX(fq, sr),
+        nc, MAX(p),
+        nsa, IF(p &gt;= SEQUENCE(, nc), SEQUENCE(r, nc)),
+        nsr, SMALL(nsa, SEQUENCE(SUM(p))),
+        rs, IFNA(XLOOKUP(nsa, nsr, na), ""),
+        IF(xk, rs, "check var -1(desc),0(unique),1(asc)")
+    )
 );
 </code></pre>
 

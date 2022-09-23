@@ -607,72 +607,56 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-MONTHLY.DATES =LAMBDA(start_date,term_years,period_months,[start_or_end],[endpoint_offset],
-  LET(
-    _rnd,LAMBDA(val,then,IF(NOT(ISNUMBER(val)),then,ROUND(val,0))),
-    _is_text, LAMBDA(val,then,IF(NOT(ISTEXT(val)), then, val)),
-    _sd,_rnd(start_date,NA()),
-    _t,_rnd(term_years,NA()),
-    _eo,IF(ISOMITTED(endpoint_offset),1,_rnd(endpoint_offset,1)),
-    _es,IF(ISOMITTED(start_or_end),&quot;start&quot;, _is_text(start_or_end, &quot;not text&quot;)),
-    _pm,_rnd(period_months,3),
-    _osd,EDATE(_sd,-(_pm*_eo)),
-    _ppy,12/_pm,
-    _s,
-      SWITCH(_es, 
-        &quot;start&quot;,
-        DATE(
-            YEAR(_osd),
-            SEQUENCE(_t*_ppy+_eo*2+1,1,MONTH(_osd),_pm),
-            1
-          ),
-        &quot;end&quot;,
-        DATE(
-          YEAR(_osd),
-          SEQUENCE(_t*_ppy+_eo*2+1,1,MONTH(_osd)+1,_pm),
-          0
+MONTHLY.DATES = LAMBDA(start_date, term_years, period_months, [start_or_end], [endpoint_offset],
+    LET(
+        _rnd, LAMBDA(val, then, IF(NOT(ISNUMBER(val)), then, ROUND(val, 0))),
+        _is_text, LAMBDA(val, then, IF(NOT(ISTEXT(val)), then, val)),
+        _sd, _rnd(start_date, NA()),
+        _t, _rnd(term_years, NA()),
+        _eo, IF(ISOMITTED(endpoint_offset), 1, _rnd(endpoint_offset, 1)),
+        _es, IF(ISOMITTED(start_or_end), &quot;start&quot;, _is_text(start_or_end, &quot;not text&quot;)),
+        _pm, _rnd(period_months, 3),
+        _osd, EDATE(_sd, -(_pm * _eo)),
+        _ppy, 12 / _pm,
+        _s, SWITCH(
+            _es,
+            &quot;start&quot;,
+            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2 + 1, 1, MONTH(_osd), _pm), 1),
+            &quot;end&quot;,
+            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2 + 1, 1, MONTH(_osd) + 1, _pm), 0),
+            &quot;not text&quot;,
+            &quot;ERROR: start_or_end argument is not of type &#39;text&#39;&quot;,
+            &quot;ERROR: start_or_end argument should have the value &#39;start&#39; or &#39;end&#39;&quot;
         ),
-        &quot;not text&quot;, 
-        &quot;ERROR: start_or_end argument is not of type &#39;text&#39;&quot;,
-        &quot;ERROR: start_or_end argument should have the value &#39;start&#39; or &#39;end&#39;&quot;
-      ),
-    _s
-  )
+        _s
+    )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">MONTHLY.DATES =LAMBDA(start_date,term_years,period_months,[start_or_end],[endpoint_offset],
-  LET(
-    _rnd,LAMBDA(val,then,IF(NOT(ISNUMBER(val)),then,ROUND(val,0))),
-    _is_text, LAMBDA(val,then,IF(NOT(ISTEXT(val)), then, val)),
-    _sd,_rnd(start_date,NA()),
-    _t,_rnd(term_years,NA()),
-    _eo,IF(ISOMITTED(endpoint_offset),1,_rnd(endpoint_offset,1)),
-    _es,IF(ISOMITTED(start_or_end),"start", _is_text(start_or_end, "not text")),
-    _pm,_rnd(period_months,3),
-    _osd,EDATE(_sd,-(_pm*_eo)),
-    _ppy,12/_pm,
-    _s,
-      SWITCH(_es, 
-        "start",
-        DATE(
-            YEAR(_osd),
-            SEQUENCE(_t*_ppy+_eo*2+1,1,MONTH(_osd),_pm),
-            1
-          ),
-        "end",
-        DATE(
-          YEAR(_osd),
-          SEQUENCE(_t*_ppy+_eo*2+1,1,MONTH(_osd)+1,_pm),
-          0
+<pre><code class="language-excel">MONTHLY.DATES = LAMBDA(start_date, term_years, period_months, [start_or_end], [endpoint_offset],
+    LET(
+        _rnd, LAMBDA(val, then, IF(NOT(ISNUMBER(val)), then, ROUND(val, 0))),
+        _is_text, LAMBDA(val, then, IF(NOT(ISTEXT(val)), then, val)),
+        _sd, _rnd(start_date, NA()),
+        _t, _rnd(term_years, NA()),
+        _eo, IF(ISOMITTED(endpoint_offset), 1, _rnd(endpoint_offset, 1)),
+        _es, IF(ISOMITTED(start_or_end), "start", _is_text(start_or_end, "not text")),
+        _pm, _rnd(period_months, 3),
+        _osd, EDATE(_sd, -(_pm * _eo)),
+        _ppy, 12 / _pm,
+        _s, SWITCH(
+            _es,
+            "start",
+            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2 + 1, 1, MONTH(_osd), _pm), 1),
+            "end",
+            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2 + 1, 1, MONTH(_osd) + 1, _pm), 0),
+            "not text",
+            "ERROR: start_or_end argument is not of type 'text'",
+            "ERROR: start_or_end argument should have the value 'start' or 'end'"
         ),
-        "not text", 
-        "ERROR: start_or_end argument is not of type 'text'",
-        "ERROR: start_or_end argument should have the value 'start' or 'end'"
-      ),
-    _s
-  )
+        _s
+    )
 );
 </code></pre>
 

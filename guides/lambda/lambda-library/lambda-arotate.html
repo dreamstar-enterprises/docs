@@ -608,27 +608,11 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AROTATE =LAMBDA(a,r,
-    SWITCH(r,-1,
-      AFLIP(TRANSPOSE(a),1),
-      1,
-      AFLIP(TRANSPOSE(a)),
-      2,
-      AFLIP(a,2)
-    )
-);
+AROTATE = LAMBDA(a, r, SWITCH(r, -1, AFLIP(TRANSPOSE(a), 1), 1, AFLIP(TRANSPOSE(a)), 2, AFLIP(a, 2)));
 ">
   </button>
 </div>
-<pre><code class="language-excel">AROTATE =LAMBDA(a,r,
-    SWITCH(r,-1,
-      AFLIP(TRANSPOSE(a),1),
-      1,
-      AFLIP(TRANSPOSE(a)),
-      2,
-      AFLIP(a,2)
-    )
-);
+<pre><code class="language-excel">AROTATE = LAMBDA(a, r, SWITCH(r, -1, AFLIP(TRANSPOSE(a), 1), 1, AFLIP(TRANSPOSE(a)), 2, AFLIP(a, 2)));
 </code></pre>
 
                         

@@ -649,28 +649,104 @@ As this function includes some <strong><em>recursive</em></strong> helper functi
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 // Helper tool Lambdas
-T_PA = LAMBDA(n,c,MOD(ROUNDUP(SEQUENCE(n^c)/n^(c-SEQUENCE(,c)),0)-1,n)+1); 
-T_P = LAMBDA(a,[ai],[i],LET(n,COLUMNS(a),j,IF(i=&quot;&quot;,n,i),x,INDEX(a,,j),IF(j=0,FILTER(a,MMULT(ai,SEQUENCE(n)^0)=n),T_P(a,ai+(x=a),j-1))));
-T_CA = LAMBDA(a,[ai],[i],LET(n,COLUMNS(a),j,IF(i=&quot;&quot;,1,i),aj,IF(ai=&quot;&quot;,1,ai),x,INDEX(a,,j),IF(j=n,FILTER(a,aj),T_CA(a,aj*(x&lt;=INDEX(a,,j+1)),j+1))));
+T_PA = LAMBDA(n, c, MOD(ROUNDUP(SEQUENCE(n ^ c) / n ^ (c - SEQUENCE(, c)), 0) - 1, n) + 1);
+T_P = LAMBDA(a, [ai], [i],
+    LET(
+        n, COLUMNS(a),
+        j, IF(i = &quot;&quot;, n, i),
+        x, INDEX(a, , j),
+        IF(j = 0, FILTER(a, MMULT(ai, SEQUENCE(n) ^ 0) = n), T_P(a, ai + (x = a), j - 1))
+    )
+);
+T_CA LAMBDA(a, [ai], [i],
+    LET(
+        n, COLUMNS(a),
+        j, IF(i = &quot;&quot;, 1, i),
+        aj, IF(ai = &quot;&quot;, 1, ai),
+        x, INDEX(a, , j),
+        IF(j = n, FILTER(a, aj), T_CA(a, aj * (x &lt;= INDEX(a, , j + 1)), j + 1))
+    )
+);
 
-ARRANGEMENTS = LAMBDA(a,t,c,
-    IF(AND(t&lt;&gt;{&quot;p&quot;,&quot;pa&quot;,&quot;c&quot;,&quot;ca&quot;}),&quot;check type&quot;,
-      LET(k,MAX(1,c),x,AFLAT(a),n,ROWS(x),IF(AND(OR(t={&quot;p&quot;,&quot;c&quot;}),k&gt;n),&quot;nr chosen &gt; n !!!&quot;,LET(y,T_PA(n,k),
-       SWITCH(t,&quot;pa&quot;,INDEX(x,y),&quot;p&quot;,INDEX(x,T_P(y)),&quot;ca&quot;,INDEX(x,T_CA(y)),&quot;c&quot;,LET(z,T_P(y),w,T_CA(z),INDEX(x,w))))))
+ARRANGEMENTS = LAMBDA(a, t, c,
+    IF(
+        AND(t &lt;&gt; {&quot;p&quot;, &quot;pa&quot;, &quot;c&quot;, &quot;ca&quot;}),
+        &quot;check type&quot;,
+        LET(
+            k, MAX(1, c),
+            x, AFLAT(a),
+            n, ROWS(x),
+            IF(
+                AND(OR(t = {&quot;p&quot;, &quot;c&quot;}), k &gt; n),
+                &quot;nr chosen &gt; n !!!&quot;,
+                LET(
+                    y, T_PA(n, k),
+                    SWITCH(
+                        t,
+                        &quot;pa&quot;,
+                        INDEX(x, y),
+                        &quot;p&quot;,
+                        INDEX(x, T_P(y)),
+                        &quot;ca&quot;,
+                        INDEX(x, T_CA(y)),
+                        &quot;c&quot;,
+                        LET(z, T_P(y), w, T_CA(z), INDEX(x, w))
+                    )
+                )
+            )
+        )
     )
 );
 ">
   </button>
 </div>
 <pre><code class="language-excel">// Helper tool Lambdas
-T_PA = LAMBDA(n,c,MOD(ROUNDUP(SEQUENCE(n^c)/n^(c-SEQUENCE(,c)),0)-1,n)+1); 
-T_P = LAMBDA(a,[ai],[i],LET(n,COLUMNS(a),j,IF(i="",n,i),x,INDEX(a,,j),IF(j=0,FILTER(a,MMULT(ai,SEQUENCE(n)^0)=n),T_P(a,ai+(x=a),j-1))));
-T_CA = LAMBDA(a,[ai],[i],LET(n,COLUMNS(a),j,IF(i="",1,i),aj,IF(ai="",1,ai),x,INDEX(a,,j),IF(j=n,FILTER(a,aj),T_CA(a,aj*(x&lt;=INDEX(a,,j+1)),j+1))));
+T_PA = LAMBDA(n, c, MOD(ROUNDUP(SEQUENCE(n ^ c) / n ^ (c - SEQUENCE(, c)), 0) - 1, n) + 1);
+T_P = LAMBDA(a, [ai], [i],
+    LET(
+        n, COLUMNS(a),
+        j, IF(i = "", n, i),
+        x, INDEX(a, , j),
+        IF(j = 0, FILTER(a, MMULT(ai, SEQUENCE(n) ^ 0) = n), T_P(a, ai + (x = a), j - 1))
+    )
+);
+T_CA LAMBDA(a, [ai], [i],
+    LET(
+        n, COLUMNS(a),
+        j, IF(i = "", 1, i),
+        aj, IF(ai = "", 1, ai),
+        x, INDEX(a, , j),
+        IF(j = n, FILTER(a, aj), T_CA(a, aj * (x &lt;= INDEX(a, , j + 1)), j + 1))
+    )
+);
 
-ARRANGEMENTS = LAMBDA(a,t,c,
-    IF(AND(t&lt;&gt;{"p","pa","c","ca"}),"check type",
-      LET(k,MAX(1,c),x,AFLAT(a),n,ROWS(x),IF(AND(OR(t={"p","c"}),k&gt;n),"nr chosen &gt; n !!!",LET(y,T_PA(n,k),
-       SWITCH(t,"pa",INDEX(x,y),"p",INDEX(x,T_P(y)),"ca",INDEX(x,T_CA(y)),"c",LET(z,T_P(y),w,T_CA(z),INDEX(x,w))))))
+ARRANGEMENTS = LAMBDA(a, t, c,
+    IF(
+        AND(t &lt;&gt; {"p", "pa", "c", "ca"}),
+        "check type",
+        LET(
+            k, MAX(1, c),
+            x, AFLAT(a),
+            n, ROWS(x),
+            IF(
+                AND(OR(t = {"p", "c"}), k &gt; n),
+                "nr chosen &gt; n !!!",
+                LET(
+                    y, T_PA(n, k),
+                    SWITCH(
+                        t,
+                        "pa",
+                        INDEX(x, y),
+                        "p",
+                        INDEX(x, T_P(y)),
+                        "ca",
+                        INDEX(x, T_CA(y)),
+                        "c",
+                        LET(z, T_P(y), w, T_CA(z), INDEX(x, w))
+                    )
+                )
+            )
+        )
     )
 );
 </code></pre>

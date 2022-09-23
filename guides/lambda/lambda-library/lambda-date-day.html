@@ -599,8 +599,8 @@
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 DATE.DAY = LAMBDA(anydate,
     LET(
-        number_array, {1, 2, 3, 4, 5, 6, 7}, 
-        day_array, {&quot;Sun&quot;,&quot;Mon&quot;,&quot;Tue&quot;,&quot;Wed&quot;,&quot;Thu&quot;,&quot;Fri&quot;,&quot;Sat&quot;},
+        number_array, {1, 2, 3, 4, 5, 6, 7},
+        day_array, {&quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;},
         XLOOKUP(WEEKDAY(anydate, 1), number_array, day_array)
     )
 );
@@ -609,8 +609,8 @@ DATE.DAY = LAMBDA(anydate,
 </div>
 <pre><code class="language-excel">DATE.DAY = LAMBDA(anydate,
     LET(
-        number_array, {1, 2, 3, 4, 5, 6, 7}, 
-        day_array, {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"},
+        number_array, {1, 2, 3, 4, 5, 6, 7},
+        day_array, {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"},
         XLOOKUP(WEEKDAY(anydate, 1), number_array, day_array)
     )
 );
