@@ -600,54 +600,59 @@
                         <h1 id="array-tranformation-functions">Array Tranformation functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="aunstack">AUNSTACK</h2>
+<h2 id="aunpivotstack">AUNPIVOTSTACK</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aunstack.1180037/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/insrws.1217485/page-2#posts" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Unstacks an array for a certain height [h].</p>
+<p>Unpivots the main headers of a table, and stacks this together with its sub headers</p>
+
+<h4 id="inputs">Inputs:</h4>
+
+<ul>
+  <li>tb - the table, with headers, whose main header needs be unpivoted, and then stacked</li>
+  <li>ht - text value to given to main header</li>
+</ul>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AUNSTACK = LAMBDA(a, [h],
+AUNPIVOTSTACK = LAMBDA(tb, ht,
     LET(
-        x, ROWS(a),
-        y, COLUMNS(a),
-        k, MEDIAN(1, ABS(h), x),
-        n, ROUNDUP(x / k, 0),
-        IFERROR(
-            MAKEARRAY(
-                k,
-                n * y,
-                LAMBDA(r, c, INDEX(IF(a = &quot;&quot;, &quot;&quot;, a), k * QUOTIENT(c - 1, y) + r, MOD(c - 1, y) + 1))
-            ),
-            &quot;&quot;
-        )
+        mh, CHOOSEROWS(tb, 1),
+        mhf, FILTER(mh, mh &lt;&gt; &quot;&quot;),
+        sh, CHOOSEROWS(tb, 2),
+        shu, UNIQUE(sh, TRUE),
+        k, ASTACK(DROP(tb, 2), COLUMNS(shu)),
+        f, TAKE(k, , 1),
+        i, QUOTIENT(SEQUENCE(ROWS(k)) - 1, ROWS(tb) - 2) + 1,
+        g, HSTACK(INDEX(mhf, i), k),
+        l, FILTER(g, f &lt;&gt; &quot;&quot;),
+        tbh, HSTACK(ht, shu),
+        VSTACK(tbh, l)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AUNSTACK = LAMBDA(a, [h],
+<pre><code class="language-excel">AUNPIVOTSTACK = LAMBDA(tb, ht,
     LET(
-        x, ROWS(a),
-        y, COLUMNS(a),
-        k, MEDIAN(1, ABS(h), x),
-        n, ROUNDUP(x / k, 0),
-        IFERROR(
-            MAKEARRAY(
-                k,
-                n * y,
-                LAMBDA(r, c, INDEX(IF(a = "", "", a), k * QUOTIENT(c - 1, y) + r, MOD(c - 1, y) + 1))
-            ),
-            ""
-        )
+        mh, CHOOSEROWS(tb, 1),
+        mhf, FILTER(mh, mh &lt;&gt; ""),
+        sh, CHOOSEROWS(tb, 2),
+        shu, UNIQUE(sh, TRUE),
+        k, ASTACK(DROP(tb, 2), COLUMNS(shu)),
+        f, TAKE(k, , 1),
+        i, QUOTIENT(SEQUENCE(ROWS(k)) - 1, ROWS(tb) - 2) + 1,
+        g, HSTACK(INDEX(mhf, i), k),
+        l, FILTER(g, f &lt;&gt; ""),
+        tbh, HSTACK(ht, shu),
+        VSTACK(tbh, l)
     )
 );
 </code></pre>
@@ -717,7 +722,7 @@ AUNSTACK = LAMBDA(a, [h],
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#aunstack">AUNSTACK</a>
+<li class="toc-entry toc-h2"><a href="#aunpivotstack">AUNPIVOTSTACK</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
