@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Data & Time functions | StarBase </title>
+		<title>Array Transformation functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -709,33 +709,80 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="data--time-functions">Data &amp; Time functions</h1>
+                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="firstmonday">FIRST.MONDAY</h2>
+<h2 id="aunqsrt">AUNQSRT</h2>
+
+<h3 id="reference">Reference</h3>
+
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aunqsrt.1164696/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Returns the first Monday of the month</p>
+<p>Sorts ascending, descending, or extracts unique values by rows of an array, left aligned.</p>
+
+<h4 id="inputs">Inputs:</h4>
+
+<ul>
+  <li>a - required array</li>
+  <li>k - -1 sort descending, 0 unique, 1 sort ascending</li>
+</ul>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-FIRST.MONDAY = LAMBDA(anydate,
+AUNQSRT = LAMBDA(ar, k,
     LET(
-        start_of_month, DATE(YEAR(anydate), MONTH(anydate), 1),
-        CHOOSE(WEEKDAY(start_of_month), 1, 0, 6, 5, 4, 3, 2) + start_of_month
+        xk, OR(k = {-1, 0, 1}),
+        r, ROWS(ar),
+        c, COLUMNS(ar),
+        sr, SEQUENCE(r),
+        s, SEQUENCE(r * c),
+        q, QUOTIENT(s - 1, c) + 1,
+        m, MOD(s - 1, c) + 1,
+        a, INDEX(IF(ar = &quot;&quot;, &quot;&quot;, ar), q, m),
+        x, a &lt;&gt; &quot;&quot;,
+        qf, FILTER(CHOOSE({1, 2}, q, a), x),
+        y, SWITCH(k, -1, SORT(qf, {1, 2}, {1, -1}), 0, UNIQUE(qf), 1, SORT(qf, {1, 2})),
+        na, INDEX(y, , 2),
+        nq, INDEX(y, , 1),
+        fq, FREQUENCY(nq, sr),
+        p, INDEX(fq, sr),
+        nc, MAX(p),
+        nsa, IF(p &gt;= SEQUENCE(, nc), SEQUENCE(r, nc)),
+        nsr, SMALL(nsa, SEQUENCE(SUM(p))),
+        rs, IFNA(XLOOKUP(nsa, nsr, na), &quot;&quot;),
+        IF(xk, rs, &quot;check var -1(desc),0(unique),1(asc)&quot;)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">FIRST.MONDAY = LAMBDA(anydate,
+<pre><code class="language-excel">AUNQSRT = LAMBDA(ar, k,
     LET(
-        start_of_month, DATE(YEAR(anydate), MONTH(anydate), 1),
-        CHOOSE(WEEKDAY(start_of_month), 1, 0, 6, 5, 4, 3, 2) + start_of_month
+        xk, OR(k = {-1, 0, 1}),
+        r, ROWS(ar),
+        c, COLUMNS(ar),
+        sr, SEQUENCE(r),
+        s, SEQUENCE(r * c),
+        q, QUOTIENT(s - 1, c) + 1,
+        m, MOD(s - 1, c) + 1,
+        a, INDEX(IF(ar = "", "", ar), q, m),
+        x, a &lt;&gt; "",
+        qf, FILTER(CHOOSE({1, 2}, q, a), x),
+        y, SWITCH(k, -1, SORT(qf, {1, 2}, {1, -1}), 0, UNIQUE(qf), 1, SORT(qf, {1, 2})),
+        na, INDEX(y, , 2),
+        nq, INDEX(y, , 1),
+        fq, FREQUENCY(nq, sr),
+        p, INDEX(fq, sr),
+        nc, MAX(p),
+        nsa, IF(p &gt;= SEQUENCE(, nc), SEQUENCE(r, nc)),
+        nsr, SMALL(nsa, SEQUENCE(SUM(p))),
+        rs, IFNA(XLOOKUP(nsa, nsr, na), ""),
+        IF(xk, rs, "check var -1(desc),0(unique),1(asc)")
     )
 );
 </code></pre>
@@ -805,8 +852,9 @@ FIRST.MONDAY = LAMBDA(anydate,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#firstmonday">FIRST.MONDAY</a>
+<li class="toc-entry toc-h2"><a href="#aunqsrt">AUNQSRT</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>

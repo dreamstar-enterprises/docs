@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Data & Time functions | StarBase </title>
+		<title>Array Transformation functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -709,33 +709,55 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="data--time-functions">Data &amp; Time functions</h1>
+                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="firstmonday">FIRST.MONDAY</h2>
+<h2 id="insblnkrws">INSBLNKRWS</h2>
+
+<h3 id="reference">Reference</h3>
+
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/insrws.1217485/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Returns the first Monday of the month</p>
+<p>Inserts blank Rows.</p>
+
+<p>Calls <a href="../lambda-library/lambda-zins.html">ZINS</a></p>
+
+<h4 id="inputs">Inputs:</h4>
+
+<ul>
+  <li>a - array</li>
+  <li>[r] - row’s group size, if omitted r=1</li>
+  <li>[g] - gap size, if omitted g = 1, if &lt; 0 gap inserted also before 1st row</li>
+</ul>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-FIRST.MONDAY = LAMBDA(anydate,
+INSBLNKRWS = LAMBDA(a, [r], [g],
     LET(
-        start_of_month, DATE(YEAR(anydate), MONTH(anydate), 1),
-        CHOOSE(WEEKDAY(start_of_month), 1, 0, 6, 5, 4, 3, 2) + start_of_month
+        x, MAX(1, r),
+        y, IF(g, ABS(g), 1),
+        q, ZINS(ROWS(a), x, y),
+        s, IF(g &lt; 0, VSTACK(SEQUENCE(y) ^ 0 - 1, q), q),
+        b, INDEX(IF(a = &quot;&quot;, &quot;&quot;, a), s, SEQUENCE(, COLUMNS(a))),
+        IF(s, b, &quot;&quot;)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">FIRST.MONDAY = LAMBDA(anydate,
+<pre><code class="language-excel">INSBLNKRWS = LAMBDA(a, [r], [g],
     LET(
-        start_of_month, DATE(YEAR(anydate), MONTH(anydate), 1),
-        CHOOSE(WEEKDAY(start_of_month), 1, 0, 6, 5, 4, 3, 2) + start_of_month
+        x, MAX(1, r),
+        y, IF(g, ABS(g), 1),
+        q, ZINS(ROWS(a), x, y),
+        s, IF(g &lt; 0, VSTACK(SEQUENCE(y) ^ 0 - 1, q), q),
+        b, INDEX(IF(a = "", "", a), s, SEQUENCE(, COLUMNS(a))),
+        IF(s, b, "")
     )
 );
 </code></pre>
@@ -805,8 +827,9 @@ FIRST.MONDAY = LAMBDA(anydate,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#firstmonday">FIRST.MONDAY</a>
+<li class="toc-entry toc-h2"><a href="#insblnkrws">INSBLNKRWS</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>
