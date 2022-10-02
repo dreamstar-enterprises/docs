@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array Transformation functions | StarBase </title>
+		<title>Descriptive Statistic & Basic Maths functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -782,31 +782,75 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+                        <h1 id="descriptive-statistic--basic-maths-functions">Descriptive Statistic &amp; Basic Maths functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="astack">ASTACK</h2>
+<h2 id="mapx">MAPX</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/astack.1180038/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/mp.1217166/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Stacks an array for a certain width [w].</p>
+<p>MAP Expander.</p>
 
-<p>Calls <a href="../lambda-library/lambda-aunstack.html">AUNSTACK</a>.</p>
+<p>Expands all its array arguments into arrays so they have the same dimensions, and indexes them using “n”.</p>
+
+<h4 id="inputs">Inputs:</h4>
+
+<ul>
+  <li>n - array’s index nr., 1, 2, 3 or 4</li>
+  <li>a - array</li>
+  <li>b - array</li>
+  <li>[c] - array, if omitted n can be 1 or 2.; not omitted n can be 1, 2, or 3</li>
+  <li>[d] - array, if omitted n can be 1, 2 or 3; not omitted n can be 1, 2, 3 or 4</li>
+</ul>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ASTACK = LAMBDA(a, [w], TRANSPOSE(AUNSTACK(TRANSPOSE(a), w)));
+MAPX = LAMBDA(n, a, b, [c], [d],
+    LET(
+        w, MAX(
+            ROWS(a),
+            ROWS(b),
+            IFERROR(ROWS(c), 0),
+            IFERROR(ROWS(d), 0)
+        ),
+        l, MAX(
+            COLUMNS(a),
+            COLUMNS(b),
+            IFERROR(COLUMNS(c), 0),
+            IFERROR(COLUMNS(d), 0)
+        ),
+        p, LAMBDA(x, IFNA(EXPAND(x, w, l), x)),
+        SWITCH(n, 1, p(a), 2, p(b), 3, p(c), 4, p(d))
+    )
+);
 ">
   </button>
 </div>
-<pre><code class="language-excel">ASTACK = LAMBDA(a, [w], TRANSPOSE(AUNSTACK(TRANSPOSE(a), w)));
+<pre><code class="language-excel">MAPX = LAMBDA(n, a, b, [c], [d],
+    LET(
+        w, MAX(
+            ROWS(a),
+            ROWS(b),
+            IFERROR(ROWS(c), 0),
+            IFERROR(ROWS(d), 0)
+        ),
+        l, MAX(
+            COLUMNS(a),
+            COLUMNS(b),
+            IFERROR(COLUMNS(c), 0),
+            IFERROR(COLUMNS(d), 0)
+        ),
+        p, LAMBDA(x, IFNA(EXPAND(x, w, l), x)),
+        SWITCH(n, 1, p(a), 2, p(b), 3, p(c), 4, p(d))
+    )
+);
 </code></pre>
 
                         
@@ -874,7 +918,7 @@ ASTACK = LAMBDA(a, [w], TRANSPOSE(AUNSTACK(TRANSPOSE(a), w)));
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#astack">ASTACK</a>
+<li class="toc-entry toc-h2"><a href="#mapx">MAPX</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>

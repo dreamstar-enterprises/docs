@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array Transformation functions | StarBase </title>
+		<title>Descriptive Statistic & Basic Maths functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -782,31 +782,83 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+                        <h1 id="descriptive-statistic--basic-maths-functions">Descriptive Statistic &amp; Basic Maths functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="astack">ASTACK</h2>
+<h2 id="emap">EMAP</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/astack.1180038/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/mp.1217166/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Stacks an array for a certain width [w].</p>
+<p>Lambda helper function that works with up to 4 MAP friendly array arguments.</p>
 
-<p>Calls <a href="../lambda-library/lambda-aunstack.html">AUNSTACK</a>.</p>
+<p>Same syntax as a regular MAP function. Calls <a href="../lambda-library/lambda-mapx.html">MAPX</a>.</p>
+
+<h4 id="inputs">Inputs:</h4>
+
+<ul>
+  <li>a - array 1</li>
+  <li>b - array 2</li>
+  <li>[c] - array 3</li>
+  <li>[d] - array 4</li>
+  <li>fn - helper Lambda function</li>
+</ul>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ASTACK = LAMBDA(a, [w], TRANSPOSE(AUNSTACK(TRANSPOSE(a), w)));
+EMAP = LAMBDA(a, b, [c], [d], fn,
+    IF(
+        TYPE(c) = 128,
+        MAP(MAPX(1, a, b), MAPX(2, a, b), LAMBDA(x, y, c(x, y))),
+        IF(
+            TYPE(d) = 128,
+            MAP(
+                MAPX(1, a, b, c),
+                MAPX(2, a, b, c),
+                MAPX(3, a, b, c),
+                LAMBDA(x, y, z, d(x, y, z))
+            ),
+            MAP(
+                MAPX(1, a, b, c, d),
+                MAPX(2, a, b, c, d),
+                MAPX(3, a, b, c, d),
+                MAPX(4, a, b, c, d),
+                LAMBDA(x, y, z, w, fn(x, y, z, w))
+            )
+        )
+    )
+);
 ">
   </button>
 </div>
-<pre><code class="language-excel">ASTACK = LAMBDA(a, [w], TRANSPOSE(AUNSTACK(TRANSPOSE(a), w)));
+<pre><code class="language-excel">EMAP = LAMBDA(a, b, [c], [d], fn,
+    IF(
+        TYPE(c) = 128,
+        MAP(MAPX(1, a, b), MAPX(2, a, b), LAMBDA(x, y, c(x, y))),
+        IF(
+            TYPE(d) = 128,
+            MAP(
+                MAPX(1, a, b, c),
+                MAPX(2, a, b, c),
+                MAPX(3, a, b, c),
+                LAMBDA(x, y, z, d(x, y, z))
+            ),
+            MAP(
+                MAPX(1, a, b, c, d),
+                MAPX(2, a, b, c, d),
+                MAPX(3, a, b, c, d),
+                MAPX(4, a, b, c, d),
+                LAMBDA(x, y, z, w, fn(x, y, z, w))
+            )
+        )
+    )
+);
 </code></pre>
 
                         
@@ -874,7 +926,7 @@ ASTACK = LAMBDA(a, [w], TRANSPOSE(AUNSTACK(TRANSPOSE(a), w)));
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#astack">ASTACK</a>
+<li class="toc-entry toc-h2"><a href="#emap">EMAP</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
