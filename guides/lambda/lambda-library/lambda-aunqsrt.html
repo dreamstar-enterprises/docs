@@ -814,7 +814,7 @@ AUNQSRT = LAMBDA(ar, k,
         nsa, IF(p &gt;= SEQUENCE(, nc), SEQUENCE(r, nc)),
         nsr, SMALL(nsa, SEQUENCE(SUM(p))),
         rs, IFNA(XLOOKUP(nsa, nsr, na), &quot;&quot;),
-        IF(xk, rs, &quot;check var -1(desc),0(unique),1(asc)&quot;)
+        IF(xk, rs, &quot;check var -1 (desc), 0 (unique), 1 (asc)&quot;)
     )
 );
 ">
@@ -841,7 +841,7 @@ AUNQSRT = LAMBDA(ar, k,
         nsa, IF(p &gt;= SEQUENCE(, nc), SEQUENCE(r, nc)),
         nsr, SMALL(nsa, SEQUENCE(SUM(p))),
         rs, IFNA(XLOOKUP(nsa, nsr, na), ""),
-        IF(xk, rs, "check var -1(desc),0(unique),1(asc)")
+        IF(xk, rs, "check var -1 (desc), 0 (unique), 1 (asc)")
     )
 );
 </code></pre>
