@@ -771,91 +771,68 @@
                         <h1 id="array-transformation-functions">Array Transformation functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="pdrollingaggregates">PD.ROLLING.AGGREGATES</h2>
+<h2 id="alfcr">ALFCR</h2>
+
+<h3 id="reference">Reference</h3>
+
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/alfcr.1168202/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Calculates rolling aggregates of a variable using an arbitrary set of window lengths and aggregate function</p>
+<p>Array Last or First values, by Columns or Rows, blanks excluded.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>x - a single-column numerical variable, sorted in the order the user expects to calculate rolling calculations on</li>
-  <li>windows - a 1-dimensional array of window lengths. A window is an integer that describes the length, in terms of array elements or spreadsheet rows, of a window over which an aggregate will be calculated.</li>
+  <li>ar - array</li>
+  <li>lf - last or first arg. (0 or 1). 0 for last, 1 for first</li>
+  <li>cr - clms rows arg. (0 or 1). 0 for clms, 1 for rows</li>
 </ul>
-
-<p>For example, if a window is 3, then the aggregate will be applied over the set of 3 rows ending in the current row. Each element in windows maps to an element in aggs, allowing for either differing window sizes per aggregation, or different window sizes for the same aggregation</p>
-<ul>
-  <li>aggs - a 1-dimensional array of aggregate functions to be applied to each window. Each aggregate maps to an element of windows. Supported aggregates are shown in the _aggs variable in pd.rolling.aggregate.</li>
-</ul>
-
-<h4 id="outputs">Outputs:</h4>
-
-<p>An array with ROWS(x) rows and MAX(COUNT(windows),COUNTA(aggs)) columns. 
-  If COUNT(windows) &lt;&gt; COUNTA(aggs), then the smaller array will be resized to the length of the longer array, with additional elements being filled with the right-most/bottom-most element of the original array.</p>
-
-<p>For example: windows = {2,3,4}; aggs = {“sum”}</p>
-
-<p>aggs will be resized to three elements and each new element will be filled with the right-most element of the existing array, so:</p>
-
-<p>{“sum”,”sum”,”sum”}</p>
-
-<p>The net result is that the output array will have three columns, showing respectively rolling 2 sum, rolling 3 sum and rolling 4 sum of x</p>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-PD.ROLLING.AGGREGATES = LAMBDA(x, windows, aggs,
+ALFCR = LAMBDA(ar, lf, cr,
     LET(
-        _tr, LAMBDA(arr, LET(x, FILTER(arr, arr &lt;&gt; &quot;&quot;), IF(ROWS(x) = 1, TRANSPOSE(x), x))),
-        _a, _tr(aggs),
-        _w, _tr(windows),
-        _resize, ROWS(_a) &lt;&gt; ROWS(_w),
-        _rs, LAMBDA(arr, resize_to,
-            MAKEARRAY(
-                resize_to,
-                1,
-                LAMBDA(r, c, IF(r &lt;= ROWS(arr), INDEX(arr, r, 1), INDEX(arr, ROWS(arr), 1)))
-            )
-        ),
-        _ms, MAX(ROWS(_a), ROWS(_w)),
-        _ar, IF(_resize, _rs(_a, _ms), _a),
-        _wr, IF(_resize, _rs(_w, _ms), _w),
-        _out, MAKEARRAY(
-            ROWS(x),
-            _ms,
-            LAMBDA(r, c, INDEX(pd.rolling.aggregate(x, INDEX(_wr, c, 1), INDEX(_ar, c, 1)), r, 1))
-        ),
-        _out
+        z, {0, 1},
+        x, IF(lf, 1, -1),
+        r, ROWS(ar),
+        c, COLUMNS(ar),
+        s, SEQUENCE(r * c),
+        y, IF(cr, SEQUENCE(, c), SEQUENCE(r)),
+        q, QUOTIENT(s - 1, c),
+        m, MOD(s - 1, c),
+        a, INDEX(IF(ar = &quot;&quot;, &quot;&quot;, ar), q + 1, m + 1),
+        xm, XMATCH(y, 1 / (a &lt;&gt; &quot;&quot;) + IF(cr, m, q), , x),
+        IF(
+            AND(OR(lf = z), OR(cr = z)),
+            IFNA(INDEX(a, xm), &quot;&quot;),
+            &quot;only 0 or 1 values&quot;
+        )
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">PD.ROLLING.AGGREGATES = LAMBDA(x, windows, aggs,
+<pre><code class="language-excel">ALFCR = LAMBDA(ar, lf, cr,
     LET(
-        _tr, LAMBDA(arr, LET(x, FILTER(arr, arr &lt;&gt; ""), IF(ROWS(x) = 1, TRANSPOSE(x), x))),
-        _a, _tr(aggs),
-        _w, _tr(windows),
-        _resize, ROWS(_a) &lt;&gt; ROWS(_w),
-        _rs, LAMBDA(arr, resize_to,
-            MAKEARRAY(
-                resize_to,
-                1,
-                LAMBDA(r, c, IF(r &lt;= ROWS(arr), INDEX(arr, r, 1), INDEX(arr, ROWS(arr), 1)))
-            )
-        ),
-        _ms, MAX(ROWS(_a), ROWS(_w)),
-        _ar, IF(_resize, _rs(_a, _ms), _a),
-        _wr, IF(_resize, _rs(_w, _ms), _w),
-        _out, MAKEARRAY(
-            ROWS(x),
-            _ms,
-            LAMBDA(r, c, INDEX(pd.rolling.aggregate(x, INDEX(_wr, c, 1), INDEX(_ar, c, 1)), r, 1))
-        ),
-        _out
+        z, {0, 1},
+        x, IF(lf, 1, -1),
+        r, ROWS(ar),
+        c, COLUMNS(ar),
+        s, SEQUENCE(r * c),
+        y, IF(cr, SEQUENCE(, c), SEQUENCE(r)),
+        q, QUOTIENT(s - 1, c),
+        m, MOD(s - 1, c),
+        a, INDEX(IF(ar = "", "", ar), q + 1, m + 1),
+        xm, XMATCH(y, 1 / (a &lt;&gt; "") + IF(cr, m, q), , x),
+        IF(
+            AND(OR(lf = z), OR(cr = z)),
+            IFNA(INDEX(a, xm), ""),
+            "only 0 or 1 values"
+        )
     )
 );
 </code></pre>
@@ -925,8 +902,9 @@ PD.ROLLING.AGGREGATES = LAMBDA(x, windows, aggs,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#pdrollingaggregates">PD.ROLLING.AGGREGATES</a>
+<li class="toc-entry toc-h2"><a href="#alfcr">ALFCR</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>
