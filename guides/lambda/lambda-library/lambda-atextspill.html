@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array Transformation functions | StarBase </title>
+		<title>Array 'By Element' functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -820,32 +820,27 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+                        <h1 id="array-by-element-functions">Array ‘By Element’ functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="aresize">ARESIZE</h2>
+<h2 id="atextspill">ATEXTSPILL</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aresize.1178644/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/atextsplit.1172428/page-4#posts" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Resizes an array to a specified dimension.</p>
+<p>Applies a a helper lambda function by row, on a 1-D column vector.</p>
+
+<p>That is, expands a column vector into rows (depending on the function passed into it).</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>a - array</li>
-  <li>[r] - new row number</li>
-  <li>[c] - new column number</li>
-</ul>
-
-<h4 id="more-info">More Info:</h4>
-
-<ul>
-  <li>if r/c omitted, array not resized, only errors/blanks replaced with null strings.</li>
-  <li>if only one of the r/c arguments is omitted, the function calculates the smallest other argument to accommodate all elements of initial array.</li>
+  <li>cl - column vector</li>
+  <li>fn - lambda helper function argument: e.g. LAMBDA(x,TEXTSPLIT(x,…)), or TEXTBEFORE(x,…</li>
+  <li>[nf] - not found argument: if omitted =&gt; empty string “”</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -853,33 +848,33 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ARESIZE = LAMBDA(a, [r], [c],
+ATEXTSPILL = LAMBDA(cl, fn, [nf],
     LET(
-        x, ROWS(a),
-        y, COLUMNS(a),
-        t, x * y,
-        z, ROUNDUP(IF(r, r, IF(c, t / c, x)), 0),
-        w, ROUNDUP(IF(c, c, IF(r, t / r, y)), 0),
-        s, SEQUENCE(z, w),
-        q, QUOTIENT(s - 1, y) + 1,
-        m, MOD(s - 1, y) + 1,
-        IFERROR(INDEX(IF(a = &quot;&quot;, &quot;&quot;, a), q, m), &quot;&quot;)
+        e, IF(ISOMITTED(nf), &quot;&quot;, nf),
+        r, REDUCE(
+            0,
+            SEQUENCE(ROWS(cl)),
+            LAMBDA(v, i, VSTACK(v, IFERROR(fn(INDEX(cl, i, 1)), e)))
+        ),
+        t, IFNA(DROP(r, 1), &quot;&quot;),
+        a, IF(AND(t = &quot;&quot;), e, t),
+        IFERROR(--a, a)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ARESIZE = LAMBDA(a, [r], [c],
+<pre><code class="language-excel">ATEXTSPILL = LAMBDA(cl, fn, [nf],
     LET(
-        x, ROWS(a),
-        y, COLUMNS(a),
-        t, x * y,
-        z, ROUNDUP(IF(r, r, IF(c, t / c, x)), 0),
-        w, ROUNDUP(IF(c, c, IF(r, t / r, y)), 0),
-        s, SEQUENCE(z, w),
-        q, QUOTIENT(s - 1, y) + 1,
-        m, MOD(s - 1, y) + 1,
-        IFERROR(INDEX(IF(a = "", "", a), q, m), "")
+        e, IF(ISOMITTED(nf), "", nf),
+        r, REDUCE(
+            0,
+            SEQUENCE(ROWS(cl)),
+            LAMBDA(v, i, VSTACK(v, IFERROR(fn(INDEX(cl, i, 1)), e)))
+        ),
+        t, IFNA(DROP(r, 1), ""),
+        a, IF(AND(t = ""), e, t),
+        IFERROR(--a, a)
     )
 );
 </code></pre>
@@ -949,7 +944,7 @@ ARESIZE = LAMBDA(a, [r], [c],
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#aresize">ARESIZE</a>
+<li class="toc-entry toc-h2"><a href="#atextspill">ATEXTSPILL</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
