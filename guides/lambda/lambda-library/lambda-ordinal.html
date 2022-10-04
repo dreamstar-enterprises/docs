@@ -856,24 +856,86 @@
                         <h1 id="descriptive-statistic--basic-maths-functions">Descriptive Statistic &amp; Basic Maths functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="transform">TRANSFORM</h2>
+<h2 id="ordinal">ORDINAL</h2>
+
+<h3 id="reference">Reference</h3>
+
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/ordinal.1218251/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Used to transform a vector once for each transformation function in transform_fns.</p>
+<p>Returns the ordinal for a given number.</p>
 
-<p>e.g. = TRANSFORM(vector, FUNCS(SQRT, LN, LOG_10))</p>
+<h4 id="inputs">Inputs:</h4>
+
+<ul>
+  <li>ar - array of numbers</li>
+</ul>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-TRANSFORM = LAMBDA(vector, transform_fns, REDUCE(vector, transform_fns, LAMBDA(a, b, HSTACK(a, b(vector)))));
+ORDINAL = LAMBDA(ar,
+    IF(
+        ar - INT(ar) &lt;&gt; 0,
+        &quot;#N/A&quot;,
+        MAP(
+            ar,
+            LAMBDA(n,
+                LET(
+                    x, INT(RIGHT(n, 2)),
+                    n &amp;
+                        IF(
+                            OR(x = 11, x = 12, x = 13),
+                            &quot;th&quot;,
+                            IFERROR(
+                                CHOOSE(
+                                    RIGHT(x),
+                                    &quot;st&quot;,
+                                    &quot;nd&quot;,
+                                    &quot;rd&quot;
+                                ),
+                                &quot;th&quot;
+                            )
+                        )
+                )
+            )
+        )
+    )
+);
 ">
   </button>
 </div>
-<pre><code class="language-excel">TRANSFORM = LAMBDA(vector, transform_fns, REDUCE(vector, transform_fns, LAMBDA(a, b, HSTACK(a, b(vector)))));
+<pre><code class="language-excel">ORDINAL = LAMBDA(ar,
+    IF(
+        ar - INT(ar) &lt;&gt; 0,
+        "#N/A",
+        MAP(
+            ar,
+            LAMBDA(n,
+                LET(
+                    x, INT(RIGHT(n, 2)),
+                    n &amp;
+                        IF(
+                            OR(x = 11, x = 12, x = 13),
+                            "th",
+                            IFERROR(
+                                CHOOSE(
+                                    RIGHT(x),
+                                    "st",
+                                    "nd",
+                                    "rd"
+                                ),
+                                "th"
+                            )
+                        )
+                )
+            )
+        )
+    )
+);
 </code></pre>
 
                         
@@ -941,8 +1003,9 @@ TRANSFORM = LAMBDA(vector, transform_fns, REDUCE(vector, transform_fns, LAMBDA(a
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#transform">TRANSFORM</a>
+<li class="toc-entry toc-h2"><a href="#ordinal">ORDINAL</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>
