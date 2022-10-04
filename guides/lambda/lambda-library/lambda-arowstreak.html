@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array Transformation functions | StarBase </title>
+		<title>Descriptive Statistic & Basic Maths functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -951,71 +951,119 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+                        <h1 id="descriptive-statistic--basic-maths-functions">Descriptive Statistic &amp; Basic Maths functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="aflat">AFLAT</h2>
+<h2 id="arowstreak">AROWSTREAK</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aflat.1175181/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/streak.1217717/#post-5956320" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Flattens any array and filters out blanks, null strings, errors.</p>
+<p>Extracts information from ASTREAKS. Calls <a href="../lambda-library/lambda-astreaks.html">ASTREAKS</a>.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>a : the array</li>
-  <li>ib : “include blanks”</li>
+  <li>a : array</li>
+  <li>[v] : single value or array of values. if omitted, all unique values of “ar” are considered</li>
+  <li>[n] : numeric value streak length / frequency. if omitted max(streak length) or max(frequency) is returned. Which one depends on “lf” argument.</li>
+  <li>[lf] : streak length / frequency argument. if omitted, frequencies returned; if 1, streak lengths returned; if n = 0 or omitted, and lf = 2, streak lengths of max frequencies returned</li>
 </ul>
-
-<h4 id="more-info">More Info:</h4>
-
-<ul>
-  <li>ib = 0, or omitted, “include blanks”, excludes blanks/null strings and errors.</li>
-  <li>ib = 1 includes null strings/blanks, errors are replaced by null strings.</li>
-  <li>ib &lt;&gt; {0, 1}, returns “check arg.”</li>
-</ul>
-
-<p><em>NOTE:</em> this is slightly better than the new native TOCOL function as it can properly exclude null strings, e.g. “”, and blanks are not returned as 0s.</p>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AFLAT = LAMBDA(a, [ib],
-    IF(
-        AND(ib &lt;&gt; {0, 1}),
-        &quot;check arguments&quot;,
-        LET(
-            r, ROWS(a),
-            c, COLUMNS(a),
-            s, SEQUENCE(r * c),
-            q, QUOTIENT(s - 1, c) + 1,
-            m, MOD(s - 1, c) + 1,
-            x, INDEX(IFERROR(IF(a = &quot;&quot;, &quot;&quot;, a), &quot;&quot;), q, m),
-            FILTER(x, IF(ib, TRUE, x &lt;&gt; &quot;&quot;))
+AROWSTREAK = LAMBDA(ar, [v], [o],
+    LET(
+        a, IF(ar = &quot;&quot;, &quot;&quot;, ar),
+        u, SORT(UNIQUE(TOCOL(a))),
+        s, LAMBDA(x,
+            LET(
+                s, SCAN(0, x, LAMBDA(v, i, IF(i, v + i, 0))),
+                f, FILTER(s, s),
+                q, FREQUENCY(f, SEQUENCE(MAX(f))),
+                TEXTJOIN(&quot;,&quot;, , DROP(q, -1) - DROP(q, 1))
+            )
+        ),
+        r, LAMBDA(x,
+            LET(
+                e, --(a = x),
+                IF(
+                    o,
+                    BYCOL(e, LAMBDA(x, s(x))),
+                    BYROW(e, LAMBDA(x, s(x)))
+                )
+            )
+        ),
+        b, IF(ISOMITTED(v), u, TOCOL(v)),
+        d, REDUCE(
+            0,
+            SEQUENCE(ROWS(b)),
+            LAMBDA(v, i,
+                LET(
+                    x, INDEX(b, i),
+                    IF(o, VSTACK(v, r(x)), HSTACK(v, r(x)))
+                )
+            )
+        ),
+        IFERROR(
+            IF(
+                o,
+                HSTACK(b, DROP(d, 1)),
+                VSTACK(TOROW(b), DROP(d, , 1))
+            ),
+            0
         )
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AFLAT = LAMBDA(a, [ib],
-    IF(
-        AND(ib &lt;&gt; {0, 1}),
-        "check arguments",
-        LET(
-            r, ROWS(a),
-            c, COLUMNS(a),
-            s, SEQUENCE(r * c),
-            q, QUOTIENT(s - 1, c) + 1,
-            m, MOD(s - 1, c) + 1,
-            x, INDEX(IFERROR(IF(a = "", "", a), ""), q, m),
-            FILTER(x, IF(ib, TRUE, x &lt;&gt; ""))
+<pre><code class="language-excel">AROWSTREAK = LAMBDA(ar, [v], [o],
+    LET(
+        a, IF(ar = "", "", ar),
+        u, SORT(UNIQUE(TOCOL(a))),
+        s, LAMBDA(x,
+            LET(
+                s, SCAN(0, x, LAMBDA(v, i, IF(i, v + i, 0))),
+                f, FILTER(s, s),
+                q, FREQUENCY(f, SEQUENCE(MAX(f))),
+                TEXTJOIN(",", , DROP(q, -1) - DROP(q, 1))
+            )
+        ),
+        r, LAMBDA(x,
+            LET(
+                e, --(a = x),
+                IF(
+                    o,
+                    BYCOL(e, LAMBDA(x, s(x))),
+                    BYROW(e, LAMBDA(x, s(x)))
+                )
+            )
+        ),
+        b, IF(ISOMITTED(v), u, TOCOL(v)),
+        d, REDUCE(
+            0,
+            SEQUENCE(ROWS(b)),
+            LAMBDA(v, i,
+                LET(
+                    x, INDEX(b, i),
+                    IF(o, VSTACK(v, r(x)), HSTACK(v, r(x)))
+                )
+            )
+        ),
+        IFERROR(
+            IF(
+                o,
+                HSTACK(b, DROP(d, 1)),
+                VSTACK(TOROW(b), DROP(d, , 1))
+            ),
+            0
         )
     )
 );
@@ -1086,7 +1134,7 @@ AFLAT = LAMBDA(a, [ib],
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#aflat">AFLAT</a>
+<li class="toc-entry toc-h2"><a href="#arowstreak">AROWSTREAK</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
