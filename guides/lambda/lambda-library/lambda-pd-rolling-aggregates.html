@@ -865,19 +865,24 @@
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>x - a single-column numerical variable, sorted in the order the user expects to calculate rolling calculations on</li>
-  <li>windows - a 1-dimensional array of window lengths. A window is an integer that describes the length, in terms of array elements or spreadsheet rows, of a window over which an aggregate will be calculated.</li>
+  <li>
+    <p>x: a single-column numerical variable, sorted in the order the user expects to calculate rolling calculations on.</p>
+  </li>
+  <li>
+    <p>windows: a 1-dimensional array of window lengths. A window is an integer that describes the length, in terms of array elements or spreadsheet rows, of a window over which an aggregate will be calculated.</p>
+  </li>
 </ul>
 
-<p>For example, if a window is 3, then the aggregate will be applied over the set of 3 rows ending in the current row. Each element in windows maps to an element in aggs, allowing for either differing window sizes per aggregation, or different window sizes for the same aggregation</p>
+<p>For example, if a window is 3, then the aggregate will be applied over the set of 3 rows ending in the current row. Each element in windows maps to an element in aggs, allowing for either differing window sizes per aggregation, or different window sizes for the same aggregation.</p>
+
 <ul>
-  <li>aggs - a 1-dimensional array of aggregate functions to be applied to each window. Each aggregate maps to an element of windows. Supported aggregates are shown in the _aggs variable in pd.rolling.aggregate.</li>
+  <li>aggs: a 1-dimensional array of aggregate functions to be applied to each window. Each aggregate maps to an element of windows. Supported aggregates are shown in the _aggs variable in pd.rolling.aggregate.</li>
 </ul>
 
 <h4 id="outputs">Outputs:</h4>
 
 <p>An array with ROWS(x) rows and MAX(COUNT(windows),COUNTA(aggs)) columns. 
-  If COUNT(windows) &lt;&gt; COUNTA(aggs), then the smaller array will be resized to the length of the longer array, with additional elements being filled with the right-most/bottom-most element of the original array.</p>
+  If COUNT(windows) &lt;&gt; COUNTA(aggs), then the smaller array will be resized to the length of the longer array, with additional elements being filled with the right-most / bottom-most element of the original array.</p>
 
 <p>For example: windows = {2,3,4}; aggs = {“sum”}</p>
 
@@ -885,7 +890,7 @@
 
 <p>{“sum”,”sum”,”sum”}</p>
 
-<p>The net result is that the output array will have three columns, showing respectively rolling 2 sum, rolling 3 sum and rolling 4 sum of x</p>
+<p>The net result is that the output array will have three columns, showing respectively rolling 2 sum, rolling 3 sum and rolling 4 sum of x.</p>
 
 <h3 id="code">Code</h3>
 

@@ -869,30 +869,30 @@
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>a - array</li>
-  <li>t - type argument,”pa”, permutations with repetitions; “p” permutations w/o repetititions; “ca”, combinations with repetitions; “c”, combinations w/o repetitions</li>
-  <li>c - number_chosen</li>
+  <li>a: array</li>
+  <li>t: type argument,”pa”, permutations with repetitions; “p” permutations w/o repetititions; “ca”, combinations with repetitions; “c”, combinations w/o repetitions</li>
+  <li>c: number_chosen</li>
 </ul>
 
 <h4 id="more-info">More Info:</h4>
 
 <ol>
-  <li>PERMUTATIONA Returns the number of permutations for a given number of objects (with repetitions) that can be selected from the total objects.
+  <li>PERMUTATIONA: Returns the number of permutations for a given number of objects (with repetitions) that can be selected from the total objects.
     <ul>
       <li>PERMUTATIONA(number, number-chosen); “c” (number chosen, nc) can be &gt;= n (number of elements/objects); order is important; PA=n^nc</li>
     </ul>
   </li>
-  <li>PERMUT Returns the number of permutations for a given number of objects (no repetitions) that can be selected from the total objects.
+  <li>PERMUT: Returns the number of permutations for a given number of objects (no repetitions) that can be selected from the total objects.
     <ul>
       <li>PERMUT(number, number_chosen); if nc &gt; n returns #NUM! error; also called arrangements; order is important; P=n!/(n-nc)!</li>
     </ul>
   </li>
-  <li>COMBINA Returns the number of combinations (with repetitions) for a given number of items.
+  <li>COMBINA: Returns the number of combinations (with repetitions) for a given number of items.
     <ul>
       <li>COMBINA(number, number_chosen); nc can be &gt; n; order is not important; CA=(n+nc-1)!/(nc!*(n-1)!)</li>
     </ul>
   </li>
-  <li>COMBIN Returns the number of combinations (no repetitions) for a given number of items.
+  <li>COMBIN: Returns the number of combinations (no repetitions) for a given number of items.
     <ul>
       <li>COMBIN(number, number_chosen); if nc &gt; n returns #NUM! error; order is not important; C=P/nc! or C=n!/(nc!*(n-nc)!)</li>
     </ul>
@@ -904,7 +904,7 @@
 <br />
 As this function includes some <strong><em>recursive</em></strong> helper functions, it can be particularly resource intensive on Excel (depending on the arguments you use).</p>
 
-  <p>For example, on a set of 7 numbers, the formula <em>= ARRANGEMENTS({1,2,3,4,5,6,7}, “c”, 7)</em>, which uses the two recursive functions T_P, and T_CA, crashes my Excel. (It apparently works for others, though.)</p>
+  <p>For example, on a set of 7 numbers, the formula <em>= ARRANGEMENTS({1,2,3,4,5,6,7}, “c”, 7)</em>, which uses the two recursive functions T_P, and T_CA, crashes my Excel. (It apparently works for others, though).</p>
 
   <p>Therefore, I would recommend, as a final step, copying and pasting the results of the function (once you get them) as ‘values’ (via ‘paste special’). This will prevent the workbook from needing to re-calculate the cell formula everytime something in the workbook changes.</p>
 </div>

@@ -865,14 +865,14 @@
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>x - a single-column numerical variable, sorted in the order the user expects to calculate rolling calculations on</li>
-  <li>window - an integer specifying the window length/width. For example, if window is 3, then the aggregate will be applied over the set of 3 rows ending in the current row</li>
-  <li>agg - a text string specifying which aggregate function should be applied over each window</li>
+  <li>x: a single-column numerical variable, sorted in the order the user expects to calculate rolling calculations on</li>
+  <li>window: an integer specifying the window length/width. For example, if window is 3, then the aggregate will be applied over the set of 3 rows ending in the current row</li>
+  <li>agg: a text string specifying which aggregate function should be applied over each window</li>
 </ul>
 
 <h4 id="outputs">Outputs:</h4>
 
-<p>An array with ROWS(x) rows and 1 column containing the result of the aggregation over each window. For the first window-1 rows, the output array will show NA()</p>
+<p>An array with ROWS(x) rows and 1 column containing the result of the aggregation over each window. For the first window-1 rows, the output array will show NA().</p>
 
 <h3 id="code">Code</h3>
 
