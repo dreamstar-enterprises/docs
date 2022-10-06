@@ -987,7 +987,7 @@ AROWSTREAK = LAMBDA(a, [v], [n], [lf],
                 LET(
                     f, --TEXTSPLIT(x, &quot;,&quot;),
                     y, MAX(f),
-                    ml, COLUMNS(f),
+                    ml, IF(y = 0, 0, COLUMNS(f)),
                     l, SEQUENCE(, ml),
                     IF(
                         n,
@@ -1025,7 +1025,7 @@ AROWSTREAK = LAMBDA(a, [v], [n], [lf],
                 LET(
                     f, --TEXTSPLIT(x, ","),
                     y, MAX(f),
-                    ml, COLUMNS(f),
+                    ml, IF(y = 0, 0, COLUMNS(f)),
                     l, SEQUENCE(, ml),
                     IF(
                         n,
