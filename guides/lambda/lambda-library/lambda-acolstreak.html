@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array Transformation functions | StarBase </title>
+		<title>Descriptive Statistic & Basic Maths functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -965,25 +965,26 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+                        <h1 id="descriptive-statistic--basic-maths-functions">Descriptive Statistic &amp; Basic Maths functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="alfcr">ALFCR</h2>
+<h2 id="acolstreak">ACOLSTREAK</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/alfcr.1168202/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/streak.1217717/page-2#post-5958977" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Array Last or First values, by Columns or Rows, blanks excluded.</p>
+<p>Extracts information from ASTREAKS. Calls <a href="../lambda-library/lambda-astreaks.html">ASTREAKS</a>.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>ar : array</li>
-  <li>lf : last or first arg. (0 or 1). 0 for last; 1 for first</li>
-  <li>cr : clms rows arg. (0 or 1). 0 for clms; 1 for rows</li>
+  <li>a : array</li>
+  <li>[v] : single value or array of values. if omitted, all unique values of “ar” are considered</li>
+  <li>[n] : numeric value streak length / frequency. if omitted max(streak length) or max(frequency) is returned. Which one depends on “lf” argument.</li>
+  <li>[lf] : streak length / frequency argument. if omitted, frequencies returned; if 1, streak lengths returned; if n = 0 or omitted, and lf = 2, streak lengths of max frequencies returned</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -991,45 +992,87 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ALFCR = LAMBDA(ar, lf, cr,
+ACOLSTREAK = LAMBDA(a, [v], [n], [lf],
     LET(
-        z, {0, 1},
-        x, IF(lf, 1, -1),
-        r, ROWS(ar),
-        c, COLUMNS(ar),
-        s, SEQUENCE(r * c),
-        y, IF(cr, SEQUENCE(, c), SEQUENCE(r)),
-        q, QUOTIENT(s - 1, c),
-        m, MOD(s - 1, c),
-        a, INDEX(IF(ar = &quot;&quot;, &quot;&quot;, ar), q + 1, m + 1),
-        xm, XMATCH(y, 1 / (a &lt;&gt; &quot;&quot;) + IF(cr, m, q), , x),
-        IF(
-            AND(OR(lf = z), OR(cr = z)),
-            IFNA(INDEX(a, xm), &quot;&quot;),
-            &quot;only 0 or 1 values&quot;
-        )
+        b, ASTREAKS(a, v, 1),
+        m, MAP(
+            DROP(b, , 1),
+            LAMBDA(x,
+                LET(
+                    f, --TEXTSPLIT(x, &quot;,&quot;),
+                    y, MAX(f),
+                    ml, IF(y, COLUMNS(f), 0),
+                    l, SEQUENCE(, ml),
+                    IF(
+                        n,
+                        IF(
+                            lf,
+                            TEXTJOIN(&quot;,&quot;, , IF(f = n, l, &quot;&quot;)),
+                            INDEX(f, n)
+                        ),
+                        IF(
+                            lf,
+                            IF(
+                                lf = 1,
+                                ml,
+                                y &amp; &quot;;&quot; &amp;
+                                    TEXTJOIN(
+                                        &quot;,&quot;,
+                                        ,
+                                        IF(f = y, l, &quot;&quot;)
+                                    )
+                            ),
+                            y
+                        )
+                    )
+                )
+            )
+        ),
+        e, IFERROR(HSTACK(TAKE(b, , 1), m), 0),
+        IFERROR(--e, e)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ALFCR = LAMBDA(ar, lf, cr,
+<pre><code class="language-excel">ACOLSTREAK = LAMBDA(a, [v], [n], [lf],
     LET(
-        z, {0, 1},
-        x, IF(lf, 1, -1),
-        r, ROWS(ar),
-        c, COLUMNS(ar),
-        s, SEQUENCE(r * c),
-        y, IF(cr, SEQUENCE(, c), SEQUENCE(r)),
-        q, QUOTIENT(s - 1, c),
-        m, MOD(s - 1, c),
-        a, INDEX(IF(ar = "", "", ar), q + 1, m + 1),
-        xm, XMATCH(y, 1 / (a &lt;&gt; "") + IF(cr, m, q), , x),
-        IF(
-            AND(OR(lf = z), OR(cr = z)),
-            IFNA(INDEX(a, xm), ""),
-            "only 0 or 1 values"
-        )
+        b, ASTREAKS(a, v, 1),
+        m, MAP(
+            DROP(b, , 1),
+            LAMBDA(x,
+                LET(
+                    f, --TEXTSPLIT(x, ","),
+                    y, MAX(f),
+                    ml, IF(y, COLUMNS(f), 0),
+                    l, SEQUENCE(, ml),
+                    IF(
+                        n,
+                        IF(
+                            lf,
+                            TEXTJOIN(",", , IF(f = n, l, "")),
+                            INDEX(f, n)
+                        ),
+                        IF(
+                            lf,
+                            IF(
+                                lf = 1,
+                                ml,
+                                y &amp; ";" &amp;
+                                    TEXTJOIN(
+                                        ",",
+                                        ,
+                                        IF(f = y, l, "")
+                                    )
+                            ),
+                            y
+                        )
+                    )
+                )
+            )
+        ),
+        e, IFERROR(HSTACK(TAKE(b, , 1), m), 0),
+        IFERROR(--e, e)
     )
 );
 </code></pre>
@@ -1099,7 +1142,7 @@ ALFCR = LAMBDA(ar, lf, cr,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#alfcr">ALFCR</a>
+<li class="toc-entry toc-h2"><a href="#acolstreak">ACOLSTREAK</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
