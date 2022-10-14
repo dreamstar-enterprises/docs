@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array Transformation functions | StarBase </title>
+		<title>Array 'By Element' functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -972,24 +972,26 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+                        <h1 id="array-by-element-functions">Array ‘By Element’ functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="arcls">ARCLS</h2>
+<h2 id="rbyrow">RBYROW</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/arrange.1169370/#post-5956130" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aunique.1164797/#post-5959072" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Re-arranges columns of an array from left to right in any order.</p>
+<p>Applies a helper lambda function by row, on a 2-D array.</p>
+
+<p>Similar to <a href="../lambda-library/lambda-spillbyrows.html">SPILLBYROWS</a> only without the extensive error management.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
   <li>ar : array</li>
-  <li>ns : new sequence order clms (whatever index nr. are left out will be appended at the right end of the array)</li>
+  <li>fn : function lambda helper argument LAMBDA(x, fn(x))</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -997,27 +999,31 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ARCLS = LAMBDA(ar, ns,
+RBYROW = LAMBDA(ar, fn,
     LET(
         a, IF(ar = &quot;&quot;, &quot;&quot;, ar),
-        s, SEQUENCE(, COLUMNS(a)),
-        h, CHOOSECOLS(s, ns),
-        x, XMATCH(s, h),
-        f, FILTER(s, ISNA(x)),
-        INDEX(a, SEQUENCE(ROWS(a)), HSTACK(h, f))
+        c, --(COLUMNS(a) = 1),
+        r, REDUCE(
+            0,
+            SEQUENCE(ROWS(a)),
+            LAMBDA(v, i, VSTACK(v, fn(INDEX(a, i, c))))
+        ),
+        DROP(IFNA(r, &quot;&quot;), 1)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ARCLS = LAMBDA(ar, ns,
+<pre><code class="language-excel">RBYROW = LAMBDA(ar, fn,
     LET(
         a, IF(ar = "", "", ar),
-        s, SEQUENCE(, COLUMNS(a)),
-        h, CHOOSECOLS(s, ns),
-        x, XMATCH(s, h),
-        f, FILTER(s, ISNA(x)),
-        INDEX(a, SEQUENCE(ROWS(a)), HSTACK(h, f))
+        c, --(COLUMNS(a) = 1),
+        r, REDUCE(
+            0,
+            SEQUENCE(ROWS(a)),
+            LAMBDA(v, i, VSTACK(v, fn(INDEX(a, i, c))))
+        ),
+        DROP(IFNA(r, ""), 1)
     )
 );
 </code></pre>
@@ -1087,7 +1093,7 @@ ARCLS = LAMBDA(ar, ns,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#arcls">ARCLS</a>
+<li class="toc-entry toc-h2"><a href="#rbyrow">RBYROW</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
