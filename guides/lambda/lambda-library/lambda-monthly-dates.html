@@ -1010,9 +1010,9 @@ MONTHLY.DATES = LAMBDA(start_date, term_years, period_months, [start_or_end], [e
         _s, SWITCH(
             _es,
             &quot;start&quot;,
-            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2 + 1, 1, MONTH(_osd), _pm), 1),
+            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2, 1, MONTH(_osd), _pm), 1),
             &quot;end&quot;,
-            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2 + 1, 1, MONTH(_osd) + 1, _pm), 0),
+            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2, 1, MONTH(_osd) + 1, _pm), 0),
             &quot;not text&quot;,
             &quot;ERROR: start_or_end argument is not of type &#39;text&#39;&quot;,
             &quot;ERROR: start_or_end argument should have the value &#39;start&#39; or &#39;end&#39;&quot;
@@ -1037,9 +1037,9 @@ MONTHLY.DATES = LAMBDA(start_date, term_years, period_months, [start_or_end], [e
         _s, SWITCH(
             _es,
             "start",
-            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2 + 1, 1, MONTH(_osd), _pm), 1),
+            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2, 1, MONTH(_osd), _pm), 1),
             "end",
-            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2 + 1, 1, MONTH(_osd) + 1, _pm), 0),
+            DATE(YEAR(_osd), SEQUENCE(_t * _ppy + _eo * 2, 1, MONTH(_osd) + 1, _pm), 0),
             "not text",
             "ERROR: start_or_end argument is not of type 'text'",
             "ERROR: start_or_end argument should have the value 'start' or 'end'"
