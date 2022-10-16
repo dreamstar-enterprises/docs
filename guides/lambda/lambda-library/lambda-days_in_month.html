@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array Transformation functions | StarBase </title>
+		<title>Data & Time functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -1000,57 +1000,47 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+                        <h1 id="data--time-functions">Data &amp; Time functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="aunstack">AUNSTACK</h2>
-
-<h3 id="reference">Reference</h3>
-
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aunstack.1180037/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<h2 id="days_in_month">DAYS_IN_MONTH</h2>
 
 <h3 id="about">About</h3>
 
-<p>Unstacks an array for a certain height [h].</p>
+<p>Calculates the number of days from a particular time period, that occur within a particular month.</p>
+
+<h4 id="inputs">Inputs:</h4>
+
+<ul>
+  <li>start_date : start date of time period</li>
+  <li>end_date : end date of time period</li>
+  <li>eom_dates : a horizontal vector of month end dates</li>
+</ul>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-AUNSTACK = LAMBDA(a, [h],
+DAYS_IN_MONTH = LAMBDA(start_date, end_date, eom_dates,
     LET(
-        x, ROWS(a),
-        y, COLUMNS(a),
-        k, MEDIAN(1, ABS(h), x),
-        n, ROUNDUP(x / k, 0),
-        IFERROR(
-            MAKEARRAY(
-                k,
-                n * y,
-                LAMBDA(r, c, INDEX(IF(a = &quot;&quot;, &quot;&quot;, a), k * QUOTIENT(c - 1, y) + r, MOD(c - 1, y) + 1))
-            ),
-            &quot;&quot;
-        )
+        som_dates, DATE(YEAR(eom_dates), MONTH(eom_dates), 1),
+        min_end_date, BYCOL(eom_dates, LAMBDA(x, MIN(x, end_date))),
+        max_start_date, BYCOL(som_dates, LAMBDA(x, MAX(x, start_date))),
+        days_in_month, BYCOL(min_end_date - max_start_date + 1, LAMBDA(x, MAX(x, 0))),
+        days_in_month
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">AUNSTACK = LAMBDA(a, [h],
+<pre><code class="language-excel">DAYS_IN_MONTH = LAMBDA(start_date, end_date, eom_dates,
     LET(
-        x, ROWS(a),
-        y, COLUMNS(a),
-        k, MEDIAN(1, ABS(h), x),
-        n, ROUNDUP(x / k, 0),
-        IFERROR(
-            MAKEARRAY(
-                k,
-                n * y,
-                LAMBDA(r, c, INDEX(IF(a = "", "", a), k * QUOTIENT(c - 1, y) + r, MOD(c - 1, y) + 1))
-            ),
-            ""
-        )
+        som_dates, DATE(YEAR(eom_dates), MONTH(eom_dates), 1),
+        min_end_date, BYCOL(eom_dates, LAMBDA(x, MIN(x, end_date))),
+        max_start_date, BYCOL(som_dates, LAMBDA(x, MAX(x, start_date))),
+        days_in_month, BYCOL(min_end_date - max_start_date + 1, LAMBDA(x, MAX(x, 0))),
+        days_in_month
     )
 );
 </code></pre>
@@ -1120,9 +1110,8 @@ AUNSTACK = LAMBDA(a, [h],
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#aunstack">AUNSTACK</a>
+<li class="toc-entry toc-h2"><a href="#days_in_month">DAYS_IN_MONTH</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>
