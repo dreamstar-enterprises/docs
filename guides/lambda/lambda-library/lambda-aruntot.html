@@ -1018,6 +1018,7 @@
 <ul>
   <li>ar : any array, nonnumeric values will be considered 0’s</li>
   <li>k : integer, 0 or ignored, running total all the way down; k &gt; 0, every k rows; k &lt; 0 (-k), every other k-th row</li>
+  <li>d : direction; 0 do sums by column; 1 do sums by row</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -1025,35 +1026,37 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ARUNTOT = LAMBDA(ar, k,
+ARUNTOT  = LAMBDA(ar, k, d,
     LET(
         n, ISNUMBER(ar),
         a, IF(n, ar, 0),
-        r, ROWS(a),
+        ad, IF(d, TRANSPOSE(a), a),
+        r, ROWS(ad),
         x, IF(k, MIN(INT(ABS(k)), r), r),
-        c, COLUMNS(a),
+        c, COLUMNS(ad),
         s, SEQUENCE(r),
         q, QUOTIENT(s - 1, x) + 1,
         m, MOD(s - 1, x) + 1,
         y, IF(s &gt;= TRANSPOSE(s), IF(k &gt;= 0, --(q = TRANSPOSE(q)), --(m = TRANSPOSE(m))), 0),
-        MMULT(y, a)
+        IF(d, TRANSPOSE(MMULT(y,ad)), MMULT(y,ad))
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ARUNTOT = LAMBDA(ar, k,
+<pre><code class="language-excel">ARUNTOT  = LAMBDA(ar, k, d,
     LET(
         n, ISNUMBER(ar),
         a, IF(n, ar, 0),
-        r, ROWS(a),
+        ad, IF(d, TRANSPOSE(a), a),
+        r, ROWS(ad),
         x, IF(k, MIN(INT(ABS(k)), r), r),
-        c, COLUMNS(a),
+        c, COLUMNS(ad),
         s, SEQUENCE(r),
         q, QUOTIENT(s - 1, x) + 1,
         m, MOD(s - 1, x) + 1,
         y, IF(s &gt;= TRANSPOSE(s), IF(k &gt;= 0, --(q = TRANSPOSE(q)), --(m = TRANSPOSE(m))), 0),
-        MMULT(y, a)
+        IF(d, TRANSPOSE(MMULT(y,ad)), MMULT(y,ad))
     )
 );
 </code></pre>
