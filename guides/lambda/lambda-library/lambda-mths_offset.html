@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array Transformation functions | StarBase </title>
+		<title>Date & Time functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -1007,23 +1007,21 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+                        <h1 id="date--time-functions">Date &amp; Time functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="arwsrpt">ARWSRPT</h2>
-
-<h3 id="reference">Reference</h3>
-
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/repeatbynumber.1216836/page-2#post-5948762" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<h2 id="mths_offset">MTHS_OFFSET</h2>
 
 <h3 id="about">About</h3>
 
-<p>Repeats items in the first column of an array, by a ‘repeat number’ in the last column of the array.</p>
+<p>Finds values from a values vector, offset by a positive or negative number of months. E.g. for prior quarter, use a months_offset value of -3</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>ar : input array (repeat values should be in last column)</li>
+  <li>months_offset : no. of months to offset by</li>
+  <li>dates_vector : vector of dates (should be end of month dates)</li>
+  <li>values_vector : vector of values (should be same size and shape as dates_vector)</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -1031,23 +1029,43 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ARWSRPT = 
-LAMBDA(ar,
+MTHS_OFFSET = LAMBDA(months_offset, dates_vector, values_vector,
     LET(
-        a, DROP(ar, , -1),
-        n, TAKE(ar, , -1),
-        INDEX(a, TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2), SEQUENCE(, COLUMNS(a)))
+        prior_dates_vector, DATE(
+            YEAR(dates_vector),
+            MONTH(dates_vector) + months_offset + 1,
+            0
+        ),
+        prior_values_vector, XLOOKUP(
+            prior_dates_vector,
+            dates_vector,
+            values_vector,
+            &quot;-&quot;,
+            0,
+            1
+        ),
+        prior_values_vector
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ARWSRPT = 
-LAMBDA(ar,
+<pre><code class="language-excel">MTHS_OFFSET = LAMBDA(months_offset, dates_vector, values_vector,
     LET(
-        a, DROP(ar, , -1),
-        n, TAKE(ar, , -1),
-        INDEX(a, TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2), SEQUENCE(, COLUMNS(a)))
+        prior_dates_vector, DATE(
+            YEAR(dates_vector),
+            MONTH(dates_vector) + months_offset + 1,
+            0
+        ),
+        prior_values_vector, XLOOKUP(
+            prior_dates_vector,
+            dates_vector,
+            values_vector,
+            "-",
+            0,
+            1
+        ),
+        prior_values_vector
     )
 );
 </code></pre>
@@ -1117,9 +1135,8 @@ LAMBDA(ar,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#arwsrpt">ARWSRPT</a>
+<li class="toc-entry toc-h2"><a href="#mths_offset">MTHS_OFFSET</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>
