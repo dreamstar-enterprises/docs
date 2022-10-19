@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Date & Time functions | StarBase </title>
+		<title>Finance & Accounting functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -1021,21 +1021,27 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="date--time-functions">Date &amp; Time functions</h1>
+                        <h1 id="finance--accounting-functions">Finance &amp; Accounting functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="days_in_month">DAYS_IN_MONTH</h2>
+<h2 id="depr_stl">DEPR_STL</h2>
+
+<h2 class="colored-purple" id="ias-16-property-plant-and-equipment">IAS 16 Property, Plant and Equipment</h2>
 
 <h3 id="about">About</h3>
 
-<p>Calculates the number of days from a particular time period, that occur within a particular month.</p>
+<p>Shows the depreciation of an asset (based on its carrying amount and residual value), at the end of each period, according to the <a href="https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/" target="_blank">I.F.R.S.</a> definition of how to straight line depreciate an asset.</p>
+
+<p>Calls <a href="../lambda-library/lambda-days_in_month-pct.html">DAYS_IN_MONTH.PCT</a>.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>start_date : start date of time period</li>
-  <li>end_date : end date of time period</li>
-  <li>eom_dates : a horizontal vector of month end dates</li>
+  <li>depreciable_amount : The asset’s latest estimated carrying amount (at the start_date), less its latest estimated residual value (at start_date)</li>
+  <li>useful_life_months : The assets latest estimated useful life (at the start_date), in ‘months’</li>
+  <li>start_date : The start date of depreciation calculations</li>
+  <li>eom_dates : A horizontal vector of month end dates</li>
+  <li>months_to_show : The number of months to show in resulting depreciation vector</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -1043,28 +1049,38 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-DAYS_IN_MONTH = LAMBDA(start_date, end_date, eom_dates,
+DEPR_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, months_to_show,
     LET(
-        som_dates, DATE(YEAR(eom_dates), MONTH(eom_dates), 1),
-        min_end_date, BYCOL(eom_dates, LAMBDA(x, MIN(x, end_date))),
-        max_start_date, BYCOL(som_dates, LAMBDA(x, MAX(x, start_date))),
-        days_in_month, BYCOL(min_end_date - max_start_date + 1, LAMBDA(x, MAX(x, 0))),
-        days_in_month
+        useful_life_days, useful_life_months * (365.25 / 12),
+        days_in_month_pct, DAYS_IN_MONTH.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
+        monthly_depreciation, days_in_month_pct * depreciable_amount,
+        TAKE(monthly_depreciation, ,months_to_show)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">DAYS_IN_MONTH = LAMBDA(start_date, end_date, eom_dates,
+<pre><code class="language-excel">DEPR_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, months_to_show,
     LET(
-        som_dates, DATE(YEAR(eom_dates), MONTH(eom_dates), 1),
-        min_end_date, BYCOL(eom_dates, LAMBDA(x, MIN(x, end_date))),
-        max_start_date, BYCOL(som_dates, LAMBDA(x, MAX(x, start_date))),
-        days_in_month, BYCOL(min_end_date - max_start_date + 1, LAMBDA(x, MAX(x, 0))),
-        days_in_month
+        useful_life_days, useful_life_months * (365.25 / 12),
+        days_in_month_pct, DAYS_IN_MONTH.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
+        monthly_depreciation, days_in_month_pct * depreciable_amount,
+        TAKE(monthly_depreciation, ,months_to_show)
     )
 );
 </code></pre>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+The carrying amount is the amount at which an asset is recognised after deducting any accumulated depreciation (amortisation) and accumulated impairment losses thereon. The recoverable amount is the higher of an asset’s or cash generating unit fair value less costs of disposal and its value in use. If an asset’s carrying amount is considered to be less than its recoverable amount, it should be impaired.</p>
+</div>
+
+<div class="alert alert-info alerts-font" role="alert">
+  <p><i class="fa fa-info-circle"></i> <b>Note: </b>
+<br />
+The residual value of an asset is the estimated amount that an entity would currently obtain from disposal of the asset, after deducting the estimated costs of disposal, if the asset was already of the age and in the condition expected at the end of its useful life.</p>
+</div>
 
                         
                             <div id="mainNavBottom">
@@ -1131,7 +1147,8 @@ DAYS_IN_MONTH = LAMBDA(start_date, end_date, eom_dates,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#days_in_month">DAYS_IN_MONTH</a>
+<li class="toc-entry toc-h2"><a href="#depr_stl">DEPR_STL</a></li>
+<li class="toc-entry toc-h2"><a href="#ias-16-property-plant-and-equipment">IAS 16 Property, Plant and Equipment</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>

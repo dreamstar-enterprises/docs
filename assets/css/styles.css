@@ -2765,6 +2765,8 @@ a.view-on-github:hover { text-decoration: underline; }
 
 .mainContainer .primary-holder #main-column .content h2.colored-magenta { padding-left: 1.2rem; padding-right: 1.0rem; padding-top: 0.5rem; padding-bottom: 0.5rem; background: linear-gradient(45deg, #990045, #ff9c62); transform: translateZ(5rem); color: white; border-radius: 3.0rem 1.2rem; }
 
+.mainContainer .primary-holder #main-column .content h2.colored-purple { padding-left: 1.2rem; padding-right: 1.0rem; padding-top: 0.5rem; padding-bottom: 0.5rem; background: linear-gradient(45deg, #c10081, #f98d8f); transform: translateZ(5rem); color: white; border-radius: 3.0rem 1.2rem; }
+
 .mainContainer .primary-holder #main-column .content h2.color-splash-red { font-family: 'Raleway', sans-serif; font-weight: 900; padding-bottom: 0.15rem; background: linear-gradient(to bottom, transparent 60%, #ff1201 50%); display: inline; }
 
 .mainContainer .primary-holder #main-column .content h3.color-splash-orange { font-family: 'Raleway', sans-serif; font-weight: 900; padding-bottom: 0.15rem; background: linear-gradient(to bottom, transparent 60%, #ff5e01 50%); display: inline; }
