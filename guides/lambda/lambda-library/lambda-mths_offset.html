@@ -976,14 +976,14 @@
       </li>
   
     
-      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-depr_stl.html">DEPR_STL</a></li>
+      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-depr_sl.html">DEPR_SL</a></li>
     
           
         
       </li>
   
     
-      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-depr_acc_stl.html">DEPR_ACC_STL</a></li>
+      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-depr_acc_sl.html">DEPR_ACC_SL</a></li>
     
           
         
@@ -1045,20 +1045,20 @@
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
 MTHS_OFFSET = LAMBDA(months_offset, dates_vector, values_vector,
     LET(
-        prior_dates_vector, DATE(
+        offset_dates_vector, DATE(
             YEAR(dates_vector),
             MONTH(dates_vector) + months_offset + 1,
             0
         ),
-        prior_values_vector, XLOOKUP(
-            prior_dates_vector,
+        offset_values_vector, XLOOKUP(
+            offset_dates_vector,
             dates_vector,
             values_vector,
             &quot;-&quot;,
             0,
             1
         ),
-        prior_values_vector
+        offset_values_vector
     )
 );
 ">
@@ -1066,20 +1066,20 @@ MTHS_OFFSET = LAMBDA(months_offset, dates_vector, values_vector,
 </div>
 <pre><code class="language-excel">MTHS_OFFSET = LAMBDA(months_offset, dates_vector, values_vector,
     LET(
-        prior_dates_vector, DATE(
+        offset_dates_vector, DATE(
             YEAR(dates_vector),
             MONTH(dates_vector) + months_offset + 1,
             0
         ),
-        prior_values_vector, XLOOKUP(
-            prior_dates_vector,
+        offset_values_vector, XLOOKUP(
+            offset_dates_vector,
             dates_vector,
             values_vector,
             "-",
             0,
             1
         ),
-        prior_values_vector
+        offset_values_vector
     )
 );
 </code></pre>

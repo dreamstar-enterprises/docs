@@ -976,14 +976,14 @@
       </li>
   
     
-      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-depr_stl.html">DEPR_STL</a></li>
+      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-depr_sl.html">DEPR_SL</a></li>
     
           
         
       </li>
   
     
-      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-depr_acc_stl.html">DEPR_ACC_STL</a></li>
+      <li class="none"><a href="/docs/guides/lambda/lambda-library/lambda-depr_acc_sl.html">DEPR_ACC_SL</a></li>
     
           
         
@@ -1024,15 +1024,15 @@
                         <h1 id="finance--accounting-functions">Finance &amp; Accounting functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="depr_stl">DEPR_STL</h2>
+<h2 id="depr_acc_sl">DEPR_ACC_SL</h2>
 
 <h2 class="colored-purple" id="ias-16-property-plant-and-equipment">IAS 16 Property, Plant and Equipment</h2>
 
 <h3 id="about">About</h3>
 
-<p>Shows the depreciation of an asset (based on its carrying amount and residual value), at the end of each period, according to the <a href="https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/" target="_blank">I.F.R.S.</a> definition of how to straight line depreciate an asset.</p>
+<p>Shows the accumulated depreciation of an asset (based on its carrying amount and residual value), at the end of each period, according to the <a href="https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/" target="_blank">I.F.R.S.</a> definition of how to straight line depreciate an asset.</p>
 
-<p>Calls <a href="../lambda-library/lambda-days_in_month-pct.html">DAYS_IN_MONTH.PCT</a>.</p>
+<p>Calls <a href="../lambda-library/lambda-days_passed-pct.html">DAYS_PASSED.PCT</a>.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
@@ -1041,7 +1041,7 @@
   <li>useful_life_months : The assets latest estimated useful life (at the start_date), in ‘months’</li>
   <li>start_date : The start date of depreciation calculations</li>
   <li>eom_dates : A horizontal vector of month end dates</li>
-  <li>months_to_show : OPTIONAL - the number of months to show in the resulting depreciation vector (should be less than or equal to the length of dates vector, eom_dates)</li>
+  <li>months_to_show : OPTIONAL - the number of months to show in the resulting depreciation vector (should be less than or equal to the length of the dates vector, eom_dates)</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -1049,23 +1049,23 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-DEPR_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, [months_to_show],
+DEPR_ACC_SL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, [months_to_show],
     LET(
         useful_life_days, useful_life_months * (365.25 / 12),
-        days_in_month_pct, DAYS_IN_MONTH.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
-        monthly_depreciation, days_in_month_pct * depreciable_amount,
-        TAKE(monthly_depreciation, ,months_to_show)
+        days_passed_pct, DAYS_PASSED.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
+        accumulated_monthly_depreciation, days_passed_pct * depreciable_amount,
+        TAKE(accumulated_monthly_depreciation, ,months_to_show)
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">DEPR_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, [months_to_show],
+<pre><code class="language-excel">DEPR_ACC_SL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, [months_to_show],
     LET(
         useful_life_days, useful_life_months * (365.25 / 12),
-        days_in_month_pct, DAYS_IN_MONTH.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
-        monthly_depreciation, days_in_month_pct * depreciable_amount,
-        TAKE(monthly_depreciation, ,months_to_show)
+        days_passed_pct, DAYS_PASSED.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
+        accumulated_monthly_depreciation, days_passed_pct * depreciable_amount,
+        TAKE(accumulated_monthly_depreciation, ,months_to_show)
     )
 );
 </code></pre>
@@ -1147,7 +1147,7 @@ The residual value of an asset is the estimated amount that an entity would curr
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#depr_stl">DEPR_STL</a></li>
+<li class="toc-entry toc-h2"><a href="#depr_acc_sl">DEPR_ACC_SL</a></li>
 <li class="toc-entry toc-h2"><a href="#ias-16-property-plant-and-equipment">IAS 16 Property, Plant and Equipment</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
