@@ -1071,9 +1071,13 @@
 DEPR_ACC_SL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, [months_to_show],
     LET(
         useful_life_days, useful_life_months * (365.25 / 12),
-        days_passed_pct, DAYS_PASSED.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
+        days_passed_pct, DAYS_PASSED.PCT(
+            start_date,
+            start_date + useful_life_days - 1,
+            eom_dates
+        ),
         accumulated_monthly_depreciation, days_passed_pct * depreciable_amount,
-        TAKE(accumulated_monthly_depreciation, ,months_to_show)
+        TAKE(accumulated_monthly_depreciation, , months_to_show)
     )
 );
 ">
@@ -1082,9 +1086,13 @@ DEPR_ACC_SL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dat
 <pre><code class="language-excel">DEPR_ACC_SL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, [months_to_show],
     LET(
         useful_life_days, useful_life_months * (365.25 / 12),
-        days_passed_pct, DAYS_PASSED.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
+        days_passed_pct, DAYS_PASSED.PCT(
+            start_date,
+            start_date + useful_life_days - 1,
+            eom_dates
+        ),
         accumulated_monthly_depreciation, days_passed_pct * depreciable_amount,
-        TAKE(accumulated_monthly_depreciation, ,months_to_show)
+        TAKE(accumulated_monthly_depreciation, , months_to_show)
     )
 );
 </code></pre>
