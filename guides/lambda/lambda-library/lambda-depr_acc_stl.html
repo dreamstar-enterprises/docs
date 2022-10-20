@@ -1041,7 +1041,7 @@
   <li>useful_life_months : The assets latest estimated useful life (at the start_date), in ‘months’</li>
   <li>start_date : The start date of depreciation calculations</li>
   <li>eom_dates : A horizontal vector of month end dates</li>
-  <li>months_to_show : The number of months to show in the resulting depreciation vector (should be less than or equal to the length of dates vector, eom_dates)</li>
+  <li>months_to_show : Optional. The number of months to show in the resulting depreciation vector (should be less than or equal to the length of dates vector, eom_dates)</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -1049,7 +1049,7 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-DEPR_ACC_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, months_to_show,
+DEPR_ACC_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, [months_to_show],
     LET(
         useful_life_days, useful_life_months * (365.25 / 12),
         days_passed_pct, DAYS_PASSED.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
@@ -1060,7 +1060,7 @@ DEPR_ACC_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_da
 ">
   </button>
 </div>
-<pre><code class="language-excel">DEPR_ACC_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, months_to_show,
+<pre><code class="language-excel">DEPR_ACC_STL = LAMBDA(depreciable_amount, useful_life_months, start_date, eom_dates, [months_to_show],
     LET(
         useful_life_days, useful_life_months * (365.25 / 12),
         days_passed_pct, DAYS_PASSED.PCT(start_date, start_date + useful_life_days - 1, eom_dates),
