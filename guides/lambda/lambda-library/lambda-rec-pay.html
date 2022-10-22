@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Array 'By Element' functions | StarBase </title>
+		<title>Finance & Accounting functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -1073,58 +1073,75 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="array-by-element-functions">Array ‘By Element’ functions</h1>
+                        <h1 id="finance--accounting-functions">Finance &amp; Accounting functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="rbyrow">RBYROW</h2>
+<h2 id="accrued">ACCRUED</h2>
 
-<h3 id="reference">Reference</h3>
-
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/aunique.1164797/#post-5959072" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<h2 class="colored-purple" id="ifrs-15---revenue--ias--ifrs-relating-to-expenses">I.F.R.S. 15 - Revenue; &amp; I.A.S. / I.F.R.S. relating to Expenses</h2>
 
 <h3 id="about">About</h3>
 
-<p>Applies a helper lambda function by row, on a 2-D array.</p>
+<p>Helps with showing Receivable or Payable Amounts in Finance &amp; Accounting, in accordance with the I.F.R.S. Standards.</p>
 
-<p>Similar to <a href="../lambda-library/lambda-spillbyrows.html">SPILLBYROWS</a> only without the extensive error management.</p>
+<p>Recognition and De-Recognition dates are complex - they depend on:</p>
+
+<ol class="lower-roman">
+  <li>whether you are considering a Revenue or Expense</li>
+  <li>whether the Contract is Cancellable or Non-Cancellable</li>
+  <li>when Amounts become Un-Conditionally due</li>
+  <li>when the Invoice has been issued, and</li>
+  <li>when / if Cash has been received or paid</li>
+</ol>
+
+<p>So, the logic for these dates has been excluded from the function. (You’ll, for now, need to work them out separately, depending on what documents you have).</p>
+
+<p>Calls <a href="../lambda-library/lambda-days_passed-pct.html">DAYS_PASSED.PCT</a>.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>ar : array</li>
-  <li>fn : function lambda helper argument LAMBDA(x, fn(x))</li>
+  <li>amount : Contract Amount (see Note below)</li>
+  <li>contract_start : Start Date of the Contract</li>
+  <li>contract_end : End Date of the Contract</li>
+  <li>eom_dates : Horizontal vector of month end dates</li>
+  <li>recog_date : Recognition Date</li>
+  <li>[derecog_date] : OPTIONAL - De-Recognition Date (usually when cash is received or paid)</li>
+  <li>[receivable_payable_needed] : OPTIONAL - if a receivable or payable is needed, set to ‘TRUE’; if not needed, set to ‘FALSE’. If blank, ‘TRUE’ is assumed</li>
 </ul>
+
+<h4 id="more-info">More Info:</h4>
+
+<p><em>NOTE</em>: The recognition / de-recognition dates of any V.A.T. amounts may have to be calculated separately, as there are <a href="https://www.gov.uk/guidance/record-keeping-for-vat-notice-70021" target="_blank">V.A.T. rules</a> on this.</p>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-RBYROW = LAMBDA(ar, fn,
+REC_PAY = LAMBDA(amount, contract_start, contract_end, eom_dates, recog_date, [derecog_date], [receivable_payable_needed],
     LET(
-        a, IF(ar = &quot;&quot;, &quot;&quot;, ar),
-        c, --(COLUMNS(a) = 1),
-        r, REDUCE(
-            0,
-            SEQUENCE(ROWS(a)),
-            LAMBDA(v, i, VSTACK(v, fn(INDEX(a, i, c))))
-        ),
-        DROP(IFNA(r, &quot;&quot;), 1)
+        receivable_payable, IF(
+            (recog_date &lt;= eom_dates) *
+                IF(ISOMITTED(derecog_date), 1, (eom_dates &lt; derecog_date)),
+                amount,
+                0
+        ) * --IF(ISOMITTED(receivable_payable_needed), TRUE, receivable_payable_needed),
+        receivable_payable
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">RBYROW = LAMBDA(ar, fn,
+<pre><code class="language-excel">REC_PAY = LAMBDA(amount, contract_start, contract_end, eom_dates, recog_date, [derecog_date], [receivable_payable_needed],
     LET(
-        a, IF(ar = "", "", ar),
-        c, --(COLUMNS(a) = 1),
-        r, REDUCE(
-            0,
-            SEQUENCE(ROWS(a)),
-            LAMBDA(v, i, VSTACK(v, fn(INDEX(a, i, c))))
-        ),
-        DROP(IFNA(r, ""), 1)
+        receivable_payable, IF(
+            (recog_date &lt;= eom_dates) *
+                IF(ISOMITTED(derecog_date), 1, (eom_dates &lt; derecog_date)),
+                amount,
+                0
+        ) * --IF(ISOMITTED(receivable_payable_needed), TRUE, receivable_payable_needed),
+        receivable_payable
     )
 );
 </code></pre>
@@ -1194,9 +1211,9 @@ RBYROW = LAMBDA(ar, fn,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#rbyrow">RBYROW</a>
+<li class="toc-entry toc-h2"><a href="#accrued">ACCRUED</a></li>
+<li class="toc-entry toc-h2"><a href="#ifrs-15---revenue--ias--ifrs-relating-to-expenses">I.F.R.S. 15 - Revenue; &amp; I.A.S. / I.F.R.S. relating to Expenses</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>
