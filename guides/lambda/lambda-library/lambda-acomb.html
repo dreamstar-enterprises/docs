@@ -1083,27 +1083,26 @@
                         <h1 id="array-transformation-functions">Array Transformation functions</h1>
 <time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
 
-<h2 id="ablnkins">ABLNKINS</h2>
+<h2 id="acomb">ACOMB</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/insrws.1217485/#post-5951769" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/acomb.1179290/" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
 
 <h3 id="about">About</h3>
 
-<p>Advance Insert, inserts blank rows/columns, can add row/column headers.</p>
+<p>Lists all possible combinations between all unique elements found on each column of an array.</p>
 
-<p>Calls <a href="../lambda-library/lambda-insblnkrws.html">INSBLNKRWS</a> that calls <a href="../lambda-library/lambda-zins.html">ZINS</a>.</p>
+<p>In other words - produces a cartesian product!</p>
 
-<p>100% cosmetics function, double transpose and headers stacking versatility.</p>
+<p>A simpler version of <a href="../lambda-library/lambda-acombine.html">ACOMBINE</a> (that takes its data from different columns of a bigger array, calculates unique values by column, and then calculates all combinations)</p>
+
+<p>Does not call any other custom function.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
   <li>ar : array</li>
-  <li>[rc] : rows/clms group size, orientation given by its sign: rc &lt; 0, column orientation; rc &gt; 0, rows orientation; if omitted rc = 1</li>
-  <li>[g] : gap size: if omitted g = 1; if &lt; 0 gap still inserted, but before 1st row or 1st clm</li>
-  <li>[h] : row/column headers array, if omitted no stacking</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -1111,29 +1110,43 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ABLNKINS = LAMBDA(ar, [rc], [g], [h],
+ACOMB = LAMBDA(ar,
     LET(
         a, IF(ar = &quot;&quot;, &quot;&quot;, ar),
-        x, IF(rc, ABS(rc), 1),
-        f, rc &lt; 0,
-        b, IF(f, TRANSPOSE(a), a),
-        c, INSBLNKRWS(b, x, g),
-        d, IF(f, TRANSPOSE(c), c),
-        IF(AND(h = &quot;&quot;), d, IF(f, HSTACK(h, d), VSTACK(h, d)))
+        r, ROWS(a),
+        c, COLUMNS(a),
+        s, SEQUENCE(, c),
+        q, SEQUENCE(c) ^ 0,
+        IF(
+            OR(r = 1, c = 1),
+            &quot;check array&quot;,
+            LET(
+                x, MOD(ROUNDUP(SEQUENCE(r ^ c) / r ^ (c - s), 0) - 1, r) + 1,
+                y, INDEX(a, x, s),
+                UNIQUE(FILTER(y, NOT(MMULT(--(y = &quot;&quot;), q))))
+            )
+        )
     )
 );
 ">
   </button>
 </div>
-<pre><code class="language-excel">ABLNKINS = LAMBDA(ar, [rc], [g], [h],
+<pre><code class="language-excel">ACOMB = LAMBDA(ar,
     LET(
         a, IF(ar = "", "", ar),
-        x, IF(rc, ABS(rc), 1),
-        f, rc &lt; 0,
-        b, IF(f, TRANSPOSE(a), a),
-        c, INSBLNKRWS(b, x, g),
-        d, IF(f, TRANSPOSE(c), c),
-        IF(AND(h = ""), d, IF(f, HSTACK(h, d), VSTACK(h, d)))
+        r, ROWS(a),
+        c, COLUMNS(a),
+        s, SEQUENCE(, c),
+        q, SEQUENCE(c) ^ 0,
+        IF(
+            OR(r = 1, c = 1),
+            "check array",
+            LET(
+                x, MOD(ROUNDUP(SEQUENCE(r ^ c) / r ^ (c - s), 0) - 1, r) + 1,
+                y, INDEX(a, x, s),
+                UNIQUE(FILTER(y, NOT(MMULT(--(y = ""), q))))
+            )
+        )
     )
 );
 </code></pre>
@@ -1203,7 +1216,7 @@ ABLNKINS = LAMBDA(ar, [rc], [g], [h],
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#ablnkins">ABLNKINS</a>
+<li class="toc-entry toc-h2"><a href="#acomb">ACOMB</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
