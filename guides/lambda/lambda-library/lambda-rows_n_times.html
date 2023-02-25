@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Date & Time functions | StarBase </title>
+		<title>Array Transformation functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -1134,23 +1134,24 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="date--time-functions">Date &amp; Time functions</h1>
-<time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
+                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 25/02/2022</time>
 
-<h2 id="days_passedpct">DAYS_PASSED.PCT</h2>
+<h2 id="rows_n_times">ROWS_N_TIMES</h2>
+
+<h3 id="reference">Reference</h3>
+
+<p><strong><em>»</em></strong> N/A</p>
 
 <h3 id="about">About</h3>
 
-<p>Calculates the cumulative number of days that have passed from a particular time period - from the start of the period to the end of a given month. Results shown as a percentage, instead of days.</p>
-
-<p>Calls <a href="../lambda-library/lambda-days_passed.html">DAYS_PASSED</a>.</p>
+<p>Repeats each Row ‘N’ times.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
 <ul>
-  <li>start_date : start date of time period</li>
-  <li>end_date : end date of time period</li>
-  <li>eom_dates : a horizontal vector of month end dates</li>
+  <li>array : array to repeat</li>
+  <li>n_times_count : number of times to repeat each row in the array</li>
 </ul>
 
 <h3 id="code">Code</h3>
@@ -1158,25 +1159,23 @@
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-DAYS_PASSED.PCT = LAMBDA(start_date, end_date, eom_dates,
-    LET(
-        days_passed, DAYS_PASSED(start_date, end_date, eom_dates),
-        total_days, MAX(end_date - start_date + 1, 0),
-        percent_days_passed, days_passed / total_days,
-        IFERROR(percent_days_passed, &quot;check dates!&quot;)
-    )
-);
+ROWSRPT_N_TIMES = LAMBDA(array, n_times_count,
+  LET(
+      a, array,
+      n, n_times_count,
+      INDEX(a, TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2), SEQUENCE(, COLUMNS(a)))
+  )
+ );
 ">
   </button>
 </div>
-<pre><code class="language-excel">DAYS_PASSED.PCT = LAMBDA(start_date, end_date, eom_dates,
-    LET(
-        days_passed, DAYS_PASSED(start_date, end_date, eom_dates),
-        total_days, MAX(end_date - start_date + 1, 0),
-        percent_days_passed, days_passed / total_days,
-        IFERROR(percent_days_passed, "check dates!")
-    )
-);
+<pre><code class="language-excel">ROWSRPT_N_TIMES = LAMBDA(array, n_times_count,
+  LET(
+      a, array,
+      n, n_times_count,
+      INDEX(a, TOCOL(IF(n &gt;= SEQUENCE(, MAX(n)), SEQUENCE(ROWS(a)), NA()), 2), SEQUENCE(, COLUMNS(a)))
+  )
+ );
 </code></pre>
 
                         
@@ -1244,8 +1243,9 @@ DAYS_PASSED.PCT = LAMBDA(start_date, end_date, eom_dates,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#days_passedpct">DAYS_PASSED.PCT</a>
+<li class="toc-entry toc-h2"><a href="#rows_n_times">ROWS_N_TIMES</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>
