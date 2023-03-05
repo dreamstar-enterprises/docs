@@ -13,7 +13,7 @@
   gtag('config', 'UA-176158185-1');
 </script>
 
-		<title>Descriptive Statistic & Basic Maths functions | StarBase </title>
+		<title>Array Transformation functions | StarBase </title>
 		<!-- link to website tab icon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/../docs/assets/images/alt-logo-star-tilted.png">
 		<!-- link to Main Stylesheets -->
@@ -1141,79 +1141,51 @@
                     
                         content docs
                     " lang="eng-us">
-                        <h1 id="descriptive-statistic--basic-maths-functions">Descriptive Statistic &amp; Basic Maths functions</h1>
-<time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
+                        <h1 id="array-transformation-functions">Array Transformation functions</h1>
+<time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 05/03/2023</time>
 
-<h2 id="implode">IMPLODE</h2>
+<h2 id="twoarray_compare">TWOARRAY_COMPARE</h2>
 
 <h3 id="reference">Reference</h3>
 
-<p><strong><em>»</em></strong> <a href="https://www.mrexcel.com/board/threads/repeatbynumber.1216836/page-3#post-5950710" target="_blank">Reference, Discussion, &amp; Example Applications:</a></p>
+<p><strong><em>»</em></strong> N/A</p>
 
 <h3 id="about">About</h3>
 
-<p>Implodes column vectors or an array’s rows, returning a frequency distribution.</p>
+<p>Checks two arrays, and returns the rows that are in one array, but not the other array.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
-<ul>
-  <li>a : array</li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- a,b: arrays
+- [k]: if omitted =&gt; in a not in b, k = 1 or &lt;&gt; 0 =&gt; in b not in a
+</code></pre></div></div>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-IMPLODE = LAMBDA(a,
+TWOARRAY_COMPARE = LAMBDA(a, b, [k],
     LET(
-        u, UNIQUE(a),
-        HSTACK(
-            u,
-            BYROW(
-                u,
-                LAMBDA(x,
-                    SUM(
-                        --BYROW(
-                            x = a,
-                            LAMBDA(y,
-                                AND(
-                                    y
-                                )
-                            )
-                        )
-                    )
-                )
-            )
+        u, UNIQUE(VSTACK(a, b)),
+        IFERROR(
+            IF(k, UNIQUE(VSTACK(a, u), , 1), UNIQUE(VSTACK(b, u), , 1)),
+            &quot;Nothing Found&quot;
         )
     )
-);
+)
 ">
   </button>
 </div>
-<pre><code class="language-excel">IMPLODE = LAMBDA(a,
+<pre><code class="language-excel">TWOARRAY_COMPARE = LAMBDA(a, b, [k],
     LET(
-        u, UNIQUE(a),
-        HSTACK(
-            u,
-            BYROW(
-                u,
-                LAMBDA(x,
-                    SUM(
-                        --BYROW(
-                            x = a,
-                            LAMBDA(y,
-                                AND(
-                                    y
-                                )
-                            )
-                        )
-                    )
-                )
-            )
+        u, UNIQUE(VSTACK(a, b)),
+        IFERROR(
+            IF(k, UNIQUE(VSTACK(a, u), , 1), UNIQUE(VSTACK(b, u), , 1)),
+            "Nothing Found"
         )
     )
-);
+)
 </code></pre>
 
                         
@@ -1281,7 +1253,7 @@ IMPLODE = LAMBDA(a,
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#implode">IMPLODE</a>
+<li class="toc-entry toc-h2"><a href="#twoarray_compare">TWOARRAY_COMPARE</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
