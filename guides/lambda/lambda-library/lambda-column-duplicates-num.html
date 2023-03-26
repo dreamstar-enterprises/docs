@@ -1149,66 +1149,53 @@
                         content docs
                     " lang="eng-us">
                         <h1 id="array-transformation-functions">Array Transformation functions</h1>
-<time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 18/09/2022</time>
+<time class="metadata" style="text-alstyleign:left"> Guides • Lambda • 26/03/2023</time>
 
-<h2 id="rotate">ROTATE</h2>
+<h2 id="column_duplicates_num">COLUMN_DUPLICATES_NUM</h2>
+
+<h3 id="reference">Reference</h3>
+
+<p><strong><em>»</em></strong> N/A</p>
 
 <h3 id="about">About</h3>
 
-<p>Rotates a 2-dimensional array anti-clockwise by 90 degrees.</p>
-
-<p>This is not the same behavior as TRANSPOSE, which reflects an array on the main diagonal from top-left to bottom-right.</p>
+<p>Checks for whether there are any duplicate numbers in a vector.</p>
 
 <h4 id="inputs">Inputs:</h4>
 
-<ul>
-  <li>arr : the input array</li>
-  <li>times : the number of times to rotate by 90 degrees</li>
-  <li>[iter] : optional - used as a counter by the recursion</li>
-</ul>
-
-<h4 id="more-info">More Info:</h4>
-
-<p><em>NOTE</em>: ‘iter’ should not be used when calling this function from a spreadsheet.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- col_vector: column vector to scan, to find out if there are any duplicate numbers in it.
+</code></pre></div></div>
 
 <h3 id="code">Code</h3>
 
 <div class="copy-code-container">
   <span class="language-name" aria-label="Language name: M.S. Excel">M.S. Excel</span>
   <button class="copy-code-button" aria-label="Copy code block to your clipboard" data-code="
-ROTATE = LAMBDA(arr, times, [iter],
-    LET(
-        _times, MOD(times, 4),
-        IF(
-            _times = 0,
-            arr,
-            LET(
-                _iter, IF(ISOMITTED(iter), 1, iter),
-                _cols, COLUMNS(arr),
-                _rotated, INDEX(arr, SEQUENCE(1, ROWS(arr)), _cols - SEQUENCE(_cols) + 1),
-                IF(_iter = _times, _rotated, ROTATE(_rotated, _times, _iter + 1))
-            )
-        )
+COLUMN_DUPLICATES_NUM = LAMBDA(col_vector,
+    LET(duplicates, 
+    IF(
+        COUNT(UNIQUE(FILTER(col_vector, COUNTIF(col_vector, col_vector) &gt; 1))) = 0,
+        &quot;No Duplicates&quot;,
+        UNIQUE(FILTER(col_vector, COUNTIF(col_vector, col_vector) &gt; 1))
+    ),
+    duplicates
     )
 );
+
 ">
   </button>
 </div>
-<pre><code class="language-excel">ROTATE = LAMBDA(arr, times, [iter],
-    LET(
-        _times, MOD(times, 4),
-        IF(
-            _times = 0,
-            arr,
-            LET(
-                _iter, IF(ISOMITTED(iter), 1, iter),
-                _cols, COLUMNS(arr),
-                _rotated, INDEX(arr, SEQUENCE(1, ROWS(arr)), _cols - SEQUENCE(_cols) + 1),
-                IF(_iter = _times, _rotated, ROTATE(_rotated, _times, _iter + 1))
-            )
-        )
+<pre><code class="language-excel">COLUMN_DUPLICATES_NUM = LAMBDA(col_vector,
+    LET(duplicates, 
+    IF(
+        COUNT(UNIQUE(FILTER(col_vector, COUNTIF(col_vector, col_vector) &gt; 1))) = 0,
+        "No Duplicates",
+        UNIQUE(FILTER(col_vector, COUNTIF(col_vector, col_vector) &gt; 1))
+    ),
+    duplicates
     )
 );
+
 </code></pre>
 
                         
@@ -1276,8 +1263,9 @@ ROTATE = LAMBDA(arr, times, [iter],
                                 </div>
                             </header>
                             <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#rotate">ROTATE</a>
+<li class="toc-entry toc-h2"><a href="#column_duplicates_num">COLUMN_DUPLICATES_NUM</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
 <li class="toc-entry toc-h3"><a href="#about">About</a></li>
 <li class="toc-entry toc-h3"><a href="#code">Code</a></li>
 </ul>
