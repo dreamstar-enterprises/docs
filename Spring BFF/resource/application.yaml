@@ -1,0 +1,37 @@
+# Custom properties to ease configuration overrides
+# on command-line or IDE launch configurations
+
+# server settings
+scheme: http
+hostname: localhost
+
+# reverse proxy
+reverse-proxy-port: 7080
+reverse-proxy-uri: ${scheme}://${hostname}:${reverse-proxy-port}
+
+# resource server
+resource-server-port: 8080
+resource-server-prefix: /resource
+resource-server-uri: ${scheme}://${hostname}:${resource-server-port}
+
+# authorization server
+authorization-server-prefix: /auth
+
+# current server settings
+server:
+  port: ${resource-server-port}
+  ssl:
+    enabled: false
+  address: ${hostname}
+
+# authorization server endpoints
+auth:
+  server:
+    jwkeyset:
+      uri: ${reverse-proxy-uri}${authorization-server-prefix}/oauth2/jwks
+    introspection:
+      uri: ${reverse-proxy-uri}${authorization-server-prefix}/oauth2/introspect
+
+# oauth2.0 client registrations (for auth server)
+resource-server-client-id: resource_server
+resource-server-client-secret: resource_server_secret

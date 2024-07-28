@@ -1,0 +1,103 @@
+# Custom properties to ease configuration overrides
+# on command-line or IDE launch configurations
+
+# server settings
+scheme: http
+hostname: localhost
+
+#reverse proxy
+reverse-proxy-port: 7080
+
+# angular ui server
+angular-port: 4200
+angular-prefix: /angular-ui
+# update scheme if you enable SSL in angular.json
+angular-uri: http://${hostname}:${angular-port}${angular-prefix}
+
+# authorization server
+authorization-server-port: 6060
+authorization-server-prefix: /auth
+authorization-server-uri: ${scheme}://${hostname}:${authorization-server-port}${authorization-server-prefix}
+
+# bff server
+bff-port: 9090
+bff-prefix: /bff
+bff-uri: ${scheme}://${hostname}:${bff-port}
+
+# current server settings
+server:
+  port: ${reverse-proxy-port}
+  ssl:
+    enabled: false
+
+# spring settings
+spring:
+  # profile settings
+  profiles:
+    active: ssl
+  # cloud gateway settings
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      routes:
+        # SPAs assets
+        - id: angular-ui
+          uri: ${angular-uri}
+          predicates:
+            - Path=${angular-prefix}/**
+
+        # Authorization-server
+        - id: authorization-server
+          uri: ${authorization-server-uri}
+          predicates:
+            - Path=${authorization-server-prefix}/**
+          filters:
+            - StripPrefix=1
+
+        # Proxy BFF
+        - id: bff
+          uri: ${bff-uri}
+          predicates:
+            - Path=${bff-prefix}/**
+          filters:
+            - StripPrefix=1
+
+# endpoint settings
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+# logging configurations
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        boot: INFO
+        web: INFO
+
+# spring profile settings
+---
+spring:
+  config:
+    activate:
+      on-profile: ssl
+server:
+  ssl:
+    # this has been disabled!
+    enabled: false
+    # this has been disabled!
+scheme: http
+authorization-server-port: 6060

@@ -1,0 +1,106 @@
+# Custom properties to ease configuration overrides
+# on command-line or IDE launch configurations
+
+# server settings
+scheme: http
+hostname: localhost
+
+# bff server
+bff-port: 9090
+bff-prefix: /bff
+bff-uri: ${scheme}://${hostname}:${bff-port}
+
+# reverse proxy
+reverse-proxy-port: 7080
+reverse-proxy-uri: ${scheme}://${hostname}:${reverse-proxy-port}
+
+# resource server
+resource-server-port: 8080
+resource-server-prefix: /resource
+resource-server-uri: ${scheme}://${hostname}:${resource-server-port}
+
+# authorization server
+authorization-server-prefix: /auth
+in-house-auth-registration-id: in-house-auth-server
+
+# oauth2.0 client registrations (for auth server)
+issuer-uri: ${reverse-proxy-uri}${authorization-server-prefix}
+gateway-client-id: api_gateway_client
+gateway-client-secret: password
+
+# not sure what these are for
+username-claim-json-path: $.preferred_username
+authorities-json-path: $.realm_access.roles
+audience:
+
+# current server settings
+server:
+  port: ${bff-port}
+  ssl:
+    enabled: false
+
+# spring settings
+spring:
+  # profile settings
+  profiles:
+    active: ssl
+
+# spring addons
+com:
+  c4-soft:
+    springaddons:
+      oidc:
+        ops:
+          - iss: ${issuer-uri}
+            authorities:
+              - path: ${authorities-json-path}
+            aud: ${audience}
+        # SecurityFilterChain with oauth2ResourceServer() (sessions and CSRF protection disabled)
+        resourceserver:
+          permit-all:
+            - /login-options
+            - /error
+            - /v3/api-docs/**
+            - /swagger-ui/**
+            - /actuator/health/readiness
+            - /actuator/health/liveness
+
+
+# endpoint settings
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+# logging configurations
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        boot: INFO
+        security: TRACE
+        web: INFO
+
+# spring profile settings
+---
+spring:
+  config:
+    activate:
+      on-profile: ssl
+server:
+  ssl:
+    # this has been disabled!
+    enabled: false
+    # this has been disabled!
+scheme: http
