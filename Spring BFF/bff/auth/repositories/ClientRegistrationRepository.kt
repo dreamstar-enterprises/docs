@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.core.oidc.IdTokenClaimNames
 /**********************************************************************************************************************/
 
 @Configuration
-internal class ClientRegistrationRepository {
+internal class ClientRegistrationRepository() {
 
     @Value("\${gateway-client-id}")
     private lateinit var gatewayClientId: String
@@ -47,6 +47,15 @@ internal class ClientRegistrationRepository {
             .authorizationUri("$issuerUri/oauth2/authorize")
             .tokenUri("$issuerUri/oauth2/token")
             .jwkSetUri("$issuerUri/oauth2/jwks")
+            .userInfoUri("$issuerUri/userinfo")
+            .providerConfigurationMetadata(mapOf(
+                "issuer" to issuerUri,
+                "authorization_endpoint" to "$issuerUri/oauth2/authorize",
+                "token_endpoint" to "$issuerUri/oauth2/token",
+                "userinfo_endpoint" to "$issuerUri/userinfo",
+                "jwks_uri" to "$issuerUri/oauth2/jwks",
+                "revocation_endpoint" to "$issuerUri/oauth2/revoke"
+            ))
             .userNameAttributeName(IdTokenClaimNames.SUB)
             .scope("openid")
             .clientName("In-House Auth Server")
