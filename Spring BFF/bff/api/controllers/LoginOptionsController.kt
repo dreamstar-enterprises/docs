@@ -2,7 +2,7 @@ package com.example.bff.api.controllers
 
 import com.c4_soft.springaddons.security.oidc.starter.properties.SpringAddonsOidcProperties
 import jakarta.validation.constraints.NotEmpty
-import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientProperties
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.MediaType
 import org.springframework.security.oauth2.client.registration.InMemoryReactiveClientRegistrationRepository
 import org.springframework.security.oauth2.core.AuthorizationGrantType
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
 import java.net.URI
-
 
 /**********************************************************************************************************************/
 /**************************************************** CONTROLLER ******************************************************/
@@ -24,24 +23,30 @@ internal class LoginOptionsController(
     private val addonsProperties: SpringAddonsOidcProperties
 ) {
 
+    @Value("\${reverse-proxy-uri}")
+    private lateinit var reverseProxyUri: String
+
+    @Value("\${bff-uri}")
+    private lateinit var bffUri: String
+
     private var loginOptions: List<LoginOptionDto>? = null
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getLoginOptions(): Mono<List<LoginOptionDto>> {
         if (loginOptions == null || loginOptions!!.isEmpty()) {
 
-            val clientAuthority = addonsProperties.client.clientUri.authority
-
+            val clientAuthority = URI.create(reverseProxyUri).authority
             val clientRegistrations = clientRegistrationRepository.toList()
+
             loginOptions = clientRegistrations
                 .filter { it.authorizationGrantType == AuthorizationGrantType.AUTHORIZATION_CODE }
                 .map { registration ->
                     val label = registration.clientName
-                    val loginUri = registration.redirectUri
-                    val providerIssuerAuthority = registration.providerDetails.configurationMetadata["issuer"]?.toString()?.let { URI.create(it).authority }
-                    println("Label: $label")
-                    println("LoginUri: $loginUri")
-                    println("providerIssuerAuthority: $providerIssuerAuthority")
+                    // internal endpoint that redirects to the auth server for authorization
+                    val loginUri = "$bffUri/oauth2/authorization/${registration.registrationId}"
+                    val providerIssuerAuthority = registration.providerDetails.issuerUri?.toString()
+                        ?.let { URI.create(it).authority }
+                    println("loginURI, $loginUri")
                     LoginOptionDto(label, loginUri, clientAuthority == providerIssuerAuthority)
                 }
         }
