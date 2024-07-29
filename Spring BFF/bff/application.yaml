@@ -1,5 +1,7 @@
 # Custom properties to ease configuration overrides
 # on command-line or IDE launch configurations
+# more here:
+# https://github.com/eugenp/tutorials/blob/master/spring-security-modules/spring-security-oauth2-bff/backend/bff/src/main/resources/application.yml
 
 # server settings
 scheme: http
@@ -55,6 +57,28 @@ com:
             authorities:
               - path: ${authorities-json-path}
             aud: ${audience}
+        # SecurityFilterChain with oauth2Login() (sessions and CSRF protection enabled)
+        client:
+          client-uri: ${reverse-proxy-uri}${bff-prefix}
+          security-matchers:
+            - /api/**
+            - /login/**
+            - /oauth2/**
+            - /logout/**
+          permit-all:
+            - /api/**
+            - /login/**
+            - /oauth2/**
+#            - /logout/connect/back-channel/
+          post-logout-redirect-host: ${hostname}
+          csrf: cookie-accessible-from-js
+          oauth2-redirections:
+            rp-initiated-logout: ACCEPTED
+          back-channel-logout:
+            enabled: true
+            # internal-logout-uri: ${reverse-proxy-uri}${bff-prefix}/logout
+            # should work too, but there is no reason to go through the reverse proxy for this internal call
+            internal-logout-uri: ${bff-uri}/logout
         # SecurityFilterChain with oauth2ResourceServer() (sessions and CSRF protection disabled)
         resourceserver:
           permit-all:

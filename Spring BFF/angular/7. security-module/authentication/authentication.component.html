@@ -1,0 +1,9 @@
+<span>
+  <p>Authenticated?: {{isAuthenticated}}</p>
+  @if(!isAuthenticated) {
+    <app-login></app-login>
+  }
+  @if(isAuthenticated) {
+    <app-logout></app-logout>
+  }
+</span>
