@@ -1,15 +1,17 @@
 package com.example.bff.api.controllers
 
 import com.c4_soft.springaddons.security.oidc.starter.properties.SpringAddonsOidcProperties
-import com.c4_soft.springaddons.security.oidc.starter.reactive.client.SpringAddonsServerLogoutSuccessHandler
 import jakarta.validation.constraints.NotEmpty
 import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientProperties
 import org.springframework.http.MediaType
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.security.oauth2.client.registration.InMemoryReactiveClientRegistrationRepository
+import org.springframework.security.oauth2.core.AuthorizationGrantType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
 import java.net.URI
+
 
 /**********************************************************************************************************************/
 /**************************************************** CONTROLLER ******************************************************/
@@ -17,31 +19,36 @@ import java.net.URI
 
 @RestController
 @RequestMapping("/login-options")
-class LoginOptionsController(
-    clientProps: OAuth2ClientProperties,
-    addonsProperties: SpringAddonsOidcProperties
+internal class LoginOptionsController(
+    private val clientRegistrationRepository: InMemoryReactiveClientRegistrationRepository,
+    private val addonsProperties: SpringAddonsOidcProperties
 ) {
 
-    private var loginOptions: List<LoginOptionDto> = listOf()
-
-    init {
-        val clientAuthority = addonsProperties.client.clientUri.authority
-        loginOptions = clientProps.registration
-            .entries
-            .filter { it.value.authorizationGrantType == "authorization_code" }
-            .map { (key, value) ->
-                val label = value.provider
-                val loginUri = "${addonsProperties.client.clientUri}/oauth2/authorization/$key"
-                val providerId = clientProps.registration[key]?.provider
-                val providerIssuerAuthority = clientProps.provider[providerId]?.issuerUri?.let { URI.create(it).authority }
-                LoginOptionDto(label, loginUri, clientAuthority == providerIssuerAuthority)
-            }
-    }
+    private var loginOptions: List<LoginOptionDto>? = null
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getLoginOptions(): Mono<List<LoginOptionDto>> {
-        return Mono.just(loginOptions)
+        if (loginOptions == null || loginOptions!!.isEmpty()) {
+
+            val clientAuthority = addonsProperties.client.clientUri.authority
+
+            val clientRegistrations = clientRegistrationRepository.toList()
+            loginOptions = clientRegistrations
+                .filter { it.authorizationGrantType == AuthorizationGrantType.AUTHORIZATION_CODE }
+                .map { registration ->
+                    val label = registration.clientName
+                    val loginUri = registration.redirectUri
+                    val providerIssuerAuthority = registration.providerDetails.configurationMetadata["issuer"]?.toString()?.let { URI.create(it).authority }
+                    println("Label: $label")
+                    println("LoginUri: $loginUri")
+                    println("providerIssuerAuthority: $providerIssuerAuthority")
+                    LoginOptionDto(label, loginUri, clientAuthority == providerIssuerAuthority)
+                }
+        }
+
+        return Mono.just(loginOptions!!)
     }
+
 
     data class LoginOptionDto(
         @field:NotEmpty val label: String,
