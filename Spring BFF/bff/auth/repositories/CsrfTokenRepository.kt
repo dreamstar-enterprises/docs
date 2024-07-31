@@ -5,6 +5,7 @@ import org.springframework.http.ResponseCookie
 import org.springframework.security.web.server.csrf.CookieServerCsrfTokenRepository
 import org.springframework.security.web.server.csrf.CsrfToken
 import org.springframework.security.web.server.csrf.ServerCsrfTokenRepository
+import org.springframework.stereotype.Repository
 import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
 
@@ -12,7 +13,7 @@ import reactor.core.publisher.Mono
 /***************************************************** REPOSITORY *****************************************************/
 /**********************************************************************************************************************/
 
-@Configuration
+@Repository
 internal class CustomServerCsrfTokenRepository() : ServerCsrfTokenRepository {
 
     companion object {

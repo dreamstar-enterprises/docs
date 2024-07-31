@@ -19,12 +19,15 @@ import org.springframework.security.config.web.server.ServerHttpSecurity
 import org.springframework.security.config.web.server.ServerHttpSecurity.OidcLogoutSpec
 import org.springframework.security.oauth2.client.ReactiveOAuth2AuthorizedClientService
 import org.springframework.security.oauth2.client.registration.InMemoryReactiveClientRegistrationRepository
+import org.springframework.security.oauth2.client.registration.ReactiveClientRegistrationRepository
+import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepository
 import org.springframework.security.oauth2.client.web.server.ServerOAuth2AuthorizationRequestResolver
+import org.springframework.security.oauth2.client.web.server.ServerOAuth2AuthorizedClientRepository
 import org.springframework.security.web.server.SecurityWebFilterChain
 import org.springframework.security.web.server.authentication.ServerMaximumSessionsExceededHandler
 import org.springframework.security.web.server.authentication.SessionLimit
 import org.springframework.security.web.server.csrf.ServerCsrfTokenRepository
-import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository
+//import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository
 import org.springframework.session.security.SpringSessionBackedReactiveSessionRegistry
 import org.springframework.web.cors.CorsConfiguration
 import reactor.core.publisher.Mono
@@ -41,7 +44,10 @@ import java.util.function.Consumer
 internal class BffSecurityConfig () {
 
     @Autowired
-    private lateinit var reactiveClientRegistrationRepository: InMemoryReactiveClientRegistrationRepository
+    private lateinit var reactiveClientRegistrationRepository: ReactiveClientRegistrationRepository
+
+    @Autowired
+    private lateinit var reactiveAuthorizedClientRepository: ServerOAuth2AuthorizedClientRepository
 
     @Autowired
     private lateinit var reactiveAuthorizedClientService: ReactiveOAuth2AuthorizedClientService
@@ -59,8 +65,8 @@ internal class BffSecurityConfig () {
         serverCsrfTokenRepository: ServerCsrfTokenRepository,
         csrfCookieFilter: CsrfCookieFilter,
         requestCache: RequestCache,
-        sessionRegistry: SpringSessionBackedReactiveSessionRegistry<ReactiveRedisIndexedSessionRepository.RedisSession>,
-        maximumSessionsExceededHandler: ServerMaximumSessionsExceededHandler,
+//        sessionRegistry: SpringSessionBackedReactiveSessionRegistry<ReactiveRedisIndexedSessionRepository.RedisSession>,
+//        maximumSessionsExceededHandler: ServerMaximumSessionsExceededHandler,
         pkceResolver: ServerOAuth2AuthorizationRequestResolver,
         postLoginUriFilter: PostLoginUriFilter,
         loginSuccessHandler: LoginSuccessHandler,
@@ -92,22 +98,23 @@ internal class BffSecurityConfig () {
 //                cache.requestCache(requestCache)
 //            }
             // session management
-            .sessionManagement {sessionManagement ->
-                sessionManagement.concurrentSessions { sessionConcurrency ->
-                    sessionConcurrency
-                        .maximumSessions(SessionLimit.of(1))
-                        .maximumSessionsExceededHandler(maximumSessionsExceededHandler)
-                        .sessionRegistry(sessionRegistry)
-                }
-            }
+//            .sessionManagement {sessionManagement ->
+//                sessionManagement.concurrentSessions { sessionConcurrency ->
+//                    sessionConcurrency
+//                        .maximumSessions(SessionLimit.of(1))
+//                        .maximumSessionsExceededHandler(maximumSessionsExceededHandler)
+////                        .sessionRegistry(sessionRegistry)
+//                }
+//            }
             // oauth2.0 client login
             .oauth2Login { oauth2 ->
                 oauth2
                     .clientRegistrationRepository(reactiveClientRegistrationRepository)
+                    .authorizedClientRepository(reactiveAuthorizedClientRepository)
                     .authorizedClientService(reactiveAuthorizedClientService)
-                    .authorizationRequestResolver(pkceResolver)
-                    .authenticationSuccessHandler(loginSuccessHandler)
-                    .authenticationFailureHandler(loginFailureHandler)
+//                    .authorizationRequestResolver(pkceResolver)
+//                    .authenticationSuccessHandler(loginSuccessHandler)
+//                    .authenticationFailureHandler(loginFailureHandler)
             }
             // authorizations (all end points, apart from login and logout not permitted, unless authenticated)
             .authorizeExchange { exchange ->
@@ -131,7 +138,7 @@ internal class BffSecurityConfig () {
                 }
             }
             // add post login filter
-            .addFilterAfter(postLoginUriFilter, SecurityWebFiltersOrder.AUTHENTICATION)
+//            .addFilterAfter(postLoginUriFilter, SecurityWebFiltersOrder.AUTHENTICATION)
             // apply csrf filter after the logout handler
             .addFilterAfter(csrfCookieFilter, SecurityWebFiltersOrder.LOGOUT)
 
