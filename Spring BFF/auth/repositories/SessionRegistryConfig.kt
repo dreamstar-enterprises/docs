@@ -14,7 +14,7 @@ import org.springframework.security.web.session.HttpSessionEventPublisher
 internal class SessionRegistryConfig {
 
     @Bean
-    // for tracking and managing active sessions, needed for features such as concurrent session control
+    // for tracking and managing active sessions, needed for the various session strategies
     fun sessionRegistry(): SessionRegistry {
         return SessionRegistryImpl()
     }

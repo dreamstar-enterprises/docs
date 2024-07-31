@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component
 /*************************************************** USER MAPPER ******************************************************/
 /**********************************************************************************************************************/
 
+// more here:
+// https://medium.com/@d.snezhinskiy/building-sso-based-on-spring-authorization-server-part-3-of-3-b0b31feb2b6e
+
+
 @Component("google")
 internal class GoogleOidcUserMapper : OidcUserMapper {
 

@@ -6,6 +6,7 @@ import com.nimbusds.jose.jwk.RSAKey
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet
 import com.nimbusds.jose.jwk.source.JWKSource
 import com.nimbusds.jose.proc.SecurityContext
+import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.oauth2.jwt.JwtClaimsSet
@@ -36,9 +37,26 @@ internal class OAuth2TokenCustomiserJwtEncoding(
             if (OAuth2TokenType.ACCESS_TOKEN.equals(context.tokenType)) {
                 val userDetails = tokenCustomiserConfig.getUserDetails(context)
                 tokenCustomiserConfig.addClaims(context.claims.toClaimsBuilder(), userDetails)
+
+                // Print all claims
+                printAllClaims(context.claims)
             }
         }
     }
+
+
+    private val logger = LoggerFactory.getLogger(TokenCustomiserConfig::class.java)
+
+    // Print all claims method
+    private fun printAllClaims(claims: JwtClaimsSet.Builder) {
+        // You will need to call build() to get the final claims set
+        val claimsSet = claims.build()
+        claimsSet.claims.forEach { (key, value) ->
+            logger.info("Claim Key: $key, Claim Value: $value")
+            println("Claim Key: $key, Claim Value: $value")
+        }
+    }
+
 
     // jwtClaimsSet.Builder extension
     internal fun JwtClaimsSet.Builder.toClaimsBuilder(): ClaimsBuilder {

@@ -1,8 +1,8 @@
 package com.example.authorizationserver.auth.security.filters
 
 import com.example.authorizationserver.auth.security.converters.BasicJSONConverter
-import com.example.authorizationserver.auth.security.handlers.DocDbFailureHandler
-import com.example.authorizationserver.auth.security.handlers.DocDbSuccessHandler
+import com.example.authorizationserver.auth.security.handlers.CustomSavedRequestAwareAuthenticationSuccessHandler
+import com.example.authorizationserver.auth.security.sessions.CustomSessionAuthenticationStrategy
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletRequest
 import jakarta.servlet.ServletResponse
@@ -14,6 +14,7 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.AuthenticationException
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter
+import org.springframework.security.web.context.SecurityContextRepository
 import org.springframework.security.web.util.matcher.RequestMatcher
 import org.springframework.stereotype.Component
 
@@ -23,9 +24,11 @@ import org.springframework.stereotype.Component
 
 @Component
 internal class DocDbAuthenticationFilter(
-    authenticationManager: AuthenticationManager,
-    private val docDbSuccessHandler : DocDbSuccessHandler,
-    private val docDbFailureHandler : DocDbFailureHandler,
+    private val servletAuthenticationManager: AuthenticationManager,
+    private val postAuthenticationFilter: PostAuthenticationFilter,
+    private val customSessionAuthenticationStrategy: CustomSessionAuthenticationStrategy,
+    customSavedRequestAwareAuthenticationSuccessHandler: CustomSavedRequestAwareAuthenticationSuccessHandler,
+    customSecurityContextRepository: SecurityContextRepository,
 ) : AbstractAuthenticationProcessingFilter(RequestMatcher { request ->
             // specify authentication path and other custom conditions here
             val loginUrl = "/login"
@@ -34,51 +37,48 @@ internal class DocDbAuthenticationFilter(
     ){
 
     private val authenticationConverter = BasicJSONConverter()
+    private val continueChainBeforeSuccessfulAuthentication = false
 
     init{
-        super.setAuthenticationManager(authenticationManager)
+        // initialise class variables
+        this.setAuthenticationManager(servletAuthenticationManager)
+        this.setSecurityContextRepository(customSecurityContextRepository)
+        this.setAuthenticationSuccessHandler(customSavedRequestAwareAuthenticationSuccessHandler)
     }
 
-    // main filter logic
+
+    // main filter logic (don't user 'super' for this!)
     override fun doFilter(
         request: ServletRequest,
         response: ServletResponse,
-        filterChain: FilterChain
+        chain: FilterChain
     ) {
         val httpRequest = request as HttpServletRequest
         val httpResponse = response as HttpServletResponse
 
-        // is authentication required?
-        if (!requiresAuthentication(request, response)) {
-
-            println("AUTHENTICATION NOT REQUIRED !!!!")
-            filterChain.doFilter(request, response)
+        if (!requiresAuthentication(httpRequest, httpResponse)) {
+            chain.doFilter(httpRequest, response)
             return
         }
         try {
             val authenticationResult = attemptAuthentication(httpRequest, httpResponse)
-            if (authenticationResult == null) {
-                println("NULL AUTHENTICATED !!!!")
-                // continue with rest of filter chain!
-                filterChain.doFilter(request, response)
+                ?: // return immediately as subclass has indicated that it hasn't completed
                 return
+            customSessionAuthenticationStrategy.onAuthentication(authenticationResult, httpRequest, httpResponse)
+            // Authentication success
+            if (this.continueChainBeforeSuccessfulAuthentication) {
+                chain.doFilter(httpRequest, httpResponse)
             }
-            println("JUST AUTHENTICATED !!!!")
-            // authentication success
-            successfulAuthentication(httpRequest, httpResponse, filterChain, authenticationResult)
-
+            successfulAuthentication(httpRequest, httpResponse, chain, authenticationResult)
         } catch (failed: InternalAuthenticationServiceException) {
-
-            // authentication failed
-            this.logger.error("An internal error occurred while trying to authenticate the user.", failed);
-            unsuccessfulAuthentication(request, response, failed);
-
+            logger.error("An internal error occurred while trying to authenticate the user.", failed)
+            unsuccessfulAuthentication(httpRequest, httpResponse, failed)
         } catch (ex: AuthenticationException) {
-
-            // authentication failed
+            // Authentication failed
             unsuccessfulAuthentication(httpRequest, httpResponse, ex)
         }
     }
+
 
     // attempt authentication (convert request, and then authenticate)
     override fun attemptAuthentication(
@@ -86,12 +86,11 @@ internal class DocDbAuthenticationFilter(
         response: HttpServletResponse
     ): Authentication? {
         val authenticationRequest = authenticationConverter.convert(request)
-        if(authenticationRequest !== null) {
-            return authenticationManager.authenticate(authenticationRequest)
-        } else {
-            return null
+        return authenticationRequest?.let {
+            servletAuthenticationManager.authenticate(it)
         }
     }
+
 
     // perform on successful authentication
     override fun successfulAuthentication(
@@ -100,8 +99,14 @@ internal class DocDbAuthenticationFilter(
         chain: FilterChain,
         authResult: Authentication
     ) {
-        docDbSuccessHandler.onAuthenticationSuccess(request, response, authResult)
+
+        // call the parent class method to perform default actions
+        super.successfulAuthentication(request, response, chain, authResult)
+
+        // manually invoke PostAuthenticationFilter
+        postAuthenticationFilter.doFilter(request, response, chain)
     }
+
 
     // perform on failed authentication
     override fun unsuccessfulAuthentication(
@@ -109,7 +114,10 @@ internal class DocDbAuthenticationFilter(
         response: HttpServletResponse,
         failed: AuthenticationException
     ) {
-        docDbFailureHandler.onAuthenticationFailure(request, response, failed)
+
+        // call the parent class method to perform default actions
+        super.unsuccessfulAuthentication(request, response, failed)
+
     }
 
 }

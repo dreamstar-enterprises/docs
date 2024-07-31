@@ -3,6 +3,7 @@ package com.example.authorizationserver.auth.security.handlers
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.security.core.Authentication
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken
 import org.springframework.security.oauth2.core.oidc.user.OidcUser
@@ -15,7 +16,29 @@ import org.springframework.stereotype.Component
 /****************************************************** HANDLER *******************************************************/
 /**********************************************************************************************************************/
 
+// more here:
+// https://medium.com/@d.snezhinskiy/building-sso-based-on-spring-authorization-server-part-3-of-3-b0b31feb2b6e
+// https://docs.spring.io/spring-authorization-server/reference/guides/how-to-social-login.html#advanced-use-cases-capture-users
+
+
 //* FOR SOCIAL LOGINS *//
+
+@Configuration
+internal class SocialLoginSuccessHandlerConfiguration {
+
+    @Bean
+    internal fun socialLoginAuthenticationSuccessHandler(
+        handler: UserServiceOidcUserHandler?
+    ): SocialLoginSuccessHandler {
+
+        val authenticationSuccessHandler = SocialLoginSuccessHandler()
+        // check if handler is not null before setting it
+        handler?.let {
+            authenticationSuccessHandler.setOidcUserHandler { user -> it.accept(user) }
+        }
+        return authenticationSuccessHandler
+    }
+}
 
 @Component
 internal class SocialLoginSuccessHandler : AuthenticationSuccessHandler {
@@ -52,19 +75,6 @@ internal class SocialLoginSuccessHandler : AuthenticationSuccessHandler {
     fun setOidcUserHandler(oidcUserHandler: (OidcUser) -> Unit) {
         this.oidcUserHandler = oidcUserHandler
     }
-}
-
-@Bean
-internal fun socialLoginAuthenticationSuccessHandler(
-    handler: UserServiceOidcUserHandler?
-): AuthenticationSuccessHandler {
-
-    val authenticationSuccessHandler = SocialLoginSuccessHandler()
-    // check if handler is not null before setting it
-    handler?.let {
-        authenticationSuccessHandler.setOidcUserHandler { user -> it.accept(user) }
-    }
-    return authenticationSuccessHandler
 }
 
 /**********************************************************************************************************************/

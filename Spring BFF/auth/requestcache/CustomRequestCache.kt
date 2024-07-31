@@ -31,6 +31,7 @@ internal class CustomRequestCache : HttpSessionRequestCache()  {
     }
 
     override fun getMatchingRequest(request: HttpServletRequest, response: HttpServletResponse): HttpServletRequest? {
+        println("Getting matching request for ${request.requestURI}")
         return super.getMatchingRequest(request, response)
     }
 

@@ -1,5 +1,6 @@
 package com.example.authorizationserver.auth.security
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.annotation.Order
@@ -14,7 +15,6 @@ import org.springframework.security.oauth2.server.authorization.token.*
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint
 import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher
-import org.springframework.web.cors.CorsConfiguration
 import java.util.*
 
 /**********************************************************************************************************************/
@@ -24,6 +24,9 @@ import java.util.*
 @Configuration
 @EnableWebSecurity
 internal class AuthServerConfig () {
+
+    @Value("\${in-house-issuer-uri}")
+    private lateinit var inHouseIssuerUri: String
 
     @Bean
     @Order(1)
@@ -40,20 +43,6 @@ internal class AuthServerConfig () {
 
         // redirect to the login page when not authenticated
         http
-            // configure cors
-            .cors { cors ->
-                cors.configurationSource {
-                    CorsConfiguration().apply {
-                        // ensure this matches your Angular app URL
-                        allowedOrigins = listOf("http://localhost:4200")
-                        allowedMethods = listOf("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
-                        allowedHeaders = listOf("Content-Type", "Authorization", "X-XSRF-TOKEN")
-                        exposedHeaders = listOf("Content-Type", "Authorization", "X-XSRF-TOKEN")
-                        // required if credentials (cookies, authorization headers) are involved
-                        allowCredentials = true
-                    }
-                }
-            }
             // handlers for any exceptions not handled elsewhere
             .exceptionHandling {
                 it.defaultAuthenticationEntryPointFor(
@@ -67,7 +56,9 @@ internal class AuthServerConfig () {
     @Bean
     // for configuring Spring Authorization Server (e.g. customising URLs for exposed endpoints)
     fun authorizationServerSettings(): AuthorizationServerSettings {
-        return AuthorizationServerSettings.builder().build()
+        return AuthorizationServerSettings.builder()
+            .issuer(inHouseIssuerUri)
+            .build()
     }
 
 }

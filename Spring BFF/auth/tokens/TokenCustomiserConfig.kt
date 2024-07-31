@@ -4,6 +4,7 @@ import com.example.authorizationserver.auth.security.objects.user.CustomOidcUser
 import com.example.authorizationserver.auth.security.objects.user.DocDbUser
 import com.nimbusds.jose.jwk.source.JWKSource
 import com.nimbusds.jose.proc.SecurityContext
+import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.core.Authentication
@@ -62,6 +63,7 @@ internal class TokenCustomiserConfig {
                 claim("isAccountNonLocked", userDetails.isAccountNonLocked)
                 claim("isCredentialsNonExpired", userDetails.isCredentialsNonExpired)
                 claim("isEnabled", userDetails.isEnabled)
+
             }
         } else {
             throw IllegalStateException("Bad UserDetails, username is empty")

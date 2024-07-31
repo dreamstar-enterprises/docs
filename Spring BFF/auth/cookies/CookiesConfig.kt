@@ -15,7 +15,7 @@ internal class CookiesConfig {
     @Bean
     fun cookieSerializer(): CookieSerializer {
         val serializer = DefaultCookieSerializer()
-        serializer.setCookieName("JSESSIONID")
+        serializer.setCookieName("AUTH-SESSIONID")
         serializer.setCookiePath("/")
         serializer.setUseHttpOnlyCookie(true)
         serializer.setUseSecureCookie(true)

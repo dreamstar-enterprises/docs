@@ -26,7 +26,7 @@ internal class CustomInvalidSessionStrategy : InvalidSessionStrategy {
         val cookies = request.cookies
         if (cookies != null) {
             for (cookie in cookies) {
-                if (cookie.name == "JSESSIONID") {
+                if (cookie.name == "AUTH-SESSIONID") {
                     val deleteCookie = Cookie(cookie.name, null)
                     deleteCookie.path = "/"
                     deleteCookie.maxAge = 0

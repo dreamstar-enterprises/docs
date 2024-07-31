@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service
 /********************************************** SERVICE IMPLEMENTATION ************************************************/
 /**********************************************************************************************************************/
 
+// more here:
+// https://medium.com/@d.snezhinskiy/building-sso-based-on-spring-authorization-server-part-3-of-3-b0b31feb2b6e
+
+
 /**********************************************************************************************************************/
 /* O.I.D.C. USER DETAILS - SERVICE  */
 /**********************************************************************************************************************/
@@ -36,7 +40,7 @@ internal class CustomOidcUserDetailsService(
         // get appropriate mapper
         val mapper: OidcUserMapper = mappers.getValue(registrationId)
 
-        // get userEntity by email
+        // get userEntity (optional) by email
         val email: String = userRequest.idToken.email
         val userEntity: UserEntity? = virtualThreadManager.fetchUserEntity(email)
 
