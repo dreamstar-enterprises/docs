@@ -2,7 +2,6 @@ package com.example.bff.auth
 
 import com.example.bff.auth.csrf.SPACsrfTokenRequestHandler
 import com.example.bff.auth.filters.CsrfCookieFilter
-import com.example.bff.auth.filters.PostLoginUriFilter
 import com.example.bff.auth.handlers.LoginFailureHandler
 import com.example.bff.auth.handlers.LoginSuccessHandler
 import com.example.bff.auth.requestcache.RequestCache
@@ -61,38 +60,37 @@ internal class BffSecurityConfig () {
     @Bean
     fun clientSecurityFilterChain(
         http: ServerHttpSecurity,
-        spaCsrfTokenRequestHandler: SPACsrfTokenRequestHandler,
         serverCsrfTokenRepository: ServerCsrfTokenRepository,
+        spaCsrfTokenRequestHandler: SPACsrfTokenRequestHandler,
         csrfCookieFilter: CsrfCookieFilter,
         requestCache: RequestCache,
 //        sessionRegistry: SpringSessionBackedReactiveSessionRegistry<ReactiveRedisIndexedSessionRepository.RedisSession>,
 //        maximumSessionsExceededHandler: ServerMaximumSessionsExceededHandler,
-        pkceResolver: ServerOAuth2AuthorizationRequestResolver,
-        postLoginUriFilter: PostLoginUriFilter,
+        oauthAuthorizationRequestResolver: ServerOAuth2AuthorizationRequestResolver,
         loginSuccessHandler: LoginSuccessHandler,
         loginFailureHandler: LoginFailureHandler,
     ): SecurityWebFilterChain {
 
-        http
-            // enable csrf
-            .csrf { csrf ->
-                csrf.csrfTokenRepository(serverCsrfTokenRepository)
-                csrf.csrfTokenRequestHandler(spaCsrfTokenRequestHandler)
-            }
-            // configure cors
-            .cors { cors ->
-                cors.configurationSource {
-                    CorsConfiguration().apply {
-                        // ensure this matches the Angular app URL
-                        allowedOrigins = listOf(reverseProxyUri)
-                        allowedMethods = listOf("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
-                        allowedHeaders = listOf("Content-Type", "Authorization", "X-XSRF-TOKEN")
-                        exposedHeaders = listOf("Content-Type", "Authorization", "X-XSRF-TOKEN")
-                        // required if credentials (cookies, authorization headers) are involved
-                        allowCredentials = true
-                    }
+        // enable csrf
+        http.csrf { csrf ->
+            csrf.csrfTokenRepository(serverCsrfTokenRepository)
+            csrf.csrfTokenRequestHandler(spaCsrfTokenRequestHandler)
+        }
+
+        // configure cors
+        http.cors { cors ->
+            cors.configurationSource {
+                CorsConfiguration().apply {
+                    // ensure this matches the Angular app URL
+                    allowedOrigins = listOf(reverseProxyUri)
+                    allowedMethods = listOf("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
+                    allowedHeaders = listOf("Content-Type", "Authorization", "X-XSRF-TOKEN")
+                    exposedHeaders = listOf("Content-Type", "Authorization", "X-XSRF-TOKEN")
+                    // required if credentials (cookies, authorization headers) are involved
+                    allowCredentials = true
                 }
             }
+        }
             // configure request cache
 //            .requestCache { cache ->
 //                cache.requestCache(requestCache)
@@ -106,41 +104,48 @@ internal class BffSecurityConfig () {
 ////                        .sessionRegistry(sessionRegistry)
 //                }
 //            }
-            // oauth2.0 client login
-            .oauth2Login { oauth2 ->
-                oauth2
-                    .clientRegistrationRepository(reactiveClientRegistrationRepository)
-                    .authorizedClientRepository(reactiveAuthorizedClientRepository)
-                    .authorizedClientService(reactiveAuthorizedClientService)
-//                    .authorizationRequestResolver(pkceResolver)
+
+        // oauth2.0 client login
+        http.oauth2Login { oauth2 ->
+            oauth2
+                .authorizationRequestResolver(oauthAuthorizationRequestResolver)
+                .clientRegistrationRepository(reactiveClientRegistrationRepository)
+                .authorizedClientRepository(reactiveAuthorizedClientRepository)
+                .authorizedClientService(reactiveAuthorizedClientService)
 //                    .authenticationSuccessHandler(loginSuccessHandler)
 //                    .authenticationFailureHandler(loginFailureHandler)
-            }
-            // authorizations (all end points, apart from login and logout not permitted, unless authenticated)
-            .authorizeExchange { exchange ->
-                exchange
-                    .pathMatchers("/api/**", "/login/**", "/oauth2/**", "/logout/**").permitAll()
-                    .pathMatchers("/login-options").permitAll()
-                    .anyExchange().authenticated()
-            }
-            .logout { logout ->
-                logout
-                    .logoutUrl("/logout")
-                    .logoutSuccessHandler { exchange, authentication ->
-                        // indicate that the logout was successful
-                        exchange.exchange.response.statusCode = HttpStatus.OK
-                        Mono.empty()
-                    }
-            }
-            .oidcLogout { logout ->
-                logout.backChannel { bc ->
-                    bc.logoutUri(bffUri + "/logout")
+        }
+
+        // authorizations (all end points, apart from login and logout not permitted, unless authenticated)
+        http.authorizeExchange { exchange ->
+            exchange
+                .pathMatchers("/login/**", "/oauth2/**", "/logout/**").permitAll()
+                .pathMatchers("/login-options").permitAll()
+                .pathMatchers("/api/resource/**").permitAll()
+                .anyExchange().authenticated()
+        }
+
+        // logout configuraion
+        http.logout { logout ->
+            logout
+                .logoutUrl("/logout")
+                .logoutSuccessHandler { exchange, authentication ->
+                    // indicate that the logout was successful
+                    exchange.exchange.response.statusCode = HttpStatus.OK
+                    Mono.empty()
                 }
+        }
+
+        // oidc backchannel logout configuraiton
+        http.oidcLogout { logout ->
+            logout.backChannel { bc ->
+                bc.logoutUri(bffUri + "/logout")
             }
-            // add post login filter
-//            .addFilterAfter(postLoginUriFilter, SecurityWebFiltersOrder.AUTHENTICATION)
-            // apply csrf filter after the logout handler
-            .addFilterAfter(csrfCookieFilter, SecurityWebFiltersOrder.LOGOUT)
+        }
+
+        // other filters
+        // apply csrf filter after the logout handler
+        http.addFilterAfter(csrfCookieFilter, SecurityWebFiltersOrder.LOGOUT)
 
         return http.build()
     }

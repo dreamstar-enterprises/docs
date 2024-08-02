@@ -7,14 +7,14 @@
 scheme: http
 hostname: localhost
 
+# reverse proxy
+reverse-proxy-port: 7080
+reverse-proxy-uri: ${scheme}://${hostname}:${reverse-proxy-port}
+
 # bff server
 bff-port: 9090
 bff-prefix: /bff
 bff-uri: ${scheme}://${hostname}:${bff-port}
-
-# reverse proxy
-reverse-proxy-port: 7080
-reverse-proxy-uri: ${scheme}://${hostname}:${reverse-proxy-port}
 
 # resource server
 resource-server-port: 8080
@@ -24,11 +24,7 @@ resource-server-uri: ${scheme}://${hostname}:${resource-server-port}
 # authorization server
 authorization-server-prefix: /auth
 in-house-auth-registration-id: in-house-auth-server
-
-# oauth2.0 client registrations (for auth server)
-issuer-uri: ${reverse-proxy-uri}${authorization-server-prefix}
-gateway-client-id: api_gateway_client
-gateway-client-secret: password
+in-house-issuer-uri: ${reverse-proxy-uri}${authorization-server-prefix}
 
 # not sure what these are for
 username-claim-json-path: $.preferred_username
@@ -40,6 +36,7 @@ server:
   port: ${bff-port}
   ssl:
     enabled: false
+  forward-headers-strategy: framework
 
 # spring settings
 spring:
@@ -53,7 +50,7 @@ com:
     springaddons:
       oidc:
         ops:
-          - iss: ${issuer-uri}
+          - iss: ${in-house-issuer-uri}
             authorities:
               - path: ${authorities-json-path}
             aud: ${audience}
@@ -65,11 +62,13 @@ com:
             - /login/**
             - /oauth2/**
             - /logout/**
+#            - /login-options
           permit-all:
+            - /login-options
             - /api/**
             - /login/**
             - /oauth2/**
-#            - /logout/connect/back-channel/
+            - /logout/connect/back-channel/${in-house-auth-registration-id}
           post-logout-redirect-host: ${hostname}
           csrf: cookie-accessible-from-js
           oauth2-redirections:
@@ -88,7 +87,6 @@ com:
             - /swagger-ui/**
             - /actuator/health/readiness
             - /actuator/health/liveness
-
 
 # endpoint settings
 management:

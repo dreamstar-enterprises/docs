@@ -23,7 +23,8 @@ internal class CustomServerCsrfTokenRepository() : ServerCsrfTokenRepository {
     }
 
     private fun createCookie(token: CsrfToken?): ResponseCookie {
-        return ResponseCookie.from(CSRF_COOKIE_NAME, token?.token ?: "")
+        return ResponseCookie
+            .from(CSRF_COOKIE_NAME, token?.token ?: "")
             .httpOnly(false)
             .maxAge(-1) // session-based cookie
             .path(COOKIE_PATH)
