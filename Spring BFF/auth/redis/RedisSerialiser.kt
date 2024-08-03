@@ -1,5 +1,6 @@
 package com.example.authorizationserver.auth.redis
 
+import com.example.authorizationserver.api.enums.RoleTypes
 import com.example.authorizationserver.auth.objects.authentication.DocDbUserAuthentication
 import com.example.authorizationserver.auth.objects.user.DocDbUser
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -117,7 +118,7 @@ private class DocDbUserAuthenticationDeserializer : JsonDeserializer<DocDbUserAu
     override fun deserialize(
         p: JsonParser,
         ctxt: DeserializationContext,
-    ): DocDbUserAuthentication {
+    ): DocDbUserAuthentication? {
 
         val node: JsonNode = p.codec.readTree(p)
 
@@ -141,8 +142,7 @@ private class DocDbUserAuthenticationDeserializer : JsonDeserializer<DocDbUserAu
                     logger.warn("Unexpected format for authority: {}", authorityNode)
                     null
                 }
-            } ?: emptyList()
-
+            }?.takeIf { it.isNotEmpty() } ?: listOf(SimpleGrantedAuthority(RoleTypes.EMPTY.name))
 
             // create DocDbUser instance
             DocDbUser(
@@ -158,14 +158,18 @@ private class DocDbUserAuthenticationDeserializer : JsonDeserializer<DocDbUserAu
         }
 
         // deserialize other fields
-        val password = node.get("password")?.asText()
-        val authorities = node.get("authorities")?.mapNotNull { authorityNode ->
-            authorityNode.asText()?.let { auth -> SimpleGrantedAuthority(auth) }
-        } ?: emptyList()
         val isAuthenticated = node.get("isAuthenticated")?.asBoolean() ?: false
 
         // create DocDbUserAuthentication instance
-        return DocDbUserAuthentication(docDBUser, password, authorities, isAuthenticated)
+        return docDBUser?.let {
+            docDBUser.authorities.let { auths ->
+                DocDbUserAuthentication(
+                    it,
+                    docDBUser.password,
+                    auths,
+                    isAuthenticated)
+            }
+        }
     }
 }
 
