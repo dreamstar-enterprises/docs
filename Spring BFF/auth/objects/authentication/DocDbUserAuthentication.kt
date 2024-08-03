@@ -1,6 +1,9 @@
 package com.example.authorizationserver.auth.objects.authentication
 
 import com.example.authorizationserver.auth.objects.user.DocDbUser
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
+import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.authentication.AbstractAuthenticationToken
 import org.springframework.security.core.userdetails.UserDetails
 
@@ -8,28 +11,16 @@ import org.springframework.security.core.userdetails.UserDetails
 /*********************************************** AUTHENTICATION OBJECT ************************************************/
 /**********************************************************************************************************************/
 
-internal class DocDbUserAuthentication : AbstractAuthenticationToken {
-    private val docDBUser: DocDbUser?
-    private val password: String?
+class DocDbUserAuthentication @JsonCreator constructor(
+    @JsonProperty("docDBUser") private val docDBUser: DocDbUser?,
+    @JsonProperty("password") private val password: String?,
+    @JsonProperty("authorities") authorities: Collection<GrantedAuthority?>,
+    @JsonProperty("isAuthenticated") isAuthenticated: Boolean
+) : AbstractAuthenticationToken(authorities) {
 
-    // constructor for User - authenticated
-    private constructor(
-        docDBUser: DocDbUser
-    ) : super(docDBUser.authorities) {
-        this.docDBUser = docDBUser.copy(password = null) // password is null
-        this.password = null // password is null
-        super.eraseCredentials() // erase credentials
-        super.setAuthenticated(true)
-    }
-
-    // constructor for User - un-authenticated
-    private constructor(
-        docDBUser: DocDbUser,
-        password: String
-    ) : super(docDBUser.authorities) {
-        this.docDBUser = docDBUser
-        this.password = password
-        super.setAuthenticated(false)
+    init {
+        // set the authentication status based on the input
+        super.setAuthenticated(isAuthenticated)
     }
 
     override fun getCredentials(): String? {
@@ -49,13 +40,18 @@ internal class DocDbUserAuthentication : AbstractAuthenticationToken {
         fun authenticated(docDBUser: DocDbUser): DocDbUserAuthentication {
             return DocDbUserAuthentication(
                 docDBUser,
+                null,
+                docDBUser.authorities,
+                true
             )
         }
 
         fun unauthenticated(docDBUser: DocDbUser, password: String): DocDbUserAuthentication {
             return DocDbUserAuthentication(
                 docDBUser,
-                password
+                password,
+                docDBUser.authorities,
+                false
             )
         }
     }
