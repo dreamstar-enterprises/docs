@@ -38,16 +38,28 @@ internal class RoleAuthConfig {
 
     @Bean
     // generate authorities from roles
-    fun getAuthorities(roles: List<RoleTypes>): Collection<GrantedAuthority> {
+    fun getAuthorities(roles: List<RoleTypes?>): Collection<GrantedAuthority> {
         val authorities = mutableSetOf<GrantedAuthority>()
         for (role in roles) {
-
             // add the role itself as a GrantedAuthority
-            authorities.add(SimpleGrantedAuthority(role.name))
+            if (role?.name != null && role.name.isNotEmpty()) {
+                authorities.add(SimpleGrantedAuthority(role.name))
+            } else {
+                // handle cases where role name is null or empty
+                println("Warning: Role name is null or empty for role $role")
+            }
 
             // add all the auths associated with the role as GrantedAuthorities
             roleAuthorityMapping.get(role)?.let { auths ->
-                authorities.addAll(auths.map { SimpleGrantedAuthority(it.name.toDisplayName()) })
+                for (auth in auths) {
+                    val authorityName = auth.name.toDisplayName()
+                    if (authorityName.isNotEmpty()) {
+                        authorities.add(SimpleGrantedAuthority(authorityName))
+                    } else {
+                        // handle cases where authority name is null or empty
+                        println("Warning: Authority name is null or empty for authority $auth")
+                    }
+                }
             }
         }
         return authorities
