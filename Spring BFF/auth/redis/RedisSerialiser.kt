@@ -53,9 +53,12 @@ internal class RedisSerialiser : BeanClassLoaderAware {
             }
 
             override fun deserialize(bytes: ByteArray?): Any {
-                val result = super.deserialize(bytes)
-                println("Deserialized: $result")
-                return result
+                if (bytes !== null && bytes.isNotEmpty()) {
+                    val result = super.deserialize(bytes)
+                    return result
+                }
+                println("Deserialization: Received null or empty byte array")
+                return Any()
             }
         }
     }
