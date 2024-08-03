@@ -1,13 +1,29 @@
 package com.example.authorizationserver.auth.redis
 
+import com.example.authorizationserver.auth.objects.authentication.DocDbUserAuthentication
+import com.example.authorizationserver.auth.objects.user.DocDbUser
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonTypeInfo
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id
+import com.fasterxml.jackson.core.JsonParser
+import com.fasterxml.jackson.core.JsonProcessingException
+import com.fasterxml.jackson.databind.DeserializationContext
+import com.fasterxml.jackson.databind.JsonDeserializer
+import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.module.SimpleModule
+import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 import org.springframework.beans.factory.BeanClassLoaderAware
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializer
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.jackson2.SecurityJackson2Modules
-import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest
+import java.io.IOException
 
 /**********************************************************************************************************************/
 /************************************************ REDIS CONFIGURATION *************************************************/
@@ -50,32 +66,19 @@ internal class RedisSerialiser : BeanClassLoaderAware {
      */
     private fun objectMapper(): ObjectMapper {
         val mapper = ObjectMapper()
+
+        // register mixin for DocDbUserAuthentication
+        mapper.addMixIn(DocDbUserAuthentication::class.java, DocDbUserAuthenticationMixin::class.java)
+
+        // register modules for security if needed
         mapper.registerModules(SecurityJackson2Modules.getModules(loader))
+
+        // register custom deserializer for DocDbUserAuthentication
+        mapper.registerModule(
+            SimpleModule().addDeserializer(DocDbUserAuthentication::class.java, DocDbUserAuthenticationDeserializer())
+        )
+
         return mapper
-    }
-
-    @Bean
-    // setting a custom OAuth2AuthorizationRequest serializer for Redis
-    fun oauth2AuthorizationRequestRedisSerializer(objectMapper: ObjectMapper): RedisSerializer<OAuth2AuthorizationRequest> {
-        return object : RedisSerializer<OAuth2AuthorizationRequest> {
-            override fun serialize(t: OAuth2AuthorizationRequest?): ByteArray? {
-                println("Serializing OAuth2AuthorizationRequest: $t")
-                return t?.let {
-                    val bytes = objectMapper.writeValueAsBytes(it)
-                    println("Serialized bytes: ${bytes.joinToString(", ") { String.format("%02X", it) }}")
-                    bytes
-                }
-            }
-
-            override fun deserialize(bytes: ByteArray?): OAuth2AuthorizationRequest? {
-                println("Deserializing bytes: ${bytes?.joinToString(", ") { String.format("%02X", it) }}")
-                return bytes?.let {
-                    val result = objectMapper.readValue(it, OAuth2AuthorizationRequest::class.java)
-                    println("Deserialized OAuth2AuthorizationRequest: $result")
-                    result
-                }
-            }
-        }
     }
 
     /*
@@ -84,6 +87,85 @@ internal class RedisSerialiser : BeanClassLoaderAware {
      */
     override fun setBeanClassLoader(classLoader: ClassLoader) {
         this.loader = classLoader
+    }
+}
+
+// custom mixin for DocDbUserAuthentication object
+@JsonTypeInfo(use = Id.CLASS, include = As.PROPERTY, property = "@class")
+abstract class DocDbUserAuthenticationMixin {
+    @JsonProperty("docDBUser")
+    abstract fun getDocDBUser(): DocDbUser?
+
+    @JsonProperty("password")
+    abstract fun getPassword(): String?
+
+    @JsonProperty("authorities")
+    abstract fun getAuthorities(): Collection<GrantedAuthority>
+
+    @JsonProperty("isAuthenticated")
+    abstract fun isAuthenticated(): Boolean
+}
+
+// custom de-serialiser for DocDbUserAuthentication object
+private class DocDbUserAuthenticationDeserializer : JsonDeserializer<DocDbUserAuthentication>() {
+
+    val logger: Logger = LogManager.getLogger(
+        DocDbUserAuthenticationDeserializer::class.java
+    )
+
+    @Throws(IOException::class, JsonProcessingException::class)
+    override fun deserialize(
+        p: JsonParser,
+        ctxt: DeserializationContext,
+    ): DocDbUserAuthentication {
+
+        val node: JsonNode = p.codec.readTree(p)
+
+        // deserialize DocDbUser
+        val docDBUserNode = node.get("docDBUser")
+        val docDBUser = docDBUserNode?.let { userNode ->
+            val userId = userNode.get("userId")?.asText()
+            val username = userNode.get("username")?.asText() ?: ""
+            val password = userNode.get("password")?.asText()
+            val isAccountNonExpired = userNode.get("isAccountNonExpired")?.asBoolean()
+            val isAccountNonLocked = userNode.get("isAccountNonLocked")?.asBoolean()
+            val isCredentialsNonExpired = userNode.get("isCredentialsNonExpired")?.asBoolean()
+            val isEnabled = userNode.get("isEnabled")?.asBoolean()
+
+            // deserialize GrantedAuthority list
+            val authorities = userNode.get("authorities")?.mapNotNull { authorityNode ->
+                if (authorityNode.isTextual) {
+                    authorityNode.asText()?.let { auth -> SimpleGrantedAuthority(auth) }
+                } else {
+                    // Handle unexpected format (optional)
+                    logger.warn("Unexpected format for authority: {}", authorityNode)
+                    null
+                }
+            } ?: emptyList()
+
+
+            // create DocDbUser instance
+            DocDbUser(
+                userId,
+                username,
+                password,
+                authorities,
+                isAccountNonExpired,
+                isAccountNonLocked,
+                isCredentialsNonExpired,
+                isEnabled
+            )
+        }
+
+        // deserialize other fields
+        val password = node.get("password")?.asText()
+        val authorities = node.get("authorities")?.mapNotNull { authorityNode ->
+            authorityNode.asText()?.let { auth -> SimpleGrantedAuthority(auth) }
+        } ?: emptyList()
+        val isAuthenticated = node.get("isAuthenticated")?.asBoolean() ?: false
+
+        // create DocDbUserAuthentication instance
+        return DocDbUserAuthentication(docDBUser, password, authorities, isAuthenticated)
     }
 }
 
