@@ -9,8 +9,12 @@ import org.springframework.security.web.server.authentication.ServerAuthenticati
 import org.springframework.stereotype.Component
 import org.springframework.web.util.HtmlUtils
 import org.springframework.web.util.UriComponentsBuilder
+import org.springframework.web.util.UriUtils
 import reactor.core.publisher.Mono
+import reactor.core.scheduler.Schedulers
 import java.net.URI
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
 
 /**********************************************************************************************************************/
 /****************************************************** HANDLER *******************************************************/
@@ -37,28 +41,43 @@ internal class OAuth2ServerAuthenticationFailureHandler(
         exception: AuthenticationException?
     ): Mono<Void>? {
         return webFilterExchange.exchange?.session?.flatMap { session ->
+
             // retrieve the post-login failure URI from session or use a default URI
             val uri = session.getAttributeOrDefault(
                 loginProperties.POST_AUTHENTICATION_FAILURE_URI_SESSION_ATTRIBUTE,
                 defaultRedirectUri
             )
 
-            println("SESSION FAILURE ATTRIBUTE SET: ${session.attributes[loginProperties.POST_AUTHENTICATION_FAILURE_URI_SESSION_ATTRIBUTE]}")
-
             println("ON FAILURE REDIRECT URI: $uri")
 
-            // add query param to uri
-            val uriWithQueryParam = UriComponentsBuilder.fromUri(uri)
-                .queryParam(
-                    loginProperties.POST_AUTHENTICATION_FAILURE_CAUSE_ATTRIBUTE,
-                    HtmlUtils.htmlEscape(exception?.message ?: "unknown error")
-                ).build().toUri()
+            // decode the exception message
+            val decodedMessageMono = Mono.fromCallable {
+                URLDecoder.decode(exception?.message ?: "unknown error", StandardCharsets.UTF_8.name())
+            }.subscribeOn(Schedulers.boundedElastic())
 
-            // apply the redirect and return Mono<Void>
-            redirectStrategy.sendRedirect(
-                webFilterExchange.exchange,
-                uriWithQueryParam
-            )
+
+            // add query param to uri
+            decodedMessageMono.flatMap { decodedMessage ->
+                val encodedMessage = UriUtils.encodePath(
+                    decodedMessage, StandardCharsets.UTF_8.name()
+                )
+
+                // Build the URI with the properly encoded query parameter
+                val uriWithQueryParam = UriComponentsBuilder.fromUri(uri)
+                    .queryParam(
+                        loginProperties.POST_AUTHENTICATION_FAILURE_CAUSE_ATTRIBUTE,
+                        encodedMessage
+                    ).build(true)
+                    .toUri()
+
+                println("URI with Query Parameters: $uriWithQueryParam")
+
+                // Apply the redirect and return Mono<Void>
+                redirectStrategy.sendRedirect(
+                    webFilterExchange.exchange,
+                    uriWithQueryParam
+                )
+            }
         }
     }
 

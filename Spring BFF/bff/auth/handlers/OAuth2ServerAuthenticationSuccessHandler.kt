@@ -42,7 +42,7 @@ internal class OAuth2ServerAuthenticationSuccessHandler(
                 defaultRedirectUri
             )
 
-            println("ON SUCCESS REDIRECT URI: $uri")
+            println("ON SUCCESSFUL REDIRECT URI: $uri")
 
             // apply the redirect and return Mono<Void>
             redirectStrategy.sendRedirect(
