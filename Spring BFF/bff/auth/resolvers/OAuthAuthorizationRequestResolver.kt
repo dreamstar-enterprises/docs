@@ -124,6 +124,10 @@ internal class OAuthAuthorizationRequestResolver(
 
         return exchange.session.map { session ->
 
+            // Log the session ID and current attributes
+            println("Session ID: ${session.id}")
+            println("Session Attributes before update: ${session.attributes}")
+
             // get and process the success URI
             val postLoginSuccessUri = headers.getFirst(loginProperties.POST_AUTHENTICATION_SUCCESS_URI_HEADER)
                 ?: params.getFirst(loginProperties.POST_AUTHENTICATION_SUCCESS_URI_PARAM)
@@ -131,7 +135,6 @@ internal class OAuthAuthorizationRequestResolver(
                     ?.let { URI.create(it) }
             postLoginSuccessUri?.let {
                 session.attributes[loginProperties.POST_AUTHENTICATION_SUCCESS_URI_SESSION_ATTRIBUTE] = it
-                println("SESSION SUCCESS ATTRIBUTE SET: ${session.attributes[loginProperties.POST_AUTHENTICATION_SUCCESS_URI_SESSION_ATTRIBUTE]}")
             }
 
             // get and process the failure URI
@@ -141,9 +144,12 @@ internal class OAuthAuthorizationRequestResolver(
                     ?.let { URI.create(it) }
             postLoginFailureUri?.let {
                 session.attributes[loginProperties.POST_AUTHENTICATION_FAILURE_URI_SESSION_ATTRIBUTE] = it
-                println("SESSION FAILURE ATTRIBUTE SET: ${session.attributes[loginProperties.POST_AUTHENTICATION_FAILURE_URI_SESSION_ATTRIBUTE]}")
             }
 
+            // Log the updated session attributes
+            println("Session Attributes after update: ${session.attributes}")
+
+            // Save session and return
             session
         }
     }
