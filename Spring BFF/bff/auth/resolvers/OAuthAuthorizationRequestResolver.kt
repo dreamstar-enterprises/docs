@@ -126,7 +126,10 @@ internal class OAuthAuthorizationRequestResolver(
 
             // Log the session ID and current attributes
             println("Session ID: ${session.id}")
-            println("Session Attributes before update: ${session.attributes}")
+            println("Session Attributes BEFORE update: ${session.attributes}")
+            session.attributes.entries.forEach { entry ->
+                println("Attribute: ${entry.key}, Value: ${entry.value}")
+            }
 
             // get and process the success URI
             val postLoginSuccessUri = headers.getFirst(loginProperties.POST_AUTHENTICATION_SUCCESS_URI_HEADER)
@@ -147,7 +150,10 @@ internal class OAuthAuthorizationRequestResolver(
             }
 
             // Log the updated session attributes
-            println("Session Attributes after update: ${session.attributes}")
+            println("Session Attributes AFTER update: ${session.attributes}")
+            session.attributes.entries.forEach { entry ->
+                println("Attribute: ${entry.key}, Value: ${entry.value}")
+            }
 
             // Save session and return
             session
