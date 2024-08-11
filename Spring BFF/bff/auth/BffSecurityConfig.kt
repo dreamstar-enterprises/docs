@@ -1,6 +1,5 @@
 package com.example.bff.auth
 
-//import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository
 import com.example.bff.auth.configurations.ClientConfigurationSupport
 import com.example.bff.auth.configurations.postprocessors.ClientAuthorizeExchangeSpecPostProcessor
 import com.example.bff.auth.configurations.postprocessors.ClientReactiveHttpSecurityPostProcessor
@@ -34,6 +33,8 @@ import org.springframework.security.web.server.csrf.ServerCsrfTokenRepository
 import org.springframework.security.web.server.util.matcher.OrServerWebExchangeMatcher
 import org.springframework.security.web.server.util.matcher.PathPatternParserServerWebExchangeMatcher
 import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatcher
+import org.springframework.session.data.redis.config.annotation.web.server.EnableRedisIndexedWebSession
+import org.springframework.session.data.redis.config.annotation.web.server.EnableRedisWebSession
 import org.springframework.web.util.UriComponentsBuilder
 import java.net.URI
 import java.util.*
@@ -45,7 +46,7 @@ import org.springframework.boot.autoconfigure.web.ServerProperties as NettyServe
 
 @Configuration
 @EnableWebFluxSecurity
-//@EnableRedisWebSession
+@EnableRedisIndexedWebSession
 @Order(Ordered.LOWEST_PRECEDENCE - 1)
 internal class BffSecurityConfig (
     private val serverProperties: ServerProperties,
@@ -134,7 +135,7 @@ internal class BffSecurityConfig (
         }
 
         // session management
-        // this is handled in the success handler, delegatingAuthenticationSuccessHandler
+        // this is also handled in the success handler, delegatingAuthenticationSuccessHandler
 
         // oauth2.0 client login
         http.oauth2Login { oauth2 ->
