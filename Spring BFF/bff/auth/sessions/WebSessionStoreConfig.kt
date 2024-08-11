@@ -1,20 +1,12 @@
 package com.example.bff.auth.sessions
 
-//import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.security.core.session.InMemoryReactiveSessionRegistry
-import org.springframework.session.*
+import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository
 import org.springframework.session.web.server.session.SpringSessionWebSessionStore
-import org.springframework.web.server.WebSession
 import org.springframework.web.server.session.CookieWebSessionIdResolver
 import org.springframework.web.server.session.DefaultWebSessionManager
-import org.springframework.web.server.session.InMemoryWebSessionStore
 import org.springframework.web.server.session.WebSessionManager
-import reactor.core.publisher.Mono
-import java.time.Instant
-import java.util.concurrent.ConcurrentHashMap
-import java.util.concurrent.ConcurrentMap
 
 /**********************************************************************************************************************/
 /************************************************** SESSION CONFIGURATION *********************************************/
@@ -27,31 +19,31 @@ import java.util.concurrent.ConcurrentMap
 @Configuration
 internal class WebSessionStoreConfig {
 
-    @Bean
-    fun reactiveSessionRepository(): ReactiveMapSessionRepository {
-        val sessionMap: MutableMap<String, MapSession> = ConcurrentHashMap()
-        @Suppress("UNCHECKED_CAST")
-        return ReactiveMapSessionRepository(sessionMap as MutableMap<String, Session>)
-    }
+//    @Bean
+//    fun reactiveSessionRepository(): ReactiveMapSessionRepository {
+//        val sessionMap: MutableMap<String, MapSession> = ConcurrentHashMap()
+//        @Suppress("UNCHECKED_CAST")
+//        return ReactiveMapSessionRepository(sessionMap as MutableMap<String, Session>)
+//    }
+
+//    @Bean(name = ["webSessionStore"])
+//    fun webSessionStore(
+//        reactiveSessionRepository: ReactiveMapSessionRepository
+//    ): SpringSessionWebSessionStore<MapSession> {
+//        return SpringSessionWebSessionStore(reactiveSessionRepository)
+//    }
 
     @Bean(name = ["webSessionStore"])
     fun webSessionStore(
-        reactiveSessionRepository: ReactiveMapSessionRepository
-    ): SpringSessionWebSessionStore<MapSession> {
-        return SpringSessionWebSessionStore(reactiveSessionRepository)
+        reactiveRedisIndexedSessionRepository: ReactiveRedisIndexedSessionRepository
+    ): SpringSessionWebSessionStore<ReactiveRedisIndexedSessionRepository.RedisSession> {
+        return SpringSessionWebSessionStore(reactiveRedisIndexedSessionRepository)
     }
-
-    //    @Bean(name = ["webSessionStore"])
-//    fun webSessionStore(
-//        reactiveRedisIndexedSessionRepository: ReactiveRedisIndexedSessionRepository
-//    ): SpringSessionWebSessionStore<ReactiveRedisIndexedSessionRepository.RedisSession> {
-//        return SpringSessionWebSessionStore(reactiveRedisIndexedSessionRepository)
-//    }
 
     @Bean(name = ["webSessionManager"])
     fun webSessionManager(
         cookieWebSessionIdResolver: CookieWebSessionIdResolver,
-        webSessionStore: SpringSessionWebSessionStore<MapSession>
+        webSessionStore: SpringSessionWebSessionStore<ReactiveRedisIndexedSessionRepository.RedisSession>
     ): WebSessionManager {
         val sessionManager = DefaultWebSessionManager()
         sessionManager.sessionStore = webSessionStore
@@ -60,7 +52,6 @@ internal class WebSessionStoreConfig {
     }
 
 }
-
 
 /**********************************************************************************************************************/
 /**************************************************** END OF KOTLIN ***************************************************/
