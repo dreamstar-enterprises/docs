@@ -1,15 +1,20 @@
 package com.example.bff.auth.sessions
 
+//import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.session.ReactiveMapSessionRepository
-import org.springframework.session.Session
-//import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository
+import org.springframework.security.core.session.InMemoryReactiveSessionRegistry
+import org.springframework.session.*
 import org.springframework.session.web.server.session.SpringSessionWebSessionStore
+import org.springframework.web.server.WebSession
 import org.springframework.web.server.session.CookieWebSessionIdResolver
 import org.springframework.web.server.session.DefaultWebSessionManager
 import org.springframework.web.server.session.InMemoryWebSessionStore
 import org.springframework.web.server.session.WebSessionManager
+import reactor.core.publisher.Mono
+import java.time.Instant
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.ConcurrentMap
 
 /**********************************************************************************************************************/
 /************************************************** SESSION CONFIGURATION *********************************************/
@@ -19,68 +24,43 @@ import org.springframework.web.server.session.WebSessionManager
 // https://docs.spring.io/spring-session/reference/web-session.html
 // https://docs.spring.io/spring-session/reference/web-session.html#websession-how
 
-//@Configuration
-//internal class WebSessionStoreConfig {
-//
-//    @Bean(name = ["webSessionStore"])
-//    fun webSessionStore(
-//        reactiveRedisIndexedSessionRepository: ReactiveRedisIndexedSessionRepository
-//    ): SpringSessionWebSessionStore<ReactiveRedisIndexedSessionRepository.RedisSession> {
-//        return SpringSessionWebSessionStore(reactiveRedisIndexedSessionRepository)
-//    }
-//
-//    @Bean(name = ["webSessionManager"])
-//    fun webSessionManager(
-//        cookieWebSessionIdResolver: CookieWebSessionIdResolver,
-//        webSessionStore: SpringSessionWebSessionStore<ReactiveRedisIndexedSessionRepository.RedisSession>
-//    ): WebSessionManager {
-//        val sessionManager = DefaultWebSessionManager()
-//        sessionManager.sessionStore = webSessionStore
-//        sessionManager.sessionIdResolver = cookieWebSessionIdResolver
-//        return sessionManager
-//    }
-//}
-
 @Configuration
 internal class WebSessionStoreConfig {
 
     @Bean
     fun reactiveSessionRepository(): ReactiveMapSessionRepository {
-        // Use an in-memory map to store sessions
-        return ReactiveMapSessionRepository(mutableMapOf())
+        val sessionMap: MutableMap<String, MapSession> = ConcurrentHashMap()
+        @Suppress("UNCHECKED_CAST")
+        return ReactiveMapSessionRepository(sessionMap as MutableMap<String, Session>)
     }
 
     @Bean(name = ["webSessionStore"])
     fun webSessionStore(
-        sessionRepository: ReactiveMapSessionRepository
-    ): SpringSessionWebSessionStore<out Session> {
-        return SpringSessionWebSessionStore(sessionRepository)
+        reactiveSessionRepository: ReactiveMapSessionRepository
+    ): SpringSessionWebSessionStore<MapSession> {
+        return SpringSessionWebSessionStore(reactiveSessionRepository)
     }
 
-//    @Bean(name = ["webSessionStore"])
-//    fun webSessionStore(): InMemoryWebSessionStore {
-//        // Create and return an in-memory session store
-//        return InMemoryWebSessionStore()
+    //    @Bean(name = ["webSessionStore"])
+//    fun webSessionStore(
+//        reactiveRedisIndexedSessionRepository: ReactiveRedisIndexedSessionRepository
+//    ): SpringSessionWebSessionStore<ReactiveRedisIndexedSessionRepository.RedisSession> {
+//        return SpringSessionWebSessionStore(reactiveRedisIndexedSessionRepository)
 //    }
 
-//    @Bean(name = ["webSessionManager"])
-//    fun webSessionManager(
-//        cookieWebSessionIdResolver: CookieWebSessionIdResolver,
-//        webSessionStore: SpringSessionWebSessionStore<out Session>
-//    ): WebSessionManager {
-//        val sessionManager = DefaultWebSessionManager()
-//        sessionManager.sessionStore = webSessionStore
-//        sessionManager.sessionIdResolver = cookieWebSessionIdResolver
-//        return sessionManager
-//    }
-
-    @Bean
-    fun webSessionManager(): WebSessionManager {
+    @Bean(name = ["webSessionManager"])
+    fun webSessionManager(
+        cookieWebSessionIdResolver: CookieWebSessionIdResolver,
+        webSessionStore: SpringSessionWebSessionStore<MapSession>
+    ): WebSessionManager {
         val sessionManager = DefaultWebSessionManager()
-        sessionManager.sessionIdResolver = CookieWebSessionIdResolver()
+        sessionManager.sessionStore = webSessionStore
+        sessionManager.sessionIdResolver = cookieWebSessionIdResolver
         return sessionManager
     }
+
 }
+
 
 /**********************************************************************************************************************/
 /**************************************************** END OF KOTLIN ***************************************************/
