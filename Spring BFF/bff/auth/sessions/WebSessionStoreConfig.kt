@@ -3,6 +3,7 @@ package com.example.bff.auth.sessions
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository
+import org.springframework.session.data.redis.ReactiveRedisIndexedSessionRepository.RedisSession
 import org.springframework.session.web.server.session.SpringSessionWebSessionStore
 import org.springframework.web.server.session.CookieWebSessionIdResolver
 import org.springframework.web.server.session.DefaultWebSessionManager
@@ -36,14 +37,14 @@ internal class WebSessionStoreConfig {
     @Bean(name = ["webSessionStore"])
     fun webSessionStore(
         reactiveRedisIndexedSessionRepository: ReactiveRedisIndexedSessionRepository
-    ): SpringSessionWebSessionStore<ReactiveRedisIndexedSessionRepository.RedisSession> {
+    ): SpringSessionWebSessionStore<RedisSession> {
         return SpringSessionWebSessionStore(reactiveRedisIndexedSessionRepository)
     }
 
     @Bean(name = ["webSessionManager"])
     fun webSessionManager(
         cookieWebSessionIdResolver: CookieWebSessionIdResolver,
-        webSessionStore: SpringSessionWebSessionStore<ReactiveRedisIndexedSessionRepository.RedisSession>
+        webSessionStore: SpringSessionWebSessionStore<RedisSession>
     ): WebSessionManager {
         val sessionManager = DefaultWebSessionManager()
         sessionManager.sessionStore = webSessionStore

@@ -1,5 +1,7 @@
 package com.example.bff.auth.redis
 
+import com.example.bff.props.SpringDataProperties
+import com.example.bff.props.SpringSessionProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.domain.Range
@@ -19,10 +21,12 @@ import java.time.Instant
 /**********************************************************************************************************************/
 
 // more here:
-// https://docs.spring.io/spring-session/reference/configuration/reactive-redis-indexed.html
+// https://docs.spring.io/spring-session/reference/configuration/reactive-redis-indexed.html#how-spring-session-cleans-up-expired-sessions
 
 @Configuration
-internal class RedisCleanUpConfig {
+internal class RedisCleanUpConfig (
+    private val springSessionProperties: SpringSessionProperties,
+){
 
     @Bean
     // configuring Redis to Send Keyspace Events
@@ -35,7 +39,7 @@ internal class RedisCleanUpConfig {
     fun reactiveSessionRepositoryCustomizer(): ReactiveSessionRepositoryCustomizer<ReactiveRedisIndexedSessionRepository> {
         return ReactiveSessionRepositoryCustomizer { sessionRepository: ReactiveRedisIndexedSessionRepository ->
             sessionRepository.setCleanupInterval(
-                Duration.ofSeconds(30)
+                springSessionProperties.redis?.sessionCleanUpFrequency?.let { Duration.ofSeconds(it) }
             )
         }
     }
