@@ -1,5 +1,6 @@
 package com.example.bff.auth.repositories.securitycontext
 
+import com.example.bff.auth.BffSecurityIgnoreConfig
 import com.example.bff.auth.serialisers.RedisSerialiserConfig
 import com.example.bff.props.SpringSessionProperties
 import com.fasterxml.jackson.core.type.TypeReference
@@ -21,7 +22,8 @@ import reactor.core.publisher.Mono
 internal class RedisSecurityContextRepository(
     private val redisTemplate: ReactiveRedisTemplate<String, Any>,
     springSessionProperties: SpringSessionProperties,
-    private val redisSerialiserConfig: RedisSerialiserConfig
+    private val redisSerialiserConfig: RedisSerialiserConfig,
+    private val uriEndPointFilter: BffSecurityIgnoreConfig
 ) : ServerSecurityContextRepository {
 
     private val redisKeyPrefix = springSessionProperties.redis?.securityContextNameSpace
@@ -41,9 +43,6 @@ internal class RedisSecurityContextRepository(
                 object : TypeReference<Map<String, Any?>>() {}
             )
 
-            println("Security Context: $context")
-            println("Fields Map: $fieldsMap")
-
             hashOperations.putAll(redisKey, fieldsMap).doOnSuccess {
                 println("Successfully saved security cotext to Redis")
             }.doOnError { e ->
@@ -55,17 +54,26 @@ internal class RedisSecurityContextRepository(
     override fun load(
         exchange: ServerWebExchange
     ): Mono<SecurityContext> {
+        val requestPath = exchange.request.uri.path
+
+        // skip processing for static resources
+        if (uriEndPointFilter.shouldSkipSecurityContextLoading(requestPath)) {
+            println("Skipping security context loading for static resource: $requestPath")
+            return Mono.empty()
+        }
+
         return constructRedisKey(exchange).flatMap { redisKey ->
-            println("LOADING AUTHORIZATION REQUEST")
+            println("LOADING SECURITY CONTEXT")
             println("Redis Key: $redisKey")
+            println("REQUEST PATH: $requestPath")
 
             redisTemplate.opsForHash<String, Any>().entries(redisKey)
                 .doOnNext { entries ->
-                    println("Redis Entries: $entries")
+                    //
                 }
                 .collectMap({ it.key as String }, { it.value })
                 .doOnSuccess { map ->
-                    println("Loaded Map from Redis: $map")
+                    println("Loaded Map from Redis")
                 }
                 .mapNotNull { map ->
                     if (map.isEmpty()) {
