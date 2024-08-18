@@ -6,7 +6,9 @@ import com.example.bff.auth.configurations.postprocessors.ClientReactiveHttpSecu
 import com.example.bff.auth.cors.CORSConfig
 import com.example.bff.auth.csrf.CsrfProtectionMatcher
 import com.example.bff.auth.filters.csrf.CsrfWebCookieFilter
+import com.example.bff.auth.handlers.AuthenticationHandler
 import com.example.bff.auth.handlers.DelegatingAuthenticationSuccessHandler
+import com.example.bff.auth.handlers.StaticResourceBypassFilter
 import com.example.bff.auth.handlers.csrf.SPACsrfTokenRequestHandler
 import com.example.bff.auth.handlers.oauth2.OAuth2ServerAuthenticationFailureHandler
 import com.example.bff.auth.handlers.oauth2.OAuth2ServerLogoutSuccessHandler
@@ -24,8 +26,6 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
-import org.springframework.security.config.annotation.web.builders.WebSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder
 import org.springframework.security.config.web.server.ServerHttpSecurity
@@ -34,9 +34,11 @@ import org.springframework.security.core.session.ReactiveSessionRegistry
 import org.springframework.security.oauth2.client.registration.ReactiveClientRegistrationRepository
 import org.springframework.security.oauth2.client.web.server.ServerOAuth2AuthorizationRequestResolver
 import org.springframework.security.web.server.SecurityWebFilterChain
+import org.springframework.security.web.server.ServerAuthenticationEntryPoint
 import org.springframework.security.web.server.authentication.RedirectServerAuthenticationEntryPoint
 import org.springframework.security.web.server.authentication.logout.ServerLogoutHandler
 import org.springframework.security.web.server.csrf.ServerCsrfTokenRepository
+import org.springframework.security.web.server.savedrequest.NoOpServerRequestCache
 import org.springframework.security.web.server.util.matcher.OrServerWebExchangeMatcher
 import org.springframework.security.web.server.util.matcher.PathPatternParserServerWebExchangeMatcher
 import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatcher
@@ -59,18 +61,10 @@ internal class BffSecurityConfig (
 ) {
 
     @Bean
-    fun webSecurityCustomizer(): WebSecurityCustomizer {
-        return WebSecurityCustomizer { web: WebSecurity ->
-            web.debug(false)
-                .ignoring()
-                .requestMatchers("/favicon.ico")
-        }
-    }
-
-    @Bean
     fun clientSecurityFilterChain(
         http: ServerHttpSecurity,
         nettyServerProperties: NettyServerProperties,
+        staticResourceBypassFilter: StaticResourceBypassFilter,
 
         loginProperties: LoginProperties,
 
@@ -105,14 +99,15 @@ internal class BffSecurityConfig (
         logoutSuccessHandler: OAuth2ServerLogoutSuccessHandler,
         backChannelLogoutProperties: BackChannelLogoutProperties,
 
+        authenticationHandler: ServerAuthenticationEntryPoint,
         authorizePostProcessor: ClientAuthorizeExchangeSpecPostProcessor,
         httpPostProcessor: ClientReactiveHttpSecurityPostProcessor,
     ): SecurityWebFilterChain {
 
-        // initialise logger
+        /* initialise logger */
         val log = LoggerFactory.getLogger(SecurityWebFilterChain::class.java)
 
-        // apply security matchers to this filter chain
+        /* apply security matchers to this filter chain */
         val clientRoutes: List<ServerWebExchangeMatcher> = authenticationProperties
             .securityMatchers
             .map { PathPatternParserServerWebExchangeMatcher(it) }
@@ -122,7 +117,7 @@ internal class BffSecurityConfig (
         )
         http.securityMatcher(OrServerWebExchangeMatcher(clientRoutes))
 
-        // unauthenticated exception handler
+        /* unauthenticated exception handler */
         loginProperties.LOGIN_URL.let { loginPath ->
             http.exceptionHandling { exceptionHandling ->
                 exceptionHandling.authenticationEntryPoint(
@@ -135,29 +130,32 @@ internal class BffSecurityConfig (
             }
         }
 
-        // enable csrf
+        /* enable csrf */
         http.csrf { csrf ->
             csrf.csrfTokenRepository(serverCsrfTokenRepository)
             csrf.csrfTokenRequestHandler(spaCsrfTokenRequestHandler)
             csrf.requireCsrfProtectionMatcher(csrfProtectionMatcher)
         }
 
-        // configure cors
+        /* configure cors */
         http.cors { cors ->
             cors.configurationSource(
                 corsConfig.corsConfigurationSource()
             )
         }
 
-        // configure request cache
+        /* configure request cache */
         http.requestCache { cache ->
             cache.requestCache(reactiveRequestCache)
         }
 
-        // session management
-        // this is also handled in the success handler, delegatingAuthenticationSuccessHandler
+        /* security context */
+        http.securityContextRepository(redisSecurityContextRepository)
 
-        // oauth2.0 client login
+        /* session management */
+        // this is also handled in the success handler, customConcurrentSessionControlSuccessHandler
+
+        /* oauth2.0 client login */
         http.oauth2Login { oauth2 ->
             oauth2.authorizationRequestResolver(oauthAuthorizationRequestResolver)
             oauth2.authorizationRequestRepository(redisAuthorizationRequestRepository)
@@ -172,10 +170,10 @@ internal class BffSecurityConfig (
             oauth2.authorizedClientService(redisReactiveOAuth2AuthorizedClientService)
         }
 
-        // oauth2.0 client
+        /* oauth2.0 client */
         http.oauth2Client {}
 
-        // logout configuration (with relying-party initiated logout)
+        /* logout configuration (with relying-party initiated logout) */
         http.logout { logout: LogoutSpec ->
             logoutHandler.ifPresent { handler: ServerLogoutHandler ->
                 logout.logoutHandler(handler)
@@ -183,7 +181,7 @@ internal class BffSecurityConfig (
             logout.logoutSuccessHandler(logoutSuccessHandler)
         }
 
-        // oidc backchannel logout configuration
+        /* oidc backchannel logout configuration */
         // automatically creates: /logout/connect/back-channel/{registrationId}
         if(backChannelLogoutProperties.enabled) {
             http.oidcLogout { logout ->
@@ -197,11 +195,19 @@ internal class BffSecurityConfig (
             }
         }
 
-        // other filters
+        /* other filters */
         // apply csrf filter after the logout handler
         http.addFilterAfter(csrfCookieWebFilter, SecurityWebFiltersOrder.LOGOUT)
+        // by-pass static resources
+        http.addFilterBefore(staticResourceBypassFilter, SecurityWebFiltersOrder.REACTOR_CONTEXT)
 
-        // apply additional configuraitons
+        /* exception handler */
+        // response for when user is not authenticated
+        http.exceptionHandling { exceptions ->
+            exceptions.authenticationEntryPoint(authenticationHandler)
+        }
+
+        /* apply additional configuraitons */
         ClientConfigurationSupport.configureClient(
             http,
             nettyServerProperties,
