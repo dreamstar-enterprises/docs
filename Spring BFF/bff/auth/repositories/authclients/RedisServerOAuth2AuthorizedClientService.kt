@@ -36,11 +36,11 @@ internal class RedisReactiveOAuth2AuthorizedClientService(
 
             redisTemplate.opsForHash<String, Any>().entries(redisKey)
                 .doOnNext { entries ->
-                    println("Redis Entries: $entries")
+                    //
                 }
                 .collectMap({ it.key as String }, { it.value })
                 .doOnSuccess { map ->
-                    println("Loaded Map from Redis: $map")
+                    println("Loaded Map from Redis")
                 }
                 .mapNotNull { map ->
                     if (map.isEmpty()) {
@@ -81,11 +81,6 @@ internal class RedisReactiveOAuth2AuthorizedClientService(
                 object : TypeReference<Map<String, Any?>>() {}
             )
 
-            println("Authorized Client: $authorizedClient")
-
-            // log the original fields map
-            println("Original Fields Map: $fieldsMap")
-
             // remove the clientSecret from the fieldsMap if present
             @Suppress("UNCHECKED_CAST")
             (fieldsMap["clientRegistration"] as? MutableMap<String, Any?>)?.apply {
@@ -96,9 +91,6 @@ internal class RedisReactiveOAuth2AuthorizedClientService(
                     println("No client secret found in clientRegistration map.")
                 }
             }
-
-            // log the modified fields map
-            println("Modified Fields Map: $fieldsMap")
 
             redisTemplate.opsForHash<String, Any>().putAll(redisKey, fieldsMap)
                 .doOnSuccess {

@@ -31,19 +31,19 @@ internal class RedisServerOAuth2AuthorizedClientRepository(
         clientRegistrationId: String,
         principal: Authentication,
         exchange: ServerWebExchange
-    ): Mono<T> {
+    ): Mono<T?> {
 
-        return constructRedisKey(exchange).flatMap { redisKey ->
+        return constructRedisKey(clientRegistrationId, principal.name).flatMap { redisKey ->
             println("LOADING AUTHORIZED CLIENT - REPOSITORY")
             println("Redis Key: $redisKey")
 
             redisTemplate.opsForHash<String, Any>().entries(redisKey)
                 .doOnNext { entries ->
-                    println("Redis Entries: $entries")
+                    //
                 }
                 .collectMap({ it.key as String }, { it.value })
                 .doOnSuccess { map ->
-                    println("Loaded Map from Redis: $map")
+                    println("Loaded Map from Redis")
                 }
                 .mapNotNull { map ->
                     if (map.isEmpty()) {
@@ -73,7 +73,10 @@ internal class RedisServerOAuth2AuthorizedClientRepository(
         principal: Authentication,
         exchange: ServerWebExchange
     ): Mono<Void> {
-        return constructRedisKey(exchange).flatMap { redisKey ->
+
+        val clientRegistrationId = authorizedClient.clientRegistration.registrationId
+
+        return constructRedisKey(clientRegistrationId, principal.name).flatMap { redisKey ->
             println("SAVING AUTHORIZED CLIENT - REPOSITORY")
             println("Redis Key: $redisKey")
 
@@ -82,11 +85,6 @@ internal class RedisServerOAuth2AuthorizedClientRepository(
                 authorizedClient,
                 object : TypeReference<Map<String, Any?>>() {}
             )
-
-            println("Authorized Client: $authorizedClient")
-
-            // log the original fields map
-            println("Original Fields Map: $fieldsMap")
 
             // remove the clientSecret from the fieldsMap if present
             @Suppress("UNCHECKED_CAST")
@@ -99,14 +97,14 @@ internal class RedisServerOAuth2AuthorizedClientRepository(
                 }
             }
 
-            // log the modified fields map
-            println("Modified Fields Map: $fieldsMap")
-
-            hashOperations.putAll(redisKey, fieldsMap).doOnSuccess {
-                println("Successfully saved authorized client to Redis")
-            }.doOnError { e ->
-                println("Error saving authorized client to Redis: ${e.message}")
-            }.then()
+            hashOperations.putAll(redisKey, fieldsMap)
+                .doOnSuccess {
+                    println("Successfully saved authorized client to Redis")
+                }
+                .doOnError { e ->
+                    println("Error saving authorized client to Redis: ${e.message}")
+                }
+                .then()
         }
     }
 
@@ -115,25 +113,25 @@ internal class RedisServerOAuth2AuthorizedClientRepository(
         principal: Authentication,
         exchange: ServerWebExchange
     ): Mono<Void> {
-        return constructRedisKey(exchange).flatMap { redisKey ->
+
+        return constructRedisKey(clientRegistrationId, principal.name).flatMap { redisKey ->
             println("REMOVING AUTHORIZED CLIENT - REPOSITORY")
             println("Redis Key: $redisKey")
 
-            redisTemplate.opsForHash<String, Any>().delete(redisKey)
-                .doOnSuccess {
-                    println("Successfully removed authorized client from Redis")
-                }
-                .doOnError { e ->
-                    println("Error removing authorized client from Redis: ${e.message}")
-                }
-        }.then()
+         redisTemplate.opsForHash<String, Any>().delete(redisKey)
+            .doOnSuccess {
+                println("Successfully removed authorized client from Redis")
+            }
+            .doOnError { e ->
+                println("Error removing authorized client from Redis: ${e.message}")
+            }
+            .then()
+            }
     }
 
     // Helper method to construct the Redis key using a unique identifier from the exchange
-    private fun constructRedisKey(exchange: ServerWebExchange): Mono<String> {
-        return exchange.session
-            .map { it.id }
-            .map { "$redisKeyPrefix:$it" }
+    private fun constructRedisKey(clientRegistrationId: String, principalName: String): Mono<String> {
+        return Mono.just("$redisKeyPrefix:$clientRegistrationId:$principalName")
     }
 
 }
