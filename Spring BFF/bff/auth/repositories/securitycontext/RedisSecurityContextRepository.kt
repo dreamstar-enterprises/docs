@@ -4,6 +4,7 @@ import com.example.bff.auth.BffSecurityIgnoreConfig
 import com.example.bff.auth.serialisers.RedisSerialiserConfig
 import com.example.bff.props.SpringSessionProperties
 import com.fasterxml.jackson.core.type.TypeReference
+import org.slf4j.LoggerFactory
 import org.springframework.data.redis.core.ReactiveRedisTemplate
 import org.springframework.security.core.context.SecurityContext
 import org.springframework.security.web.server.context.ServerSecurityContextRepository
@@ -20,90 +21,69 @@ import reactor.core.publisher.Mono
  */
 @Repository
 internal class RedisSecurityContextRepository(
-    private val redisTemplate: ReactiveRedisTemplate<String, Any>,
-    springSessionProperties: SpringSessionProperties,
-    private val redisSerialiserConfig: RedisSerialiserConfig,
-    private val uriEndPointFilter: BffSecurityIgnoreConfig
+    private val uriEndPointFilter: BffSecurityIgnoreConfig,
+    private val redisSerialiserConfig: RedisSerialiserConfig
 ) : ServerSecurityContextRepository {
 
-    private val redisKeyPrefix = springSessionProperties.redis?.securityContextNameSpace
+    private val logger = LoggerFactory.getLogger(RedisSecurityContextRepository::class.java)
+
+    // default session attribute name to save and load the SecurityContext
+    private var springSecurityContextAttrName = "SPRING_SECURITY_CONTEXT"
+
+    // flag to cache the SecurityContext to avoid multiple lookups
+    private var cacheSecurityContext: Boolean = true
+
+    fun setCacheSecurityContext(cache: Boolean) {
+        this.cacheSecurityContext = cache
+    }
 
     override fun save(
         exchange: ServerWebExchange,
-        context: SecurityContext
+        context: SecurityContext?
     ): Mono<Void> {
-
-        return constructRedisKey(exchange).flatMap { redisKey ->
-            println("SAVING SECURITY CONTEXT")
-            println("Redis Key: $redisKey")
-
-            val hashOperations = redisTemplate.opsForHash<String, Any>()
-            val fieldsMap = redisSerialiserConfig.redisObjectMapper().convertValue(
-                context,
-                object : TypeReference<Map<String, Any?>>() {}
-            )
-
-            hashOperations.putAll(redisKey, fieldsMap).doOnSuccess {
-                println("Successfully saved security cotext to Redis")
-            }.doOnError { e ->
-                println("Error saving security context to Redis: ${e.message}")
-            }.then()
-        }
+        return exchange.session
+            .doOnNext { session ->
+                println("SAVING SECURITY CONTEXT")
+                if (context == null) {
+                    session.attributes.remove(springSecurityContextAttrName)
+                    logger.info("Removed SecurityContext from WebSession: $session")
+                } else {
+                    session.attributes[springSecurityContextAttrName] = context
+                    logger.info("Saved SecurityContext $context in WebSession: $session")
+                }
+            }
+            .flatMap { session -> session.changeSessionId() }
     }
 
-    override fun load(
-        exchange: ServerWebExchange
-    ): Mono<SecurityContext> {
+    override fun load(exchange: ServerWebExchange): Mono<SecurityContext> {
         val requestPath = exchange.request.uri.path
-
         // skip processing for static resources
         if (uriEndPointFilter.shouldSkipSecurityContextLoading(requestPath)) {
             println("Skipping security context loading for static resource: $requestPath")
             return Mono.empty()
         }
 
-        return constructRedisKey(exchange).flatMap { redisKey ->
+        return exchange.session.flatMap { session ->
             println("LOADING SECURITY CONTEXT")
-            println("Redis Key: $redisKey")
-            println("REQUEST PATH: $requestPath")
-
-            redisTemplate.opsForHash<String, Any>().entries(redisKey)
-                .doOnNext { entries ->
-                    //
+            println("FOR REQUEST PATH: $requestPath")
+            val contextAttr = session.getAttribute<Map<String, Any>>(springSecurityContextAttrName)
+            if (contextAttr != null) {
+                // Deserialize from Map to SecurityContext
+                val map = contextAttr as? Map<String, Any>
+                try {
+                    val securityContext = redisSerialiserConfig.redisObjectMapper()
+                        .convertValue(map, SecurityContext::class.java)
+                    logger.info("Successfully deserialized SecurityContext: $securityContext")
+                    return@flatMap Mono.just(securityContext)
+                } catch (e: Exception) {
+                    logger.error("Error deserializing SecurityContext: ${e.message}", e)
                 }
-                .collectMap({ it.key as String }, { it.value })
-                .doOnSuccess { map ->
-                    println("Loaded Map from Redis")
-                }
-                .mapNotNull { map ->
-                    if (map.isEmpty()) {
-                        println("Loaded map is empty, returning null")
-                        null
-                    } else {
-                        try {
-                            val securityContext = redisSerialiserConfig
-                                .redisObjectMapper()
-                                .convertValue(map, SecurityContext::class.java)
-                            println("Deserialized SecurityContext: $securityContext")
-                            securityContext
-                        } catch (e: Exception) {
-                            println("Error deserializing SecurityContext: ${e.message}")
-                            null
-                        }
-                    }
-                }
-                .doOnError { e ->
-                    println("Error loading security context: ${e.message}")
-                }
-        }
+            }
+            logger.info("No SecurityContext found in WebSession: $session")
+            Mono.empty()
+        }.let { if (cacheSecurityContext) it.cache() else it }
     }
 
-    // Helper method to construct the Redis key using a unique identifier from the exchange
-    private fun constructRedisKey(exchange: ServerWebExchange): Mono<String> {
-        return exchange.session
-            .map { it.id }
-            .map { "$redisKeyPrefix:$it" }
-    }
 }
 
 /**********************************************************************************************************************/
