@@ -1,0 +1,123 @@
+# Custom properties to ease configuration overrides
+# on command-line or IDE launch configurations
+# more here:
+# https://github.com/eugenp/tutorials/blob/master/spring-security-modules/spring-security-oauth2-bff/backend/reverse-proxy/src/main/resources/application.yml
+
+#**********************************************************************************************************************#
+#***************************************************** VARIABLES ******************************************************#
+#**********************************************************************************************************************#
+
+# server settings
+scheme: http
+hostname: localhost
+
+#reverse proxy
+reverse-proxy-port: 7080
+
+# bff server
+bff-port: 9090
+bff-prefix: /bff
+bff-server-uri: ${scheme}://${hostname}:${bff-port}
+
+# angular ui server
+angular-port: 4200
+angular-prefix: /angular-ui
+# update scheme if you enable SSL in angular.json
+angular-server-uri: ${scheme}://${hostname}:${angular-port}${angular-prefix}
+
+#**********************************************************************************************************************#
+#************************************************** SPRING SETTINGS ***************************************************#
+#**********************************************************************************************************************#
+
+## spring settings
+spring:
+  # profile settings
+  profiles:
+    active: ssl
+  # cloud gateway settings
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      routes:
+        # SPAs assets
+        - id: angular-ui
+          uri: ${angular-server-uri}
+          predicates:
+            - Path=${angular-prefix}/**
+
+        # BFF-server
+        - id: bff
+          uri: ${bff-server-uri}
+          predicates:
+            - Path=${bff-prefix}/**
+          filters:
+            - StripPrefix=1
+
+#**********************************************************************************************************************#
+#************************************************** SERVER SETTINGS ***************************************************#
+#**********************************************************************************************************************#
+
+# current server settings
+server:
+  port: ${reverse-proxy-port}
+  ssl:
+    enabled: false
+
+#**********************************************************************************************************************#
+#************************************************* PROFILE SETTINGS ***************************************************#
+#**********************************************************************************************************************#
+
+# spring profile settings
+---
+spring:
+  config:
+    activate:
+      on-profile: ssl
+server:
+  ssl:
+    enabled: false
+#    key-store: classpath:proxyapp-keystore.p12
+#    key-store-password: tASH@Lc;5db{9q`z/64mCkX&]D~naUx=!B(>ZJT}
+#    key-store-type: PKCS12
+#    key-alias: proxyapp
+scheme: http
+
+#**********************************************************************************************************************#
+#*********************************************** MANAGEMENT SETTINGS **************************************************#
+#**********************************************************************************************************************#
+
+# endpoint settings
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+#**********************************************************************************************************************#
+#************************************************ LOGGING SETTINGS ****************************************************#
+#**********************************************************************************************************************#
+
+# logging configurations
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        boot: INFO
+        web: INFO
+        cloud:
+          gateway: DEBUG
+
+#**********************************************************************************************************************#
+#************************************************** END OF YAML *******************************************************#
+#**********************************************************************************************************************#
