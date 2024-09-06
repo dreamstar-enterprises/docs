@@ -1,0 +1,137 @@
+# Custom properties to ease configuration overrides
+# on command-line or IDE launch configurations
+# more here:
+# https://github.com/eugenp/tutorials/blob/master/spring-security-modules/spring-security-oauth2-bff/backend/bff/src/main/resources/application.yml
+
+#**********************************************************************************************************************#
+#***************************************************** VARIABLES ******************************************************#
+#**********************************************************************************************************************#
+
+dse-servers:
+  # server settings
+  scheme: ${SCHEME}
+  hostname: ${HOST}
+
+  # reverse proxy server
+  reverse-proxy-host: ${REVERSE_PROXY_HOST}
+  reverse-proxy-port: ${REVERSE_PROXY_PORT}
+
+  # bff server
+  bff-server-port: ${BFF_SERVER_PORT}
+  bff-server-prefix: ${BFF_SERVER_PREFIX}
+
+  # resource server
+  resource-server-port: ${RESOURCE_SERVER_PORT}
+  resource-server-prefix: ${RESOURCE_SERVER_PREFIX}
+
+  # auth-0 authorization server
+  auth0-auth-registration-id: ${AUTH0_SERVER_REG_ID}
+  auth0-issuer-uri: ${AUTH0_SERVER_ISSUER_URI}
+
+  # in-house authorization server
+  in-house-auth-server-prefix: ${IN_HOUSE_AUTH_SERVER_PREFIX}
+  in-house-auth-registration-id: ${IN_HOUSE_AUTH_SERVER_REG_ID}
+
+#**********************************************************************************************************************#
+#************************************************** SPRING SETTINGS ***************************************************#
+#**********************************************************************************************************************#
+
+# default spring settings
+spring:
+  # application settings
+  application:
+    name: BFFApplication
+  # profile settings
+  profiles:
+    active: dev
+  # lifecycle settings
+  lifecycle:
+    timeout-per-shutdown-phase: ${TIMEOUT_SHUTDOWN}
+  # main settings
+  main:
+    allow-bean-definition-overriding: true
+  # session redis configurations
+  session:
+    redis:
+      namespace: ${REDIS_NAMESPACE}
+      repository-type: indexed
+      flush-mode: on-save
+      expired-sessions-namespace: ${REDIS_EXPIRED_SESSIONS_NAMESPACE}
+    timeout: ${TIMEOUT_SESSION}
+  # data configurations
+  data:
+    # azure redis cache settings
+    redis:
+      host: ${REDIS_HOST}
+      password: ${REDIS_PASSWORD}
+      port: ${REDIS_PORT}
+  # security configurations
+  security:
+    oauth2:
+      client:
+        registration:
+          # oauth2.0 client registrations - (for auth0 auth server)
+          auth0:
+            client-id: ${AUTH0_SERVER_CLIENT_ID}
+            client-secret: ${AUTH0_SERVER_CLIENT_SECRET}
+          # oauth2.0 client registrations - (for in-house auth server)
+          in-house-auth:
+            client-id: ${IN_HOUSE_AUTH_SERVER_CLIENT_ID}
+            client-secret: ${IN_HOUSE_AUTH_SERVER_CLIENT_SECRET}
+
+#**********************************************************************************************************************#
+#************************************************** SERVER SETTINGS ***************************************************#
+#**********************************************************************************************************************#
+
+# default server settings
+server:
+  address: ${LOCALHOST}
+  port: ${BFF_SERVER_PORT}
+  ssl:
+    enabled: false
+  reactive:
+    session:
+      timeout: ${TIMEOUT_SESSION}
+
+#**********************************************************************************************************************#
+#*********************************************** MANAGEMENT SETTINGS **************************************************#
+#**********************************************************************************************************************#
+
+# endpoint settings
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+#**********************************************************************************************************************#
+#************************************************ LOGGING SETTINGS ****************************************************#
+#**********************************************************************************************************************#
+
+# logging configurations
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        boot: INFO
+        security:
+          root: TRACE
+          oauth2: DEBUG
+        web: INFO
+    io:
+      lettuce:
+        core: INFO
+
+#**********************************************************************************************************************#
+#************************************************** END OF YAML *******************************************************#
+#**********************************************************************************************************************#
