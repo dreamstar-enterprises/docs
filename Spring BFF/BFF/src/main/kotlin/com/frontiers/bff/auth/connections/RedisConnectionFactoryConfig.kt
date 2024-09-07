@@ -19,6 +19,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory
+import org.springframework.data.redis.connection.RedisConnectionFactory
 import org.springframework.data.redis.connection.RedisPassword
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
@@ -46,6 +47,7 @@ internal class RedisConnectionFactoryConfig(
     private val springDataProperties: SpringDataProperties
 ) {
 
+    // reactive RedisConnectionFactory for key expiration event handling
     @Bean
     @Primary
     fun reactiveRedisConnectionFactory(): ReactiveRedisConnectionFactory {
@@ -162,6 +164,18 @@ internal class RedisConnectionFactoryConfig(
             validateConnection = false
             setShareNativeConnection(true)
         }
+    }
+
+    // non-reactive RedisConnectionFactory for key expiration event handling
+    @Bean
+    fun redisConnectionFactory(): RedisConnectionFactory {
+        val config = RedisStandaloneConfiguration()
+        config.hostName = springDataProperties.redis.host
+        config.port = springDataProperties.redis.port
+        config.setPassword(RedisPassword.of(springDataProperties.redis.password))
+
+        // create Lettuce connection factory
+        return LettuceConnectionFactory(config)
     }
 
 }
