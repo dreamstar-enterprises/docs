@@ -6,7 +6,10 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.domain.Range
 import org.springframework.data.redis.connection.Limit
+import org.springframework.data.redis.connection.ReactiveRedisConnection
+import org.springframework.data.redis.connection.ReturnType
 import org.springframework.data.redis.core.ReactiveRedisOperations
+import org.springframework.data.redis.core.script.RedisScript
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.session.config.ReactiveSessionRepositoryCustomizer
@@ -63,10 +66,15 @@ internal class SessionEvicter(
     springSessionProperties: SpringSessionProperties,
 ) {
 
-    private val logger = LoggerFactory.getLogger(SessionEvicter::class.java)
-
     private val redisKeyLocation = springSessionProperties.redis?.expiredSessionsNamespace
         ?: "spring:session:sessions:expirations"
+
+    companion object {
+        private const val duration : Long = 120
+        private const val LOCK_KEY = "session-cleanup-lock"
+        private val LOCK_EXPIRY: Duration = Duration.ofSeconds(duration)
+        private val logger = LoggerFactory.getLogger(SessionEvicter::class.java)
+    }
 
     data class CleanupContext(
         val now: Instant,
@@ -76,8 +84,70 @@ internal class SessionEvicter(
     )
 
     // run every 120 seconds
-    @Scheduled(fixedRate = 120, timeUnit = TimeUnit.SECONDS)
-    fun cleanup(): Mono<Void> {
+    @Scheduled(fixedRate = duration, timeUnit = TimeUnit.SECONDS)
+    fun cleanup() {
+        val lockValue = UUID.randomUUID().toString()
+
+        acquireLock(lockValue)
+            .flatMap { acquired ->
+                if (acquired) {
+                    // Lock acquired, perform the cleanup task
+                    performCleanup()
+                        // release lock 10s before duration time
+                        .then(Mono.delay(Duration.ofSeconds(duration - 10)))
+                        .then(releaseLock(lockValue))
+                        .onErrorResume { e ->
+                            // Handle errors here
+                            logger.error("Error during cleanup or lock release", e)
+                            Mono.empty()
+                        }
+                } else {
+                    // Lock not acquired, skip cleanup
+                    Mono.empty()
+                }
+            }
+            .onErrorResume { e ->
+                // Handle errors here
+                logger.error("Error during lock acquisition or cleanup", e)
+                Mono.empty()
+            }
+            .subscribe()
+    }
+
+    private fun acquireLock(lockValue: String): Mono<Boolean> {
+        val script = """
+            return redis.call('set', KEYS[1], ARGV[1], 'NX', 'EX', ARGV[2])
+        """
+        val redisScript = RedisScript.of(script, String::class.java)
+        return redisOperations.execute(
+            redisScript,
+            listOf(LOCK_KEY),
+            listOf(lockValue, LOCK_EXPIRY.seconds.toString())
+        )
+        .next() // Converts Flux<String> to Mono<String>
+        .map { result -> result == "OK" }
+    }
+
+    private fun releaseLock(lockValue: String): Mono<Boolean> {
+        val script = """
+            if redis.call('get', KEYS[1]) == ARGV[1] then
+                return redis.call('del', KEYS[1])
+            else
+                return 0
+            end
+        """
+        val redisScript = RedisScript.of(script, Long::class.java)
+        return redisOperations.execute(
+            redisScript,
+            listOf(LOCK_KEY),
+            listOf(lockValue)
+        )
+            .next() // Converts Flux<Long> to Mono<Long>
+            .map { result -> result == 1L }
+    }
+
+    // clean up sessions from expirations
+    private fun performCleanup(): Mono<Void> {
         return Mono.fromCallable {
             val now = Instant.now()
             val pastFiveDays = now.minus(Duration.ofDays(5))
