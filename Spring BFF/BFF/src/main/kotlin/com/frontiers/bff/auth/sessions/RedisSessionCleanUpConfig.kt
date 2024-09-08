@@ -237,46 +237,50 @@ internal class SessionEvicter(
                                                     })
                                             }
                                             // return the removal operations
-                                            Mono.just(removalOps)
+                                            Mono.just(Pair(removalOps, indexedKey))
                                         } else {
-                                            Mono.just(emptyList())
+                                            Mono.just(Pair(emptyList(), indexedKey))
                                         }
                                     }
                             } else {
-                                Mono.empty()
+                                Mono.just(Pair(emptyList(), null))
                             }
                         }
                 }
                 .collectList()
-                .flatMap { allRemovalOps ->
+                .flatMap { allRemovalOpsAndKeys ->
                     // flatten and execute all removal operations in parallel
-                    val allRemovalOpsFlattened = allRemovalOps.flatten()
-                    if (allRemovalOpsFlattened.isNotEmpty()) {
-                        Flux.merge(allRemovalOpsFlattened)
+                    val (removalOpsList, indexedKeys) = allRemovalOpsAndKeys
+                        .fold(Pair(mutableListOf<Mono<Void>>(), mutableListOf<String?>())) { acc, pair ->
+                            val (removalOps, indexedKey) = pair
+                            acc.first.addAll(removalOps)
+                            acc.second.add(indexedKey)
+                            acc
+                        }
+
+                    // flatten and execute all removal operations in parallel
+                    if (removalOpsList.isNotEmpty()) {
+                        Flux.merge(removalOpsList)
                             .then(Mono.fromRunnable<Void> {
                                 logger.info("All session IDs removed from all indexed keys.")
+                            })
+                            .then(Mono.defer {
+                                // perform batch deletion of indexed keys
+                                val keysToDelete = indexedKeys.map { it }
+                                if (keysToDelete.isNotEmpty()) {
+                                    redisTemplate.delete(Flux.fromIterable(keysToDelete))
+                                        .doOnSuccess {
+                                            logger.info("Deleted orphaned indexed keys: $keysToDelete")
+                                        }
+                                        .then()
+                                } else {
+                                    Mono.empty()
+                                }
                             })
                     } else {
                         Mono.empty()
                     }
                 }
-                .then(Mono.defer {
-                    Flux.from(scanPublisher)
-                        .collectList()
-                        // flatten and execute all removal operations as a batch
-                        .flatMap { byteBuffers ->
-                            val keysToDelete = byteBuffers.map { decodeByteBuffer(it) }
-                            if (keysToDelete.isNotEmpty()) {
-                                redisTemplate.delete(Flux.fromIterable(keysToDelete))
-                                    .doOnSuccess {
-                                        logger.info("Deleted orphaned indexed keys: $keysToDelete")
-                                    }
-                                    .then()
-                            } else {
-                                Mono.empty()
-                            }
-                        }
-                })
         }.then()
 
     }
