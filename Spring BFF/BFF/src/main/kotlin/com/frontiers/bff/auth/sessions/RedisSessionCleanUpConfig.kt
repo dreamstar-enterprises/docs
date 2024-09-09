@@ -76,7 +76,7 @@ internal class SessionEvicter(
         ?: "spring:session:sessions"
 
     companion object {
-        private const val duration : Long = 120
+        private const val duration : Long = 300
         private const val LOCK_KEY = "session-cleanup-lock"
         private val LOCK_EXPIRY: Duration = Duration.ofSeconds(duration)
         private val logger = LoggerFactory.getLogger(SessionEvicter::class.java)
@@ -89,7 +89,7 @@ internal class SessionEvicter(
         val limit: Limit
     )
 
-    // run every 120 seconds
+    // run every 300 seconds (5 minutes)
     @Scheduled(fixedRate = duration, timeUnit = TimeUnit.SECONDS)
     fun cleanup() {
         val lockValue = UUID.randomUUID().toString()
@@ -122,21 +122,35 @@ internal class SessionEvicter(
             .subscribe()
     }
 
+    // acquire lock
     private fun acquireLock(lockValue: String): Mono<Boolean> {
+
+        // key namespace
+        val lockNamespace = "${springSessionProperties.redis?.sessionNamespace}:sessions:"
+        val fullLockKey = "$lockNamespace$LOCK_KEY"
+
+        logger.info("Attempting to acquire lock with key: $fullLockKey and value: $lockValue")
+
         val script = """
             return redis.call('set', KEYS[1], ARGV[1], 'NX', 'EX', ARGV[2])
         """
         val redisScript = RedisScript.of(script, String::class.java)
         return redisOperations.execute(
             redisScript,
-            listOf(LOCK_KEY),
+            listOf(fullLockKey),
             listOf(lockValue, LOCK_EXPIRY.seconds.toString())
         )
         .next() // convert Flux<String> to Mono<String>
         .map { result -> result == "OK" }
     }
 
+    // release lock
     private fun releaseLock(lockValue: String): Mono<Boolean> {
+
+        // key namespace
+        val lockNamespace = "${springSessionProperties.redis?.sessionNamespace}:sessions:"
+        val fullLockKey = "$lockNamespace$LOCK_KEY"
+
         val script = """
             if redis.call('get', KEYS[1]) == ARGV[1] then
                 return redis.call('del', KEYS[1])
@@ -147,14 +161,14 @@ internal class SessionEvicter(
         val redisScript = RedisScript.of(script, Long::class.java)
         return redisOperations.execute(
             redisScript,
-            listOf(LOCK_KEY),
+            listOf(fullLockKey),
             listOf(lockValue)
         )
             .next() // convert Flux<Long> to Mono<Long>
             .map { result -> result == 1L }
     }
 
-    // clean up sessions from expirations
+    // clean up sessions from expirations (sorted set)
     private fun performCleanup(): Mono<Void> {
         return Mono.fromCallable {
             val now = Instant.now()
@@ -206,7 +220,9 @@ internal class SessionEvicter(
         .subscribeOn(Schedulers.boundedElastic()) // to ensure proper threading
     }
 
+    // clean up any orphaned index keys
     fun cleanupOrphanedIndexedKeys(): Mono<Void> {
+
         // find all indexed keys that match the pattern `namespace:sessions:*:idx`
         val pattern = "$redisKeyNameSpace:sessions:*:idx"
         val scanOptions = ScanOptions.scanOptions().match(pattern).build()
@@ -233,7 +249,7 @@ internal class SessionEvicter(
                                             val removalOps = members.map { member ->
                                                 redisTemplate.opsForSet().remove(member.toString(), sessionId)
                                                     .then(Mono.fromRunnable<Void> {
-                                                        logger.info("Removed session ID $sessionId from index set $member")
+                                                        logger.info("Session ID $sessionId from index set $member has been queued for removal")
                                                     })
                                             }
                                             // return the removal operations
@@ -249,7 +265,7 @@ internal class SessionEvicter(
                 }
                 .collectList()
                 .flatMap { allRemovalOpsAndKeys ->
-                    // flatten and execute all removal operations in parallel
+                    // flatten and execute all removal operations in parallel or in a single batch
                     val (removalOpsList, indexedKeys) = allRemovalOpsAndKeys
                         .fold(Pair(mutableListOf<Mono<Void>>(), mutableListOf<String?>())) { acc, pair ->
                             val (removalOps, indexedKey) = pair
@@ -262,10 +278,10 @@ internal class SessionEvicter(
                     if (removalOpsList.isNotEmpty()) {
                         Flux.merge(removalOpsList)
                             .then(Mono.fromRunnable<Void> {
-                                logger.info("All session IDs removed from all indexed keys.")
+                                logger.info("All session IDs removed from all principal username indexed keys.")
                             })
                             .then(Mono.defer {
-                                // perform batch deletion of indexed keys
+                                // perform a single batch deletion of indexed keys
                                 val keysToDelete = indexedKeys.map { it }
                                 if (keysToDelete.isNotEmpty()) {
                                     redisTemplate.delete(Flux.fromIterable(keysToDelete))
