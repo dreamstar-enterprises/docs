@@ -56,6 +56,7 @@ spring:
       namespace: ${REDIS_NAMESPACE}
       repository-type: indexed
       flush-mode: on-save
+      configure-action: none
       expired-sessions-namespace: ${REDIS_EXPIRED_SESSIONS_NAMESPACE}
     timeout: ${TIMEOUT_SESSION}
   # data configurations
@@ -78,6 +79,25 @@ spring:
           in-house-auth:
             client-id: ${IN_HOUSE_AUTH_SERVER_CLIENT_ID}
             client-secret: ${IN_HOUSE_AUTH_SERVER_CLIENT_SECRET}
+  # spring cloud settings
+  cloud:
+    # spring gateway settings
+    gateway:
+      metrics:
+        enabled: true
+        tags:
+          path:
+            enabled: true
+      filter:
+        circuit-breaker:
+          enabled: true
+    # spring circuitbreaker settings
+    circuitbreaker:
+      resilience4j:
+        enabled: true
+        reactive:
+          enabled: true
+        enable-group-meter-filter: true
 
 #**********************************************************************************************************************#
 #************************************************** SERVER SETTINGS ***************************************************#
@@ -112,6 +132,8 @@ management:
       enabled: true
     readinessstate:
       enabled: true
+    circuitbreakers:
+      enabled: true
 
 #**********************************************************************************************************************#
 #************************************************ LOGGING SETTINGS ****************************************************#
@@ -131,6 +153,7 @@ logging:
     io:
       lettuce:
         core: INFO
+
 
 #**********************************************************************************************************************#
 #************************************************** END OF YAML *******************************************************#
