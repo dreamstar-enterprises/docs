@@ -255,7 +255,7 @@ internal class SpringDataProperties {
 internal class SpringSessionProperties {
 
     var redis: RedisProperties? = null
-    var timeout: Int = 21600 // in seconds (6 hours)
+    var timeout: Int = 1800 // in seconds (30 minutes)
 
     class RedisProperties {
         var namespace: String? = null
@@ -343,14 +343,14 @@ internal class CsrfProperties {
 @Component
 internal class SessionProperties {
 
-    // needs to be called JSESSIONID
+    // needs to be called JSESSIONID!
     // https://docs.spring.io/spring-security/reference/reactive/oauth2/login/logout.html#oauth2login-advanced-oidc-logout
     final val SESSION_COOKIE_NAME: String = "BFF-SESSIONID"
 
     final val SESSION_COOKIE_HTTP_ONLY: Boolean = true
     final val SESSION_COOKIE_SECURE: Boolean = false // scope is not just on secure connections
     final val SESSION_COOKIE_SAME_SITE: String = "Lax"
-    final val SESSION_COOKIE_MAX_AGE: Long = 21600 // in seconds
+    final val SESSION_COOKIE_MAX_AGE: Long = 1800 // in seconds
     final val SESSION_COOKIE_PATH: String =  "/bff/"
     final val SESSION_COOKIE_DOMAIN: String = ""
 }
@@ -396,13 +396,19 @@ internal class AuthorizationProperties(
 /**********************************************************************************************************************/
 @Component
 internal class RequestParameterProperties(
-    private val serverProperties: ServerProperties
+    serverProperties: ServerProperties
 ){
+
+    private val AUTH0_DSF_API_AUDIENCE = "https://dreamstar-frontiers.com/api"
 
     /**
      * Additional parameters to send with authorization request, mapped by client registration IDs
      */
-    private val authorizationParams: MutableMap<String, Map<String, List<String>>> = mutableMapOf()
+    private val authorizationParams: MutableMap<String, Map<String, List<String>>> = mutableMapOf(
+        (serverProperties.auth0AuthRegistrationId ?: "") to mapOf(
+            "audience" to listOf(AUTH0_DSF_API_AUDIENCE)
+        )
+    )
 
     // get authorizationParameters
     final fun getExtraAuthorizationParameters(registrationId: String): MultiValueMap<String, String> {
@@ -412,11 +418,10 @@ internal class RequestParameterProperties(
     /**
      * Additional parameters to send with token request, mapped by client registration IDs
      */
-    private val AUTH0_SERVER_AUDIENCE = "https://dev-ld4xuyx1eigiqoge.uk.auth0.com/api/v2/"
 
     private var tokenParams: MutableMap<String, Map<String, List<String>>> = mutableMapOf(
         (serverProperties.auth0AuthRegistrationId ?: "") to mapOf(
-            "audience" to listOf(AUTH0_SERVER_AUDIENCE)
+            "audience" to listOf(AUTH0_DSF_API_AUDIENCE)
         )
     )
 
