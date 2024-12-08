@@ -142,7 +142,7 @@ internal class JwtConfig(
                             TcpClient.create()
                                 .resolver(ipv6Resolver)
                                 .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 30000)
-                        )
+                        ).secure()
                     )
                 )
                 .build()
