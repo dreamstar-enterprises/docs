@@ -156,7 +156,7 @@ internal class JwtConfig(
                     .uri(jwkSetUri)
                     .retrieve()
                     .toEntity(String::class.java)
-                    .block(Duration.ofSeconds(10))
+                    .block(Duration.ofSeconds(30))
                     ?: throw IllegalStateException("Failed to retrieve JWK set")
 
                 return JWKSet.parse(
